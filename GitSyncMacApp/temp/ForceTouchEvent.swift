@@ -10,8 +10,8 @@ class ForceTouchEvent:Event{
     static var clickUp:String = "forceTouchButtonClickUp"//from clickStage to noStage
     static var deepClickUp:String = "forceTouchButtonDeepClickUp"//from deepStage to clickStage
     /**/
-    static var pressureChange:String = "forceTouchButtonPressureChange"/*Stage 2 - forceTouch click*/
-    static var stageChange:String = "forceTouchButtonStageChange"
+    static var pressureChange:String = "forceTouchButtonPressureChange"//fires all the time when pressure is applied
+    static var stageChange:String = "forceTouchButtonStageChange"//fires only when tranisitoning from 1 stage to the other
     
     weak var event:NSEvent?
     init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent){
@@ -26,6 +26,11 @@ extension ForceTouchEvent {
     var stage:Int {
         return event!.stage
     }
+    /**
+     * NOTE: calculates the entire range of the stage pressures so from stage 0 to 1 the pressure goes from 0 to 0.5
+     * and from stage 1 to 2 the lienar pressure goes from 0.5 to 1
+     * this makes it easier to scale things in a linear fashion from 0 to 1 in the entire stage range
+     */
     var linearPressure:CGFloat{
         if stage == 0 || stage == 1{
             return pressure / 2
@@ -34,24 +39,3 @@ extension ForceTouchEvent {
         }
     }
 }
-
-//maybe create something called linearPressure?
-    //which calculates the entire range of the stage pressures so from stage 0 to 1 the pressure goes from 0 to 0.5 
-    //and from stage 1 to 2 the lienar pressure goes from 0.5 to 1
-    //this makes it easier to scale things in a linear fashion
-
-//maybe do clickDown, clickUp, deepClickDown, deepClickUp
-
-
-/*
- 
-if event.type == ForcTouchEvent.clickDown {//from noStage to clickStage
- 
-}else if event.type == ForcTouchEvent.deepClickDown {//from clickStage to deepClickStage
- 
-}else if event.type == ForcTouchEvent.clickUp {//from clickStage to noStage
-
-}else if event.type == ForcTouchEvent.deepClickUp {//from deepStage to clickStage
- 
-}
-*/
