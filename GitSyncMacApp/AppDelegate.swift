@@ -41,8 +41,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
-        let closure { size,point
-            
+        let closure = { size,point -> CGRect in
+            return CGRect(point,size)
         }
         let initRect:CGRect = {
             let size:CGSize = CGSize(70,70)
