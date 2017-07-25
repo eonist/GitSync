@@ -32,6 +32,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     class ForceTouchButtonEvent:Event{
         static var click:String = "forceTouchButtonClick"/*Stage 1 - forceTouch click*/
         static var deepClick:String = "forceTouchButtonDeepClick"/*Stage 2 - forceTouch click*/
+        static var pressureChange:String = "forceTouchButtonDeepClick"/*Stage 2 - forceTouch click*/
         //continue here:
             //pressure just return 0 - 2 and then use min max to get stage 1 and stage 2 pressures, you can add this via extensions 👌
             //stage 1 pressure 0-1
