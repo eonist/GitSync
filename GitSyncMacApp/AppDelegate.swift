@@ -66,6 +66,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             
             var style:Style = btn.skin!.style! as! Style
+            
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
@@ -80,10 +81,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("stage: " + "\(stage)")
                 if stage == 0 {
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
+                    Swift.print("override to blue")
                 }else if stage == 1{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
+                    Swift.print("override to red")
+                    disableAnim {
+                        btn.skin!.setStyle(style)
+                    }
                 }else /*if stage == 2*/{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
+                    Swift.print("override to green")
                 }
             }
             if event.type == ForceTouchEvent.pressureChange {
