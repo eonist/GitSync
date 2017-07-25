@@ -88,6 +88,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 widthProp!.value = newSize.w
                 var heightProp = style.getStyleProperty("height")
                 heightProp!.value = newSize.h
+                StylePropertyParser
                 btn.skin!.setStyle(style)
                 btn.layer?.position = newPoint
             }
