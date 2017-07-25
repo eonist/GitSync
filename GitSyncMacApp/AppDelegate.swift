@@ -26,7 +26,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //add interuptabable animators to the fold
         peekAndPopTest()
     }
-    class TouchButton:Button{
+    class ForceTouchButtonEvent:Event{
+        static var deepClick:String = "forceTouchButtonDeepClick"
+        weak var event:NSEvent?
+        init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent? = nil){
+            self.event = event
+            super.init(type, origin)
+        }
+    }
+    class ForceTouchButton:Button{
         override func pressureChange(with event: NSEvent) {
             /*A value from 0.0 through 1.0 indicating the degree of pressure applied to an appropriate input device.*/
             Swift.print("event.pressure: " + "\(event.pressure)")
@@ -83,7 +91,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let btn:Button = {//button
             StyleManager.addStyle("#btn{fill:blue,fillet:20px;;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(TouchButton(startRect.w,startRect.h,nil,"btn"))
+            let btn = window.contentView!.addSubView(ForceTouchButton(startRect.w,startRect.h,nil,"btn"))
             btn.point = startRect.origin//center button
             return btn
         }()
