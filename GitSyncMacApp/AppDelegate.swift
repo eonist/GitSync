@@ -28,22 +28,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     /**
      * NOTE: Use ButtonEvent.down to listen for mouseDown events
+     * NOTE: pressure just return 0 - 2 and then use min max to get stage 1 and stage 2 pressures, you can add this via extensions 👌
+     * NOTE: stage 1 pressure 0-1
+     * NOTE: stage 2 pressure 0-1
      */
     class ForceTouchButtonEvent:Event{
         static var click:String = "forceTouchButtonClick"/*Stage 1 - forceTouch click*/
         static var deepClick:String = "forceTouchButtonDeepClick"/*Stage 2 - forceTouch click*/
         static var pressureChange:String = "forceTouchButtonPressureChangek"/*Stage 2 - forceTouch click*/
-        //continue here:
-            //pressure just return 0 - 2 and then use min max to get stage 1 and stage 2 pressures, you can add this via extensions 👌
-            //stage 1 pressure 0-1
-            //stage 2 pressure 0-1
-        weak var event:NSEvent
+        
+        weak var event:NSEvent?
         init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent){
             self.event = event
             super.init(type, origin)
         }
         var pressure:CGFloat {
-            return event.pressure.cgFloat
+            return event!.pressure.cgFloat
         }
     }
     class ForceTouchButton:Button{
