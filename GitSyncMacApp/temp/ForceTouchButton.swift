@@ -25,9 +25,8 @@ class ForceTouchButton:Button {
                 super.onEvent(ForceTouchEvent(ForceTouchEvent.stageChange,self,event))
                 prevStage = curStage//always set prevStage to curStage on stage change
             }
-            super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,self,event))
         }
-        
+        super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,self,event))
     }
     override func getClassType() -> String {
         return "\(Button.self)"
