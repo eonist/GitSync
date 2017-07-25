@@ -2,6 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
+ * This Class makes it easier to work with ForceTouch events
  * PARAM: stageChange: it will be useful when changing color of a button for instance
  */
 class ForceTouchEvent:Event{

@@ -2,10 +2,8 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * NOTE: Use ButtonEvent.down to listen for mouseDown events
- * NOTE: pressure just return 0 - 2 and then use min max to get stage 1 and stage 2 pressures, you can add this via extensions 👌
- * NOTE: stage 1 pressure 0-1
- * NOTE: stage 2 pressure 0-1
+ * This class makes it easier to work with Buttons that has ForceTouch capabilities
+ * NOTE: Use ButtonEvent.down to listen for mouseDown events etc
  */
 class ForceTouchButton:Button {
     var prevStage = 0
@@ -24,7 +22,7 @@ class ForceTouchButton:Button {
                 default: break;//isn't possible
             }
             super.onEvent(ForceTouchEvent(ForceTouchEvent.stageChange,self,event))
-            prevStage = curStage//always set prevStage to curStage on stage change
+            prevStage = curStage/*always set prevStage to curStage on stage change*/
         }
         super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,self,event))
     }
