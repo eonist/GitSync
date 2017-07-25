@@ -74,7 +74,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.pressureChange {
                 //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
                 Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
-                
+                let scalar = (event as! ForceTouchEvent).linearPressure
+                let newSize = initRect.size.interpolate(minRect.size, scalar)
+                let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 
             }
         }
