@@ -78,6 +78,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let newSize = initRect.size.interpolate(minRect.size, scalar)
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 
+                //
+                let style:IStyle = skin!.style!
+                var offsetProp = skin!.style!.getStyleProperty("width")
+                let thumbWidth:CGFloat = 100//thumbWidth is always 100
+                let thumbX = HSliderUtils.thumbPosition(progress, width, thumbWidth)
+                offsetProp!.value = [thumbX, 0]
+                
+                /*ThumbLine*/
+                var thumbLineProp = style.getStyleProperty("line",2) /*edits the style*/
+                if(thumbLineProp != nil){//temp
+                    let color:NSColor = grey.blended(withFraction: value, of: green)!
+                    thumbLineProp!.value = color
+                }
+                skin!.setStyle(style)
             }
         }
         
