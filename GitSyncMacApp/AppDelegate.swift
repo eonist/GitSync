@@ -65,7 +65,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }else if event.type == ForceTouchButtonEvent.deepClick{
                 Swift.print("deepClick")
             }
-            if 
+            
             
         }
         
