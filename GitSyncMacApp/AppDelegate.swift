@@ -84,6 +84,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 
                 //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
                 var style:Style = btn.skin!.style! as! Style
+                StyleModifier.overrideStylePropVal(&style, ("width",0), newSize.w)
+                StyleModifier.overrideStylePropVal(&style, ("height",0), newSize.h)
                 var widthProp = style.getStyleProperty("width")
                 widthProp!.value = newSize.w
                 StyleModifier.overrideStyleProperty(&style, widthProp!)
