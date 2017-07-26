@@ -65,9 +65,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var style:Style = btn.skin!.style! as! Style
         
-        var animator = Easer5<CGRect>(CGRect.defaultState, CGRect.defaultEasing) { value in
+        var animator = Easer5<CGRect>(CGRect.defaultState, CGRect.defaultEasing) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
-            Swift.print("value: " + "\(value)")
+            //Swift.print("value: " + "\(value)")
+            disableAnim {
+                StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
+                StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
+                btn.skin!.setStyle(style)
+                btn.layer?.position = rect.origin
+            }
         }
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if event.type == ForceTouchEvent.clickDown{
@@ -102,6 +108,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     Swift.print("override to green")
                     
                 }
+            }
+            
+            
+            disableAnim {
+                
+                btn.skin!.setStyle(style)
             }
         }
         
