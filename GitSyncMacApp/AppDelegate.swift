@@ -86,7 +86,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //continue here: 🏀
                     //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
                 
-                modalEaser = Easer5<CGRect>(AnimState5(value: CGRect(), targetValue: CGRect(), velocity: CGRect(), stopVelocity: CGRect(), CGRect(0.2,0.2,0.2,0.2)) { value in
+                modalEaser = Easer5(AnimState5(value: CGRect(), targetValue: CGRect(), velocity: CGRect(), stopVelocity: CGRect(), CGRect(0.2,0.2,0.2,0.2)) { value in
                     //anim rect here buttonRect to modalRect
                     Swift.print("value: " + "\(value)")
                 }
