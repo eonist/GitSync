@@ -76,6 +76,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         func onViewEvent(_ event:ForceTouchEvent) {/*This is the click on window event handler*/
+            Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
