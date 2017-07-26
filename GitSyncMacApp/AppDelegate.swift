@@ -76,8 +76,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         var style:Style = btn.skin!.style! as! Style
-        
-        var modalEaser:Easer5<CGRect>?
+        let animState:AnimState5 = AnimState5(value: CGRect(), targetValue: CGRect(), velocity: CGRect(), stopVelocity: CGRect())
+        var modalEaser:Easer5<CGRect> = .init(animState, CGRect(0.2,0.2,0.2,0.2)) { value in
+            //anim rect here buttonRect to modalRect
+            Swift.print("value: " + "\(value)")
+        }
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
@@ -85,7 +88,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickDown")
                 //continue here: 🏀
                     //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
-                let animState:AnimState5 = AnimState5(value: CGRect(), targetValue: CGRect(), velocity: CGRect(), stopVelocity: CGRect())
+                
                 
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
