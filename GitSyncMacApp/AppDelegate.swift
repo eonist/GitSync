@@ -75,7 +75,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 btn.layer?.position = rect.origin
             }
         }
-        func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
+        func onViewEvent(_ event:ForceTouchEvent) {/*This is the click on window event handler*/
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
@@ -91,7 +91,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 if animator.stopped {animator.start()}
             }
             if event.type == ForceTouchEvent.stageChange {
-                let stage:Int = (event as! ForceTouchEvent).stage
+                let stage:Int = event.stage
                 Swift.print("stage: " + "\(stage)")
                 if stage == 0 {
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
@@ -114,7 +114,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         
-        btn.event = onViewEvent
+        btn.event = {event in if let event = event as? ForceTouchEvent {onViewEvent(event)}}
             //event handler for deep press
         
         //2. hardpress button to activate pop ✅
