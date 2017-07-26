@@ -113,9 +113,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //event handler for deep press
         
         //2. hardpress button to activate pop
-            //When hardpress state is lost then spring to circular button again
+            //When hardpress state is lost then Ease to circular button again
+                
         
-        //3. spring circular button into bigger square modal, centered
+        //3. ease circular button into bigger square modal, centered
         
         //4. spring modal in the .y axis to your mouse.position, offset by center
         
