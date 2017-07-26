@@ -77,7 +77,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var style:Style = btn.skin!.style! as! Style
         let animState:AnimState5<CGRect> = AnimState5<CGRect>.initRectValues
-        var modalEaser:Easer5<CGRect> = Easer5<CGRect>(animState, AnimState5.initRectConfig) { value in
+        var modalEaser:Easer5<CGRect> = .init(animState, CGRect(0.2,0.2,0.2,0.2)) { value in
             //anim rect here buttonRect to modalRect
             Swift.print("value: " + "\(value)")
         }
