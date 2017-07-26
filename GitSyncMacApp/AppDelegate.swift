@@ -82,6 +82,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         animator.state.value = initRect
+//        var prevStage:Int = 0
         func onViewEvent(_ event:ForceTouchEvent) {/*This is the click on window event handler*/
             Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
@@ -98,7 +99,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
-                animator.state.targetValue = clickModeRect
+                animator.state.targetValue = initRect
                 animator.start()
             }
             if event.type == ForceTouchEvent.stageChange {
@@ -115,8 +116,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 }else /*if stage == 2*/{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
                     Swift.print("override to green")
-                    
                 }
+//                prevStage = stage
             }
             
             disableAnim {
