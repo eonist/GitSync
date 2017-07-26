@@ -61,12 +61,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         let initFillet:CGFloat = 20
         
-        let minRect:CGRect = {
-            let size = initRect.size * 0.5
+        let modalRect:CGRect = {
+            let size = CGSize(winRect.size.w,winRect.size.w) - CGSize(40,0)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
-        let minFillet:CGFloat = initFillet * 0.5
+        //let modalFillet:CGFloat = initFillet * 2
         
         let btn:Button = {//button
             StyleManager.addStyle("Button{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
@@ -88,7 +88,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickDown")
                 //continue here: 🏀
                     //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
-                
+                modalEaser.state.targetValue = modalRect
+                if animator.stopped {animator.start()}
                 
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
