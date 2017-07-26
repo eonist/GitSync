@@ -95,25 +95,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("clickUp")
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
+                animator.state.targetValue = modalRect
+                if animator.stopped {animator.start()}
             }
-            if event.type == ForceTouchEvent.stageChange {
-                let stage:Int = (event as! ForceTouchEvent).stage
-                Swift.print("stage: " + "\(stage)")
-                if stage == 0 {
-                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
-                    Swift.print("override to blue")
-                    text2.setText("idle")
-                }else if stage == 1{
-                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
-                    Swift.print("override to red")
-                    text2.setText("click")
-                }else /*if stage == 2*/{
-                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
-                    Swift.print("override to green")
-                    text2.setText("deep click")
-                }
-            }
-            
             
         }
         
