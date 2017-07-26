@@ -41,13 +41,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
         let section = window.contentView?.addSubView(Section(window.size.w,window.size.h,nil,"bg"))
         
+        let initFillet:CGFloat = 20
         
         let initRect:CGRect = {
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
-        let initFillet:CGFloat = 20
+        
         
         let modalRect:CGRect = {
             let size = CGSize(winRect.size.w,winRect.size.w) - CGSize(40,0)
