@@ -71,7 +71,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var style:Style = btn.skin!.style! as! Style
         
-        var animator = Easer5<CGRect>(CGRect.defaults, CGRect.defaultEasing) { (rect:CGRect) in
+        var animator = Easer5<CGRect>(CGRect.defaults, DefaultEasing.rect) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             Swift.print("rect: " + "\(rect)")
             disableAnim {
