@@ -49,6 +49,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return CGRect(p,size)
         }()
         
+        let clickModeRect:CGRect = {
+            let size:CGSize = initRect.size * 0.75
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
+        }()
         
         let modalRect:CGRect = {
             let size = CGSize(winRect.size.w,winRect.size.w) - CGSize(40,0)
@@ -81,6 +86,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
+                animator.state.targetValue = clickModeRect
+                if animator.stopped {animator.start()}
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 animator.state.targetValue = modalRect
