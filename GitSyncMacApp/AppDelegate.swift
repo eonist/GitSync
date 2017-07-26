@@ -41,18 +41,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
         let section = window.contentView?.addSubView(Section(window.size.w,window.size.h,nil,"bg"))
         
-        let textCSS:String = "Text{margin-top:0px;float:left;clear:left;font:Helvetica Neue;size:18px;align:center;type:dynamic;color:grey6;selectable:true;wordWrap:true;}"
-        StyleManager.addStyle(textCSS)
-        
-        let text = Text(200,24,"0.0",section,"pressureText")
-        section?.addSubview(text)
-        
-        let text2 = Text(200,24,"idle",section,"stageText")
-        section?.addSubview(text2)
-
-        
-        
-        
         
         let initRect:CGRect = {
             let size:CGSize = CGSize(100,100)
@@ -98,7 +86,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 if animator.stopped {animator.start()}
             }
-            
+            if event.type == ForceTouchEvent.stageChange {
+                let stage:Int = (event as! ForceTouchEvent).stage
+                Swift.print("stage: " + "\(stage)")
+                if stage == 0 {
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
+                    Swift.print("override to blue")
+                    
+                }else if stage == 1{
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
+                    Swift.print("override to red")
+                    
+                }else /*if stage == 2*/{
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
+                    Swift.print("override to green")
+                    
+                }
+            }
         }
         
         
