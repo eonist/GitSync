@@ -94,9 +94,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.start()
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
+                animator.state.targetValue = initRect
+                animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
-                animator.state.targetValue = initRect
+                animator.state.targetValue = clickModeRect
                 animator.start()
             }
             if event.type == ForceTouchEvent.stageChange {
