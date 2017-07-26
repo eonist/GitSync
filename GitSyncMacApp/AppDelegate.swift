@@ -87,18 +87,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.state.targetValue = clickModeRect
-                if animator.stopped {animator.start()}
+                animator.start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 animator.state.targetValue = modalRect
-                if animator.stopped {animator.start()}/*Aka you dont have to start it if its already running*/
+                animator.start()
                 
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 animator.state.targetValue = initRect
-                if animator.stopped {animator.start()}
+                animator.start()
             }
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = event.stage
