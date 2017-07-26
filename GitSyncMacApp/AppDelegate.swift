@@ -77,7 +77,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var style:Style = btn.skin!.style! as! Style
         
-        var modalEaser = Easer5<CGRect>(CGRect.defaultState, CGRect.defaultEasing) { value in
+        var animator = Easer5<CGRect>(CGRect.defaultState, CGRect.defaultEasing) { value in
             //anim rect here buttonRect to modalRect
             Swift.print("value: " + "\(value)")
         }
@@ -88,8 +88,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickDown")
                 //continue here: 🏀
                     //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
-                modalEaser.state.targetValue = modalRect
-                if animator.stopped {animator.start()}
+                animator.state.targetValue = modalRect
+                if animator.stopped {animator.start()}/*Aka you dont have to start it if its already running*/
                 
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
