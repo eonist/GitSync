@@ -75,6 +75,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 btn.layer?.position = rect.origin
             }
         }
+        animator.state.value = initRect
         func onViewEvent(_ event:ForceTouchEvent) {/*This is the click on window event handler*/
             Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
