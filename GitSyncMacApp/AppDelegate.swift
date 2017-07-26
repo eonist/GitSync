@@ -113,8 +113,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        
-        btn.event = {event in if let event = event as? ForceTouchEvent {onViewEvent(event)}}
+        btn.addHandler(ForceTouchEvent.self, onViewEvent)
+        //btn.event = {event in if let event = event as? ForceTouchEvent {onViewEvent(event)}}
             //event handler for deep press
         
         //2. hardpress button to activate pop ✅
