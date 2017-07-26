@@ -112,11 +112,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = onViewEvent
             //event handler for deep press
         
-        //2. hardpress button to activate pop
+        //2. hardpress button to activate pop ✅
             //When hardpress state is lost then Ease to circular button again
-                
+        
         
         //3. ease circular button into bigger square modal, centered
+            //add support for CGSize and CGRect in Animator
+            //setup modalIdleRect /*basically when modal is in idle state */
         
         //4. spring modal in the .y axis to your mouse.position, offset by center
         
