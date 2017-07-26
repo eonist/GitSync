@@ -82,8 +82,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
-                //continue here:
-                    //make Easer5
+                //continue here: 🏀
+                    //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
             }else if event.type == ForceTouchEvent.deepClickUp {
