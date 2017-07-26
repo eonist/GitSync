@@ -85,8 +85,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickDown")
                 //continue here: 🏀
                     //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
-                let animState:AnimState5 = AnimState5(value: CGRect(), targetValue: CGRect(), velocity: CGRect(), stopVelocity: CGRect())
-                modalEaser = Easer5(animState, CGRect(0.2,0.2,0.2,0.2)) { value in
+                //let animState:AnimState5 = AnimState5(value: CGRect(), targetValue: CGRect(), velocity: CGRect(), stopVelocity: CGRect())
+                let animState:AnimState5<CGFloat> = AnimState5<CGFloat>.init(value: 0, targetValue: 0, velocity: 0, stopVelocity: 0)
+                modalEaser = Easer5(animState, 0.2/*CGRect(0.2,0.2,0.2,0.2)*/) { value in
                     //anim rect here buttonRect to modalRect
                     Swift.print("value: " + "\(value)")
                 }
