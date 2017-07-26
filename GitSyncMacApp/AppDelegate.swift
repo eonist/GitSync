@@ -82,6 +82,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
+                Easer4.init(<#T##initValues: (value: Advancable4, targetValue: Advancable4, velocity: Advancable4, stopVelocity: Advancable4)##(value: Advancable4, targetValue: Advancable4, velocity: Advancable4, stopVelocity: Advancable4)#>, <#T##easing: (Advancable4)##(Advancable4)#>, <#T##callBack: (Advancable4) -> Void##(Advancable4) -> Void#>)
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
             }else if event.type == ForceTouchEvent.deepClickUp {
