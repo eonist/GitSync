@@ -113,7 +113,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        btn.addHandler(ForceTouchEvent.self, onViewEvent)
+        btn.addHandler(onViewEvent)
         //btn.event = {event in if let event = event as? ForceTouchEvent {onViewEvent(event)}}
             //event handler for deep press
         
