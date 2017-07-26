@@ -80,8 +80,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
-                //continue here: 🏀
-                    //make Easer5 with AnimState5 and simpler API- Also Springer does not extend Easer etc
                 animator.state.targetValue = modalRect
                 if animator.stopped {animator.start()}/*Aka you dont have to start it if its already running*/
                 
@@ -110,9 +108,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 }
             }
             
-            
             disableAnim {
-                
                 btn.skin!.setStyle(style)
             }
         }
