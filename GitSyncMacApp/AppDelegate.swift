@@ -67,7 +67,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var animator = Easer5<CGRect>(CGRect.defaultState, CGRect.defaultEasing) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
-            //Swift.print("value: " + "\(value)")
+            Swift.print("rect: " + "\(rect)")
             disableAnim {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
@@ -88,7 +88,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("clickUp")
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
-                animator.state.targetValue = modalRect
+                animator.state.targetValue = initRect
                 if animator.stopped {animator.start()}
             }
             if event.type == ForceTouchEvent.stageChange {
