@@ -46,10 +46,6 @@ class Archive {
         let text2 = Text(200,24,"idle",section,"stageText")
         section?.addSubview(text2)
         
-        
-        
-        
-        
         let initRect:CGRect = {
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
