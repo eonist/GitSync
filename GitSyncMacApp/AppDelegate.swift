@@ -71,7 +71,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             disableAnim {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
-                btn.skin!.setStyle(style)
+                btn.skin?.setStyle(style)
                 btn.layer?.position = rect.origin
             }
         }
@@ -109,7 +109,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             
             disableAnim {
-                btn.skin!.setStyle(style)
+                btn.skin?.setStyle(style)
             }
         }
         
