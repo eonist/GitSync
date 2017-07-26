@@ -92,7 +92,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickDown")
                 animator.state.targetValue = modalRect
                 animator.start()
-                
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
             }else if event.type == ForceTouchEvent.deepClickUp {
