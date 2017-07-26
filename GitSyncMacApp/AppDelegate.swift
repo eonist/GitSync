@@ -104,26 +104,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     text2.setText("deep click")
                 }
             }
-            if event.type == ForceTouchEvent.pressureChange {
-                //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
-                //Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
-                let scalar = (event as! ForceTouchEvent).linearPressure
-                text.setText(scalar.toFixed(1).string)
-                //interpolate size and position
-                let newSize = initRect.size.interpolate(minRect.size, scalar)
-                //Swift.print("newSize: " + "\(newSize)")
-                let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
-                let newFillet = initFillet.interpolate(minFillet, scalar)
-                //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
-                
-                StyleModifier.overrideStylePropVal(&style, ("width",0), newSize.w)
-                StyleModifier.overrideStylePropVal(&style, ("height",0), newSize.h)
-                StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
-                disableAnim {
-                    btn.layer?.position = newPoint
-                    btn.skin!.setStyle(style)
-                }
-            }
+            
             
         }
         
