@@ -85,12 +85,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var modalState:Int = 0
 //        var prevStage:Int = 0
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
-            
+            if let event = event as? ForceTouchEvent {
+                onTouchEvent(event)
+            }else{
+                
+            }
         }
         /**
          *
          */
-        func onTouchEvent(){
+        func onTouchEvent(_ event:ForceTouchEvent){
             Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
