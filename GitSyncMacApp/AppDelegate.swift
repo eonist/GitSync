@@ -138,7 +138,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup modalIdleRect /*basically when modal is in idle state */ ✅
         
         //4. spring modal in the .y axis to your mouse.position, offset by center 👈
-            //do regular direct moving 
+            //do regular direct moving first
+            //then do spring 
         
         //5. when modal.bottom moves beyond a threshold, spring in button bellow modal (you may need to dto the relational spring test first)
         
