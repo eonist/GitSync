@@ -71,7 +71,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var style:Style = btn.skin!.style! as! Style
         
         let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
-        let contentFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
+        let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
         var animator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             //Swift.print("rect: " + "\(rect)")
