@@ -116,6 +116,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 animator.onComplete = {modalState = 2}
                 animator.start()
+                Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = btn.localPos().y
                 if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: onModalDrag)}//we add a global mouse move event listener
                 else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
