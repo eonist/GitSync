@@ -87,8 +87,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if let event = event as? ForceTouchEvent {
                 onTouchEvent(event)
-            }else{
-                
+            }else if let event = event as? MouseEvent, event.type == MouseEvent.move{
+                event.
             }
         }
         /**
@@ -132,7 +132,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
                     Swift.print("override to green")
                 }
-                //                prevStage = stage
+                //prevStage = stage
             }
             
             disableAnim {
