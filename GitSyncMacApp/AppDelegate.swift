@@ -97,8 +97,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         func onModalDrag(event:NSEvent)-> NSEvent?{
-            let leaverPos:CGFloat = -btn.localPos().y + onMouseDownMouseY
-            Swift.print("leaverPos: " + "\(leaverPos)")
+            let relativePos:CGFloat = -window.contentView!.localPos().y + onMouseDownMouseY
+            Swift.print("relativePos: " + "\(relativePos)")
             return event
         }
         /**
@@ -116,9 +116,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 animator.onComplete = {modalState = 2}
                 animator.start()
-                Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
-                onMouseDownMouseY  = btn.localPos().y
-                if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: onModalDrag)}//we add a global mouse move event listener
+                //Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
+                onMouseDownMouseY  = window.contentView!.localPos().y
+                if(leftMouseDraggedEventListener == nil) {
+                    leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: onModalDrag)
+                }//we add a global mouse move event listener
                 else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
