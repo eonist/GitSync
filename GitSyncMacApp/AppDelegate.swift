@@ -83,6 +83,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         animator.state.value = initRect
         var modalState:Int = 0
+        var leftMouseDraggedEventListener:Any?
+        
 //        var prevStage:Int = 0
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if let event = event as? ForceTouchEvent {
@@ -109,6 +111,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 animator.onComplete = {modalState = 2}
                 animator.start()
+                
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 animator.state.targetValue = initRect
