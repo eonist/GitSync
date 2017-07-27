@@ -139,7 +139,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //4. spring modal in the .y axis to your mouse.position, offset by center 👈
             //do regular direct moving first
-            //then do spring 
+            //then do spring
+            //then apply some log10 slipperyFriction
         
         //5. when modal.bottom moves beyond a threshold, spring in button bellow modal (you may need to dto the relational spring test first)
         
