@@ -83,6 +83,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         animator.state.value = initRect
         var modalState:Int = 0
         var leftMouseDraggedEventListener:Any?
+        var onMouseDownMouseY:CGFloat = CGFloat.nan
         
 //        var prevStage:Int = 0
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
@@ -94,6 +95,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
              }*/else{
                 Swift.print("event.type: " + "\(event.type)")
             }
+        }
+        func onModalDrag(event:NSEvent)-> NSEvent?{
+            return onButtonMove(event,plusButton)
         }
         /**
          *
@@ -110,7 +114,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 animator.onComplete = {modalState = 2}
                 animator.start()
-                
+                if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: self.onPlusButtonMove)}//we add a global mouse move event listener
+                else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 animator.state.targetValue = initRect
