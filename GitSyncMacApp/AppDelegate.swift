@@ -72,7 +72,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var animator = Easer5<CGRect>(CGRect.defaults, DefaultEasing.rect) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
-            Swift.print("rect: " + "\(rect)")
+            //Swift.print("rect: " + "\(rect)")
             disableAnim {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
@@ -88,7 +88,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        var prevStage:Int = 0
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if let event = event as? ForceTouchEvent {
-                //onTouchEvent(event)
+                onTouchEvent(event)
             }/*else if let event = event as? MouseEvent, event.type == MouseEvent.move{
                  Swift.print("section.localPos(): " + "\(section!.localPos())")
                  Swift.print("btn.localPos(): " + "\(btn.localPos())")
