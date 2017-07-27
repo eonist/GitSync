@@ -84,7 +84,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         animator.state.value = initRect
         var modalState:Int = 0
 //        var prevStage:Int = 0
-        func onViewEvent(_ event:ForceTouchEvent) {/*This is the click on window event handler*/
+        func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
+            
+        }
+        /**
+         *
+         */
+        func onTouchEvent(){
             Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
@@ -122,7 +128,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
                     Swift.print("override to green")
                 }
-//                prevStage = stage
+                //                prevStage = stage
             }
             
             disableAnim {
