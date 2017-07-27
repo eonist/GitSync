@@ -119,10 +119,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 onMouseDownMouseY  = window.contentView!.localPos().y
                 NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
                     let relativePos:CGFloat =  onMouseDownMouseY - self.window.contentView!.localPos().y
-                    Swift.print("relativePos: " + "\(relativePos)")
+                    //Swift.print("relativePos: " + "\(relativePos)")
                     
                     var newRect = modalRect
                     newRect.y -= relativePos
+                    animator.direct = true
                     animator.targetValue = newRect
                     animator.start()
                 }
@@ -137,6 +138,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
+                animator.direct = false
                 animator.state.targetValue = initRect
                 animator.onComplete = {modalState = 1}
                 animator.start()
