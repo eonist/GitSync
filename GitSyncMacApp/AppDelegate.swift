@@ -17,16 +17,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
         
-        
-        //Continue here: 🏀
+        //Continue here: 🏀 
             //try with out disableAnim
             //Add more types to Easer/Springer
             //try to do a rotation test back and forth with elastic
             //Playground testing
         //add interuptabable animators to the fold
+        
         peekAndPopTest()
     }
-    
     /**
      * It's all about making bespoke interactions 👌
      */
