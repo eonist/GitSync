@@ -116,6 +116,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 animator.onComplete = {modalState = 2}
                 animator.start()
+                onMouseDownMouseY  = btn.localPos().y
                 if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: onModalDrag)}//we add a global mouse move event listener
                 else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
             }else if event.type == ForceTouchEvent.clickUp {
@@ -128,8 +129,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = initRect
                 animator.onComplete = {modalState = 1}
                 animator.start()
-                if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching:[.leftMouseDragged], handler:onModalDrag ) }//we add a global mouse move event listener
-                else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
+                if(leftMouseDraggedEventListener != nil){
+                    NSEvent.removeMonitor(leftMouseDraggedEventListener!)
+                    leftMouseDraggedEventListener = nil//<--this part may not be needed
+                }/*We remove a global mouse move event listener*/
             }
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = event.stage
