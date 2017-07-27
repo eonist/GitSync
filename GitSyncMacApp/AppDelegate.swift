@@ -82,24 +82,29 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         animator.state.value = initRect
+        var modalState:Int = 0
 //        var prevStage:Int = 0
         func onViewEvent(_ event:ForceTouchEvent) {/*This is the click on window event handler*/
             Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.state.targetValue = clickModeRect
+                animator.onComplete = {modalState = 1}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 animator.state.targetValue = modalRect
+                animator.onComplete = {modalState = 2}
                 animator.start()
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 animator.state.targetValue = initRect
+                animator.onComplete = {modalState = 0}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 animator.state.targetValue = initRect
+                animator.onComplete = {modalState = 1}
                 animator.start()
             }
             if event.type == ForceTouchEvent.stageChange {
