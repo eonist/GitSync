@@ -97,13 +97,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         func onModalDrag(event:NSEvent)-> NSEvent?{
-            return onButtonMove(event,plusButton)
+            let leaverPos:CGFloat = -btn.localPos().y + onMouseDownMouseY
+            Swift.print("leaverPos: " + "\(leaverPos)")
+            return event
         }
         /**
          *
          */
         func onTouchEvent(_ event:ForceTouchEvent){
-            Swift.print("event.type: " + "\(event.type)")
+            //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.state.targetValue = clickModeRect
@@ -114,7 +116,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = modalRect
                 animator.onComplete = {modalState = 2}
                 animator.start()
-                if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: self.onPlusButtonMove)}//we add a global mouse move event listener
+                if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: onModalDrag)}//we add a global mouse move event listener
                 else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
@@ -126,6 +128,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = initRect
                 animator.onComplete = {modalState = 1}
                 animator.start()
+                if(leftMouseDraggedEventListener == nil) {leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching:[.leftMouseDragged], handler:onModalDrag ) }//we add a global mouse move event listener
+                else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
             }
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = event.stage
