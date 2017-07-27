@@ -171,6 +171,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //4. spring modal in the .y axis to your mouse.position, offset by center 👈
             //do regular direct moving first
+            //write an extension to simplify adding dragListener
             //then do spring
             //then apply some log10 slipperyFriction
         
