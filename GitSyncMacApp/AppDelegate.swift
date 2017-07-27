@@ -170,6 +170,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup modalIdleRect /*basically when modal is in idle state */ ✅
         
         //4. spring modal in the .y axis to your mouse.position, offset by center 👈
+            //you need to get the window.pos and calc the offset on this, as the modal will move
             //do regular direct moving first
             //write an extension to simplify adding dragListener
             //then do spring
