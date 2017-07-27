@@ -87,10 +87,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if let event = event as? ForceTouchEvent {
                 //onTouchEvent(event)
-            }else if let event = event as? MouseEvent, event.type == MouseEvent.move{
-                Swift.print("section.localPos(): " + "\(section!.localPos())")
-                Swift.print("btn.localPos(): " + "\(btn.localPos())")
-            }else{
+            }/*else if let event = event as? MouseEvent, event.type == MouseEvent.move{
+                 Swift.print("section.localPos(): " + "\(section!.localPos())")
+                 Swift.print("btn.localPos(): " + "\(btn.localPos())")
+             }*/else{
                 Swift.print("event.type: " + "\(event.type)")
             }
         }
