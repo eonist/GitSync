@@ -184,6 +184,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //do regular direct moving first✅
             //write an extension to simplify adding dragListener✅
             //then do spring✅
+            //boundries for easer
             //then apply some log10 slipperyFriction
         
         //5. when modal.bottom moves beyond a threshold, spring in button bellow modal (you may need to dto the relational spring test first)
