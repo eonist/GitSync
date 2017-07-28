@@ -73,11 +73,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         var s:Style = StyleManager.getStyle("Button#modalBtn") as! Style
         StyleModifier.overrideStylePropVal(&s, ("width",0), initRect.size.w)
+        
         s.describe()
+        StyleManager.overrideStyle(s)
         Swift.print("after")
         let after = StyleManager.getStyle("Button#modalBtn")
         after?.describe()
-        StyleManager.overrideStyle(s)
+        
         modalBtn.skin?.setStyle(s)
         
         var style:Style = modalBtn.skin!.style! as! Style
