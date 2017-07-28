@@ -97,7 +97,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return CGRect(p,size)
         }()
         let maxPromptBtnPoint = {//the limit of where promptButton can go vertically
-            return initPromptBtnRect.origin - CGPoint(0,initPromptBtnRect.height + 20)
+            return initPromptBtnRect.origin - CGPoint(0,initPromptBtnRect.height + 10/*<--bottom margin*/)
         }()
         
         var promptBtn:Button = {//button
@@ -173,9 +173,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
+                    Swift.print("modal stay")
                     animator.direct = false
                     animator.setTargetValue(modalRect).start()
                 }else{//modal leave
+                    Swift.print("modal leave")
                     animator.direct = false
                     animator.setTargetValue(initRect).start()
 
