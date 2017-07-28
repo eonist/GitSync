@@ -199,7 +199,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                         Swift.print("override to red")
                     }
                     
-                    
                 }else /*if stage == 2*/{
                     if !modalStayMode {
                         StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
@@ -250,9 +249,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //6. when button release in peek mode, transition modal to button ✅
         
         //7. when button release in input mode, dont transition anything ✅
-            //remove deepClick event listener 👈
+            //remove deepClick event listener ✅
         
         //8. when user clicks the button bellow modal, transition modal to circular button and spring inputButton bellow screen
+            //Assign eventHandler for promptButton 👈
             //add deepClick event listener
             //transition to init state
         
