@@ -65,26 +65,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          */
     
         let modalBtn:Button = {//button
-            StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w+50)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            
+            StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
             let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"modalBtn"))
             btn.point = initRect.origin//center button
             return btn
         }()
-        var s:Style = StyleManager.getStyle("Button#modalBtn") as! Style
-        StyleModifier.overrideStylePropVal(&s, ("width",0), initRect.size.w)
-        
-        s.describe()
-        StyleManager.overrideStyle(s)
-        Swift.print("after")
-        let after = StyleManager.getStyle("Button#modalBtn")
-        after?.describe()
-        
-        modalBtn.skin?.setStyle(s)
         
         var style:Style = modalBtn.skin!.style! as! Style
-        Swift.print("style.name: " + "\(style.name)")
-//        Swift.print("style.selectors.first?.states: " + "\(style.selectors.first?.states)")
         
         let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
@@ -151,7 +138,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         func onTouchEvent(_ event:ForceTouchEvent){
-            Swift.print("event.type: " + "\(event.type)")
+            //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.setTargetValue(clickModeRect).start()
@@ -231,26 +218,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //prevStage = stage
             }
             
-            func overrideStyle(_ style:Style){
-                Swift.print("overrideStyle: style.name: \(style.name)")
-                _ = StyleManager.styles.forEach{
-                    Swift.print("$0.name: " + "\($0.name)")
-                }
-                
-                Swift.print(StyleManager.index(style.name))
-                if let i:Int = StyleManager.index(style.name) {
-                    Swift.print("i: " + "\(i)")
-                    StyleManager.styles[i] = style
-//                    StyleManager.styles[i].styleProperties = style.styleProperties
-//                    StyleManager.styles[i].describe()
-                    //StyleManager.styles[i].selectors = style.selectors
-                }
-            }
-            
             disableAnim {
-                
-                
-                overrideStyle(style)
                 modalBtn.skin?.setStyle(style)
             }
         }

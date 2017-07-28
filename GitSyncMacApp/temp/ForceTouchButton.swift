@@ -29,4 +29,8 @@ class ForceTouchButton:Button {
     override func getClassType() -> String {
         return "\(Button.self)"
     }
+    
+    override func setSkinState(_ state: String) {
+        //override this to avoid setting states etc, temp solution
+    }
 }
