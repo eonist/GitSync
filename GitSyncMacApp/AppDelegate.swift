@@ -265,13 +265,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //8. when user clicks the button bellow modal, transition modal to circular button and spring inputButton bellow screen
             //Assign eventHandler for promptButton ✅
-            //re-add deepClick event listener 👈
+            //re-add deepClick event listener ✅
             //transition to init state ✅
         
-        //9. Add some design elements 
-            //picture? 
-            //create a concept in illustrator
-            //svg?
+        //9. Add some design elements
+            //picture? 🚫
+            //create a concept in illustrator ✅
+            //svg? 👈
+            //
+        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
