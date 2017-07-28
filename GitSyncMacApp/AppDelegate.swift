@@ -170,7 +170,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
                     Swift.print("modal stay")
-                    modalBtn.removeH
+                    modalBtn.removeHandler(&onForceTouchEvent)
                     animator.direct = false
                     var rect = modalRect
                     rect.origin.y -= 30
