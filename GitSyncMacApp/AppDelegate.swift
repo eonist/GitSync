@@ -85,7 +85,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 modalBtn.layer?.position = rect.origin
             }
         }
-        animator.state.value = initRect
+        animator.value = initRect
         
         /**
          * PromptBtn
@@ -112,7 +112,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 promptBtn.layer?.position = point
             }
         }
-        promptBtnAnimator.state.value = initPromptBtnRect.origin//set initial value
+        promptBtnAnimator.value = initPromptBtnRect.origin//set initial value
        
         /**
          * Event handling:
@@ -141,12 +141,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
-                animator.state.targetValue = clickModeRect
+                animator.targetValue = clickModeRect
 //                animator.onComplete = {forceTouchMode = 1}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
-                animator.state.targetValue = modalRect
+                animator.targetValue = modalRect
 //                animator.onComplete = {forceTouchMode = 2}
                 animator.start()
                 //Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
@@ -165,7 +165,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                         var p = animator.value.bottomLeft
                         p.y += 15//add some margin
                         p.y = p.y.max(maxPromptBtnPoint.y)
-                        
+                        //
                         promptBtnAnimator.targetValue = p//you could do modalBtn.layer.origin + getHeight etc.
                         promptBtnAnimator.start()
                     }else if animator.value.y > 30 {//modal in leaveMode
@@ -177,26 +177,25 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 }
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
-                animator.state.targetValue = initRect
+                animator.targetValue = initRect
 //                animator.onComplete = {forceTouchMode = 0}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
-                    
-                    
+                    animator.direct = false
+                    animator.targetValue = modalRect
+                    animator.start()
                 }else{//modal leave
                     animator.direct = false
-                    animator.state.targetValue = initRect
+                    animator.targetValue = initRect
 //                    animator.onComplete = {forceTouchMode = 1}
                     animator.start()
                     
                     /*promptBtn*/
                     promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
                     promptBtnAnimator.start()
-
                 }
-                
                 NSEvent.removeMonitor(&leftMouseDraggedMonitor)
             }
             if event.type == ForceTouchEvent.stageChange {
