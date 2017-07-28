@@ -275,6 +275,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup proper TestView with class scoped var's etc 👈
                 //use iphone7 screen ratio and window size 👈
                 //Make design for demo2. stack of cards you can shuffle left and right etc
+                //make design for demo3. basically just swipe left right cards and click to go to fullscreen 
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
