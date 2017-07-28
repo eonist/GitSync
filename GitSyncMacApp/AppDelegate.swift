@@ -101,9 +101,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         var promptBtn:Button = {//button
-            StyleManager.addStyle("Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}Button#prompt:over{fill:grey;}")
+            var css:String = ""
+            css += "Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}"
+            css += "Button#prompt:over{fill:yellow;}"
+            StyleManager.addStyle(css)
+            
             let btn = window.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"prompt"))
-            btn.point = initPromptBtnRect.origin//out of view
+            //btn.layer?.position = initPromptBtnRect.origin//out of view
             return btn
         }()
         
