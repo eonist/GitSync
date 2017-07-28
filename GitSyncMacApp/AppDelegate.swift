@@ -66,6 +66,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         let modalBtn:Button = {//button
             StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w+50)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
+            var s:Style = StyleManager.getStyle("Button#modalBtn") as! Style
+            StyleModifier.overrideStylePropVal(&s, ("width",0), initRect.size.w)
+            StyleManager.overrideStyle(s)
             let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"modalBtn"))
             btn.point = initRect.origin//center button
             return btn
