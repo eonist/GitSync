@@ -223,11 +223,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 _ = StyleManager.styles.forEach{
                     Swift.print("$0.name: " + "\($0.name)")
                 }
+                Swift.print("style.selectors.first?.states: " + "\(style.selectors.first?.states)")
                 Swift.print(StyleManager.index(style.name))
                 if let i:Int = StyleManager.index(style.name) {
                     Swift.print("i: " + "\(i)")
-                    StyleManager.styles[i].styleProperties = style.styleProperties
-                    StyleManager.styles[i].describe()
+                    StyleManager.styles[i] = style
+//                    StyleManager.styles[i].styleProperties = style.styleProperties
+//                    StyleManager.styles[i].describe()
                     //StyleManager.styles[i].selectors = style.selectors
                 }
             }
