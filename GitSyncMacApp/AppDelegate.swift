@@ -123,7 +123,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          */
         
 //      var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
-        var modalStayMode:Bool = false
+        var modalStayMode:Bool = false//you can probably remove this and replace it with boundry check etc
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
         var onMouseDownMouseY:CGFloat = CGFloat.nan
@@ -224,7 +224,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
             promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro promptBtn*/
             modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
-            
+            modalStayMode = false
         }
         
         //roundRect, yellow, 45px high, same width as modal
