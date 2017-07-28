@@ -225,7 +225,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             disableAnim {
                 let i:Int = StyleManager.index(style.name)!
                 
-                overrideStyle(StyleManager.styles[i] ,style)
+//                overrideStyle(StyleManager.styles[i] ,style)
                 modalBtn.skin?.setStyle(style)
             }
         }
