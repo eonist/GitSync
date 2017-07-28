@@ -170,7 +170,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
                     Swift.print("modal stay")
-                    modalBtn.removeHandler(&onForceTouchEvent)
+                    modalBtn.removeHandler()
                     animator.direct = false
                     var rect = modalRect
                     rect.origin.y -= 30
@@ -193,8 +193,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                         StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
                         Swift.print("override to blue")
                     }
-                    
-                    
                 }else if stage == 1{
                     if !modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
                         StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
