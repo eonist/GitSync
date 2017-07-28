@@ -273,8 +273,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //create a concept in illustrator ✅
             //svg? 👈
             //setup proper TestView with class scoped var's etc 👈
-                //use iphone7 screen ratio a window size 👈
-        
+                //use iphone7 screen ratio and window size 👈
+                //Make design for demo2. stack of cards you can shuffle left and right etc
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
