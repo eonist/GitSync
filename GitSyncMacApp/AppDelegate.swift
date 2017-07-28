@@ -65,7 +65,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          */
     
         let modalBtn:Button = {//button
-            StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
+            StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w+50)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
             let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"modalBtn"))
             btn.point = initRect.origin//center button
             return btn
@@ -73,7 +73,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var style:Style = modalBtn.skin!.style! as! Style
         Swift.print("style.name: " + "\(style.name)")
-        Swift.print("style.selectors.first?.states: " + "\(style.selectors.first?.states)")
+//        Swift.print("style.selectors.first?.states: " + "\(style.selectors.first?.states)")
         
         let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
