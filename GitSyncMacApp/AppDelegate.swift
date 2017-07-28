@@ -72,6 +72,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         var style:Style = modalBtn.skin!.style! as! Style
+        Swift.print("style.name: " + "\(style.name)")
+        Swift.print("style.selectors.first?.states: " + "\(style.selectors.first?.states)")
         
         let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
@@ -223,7 +225,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 _ = StyleManager.styles.forEach{
                     Swift.print("$0.name: " + "\($0.name)")
                 }
-                Swift.print("style.selectors.first?.states: " + "\(style.selectors.first?.states)")
+                
                 Swift.print(StyleManager.index(style.name))
                 if let i:Int = StyleManager.index(style.name) {
                     Swift.print("i: " + "\(i)")
