@@ -126,6 +126,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //        var prevStage:Int = 0
         func onButtonEvent(_ event:ButtonEvent) {/*This is the click on window event handler*/
+            //outro modal
+            //outro proptBtn
             
         }
         
@@ -253,10 +255,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //8. when user clicks the button bellow modal, transition modal to circular button and spring inputButton bellow screen
             //Assign eventHandler for promptButton 👈
-            //add deepClick event listener
+            //re-add deepClick event listener
             //transition to init state
         
-        
+        //9. 
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
