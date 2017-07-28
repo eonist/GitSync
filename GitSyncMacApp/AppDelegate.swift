@@ -93,7 +93,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let initPromptBtnRect:CGRect = {
             let size:CGSize = CGSize(modalRect.size.w,45)
-            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.bottomCenter, Alignment.topCenter)
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.bottomCenter, Alignment.bottomCenter)
             return CGRect(p,size)
         }()
         let maxPromptBtnPoint = {//the limit of where promptButton can go vertically
@@ -101,7 +101,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         var promptBtn:Button = {//button
-            StyleManager.addStyle("Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}")
+            StyleManager.addStyle("Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}Button#prompt:over{fill:grey;}")
             let btn = window.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"prompt"))
             btn.point = initPromptBtnRect.origin//out of view
             return btn
