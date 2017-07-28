@@ -175,7 +175,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 if modalStayMode {//modal stay
                     Swift.print("modal stay")
                     animator.direct = false
-                    animator.setTargetValue(modalRect).start()
+                    var rect = modalRect
+                    rect.origin.y -= 20
+                    animator.setTargetValue(rect).start()
                 }else{//modal leave
                     Swift.print("modal leave")
                     animator.direct = false
