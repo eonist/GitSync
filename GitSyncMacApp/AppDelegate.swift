@@ -125,19 +125,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var onMouseDownMouseY:CGFloat = CGFloat.nan
         
 //        var prevStage:Int = 0
-        func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
-            if let event = event as? ForceTouchEvent {
-                onTouchEvent(event)
-            }/*else if let event = event as? MouseEvent, event.type == MouseEvent.move{
-                 Swift.print("section.localPos(): " + "\(section!.localPos())")
-                 Swift.print("btn.localPos(): " + "\(btn.localPos())")
-             }*/else{
-                Swift.print("onViewEvent() event.type: " + "\(event.type)")
-            }
+        func onButtonEvent(_ event:ButtonEvent) {/*This is the click on window event handler*/
+            
         }
         
         
-        func onTouchEvent(_ event:ForceTouchEvent){
+        func onForceTouchEvent(_ event:ForceTouchEvent){
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
@@ -177,6 +170,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
                     Swift.print("modal stay")
+                    modalBtn.removeH
                     animator.direct = false
                     var rect = modalRect
                     rect.origin.y -= 30
@@ -232,7 +226,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //modal can change target if modal is above bottomLimit
             //if modal.bottom > bottomLimit { target.x == bellow screen
         
-        modalBtn.addHandler(onViewEvent)
+        modalBtn.addHandler(onForceTouchEvent)
         //btn.event = {event in if let event = event as? ForceTouchEvent {onViewEvent(event)}}
             //event handler for deep press
         
