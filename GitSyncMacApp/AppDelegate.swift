@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         peekAndPopTest()
     }
     /**
-     * It's all about making bespoke interactions 👌
+     * It's all about making UI / UX dribbble style !
      */
     func peekAndPopTest(){
         //1. circular button,centered
@@ -122,7 +122,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          * Event handling:
          */
         
-//        var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
+//      var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
         var modalStayMode:Bool = false
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
