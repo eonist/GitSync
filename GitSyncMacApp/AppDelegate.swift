@@ -182,6 +182,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
+                if modalStayMode {
                 animator.direct = false
                 animator.state.targetValue = initRect
                 animator.onComplete = {forceTouchMode = 1}
