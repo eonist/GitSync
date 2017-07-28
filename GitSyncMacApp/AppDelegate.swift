@@ -255,11 +255,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //5. when modal.bottom moves beyond a threshold, ✅
             //spring in button bellow modal (you may need to dto the relational spring test first) ✅
         
-        //6. when button release in peek mode, transition modal to button
+        //6. when button release in peek mode, transition modal to button ✅
         
-        //7. when button release in input mode, dont transition anything
+        //7. when button release in input mode, dont transition anything ✅
+            //remove deepClick event listener 👈
         
         //8. when user clicks the button bellow modal, transition modal to circular button and spring inputButton bellow screen
+            //add deepClick event listener
+            //transition to init state
+        
+        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
