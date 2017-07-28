@@ -118,7 +118,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          * Event handling:
          */
         
-        var modalState:Int = 0
+        var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
+        var modalStayMode:Bool = false
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
         var onMouseDownMouseY:CGFloat = CGFloat.nan
@@ -141,12 +142,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.state.targetValue = clickModeRect
-                animator.onComplete = {modalState = 1}
+                animator.onComplete = {forceTouchMode = 1}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 animator.state.targetValue = modalRect
-                animator.onComplete = {modalState = 2}
+                animator.onComplete = {forceTouchMode = 2}
                 animator.start()
                 //Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = window.contentView!.localPos().y
@@ -158,7 +159,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     animator.direct = true
                     animator.targetValue = newRect
                     animator.start()
-                    if animator.value.y < 30  {
+                    if animator.value.y < 30  {//modal in stayMode
+                        modalStayMode = true
                         Swift.print("reveal buttons: \(animator.value.y)")
                         var p = animator.value.bottomLeft
                         p.y += 15//add some margin
@@ -166,7 +168,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                         
                         promptBtnAnimator.targetValue = p//you could do modalBtn.layer.origin + getHeight etc.
                         promptBtnAnimator.start()
-                    }else if animator.value.y > 30 {
+                    }else if animator.value.y > 30 {//modal in leaveMode
+                        modalStayMode = false
                         Swift.print("anim buttons out")
                         promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
                         promptBtnAnimator.start()
@@ -175,13 +178,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 animator.state.targetValue = initRect
-                animator.onComplete = {modalState = 0}
+                animator.onComplete = {forceTouchMode = 0}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 animator.direct = false
                 animator.state.targetValue = initRect
-                animator.onComplete = {modalState = 1}
+                animator.onComplete = {forceTouchMode = 1}
                 animator.start()
                 /*promptBtn*/
                 promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
