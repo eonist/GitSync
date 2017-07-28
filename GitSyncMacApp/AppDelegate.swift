@@ -166,26 +166,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                         p.y += 15//add some margin
                         p.y = p.y.max(maxPromptBtnPoint.y)
                         //
-                        promptBtnAnimator.targetValue = p//you could do modalBtn.layer.origin + getHeight etc.
-                        promptBtnAnimator.start()
+                        promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
                     }else if animator.value.y > 30 {//modal in leaveMode
                         modalStayMode = false
                         Swift.print("anim buttons out")
-                        promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
-                        promptBtnAnimator.start()
+                        promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start() //anim bellow screen
                     }
                 }
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
-                animator.targetValue = initRect
-//                animator.onComplete = {forceTouchMode = 0}
-                animator.start()
+                animator.setTargetValue(initRect).start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
                     animator.direct = false
-                    animator.targetValue = modalRect
-                    animator.start()
+                    animator.setTargetValue(modalRect).start()
                 }else{//modal leave
                     animator.direct = false
                     animator.targetValue = initRect
