@@ -125,12 +125,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var onMouseDownMouseY:CGFloat = CGFloat.nan
         
 //        var prevStage:Int = 0
-        func onButtonEvent(_ event:ButtonEvent) {/*This is the click on window event handler*/
+        
+        promptBtn.addHandler { (event:ButtonEvent) in/*This is the click on window event handler*/
             //outro modal
+            
             //outro proptBtn
             
         }
-        
         
         func onForceTouchEvent(_ event:ForceTouchEvent){
             //Swift.print("event.type: " + "\(event.type)")
