@@ -219,7 +219,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             
             func overrideStyle(_ style:Style){
+                Swift.print("overrideStyle: style.name: \(style.name)")
                 if let i:Int = StyleManager.index(style.name) {
+                    Swift.print("i: " + "\(i)")
                     StyleManager.styles[i].styleProperties = style.styleProperties
                     StyleManager.styles[i].describe()
                     //StyleManager.styles[i].selectors = style.selectors
