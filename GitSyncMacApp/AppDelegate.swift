@@ -220,8 +220,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
             func overrideStyle(_ style:Style){
                 if let i:Int = StyleManager.index(style.name) {
-                    StyleManager.styles[i] = style
-                    
+                    StyleManager.styles[i].styleProperties = style.styleProperties
+                    StyleManager.styles[i].describe()
+                    //StyleManager.styles[i].selectors = style.selectors
                 }
             }
             
