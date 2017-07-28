@@ -182,14 +182,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
-                if modalStayMode {
-                animator.direct = false
-                animator.state.targetValue = initRect
-                animator.onComplete = {forceTouchMode = 1}
-                animator.start()
-                /*promptBtn*/
-                promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
-                promptBtnAnimator.start()
+                if modalStayMode {//modal stay
+                    
+                    
+                }else{//modal leave
+                    animator.direct = false
+                    animator.state.targetValue = initRect
+                    animator.onComplete = {forceTouchMode = 1}
+                    animator.start()
+                    
+                    /*promptBtn*/
+                    promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
+                    promptBtnAnimator.start()
+
+                }
+                
                 NSEvent.removeMonitor(&leftMouseDraggedMonitor)
             }
             if event.type == ForceTouchEvent.stageChange {
