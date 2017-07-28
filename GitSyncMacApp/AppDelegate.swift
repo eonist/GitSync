@@ -258,7 +258,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //re-add deepClick event listener
             //transition to init state
         
-        //9. 
+        //9. Add some design elements
+            //picture? 
+            //create a concept in illustrator
+            //svg?
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
