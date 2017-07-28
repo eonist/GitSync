@@ -219,6 +219,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             
             disableAnim {
+                StyleManager.overrideStylePropertyValue(<#T##styleName: String##String#>, <#T##stylePropertyName: String##String#>, <#T##newValue: Any##Any#>)
                 modalBtn.skin?.setStyle(style)
             }
         }
