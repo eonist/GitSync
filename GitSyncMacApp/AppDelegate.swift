@@ -216,10 +216,26 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     
                 }
                 //prevStage = stage
-            } 
+            }
+            
+            func overrideStyle(_ style:Style){
+                Swift.print("overrideStyle: style.name: \(style.name)")
+                _ = StyleManager.styles.forEach{
+                    Swift.print("$0.name: " + "\($0.name)")
+                }
+                Swift.print(StyleManager.index(style.name))
+                if let i:Int = StyleManager.index(style.name) {
+                    Swift.print("i: " + "\(i)")
+                    StyleManager.styles[i].styleProperties = style.styleProperties
+                    StyleManager.styles[i].describe()
+                    //StyleManager.styles[i].selectors = style.selectors
+                }
+            }
             
             disableAnim {
-                StyleManager.overrideStyle(style)
+                
+                
+                overrideStyle(style)
                 modalBtn.skin?.setStyle(style)
             }
         }
