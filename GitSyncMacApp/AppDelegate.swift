@@ -42,14 +42,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let initFillet:CGFloat = 20
         
-        let initRect:CGRect = {//init modal btn size
+        let initModalRect:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
         let clickModeRect:CGRect = {//when modalBtn is pressed down
-            let size:CGSize = initRect.size * 0.75
+            let size:CGSize = initModalRect.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
@@ -65,9 +65,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          */
     
         let modalBtn:Button = {//button
-            StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"modalBtn"))
-            btn.point = initRect.origin//center button
+            StyleManager.addStyle("Button#modalBtn{width:\(initModalRect.size.w)px;height:\(initModalRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
+            let btn = window.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"modalBtn"))
+            btn.point = initModalRect.origin//center button
             return btn
         }()
         
@@ -75,7 +75,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
-        var animator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
+        var modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             //Swift.print("rect: " + "\(rect)")
             disableAnim {
@@ -85,7 +85,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 modalBtn.layer?.position = rect.origin
             }
         }
-        animator.value = initRect
+        modalAnimator.value = initModalRect
         
         /**
          * PromptBtn
@@ -102,7 +102,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var promptBtn:Button = {//button
             StyleManager.addStyle("Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"prompt"))
+            let btn = window.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"prompt"))
             btn.point = initPromptBtnRect.origin//out of view
             return btn
         }()
@@ -124,40 +124,38 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //var leftDraggedHandler:NSEventHandler?
         var onMouseDownMouseY:CGFloat = CGFloat.nan
         
-//        var prevStage:Int = 0
+//      var prevStage:Int = 0
         
         promptBtn.addHandler { (event:ButtonEvent) in/*This is the click on window event handler*/
-            //outro modal
-            
-            //outro proptBtn
-            
+            modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
+            promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro proptBtn*/
         }
         
         func onForceTouchEvent(_ event:ForceTouchEvent){
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
-                animator.setTargetValue(clickModeRect).start()
+                modalAnimator.setTargetValue(clickModeRect).start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
-                animator.setTargetValue(modalRect).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
+                modalAnimator.setTargetValue(modalRect).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = window.contentView!.localPos().y
                 NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
                     let relativePos:CGFloat =  onMouseDownMouseY - self.window.contentView!.localPos().y
                     //Swift.print("relativePos: " + "\(relativePos)")
                     var newRect = modalRect
                     newRect.y -= relativePos
-                    animator.direct = true
-                    animator.setTargetValue(newRect).start()
-                    if animator.value.y < 30  {//modal in stayMode
+                    modalAnimator.direct = true
+                    modalAnimator.setTargetValue(newRect).start()
+                    if modalAnimator.value.y < 30  {//modal in stayMode
                         modalStayMode = true
-                        Swift.print("reveal buttons: \(animator.value.y)")
-                        var p = animator.value.bottomLeft
+                        Swift.print("reveal buttons: \(modalAnimator.value.y)")
+                        var p = modalAnimator.value.bottomLeft
                         p.y += 15//add some margin
                         p.y = p.y.max(maxPromptBtnPoint.y)
                         //
                         promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
-                    }else if animator.value.y > 30 {//modal in leaveMode
+                    }else if modalAnimator.value.y > 30 {//modal in leaveMode
                         modalStayMode = false
                         Swift.print("anim buttons out")
                         promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start() //anim bellow screen
@@ -166,7 +164,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 if !modalStayMode {//modal stay
-                    animator.setTargetValue(initRect).start()
+                    modalAnimator.setTargetValue(initModalRect).start()
                 }
                 
             }else if event.type == ForceTouchEvent.deepClickUp {
@@ -174,14 +172,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 if modalStayMode {//modal stay
                     Swift.print("modal stay")
                     modalBtn.removeHandler()
-                    animator.direct = false
+                    modalAnimator.direct = false
                     var rect = modalRect
                     rect.origin.y -= 30
-                    animator.setTargetValue(rect).start()
+                    modalAnimator.setTargetValue(rect).start()
                 }else{//modal leave
                     Swift.print("modal leave")
-                    animator.direct = false
-                    animator.setTargetValue(initRect).start()
+                    modalAnimator.direct = false
+                    modalAnimator.setTargetValue(initModalRect).start()
 
                     /*promptBtn*/
                     promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start() //anim bellow screen
