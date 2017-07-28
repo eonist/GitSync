@@ -132,13 +132,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                  Swift.print("section.localPos(): " + "\(section!.localPos())")
                  Swift.print("btn.localPos(): " + "\(btn.localPos())")
              }*/else{
-                Swift.print("event.type: " + "\(event.type)")
+                Swift.print("onViewEvent() event.type: " + "\(event.type)")
             }
         }
         
         
         func onTouchEvent(_ event:ForceTouchEvent){
-            //Swift.print("event.type: " + "\(event.type)")
+            Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.setTargetValue(clickModeRect).start()
