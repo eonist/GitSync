@@ -126,7 +126,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //      var prevStage:Int = 0
         
-        promptBtn.addHandler { (event:ButtonEvent) in/*This is the click on window event handler*/
+        promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in/*This is the click on window event handler*/
+            Swift.print("promptBtn.upInside")
             modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
             promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro proptBtn*/
         }
