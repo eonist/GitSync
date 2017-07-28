@@ -216,14 +216,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     
                 }
                 //prevStage = stage
-            }
-            
-            
+            } 
             
             disableAnim {
-                
-                
-                overrideStyle(style)
+                StyleManager.overrideStyle(style)
                 modalBtn.skin?.setStyle(style)
             }
         }
