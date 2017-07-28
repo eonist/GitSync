@@ -258,9 +258,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //remove deepClick event listener ✅
         
         //8. when user clicks the button bellow modal, transition modal to circular button and spring inputButton bellow screen
-            //Assign eventHandler for promptButton 👈
-            //re-add deepClick event listener
-            //transition to init state
+            //Assign eventHandler for promptButton ✅
+            //re-add deepClick event listener 👈
+            //transition to init state ✅
         
         //9. Add some design elements
             //picture? 
