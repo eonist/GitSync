@@ -218,8 +218,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //prevStage = stage
             }
             
+            func overrideStyle(_ a:inout Style, _ b:Style){
+                
+            }
+            
             disableAnim {
-                StyleManager.overrideStylePropertyValue(<#T##styleName: String##String#>, <#T##stylePropertyName: String##String#>, <#T##newValue: Any##Any#>)
+                let i:Int = StyleManager.index(style.name)!
+                
+                overrideStyle(StyleManager.styles[i] ,style)
                 modalBtn.skin?.setStyle(style)
             }
         }
