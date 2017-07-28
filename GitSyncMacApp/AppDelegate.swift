@@ -220,6 +220,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
             func overrideStyle(_ style:Style){
                 Swift.print("overrideStyle: style.name: \(style.name)")
+                _ = StyleManager.styles.forEach{
+                    Swift.print("$0.name: " + "\($0.name)")
+                }
+                Swift.print(StyleManager.index(style.name))
                 if let i:Int = StyleManager.index(style.name) {
                     Swift.print("i: " + "\(i)")
                     StyleManager.styles[i].styleProperties = style.styleProperties
