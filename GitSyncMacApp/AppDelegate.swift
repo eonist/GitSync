@@ -169,12 +169,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 }
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
-                if modalStayMode {//modal stay
-                    
-                }else{//modal leave
-                    
+                if !modalStayMode {//modal stay
+                    animator.setTargetValue(initRect).start()
                 }
-                animator.setTargetValue(initRect).start()
+                
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
