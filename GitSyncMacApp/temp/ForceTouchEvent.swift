@@ -14,8 +14,10 @@ class ForceTouchEvent:Event{
     static var pressureChange:String = "forceTouchButtonPressureChange"/*fires all the time when pressure is applied*/
     static var stageChange:String = "forceTouchButtonStageChange"/*fires only when tranisitoning from 1 stage to the other*/
     /*Original NSEvent*/
+    var prevStage:Int
     weak var event:NSEvent?
-    init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent){
+    init(_ type:String = "", _ prevStage:Int, _ origin:AnyObject,_ event:NSEvent){
+        self.prevStage = prevStage
         self.event = event
         super.init(type, origin)
     }

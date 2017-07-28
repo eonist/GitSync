@@ -12,19 +12,19 @@ class ForceTouchButton:Button {
         if event.pressureBehavior == NSPressureBehavior.primaryDeepClick,prevStage != curStage {
             switch (curStage,prevStage){
                 case (0,1):
-                    super.onEvent(ForceTouchEvent(ForceTouchEvent.clickUp,self,event))
+                    super.onEvent(ForceTouchEvent(ForceTouchEvent.clickUp,prevStage,self,event))
                 case (1,0):
-                    super.onEvent(ForceTouchEvent(ForceTouchEvent.clickDown,self,event))
+                    super.onEvent(ForceTouchEvent(ForceTouchEvent.clickDown,prevStage,self,event))
                 case (1,2):
-                    super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickUp,self,event))
+                    super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickUp,prevStage,self,event))
                 case (2,1):
-                    super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickDown,self,event))
+                    super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickDown,prevStage,self,event))
                 default: break;//isn't possible
             }
-            super.onEvent(ForceTouchEvent(ForceTouchEvent.stageChange,self,event))
+            super.onEvent(ForceTouchEvent(ForceTouchEvent.stageChange,prevStage,self,event))
             prevStage = curStage/*always set prevStage to curStage on stage change*/
         }
-        super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,self,event))
+        super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,prevStage,self,event))
     }
     override func getClassType() -> String {
         return "\(Button.self)"
