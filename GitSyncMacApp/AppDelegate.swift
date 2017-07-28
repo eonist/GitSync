@@ -141,15 +141,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
-                animator.targetValue = clickModeRect
-//                animator.onComplete = {forceTouchMode = 1}
-                animator.start()
+                animator.setTargetValue(clickModeRect).start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
-                animator.targetValue = modalRect
-//                animator.onComplete = {forceTouchMode = 2}
-                animator.start()
-                //Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
+                animator.setTargetValue(modalRect).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = window.contentView!.localPos().y
                 NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
                     let relativePos:CGFloat =  onMouseDownMouseY - self.window.contentView!.localPos().y
@@ -157,8 +152,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     var newRect = modalRect
                     newRect.y -= relativePos
                     animator.direct = true
-                    animator.targetValue = newRect
-                    animator.start()
+                    animator.setTargetValue(newRect).start()
                     if animator.value.y < 30  {//modal in stayMode
                         modalStayMode = true
                         Swift.print("reveal buttons: \(animator.value.y)")
@@ -183,13 +177,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     animator.setTargetValue(modalRect).start()
                 }else{//modal leave
                     animator.direct = false
-                    animator.targetValue = initRect
-//                    animator.onComplete = {forceTouchMode = 1}
-                    animator.start()
-                    
+                    animator.setTargetValue(initRect).start()
+
                     /*promptBtn*/
-                    promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
-                    promptBtnAnimator.start()
+                    promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start() //anim bellow screen
                 }
                 NSEvent.removeMonitor(&leftMouseDraggedMonitor)
             }
