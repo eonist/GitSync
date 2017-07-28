@@ -197,20 +197,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 if stage == 0 {
                     if !modalStayMode {
                         StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
+                        Swift.print("override to blue")
                     }
-                    Swift.print("override to blue")
+                    
                     
                 }else if stage == 1{
-                    if !modalStayMode {
+                    if !modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
                         StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
+                        Swift.print("override to red")
                     }
-                    Swift.print("override to red")
+                    
                     
                 }else /*if stage == 2*/{
                     if !modalStayMode {
                         StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
+                        Swift.print("override to green")
                     }
-                    Swift.print("override to green")
+                    
                 }
                 //prevStage = stage
             }
