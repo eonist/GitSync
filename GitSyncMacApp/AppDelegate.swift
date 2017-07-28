@@ -130,13 +130,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //      var prevStage:Int = 0
         
-        promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in/*This is the click on window event handler*/
-            Swift.print("promptBtn.upInside")
-            modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
-            promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro proptBtn*/
-        }
         
-        modalBtn.addHandler { (_ event:ForceTouchEvent) in
+        
+        let forceTouchHandler = { (_ event:ForceTouchEvent) in
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
@@ -220,6 +216,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
+        modalBtn.addHandler(forceTouchHandler)
+        
+        promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in/*This is the click on window event handler*/
+            Swift.print("promptBtn.upInside")
+            modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
+            promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro promptBtn*/
+            modalBtn.addHandler(forceTouchHandler)//ideally add this handler on outro complete
+        }
         
         //roundRect, yellow, 45px high, same width as modal
         
