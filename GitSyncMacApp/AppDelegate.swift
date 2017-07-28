@@ -42,33 +42,36 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let initFillet:CGFloat = 20
         
-        let initRect:CGRect = {
+        let initRect:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
-        let clickModeRect:CGRect = {
+        let clickModeRect:CGRect = {//when modalBtn is pressed down
             let size:CGSize = initRect.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
-        let modalRect:CGRect = {
+        let modalRect:CGRect = {//when modal is in expanded mode
             let size = CGSize(winRect.size.w,winRect.size.w) - CGSize(40,0)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
-        //let modalFillet:CGFloat = initFillet * 2
         
-        let btn:Button = {//button
-            StyleManager.addStyle("Button{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"btn"))
+        /**
+         * ModalBtn
+         */
+    
+        let modalBtn:Button = {//button
+            StyleManager.addStyle("Button#modalBtn{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
+            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"modalBtn"))
             btn.point = initRect.origin//center button
             return btn
         }()
         
-        var style:Style = btn.skin!.style! as! Style
+        var style:Style = modalBtn.skin!.style! as! Style
         
         let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
@@ -78,11 +81,43 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             disableAnim {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
-                btn.skin?.setStyle(style)
-                btn.layer?.position = rect.origin
+                modalBtn.skin?.setStyle(style)
+                modalBtn.layer?.position = rect.origin
             }
         }
         animator.state.value = initRect
+        
+        /**
+         * PromptBtn
+         */
+        
+        let initPromptBtnRect:CGRect = {
+            let size:CGSize = CGSize(modalRect.size.w,45)
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.bottomCenter, Alignment.topCenter)
+            return CGRect(p,size)
+        }()
+        let maxPromptBtnPoint = {//the limit of where promptButton can go vertically
+            return initPromptBtnRect.origin - CGPoint(0,initPromptBtnRect.height + 20)
+        }()
+        
+        var promptBtn:Button = {//button
+            StyleManager.addStyle("Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}")
+            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"prompt"))
+            btn.point = initPromptBtnRect.origin//out of view
+            return btn
+        }()
+        
+        var promptBtnAnimator = Easer5<CGPoint>.init(CGPoint.defaults, DefaultEasing.point){ point in
+            disableAnim {
+                promptBtn.layer?.position = point
+            }
+        }
+        promptBtnAnimator.state.value = initPromptBtnRect.origin//set initial value
+       
+        /**
+         * Event handling:
+         */
+        
         var modalState:Int = 0
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
@@ -100,9 +135,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        /**
-         *
-         */
+        
         func onTouchEvent(_ event:ForceTouchEvent){
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
@@ -120,17 +153,25 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
                     let relativePos:CGFloat =  onMouseDownMouseY - self.window.contentView!.localPos().y
                     //Swift.print("relativePos: " + "\(relativePos)")
-                    
                     var newRect = modalRect
                     newRect.y -= relativePos
                     animator.direct = true
                     animator.targetValue = newRect
                     animator.start()
+                    if animator.value.y < 30  {
+                        Swift.print("reveal buttons: \(animator.value.y)")
+                        var p = animator.value.bottomLeft
+                        p.y += 15//add some margin
+                        p.y = p.y.max(maxPromptBtnPoint.y)
+                        
+                        promptBtnAnimator.targetValue = p//you could do modalBtn.layer.origin + getHeight etc.
+                        promptBtnAnimator.start()
+                    }else if animator.value.y > 30 {
+                        Swift.print("anim buttons out")
+                        promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
+                        promptBtnAnimator.start()
+                    }
                 }
-//                if(leftMouseDraggedEventListener == nil) {
-//                    leftMouseDraggedEventListener = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDragged], handler: onModalDrag)
-//                }//we add a global mouse move event listener
-                //else {fatalError("This shouldn't be possible, if it throws this error then you need to remove he eventListener before you add it")}
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 animator.state.targetValue = initRect
@@ -142,11 +183,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 animator.state.targetValue = initRect
                 animator.onComplete = {modalState = 1}
                 animator.start()
+                /*promptBtn*/
+                promptBtnAnimator.targetValue = initPromptBtnRect.origin//anim bellow screen
+                promptBtnAnimator.start()
                 NSEvent.removeMonitor(&leftMouseDraggedMonitor)
-//                if(leftMouseDraggedEventListener != nil){
-//                    NSEvent.removeMonitor(leftMouseDraggedEventListener!)
-//                    leftMouseDraggedEventListener = nil//<--this part may not be needed
-//                }/*We remove a global mouse move event listener*/
             }
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = event.stage
@@ -167,11 +207,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             
             disableAnim {
-                btn.skin?.setStyle(style)
+                modalBtn.skin?.setStyle(style)
             }
         }
         
-        btn.addHandler(onViewEvent)
+        
+        //roundRect, yellow, 45px high, same width as modal
+        
+        //lazy button creator and added, so they only get added once
+            //lazy create animator that is an easer
+            //animate from bottom to target which is the bottom of modal 👈
+            //modal can change target if modal is above bottomLimit
+            //if modal.bottom > bottomLimit { target.x == bellow screen
+        
+        modalBtn.addHandler(onViewEvent)
         //btn.event = {event in if let event = event as? ForceTouchEvent {onViewEvent(event)}}
             //event handler for deep press
         
@@ -188,10 +237,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //do regular direct moving first✅
             //write an extension to simplify adding dragListener✅
             //then do spring✅
-            //boundries for easer
-            //then apply some log10 slipperyFriction
+            //boundries for easer ✅
+            //then apply some log10 slipperyFrictionconstrainedValueWithLog10 ✅
         
-        //5. when modal.bottom moves beyond a threshold, spring in button bellow modal (you may need to dto the relational spring test first)
+        //5. when modal.bottom moves beyond a threshold, ✅
+            //spring in button bellow modal (you may need to dto the relational spring test first) ✅
         
         //6. when button release in peek mode, transition modal to button
         
