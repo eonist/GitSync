@@ -118,7 +118,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          * Event handling:
          */
         
-        var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
+//        var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
         var modalStayMode:Bool = false
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
@@ -142,12 +142,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
                 animator.state.targetValue = clickModeRect
-                animator.onComplete = {forceTouchMode = 1}
+//                animator.onComplete = {forceTouchMode = 1}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 animator.state.targetValue = modalRect
-                animator.onComplete = {forceTouchMode = 2}
+//                animator.onComplete = {forceTouchMode = 2}
                 animator.start()
                 //Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = window.contentView!.localPos().y
@@ -178,7 +178,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 animator.state.targetValue = initRect
-                animator.onComplete = {forceTouchMode = 0}
+//                animator.onComplete = {forceTouchMode = 0}
                 animator.start()
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
@@ -188,7 +188,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 }else{//modal leave
                     animator.direct = false
                     animator.state.targetValue = initRect
-                    animator.onComplete = {forceTouchMode = 1}
+//                    animator.onComplete = {forceTouchMode = 1}
                     animator.start()
                     
                     /*promptBtn*/
