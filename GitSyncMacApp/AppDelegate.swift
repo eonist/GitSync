@@ -272,7 +272,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //picture? 🚫
             //create a concept in illustrator ✅
             //svg? 👈
-            //
+            //use iphone7 screen ratio a window size
         
     }
     func initApp(){
