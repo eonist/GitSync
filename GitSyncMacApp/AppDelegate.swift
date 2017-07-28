@@ -223,7 +223,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("promptBtn.upInside")
             modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
             promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro promptBtn*/
-            modalBtn.addHandler(forceTouchHandler)//ideally add this handler on outro complete
+            modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
+            
         }
         
         //roundRect, yellow, 45px high, same width as modal
