@@ -229,7 +229,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //roundRect, yellow, 45px high, same width as modal
         
-        //lazy button creator and added, so they only get added once
+        //lazy button creator and added, so they only get added once ✅
             //lazy create animator that is an easer
             //animate from bottom to target which is the bottom of modal 👈
             //modal can change target if modal is above bottomLimit
@@ -268,7 +268,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //re-add deepClick event listener 👈
             //transition to init state ✅
         
-        //9. Add some design elements
+        //9. Add some design elements 
             //picture? 
             //create a concept in illustrator
             //svg?
