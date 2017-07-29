@@ -18,6 +18,7 @@ class ProtoTypeView:WindowView{
         //continue here: 🏀
             //put more things into lazy 👈
         
+        
         /**
          * ModalBtn
          */
