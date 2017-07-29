@@ -35,12 +35,6 @@ class ProtoTypeView:WindowView{
         super.resolveSkin()
         _ = section
         
-        
-        
-       
-        
-        
-        
         /**
          * ModalBtn
          */
