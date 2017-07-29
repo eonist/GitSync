@@ -41,18 +41,16 @@ class ProtoTypeView:WindowView{
             self.promptBtn.layer?.position = point
         }
     }
-
+    var modalStayMode:Bool = false//this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold
+    var leftMouseDraggedMonitor:Any?
+    var onMouseDownMouseY:CGFloat = CGFloat.nan
+    
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
         StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
         super.resolveSkin()
+    
         
-        
-        var modalStayMode:Bool = false//you can probably remove this and replace it with boundry check etc
-        var leftMouseDraggedMonitor:Any?
-        //var leftDraggedHandler:NSEventHandler?
-        var onMouseDownMouseY:CGFloat = CGFloat.nan
-
         let forceTouchHandler = { (_ event:ForceTouchEvent) in
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
@@ -62,7 +60,7 @@ class ProtoTypeView:WindowView{
                 Swift.print("deepClickDown")
                 self.modalAnimator.setTargetValue(Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = self.window!.contentView!.localPos().y
-                NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
+                NSEvent.addMonitor(&self.leftMouseDraggedMonitor,.leftMouseDragged){_ in
                     let relativePos:CGFloat =  onMouseDownMouseY - self.window!.contentView!.localPos().y
                     //Swift.print("relativePos: " + "\(relativePos)")
                     var newRect = Modal.expanded
@@ -70,7 +68,7 @@ class ProtoTypeView:WindowView{
                     self.modalAnimator.direct = true
                     self.modalAnimator.setTargetValue(newRect).start()
                     if self.modalAnimator.value.y < 30  {//modal in stayMode
-                        modalStayMode = true
+                        self.modalStayMode = true
                         Swift.print("reveal buttons: \(self.modalAnimator.value.y)")
                         var p = self.modalAnimator.value.bottomLeft
                         p.y += 15//add some margin
@@ -78,20 +76,20 @@ class ProtoTypeView:WindowView{
                         //
                         self.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
                     }else if self.modalAnimator.value.y > 30 {//modal in leaveMode
-                        modalStayMode = false
+                        self.modalStayMode = false
                         Swift.print("anim buttons out")
                         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
                     }
                 }
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
-                if !modalStayMode {//modal stay
+                if !self.modalStayMode {//modal stay
                     self.modalAnimator.setTargetValue(Modal.initial).start()
                 }
                 
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
-                if modalStayMode {//modal stay
+                if self.modalStayMode {//modal stay
                     Swift.print("modal stay")
                     self.modalBtn.removeHandler()
                     self.modalAnimator.direct = false
@@ -106,30 +104,29 @@ class ProtoTypeView:WindowView{
                     /*promptBtn*/
                     self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
                 }
-                NSEvent.removeMonitor(&leftMouseDraggedMonitor)
+                NSEvent.removeMonitor(&self.leftMouseDraggedMonitor)
             }
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = event.stage
                 Swift.print("stage: " + "\(stage)")
                 if stage == 0 {
-                    if !modalStayMode {
+                    if !self.modalStayMode {
                         StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
                         Swift.print("override to blue")
                     }
                 }else if stage == 1{
-                    if !modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
+                    if !self.modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
                         StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.red)
                         Swift.print("override to red")
                     }
                     
                 }else /*if stage == 2*/{
-                    if !modalStayMode {
+                    if !self.modalStayMode {
                         StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.green)
                         Swift.print("override to green")
                     }
                     
                 }
-                //prevStage = stage
             }
             
             disableAnim {
@@ -145,7 +142,7 @@ class ProtoTypeView:WindowView{
             self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
             self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
             self.modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
-            modalStayMode = false
+            self.modalStayMode = false//release modalStayMode
         }
         
         
