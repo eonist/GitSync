@@ -71,14 +71,8 @@ class ProtoTypeView:WindowView{
         Swift.print("ProtoTypeView.resolveSkin()")
         StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
         super.resolveSkin()
-        
-        
-        
-        
-        
-        
-        
-        
+        createUI()
+        addEventHandlers()
         //1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
             //create other concepts in illustrator
             //get device templates
@@ -97,14 +91,13 @@ class ProtoTypeView:WindowView{
         _ = promptBtn
     }
     /**
-     *
+     * Adds eventHandlers
      */
     func addEventHandlers(){
         modalBtn.addHandler(forceTouchHandler)
-        
-        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonEventHandler)
+        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonHandler)
     }
-    lazy var promptButtonEventHandler = { (_ event:ButtonEvent) in /*Handler for promptBtn*/
+    lazy var promptButtonHandler = { (_ event:ButtonEvent) in /*Handler for promptBtn*/
         Swift.print("promptBtn.upInside")
         self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
