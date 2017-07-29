@@ -3,11 +3,16 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    lazy var section:Section = {
+    lazy var section:Section = {//background
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
         return self.addSubView(Section(WinRect.size.w,WinRect.size.h,self,"bg"))
     }()
-    
+    lazy var modalBtn:Button = {//button
+        StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.size.w)px;height:\(Modal.initial.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
+        let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
+        btn.point = Modal.initial.origin//center button
+        return btn
+    }()
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
@@ -23,12 +28,7 @@ class ProtoTypeView:WindowView{
          * ModalBtn
          */
     
-        let modalBtn:Button = {//button
-            StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.size.w)px;height:\(Modal.initial.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
-            btn.point = Modal.initial.origin//center button
-            return btn
-        }()
+        
         
         var style:Style = modalBtn.skin!.style! as! Style
     
