@@ -1,55 +1,5 @@
 import Foundation
 @testable import Utils
-
-class Constrainer{
-    var direct:Bool = false
-    typealias Frame = (min:CGFloat,len:CGFloat)//TODO:⚠️️ rename to  boundries
-    var maskFrame:Frame/*Represents the visible part of the content*/
-    var contentFrame:Frame/*Represents the total size of the content*/
-    var limit:CGFloat = 100
-    var easer:Easer5<CGRect>
-    init(_ easer:Easer5<CGRect>,_ contentFrame:Frame,_ maskFrame:Frame){
-        self.easer = easer
-        self.contentFrame = contentFrame
-        self.maskFrame = maskFrame
-        easer.updatePos = self.updatePosition
-    }
-    func updatePosition(){
-        if direct {
-            if easer.targetValue.y < maskFrame.min {
-                //Swift.print("applyTopBoundary")
-                applyTopBoundary()
-            }
-            else if (easer.targetValue.y + contentFrame.len) > maskFrame.len {
-                //Swift.print("applyBottomBoundary")
-                applyBottomBoundary()
-            }else{
-                //Swift.print("apply no boundry: targetValue: \(targetValue.y)")
-                easer.updatePosition()
-            }
-        }else{
-            easer.updatePosition()
-        }
-    }
-    func applyTopBoundary(){
-        //Swift.print("applyTopBoundary")
-        if(direct){/*surface is slipping the further you pull*/
-            let distToGoal:CGFloat = easer.targetValue.y
-            let constrainedValue:CGFloat = CustomFriction.constrainedValueWithLog10(distToGoal,-limit)//<--Creates the illusion that the surface under the thumb is slipping
-            easer.value.y = constrainedValue
-        }
-    }
-    func applyBottomBoundary(){
-        //Swift.print("applyBottomBoundary")
-        if(direct){/*surface is slipping the further you pull*/
-            let totLen = (contentFrame.len - maskFrame.len)/*tot length of items - length of mask*/
-            let normalizedValue:CGFloat = totLen + easer.targetValue.y/*goes from 0 to -100*/
-            let constrainedValue:CGFloat =  CustomFriction.constrainedValueWithLog10(normalizedValue,limit)//<--Creates the illusion that the surface under the thumb is slipping
-            let valueY = -totLen + constrainedValue
-            easer.value.y = valueY
-        }
-    }
-}
 /**
  * NOTE: Another name for this could be: RubberBand or ConstrainedEaser
  * TODO: ⚠️️ maskFrame.y must be 0 . until you add support for it to be a value > 0 or < 0
@@ -135,3 +85,52 @@ class ElasticEaser5:Easer5<CGRect> {
          }*/
     }
 }
+//class Constrainer{
+//    var direct:Bool = false
+//    typealias Frame = (min:CGFloat,len:CGFloat)//TODO:⚠️️ rename to  boundries
+//    var maskFrame:Frame/*Represents the visible part of the content*/
+//    var contentFrame:Frame/*Represents the total size of the content*/
+//    var limit:CGFloat = 100
+//    var easer:Easer5<CGRect>
+//    init(_ easer:Easer5<CGRect>,_ contentFrame:Frame,_ maskFrame:Frame){
+//        self.easer = easer
+//        self.contentFrame = contentFrame
+//        self.maskFrame = maskFrame
+//        easer.updatePos = self.updatePosition
+//    }
+//    func updatePosition(){
+//        if direct {
+//            if easer.targetValue.y < maskFrame.min {
+//                //Swift.print("applyTopBoundary")
+//                applyTopBoundary()
+//            }
+//            else if (easer.targetValue.y + contentFrame.len) > maskFrame.len {
+//                //Swift.print("applyBottomBoundary")
+//                applyBottomBoundary()
+//            }else{
+//                //Swift.print("apply no boundry: targetValue: \(targetValue.y)")
+//                easer.updatePosition()
+//            }
+//        }else{
+//            easer.updatePosition()
+//        }
+//    }
+//    func applyTopBoundary(){
+//        //Swift.print("applyTopBoundary")
+//        if(direct){/*surface is slipping the further you pull*/
+//            let distToGoal:CGFloat = easer.targetValue.y
+//            let constrainedValue:CGFloat = CustomFriction.constrainedValueWithLog10(distToGoal,-limit)//<--Creates the illusion that the surface under the thumb is slipping
+//            easer.value.y = constrainedValue
+//        }
+//    }
+//    func applyBottomBoundary(){
+//        //Swift.print("applyBottomBoundary")
+//        if(direct){/*surface is slipping the further you pull*/
+//            let totLen = (contentFrame.len - maskFrame.len)/*tot length of items - length of mask*/
+//            let normalizedValue:CGFloat = totLen + easer.targetValue.y/*goes from 0 to -100*/
+//            let constrainedValue:CGFloat =  CustomFriction.constrainedValueWithLog10(normalizedValue,limit)//<--Creates the illusion that the surface under the thumb is slipping
+//            let valueY = -totLen + constrainedValue
+//            easer.value.y = valueY
+//        }
+//    }
+//}
