@@ -156,6 +156,11 @@ class ProtoTypeView:WindowView{
                 //make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
                 // I think you can extract the Constrainer for the animator into a static class instead of extending 👈
     }
-    
+    /**
+     *
+     */
+    func promptButtonClickHandler(){
+        
+    }
     
 }
