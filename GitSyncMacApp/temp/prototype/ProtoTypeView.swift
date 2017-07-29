@@ -11,9 +11,14 @@ class ProtoTypeView:WindowView{
         _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
     }
     
-    enum ModalRect {
+    enum Modal {
         static let initial:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
+        }()
+        static let click:CGRect = {//when modalBtn is pressed down
+            let size:CGSize = Modal.initial.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
@@ -27,11 +32,7 @@ class ProtoTypeView:WindowView{
         
         
         
-        let clickModeRect:CGRect = {//when modalBtn is pressed down
-            let size:CGSize = ModalRect.initial.size * 0.75
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
-        }()
+       
         
         let modalRect:CGRect = {//when modal is in expanded mode
             let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
@@ -44,15 +45,15 @@ class ProtoTypeView:WindowView{
          */
     
         let modalBtn:Button = {//button
-            StyleManager.addStyle("Button#modalBtn{width:\(initModalRect.size.w)px;height:\(initModalRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            let btn = self.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"modalBtn"))
-            btn.point = initModalRect.origin//center button
+            StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.size.w)px;height:\(Modal.initial.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
+            let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
+            btn.point = Modal.initial.origin//center button
             return btn
         }()
         
         var style:Style = modalBtn.skin!.style! as! Style
-        
-        let maskFrame:ElasticEaser5.Frame = (winRect.y,winRect.h)
+    
+        let maskFrame:ElasticEaser5.Frame = (WinRect.size.y,WinRect.size.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
         let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
@@ -64,7 +65,7 @@ class ProtoTypeView:WindowView{
                 modalBtn.layer?.position = rect.origin
             }
         }
-        modalAnimator.value = initModalRect
+        modalAnimator.value = Modal.initial
         
         /**
          * PromptBtn
@@ -72,7 +73,7 @@ class ProtoTypeView:WindowView{
         
         let initPromptBtnRect:CGRect = {
             let size:CGSize = CGSize(modalRect.size.w,45)
-            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.bottomCenter, Alignment.topCenter)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.bottomCenter, Alignment.topCenter)
             return CGRect(p,size)
         }()
         let maxPromptBtnPoint = {//the limit of where promptButton can go vertically
@@ -85,7 +86,7 @@ class ProtoTypeView:WindowView{
             css += "Button#prompt:down{fill:grey;}"
             StyleManager.addStyle(css)
             
-            let btn = self.addSubView(Button(initModalRect.size.w,initModalRect.size.h,nil,"prompt"))
+            let btn = self.addSubView(Button(Modal.initial.w,Modal.initial.h,nil,"prompt"))
             btn.layer?.position = initPromptBtnRect.origin//out of view
             return btn
         }()
@@ -115,7 +116,7 @@ class ProtoTypeView:WindowView{
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
-                modalAnimator.setTargetValue(clickModeRect).start()
+                modalAnimator.setTargetValue(Modal.click).start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 modalAnimator.setTargetValue(modalRect).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
@@ -144,7 +145,7 @@ class ProtoTypeView:WindowView{
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 if !modalStayMode {//modal stay
-                    modalAnimator.setTargetValue(initModalRect).start()
+                    modalAnimator.setTargetValue(Modal.initial).start()
                 }
                 
             }else if event.type == ForceTouchEvent.deepClickUp {
@@ -159,7 +160,7 @@ class ProtoTypeView:WindowView{
                 }else{//modal leave
                     Swift.print("modal leave")
                     modalAnimator.direct = false
-                    modalAnimator.setTargetValue(initModalRect).start()
+                    modalAnimator.setTargetValue(Modal.initial).start()
 
                     /*promptBtn*/
                     promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start() //anim bellow screen
@@ -200,7 +201,7 @@ class ProtoTypeView:WindowView{
         /*handler for promptBtn*/
         promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in
             Swift.print("promptBtn.upInside")
-            modalAnimator.setTargetValue(initModalRect).start()/*outro modal*/
+            modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
             promptBtnAnimator.setTargetValue(initPromptBtnRect.origin).start()/*outro promptBtn*/
             modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
             modalStayMode = false
