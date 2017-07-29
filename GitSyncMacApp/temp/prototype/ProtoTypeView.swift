@@ -120,12 +120,12 @@ class ProtoTypeView:WindowView{
                 modalAnimator.setTargetValue(Modal.click).start()
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
-                modalAnimator.setTargetValue(modalRect).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
+                modalAnimator.setTargetValue(Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
                 onMouseDownMouseY  = self.window!.contentView!.localPos().y
                 NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
                     let relativePos:CGFloat =  onMouseDownMouseY - self.window!.contentView!.localPos().y
                     //Swift.print("relativePos: " + "\(relativePos)")
-                    var newRect = modalRect
+                    var newRect = Modal.expanded
                     newRect.y -= relativePos
                     modalAnimator.direct = true
                     modalAnimator.setTargetValue(newRect).start()
@@ -155,7 +155,7 @@ class ProtoTypeView:WindowView{
                     Swift.print("modal stay")
                     modalBtn.removeHandler()
                     modalAnimator.direct = false
-                    var rect = modalRect
+                    var rect = Modal.expanded
                     rect.origin.y -= 30
                     modalAnimator.setTargetValue(rect).start()
                 }else{//modal leave
