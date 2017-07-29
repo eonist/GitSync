@@ -38,5 +38,7 @@ extension ProtoTypeView {
         static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
         static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
     }
-    
+    var modalStayMode:Bool {
+        return self.modalAnimator.value.y < 30
+    }
 }
