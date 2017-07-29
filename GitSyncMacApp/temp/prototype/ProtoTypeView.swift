@@ -1,11 +1,12 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-//1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
-//make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
-// I think you can extract the Constrainer for the animator into a static class instead of extending 👈
-//svg?
-
+//Continue here 🏀
+    //1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
+    //make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
+    // I think you can extract the Constrainer for the animator into a static class instead of extending 👈
+    //svg?
+    //USe func instead of var to move handlers into extensions
 class ProtoTypeView:WindowView{
     /*UI*/
     lazy var modalBtn:Button = {
@@ -91,7 +92,7 @@ class ProtoTypeView:WindowView{
         modalBtn.addHandler(forceTouchHandler)
         promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonHandler)
     }
-    lazy var promptButtonHandler = { (_ event:ButtonEvent) in /*Handler for promptBtn*/
+    func promptButtonHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
         Swift.print("promptBtn.upInside")
         self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
