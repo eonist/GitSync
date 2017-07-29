@@ -29,7 +29,7 @@ class ProtoTypeView:WindowView{
         var style:Style = modalBtn.skin!.style! as! Style
     
         
-        let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,content,mask) { (rect:CGRect) in
+        let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             //Swift.print("rect: " + "\(rect)")
             disableAnim {
