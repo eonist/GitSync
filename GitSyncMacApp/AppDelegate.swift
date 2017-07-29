@@ -273,7 +273,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //create a concept in illustrator ✅
             //svg? 👈
             //setup proper TestView with class scoped var's etc 👈
-                //use iphone7 screen ratio and window size 👈
+                //use iphone7 screen ratio and window size 👈 (750 x 1334)
                 //Make design for demo2. stack of cards you can shuffle left and right etc (AppleWatch)
                 //make design for demo3. basically just swipe left right cards and click to go to fullscreen (AppleTV)
     }
