@@ -44,7 +44,6 @@ extension ProtoTypeView {
                 Swift.print("modal leave")
                 self.modalAnimator.direct = false
                 self.modalAnimator.setTargetValue(Modal.initial).start()
-                
                 /*promptBtn*/
                 self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
             }
