@@ -3,15 +3,18 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    var winRect:CGRect  {return CGRect(0,0,self.width,self.height)}
+    enum WinRect {
+        static let initial:CGRect = CGRect(0,0,200,355)
+    }
     lazy var section = {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = self.addSubView(Section(self.winRect.w,self.winRect.h,nil,"bg"))
+        _ = self.addSubView(Section(WinRect.initial.w,WinRect.initial.h,nil,"bg"))
     }
+    
     enum ModalRect {
         let initial:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
-            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.initial.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
     }
