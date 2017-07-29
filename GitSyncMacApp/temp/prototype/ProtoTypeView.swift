@@ -4,17 +4,17 @@ import Cocoa
 
 class ProtoTypeView:WindowView{
     enum WinRect {
-        static let initial:CGRect = CGRect(0,0,200,355)
+        static let size:CGSize = CGSize(200,355)
     }
     lazy var section = {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = self.addSubView(Section(WinRect.initial.w,WinRect.initial.h,nil,"bg"))
+        _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
     }
     
     enum ModalRect {
-        let initial:CGRect = {//init modal btn size
+        static let initial:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.initial.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
     }
@@ -29,13 +29,13 @@ class ProtoTypeView:WindowView{
         
         let clickModeRect:CGRect = {//when modalBtn is pressed down
             let size:CGSize = ModalRect.initial.size * 0.75
-            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
         let modalRect:CGRect = {//when modal is in expanded mode
-            let size = CGSize(winRect.size.w,winRect.size.w) - CGSize(40,0)
-            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
