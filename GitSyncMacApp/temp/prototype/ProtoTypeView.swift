@@ -45,7 +45,7 @@ class ProtoTypeView:WindowView{
     var leftMouseDraggedMonitor:Any?
     var onMouseDownMouseY:CGFloat = CGFloat.nan
     //EventHandlers:
-        {_ in
+    lazy var leftMouseDraggedClosure = {_ in
             let relativePos:CGFloat =  onMouseDownMouseY - self.window!.contentView!.localPos().y
             //Swift.print("relativePos: " + "\(relativePos)")
             var newRect = Modal.expanded
