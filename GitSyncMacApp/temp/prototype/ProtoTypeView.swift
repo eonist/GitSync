@@ -24,6 +24,7 @@ class ProtoTypeView:WindowView{
     
         let maskFrame:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
         let contentFrame:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
+        
         let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             //Swift.print("rect: " + "\(rect)")
@@ -175,9 +176,9 @@ class ProtoTypeView:WindowView{
             //get device templates
             //svg?
             //setup proper TestView with class scoped var's etc 👈
-                //use iPhone7 screen ratio and window size   ✅
                 //Make design for demo2. stack of cards you can shuffle left and right etc (AppleWatch)
                 //make design for demo3. basically just swipe left right cards and click to go to fullscreen (AppleTV)
+                //make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
     }
     
     
