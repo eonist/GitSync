@@ -5,12 +5,8 @@ import Cocoa
 class ProtoTypeView:WindowView{
     enum WinRect {
         static let size:CGSize = CGSize(200,355)
+        static let point:CGPoint = CGPoint(0,0)
     }
-    lazy var section = {
-        StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
-    }
-    
     enum Modal {
         static let initial:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
@@ -22,7 +18,17 @@ class ProtoTypeView:WindowView{
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
+        static let expanded:CGRect = {//when modal is in expanded mode
+            let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
+        }()
     }
+    lazy var section = {
+        StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
+        _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
+    }
+    
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView")
@@ -34,11 +40,7 @@ class ProtoTypeView:WindowView{
         
        
         
-        let modalRect:CGRect = {//when modal is in expanded mode
-            let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
-        }()
+        
         
         /**
          * ModalBtn
@@ -53,7 +55,7 @@ class ProtoTypeView:WindowView{
         
         var style:Style = modalBtn.skin!.style! as! Style
     
-        let maskFrame:ElasticEaser5.Frame = (WinRect.size.y,WinRect.size.h)
+        let maskFrame:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
         let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
         let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
