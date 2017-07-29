@@ -18,10 +18,10 @@ class ProtoTypeView:WindowView{
         //1. circular button,centered
             //window
         let winRect = CGRect(0,0,width,height)
-        window?.title = ""
+        
         
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = window?.contentView?.addSubView(Section(winRect.w,winRect.h,nil,"bg"))
+        _ = self.addSubView(Section(winRect.w,winRect.h,nil,"bg"))
         
         //let initFillet:CGFloat = 20
         

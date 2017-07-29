@@ -30,15 +30,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * It's all about making UI / UX dribbble style !
      */
     func peekAndPopTest(){
-        
-        
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        
-        
         win = ProtoTypeWindow(200,355)/*⬅️️🚪*/
-        
-        
-        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
