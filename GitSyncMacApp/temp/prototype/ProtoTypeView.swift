@@ -9,7 +9,11 @@ class ProtoTypeView:WindowView{
         _ = self.addSubView(Section(self.winRect.w,self.winRect.h,nil,"bg"))
     }
     enum ModalRect {
-        static let initial:CGSize = CGSize()
+        let initial:CGRect = {//init modal btn size
+            let size:CGSize = CGSize(100,100)
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
+        }()
     }
     
     override func resolveSkin(){
@@ -18,14 +22,10 @@ class ProtoTypeView:WindowView{
         super.resolveSkin()
         _ = section
         
-        let initModalRect:CGRect = {//init modal btn size
-            let size:CGSize = CGSize(100,100)
-            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
-        }()
+        
         
         let clickModeRect:CGRect = {//when modalBtn is pressed down
-            let size:CGSize = initModalRect.size * 0.75
+            let size:CGSize = ModalRect.initial.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
