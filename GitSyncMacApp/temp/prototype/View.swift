@@ -41,11 +41,9 @@ class ProtoTypeView:WindowView{
         }
     }
     static var initPromptButtonAnimState:AnimState5<CGPoint> = .init(PromptButton.initial.origin)//set initial value
-    lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point){ point in
-        disableAnim {
-            self.promptBtn.layer?.position = point
-        }
-    }
+    
+    
+    lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point,promptButtonAnim)
     var modalStayMode:Bool = false//this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold
     var leftMouseDraggedMonitor:Any?
     var onMouseDownMouseY:CGFloat = CGFloat.nan
