@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    //UI
+    /*UI*/
     lazy var modalBtn:Button = {
         StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.size.w)px;height:\(Modal.initial.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
         let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
@@ -24,7 +24,7 @@ class ProtoTypeView:WindowView{
     
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
     static var initModalState:AnimState5<CGRect> = .init(Modal.initial)//set initial value
-    //Animation
+    /*Animation*/
     lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
         //anim rect here buttonRect to modalRect
         //Swift.print("rect: " + "\(rect)")
@@ -44,9 +44,9 @@ class ProtoTypeView:WindowView{
     var modalStayMode:Bool = false//this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold
     var leftMouseDraggedMonitor:Any?
     var onMouseDownMouseY:CGFloat = CGFloat.nan
-    //EventHandlers:
-    lazy var leftMouseDraggedClosure = {_ in
-            let relativePos:CGFloat =  onMouseDownMouseY - self.window!.contentView!.localPos().y
+    /*EventHandlers*/
+    lazy var leftMouseDraggedClosure:NSEvent.CallBack = {_ in
+            let relativePos:CGFloat =  self.onMouseDownMouseY - self.window!.contentView!.localPos().y
             //Swift.print("relativePos: " + "\(relativePos)")
             var newRect = Modal.expanded
             newRect.y -= relativePos
@@ -80,44 +80,23 @@ class ProtoTypeView:WindowView{
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 self.modalAnimator.setTargetValue(Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
-                onMouseDownMouseY  = self.window!.contentView!.localPos().y
-                NSEvent.addMonitor(&self.leftMouseDraggedMonitor,.leftMouseDragged){_ in
-                    let relativePos:CGFloat =  onMouseDownMouseY - self.window!.contentView!.localPos().y
-                    //Swift.print("relativePos: " + "\(relativePos)")
-                    var newRect = Modal.expanded
-                    newRect.y -= relativePos
-                    self.modalAnimator.direct = true
-                    self.modalAnimator.setTargetValue(newRect).start()
-                    if self.modalAnimator.value.y < 30  {//modal in stayMode
-                        self.modalStayMode = true
-                        Swift.print("reveal buttons: \(self.modalAnimator.value.y)")
-                        var p = self.modalAnimator.value.bottomLeft
-                        p.y += 15//add some margin
-                        p.y = p.y.max(PromptButton.expanded.y)
-                        //
-                        self.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
-                    }else if self.modalAnimator.value.y > 30 {//modal in leaveMode
-                        self.modalStayMode = false
-                        Swift.print("anim buttons out")
-                        self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
-                    }
-                }
+                self.onMouseDownMouseY  = self.window!.contentView!.localPos().y
+                NSEvent.addMonitor(&self.leftMouseDraggedMonitor,.leftMouseDragged,self.leftMouseDraggedClosure)
             }else if event.type == ForceTouchEvent.clickUp {
                 Swift.print("clickUp")
                 if !self.modalStayMode {//modal stay
                     self.modalAnimator.setTargetValue(Modal.initial).start()
                 }
-                
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
-                if self.modalStayMode {//modal stay
+                if self.modalStayMode {/*modal stay*/
                     Swift.print("modal stay")
                     self.modalBtn.removeHandler()
                     self.modalAnimator.direct = false
                     var rect = Modal.expanded
                     rect.origin.y -= 30
                     self.modalAnimator.setTargetValue(rect).start()
-                }else{//modal leave
+                }else{/*modal leave*/
                     Swift.print("modal leave")
                     self.modalAnimator.direct = false
                     self.modalAnimator.setTargetValue(Modal.initial).start()
@@ -127,7 +106,7 @@ class ProtoTypeView:WindowView{
                 }
                 NSEvent.removeMonitor(&self.leftMouseDraggedMonitor)
             }
-            if event.type == ForceTouchEvent.stageChange {
+            if event.type == ForceTouchEvent.stageChange {/*when forcetouch changes state*/
                 let stage:Int = event.stage
                 Swift.print("stage: " + "\(stage)")
                 if stage == 0 {
