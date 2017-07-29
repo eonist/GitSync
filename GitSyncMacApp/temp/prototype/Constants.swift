@@ -20,13 +20,14 @@ extension ProtoTypeView {
         static let click:RoundedRect = {//when modalBtn is pressed down
             let size:CGSize = Modal.initial.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            let fillet:Fillet = Modal.initial.fillet * 0.75
-            return CGRect(p,size)
+            let fillet:Fillet = Fillet(Modal.initial.fillet.topLeft * 0.75)
+            return RoundedRect(p,size,fillet)
         }()
-        static let expanded:CGRect = {//when modal is in expanded mode
+        static let expanded:RoundedRect = {//when modal is in expanded mode
             let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
+            let fillet:Fillet = Fillet(20)
+            return RoundedRect(p,size)
         }()
     }
     enum PromptButton {

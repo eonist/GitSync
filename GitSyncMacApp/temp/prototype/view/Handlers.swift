@@ -89,7 +89,7 @@ extension ProtoTypeView {
         if self.modalAnimator.value.y < 30  {//modal in stayMode
             self.modalStayMode = true
             Swift.print("reveal buttons: \(self.modalAnimator.value.y)")
-            var p = self.modalAnimator.value.bottomLeft
+            var p = self.modalAnimator.value.rect.bottomLeft
             p.y += 15//add some margin
             p.y = p.y.max(PromptButton.expanded.y)
             //
