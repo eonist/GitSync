@@ -11,7 +11,7 @@ class ProtoTypeView:WindowView{
     lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalFrameAnim)
     /*Values*/
     var modalStayMode:Bool = false/*this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
-    var leftMouseDraggedMonitor:Any?
+    var leftMouseDraggedMonitor:Any?/*Handler for dragging modal*/
     var onMouseDownMouseY:CGFloat = CGFloat.nan
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
     
@@ -30,7 +30,7 @@ class ProtoTypeView:WindowView{
         _ = promptBtn
     }
     /**
-     * Adds eventHandlers
+     * Adds eventHandlers to UI
      */
     func addEventHandlers(){
         modalBtn.addHandler(forceTouchHandler)
