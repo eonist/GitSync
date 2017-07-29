@@ -13,21 +13,21 @@ extension ProtoTypeView {
         static let initial:RoundedRect/*CGRect*/ = {//init modal btn size
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            let fillet:CGFloat = 50
+            let fillet:CGFloat = 20
             return RoundedRect(p,size,fillet)
             //return CGRect(p,size)
         }()
         static let click:RoundedRect = {//when modalBtn is pressed down
             let size:CGSize = Modal.initial.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            let fillet:CGFloat = Modal.initial.fillet * 0.75
+            let fillet:CGFloat = 20//Modal.initial.fillet * 0.75
             return RoundedRect(p,size,fillet)
         }()
         static let expanded:RoundedRect = {//when modal is in expanded mode
             let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            let fillet:Fillet = Fillet(20)
-            return RoundedRect(p,size)
+            let fillet:CGFloat = 20
+            return RoundedRect(p,size,fillet)
         }()
     }
     enum PromptButton {
@@ -45,11 +45,11 @@ extension ProtoTypeView {
         static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
     }
     enum AnimState{
-        enum PromptButton{
-            static var initial:AnimState5<CGPoint> {return .init(ProtoTypeView.PromptButton.initial.origin)}//set initial value
-        }
         enum Modal{
             static var initial:AnimState5<RoundedRect/*CGRect*/> {return .init(ProtoTypeView.Modal.initial)}//set initial value
+        }
+        enum PromptButton{
+            static var initial:AnimState5<CGPoint> {return .init(ProtoTypeView.PromptButton.initial.origin)}//set initial value
         }
     }
 }
