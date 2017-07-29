@@ -18,8 +18,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         
         //Continue here: 🏀 
-            //try with out disableAnim
-            //Add more types to Easer/Springer
+            //try with out disableAnim 👈
+            //Add more types to Easer/Springer ✅
             //try to do a rotation test back and forth with elastic
             //Playground testing
         //add interuptabable animators to the fold
