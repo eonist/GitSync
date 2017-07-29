@@ -26,4 +26,14 @@ extension ProtoTypeView {
         }()
     }
     
+    enum PromptButtonRect {
+        static let initial:CGRect = {
+            let size:CGSize = CGSize(Modal.expanded.size.w,45)
+            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.bottomCenter, Alignment.topCenter)
+            return CGRect(p,size)
+        }()
+    }
+    let maxPromptBtnPoint = {//the limit of where promptButton can go vertically
+        return initPromptBtnRect.origin - CGPoint(0,initPromptBtnRect.height + 20/*<--bottom margin*/)
+    }()
 }
