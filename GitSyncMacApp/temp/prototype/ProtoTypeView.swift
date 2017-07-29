@@ -4,10 +4,6 @@ import Cocoa
 
 class ProtoTypeView:WindowView{
     //UI
-    lazy var background:Section = {
-        StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        return self.addSubView(Section(WinRect.size.w,WinRect.size.h,self,"bg"))
-    }()
     lazy var modalBtn:Button = {
         StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.size.w)px;height:\(Modal.initial.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
         let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
@@ -48,18 +44,15 @@ class ProtoTypeView:WindowView{
 
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
+        StyleManager.addStyle("ProtoTypeView{fill:green;}")//padding-top:24px;
         super.resolveSkin()
-        _ = background//inits the bg section
+        
        
         var modalStayMode:Bool = false//you can probably remove this and replace it with boundry check etc
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
         var onMouseDownMouseY:CGFloat = CGFloat.nan
-        
-//      var prevStage:Int = 0
-        
-        
-        
+
         let forceTouchHandler = { (_ event:ForceTouchEvent) in
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
