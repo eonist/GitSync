@@ -17,9 +17,10 @@ extension ProtoTypeView {
             return RoundedRect(p,size,fillet)
             //return CGRect(p,size)
         }()
-        static let click:CGRect = {//when modalBtn is pressed down
+        static let click:RoundedRect = {//when modalBtn is pressed down
             let size:CGSize = Modal.initial.size * 0.75
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let fillet:Fillet = Modal.initial.fillet * 0.75
             return CGRect(p,size)
         }()
         static let expanded:CGRect = {//when modal is in expanded mode
