@@ -3,10 +3,10 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    lazy var section = {
+    lazy var section:Section = {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = self.addSubView(Section(200,200,self,"bg"))
-    }
+        return self.addSubView(Section(WinRect.size.w,WinRect.size.h,self,"bg"))
+    }()
     
     
     override func resolveSkin(){
@@ -14,6 +14,9 @@ class ProtoTypeView:WindowView{
         
         super.resolveSkin()
         _ = section
+        
+        //continue here: 🏀
+            //put more things into lazy 👈
         
         /**
          * ModalBtn
