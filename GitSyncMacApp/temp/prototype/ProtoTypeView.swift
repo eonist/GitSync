@@ -47,7 +47,7 @@ class ProtoTypeView:WindowView{
        
         let promptBtnAnimator = Easer5<CGPoint>.init(CGPoint.defaults, DefaultEasing.point){ point in
             disableAnim {
-                promptBtn.layer?.position = point
+                self.promptBtn.layer?.position = point
             }
         }
         promptBtnAnimator.value = PromptButton.initial.origin//set initial value
