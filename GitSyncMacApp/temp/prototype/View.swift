@@ -30,6 +30,7 @@ class ProtoTypeView:WindowView{
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
     static var initModalState:AnimState5<CGRect> = .init(Modal.initial)//set initial value
     /*Animation*/
+    
     lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalFrameAnim)
     
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point,self.promptButtonAnim)
