@@ -3,18 +3,13 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    lazy var winRect:CGRect = CGRect(0,0,self.width,self.height)
+    var winRect:CGRect {returnn CGRect(0,0,self.width,self.height)}
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView")
         
         super.resolveSkin()
         //main = self.addSubView(Section(NaN,NaN,self,"main"))
-  
-        
-        //1. circular button,centered
-            //window
-        
         
         
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
