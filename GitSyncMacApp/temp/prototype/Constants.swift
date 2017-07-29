@@ -41,4 +41,5 @@ extension ProtoTypeView {
         static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
     }
     static var initPromptButtonAnimState:AnimState5<CGPoint> {return .init(PromptButton.initial.origin)}//set initial value
+    static var initModalState:AnimState5<CGRect> {return .init(Modal.initial)}//set initial value
 }
