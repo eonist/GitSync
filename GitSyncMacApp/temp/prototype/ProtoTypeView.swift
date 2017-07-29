@@ -71,7 +71,7 @@ class ProtoTypeView:WindowView{
         Swift.print("ProtoTypeView.resolveSkin()")
         StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
         super.resolveSkin()
-  
+        
         let forceTouchHandler = { (_ event:ForceTouchEvent) in
             //Swift.print("event.type: " + "\(event.type)")
             if event.type == ForceTouchEvent.clickDown{
