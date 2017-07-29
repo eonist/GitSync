@@ -11,4 +11,18 @@ extension ProtoTypeView {
             self.promptBtn.layer?.position = point
         }
     }
+    /**
+     * Frame animation for modal
+     */
+    func modalFrameAnim(rect:CGRect){
+        //anim rect here buttonRect to modalRect
+        //Swift.print("rect: " + "\(rect)")
+        disableAnim {
+            StyleModifier.overrideStylePropVal(&self.style, ("width",0), rect.size.w)
+            StyleModifier.overrideStylePropVal(&self.style, ("height",0), rect.size.h)
+            self.modalBtn.skin?.setStyle(self.style)
+            self.modalBtn.layer?.position = rect.origin
+        }
+    }
+
 }
