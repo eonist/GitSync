@@ -9,23 +9,8 @@ import Cocoa
     //USe func instead of var to move handlers into extensions
 class ProtoTypeView:WindowView{
     /*UI*/
-    lazy var modalBtn:Button = {
-        StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.size.w)px;height:\(Modal.initial.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-        let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
-        btn.point = Modal.initial.origin//center button
-        return btn
-    }()
-    lazy var promptBtn:Button = {
-        var css:String = ""
-        css += "Button#prompt{width:\(PromptButton.initial.size.w)px;height:\(PromptButton.initial.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}"
-        css += "Button#prompt:down{fill:grey;}"
-        
-        StyleManager.addStyle(css)
-        
-        let btn = self.addSubView(Button(Modal.initial.w,Modal.initial.h,nil,"prompt"))
-        btn.layer?.position = PromptButton.initial.origin//out of view
-        return btn
-    }()
+    lazy var modalBtn:Button = self.createModal()
+    lazy var promptBtn:Button = self.createPromptButton()
     
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
     static var initModalState:AnimState5<CGRect> = .init(Modal.initial)//set initial value
