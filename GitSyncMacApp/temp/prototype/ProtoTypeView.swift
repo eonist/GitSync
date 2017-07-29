@@ -24,12 +24,6 @@ class ProtoTypeView:WindowView{
             //put more things into lazy 👈
         
         
-        /**
-         * ModalBtn
-         */
-    
-        
-        
         var style:Style = modalBtn.skin!.style! as! Style
     
         let maskFrame:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
@@ -40,8 +34,8 @@ class ProtoTypeView:WindowView{
             disableAnim {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
-                modalBtn.skin?.setStyle(style)
-                modalBtn.layer?.position = rect.origin
+                self.modalBtn.skin?.setStyle(style)
+                self.modalBtn.layer?.position = rect.origin
             }
         }
         modalAnimator.value = Modal.initial
@@ -124,7 +118,7 @@ class ProtoTypeView:WindowView{
                 Swift.print("deepClickUp")
                 if modalStayMode {//modal stay
                     Swift.print("modal stay")
-                    modalBtn.removeHandler()
+                    self.modalBtn.removeHandler()
                     modalAnimator.direct = false
                     var rect = Modal.expanded
                     rect.origin.y -= 30
@@ -164,7 +158,7 @@ class ProtoTypeView:WindowView{
             }
             
             disableAnim {
-                modalBtn.skin?.setStyle(style)
+                self.modalBtn.skin?.setStyle(style)
             }
         }
         
@@ -175,18 +169,17 @@ class ProtoTypeView:WindowView{
             Swift.print("promptBtn.upInside")
             modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
             promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
-            modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
+            self.modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
             modalStayMode = false
         }
         
         
         //1. Add some design elements
-            //create a concept in illustrator ✅
             //create other concepts in illustrator
             //get device templates
-            //svg? 👈
+            //svg?
             //setup proper TestView with class scoped var's etc 👈
-                //use iphone7 screen ratio and window size 👈 (750 x 1334) (375 x 667) (200x355) ✅
+                //use iphone7 screen ratio and window size   ✅
                 //Make design for demo2. stack of cards you can shuffle left and right etc (AppleWatch)
                 //make design for demo3. basically just swipe left right cards and click to go to fullscreen (AppleTV)
     }
