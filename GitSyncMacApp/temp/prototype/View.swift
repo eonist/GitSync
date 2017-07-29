@@ -7,8 +7,8 @@ class ProtoTypeView:WindowView{
     lazy var modalBtn:Button = self.createModal()
     lazy var promptBtn:Button = self.createPromptButton()
     /*Animation*/
-    lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point,self.promptButtonAnim)
-    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalFrameAnim)
+    lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(AnimState.PromptButton.initial, DefaultEasing.point,self.promptButtonAnim)
+    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(AnimState.Modal.initial, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalFrameAnim)
     /*Values*/
     var modalStayMode:Bool = false/*this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
     var leftMouseDraggedMonitor:Any?/*Handler for dragging modal*/

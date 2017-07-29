@@ -40,6 +40,12 @@ extension ProtoTypeView {
         static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
         static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
     }
-    static var initPromptButtonAnimState:AnimState5<CGPoint> {return .init(PromptButton.initial.origin)}//set initial value
-    static var initModalState:AnimState5<CGRect> {return .init(Modal.initial)}//set initial value
+    enum AnimState{
+        enum PromptButton{
+            static var initial:AnimState5<CGPoint> {return .init(ProtoTypeView.PromptButton.initial.origin)}//set initial value
+        }
+        enum Modal{
+            static var initial:AnimState5<CGRect> {return .init(ProtoTypeView.Modal.initial)}//set initial value
+        }
+    }
 }
