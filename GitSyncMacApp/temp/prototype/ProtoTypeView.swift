@@ -9,7 +9,7 @@ class ProtoTypeView:WindowView{
         _ = self.addSubView(Section(self.winRect.w,self.winRect.h,nil,"bg"))
     }
     enum ModalRect {
-        case initial:CGSize = CGSize()
+        static let initial:CGSize = CGSize()
     }
     
     override func resolveSkin(){
