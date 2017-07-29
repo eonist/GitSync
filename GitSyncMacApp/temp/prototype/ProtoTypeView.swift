@@ -156,6 +156,19 @@ class ProtoTypeView:WindowView{
                 // I think you can extract the Constrainer for the animator into a static class instead of extending 👈
     }
     /**
+     * Create the UI
+     */
+    func createUI(){
+        _ = modalBtn
+        _ = promptBtn
+    }
+    /**
+     *
+     */
+    func addEventHandlers(){
+        
+    }
+    /**
      *
      */
     func promptButtonClickHandler(){
