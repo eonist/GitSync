@@ -39,17 +39,18 @@ class ProtoTypeView:WindowView{
             self.modalBtn.layer?.position = rect.origin
         }
     }
+    lazy var promptBtnAnimator = Easer5<CGPoint>.init(CGPoint.defaults, DefaultEasing.point){ point in
+        disableAnim {
+            self.promptBtn.layer?.position = point
+        }
+    }
+
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
         
         super.resolveSkin()
         _ = background//inits the bg section
        
-        let promptBtnAnimator = Easer5<CGPoint>.init(CGPoint.defaults, DefaultEasing.point){ point in
-            disableAnim {
-                self.promptBtn.layer?.position = point
-            }
-        }
         promptBtnAnimator.value = PromptButton.initial.origin//set initial value
        
         /**
