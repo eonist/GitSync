@@ -20,10 +20,6 @@ class ProtoTypeView:WindowView{
         super.resolveSkin()
         _ = section
         
-        //continue here: 🏀
-            //put more things into lazy 👈
-        
-        
         var style:Style = modalBtn.skin!.style! as! Style
     
         let maskFrame:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
@@ -174,12 +170,12 @@ class ProtoTypeView:WindowView{
         }
         
         
-        //1. Add some design elements
+        //1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
             //create other concepts in illustrator
             //get device templates
             //svg?
             //setup proper TestView with class scoped var's etc 👈
-                //use iphone7 screen ratio and window size   ✅
+                //use iPhone7 screen ratio and window size   ✅
                 //Make design for demo2. stack of cards you can shuffle left and right etc (AppleWatch)
                 //make design for demo3. basically just swipe left right cards and click to go to fullscreen (AppleTV)
     }
