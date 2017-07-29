@@ -30,19 +30,10 @@ class ProtoTypeView:WindowView{
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
     static var initModalState:AnimState5<CGRect> = .init(Modal.initial)//set initial value
     /*Animation*/
-    lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
-        //anim rect here buttonRect to modalRect
-        //Swift.print("rect: " + "\(rect)")
-        disableAnim {
-            StyleModifier.overrideStylePropVal(&self.style, ("width",0), rect.size.w)
-            StyleModifier.overrideStylePropVal(&self.style, ("height",0), rect.size.h)
-            self.modalBtn.skin?.setStyle(self.style)
-            self.modalBtn.layer?.position = rect.origin
-        }
-    }
-
+    lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalFrameAnim)
+    
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point,self.promptButtonAnim)
-    var modalStayMode:Bool = false//this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold
+    var modalStayMode:Bool = false/*this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
     var leftMouseDraggedMonitor:Any?
     var onMouseDownMouseY:CGFloat = CGFloat.nan
     
