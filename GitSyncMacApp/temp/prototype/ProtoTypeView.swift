@@ -5,7 +5,7 @@ import Cocoa
 class ProtoTypeView:WindowView{
     lazy var section = {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
+        _ = self.addSubView(Section(200,200,self,"bg"))
     }
     
     
