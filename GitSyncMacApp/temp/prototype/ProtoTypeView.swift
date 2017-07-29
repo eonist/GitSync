@@ -14,10 +14,18 @@ class ProtoTypeView:WindowView{
         return btn
     }()
     
-    enum Constraint{
-        
-        static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
-        static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
+    lazy var style:Style = self.modalBtn.skin!.style! as! Style
+    
+    
+    lazy var modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
+        //anim rect here buttonRect to modalRect
+        //Swift.print("rect: " + "\(rect)")
+        disableAnim {
+            StyleModifier.overrideStylePropVal(&self.style, ("width",0), rect.size.w)
+            StyleModifier.overrideStylePropVal(&self.style, ("height",0), rect.size.h)
+            self.modalBtn.skin?.setStyle(self.style)
+            self.modalBtn.layer?.position = rect.origin
+        }
     }
     
     override func resolveSkin(){
@@ -26,19 +34,10 @@ class ProtoTypeView:WindowView{
         super.resolveSkin()
         _ = section
         
-        var style:Style = modalBtn.skin!.style! as! Style
+        
     
         
-        let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
-            //anim rect here buttonRect to modalRect
-            //Swift.print("rect: " + "\(rect)")
-            disableAnim {
-                StyleModifier.overrideStylePropVal(&style, ("width",0), rect.size.w)
-                StyleModifier.overrideStylePropVal(&style, ("height",0), rect.size.h)
-                self.modalBtn.skin?.setStyle(style)
-                self.modalBtn.layer?.position = rect.origin
-            }
-        }
+        
         modalAnimator.value = Modal.initial
         
         /**

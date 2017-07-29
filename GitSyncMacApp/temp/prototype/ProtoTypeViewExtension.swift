@@ -3,7 +3,6 @@ import Foundation
 @testable import Element
 
 extension ProtoTypeView {
-    
     enum WinRect {
         static let size:CGSize = CGSize(200,355)//IPhone 7: (750 x 1334) (375 x 667) ≈ (200x355)
         static let point:CGPoint = CGPoint(0,0)
@@ -25,7 +24,6 @@ extension ProtoTypeView {
             return CGRect(p,size)
         }()
     }
-    
     enum PromptButton {
         static let initial:CGRect = {
             let size:CGSize = CGSize(Modal.expanded.size.w,45)
@@ -35,6 +33,10 @@ extension ProtoTypeView {
         static let expanded:CGPoint = {//the limit of where promptButton can go vertically
             return initial.origin - CGPoint(0,initial.height + 20/*<--bottom margin*/)
         }()
+    }
+    enum Constraint{
+        static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
+        static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
     }
     
 }
