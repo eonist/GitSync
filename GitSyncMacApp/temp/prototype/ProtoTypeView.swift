@@ -3,20 +3,20 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    var winRect:CGRect {return CGRect(0,0,self.width,self.height)}
-    
+    var winRect:CGRect  {return CGRect(0,0,self.width,self.height)}
+    lazy var section = {
+        StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
+        _ = self.addSubView(Section(self.winRect.w,self.winRect.h,nil,"bg"))
+    }
+    enum ModalRect {
+        case initial:CGSize = CGSize()
+    }
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView")
         
         super.resolveSkin()
-        //main = self.addSubView(Section(NaN,NaN,self,"main"))
-        
-        
-        StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = self.addSubView(Section(winRect.w,winRect.h,nil,"bg"))
-        
-        //let initFillet:CGFloat = 20
+        _ = section
         
         let initModalRect:CGRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
