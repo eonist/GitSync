@@ -20,6 +20,7 @@ extension ProtoTypeView {
         disableAnim {
             StyleModifier.overrideStylePropVal(&self.style, ("width",0), rect.size.w)
             StyleModifier.overrideStylePropVal(&self.style, ("height",0), rect.size.h)
+            StyleModifier.overrideStylePropVal(&self.style, ("corner-radius",0), rect.size.w/2)
             self.modalBtn.skin?.setStyle(self.style)
             self.modalBtn.layer?.position = rect.origin
         }
