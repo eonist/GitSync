@@ -1,6 +1,10 @@
 import Cocoa
 @testable import Utils
 @testable import Element
+//1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
+//make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
+// I think you can extract the Constrainer for the animator into a static class instead of extending 👈
+//svg?
 
 class ProtoTypeView:WindowView{
     /*UI*/
@@ -66,22 +70,12 @@ class ProtoTypeView:WindowView{
                 self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
             }
     }
-    
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
         StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
         super.resolveSkin()
         createUI()
         addEventHandlers()
-        //1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
-            //create other concepts in illustrator
-            //get device templates
-            //svg?
-            //setup proper TestView with class scoped var's etc 👈
-                //Make design for demo2. stack of cards you can shuffle left and right etc (AppleWatch)
-                //make design for demo3. basically just swipe left right cards and click to go to fullscreen (AppleTV)
-                //make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
-                // I think you can extract the Constrainer for the animator into a static class instead of extending 👈
     }
     /**
      * Create the UI
