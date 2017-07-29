@@ -44,7 +44,7 @@ class ProtoTypeView:WindowView{
 
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
-        StyleManager.addStyle("ProtoTypeView{fill:green;}")//padding-top:24px;
+        StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
         super.resolveSkin()
         
        
