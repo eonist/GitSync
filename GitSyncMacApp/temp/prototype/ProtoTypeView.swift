@@ -102,15 +102,15 @@ class ProtoTypeView:WindowView{
     func addEventHandlers(){
         modalBtn.addHandler(forceTouchHandler)
         
-        promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in /*Handler for promptBtn*/
-            Swift.print("promptBtn.upInside")
-            self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
-            self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
-            self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
-            self.modalStayMode = false//release modalStayMode
-        }
+        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonEventHandler)
     }
-    
+    lazy var promptButtonEventHandler = { (_ event:ButtonEvent) in /*Handler for promptBtn*/
+        Swift.print("promptBtn.upInside")
+        self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
+        self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
+        self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
+        self.modalStayMode = false//release modalStayMode
+    }
     lazy var forceTouchHandler = { (_ event:ForceTouchEvent) in
         //Swift.print("event.type: " + "\(event.type)")
         if event.type == ForceTouchEvent.clickDown{
