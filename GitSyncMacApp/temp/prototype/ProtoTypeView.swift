@@ -136,15 +136,14 @@ class ProtoTypeView:WindowView{
         
         modalBtn.addHandler(forceTouchHandler)
         
-        /*handler for promptBtn*/
+        /*Handler for promptBtn*/
         promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in
             Swift.print("promptBtn.upInside")
             self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
             self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
-            self.modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
+            self.modalBtn.addHandler(forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
             self.modalStayMode = false//release modalStayMode
         }
-        
         
         //1. Add some design elements (the goal today is to refactor, then add the design to the anim and make a gif with iphone template, and launch Animator, ElementiOS and update ElementMacOS, and write article aout prototyping with swift and playground)
             //create other concepts in illustrator
