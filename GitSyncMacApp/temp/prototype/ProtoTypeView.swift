@@ -13,20 +13,15 @@ class ProtoTypeView:WindowView{
         
         super.resolveSkin()
         //main = self.addSubView(Section(NaN,NaN,self,"main"))
-        
-        
-        
-        
+  
         
         //1. circular button,centered
             //window
-        let winRect = CGRect(0,0,200,300)
-        window.size = winRect.size
-        window.contentView = InteractiveView2()
-        window.title = ""
+        let winRect = CGRect(0,0,width,height)
+        window?.title = ""
         
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
-        _ = window.contentView?.addSubView(Section(window.size.w,window.size.h,nil,"bg"))
+        _ = window?.contentView?.addSubView(Section(winRect.w,winRect.h,nil,"bg"))
         
         //let initFillet:CGFloat = 20
         
@@ -54,9 +49,9 @@ class ProtoTypeView:WindowView{
     
         let modalBtn:Button = {//button
             StyleManager.addStyle("Button#modalBtn{width:\(initModalRect.size.w)px;height:\(initModalRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"modalBtn"))
-            btn.point = initModalRect.origin//center button
-            return btn
+            let btn = window?.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"modalBtn"))
+            btn?.point = initModalRect.origin//center button
+            return btn!
         }()
         
         var style:Style = modalBtn.skin!.style! as! Style
