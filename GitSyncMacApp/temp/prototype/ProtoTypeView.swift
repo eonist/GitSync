@@ -14,6 +14,12 @@ class ProtoTypeView:WindowView{
         return btn
     }()
     
+    enum Constraint{
+        
+        static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
+        static let content:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
+    }
+    
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
         
@@ -22,10 +28,8 @@ class ProtoTypeView:WindowView{
         
         var style:Style = modalBtn.skin!.style! as! Style
     
-        let maskFrame:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
-        let contentFrame:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
         
-        let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
+        let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,content,mask) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             //Swift.print("rect: " + "\(rect)")
             disableAnim {
