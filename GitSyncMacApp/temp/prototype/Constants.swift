@@ -10,10 +10,11 @@ extension ProtoTypeView {
         static let point:CGPoint = CGPoint(0,0)
     }
     enum Modal {
-        static let initial:CGRect = {//init modal btn size
+        static let initial:RoundedRect = {//init modal btn size
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
+            let fillet
+            return RoundedRect(p,size,)
         }()
         static let click:CGRect = {//when modalBtn is pressed down
             let size:CGSize = Modal.initial.size * 0.75
@@ -45,7 +46,7 @@ extension ProtoTypeView {
             static var initial:AnimState5<CGPoint> {return .init(ProtoTypeView.PromptButton.initial.origin)}//set initial value
         }
         enum Modal{
-            static var initial:AnimState5<CGRect> {return .init(ProtoTypeView.Modal.initial)}//set initial value
+            static var initial:AnimState5<RoundedRect> {return .init(ProtoTypeView.Modal.initial)}//set initial value
         }
     }
 }
