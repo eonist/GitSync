@@ -49,9 +49,9 @@ class ProtoTypeView:WindowView{
     
         let modalBtn:Button = {//button
             StyleManager.addStyle("Button#modalBtn{width:\(initModalRect.size.w)px;height:\(initModalRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
-            let btn = window?.contentView!.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"modalBtn"))
-            btn?.point = initModalRect.origin//center button
-            return btn!
+            let btn = self.addSubView(ForceTouchButton(initModalRect.size.w,initModalRect.size.h,nil,"modalBtn"))
+            btn.point = initModalRect.origin//center button
+            return btn
         }()
         
         var style:Style = modalBtn.skin!.style! as! Style
@@ -89,7 +89,7 @@ class ProtoTypeView:WindowView{
             css += "Button#prompt:down{fill:grey;}"
             StyleManager.addStyle(css)
             
-            let btn = window.contentView!.addSubView(Button(initModalRect.size.w,initModalRect.size.h,nil,"prompt"))
+            let btn = self.addSubView(Button(initModalRect.size.w,initModalRect.size.h,nil,"prompt"))
             btn.layer?.position = initPromptBtnRect.origin//out of view
             return btn
         }()
@@ -123,9 +123,9 @@ class ProtoTypeView:WindowView{
             }else if event.type == ForceTouchEvent.deepClickDown{
                 Swift.print("deepClickDown")
                 modalAnimator.setTargetValue(modalRect).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
-                onMouseDownMouseY  = self.window.contentView!.localPos().y
+                onMouseDownMouseY  = self.window!.contentView!.localPos().y
                 NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged){_ in
-                    let relativePos:CGFloat =  onMouseDownMouseY - self.window.contentView!.localPos().y
+                    let relativePos:CGFloat =  onMouseDownMouseY - self.window!.contentView!.localPos().y
                     //Swift.print("relativePos: " + "\(relativePos)")
                     var newRect = modalRect
                     newRect.y -= relativePos
