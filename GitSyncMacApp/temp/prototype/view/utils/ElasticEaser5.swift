@@ -4,7 +4,7 @@ import Foundation
  * NOTE: Another name for this could be: RubberBand or ConstrainedEaser
  * TODO: ⚠️️ maskFrame.y must be 0 . until you add support for it to be a value > 0 or < 0
  */
-class ElasticEaser5:Easer5<CGRect> {
+class ElasticEaser5:Easer5<RoundedRect> {
     var direct:Bool = false
     typealias Frame = (min:CGFloat,len:CGFloat)//TODO:⚠️️ rename to  boundries
     var maskFrame:Frame/*Represents the visible part of the content*/
