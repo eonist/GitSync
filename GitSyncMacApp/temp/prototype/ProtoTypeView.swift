@@ -14,7 +14,7 @@ class ProtoTypeView:WindowView{
         return btn
     }()
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
-    lazy var modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
+    lazy var modalAnimator = ElasticEaser5(AnimState5<CGRect>.init(value:Modal.initial,targetValue:CGRect()), DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
         //anim rect here buttonRect to modalRect
         //Swift.print("rect: " + "\(rect)")
         disableAnim {
@@ -29,7 +29,7 @@ class ProtoTypeView:WindowView{
         
         super.resolveSkin()
         _ = section
-        modalAnimator.value = Modal.initial
+        //modalAnimator.value =
         
         /**
          * PromptBtn
