@@ -31,7 +31,7 @@ class ProtoTypeView:WindowView{
     static var initModalState:AnimState5<CGRect> = .init(Modal.initial)//set initial value
     /*Animation*/
     
-    lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalFrameAnim)
+    lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask,self.modalAnim)
     
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point,self.promptButtonAnim)
     var modalStayMode:Bool = false/*this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/

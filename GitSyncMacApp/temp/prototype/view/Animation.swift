@@ -14,7 +14,7 @@ extension ProtoTypeView {
     /**
      * Frame animation for modal
      */
-    func modalFrameAnim(rect:CGRect){
+    func modalAnim(rect:CGRect){
         //anim rect here buttonRect to modalRect
         //Swift.print("rect: " + "\(rect)")
         disableAnim {
