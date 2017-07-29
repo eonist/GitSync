@@ -179,6 +179,7 @@ class ProtoTypeView:WindowView{
                 //Make design for demo2. stack of cards you can shuffle left and right etc (AppleWatch)
                 //make design for demo3. basically just swipe left right cards and click to go to fullscreen (AppleTV)
                 //make Element extension that implements Animatable. Which lets you change: size,pos,color ⚠️️
+                // I think you can extract the Constrainer for the animator into a static class instead of extending 👈
     }
     
     
