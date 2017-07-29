@@ -29,7 +29,6 @@ class ProtoTypeView:WindowView{
         _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
     }
     
-    
     override func resolveSkin(){
         Swift.print("ProtoTypeView")
         
@@ -56,7 +55,7 @@ class ProtoTypeView:WindowView{
         var style:Style = modalBtn.skin!.style! as! Style
     
         let maskFrame:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
-        let contentFrame:ElasticEaser5.Frame = (modalRect.y,modalRect.h)
+        let contentFrame:ElasticEaser5.Frame = (Modal.expanded.y,Modal.expanded.h)
         let modalAnimator = ElasticEaser5(CGRect.defaults, DefaultEasing.rect,contentFrame,maskFrame) { (rect:CGRect) in
             //anim rect here buttonRect to modalRect
             //Swift.print("rect: " + "\(rect)")
@@ -74,7 +73,7 @@ class ProtoTypeView:WindowView{
          */
         
         let initPromptBtnRect:CGRect = {
-            let size:CGSize = CGSize(modalRect.size.w,45)
+            let size:CGSize = CGSize(Modal.expanded.size.w,45)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.bottomCenter, Alignment.topCenter)
             return CGRect(p,size)
         }()
