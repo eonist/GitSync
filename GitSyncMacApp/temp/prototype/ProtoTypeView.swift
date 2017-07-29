@@ -48,7 +48,7 @@ class ProtoTypeView:WindowView{
         super.resolveSkin()
         
         
-        
+        var modalStayMode:Bool = false//you can probably remove this and replace it with boundry check etc
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
         var onMouseDownMouseY:CGFloat = CGFloat.nan
@@ -70,7 +70,7 @@ class ProtoTypeView:WindowView{
                     self.modalAnimator.direct = true
                     self.modalAnimator.setTargetValue(newRect).start()
                     if self.modalAnimator.value.y < 30  {//modal in stayMode
-                        
+                        modalStayMode = true
                         Swift.print("reveal buttons: \(self.modalAnimator.value.y)")
                         var p = self.modalAnimator.value.bottomLeft
                         p.y += 15//add some margin
@@ -78,7 +78,7 @@ class ProtoTypeView:WindowView{
                         //
                         self.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
                     }else if self.modalAnimator.value.y > 30 {//modal in leaveMode
-                        
+                        modalStayMode = false
                         Swift.print("anim buttons out")
                         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
                     }
