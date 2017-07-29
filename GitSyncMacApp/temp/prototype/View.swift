@@ -37,3 +37,9 @@ class ProtoTypeView:WindowView{
         promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonHandler)
     }
 }
+
+//Continue here 🏀
+    //make the modalButton round at init 👈
+    //animate the fillet
+    //move the constraineter into a util class
+    //make extension for Element to manipulate size and color more easily
