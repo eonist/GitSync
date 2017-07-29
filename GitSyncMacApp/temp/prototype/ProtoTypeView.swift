@@ -3,7 +3,8 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    var winRect:CGRect {returnn CGRect(0,0,self.width,self.height)}
+    var winRect:CGRect {return CGRect(0,0,self.width,self.height)}
+    
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView")
