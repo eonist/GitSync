@@ -27,9 +27,9 @@ class ProtoTypeView:WindowView{
     }()
     
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
-    static var initState:AnimState5<CGRect> = .init(Modal.initial)
+    static var initModalState:AnimState5<CGRect> = .init(Modal.initial)//set initial value
     //Animation
-    lazy var modalAnimator = ElasticEaser5(initState, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
+    lazy var modalAnimator = ElasticEaser5(initModalState, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
         //anim rect here buttonRect to modalRect
         //Swift.print("rect: " + "\(rect)")
         disableAnim {
@@ -39,7 +39,8 @@ class ProtoTypeView:WindowView{
             self.modalBtn.layer?.position = rect.origin
         }
     }
-    lazy var promptBtnAnimator = Easer5<CGPoint>.init(CGPoint.defaults, DefaultEasing.point){ point in
+    static var initPromptButtonAnimState:AnimState5<CGPoint> = .init(PromptButton.initial.origin)//set initial value
+    lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(initPromptButtonAnimState, DefaultEasing.point){ point in
         disableAnim {
             self.promptBtn.layer?.position = point
         }
@@ -51,7 +52,7 @@ class ProtoTypeView:WindowView{
         super.resolveSkin()
         _ = background//inits the bg section
        
-        promptBtnAnimator.value = PromptButton.initial.origin//set initial value
+        //promptBtnAnimator.value =
        
         /**
          * Event handling:
@@ -90,11 +91,11 @@ class ProtoTypeView:WindowView{
                         p.y += 15//add some margin
                         p.y = p.y.max(PromptButton.expanded.y)
                         //
-                        promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
+                        self.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
                     }else if self.modalAnimator.value.y > 30 {//modal in leaveMode
                         modalStayMode = false
                         Swift.print("anim buttons out")
-                        promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
+                        self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
                     }
                 }
             }else if event.type == ForceTouchEvent.clickUp {
@@ -118,7 +119,7 @@ class ProtoTypeView:WindowView{
                     self.modalAnimator.setTargetValue(Modal.initial).start()
 
                     /*promptBtn*/
-                    promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
+                    self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
                 }
                 NSEvent.removeMonitor(&leftMouseDraggedMonitor)
             }
@@ -157,7 +158,7 @@ class ProtoTypeView:WindowView{
         promptBtn.addHandler(type:ButtonEvent.upInside) { (event:ButtonEvent) in
             Swift.print("promptBtn.upInside")
             self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
-            promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
+            self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
             self.modalBtn.addHandler(forceTouchHandler)//reAdded forcetoucheventhandler, ideally add this handler on outro complete
             modalStayMode = false
         }
