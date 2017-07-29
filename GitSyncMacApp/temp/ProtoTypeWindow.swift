@@ -11,8 +11,8 @@ class ProtoTypeWindow:Window {
         self.maxSize = CGSize(600,800)
     }
     override func resolveSkin() {
-        StyleTestWin.view = StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
-        self.contentView = StyleTestWin.view!
+        ProtoTypeView.view = ProtoTypeView(frame.size.width,frame.size.height)/*⬅️️🚪*/
+        self.contentView = ProtoTypeView.view!
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
