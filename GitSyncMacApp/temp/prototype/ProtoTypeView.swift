@@ -3,34 +3,14 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    enum WinRect {
-        static let size:CGSize = CGSize(200,355)
-        static let point:CGPoint = CGPoint(0,0)
-    }
-    enum Modal {
-        static let initial:CGRect = {//init modal btn size
-            let size:CGSize = CGSize(100,100)
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
-        }()
-        static let click:CGRect = {//when modalBtn is pressed down
-            let size:CGSize = Modal.initial.size * 0.75
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
-        }()
-        static let expanded:CGRect = {//when modal is in expanded mode
-            let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
-            return CGRect(p,size)
-        }()
-    }
     lazy var section = {
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
         _ = self.addSubView(Section(WinRect.size.w,WinRect.size.h,nil,"bg"))
     }
     
+    
     override func resolveSkin(){
-        Swift.print("ProtoTypeView")
+        Swift.print("ProtoTypeView.resolveSkin()")
         
         super.resolveSkin()
         _ = section
@@ -79,6 +59,7 @@ class ProtoTypeView:WindowView{
             var css:String = ""
             css += "Button#prompt{width:\(initPromptBtnRect.size.w)px;height:\(initPromptBtnRect.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}"
             css += "Button#prompt:down{fill:grey;}"
+            
             StyleManager.addStyle(css)
             
             let btn = self.addSubView(Button(Modal.initial.w,Modal.initial.h,nil,"prompt"))
