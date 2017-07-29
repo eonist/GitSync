@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
-    lazy var section:Section = {//background
+    lazy var bgSection:Section = {//background
         StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
         return self.addSubView(Section(WinRect.size.w,WinRect.size.h,self,"bg"))
     }()
@@ -14,7 +14,8 @@ class ProtoTypeView:WindowView{
         return btn
     }()
     lazy var style:Style = self.modalBtn.skin!.style! as! Style
-    lazy var modalAnimator = ElasticEaser5(AnimState5<CGRect>.init(value:Modal.initial,targetValue:CGRect()), DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
+    static var initState:AnimState5<CGRect> = .init(Modal.initial)
+    lazy var modalAnimator = ElasticEaser5(initState, DefaultEasing.rect,Constraint.content,Constraint.mask) { (rect:CGRect) in
         //anim rect here buttonRect to modalRect
         //Swift.print("rect: " + "\(rect)")
         disableAnim {
@@ -28,8 +29,8 @@ class ProtoTypeView:WindowView{
         Swift.print("ProtoTypeView.resolveSkin()")
         
         super.resolveSkin()
-        _ = section
-        //modalAnimator.value =
+        _ = bgSection//inits the bg section
+        
         
         /**
          * PromptBtn
