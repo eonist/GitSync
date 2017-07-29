@@ -48,17 +48,9 @@ class ProtoTypeView:WindowView{
 
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
-        
         super.resolveSkin()
         _ = background//inits the bg section
        
-        //promptBtnAnimator.value =
-       
-        /**
-         * Event handling:
-         */
-        
-//      var forceTouchMode:Int = 0//which level of forceTouch modal is currently in
         var modalStayMode:Bool = false//you can probably remove this and replace it with boundry check etc
         var leftMouseDraggedMonitor:Any?
         //var leftDraggedHandler:NSEventHandler?
