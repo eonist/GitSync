@@ -57,25 +57,25 @@ extension ProtoTypeView {
             Swift.print("stage: " + "\(stage)")
             if stage == 0 {
                 if !self.modalStayMode {
-                    disableAnim {
+//                    disableAnim {
                         modalBtn.setAppearance(NSColor.blue)
-                    }
+//                    }
                     //StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
                 }
             }else if stage == 1{
                 if !self.modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
-                    disableAnim {
+//                    disableAnim {
                         modalBtn.setAppearance(NSColor.red)
-                    }
+//                    }
                     Swift.print("override to red")
                 }
                 
             }else /*if stage == 2*/{
                 if !self.modalStayMode {
-                    disableAnim {
+//                    disableAnim {
                         modalBtn.setAppearance(NSColor.green)
-                    }
+//                    }
                     Swift.print("override to green")
                 }
                 
