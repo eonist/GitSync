@@ -30,6 +30,7 @@ extension ProtoTypeView{
                 css += "clear:none;"
                 css += "float:none;"
                 css += "}"
+                /*TextButton down*/
                 css += "Button#prompt:down{"
                 css += "fill:\(Colors.PromptButton.Background.down.hexString);"
                 css += "}"
@@ -47,9 +48,9 @@ extension ProtoTypeView{
                 css += "color:#\(Colors.PromptButton.Text.idle.hexString);"
                 css += "selectable:false;"
                 css += "}"
-                /*TextButton Text down*/
+                /*TextButton down Text*/
                 css += "TextButton:down Text{"
-                css += "color:white;"
+                css += "color:#\(Colors.PromptButton.Text.down.hexString);"
                 css += "}"
                 return css
             }()
