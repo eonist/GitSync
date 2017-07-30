@@ -30,7 +30,7 @@ extension ModalButton{
     private func clickUp(){
         Swift.print("clickUp")
         if !ProtoTypeView.shared.modalStayMode {//modal stay
-            modalAnimator.setTargetValue(Modal.initial(self.index)).start()
+            modalAnimator.setTargetValue(Modal.initial(self.index)).start()//transition Modal from expanded to initial, if it was in expanded
         }
     }
     private func deepClickDown(){
@@ -73,7 +73,6 @@ extension ModalButton{
                 .forEach{
                     $0.setAppearance(ProtoTypeView.Colors.Modal.UnFocused.background)
                 }
-            
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.expanded(self.index))
         }
