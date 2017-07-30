@@ -17,7 +17,6 @@ extension ProtoTypeView {
      * Animation states
      */
     enum AnimState{
-        
         enum PromptButton{
             static var initial:AnimState5<CGPoint> {return .init(ProtoTypeView.PromptButton.initial.origin)}//set initial value
         }
