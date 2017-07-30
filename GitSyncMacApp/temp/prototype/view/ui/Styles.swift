@@ -25,13 +25,13 @@ extension ProtoTypeView{
                 css += "Button#prompt{"
                 css += "width:\(ProtoTypeView.PromptButton.initial.size.w)px;"
                 css += "height:\(ProtoTypeView.PromptButton.initial.size.h)px;"
-                css += "fill:purple;"
+                css += "fill:\(ProtoTypeView.PromptButton.Colors.Background.idle.hexString);"
                 css += "corner-radius:20px;"
                 css += "clear:none;"
                 css += "float:none;"
                 css += "}"
                 css += "Button#prompt:down{"
-                css += "fill:\();"
+                css += "fill:\(ProtoTypeView.PromptButton.Colors.Background.down.hexString);"
                 css += "}"
                 return css
             }()

@@ -15,3 +15,7 @@ extension ProtoTypeView {
         self.modalStayMode = false//release modalStayMode
     }
 }
+
+
+//COntinue here:
+    //Create Colors enum
