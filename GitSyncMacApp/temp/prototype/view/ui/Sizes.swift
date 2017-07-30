@@ -24,8 +24,9 @@ extension ProtoTypeView {
         static let verticalSpace:CGFloat = {
             return 71//71
         }()
+        static let verticalSpaces:[CGFloat] = [0,verticalSpace,WinRect.size.h/2,(WinRect.size.h/2) + verticalSpace]
         static func position(_ i:Int, _ size:CGSize) -> CGPoint {
-            let p = CGPoint(WinRect.size.w/2,(Grid.verticalSpace * i).rounded())
+            let p = CGPoint(WinRect.size.w/2,(verticalSpaces[i]).rounded())
             return p - CGPoint(size.w/2,size.h/2)
         }
     }
