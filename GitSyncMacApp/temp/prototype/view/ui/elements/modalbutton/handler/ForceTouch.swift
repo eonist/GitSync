@@ -85,14 +85,15 @@ extension ModalButton{
         ElementParser.children(ProtoTypeView.shared, ModalButton.self)
             .filter {return $0 !== self}
             .forEach{ (button:ModalButton) in
-                let color:NSColor = {
+                let color:(background:NSColor,forground:NSColor) = {
                     switch focusState{
-                        case .focused: return ProtoTypeView.Colors.Modal.initial(button.index)
-                        case .unFocused: return ProtoTypeView.Colors.Modal.initial(button.index).alpha(0.2)
-                        case .hidden: return NSColor.white.alpha(0)
+                        case .focused: return (ProtoTypeView.Colors.Modal.initial(button.index),NSColor.white.alpha(1))
+                        case .unFocused: return (ProtoTypeView.Colors.Modal.initial(button.index).alpha(0.2),NSColor.white.alpha(1))
+                        case .hidden: return (NSColor.white.alpha(0),NSColor.white.alpha(0))
                     }
                 }()
-                button.setAppearance(color)
+                button.setAppearance(color.background,0)
+                button.setAppearance(color.forground,1)
         }
     }
 }
