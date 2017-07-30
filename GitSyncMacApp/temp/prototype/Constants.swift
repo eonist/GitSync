@@ -10,6 +10,7 @@ extension ProtoTypeView {
         static let point:CGPoint = CGPoint(0,0)
     }
     enum Modal {
+        static let svgSize:CGSize = CGSize(50,50)//the graphic
         static let initial:RoundedRect/*CGRect*/ = {//init modal btn size
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
