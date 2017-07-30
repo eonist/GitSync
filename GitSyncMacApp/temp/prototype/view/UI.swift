@@ -12,10 +12,11 @@ extension ProtoTypeView {
         var css:String = ""
         css += "Button#modalBtn{"
         css += "fill:blue,~/Desktop/ElCapitan/svg/question.svg red;"//fill:blue;
-        css += "width:\(Modal.initial.w)px;"
-        css += "height:\(Modal.initial.h)px;"
+        css += "width:\(Modal.initial.w)px,50px;"
+        css += "height:\(Modal.initial.h)px,50px;"
         css += "corner-radius:\(Modal.initial.fillet)px;"
-        css += "clear:none;float:none;"
+        css += "clear:none;"
+        css += "float:none;"
         css += "}"
         StyleManager.addStyle(css)
         let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
