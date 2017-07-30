@@ -62,11 +62,11 @@ extension ProtoTypeView {
         let stage:Int = event.stage
         //Swift.print("stage: " + "\(stage)")
         if stage == 0 && !self.modalStayMode{
-            modalBtn.setAppearance(NSColor.blue)
+            modalBtn.setAppearance(Colors.Modal.initial)
         }else if stage == 1 && !self.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
-            modalBtn.setAppearance("#555555".nsColor)
+            modalBtn.setAppearance(Colors.Modal.click)
         }else if stage == 2 && !self.modalStayMode{
-            modalBtn.setAppearance(NSColor.green)
+            modalBtn.setAppearance(Colors.Modal.expanded)
         }
     }
 }
