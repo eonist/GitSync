@@ -54,7 +54,7 @@ extension ProtoTypeView{
                 css += "backgroundColor:yellow;"
                 css += "border:false;"
                 css += "align:center;"
-                css += "color:#\(Colors.PromptButton.Text.idle.hexString);"
+                css += "color:blue;"//#\(Colors.PromptButton.Text.idle.hexString)
                 css += "selectable:false;"
                 css += "multiline:false;"
                 css += "}"
