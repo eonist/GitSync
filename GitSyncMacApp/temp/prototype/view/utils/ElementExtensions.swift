@@ -18,6 +18,7 @@ extension ElementKind {
         self.layer?.position = point
     }
     func setAppearance(_ style:inout Style, _ fill:NSColor){
+        var style:Style = self.skin!.style as! Style
         StyleModifier.overrideStylePropVal(&style, ("fill",0), fill)
         self.skin?.setStyle(style)
     }
