@@ -66,9 +66,10 @@ extension ModalButton{
         //Swift.print("stage: " + "\(stage)")
         if stage == 0 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.initial(self.index))
+            toggleFocusForOtherButtons(true)
         }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
             self.setAppearance(ProtoTypeView.Colors.Modal.click)
-            deFocusOtherButtons()
+            toggleFocusForOtherButtons(false)
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.expanded(self.index))
         }
@@ -79,23 +80,15 @@ extension ModalButton{
     private func toggleFocusForOtherButtons( _ isFocused:Bool){
         ElementParser.children(ProtoTypeView.shared, ModalButton.self)
             .filter {return $0 !== self}
-            .forEach{
+            .forEach{ (button:ModalButton) in
                 let color:NSColor = {
                     if isFocused {
                         return ProtoTypeView.Colors.Modal.UnFocused.background
                     }else {
-                        return ProtoTypeView.Colors.Modal.initial($0.index)
+                        return ProtoTypeView.Colors.Modal.initial(button.index)
                     }
                 }()
-                $0.setAppearance(color)
+                button.setAppearance(color)
         }
     }
-    private func deFocusOtherButtons(){
-        ElementParser.children(ProtoTypeView.shared, ModalButton.self)
-            .filter {return $0 !== self}
-            .forEach{
-                $0.setAppearance(ProtoTypeView.Colors.Modal.UnFocused.background)
-        }
-    }
-    
 }
