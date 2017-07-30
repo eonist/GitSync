@@ -16,7 +16,8 @@ extension ProtoTypeView {
      */
     func modalFrameAnim(roundedRect:RoundedRect){
         //anim rect here
-        //Swift.print("rect: " + "\(rect)")
+        //Swift.print("roundedRect: " + "\(roundedRect)")
+        Swift.print("roundedRect.w: " + "\(roundedRect.w)")
         disableAnim {
             StyleModifier.overrideStylePropVal(&self.style, ("width",0), roundedRect.w)
             StyleModifier.overrideStylePropVal(&self.style, ("height",0), roundedRect.h)
