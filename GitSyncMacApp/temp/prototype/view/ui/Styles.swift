@@ -27,7 +27,11 @@ extension ProtoTypeView{
         enum PromptButton{
             static let initial:String = {
                 var css:String = ""
-                css += "TextButton#prompt{"
+                /*TextButton down Text*/
+                css += "TextButton:down Text:down{"
+                css += "color:yellow;"//#\(Colors.PromptButton.Text.down.hexString)
+                css += "}"
+                css += "TextButton{"
                 css += "width:\(ProtoTypeView.PromptButton.initial.size.w)px;"
                 css += "height:\(ProtoTypeView.PromptButton.initial.size.h)px;"
                 css += "fill:\(Colors.PromptButton.Background.idle.hexString);"
@@ -36,7 +40,7 @@ extension ProtoTypeView{
                 css += "float:none;"
                 css += "}"
                 /*TextButton down*/
-                css += "TextButton#prompt:down{"
+                css += "TextButton:down{"
                 css += "fill:\(Colors.PromptButton.Background.down.hexString);"
                 css += "}"
                 /*TextButton Text*/
@@ -58,10 +62,7 @@ extension ProtoTypeView{
                 css += "selectable:false;"
                 css += "multiline:false;"
                 css += "}"
-                /*TextButton down Text*/
-                css += "Text:over{"
-                css += "color:yellow;"//#\(Colors.PromptButton.Text.down.hexString)
-                css += "}"
+                
                 return css
             }()
         }
