@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 
@@ -17,9 +17,10 @@ extension ElementKind {
     func setAppearance(_ point:CGPoint){
         self.layer?.position = point
     }
-    func setAppearance(_ fill:NSColor){
-        self.layer?.position = point
+    func setAppearance(_ style:inout Style, _ fill:NSColor){
+        StyleModifier.overrideStylePropVal(&style, ("fill",0), fill)
+        self.skin?.setStyle(style)
     }
     
-    StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
+    
 }
