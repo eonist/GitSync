@@ -93,7 +93,7 @@ extension ModalButton{
                     }
                 }()
                 button.setAppearance(color.background,0)
-                button.setAppearance(color.forground,1)
+//                button.setAppearance(color.forground,1)
         }
     }
 }
