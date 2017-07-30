@@ -9,7 +9,10 @@ extension ProtoTypeView {
      * Returns Modal UI
      */
     func createModal() -> ForceTouchButton{
-        StyleManager.addStyle("Button#modalBtn{width:\(Modal.initial.w)px;height:\(Modal.initial.h)px;fill:blue;corner-radius:\(Modal.initial.fillet)px;clear:none;float:none;}")
+        var css:String = ""
+        css += "fill:white,~/Desktop/ElCapitan/svg/question.svg #0A4DCB;"
+        css += "Button#modalBtn{width:\(Modal.initial.w)px;height:\(Modal.initial.h)px;fill:blue;corner-radius:\(Modal.initial.fillet)px;clear:none;float:none;}"
+        StyleManager.addStyle(css)
         let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
         btn.point = Modal.initial.origin//center button
         return btn
