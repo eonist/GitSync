@@ -17,7 +17,7 @@ extension ProtoTypeView {
      * Animation states
      */
     enum AnimState{
-        enum Modal{
+        enum ModalButton{
             static var initial:AnimState5<RoundedRect/*CGRect*/> {return .init(Modal.initial)}//set initial value
         }
         enum PromptButton{
