@@ -15,6 +15,8 @@ extension ProtoTypeView {
         css += "width:\(Modal.initial.w)px,50px;"
         css += "height:\(Modal.initial.h)px,50px;"
         css += "corner-radius:\(Modal.initial.fillet)px;"
+        css += "margin-top:0px,25px;"
+        css += "margin-left:0px,25px;"
         css += "clear:none;"
         css += "float:none;"
         css += "}"
