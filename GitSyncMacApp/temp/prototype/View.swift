@@ -8,6 +8,10 @@ class ProtoTypeView:WindowView{
     lazy var promptBtn:TextButton = self.createPromptButton()
     /*Animation*/
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(AnimState.PromptButton.initial, DefaultEasing.point,self.promptButtonAnim)
+    
+    //continue here:
+        //Start moving modalAnimator into ModalButton
+    
     lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,Constraint.content,Constraint.mask,self.modalFrameAnim)
     /*Values*/
     var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
@@ -52,8 +56,9 @@ class ProtoTypeView:WindowView{
     //Use ligthning svg
     //add more Modal buttons to window 
         //move forceTouch handler into a ModalButton Class
-            //roll back to working mode 👈
-            //move modal animator into MOdalButton class
+            //roll back to working mode ✅
+            //move modal animator into MOdalButton class 👈
+                //figure out how
             //move LeftMOuseDrag into ModalBUtton class
         //refactor enum constants to support more buttons
     //create the fullScreenMode
