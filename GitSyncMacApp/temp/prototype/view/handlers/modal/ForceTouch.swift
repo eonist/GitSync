@@ -7,7 +7,7 @@ extension ProtoTypeView {
      * ForceTouch handler for modal
      */
     func forceTouchHandler(_ event:ForceTouchEvent)  {
-        let indexOfModal:Int = self.indexOfModal(event.origin)
+        //let indexOfModal:Int = self.indexOfModal(event.origin)
         //Swift.print("event.type: " + "\(event.type)")
         if event.type == ForceTouchEvent.clickDown{//TODO: use switch
             clickDown()

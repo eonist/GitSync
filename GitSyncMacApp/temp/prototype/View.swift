@@ -38,7 +38,7 @@ class ProtoTypeView:WindowView{
     /**
      * New
      */
-    func indexOfModal(_ modal:Any?)->Int{
+    func indexOfModal(_ modal:NSView?)->Int{
         if modal === modalBtn {
             return 1
         }else{
@@ -52,6 +52,8 @@ class ProtoTypeView:WindowView{
     //Use ligthning svg
     //add more Modal buttons to window 👈
         //position buttons in a vertical grid ✅
+        //move forceTouch handler into a ModalButtonClass
+            //
         //refactor enum constants to support more buttons
     //create the fullScreenMode
     //add the pan left and right gesture handler
