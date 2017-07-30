@@ -55,22 +55,22 @@ extension ModalButton{
             ProtoTypeView.shared.modalAnimator.direct = false
             ProtoTypeView.shared.modalAnimator.setTargetValue(ProtoTypeView.Modal.initial).start()
             /*promptBtn*/
-            self.promptBtnAnimator.setTargetValue(ProtoTypeView.PromptButton.initial.origin).start() //anim bellow screen
+            ProtoTypeView.shared.promptBtnAnimator.setTargetValue(ProtoTypeView.PromptButton.initial.origin).start() //anim bellow screen
         }
-        NSEvent.removeMonitor(&self.leftMouseDraggedMonitor)
+        NSEvent.removeMonitor(&ProtoTypeView.shared.leftMouseDraggedMonitor)
     }
-//    /**
-//     * when forcetouch changes state
-//     */
-//    private func stageChange(_ event:ForceTouchEvent){
-//        let stage:Int = event.stage
-//        //Swift.print("stage: " + "\(stage)")
-//        if stage == 0 && !self.modalStayMode{
-//            modalBtn.setAppearance(Colors.Modal.initial)
-//        }else if stage == 1 && !self.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
-//            modalBtn.setAppearance(Colors.Modal.click)
-//        }else if stage == 2 && !self.modalStayMode{
-//            modalBtn.setAppearance(Colors.Modal.expanded)
-//        }
-//    }
+    /**
+     * when forcetouch changes state
+     */
+    private func stageChange(_ event:ForceTouchEvent){
+        let stage:Int = event.stage
+        //Swift.print("stage: " + "\(stage)")
+        if stage == 0 && !ProtoTypeView.shared.modalStayMode{
+            ProtoTypeView.shared.modalBtn.setAppearance(Colors.Modal.initial)
+        }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
+            ProtoTypeView.shared.modalBtn.setAppearance(Colors.Modal.click)
+        }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
+            ProtoTypeView.shared.modalBtn.setAppearance(Colors.Modal.expanded)
+        }
+    }
 }
