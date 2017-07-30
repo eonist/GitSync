@@ -72,6 +72,7 @@ extension ModalButton{
             toggleFocusForOtherButtons(.unFocused)
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.expanded(self.index))
+            toggleFocusForOtherButtons(.hidden)
         }
     }
     enum FocusState{
