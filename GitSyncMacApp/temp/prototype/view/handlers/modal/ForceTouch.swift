@@ -3,7 +3,6 @@ import Cocoa
 @testable import Element
 
 extension ProtoTypeView {
-   
     /**
      * ForceTouch handler for modal
      */
@@ -52,4 +51,4 @@ extension ProtoTypeView {
             }
         }
     }
-    }
+}
