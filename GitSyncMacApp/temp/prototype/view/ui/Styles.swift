@@ -31,7 +31,7 @@ extension ProtoTypeView{
                 css += "float:none;"
                 css += "}"
                 css += "Button#prompt:down{"
-                css += "fill:grey;"
+                css += "fill:\();"
                 css += "}"
                 return css
             }()

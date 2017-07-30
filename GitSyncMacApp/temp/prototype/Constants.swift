@@ -47,12 +47,12 @@ extension ProtoTypeView {
         }()
         enum Colors{
             enum Background{
-                static let initial:NSColor = "#DDDDDD".nsColor
+                static let idle:NSColor = "#DDDDDD".nsColor
                 static let down:NSColor = "#66CDAD".nsColor
             }
             enum Text{
-                static let initial:NSColor = "#DDDDDD".nsColor
-                static let down:NSColor = "#66CDAD".nsColor
+                static let idle:NSColor = "#555555".nsColor
+                static let down:NSColor = "#FFFFFF".nsColor
             }
         }
     }
