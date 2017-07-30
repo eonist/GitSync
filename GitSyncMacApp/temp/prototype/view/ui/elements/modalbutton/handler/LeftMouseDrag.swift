@@ -10,7 +10,7 @@ extension ModalButton {
     func leftMouseDraggedClosure(event:NSEvent)  {
         let relativePos:CGFloat =  self.onMouseDownMouseY - self.window!.contentView!.localPos().y
         //Swift.print("relativePos: " + "\(relativePos)")
-        var newRect = ProtoTypeView.Modal.expanded
+        var newRect = Modal.expanded
         newRect.y -= relativePos
         modalAnimator.direct = true
         modalAnimator.setTargetValue(newRect).start()

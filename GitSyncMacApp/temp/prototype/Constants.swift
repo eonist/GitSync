@@ -18,7 +18,7 @@ extension ProtoTypeView {
      */
     enum AnimState{
         enum Modal{
-            static var initial:AnimState5<RoundedRect/*CGRect*/> {return .init(ProtoTypeView.Modal.initial)}//set initial value
+            static var initial:AnimState5<RoundedRect/*CGRect*/> {return .init(Modal.initial)}//set initial value
         }
         enum PromptButton{
             static var initial:AnimState5<CGPoint> {return .init(ProtoTypeView.PromptButton.initial.origin)}//set initial value
