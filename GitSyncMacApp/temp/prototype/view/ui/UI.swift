@@ -8,9 +8,9 @@ extension ProtoTypeView {
     /**
      * Returns Modal UI
      */
-    func createModalButton(_ position:CGPoint) -> ForceTouchButton{
+    func createModalButton(_ position:CGPoint) -> ModalButton{
         StyleManager.addStyle(Styles.Modal.initial)/*Add css styling*/
-        let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
+        let btn = self.addSubView(ModalButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
         btn.point = position//position button
         return btn
     }

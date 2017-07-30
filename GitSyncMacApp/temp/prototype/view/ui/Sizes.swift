@@ -2,7 +2,6 @@ import Foundation
 @testable import Utils
 
 extension ProtoTypeView {
-    
     enum WinRect {
         static let size:CGSize = CGSize(200,355)//IPhone 7: (750 x 1334) (375 x 667) ≈ (200x355)
         static let point:CGPoint = CGPoint(0,0)

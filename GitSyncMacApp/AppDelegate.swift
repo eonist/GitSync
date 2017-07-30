@@ -31,7 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func peekAndPopTest(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        win = ProtoTypeWindow(200,355)/*⬅️️🚪*/
+        win = ProtoTypeWindow(ProtoTypeView.WinRect.size.w,ProtoTypeView.WinRect.size.h)/*⬅️️🚪*/
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
