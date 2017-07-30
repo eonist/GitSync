@@ -4,10 +4,14 @@ import Foundation
 extension ProtoTypeView{
     enum Styles{
         enum ModalButton{
+            enum SVGGraphicData{
+                static let names:[String] = ["","calculator","bolt","eye"]
+            }
             static func initial(_ i:Int) -> String {
+                let svgName:String = SVGGraphicData.names[i]
                 var css:String = ""
                 css += "ModalButton{"
-                css += "fill:#\(Colors.Modal.initial(i).hexString),~/Desktop/eye.svg white;"//fill:blue;
+                css += "fill:#\(Colors.Modal.initial(i).hexString),~/Desktop/\(svgName).svg white;"//fill:blue;
                 css += "width:\(Modal.initial().w)px,\(Modal.svgSize.w)px;"
                 css += "height:\(Modal.initial().h)px,\(Modal.svgSize.h)px;"
                 css += "corner-radius:\(Modal.initial().fillet)px;"
