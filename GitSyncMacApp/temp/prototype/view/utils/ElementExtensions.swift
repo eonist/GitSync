@@ -6,8 +6,9 @@ extension ElementKind {
     /**
      *
      */
-    func setAppearance(_ style:inout Style,_ roundedRect:RoundedRect){
+    func setAppearance(_ roundedRect:RoundedRect){
 //        var style:Style = style
+        var style:Style = self.skin!.style as! Style
         StyleModifier.overrideStylePropVal(&style, ("width",0), roundedRect.w)
         StyleModifier.overrideStylePropVal(&style, ("height",0), roundedRect.h)
         StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), roundedRect.fillet)
@@ -17,7 +18,7 @@ extension ElementKind {
     func setAppearance(_ point:CGPoint){
         self.layer?.position = point
     }
-    func setAppearance(_ style:inout Style, _ fill:NSColor){
+    func setAppearance(_ fill:NSColor){
         var style:Style = self.skin!.style as! Style
         StyleModifier.overrideStylePropVal(&style, ("fill",0), fill)
         self.skin?.setStyle(style)

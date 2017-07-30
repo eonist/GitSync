@@ -10,7 +10,7 @@ class ProtoTypeView:WindowView{
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(AnimState.PromptButton.initial, DefaultEasing.point,self.promptButtonAnim)
     lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,Constraint.content,Constraint.mask,self.modalFrameAnim)
     /*Values*/
-    var modalStayMode:Bool = false/*this is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
+    var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
     var leftMouseDraggedMonitor:Any?/*Handler for dragging modal*/
     var onMouseDownMouseY:CGFloat = CGFloat.nan
     lazy var style:Style = self.modalBtn.skin!.style! as! Style//TODO: ⚠️️ move this into local scope as its more udpated etc, and has no cost

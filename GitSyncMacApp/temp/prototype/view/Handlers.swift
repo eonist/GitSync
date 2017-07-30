@@ -56,7 +56,7 @@ extension ProtoTypeView {
             if stage == 0 {
                 if !self.modalStayMode {
                     disableAnim {
-                        modalBtn.setAppearance(&self.style,NSColor.blue)
+                        modalBtn.setAppearance(NSColor.blue)
                     }
                     //StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
@@ -64,7 +64,7 @@ extension ProtoTypeView {
             }else if stage == 1{
                 if !self.modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
                     disableAnim {
-                        modalBtn.setAppearance(&self.style,NSColor.red)
+                        modalBtn.setAppearance(NSColor.red)
                     }
                     Swift.print("override to red")
                 }
@@ -72,7 +72,7 @@ extension ProtoTypeView {
             }else /*if stage == 2*/{
                 if !self.modalStayMode {
                     disableAnim {
-                        modalBtn.setAppearance(&self.style,NSColor.green)
+                        modalBtn.setAppearance(NSColor.green)
                     }
                     Swift.print("override to green")
                 }
