@@ -6,9 +6,9 @@ extension ProtoTypeView {
     /**
      * Frame animation for promptButton
      */
-//    func promptButtonAnim(point:CGPoint){
-//        self.promptBtn.setAppearance(point)
-//    }
+    func promptButtonAnim(point:CGPoint){
+        self.promptBtn.layer?.position = point
+    }
     /**
      * Frame animation for modal (buttonRect to modalRect)
      */
