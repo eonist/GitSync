@@ -5,7 +5,7 @@ import Cocoa
 class ProtoTypeView:WindowView{
     static let shared = ProtoTypeView(ProtoTypeView.WinRect.size.w,ProtoTypeView.WinRect.size.h)
     /*UI*/
-    //lazy var firstButton:ModalButton = self.createModalButton(1)
+    lazy var firstButton:ModalButton = self.createModalButton(1)
     lazy var secondButton:ModalButton = self.createModalButton(2)
     lazy var promptBtn:TextButton = self.createPromptButton()
     /*Animation*/
@@ -25,7 +25,7 @@ class ProtoTypeView:WindowView{
      * Create the UI
      */
     func createUI(){
-//        _ = firstButton
+        _ = firstButton
         _ = secondButton
         _ = promptBtn
     }

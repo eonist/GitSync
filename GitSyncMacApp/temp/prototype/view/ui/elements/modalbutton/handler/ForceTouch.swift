@@ -24,6 +24,7 @@ extension ModalButton{
     }
     private func clickDown(){
         Swift.print("clickDown")
+        Swift.print("self.index: " + "\(self.index)")
         modalAnimator.setTargetValue(Modal.click(self.index)).start()
     }
     private func clickUp(){

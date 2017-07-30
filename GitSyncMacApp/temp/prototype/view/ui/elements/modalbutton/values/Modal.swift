@@ -13,7 +13,7 @@ enum Modal {
     }
     static func click(_ i:Int) -> RoundedRect {//when modalBtn is pressed down
         let size:CGSize = Modal.initial().size * 0.75
-        let p:CGPoint = ProtoTypeView.Grid.position(1,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+        let p:CGPoint = ProtoTypeView.Grid.position(i,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
         let fillet:CGFloat = Modal.initial().fillet * 0.75
         return RoundedRect(p,size,fillet)
     }
