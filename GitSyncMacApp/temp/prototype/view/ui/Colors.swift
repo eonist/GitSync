@@ -11,12 +11,12 @@ extension ProtoTypeView{
             }
             static let click:NSColor = "#555555".nsColor
             static func expanded(_ i:Int)-> NSColor {return initial(i)}
-            enum UnFocused{
-                static func background(_ i:Int) -> NSColor {
-                    return Modal.initial(i).alpha(0.2)
-                }
-                //static let svg:NSColor = NSColor.white.alpha(0.3)
-            }
+//            enum UnFocused{
+//                static func background(_ i:Int) -> NSColor {
+//                    return Modal.initial(i).alpha(0.2)
+//                }
+//                //static let svg:NSColor = NSColor.white.alpha(0.3)
+//            }
         }
         enum PromptButton {
             enum Background{
