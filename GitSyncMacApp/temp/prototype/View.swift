@@ -38,7 +38,7 @@ class ProtoTypeView:WindowView{
 }
 
 //Continue here 🏀
-    //PromptButton must be TextButton
-        //Use SF font?
-    //Use ligthning svg
+    //PromptButton must be TextButton ✅
+        //Use SF font? 🤔 DO IT! 😊
+    //Use ligthning svg 👈
     //add more Modal buttons to window
