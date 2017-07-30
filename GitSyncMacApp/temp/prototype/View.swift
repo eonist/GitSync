@@ -13,7 +13,7 @@ class ProtoTypeView:WindowView{
     var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
     var leftMouseDraggedMonitor:Any?/*Handler for dragging modal*/
     var onMouseDownMouseY:CGFloat = CGFloat.nan
-    lazy var style:Style = self.modalBtn.skin!.style! as! Style//TODO: ⚠️️ move this into local scope as its more udpated etc, and has no cost
+//    lazy var style:Style = self.modalBtn.skin!.style! as! Style//TODO: ⚠️️ move this into local scope as its more udpated etc, and has no cost
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
