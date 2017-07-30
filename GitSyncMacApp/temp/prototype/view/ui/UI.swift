@@ -8,9 +8,9 @@ extension ProtoTypeView {
     /**
      * Returns Modal UI
      */
-    func createModalButton(i:Int) -> ForceTouchButton{
+    func createModalButton(_ i:Int) -> ForceTouchButton{
         StyleManager.addStyle(Styles.Modal.initial)/*Add css styling*/
-        let btn = self.addSubView(ForceTouchButton(Modal.initial(i).size.w,Modal.initial.size.h,nil,"modalBtn"))
+        let btn = self.addSubView(ForceTouchButton(Modal.initial(i).size.w,Modal.initial(i).size.h,nil,"modalBtn"))
         btn.point = Modal.initial(i).origin//position button
         return btn
     }
@@ -19,7 +19,7 @@ extension ProtoTypeView {
      */
     func createPromptButton() -> TextButton{
         StyleManager.addStyle(Styles.PromptButton.initial)/*Add css styling*/
-        let btn = self.addSubView(TextButton(Modal.initial(0).w,Modal.initial.h,"Dismiss",nil,"prompt"))
+        let btn = self.addSubView(TextButton(Modal.initial().w,Modal.initial().h,"Dismiss",nil,"prompt"))
         btn.layer?.position = PromptButton.initial.origin//out of view
         return btn
     }
