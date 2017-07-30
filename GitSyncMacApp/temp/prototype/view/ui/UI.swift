@@ -9,18 +9,7 @@ extension ProtoTypeView {
      * Returns Modal UI
      */
     func createModal() -> ForceTouchButton{
-        var css:String = ""
-        css += "Button#modalBtn{"
-        css += "fill:#66CDAD,~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
-        css += "width:\(Modal.initial.w)px,50px;"
-        css += "height:\(Modal.initial.h)px,50px;"
-        css += "corner-radius:\(Modal.initial.fillet)px;"
-        css += "margin-top:0px,25px;"
-        css += "margin-left:0px,25px;"
-        css += "clear:none;"
-        css += "float:none;"
-        css += "}"
-        StyleManager.addStyle(css)
+        StyleManager.addStyle(Styles.Modal.initial)
         let btn = self.addSubView(ForceTouchButton(Modal.initial.size.w,Modal.initial.size.h,nil,"modalBtn"))
         btn.point = Modal.initial.origin//center button
         return btn
@@ -29,9 +18,7 @@ extension ProtoTypeView {
      * Returns Prompt Button
      */
     func createPromptButton() -> Button{
-        var css:String = ""
-        css += "Button#prompt{width:\(PromptButton.initial.size.w)px;height:\(PromptButton.initial.size.h);fill:purple;corner-radius:20px;clear:none;float:none;}"
-        css += "Button#prompt:down{fill:grey;}"
+        
         
         StyleManager.addStyle(css)
         
