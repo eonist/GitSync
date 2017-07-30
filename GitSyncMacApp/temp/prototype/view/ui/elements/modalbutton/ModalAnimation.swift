@@ -9,4 +9,5 @@ extension ModalButton {
     func modalFrameAnim(roundedRect:RoundedRect){
         self.setAppearance(roundedRect)
     }
+    
 }
