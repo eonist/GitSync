@@ -39,8 +39,5 @@ class ProtoTypeView:WindowView{
 }
 
 //Continue here 🏀
-    //make the modalButton round at init 👈
     //get rid of disableAnim
-    //animate the fillet
-    //move the constraineter into a util class
     //make extension for Element to manipulate size and color more easily
