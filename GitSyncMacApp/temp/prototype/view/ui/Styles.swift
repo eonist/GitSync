@@ -6,7 +6,7 @@ extension ProtoTypeView{
         enum ModalButton{
             static let initial:String = {
                 var css:String = ""
-                css += "Button#modalBtn{"
+                css += "ModalButton{"
                 css += "fill:#\(Colors.Modal.initial.hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
                 css += "width:\(Modal.initial().w)px,\(Modal.svgSize.w)px;"
                 css += "height:\(Modal.initial().h)px,\(Modal.svgSize.h)px;"
