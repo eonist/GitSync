@@ -59,7 +59,7 @@ extension ProtoTypeView{
                 css += "multiline:false;"
                 css += "}"
                 /*TextButton down Text*/
-                css += "TextButton:down Text{"
+                css += "TextButton#prompt:down Text{"
                 css += "color:#\(Colors.PromptButton.Text.down.hexString);"
                 css += "}"
                 return css
