@@ -92,8 +92,9 @@ extension ModalButton{
                         case .hidden: return (NSColor.white.alpha(0),NSColor.white.alpha(0))
                     }
                 }()
-                button.setAppearance(color.forground.alphaComponent,1)
+                
                 button.setAppearance(color.background,0)
+                button.setAppearance(color.forground.alphaComponent,1)
                 
         }
     }
