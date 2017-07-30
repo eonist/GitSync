@@ -21,7 +21,7 @@ extension ProtoTypeView{
         enum PromptButton {
             enum Background{
                 static let idle:NSColor = "#DDDDDD".nsColor
-                static func down(_ i:Int) -> NSColor = "#66CDAD".nsColor
+                static func down(_ i:Int) -> NSColor { return Modal.initial(i) }
                 
             }
             enum Text{
