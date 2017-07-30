@@ -4,9 +4,9 @@ import Foundation
 
 enum Modal {
     static let svgSize:CGSize = CGSize(50,50)//the graphic
-    static let initial:RoundedRect/*CGRect*/ = {//init modal btn size
+    static func initial(_ i:Int)->RoundedRect/*CGRect*/ = {//init modal btn size
         let size:CGSize = CGSize(100,100)
-        let p:CGPoint = ProtoTypeView.Grid.position(1,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+        let p:CGPoint = ProtoTypeView.Grid.position(i,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
         let fillet:CGFloat = 50
         return RoundedRect(p,size,fillet)
         //return CGRect(p,size)
