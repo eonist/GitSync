@@ -29,7 +29,7 @@ extension ModalButton{
     private func clickUp(){
         Swift.print("clickUp")
         if !ProtoTypeView.shared.modalStayMode {//modal stay
-            modalAnimator.setTargetValue(ProtoTypeView.Modal.initial).start()
+            modalAnimator.setTargetValue(Modal.initial).start()
         }
     }
     private func deepClickDown(){
@@ -44,7 +44,7 @@ extension ModalButton{
             Swift.print("modal stay")
             ProtoTypeView.shared.modalBtn.removeHandler()
             modalAnimator.direct = false
-            var rect = ProtoTypeView.Modal.expanded
+            var rect = Modal.expanded
             rect.origin.y -= 30
             modalAnimator.setTargetValue(rect).start()
         }else{/*modal leave*/

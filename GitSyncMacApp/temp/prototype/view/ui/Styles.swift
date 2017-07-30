@@ -3,7 +3,7 @@ import Foundation
 
 extension ProtoTypeView{
     enum Styles{
-        enum Modal{
+        enum ModalButton{
             static let initial:String = {
                 var css:String = ""
                 css += "Button#modalBtn{"

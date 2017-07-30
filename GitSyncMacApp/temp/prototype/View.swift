@@ -13,7 +13,6 @@ class ProtoTypeView:WindowView{
     /*Values*/
     var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
     
-    
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
         StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
