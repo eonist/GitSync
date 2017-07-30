@@ -6,6 +6,14 @@ import Cocoa
  * TODO: move into enum named Sizes? 
  */
 extension ProtoTypeView {
+    enum Grid{
+        static let verticalSpace:CGFloat = {
+            return WinRect.size.h/4//88.75px
+        }()
+        static let first:CGPoint = {
+            return CGPoint(WinRect.size.w/2,verticalSpace*1)
+        }()
+    }
     enum WinRect {
         static let size:CGSize = CGSize(200,355)//IPhone 7: (750 x 1334) (375 x 667) ≈ (200x355)
         static let point:CGPoint = CGPoint(0,0)
