@@ -65,7 +65,7 @@ extension ModalButton{
         let stage:Int = event.stage
         //Swift.print("stage: " + "\(stage)")
         if stage == 0 && !ProtoTypeView.shared.modalStayMode{
-            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.initial)
+            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.initial(self.index))
         }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
             ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.click)
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
