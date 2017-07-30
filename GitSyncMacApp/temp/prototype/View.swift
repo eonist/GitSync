@@ -9,8 +9,8 @@ class ProtoTypeView:WindowView{
     /*Animation*/
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(AnimState.PromptButton.initial, DefaultEasing.point,self.promptButtonAnim)
     
-    //continue here:
-        //Start moving modalAnimator into ModalButton
+    //continue here: 🏀
+        //Start moving modalAnimator into ModalButton 👈
     
     lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,Constraint.content,Constraint.mask,self.modalFrameAnim)
     /*Values*/
