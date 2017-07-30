@@ -13,7 +13,6 @@ class ProtoTypeView:WindowView{
     var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
     var leftMouseDraggedMonitor:Any?/*Handler for dragging modal*/
     var onMouseDownMouseY:CGFloat = CGFloat.nan
-//    lazy var style:Style = self.modalBtn.skin!.style! as! Style//TODO: ⚠️️ move this into local scope as its more udpated etc, and has no cost
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
@@ -39,8 +38,6 @@ class ProtoTypeView:WindowView{
 }
 
 //Continue here 🏀
-    //load svg in modal, ✅ 
-        //use designer colors ✅
     //PromptButton must be TextButton
         //Use SF font?
     //Use ligthning svg
