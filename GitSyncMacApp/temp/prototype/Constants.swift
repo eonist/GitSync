@@ -30,7 +30,9 @@ extension ProtoTypeView {
             let fillet:CGFloat = 20
             return RoundedRect(p,size,fillet)
         }()
-        e
+        enum Colors{
+            
+        }
     }
     enum PromptButton {
         static let initial:CGRect = {
