@@ -17,5 +17,5 @@ extension ProtoTypeView {
 }
 
 
-//COntinue here: 🏀
+//Continue here: 🏀
     //Create Colors enum
