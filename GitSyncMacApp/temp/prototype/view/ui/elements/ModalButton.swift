@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class ModalButton:ForceTouchButton{
-    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,Constraint.content,Constraint.mask,self.modalFrameAnim)
+    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(ProtoTypeView.AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,Constraint.content,ProtoTypeView.Constraint.mask,self.modalFrameAnim)
     override func resolveSkin() {
         super.resolveSkin()
         addEventHandlers()
@@ -37,17 +37,17 @@ extension ModalButton{
     }
     private func clickDown(){
         Swift.print("clickDown")
-        ProtoTypeView.shared.modalAnimator.setTargetValue(ProtoTypeView.Modal.click).start()
+        modalAnimator.setTargetValue(ProtoTypeView.Modal.click).start()
     }
     private func clickUp(){
         Swift.print("clickUp")
         if !ProtoTypeView.shared.modalStayMode {//modal stay
-            ProtoTypeView.shared.modalAnimator.setTargetValue(ProtoTypeView.Modal.initial).start()
+            modalAnimator.setTargetValue(ProtoTypeView.Modal.initial).start()
         }
     }
     private func deepClickDown(){
         Swift.print("deepClickDown")
-        ProtoTypeView.shared.modalAnimator.setTargetValue(ProtoTypeView.Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
+        modalAnimator.setTargetValue(ProtoTypeView.Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
         ProtoTypeView.shared.onMouseDownMouseY  = self.window!.contentView!.localPos().y
         NSEvent.addMonitor(&ProtoTypeView.shared.leftMouseDraggedMonitor,.leftMouseDragged,ProtoTypeView.shared.leftMouseDraggedClosure)
     }
@@ -56,14 +56,14 @@ extension ModalButton{
         if ProtoTypeView.shared.modalStayMode {/*modal stay*/
             Swift.print("modal stay")
             ProtoTypeView.shared.modalBtn.removeHandler()
-            ProtoTypeView.shared.modalAnimator.direct = false
+            modalAnimator.direct = false
             var rect = ProtoTypeView.Modal.expanded
             rect.origin.y -= 30
-            ProtoTypeView.shared.modalAnimator.setTargetValue(rect).start()
+            modalAnimator.setTargetValue(rect).start()
         }else{/*modal leave*/
             Swift.print("modal leave")
-            ProtoTypeView.shared.modalAnimator.direct = false
-            ProtoTypeView.shared.modalAnimator.setTargetValue(ProtoTypeView.Modal.initial).start()
+            modalAnimator.direct = false
+            modalAnimator.setTargetValue(ProtoTypeView.Modal.initial).start()
             /*promptBtn*/
             ProtoTypeView.shared.promptBtnAnimator.setTargetValue(ProtoTypeView.PromptButton.initial.origin).start() //anim bellow screen
         }

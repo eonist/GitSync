@@ -11,17 +11,17 @@ extension ProtoTypeView {
         //Swift.print("relativePos: " + "\(relativePos)")
         var newRect = Modal.expanded
         newRect.y -= relativePos
-        self.modalAnimator.direct = true
-        self.modalAnimator.setTargetValue(newRect).start()
-        if self.modalAnimator.value.y < 30  {//modal in stayMode
+        modalBtn.modalAnimator.direct = true
+        modalBtn.modalAnimator.setTargetValue(newRect).start()
+        if modalBtn.modalAnimator.value.y < 30  {//modal in stayMode
             self.modalStayMode = true
-            Swift.print("reveal buttons: \(self.modalAnimator.value.y)")
-            var p = self.modalAnimator.value.rect.bottomLeft
+            //Swift.print("reveal buttons: \(modalBtn.modalAnimator.value.y)")
+            var p = modalBtn.modalAnimator.value.rect.bottomLeft
             p.y += 15//add some margin
             p.y = p.y.max(PromptButton.expanded.y)
             //
             self.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
-        }else if self.modalAnimator.value.y > 30 {//modal in leaveMode
+        }else if modalBtn.modalAnimator.value.y > 30 {//modal in leaveMode
             self.modalStayMode = false
             Swift.print("anim buttons out")
             self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
