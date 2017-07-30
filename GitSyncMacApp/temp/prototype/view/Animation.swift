@@ -8,7 +8,7 @@ extension ProtoTypeView {
      */
     func promptButtonAnim(point:CGPoint){
         disableAnim {
-            self.promptBtn.layer?.position = point
+            self.promptBtn.setAppearance(point)
         }
     }
     /**

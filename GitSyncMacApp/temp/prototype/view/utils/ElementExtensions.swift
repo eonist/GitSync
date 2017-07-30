@@ -12,7 +12,14 @@ extension ElementKind {
         StyleModifier.overrideStylePropVal(&style, ("height",0), roundedRect.h)
         StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), roundedRect.fillet)
         self.skin?.setStyle(style)
-        self.layer?.position = roundedRect.origin
+        self.setAppearance(roundedRect.origin)
+    }
+    func setAppearance(_ point:CGPoint){
+        self.layer?.position = point
+    }
+    func setAppearance(_ fill:NSColor){
+        self.layer?.position = point
     }
     
+    StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
 }
