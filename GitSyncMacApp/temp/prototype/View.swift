@@ -37,19 +37,18 @@ class ProtoTypeView:WindowView{
      * Adds eventHandlers to UI
      */
     func addEventHandlers(){
-        modalBtn.addHandler(forceTouchHandler)
         promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonClickHandler)
     }
     /**
      * New
      */
-    func indexOfModal(_ modal:NSView?)->Int{
-        if modal === modalBtn {
-            return 1
-        }else{
-            fatalError("add more buttons")
-        }
-    }
+//    func indexOfModal(_ modal:NSView?)->Int{
+//        if modal === modalBtn {
+//            return 1
+//        }else{
+//            fatalError("add more buttons")
+//        }
+//    }
 }
 
 //Continue here 🏀

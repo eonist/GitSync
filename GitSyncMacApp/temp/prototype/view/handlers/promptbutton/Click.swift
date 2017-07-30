@@ -11,7 +11,7 @@ extension ProtoTypeView {
         self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
         modalBtn.setAppearance(Colors.Modal.initial)//reset the color again
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
-        self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
+        self.modalBtn.addHandler(self.modalBtn.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
         self.modalStayMode = false//release modalStayMode
     }
 }

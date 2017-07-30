@@ -3,7 +3,16 @@ import Cocoa
 @testable import Element
 
 class ModalButton:ForceTouchButton{
-
+    override func resolveSkin() {
+        super.resolveSkin()
+        addEventHandlers()
+    }
+    /**
+     * Adds eventHandlers to UI
+     */
+    func addEventHandlers(){
+        self.addHandler(forceTouchHandler)
+    }
 }
 extension ModalButton{
     /**
@@ -66,11 +75,11 @@ extension ModalButton{
         let stage:Int = event.stage
         //Swift.print("stage: " + "\(stage)")
         if stage == 0 && !ProtoTypeView.shared.modalStayMode{
-            ProtoTypeView.shared.modalBtn.setAppearance(Colors.Modal.initial)
+            ProtoTypeView.shared.modalBtn.setAppearance(ProtoTypeView.Colors.Modal.initial)
         }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
-            ProtoTypeView.shared.modalBtn.setAppearance(Colors.Modal.click)
+            ProtoTypeView.shared.modalBtn.setAppearance(ProtoTypeView.Colors.Modal.click)
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
-            ProtoTypeView.shared.modalBtn.setAppearance(Colors.Modal.expanded)
+            ProtoTypeView.shared.modalBtn.setAppearance(ProtoTypeView.Colors.Modal.expanded)
         }
     }
 }
