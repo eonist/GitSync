@@ -12,8 +12,8 @@ extension ElementKind {
         StyleModifier.overrideStylePropVal(&style, ("width",0), roundedRect.w)
         StyleModifier.overrideStylePropVal(&style, ("height",0), roundedRect.h)
         let svgPosition = Align.alignmentPoint(ProtoTypeView.Modal.svgSize, roundedRect.size, Alignment.centerCenter, Alignment.centerCenter)
-        StyleModifier.overrideStylePropVal(&style, ("margin-top",1), svgPosition.y)
-        StyleModifier.overrideStylePropVal(&style, ("margin-left",1), svgPosition.x)
+        StyleModifier.overrideStylePropVal(&style, ("margin-top",1), svgPosition.y.rounded())
+        StyleModifier.overrideStylePropVal(&style, ("margin-left",1), svgPosition.x.rounded())
         StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), roundedRect.fillet)
         self.skin?.setStyle(style)
         self.layer?.position = roundedRect.origin
