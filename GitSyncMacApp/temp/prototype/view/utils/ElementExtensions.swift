@@ -8,7 +8,7 @@ extension ElementKind {
      */
     func setAppearance(_ roundedRect:RoundedRect){
         var style:Style = self.skin!.style as! Style
-        style.describe()
+        //style.describe()
         StyleModifier.overrideStylePropVal(&style, ("width",0), roundedRect.w)
         StyleModifier.overrideStylePropVal(&style, ("height",0), roundedRect.h)
         //let svgPosition = Align.alignmentPoint(ProtoTypeView.Modal.svgSize, roundedRect.size, Alignment.centerCenter, Alignment.centerCenter)
