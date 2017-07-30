@@ -17,7 +17,7 @@ extension ProtoTypeView {
     /**
      * Returns Prompt Button
      */
-    func createPromptButton() -> Button{
+    func createPromptButton() -> TextButton{
         StyleManager.addStyle(Styles.PromptButton.initial)/*Add css styling*/
         let btn = self.addSubView(TextButton(Modal.initial.w,Modal.initial.h,"Dismiss",nil,"prompt"))
         btn.layer?.position = PromptButton.initial.origin//out of view
