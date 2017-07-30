@@ -19,12 +19,12 @@ extension ProtoTypeView {
         //Swift.print("roundedRect: " + "\(roundedRect)")
         Swift.print("roundedRect.w: " + "\(roundedRect.w)")
         disableAnim {
-            
+            self.modalBtn.setAppearance(&self.style, roundedRect)
 //            StyleModifier.overrideStylePropVal(&self.style, ("width",0), roundedRect.w)
 //            StyleModifier.overrideStylePropVal(&self.style, ("height",0), roundedRect.h)
 //            StyleModifier.overrideStylePropVal(&self.style, ("corner-radius",0), roundedRect.fillet)
 //            self.modalBtn.skin?.setStyle(self.style)
-            self.modalBtn.layer?.position = roundedRect.origin
+//            self.modalBtn.layer?.position = roundedRect.origin
         }
     }
 }
