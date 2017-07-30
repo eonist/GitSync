@@ -8,9 +8,9 @@ extension ProtoTypeView{
                 var css:String = ""
                 css += "Button#modalBtn{"
                 css += "fill:#\(Colors.Modal.initial.hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
-                css += "width:\(Modal.initial.w)px,\(Modal.svgSize.w)px;"
-                css += "height:\(Modal.initial.h)px,\(Modal.svgSize.h)px;"
-                css += "corner-radius:\(Modal.initial.fillet)px;"
+                css += "width:\(Modal.initial().w)px,\(Modal.svgSize.w)px;"
+                css += "height:\(Modal.initial().h)px,\(Modal.svgSize.h)px;"
+                css += "corner-radius:\(Modal.initial().fillet)px;"
                 css += "margin-top:0px,\(Modal.svgSize.w/2)px;"
                 css += "margin-left:0px,\(Modal.svgSize.w/2)px;"
                 css += "clear:none;"
