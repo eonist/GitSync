@@ -16,9 +16,9 @@ extension ElementKind {
         self.setAppearance(roundedRect.origin)
     }
     func setAppearance(_ point:CGPoint){
-        disableAnim {
+//        disableAnim {
             self.layer?.position = point
-        }
+//        }
         
     }
     func setAppearance(_ fill:NSColor){
