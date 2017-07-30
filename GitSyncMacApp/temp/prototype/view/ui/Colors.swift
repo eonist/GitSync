@@ -24,8 +24,8 @@ extension ProtoTypeView{
                 static let down:NSColor = "#66CDAD".nsColor
             }
             enum Text{
-                static let idle:NSColor = "#555555".nsColor
-                static let down:NSColor = "#FFFFFF".nsColor
+                static func idle() -> NSColor {return "#555555".nsColor }
+                static func down() -> NSColor {return "#FFFFFF".nsColor }
             }
         }
     }

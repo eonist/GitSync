@@ -28,9 +28,7 @@ extension ProtoTypeView{
             static let initial:String = {
                 var css:String = ""
                 /*TextButton down Text*/
-                css += "TextButton:down Text:down{"
-                css += "color:yellow;"//#\(Colors.PromptButton.Text.down.hexString)
-                css += "}"
+                
                 css += "TextButton{"
                 css += "width:\(ProtoTypeView.PromptButton.initial.size.w)px;"
                 css += "height:\(ProtoTypeView.PromptButton.initial.size.h)px;"
@@ -58,11 +56,13 @@ extension ProtoTypeView{
                 css += "backgroundColor:yellow;"
                 css += "border:false;"
                 css += "align:center;"
-                css += "color:blue;"//#\(Colors.PromptButton.Text.idle.hexString)
+                css += "color:#\(Colors.PromptButton.Text.idle.hexString);"//
                 css += "selectable:false;"
                 css += "multiline:false;"
                 css += "}"
-                
+                css += "TextButton:down Text:down{"
+                css += "color:#\(Colors.PromptButton.Text.down.hexString);"//
+                css += "}"
                 return css
             }()
         }
