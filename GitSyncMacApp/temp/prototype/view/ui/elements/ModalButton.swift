@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class ModalButton:ForceTouchButton{
-    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(ProtoTypeView.AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,Constraint.content,ProtoTypeView.Constraint.mask,self.modalFrameAnim)
+    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(ProtoTypeView.AnimState.Modal.initial, RoundedRect.DefaultEasing.easing,ProtoTypeView.Constraint.content,ProtoTypeView.Constraint.mask,self.modalFrameAnim)
     override func resolveSkin() {
         super.resolveSkin()
         addEventHandlers()
