@@ -60,12 +60,15 @@ class ProtoTypeView:WindowView{
                 //figure out how ✅
             //move LeftMOuseDrag into ModalBUtton class ✅
         //refactor enum constants to support more buttons ✅
-        //add svg and 
+        //add svg ✅
         //add correct colors ✅
-        //add a defocus mode for other buttons when clickMode on active button
+        //add a defocus mode for other buttons when clickMode on active button 👈 
+            //simple alpha maybe?
+            //shrink to zero size upon deepClick
     //create the fullScreenMode
+        //pinch out back into initial mode
     //add the pan left and right gesture handler
-    //pinch out back into initial mode
+        
     //swipe in buttons
         //swipe out buttons
 
