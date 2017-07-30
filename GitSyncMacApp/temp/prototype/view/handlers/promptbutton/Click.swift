@@ -8,7 +8,7 @@ extension ProtoTypeView {
      */
     func promptButtonClickHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
         Swift.print("promptBtn.upInside")
-        guard let curModal:ModalButton = curModal else{return}
+        guard let curModal:ModalButton = self.curModal else{return}
         curModal.modalAnimator.setTargetValue(Modal.initial(curModal.index)).start()/*outro modal*/
         curModal.setAppearance(Colors.Modal.initial)//reset the color again
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/

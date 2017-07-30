@@ -43,7 +43,7 @@ extension ModalButton{
         Swift.print("deepClickUp")
         if ProtoTypeView.shared.modalStayMode {/*modal stay*/
             Swift.print("modal stay")
-            ProtoTypeView.shared.modalBtn.removeHandler()
+            ProtoTypeView.shared.curModal?.removeHandler()
             modalAnimator.direct = false
             var rect = Modal.expanded
             rect.origin.y -= 30
@@ -64,11 +64,11 @@ extension ModalButton{
         let stage:Int = event.stage
         //Swift.print("stage: " + "\(stage)")
         if stage == 0 && !ProtoTypeView.shared.modalStayMode{
-            ProtoTypeView.shared.modalBtn.setAppearance(ProtoTypeView.Colors.Modal.initial)
+            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.initial)
         }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
-            ProtoTypeView.shared.modalBtn.setAppearance(ProtoTypeView.Colors.Modal.click)
+            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.click)
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
-            ProtoTypeView.shared.modalBtn.setAppearance(ProtoTypeView.Colors.Modal.expanded)
+            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.expanded)
         }
     }
 }
