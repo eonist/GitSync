@@ -7,9 +7,7 @@ extension ProtoTypeView {
      * Frame animation for promptButton
      */
 //    func promptButtonAnim(point:CGPoint){
-////        disableAnim {
-//            self.promptBtn.setAppearance(point)
-////        }
+//        self.promptBtn.setAppearance(point)
 //    }
     /**
      * Frame animation for modal (buttonRect to modalRect)
