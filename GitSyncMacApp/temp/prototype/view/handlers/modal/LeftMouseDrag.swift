@@ -3,7 +3,6 @@ import Cocoa
 @testable import Element
 
 extension ProtoTypeView {
- 
     /**
      * Drag handler for modal
      */
