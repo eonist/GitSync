@@ -11,7 +11,7 @@ extension ProtoTypeView {
     func createModal() -> ForceTouchButton{
         var css:String = ""
         css += "Button#modalBtn{"
-        css += "fill:blue,~/Desktop/ElCapitan/svg/question.svg red;"//fill:blue;
+        css += "fill:blue,~/Desktop/ElCapitan/svg/question.svg purple;"//fill:blue;
         css += "width:\(Modal.initial.w)px,50px;"
         css += "height:\(Modal.initial.h)px,50px;"
         css += "corner-radius:\(Modal.initial.fillet)px;"
