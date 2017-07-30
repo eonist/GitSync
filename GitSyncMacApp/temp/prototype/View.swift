@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 
 class ProtoTypeView:WindowView{
+    static let shared = ProtoTypeView()
     /*UI*/
     lazy var modalBtn:Button = self.createModalButton(Modal.initial.origin)
     lazy var promptBtn:TextButton = self.createPromptButton()
