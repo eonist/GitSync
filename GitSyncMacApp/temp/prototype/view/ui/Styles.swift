@@ -7,7 +7,7 @@ extension ProtoTypeView{
             static let initial:String = {
                 var css:String = ""
                 css += "Button#modalBtn{"
-                css += "fill:#\(ProtoTypeView.Modal.Colors.initial.hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
+                css += "fill:#\(Colors.Modal.initial.hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
                 css += "width:\(ProtoTypeView.Modal.initial.w)px,\(ProtoTypeView.Modal.svgSize.w)px;"
                 css += "height:\(ProtoTypeView.Modal.initial.h)px,\(ProtoTypeView.Modal.svgSize.h)px;"
                 css += "corner-radius:\(ProtoTypeView.Modal.initial.fillet)px;"
@@ -25,13 +25,13 @@ extension ProtoTypeView{
                 css += "Button#prompt{"
                 css += "width:\(ProtoTypeView.PromptButton.initial.size.w)px;"
                 css += "height:\(ProtoTypeView.PromptButton.initial.size.h)px;"
-                css += "fill:\(ProtoTypeView.PromptButton.Colors.Background.idle.hexString);"
+                css += "fill:\(Colors.PromptButton.Background.idle.hexString);"
                 css += "corner-radius:20px;"
                 css += "clear:none;"
                 css += "float:none;"
                 css += "}"
                 css += "Button#prompt:down{"
-                css += "fill:\(ProtoTypeView.PromptButton.Colors.Background.down.hexString);"
+                css += "fill:\(Colors.PromptButton.Background.down.hexString);"
                 css += "}"
                 return css
             }()

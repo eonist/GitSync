@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 /**
  * Constants (Metrics)
+ * TODO: move into enum named Sizes? 
  */
 extension ProtoTypeView {
     enum WinRect {
@@ -30,7 +31,6 @@ extension ProtoTypeView {
             let fillet:CGFloat = 20
             return RoundedRect(p,size,fillet)
         }()
-        
     }
     enum PromptButton {
         static let initial:CGRect = {
@@ -41,7 +41,6 @@ extension ProtoTypeView {
         static let expanded:CGPoint = {//the limit of where promptButton can go vertically
             return initial.origin - CGPoint(0,initial.height + 20/*<--bottom margin*/)
         }()
-        
     }
     enum Constraint{
         static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
