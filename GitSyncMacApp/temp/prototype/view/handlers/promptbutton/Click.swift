@@ -11,7 +11,7 @@ extension ProtoTypeView {
         guard let curModalBtn:ModalButton = self.curModal else{return}
         curModalBtn.modalAnimator.setTargetValue(Modal.initial(curModalBtn.index)).start()/*outro modal*/
         curModalBtn.setAppearance(Colors.Modal.initial(curModalBtn.index))//reset the color again
-        curModalBtn.toggleFocusForOtherButtons(.idle)//reset focus state of other buttons
+        curModalBtn.toggleFocusForOtherButtons(.focused)//reset focus state of other buttons
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
         curModalBtn.addHandler(curModalBtn.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
         self.modalStayMode = false//release modalStayMode
