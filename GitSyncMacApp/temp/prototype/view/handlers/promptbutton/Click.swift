@@ -1,5 +1,18 @@
-import Foundation
+import Cocoa
+@testable import Utils
+@testable import Element
 
-class Click {
-
+extension ProtoTypeView {
+    /**
+     * Click handler for PromptButton
+     */
+    func promptButtonClickHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
+        Swift.print("promptBtn.upInside")
+        self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
+        modalBtn.setAppearance(NSColor.blue)//reset the color again
+        self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
+        self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
+        self.modalStayMode = false//release modalStayMode
+    }
+    
 }
