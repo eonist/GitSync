@@ -10,22 +10,22 @@ extension ModalButton {
     func leftMouseDraggedClosure(event:NSEvent)  {
         let relativePos:CGFloat =  self.onMouseDownMouseY - self.window!.contentView!.localPos().y
         //Swift.print("relativePos: " + "\(relativePos)")
-        var newRect = Modal.expanded
+        var newRect = ProtoTypeView.Modal.expanded
         newRect.y -= relativePos
-        modalBtn.modalAnimator.direct = true
-        modalBtn.modalAnimator.setTargetValue(newRect).start()
-        if modalBtn.modalAnimator.value.y < 30  {//modal in stayMode
-            self.modalStayMode = true
+        modalAnimator.direct = true
+        modalAnimator.setTargetValue(newRect).start()
+        if modalAnimator.value.y < 30  {//modal in stayMode
+            ProtoTypeView.shared.modalStayMode = true
             //Swift.print("reveal buttons: \(modalBtn.modalAnimator.value.y)")
-            var p = modalBtn.modalAnimator.value.rect.bottomLeft
+            var p = modalAnimator.value.rect.bottomLeft
             p.y += 15//add some margin
-            p.y = p.y.max(PromptButton.expanded.y)
+            p.y = p.y.max(ProtoTypeView.PromptButton.expanded.y)
             //
-            self.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
-        }else if modalBtn.modalAnimator.value.y > 30 {//modal in leaveMode
-            self.modalStayMode = false
+            ProtoTypeView.shared.promptBtnAnimator.setTargetValue(p).start()//you could do modalBtn.layer.origin + getHeight etc.
+        }else if modalAnimator.value.y > 30 {//modal in leaveMode
+            ProtoTypeView.shared.modalStayMode = false
             Swift.print("anim buttons out")
-            self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start() //anim bellow screen
+            ProtoTypeView.shared.promptBtnAnimator.setTargetValue(ProtoTypeView.PromptButton.initial.origin).start() //anim bellow screen
         }
     }
 }
