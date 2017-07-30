@@ -9,5 +9,4 @@ extension ProtoTypeView {
     func promptButtonAnim(point:CGPoint){
         self.promptBtn.layer?.position = point
     }
-    
 }
