@@ -42,3 +42,11 @@ class ProtoTypeView:WindowView{
         //Use SF font? 🤔 DO IT! 😊
     //Use ligthning svg 👈
     //add more Modal buttons to window
+    //create the fullScreenMode
+    //add the pan left and right gesture handler
+    //pinch out back into initial mode 👌
+    //swipe in buttons
+        //swipe out buttons
+
+
+
