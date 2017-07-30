@@ -7,7 +7,7 @@ extension ProtoTypeView{
             static let initial:String = {
                 var css:String = ""
                 css += "Button#modalBtn{"
-                css += "fill:#66CDAD,~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
+                css += "fill:#\(ProtoTypeView.Modal.Colors.initial.hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
                 css += "width:\(ProtoTypeView.Modal.initial.w)px,\(ProtoTypeView.Modal.svgSize.w)px;"
                 css += "height:\(ProtoTypeView.Modal.initial.h)px,\(ProtoTypeView.Modal.svgSize.h)px;"
                 css += "corner-radius:\(ProtoTypeView.Modal.initial.fillet)px;"

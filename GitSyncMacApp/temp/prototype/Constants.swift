@@ -31,7 +31,9 @@ extension ProtoTypeView {
             return RoundedRect(p,size,fillet)
         }()
         enum Colors{
-            
+            static let initial:NSColor = "#66CDAD".nsColor
+            static let click:NSColor = "#555555".nsColor
+            static let expanded:NSColor = "#66CDAD".nsColor
         }
     }
     enum PromptButton {
