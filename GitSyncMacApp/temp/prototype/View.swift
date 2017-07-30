@@ -16,8 +16,7 @@ class ProtoTypeView:WindowView{
     var curModal:ModalButton?//the active modal
     
     override func resolveSkin(){
-        Swift.print("ProtoTypeView.resolveSkin()")
-        StyleManager.addStyle("Window{fill:white;}")//padding-top:24px;
+        StyleManager.addStyle(Styles.window)//padding-top:24px;
         super.resolveSkin()
         createUI()
         addEventHandlers()

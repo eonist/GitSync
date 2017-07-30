@@ -60,5 +60,8 @@ extension ProtoTypeView{
                 return css
             }()
         }
+        static let window:String = {
+            return "Window{fill:white;}"
+        }()
     }
 }
