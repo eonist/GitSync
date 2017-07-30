@@ -9,9 +9,7 @@ extension ProtoTypeView {
     func promptButtonClickHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
         Swift.print("promptBtn.upInside")
         self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
-        disableAnim {
-            modalBtn.setAppearance(NSColor.blue)//reset the color again
-        }
+        modalBtn.setAppearance(NSColor.blue)//reset the color again
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
         self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
         self.modalStayMode = false//release modalStayMode
@@ -54,17 +52,13 @@ extension ProtoTypeView {
         }
         if event.type == ForceTouchEvent.stageChange {/*when forcetouch changes state*/
             let stage:Int = event.stage
-            Swift.print("stage: " + "\(stage)")
+            //Swift.print("stage: " + "\(stage)")
             if stage == 0 && !self.modalStayMode{
                 modalBtn.setAppearance(NSColor.blue)
             }else if stage == 1 && !self.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
                 modalBtn.setAppearance(NSColor.red)
-            }else if stage == 2 && if !self.modalStayMode{
-                 {
-                    modalBtn.setAppearance(NSColor.green)
-                    Swift.print("override to green")
-                }
-                
+            }else if stage == 2 && !self.modalStayMode{
+                modalBtn.setAppearance(NSColor.green)
             }
         }
     }

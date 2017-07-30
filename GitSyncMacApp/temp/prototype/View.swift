@@ -39,5 +39,6 @@ class ProtoTypeView:WindowView{
 }
 
 //Continue here 🏀
-    //get rid of disableAnim
+    //clean up the eventHandlers
+    //get rid of disableAnim ✅
     //make extension for Element to manipulate size and color more easily ✅
