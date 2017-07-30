@@ -3,7 +3,7 @@ import Cocoa
 
 extension ProtoTypeView{
     enum Colors{
-        enum Modal {
+        enum Modal {//TODO: ⚠️️ move these into the scope of ModalButton
             static func initial(_ i:Int) -> NSColor {
                 if i == 1 {return "#66CDAD".nsColor}
                 else if i == 2 {return "#EB4D62".nsColor}
