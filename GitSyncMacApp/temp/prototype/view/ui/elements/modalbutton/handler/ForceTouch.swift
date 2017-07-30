@@ -35,8 +35,8 @@ extension ModalButton{
     private func deepClickDown(){
         Swift.print("deepClickDown")
         modalAnimator.setTargetValue(ProtoTypeView.Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
-        ProtoTypeView.shared.onMouseDownMouseY  = self.window!.contentView!.localPos().y
-        NSEvent.addMonitor(&ProtoTypeView.shared.leftMouseDraggedMonitor,.leftMouseDragged,ProtoTypeView.shared.leftMouseDraggedClosure)
+        onMouseDownMouseY  = self.window!.contentView!.localPos().y
+        NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged,leftMouseDraggedClosure)
     }
     private func deepClickUp(){
         Swift.print("deepClickUp")
@@ -54,7 +54,7 @@ extension ModalButton{
             /*promptBtn*/
             ProtoTypeView.shared.promptBtnAnimator.setTargetValue(ProtoTypeView.PromptButton.initial.origin).start() //anim bellow screen
         }
-        NSEvent.removeMonitor(&ProtoTypeView.shared.leftMouseDraggedMonitor)
+        NSEvent.removeMonitor(&leftMouseDraggedMonitor)
     }
     /**
      * when forcetouch changes state
