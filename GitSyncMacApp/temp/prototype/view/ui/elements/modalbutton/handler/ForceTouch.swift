@@ -83,9 +83,10 @@ extension ModalButton{
             .forEach{ (button:ModalButton) in
                 let color:NSColor = {
                     if isFocused {
-                        return ProtoTypeView.Colors.Modal.UnFocused.background
-                    }else {
                         return ProtoTypeView.Colors.Modal.initial(button.index)
+                        
+                    }else {
+                        return ProtoTypeView.Colors.Modal.UnFocused.background
                     }
                 }()
                 button.setAppearance(color)
