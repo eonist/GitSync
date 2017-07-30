@@ -55,28 +55,34 @@ extension ProtoTypeView {
             Swift.print("stage: " + "\(stage)")
             if stage == 0 {
                 if !self.modalStayMode {
-                    modalBtn.setAppearance(<#T##point: CGPoint##CGPoint#>)
-                    StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
+                    disableAnim {
+                        modalBtn.setAppearance(&self.style,NSColor.blue)
+                    }
+                    //StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
                 }
             }else if stage == 1{
                 if !self.modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
-                    StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.red)
+                    disableAnim {
+                        modalBtn.setAppearance(&self.style,NSColor.red)
+                    }
                     Swift.print("override to red")
                 }
                 
             }else /*if stage == 2*/{
                 if !self.modalStayMode {
-                    StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.green)
+                    disableAnim {
+                        modalBtn.setAppearance(&self.style,NSColor.green)
+                    }
                     Swift.print("override to green")
                 }
                 
             }
         }
         
-        disableAnim {
-            self.modalBtn.skin?.setStyle(self.style)
-        }
+//        disableAnim {
+//            self.modalBtn.skin?.setStyle(self.style)
+//        }
     }
     /**
      * Drag handler for modal
