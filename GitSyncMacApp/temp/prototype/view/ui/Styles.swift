@@ -42,7 +42,7 @@ extension ProtoTypeView{
                 css += "height:40px;"
                 css += "margin-top:0px;"
                 css += "font:Helvetica Neue;"
-                css += "size:40px;"
+                css += "size:24px;"
                 css += "wordWrap:true;"
                 css += "type:dynamic;"
                 css += "background:true;"
@@ -51,6 +51,7 @@ extension ProtoTypeView{
                 css += "align:center;"
                 css += "color:#\(Colors.PromptButton.Text.idle.hexString);"
                 css += "selectable:false;"
+                css += "multiline:false;"
                 css += "}"
                 /*TextButton down Text*/
                 css += "TextButton:down Text{"
