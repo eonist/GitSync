@@ -4,7 +4,11 @@ import Cocoa
 extension ProtoTypeView{
     enum Colors{
         enum Modal {
-            static let initial:NSColor = "#66CDAD".nsColor
+            static func initial(_ i:Int) -> NSColor {
+                if i == 1 {return "#66CDAD".nsColor}
+                else if i == 2 {return "#EB4D62".nsColor}
+                else /*if i == 3*/ {return "#4E98F5".nsColor}
+            }
             static let click:NSColor = "#555555".nsColor
             static let expanded:NSColor = "#66CDAD".nsColor
         }
