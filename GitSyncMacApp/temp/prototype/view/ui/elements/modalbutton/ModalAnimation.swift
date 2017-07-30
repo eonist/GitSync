@@ -9,5 +9,9 @@ extension ModalButton {
     func modalFrameAnim(roundedRect:RoundedRect){
         self.setAppearance(roundedRect)
     }
-    
+    enum AnimState{
+        enum ModalButton{
+            static var initial:AnimState5<RoundedRect/*CGRect*/> {return .init(Modal.initial)}//set initial value
+        }
+    }
 }

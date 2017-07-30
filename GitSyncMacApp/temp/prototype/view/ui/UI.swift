@@ -19,7 +19,8 @@ extension ProtoTypeView {
      */
     func createPromptButton() -> TextButton{
         StyleManager.addStyle(Styles.PromptButton.initial)/*Add css styling*/
-        let btn = self.addSubView(TextButton(Modal.initial().w,Modal.initial.h,"Dismiss",nil,"prompt"))
+        //TODO: ⚠️️ the bellow sizes seem wrong
+        let btn = self.addSubView(TextButton(Modal.initial().w,Modal.initial().h,"Dismiss",nil,"prompt"))
         btn.layer?.position = PromptButton.initial.origin//out of view
         return btn
     }
