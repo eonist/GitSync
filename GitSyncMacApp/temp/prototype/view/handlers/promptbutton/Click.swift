@@ -14,5 +14,4 @@ extension ProtoTypeView {
         self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
         self.modalStayMode = false//release modalStayMode
     }
-    
 }
