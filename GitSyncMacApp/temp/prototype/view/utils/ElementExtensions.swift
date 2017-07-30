@@ -23,8 +23,13 @@ extension ElementKind {
     func setAppearance(_ color:NSColor,_ depth:Int = 0){
         var style:Style = self.skin!.style as! Style
         StyleModifier.overrideStylePropVal(&style, ("fill",depth), color)
-        Swift.print("color.alphaComponent: " + "\(color.alphaComponent)")
-        StyleModifier.overrideStylePropVal(&style, ("fill-alpha",depth), color.alphaComponent)
+    }
+    /**
+     * New
+     */
+    func setAppearance(_ colorAlpha:CGFloat,_ depth:Int = 0){
+        var style:Style = self.skin!.style as! Style
+        StyleModifier.overrideStylePropVal(&style, ("fill-alpha",depth), colorAlpha)
         self.skin?.setStyle(style)
     }
 }
