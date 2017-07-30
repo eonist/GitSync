@@ -77,7 +77,7 @@ extension ModalButton{
     /**
      * New
      */
-    private func toggleFocusForOtherButtons( _ isFocused:Bool){
+    func toggleFocusForOtherButtons( _ isFocused:Bool){
         ElementParser.children(ProtoTypeView.shared, ModalButton.self)
             .filter {return $0 !== self}
             .forEach{ (button:ModalButton) in
