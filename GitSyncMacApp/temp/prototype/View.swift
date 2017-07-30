@@ -38,7 +38,7 @@ class ProtoTypeView:WindowView{
     /**
      * New
      */
-    func indexOfModal(_ modal:Button)->Int{
+    func indexOfModal(_ modal:Any?)->Int{
         if modal === modalBtn {
             return 1
         }else{
