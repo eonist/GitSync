@@ -12,6 +12,7 @@ extension ProtoTypeView{
                 var css:String = ""
                 css += "ModalButton{"
                 css += "fill:#\(Colors.Modal.initial(i).hexString),~/Desktop/\(svgName).svg white;"//fill:blue;
+                css += "fill-alpha:1.0,1.0;"
                 css += "width:\(Modal.initial().w)px,\(Modal.svgSize.w)px;"
                 css += "height:\(Modal.initial().h)px,\(Modal.svgSize.h)px;"
                 css += "corner-radius:\(Modal.initial().fillet)px;"
