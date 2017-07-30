@@ -4,7 +4,7 @@ import Foundation
 extension ProtoTypeView{
     enum Styles{
         enum ModalButton{
-            static let initial:String = {
+            static func initial(_ i:Int) -> String {
                 var css:String = ""
                 css += "ModalButton{"
                 css += "fill:#\(Colors.Modal.initial.hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
@@ -17,7 +17,7 @@ extension ProtoTypeView{
                 css += "float:none;"
                 css += "}"
                 return css
-            }()
+            }
         }
         enum PromptButton{
             static let initial:String = {
