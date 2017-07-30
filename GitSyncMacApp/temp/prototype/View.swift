@@ -4,7 +4,7 @@ import Cocoa
 
 class ProtoTypeView:WindowView{
     /*UI*/
-    lazy var modalBtn:Button = self.createModalButton(Modal.initial.origin)
+    lazy var modalBtn:Button = self.createModalButton(1)
     lazy var promptBtn:TextButton = self.createPromptButton()
     /*Animation*/
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(AnimState.PromptButton.initial, DefaultEasing.point,self.promptButtonAnim)
