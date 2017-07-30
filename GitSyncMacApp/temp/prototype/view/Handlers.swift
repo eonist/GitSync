@@ -55,19 +55,12 @@ extension ProtoTypeView {
         if event.type == ForceTouchEvent.stageChange {/*when forcetouch changes state*/
             let stage:Int = event.stage
             Swift.print("stage: " + "\(stage)")
-            if stage == 0 {
-                if !self.modalStayMode {
-                        modalBtn.setAppearance(NSColor.blue)
-                    Swift.print("override to blue")
-                }
-            }else if stage == 1{
-                if !self.modalStayMode && event.prevStage == 0{ //only change to red if prev stage was 0
-                        modalBtn.setAppearance(NSColor.red)
-                    Swift.print("override to red")
-                }
-                
-            }else /*if stage == 2*/{
-                if !self.modalStayMode {
+            if stage == 0 && !self.modalStayMode{
+                modalBtn.setAppearance(NSColor.blue)
+            }else if stage == 1 && !self.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
+                modalBtn.setAppearance(NSColor.red)
+            }else if stage == 2 && if !self.modalStayMode{
+                 {
                     modalBtn.setAppearance(NSColor.green)
                     Swift.print("override to green")
                 }
