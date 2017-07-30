@@ -27,11 +27,3 @@ extension ProtoTypeView {
         }
     }
 }
-extension ElementKind {
-    /**
-     *
-     */
-    func setAppearance(_ w:CGFloat, _ h:CGFloat, _ fillet:CGFloat){
-        
-    }
-}
