@@ -55,6 +55,7 @@ extension ProtoTypeView {
             Swift.print("stage: " + "\(stage)")
             if stage == 0 {
                 if !self.modalStayMode {
+                    
                     StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
                 }
