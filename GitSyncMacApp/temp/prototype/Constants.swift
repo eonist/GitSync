@@ -45,6 +45,16 @@ extension ProtoTypeView {
         static let expanded:CGPoint = {//the limit of where promptButton can go vertically
             return initial.origin - CGPoint(0,initial.height + 20/*<--bottom margin*/)
         }()
+        enum Colors{
+            enum Background{
+                static let initial:NSColor = "#DDDDDD".nsColor
+                static let down:NSColor = "#66CDAD".nsColor
+            }
+            enum Text{
+                static let initial:NSColor = "#DDDDDD".nsColor
+                static let down:NSColor = "#66CDAD".nsColor
+            }
+        }
     }
     enum Constraint{
         static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
