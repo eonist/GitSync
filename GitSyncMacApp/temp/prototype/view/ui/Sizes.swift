@@ -9,19 +9,19 @@ extension ProtoTypeView {
     }
     enum Modal {
         static let svgSize:CGSize = CGSize(50,50)//the graphic
-        static let initial:RoundedRect/*CGRect*/ = {//init modal btn size
+        static func initial(_ index:Int) -> RoundedRect/*CGRect*/{//init modal btn size
             let size:CGSize = CGSize(100,100)
-            let p:CGPoint = Grid.position(1,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Grid.position(index,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             let fillet:CGFloat = 50
             return RoundedRect(p,size,fillet)
             //return CGRect(p,size)
-        }()
-        static let click:RoundedRect = {//when modalBtn is pressed down
+        }
+        static func click(_ index:Int) -> RoundedRect {//when modalBtn is pressed down
             let size:CGSize = Modal.initial.size * 0.75
             let p:CGPoint = Grid.position(1,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             let fillet:CGFloat = Modal.initial.fillet * 0.75
             return RoundedRect(p,size,fillet)
-        }()
+        }
         static let expanded:RoundedRect = {//when modal is in expanded mode
             let size = CGSize(WinRect.size.w,WinRect.size.w) - CGSize(40,0)
             let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
