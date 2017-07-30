@@ -16,9 +16,6 @@ extension ElementKind {
         self.skin?.setStyle(style)
         self.layer?.position = roundedRect.origin
     }
-    func setApperance(_ margin:Margin){
-    
-    }
     func setAppearance(_ fill:NSColor){
         var style:Style = self.skin!.style as! Style
         StyleModifier.overrideStylePropVal(&style, ("fill",0), fill)
