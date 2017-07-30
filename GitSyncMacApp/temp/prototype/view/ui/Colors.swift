@@ -10,7 +10,7 @@ extension ProtoTypeView{
                 else /*if i == 3*/ {return "#4E98F5".nsColor}
             }
             static let click:NSColor = "#555555".nsColor
-            static let expanded:NSColor = "#66CDAD".nsColor
+            static func expanded(_ i:Int)-> NSColor {return initial(i)}
         }
         enum PromptButton {
             enum Background{
