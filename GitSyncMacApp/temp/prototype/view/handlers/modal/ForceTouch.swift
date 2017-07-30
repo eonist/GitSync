@@ -64,7 +64,7 @@ extension ProtoTypeView {
         if stage == 0 && !self.modalStayMode{
             modalBtn.setAppearance(NSColor.blue)
         }else if stage == 1 && !self.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
-            modalBtn.setAppearance(NSColor.red)
+            modalBtn.setAppearance("#555555".nsColor)
         }else if stage == 2 && !self.modalStayMode{
             modalBtn.setAppearance(NSColor.green)
         }
