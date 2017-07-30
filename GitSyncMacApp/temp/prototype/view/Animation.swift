@@ -17,8 +17,9 @@ extension ProtoTypeView {
     func modalFrameAnim(roundedRect:RoundedRect){
         //Swift.print("roundedRect: " + "\(roundedRect)")
         Swift.print("roundedRect.w: " + "\(roundedRect.w)")
+        self.modalBtn.setAppearance(roundedRect)
 //        disableAnim {
-            self.modalBtn.setAppearance(roundedRect)
+        
 //        }
     }
 }
