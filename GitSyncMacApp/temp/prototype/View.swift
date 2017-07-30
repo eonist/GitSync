@@ -50,10 +50,11 @@ class ProtoTypeView:WindowView{
 //Continue here 🏀
     //Use SF font?
     //Use ligthning svg
-    //add more Modal buttons to window 👈
-        //position buttons in a vertical grid ✅
-        //move forceTouch handler into a ModalButtonClass
-            //
+    //add more Modal buttons to window 
+        //move forceTouch handler into a ModalButton Class
+            //roll back to working mode 👈
+            //move modal animator into MOdalButton class
+            //move LeftMOuseDrag into ModalBUtton class
         //refactor enum constants to support more buttons
     //create the fullScreenMode
     //add the pan left and right gesture handler
