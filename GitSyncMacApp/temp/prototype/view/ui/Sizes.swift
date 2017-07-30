@@ -22,7 +22,7 @@ extension ProtoTypeView {
      */
     enum Grid{
         static let verticalSpace:CGFloat = {
-            return WinRect.size.h/5//71
+            return WinRect.size.h/3//71
         }()
         static func position(_ i:Int, _ size:CGSize) -> CGPoint {
             let p = CGPoint(WinRect.size.w/2,(Grid.verticalSpace * i).rounded())
