@@ -44,8 +44,12 @@ extension ProtoTypeView{
                 css += "size:20px;"
                 css += "wordWrap:true;"
                 css += "align:center;"
-                css += "color:#\(Colors.PromptButton.Text.idle);"
+                css += "color:#\(Colors.PromptButton.Text.idle.hexString);"
                 css += "selectable:false;"
+                css += "}"
+                /*TextButton Text down*/
+                css += "TextButton:down Text{"
+                css += "color:white;"
                 css += "}"
                 return css
             }()
