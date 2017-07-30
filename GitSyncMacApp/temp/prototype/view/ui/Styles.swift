@@ -41,10 +41,10 @@ extension ProtoTypeView{
                 css += "height:22px;"
                 css += "margin-top:3px;"
                 css += "font:Helvetica Neue;"
-                css += "size:14px;"
+                css += "size:20px;"
                 css += "wordWrap:true;"
                 css += "align:center;"
-                css += "color:#262626;"
+                css += "color:#\(Colors.PromptButton.Text.idle);"
                 css += "selectable:false;"
                 css += "}"
                 return css
