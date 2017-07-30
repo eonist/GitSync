@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * Constants
+ * Constants (Metrics)
  */
 extension ProtoTypeView {
     enum WinRect {
