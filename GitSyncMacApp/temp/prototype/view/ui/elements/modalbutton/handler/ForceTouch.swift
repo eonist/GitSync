@@ -76,11 +76,18 @@ extension ModalButton{
     /**
      * New
      */
-    private func deFocusOtherButtons(){
+    private func toggleFocusForOtherButtons( _ isFocused:Bool){
         ElementParser.children(ProtoTypeView.shared, ModalButton.self)
             .filter {return $0 !== self}
             .forEach{
-                $0.setAppearance(ProtoTypeView.Colors.Modal.UnFocused.background)
+                let color:NSColor = {
+                    if isFocused {
+                        return ProtoTypeView.Colors.Modal.UnFocused.background
+                    }else {
+                        return ProtoTypeView.Colors.Modal.initial($0.index)
+                    }
+                }()
+                $0.setAppearance(color)
         }
     }
     private func deFocusOtherButtons(){
