@@ -39,4 +39,5 @@ class ProtoTypeView:WindowView{
 }
 
 //Continue here 🏀
-    //load svg in modal, use designer colors
+    //load svg in modal, ✅ 
+        //use designer colors
