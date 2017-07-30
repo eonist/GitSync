@@ -11,7 +11,8 @@ class ProtoTypeWindow:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        self.contentView = ProtoTypeView(frame.size.width,frame.size.height)/*⬅️️🚪*/
+        ProtoTypeView(frame.size.width,frame.size.height)/*⬅️️🚪*/
+        self.contentView =
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
