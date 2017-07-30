@@ -45,6 +45,7 @@ extension ProtoTypeView{
                 css += "size:40px;"
                 css += "wordWrap:true;"
                 css += "background:true;"
+                css += "background-color:true;"
                 css += "border:true;"
                 css += "align:center;"
                 css += "color:#\(Colors.PromptButton.Text.idle.hexString);"
