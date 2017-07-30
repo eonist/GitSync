@@ -8,9 +8,8 @@ extension ProtoTypeView {
      */
     func forceTouchHandler(_ event:ForceTouchEvent)  {
         let indexOfModal:Int = self.indexOfModal(event.origin)
-        _ = indexOfModal
         //Swift.print("event.type: " + "\(event.type)")
-        if event.type == ForceTouchEvent.clickDown{
+        if event.type == ForceTouchEvent.clickDown{//TODO: use switch
             clickDown()
         }else if event.type == ForceTouchEvent.clickUp {
             clickUp()
