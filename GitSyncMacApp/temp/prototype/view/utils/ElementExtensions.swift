@@ -20,9 +20,10 @@ extension ElementKind {
         self.skin?.setStyle(style)
         self.layer?.position = roundedRect.origin
     }
-    func setAppearance(_ fill:NSColor,_ depth:Int = 0){
+    func setAppearance(_ color:NSColor,_ depth:Int = 0){
         var style:Style = self.skin!.style as! Style
-        StyleModifier.overrideStylePropVal(&style, ("fill",depth), fill)
+        StyleModifier.overrideStylePropVal(&style, ("fill",depth), color)
+        StyleModifier.overrideStylePropVal(&style, ("fill-alpha",depth), color.alphaComponent)
         self.skin?.setStyle(style)
     }
 }
