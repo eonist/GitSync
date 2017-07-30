@@ -7,7 +7,7 @@ extension ProtoTypeView{
             static func initial(_ i:Int) -> String {
                 var css:String = ""
                 css += "ModalButton{"
-                css += "fill:#\(Colors.Modal.initial(i).hexString),~/Desktop/ElCapitan/svg/question.svg white;"//fill:blue;
+                css += "fill:#\(Colors.Modal.initial(i).hexString),~/Desktop/eye.svg white;"//fill:blue;
                 css += "width:\(Modal.initial().w)px,\(Modal.svgSize.w)px;"
                 css += "height:\(Modal.initial().h)px,\(Modal.svgSize.h)px;"
                 css += "corner-radius:\(Modal.initial().fillet)px;"
