@@ -10,8 +10,8 @@ extension ProtoTypeView {
         static let verticalSpace:CGFloat = {
             return WinRect.size.h/4//88.75px
         }()
-        subscript(i:Int) -> CGFloat {
-            return CGPoint(WinRect.size.w/2,(Grid.verticalSpace*i).rounded)
+        static func position(_ i:Int) -> CGPoint {
+            return CGPoint(WinRect.size.w/2,(Grid.verticalSpace * i).rounded())
         }
     }
     enum WinRect {
@@ -22,7 +22,7 @@ extension ProtoTypeView {
         static let svgSize:CGSize = CGSize(50,50)//the graphic
         static let initial:RoundedRect/*CGRect*/ = {//init modal btn size
             let size:CGSize = CGSize(100,100)
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Grid.position(1)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             let fillet:CGFloat = 50
             return RoundedRect(p,size,fillet)
             //return CGRect(p,size)
