@@ -8,7 +8,11 @@ extension ProtoTypeView {
      */
     func promptButtonClickHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
         Swift.print("promptBtn.upInside")
-        self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
+        let animator = self.modalAnimator.setTargetValue(Modal.initial)
+        animator.onComplete = {
+            StyleModifier.overrideStylePropVal(&self.style, ("fill",0), NSColor.blue)
+        }
+        animator.start()/*outro modal*/
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
         self.modalBtn.addHandler(self.forceTouchHandler)//re-Added forcetoucheventhandler, ideally add this handler on outro complete
         self.modalStayMode = false//release modalStayMode

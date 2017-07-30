@@ -34,7 +34,7 @@ class ProtoTypeView:WindowView{
      */
     func addEventHandlers(){
         modalBtn.addHandler(forceTouchHandler)
-        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonHandler)
+        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonClickHandler)
     }
 }
 
