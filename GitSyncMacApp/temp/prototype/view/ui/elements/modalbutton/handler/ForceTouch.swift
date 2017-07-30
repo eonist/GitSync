@@ -24,16 +24,17 @@ extension ModalButton{
     }
     private func clickDown(){
         Swift.print("clickDown")
-        modalAnimator.setTargetValue(Modal.click).start()
+        modalAnimator.setTargetValue(Modal.click(self.index)).start()
     }
     private func clickUp(){
         Swift.print("clickUp")
         if !ProtoTypeView.shared.modalStayMode {//modal stay
-            modalAnimator.setTargetValue(Modal.initial).start()
+            modalAnimator.setTargetValue(Modal.initial(self.index)).start()
         }
     }
     private func deepClickDown(){
         Swift.print("deepClickDown")
+        ProtoTypeView.shared.curModal = self//set cur active modal
         modalAnimator.setTargetValue(Modal.expanded).start()//Swift.print("window.contentView.localPos(): " + "\(window.contentView!.localPos())")
         onMouseDownMouseY  = self.window!.contentView!.localPos().y
         NSEvent.addMonitor(&leftMouseDraggedMonitor,.leftMouseDragged,leftMouseDraggedClosure)
@@ -50,7 +51,7 @@ extension ModalButton{
         }else{/*modal leave*/
             Swift.print("modal leave")
             modalAnimator.direct = false
-            modalAnimator.setTargetValue(Modal.initial).start()
+            modalAnimator.setTargetValue(Modal.initial(self.index)).start()
             /*promptBtn*/
             ProtoTypeView.shared.promptBtnAnimator.setTargetValue(ProtoTypeView.PromptButton.initial.origin).start() //anim bellow screen
         }
