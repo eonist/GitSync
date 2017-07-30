@@ -8,7 +8,7 @@ import Cocoa
 extension ProtoTypeView {
     enum Grid{
         static let verticalSpace:CGFloat = {
-            return WinRect.size.h/4//88.75px
+            return WinRect.size.h/5//71
         }()
         static func position(_ i:Int, _ size:CGSize) -> CGPoint {
             let p = CGPoint(WinRect.size.w/2,(Grid.verticalSpace * i).rounded())
@@ -30,7 +30,7 @@ extension ProtoTypeView {
         }()
         static let click:RoundedRect = {//when modalBtn is pressed down
             let size:CGSize = Modal.initial.size * 0.75
-            let p:CGPoint = Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Grid.position(1,size)//Align.alignmentPoint(size, WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
             let fillet:CGFloat = Modal.initial.fillet * 0.75
             return RoundedRect(p,size,fillet)
         }()
