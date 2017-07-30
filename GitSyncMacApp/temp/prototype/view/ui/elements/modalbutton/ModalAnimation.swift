@@ -10,8 +10,8 @@ extension ModalButton {
         self.setAppearance(roundedRect)
     }
     enum AnimState{
-        enum ModalButton{
-            static var initial:AnimState5<RoundedRect/*CGRect*/> {return .init(Modal.initial)}//set initial value
-        }
+        static func initial(_ i:Int) -> AnimState5<RoundedRect/*CGRect*/> {
+            return .init(Modal.initial(i))
+        }//set initial value
     }
 }

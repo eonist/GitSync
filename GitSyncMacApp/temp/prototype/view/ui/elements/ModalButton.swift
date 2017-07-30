@@ -3,10 +3,10 @@ import Cocoa
 @testable import Element
 
 class ModalButton:ForceTouchButton{
-    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(ProtoTypeView.AnimState.ModalButton.initial, RoundedRect.DefaultEasing.easing,ProtoTypeView.Constraint.content,ProtoTypeView.Constraint.mask,self.modalFrameAnim)
+    lazy var modalAnimator:ElasticEaser5 = ElasticEaser5(AnimState.initial(self.index), RoundedRect.DefaultEasing.easing,ProtoTypeView.Constraint.content,ProtoTypeView.Constraint.mask,self.modalFrameAnim)
     var leftMouseDraggedMonitor:Any?/*Handler for dragging modal*/
     var onMouseDownMouseY:CGFloat = CGFloat.nan
-    var index:Int {return self.id!.int}
+    lazy var index:Int = {return self.id!.int}()
     
     override func resolveSkin() {
         super.resolveSkin()
