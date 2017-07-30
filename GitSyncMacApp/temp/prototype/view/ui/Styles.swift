@@ -36,7 +36,7 @@ extension ProtoTypeView{
                 css += "float:none;"
                 css += "}"
                 /*TextButton down*/
-                css += "Button#prompt:down{"
+                css += "TextButton#prompt:down{"
                 css += "fill:\(Colors.PromptButton.Background.down.hexString);"
                 css += "}"
                 /*TextButton Text*/
