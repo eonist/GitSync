@@ -68,7 +68,7 @@ class ProtoTypeView:WindowView{
     //create the fullScreenMode
         //pinch out back into initial mode
     //add the pan left and right gesture handler
-        
+
     //swipe in buttons
         //swipe out buttons
 
