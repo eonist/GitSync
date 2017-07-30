@@ -6,7 +6,7 @@ extension ProtoTypeView {
     /**
      * Click handler for PromptButton
      */
-    func promptButtonHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
+    func promptButtonClickHandler(_ event:ButtonEvent) { /*Handler for promptBtn*/
         Swift.print("promptBtn.upInside")
         self.modalAnimator.setTargetValue(Modal.initial).start()/*outro modal*/
         self.promptBtnAnimator.setTargetValue(PromptButton.initial.origin).start()/*outro promptBtn*/
