@@ -39,7 +39,7 @@ extension ProtoTypeView{
                 css += "}"
                 /*TextButton down*/
                 css += "TextButton:down{"
-                css += "fill:\(Colors.PromptButton.Background.down.hexString);"
+                css += "fill:black;"
                 css += "}"
                 /*TextButton Text*/
                 css += "TextButton Text{"
