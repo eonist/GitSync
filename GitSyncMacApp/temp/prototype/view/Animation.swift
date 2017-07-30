@@ -24,7 +24,7 @@ extension ProtoTypeView {
 //            let fillet:CGFloat = (rect.size.w/2).max(0)
             //continue here, make RoundRect primitive and anim that
             
-           // StyleModifier.overrideStylePropVal(&self.style, ("corner-radius",0), roundedRect.fillet)
+            StyleModifier.overrideStylePropVal(&self.style, ("corner-radius",0), roundedRect.fillet)
             self.modalBtn.skin?.setStyle(self.style)
             self.modalBtn.layer?.position = roundedRect.origin
         }
