@@ -12,7 +12,9 @@ extension ProtoTypeView{
             static let click:NSColor = "#555555".nsColor
             static func expanded(_ i:Int)-> NSColor {return initial(i)}
             enum UnFocused{
-                static let background:NSColor = NSColor.gray.alpha(0.1)
+                static func background(_ i:Int) -> NSColor {
+                    return Modal.initial(i).alpha(0.2)
+                }
                 //static let svg:NSColor = NSColor.white.alpha(0.3)
             }
         }

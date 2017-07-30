@@ -86,7 +86,7 @@ extension ModalButton{
                         return ProtoTypeView.Colors.Modal.initial(button.index)
                         
                     }else {
-                        return ProtoTypeView.Colors.Modal.UnFocused.background
+                        return ProtoTypeView.Colors.Modal.UnFocused.background(button.index)
                     }
                 }()
                 button.setAppearance(color)
