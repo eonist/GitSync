@@ -23,6 +23,7 @@ extension ElementKind {
     func setAppearance(_ color:NSColor,_ depth:Int = 0){
         var style:Style = self.skin!.style as! Style
         StyleModifier.overrideStylePropVal(&style, ("fill",depth), color)
+        self.skin?.setStyle(style)
     }
     /**
      * New
