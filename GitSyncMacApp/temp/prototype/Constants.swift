@@ -10,9 +10,9 @@ extension ProtoTypeView {
         static let verticalSpace:CGFloat = {
             return WinRect.size.h/4//88.75px
         }()
-        static let first:CGPoint = {
-            return CGPoint(WinRect.size.w/2,verticalSpace*1)
-        }()
+        subscript(i:Int) -> CGFloat {
+            return CGPoint(WinRect.size.w/2,(Grid.verticalSpace*i).rounded)
+        }
     }
     enum WinRect {
         static let size:CGSize = CGSize(200,355)//IPhone 7: (750 x 1334) (375 x 667) ≈ (200x355)
