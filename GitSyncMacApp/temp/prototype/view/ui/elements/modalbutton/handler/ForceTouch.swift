@@ -68,10 +68,12 @@ extension ModalButton{
             self.setAppearance(ProtoTypeView.Colors.Modal.initial(self.index))
         }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
             self.setAppearance(ProtoTypeView.Colors.Modal.click)
-            let buttons:[ElementKind] = ElementParser.children(ProtoTypeView.shared, ModalButton.self)
-            buttons.filter { 
-                return $0 !== self
-            }
+            ElementParser.children(ProtoTypeView.shared, ModalButton.self)
+                .filter {return $0 !== self}
+                .forEach{
+                    $0.setAppearance(ProtoTypeView.Colors.Modal.UnFocused.background)
+                }
+            
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.expanded(self.index))
         }
