@@ -30,11 +30,7 @@ extension ProtoTypeView {
             let fillet:CGFloat = 20
             return RoundedRect(p,size,fillet)
         }()
-        enum Colors{
-            static let initial:NSColor = "#66CDAD".nsColor
-            static let click:NSColor = "#555555".nsColor
-            static let expanded:NSColor = "#66CDAD".nsColor
-        }
+        
     }
     enum PromptButton {
         static let initial:CGRect = {
@@ -45,16 +41,7 @@ extension ProtoTypeView {
         static let expanded:CGPoint = {//the limit of where promptButton can go vertically
             return initial.origin - CGPoint(0,initial.height + 20/*<--bottom margin*/)
         }()
-        enum Colors{
-            enum Background{
-                static let idle:NSColor = "#DDDDDD".nsColor
-                static let down:NSColor = "#66CDAD".nsColor
-            }
-            enum Text{
-                static let idle:NSColor = "#555555".nsColor
-                static let down:NSColor = "#FFFFFF".nsColor
-            }
-        }
+        
     }
     enum Constraint{
         static let mask:ElasticEaser5.Frame = (WinRect.point.y,WinRect.size.h)
