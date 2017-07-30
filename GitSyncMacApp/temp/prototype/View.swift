@@ -12,6 +12,7 @@ class ProtoTypeView:WindowView{
     
     /*Values*/
     var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
+    var curModal:ModalButton?//the active modal
     
     override func resolveSkin(){
         Swift.print("ProtoTypeView.resolveSkin()")
