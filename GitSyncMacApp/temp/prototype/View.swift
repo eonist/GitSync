@@ -7,6 +7,7 @@ class ProtoTypeView:WindowView{
     /*UI*/
     lazy var firstButton:ModalButton = self.createModalButton(1)
     lazy var secondButton:ModalButton = self.createModalButton(2)
+    lazy var thirdButton:ModalButton = self.createModalButton(3)
     lazy var promptBtn:TextButton = self.createPromptButton()
     /*Animation*/
     lazy var promptBtnAnimator:Easer5<CGPoint> = Easer5<CGPoint>(AnimState.PromptButton.initial, DefaultEasing.point,self.promptButtonAnim)
@@ -27,6 +28,7 @@ class ProtoTypeView:WindowView{
     func createUI(){
         _ = firstButton
         _ = secondButton
+        _ = thirdButton
         _ = promptBtn
     }
     /**

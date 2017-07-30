@@ -69,7 +69,7 @@ extension ModalButton{
         }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
             ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.click)
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
-            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.expanded)
+            ProtoTypeView.shared.curModal?.setAppearance(ProtoTypeView.Colors.Modal.expanded(self.index))
         }
     }
 }
