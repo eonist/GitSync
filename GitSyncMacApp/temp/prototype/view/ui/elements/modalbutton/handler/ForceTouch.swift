@@ -67,9 +67,12 @@ extension ModalButton{
         if stage == 0 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.initial(self.index))
             toggleFocusForOtherButtons(.focused)
-        }else if stage == 1 && !ProtoTypeView.shared.modalStayMode && event.prevStage == 0{//only change to red if prev stage was 0
-            self.setAppearance(ProtoTypeView.Colors.Modal.click)
-            toggleFocusForOtherButtons(.unFocused)
+        }else if stage == 1 {//only change to red if prev stage was 0
+            if !ProtoTypeView.shared.modalStayMode && event.prevStage == 0 {
+                self.setAppearance(ProtoTypeView.Colors.Modal.click)
+                toggleFocusForOtherButtons(.unFocused)
+            }
+            
         }else if stage == 2 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.expanded(self.index))
             toggleFocusForOtherButtons(.hidden)
