@@ -16,7 +16,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
-        let temp = FileParser.resourceContent("example","txt")
+        Swift.print("FilePathParser.appDocPath(): " + "\(FilePathParser.appDocPath())")
+        let temp = FileParser.content(FilePathParser.appDocPath() + "/test.txt")
+        //let temp = FileParser.resourceContent("example","txt")
         Swift.print("temp: " + "\(temp)")
         //Continue here: 🏀 
             //try with out disableAnim 👈
