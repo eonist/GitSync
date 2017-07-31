@@ -44,7 +44,7 @@ extension ModalButton{
         Swift.print("deepClickUp")
         if ProtoTypeView.shared.modalStayMode {/*modal stay*/
             Swift.print("modal stay")
-            ProtoTypeView.shared.curModal?.removeHandler()
+            ProtoTypeView.shared.curModal.removeHandler()
             modalAnimator.direct = false
             var rect = Modal.expanded
             rect.origin.y -= 30

@@ -40,6 +40,10 @@ class ProtoTypeView:WindowView{
             if event.type == ButtonEvent.upInside {self.promptButtonClickHandler(event)}
             else if event.type == ButtonEvent.down{
                 self.promptBtn.setAppearance(Colors.PromptButton.Background.down(self.curModal.index))
+                var style:Style = self.promptBtn.text.skin!.style as! Style
+                StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.yellow)
+                
+                self.promptBtn.text.skin?.setStyle(style)
             }
         }
         
