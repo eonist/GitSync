@@ -63,7 +63,7 @@ extension ModalButton{
      */
     private func stageChange(_ event:ForceTouchEvent){
         let stage:Int = event.stage
-        //Swift.print("stage: " + "\(stage)")
+        Swift.print("stage: " + "\(stage)")
         if stage == 0 && !ProtoTypeView.shared.modalStayMode{
             self.setAppearance(ProtoTypeView.Colors.Modal.initial(self.index))
             toggleFocusForOtherButtons(.focused)
@@ -82,6 +82,7 @@ extension ModalButton{
      * New
      */
     func toggleFocusForOtherButtons( _ focusState:FocusState){
+        Swift.print("toggleFocusForOtherButtons: \(focusState.hashValue)")
         ElementParser.children(ProtoTypeView.shared, ModalButton.self)
             .filter {return $0 !== self}
             .forEach{ (button:ModalButton) in
