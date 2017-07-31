@@ -36,7 +36,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        let 
+        Swift.print(FileParser.content(/test.txt"))
+        let bundlePath:String  = FilePathParser.resourcePath() + "/temp.bundle"
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
         
