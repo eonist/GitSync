@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        //initApp()
+        initApp()
         
         //Continue here: 🏀 
             //try with out disableAnim 👈
@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Playground testing
         //add interuptabable animators to the fold
         
-        peekAndPopTest()
+        //peekAndPopTest()
     }
     /**
      * It's all about making UI / UX dribbble style !
