@@ -1,0 +1,37 @@
+TextButton{
+	float:left;
+	clear:left;
+	fill:<ButtonBase>;
+	fill-alpha:1;
+	line:white;
+	line-alpha:0;
+	line-thickness:0px;
+	line-offset-type:outside;
+	corner-radius:4px;
+	width:96px;
+	height:24px;
+	drop-shadow:<SubtleShadow>;
+}
+TextButton:down{
+	fill:<ButtonHighlight>;
+	line:<ButtonHighlight>;
+}
+TextButton Text{
+	float:left;
+	clear:left;
+	width:100%;
+	height:22px;
+	margin-top:3px;
+	font:Helvetica Neue;/*Lucida Grande,Helvetica Neue Medium,Futura Medium*/
+	size:14px;
+	wordWrap:true;
+	align:center;
+	color:#262626;
+	selectable:false;
+	backgroundColor:orange;
+	background:false;
+	border:false;
+}
+TextButton:down Text{
+	color:white;
+}

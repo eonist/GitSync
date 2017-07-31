@@ -1,0 +1,19 @@
+RadioBullet{
+	float:left;
+	width:14px,5px;
+	height:14px,5px;
+	margin-left:0px,5.5px;
+	margin-top:0px,5.5px;
+	line-thickness:1px,0px;
+	line-offset-type:outside,outside;
+	corner-radius:7px,2.5px;
+	fill:white,white;
+	line:#BEBEBE;
+	fill-alpha:1,0;
+}
+RadioBullet:selected{/*selected*/
+	fill:#3083FB,white;
+	line:#2579FB;
+	line-alpha:1,0;
+	fill-alpha:1,1;
+}

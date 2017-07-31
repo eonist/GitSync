@@ -1,0 +1,19 @@
+HSlider{
+	float:left;
+	clear:left;
+	height:6px;
+	margin-bottom:16px;
+}
+HSlider Button{
+	float:none;
+	clear:none;
+	fill:#696969;
+	corner-radius:3px;
+	padding-top:-16px;
+	line-thickness:0px;
+}
+HSlider Button:over{
+}
+HSlider Button:down{
+	fill:#696969;
+}

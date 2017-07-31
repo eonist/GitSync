@@ -1,0 +1,37 @@
+RepoView{
+	width:100%;
+	height:100%;
+	fill:green;
+	fill-alpha:0;
+	float:none;
+	clear:none;
+	padding-top:12px;
+	padding-left:0px;
+	/*corner-radius:0px 8px 0px 8px;*/
+}
+RepoView TreeList3{
+	width:100%;
+	float:left;
+	clear:left;
+	fill-alpha:0;
+	line-alpha:0;
+	line-thickness:0px;
+	/*padding-top:8px;*/
+}
+RepoView TreeList3 SelectTextButton{
+	fill-alpha:0;
+}
+RepoView TreeList3 TreeList3Item{
+	fill-alpha:0;
+}
+RepoView TreeList3 Text{
+	color:<TextTheme3>;
+	size:12px;
+}
+RepoView TreeList3 :selected{
+	fill-alpha:0;
+}
+RepoView TreeList3 :selected Text{
+	font:Helvetica Neue;
+	color:#2AA3EF;/*a blue color*/
+}

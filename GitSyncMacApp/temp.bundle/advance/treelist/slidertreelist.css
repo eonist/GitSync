@@ -1,0 +1,23 @@
+/*Slider*/
+TreeList VSlider{
+	float:right;
+	clear:none;
+	width:6px;
+	/*fill:orange;*/
+	line:none;
+	line-alpha:0;
+	line-offset-type:inside;
+	line-thickness:0px;
+	margin-left:4px;/*temp fix*/
+}
+TreeList VSlider Button{
+	float:none;
+	clear:none;
+	fill:grey9;
+	margin-left:0px;
+	margin-top:0px;
+	width:6px;
+	corner-radius:3px;
+	padding:0px;
+	margin:0px;
+}

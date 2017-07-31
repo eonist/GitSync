@@ -1,0 +1,33 @@
+TextInput{
+	float:left;
+	clear:left;
+	padding-top:2px;
+}
+TextInput Text{
+	float:left;
+	clear:none;
+	width:78px;
+	height:20px;
+	color:black;
+}
+TextInput TextArea{
+	float:left;
+	clear:none;
+	width:60px;
+	height:20px;
+	padding:0px;/*Resets padding from Generic TextArea*/
+	padding-left:4px;
+	padding-right:4px;
+	fill:white;
+	line:#A4A4A4;
+	line-alpha:1;
+	line-thickness:1px;
+	line-offset-type:outside;
+	/*margin-left:6px;*/
+}
+TextInput TextArea Text{
+	backgroundColor:orange;
+	background:false;
+	type:input;
+	selectable:true;
+}
