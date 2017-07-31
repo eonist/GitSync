@@ -16,20 +16,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
-//        Swift.print("FilePathParser.appDocPath(): " + "\(FilePathParser.appDocPath())")
-        Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath())")
+
         
-        //let bundlePath:String = Bundle.main.bundlePath + "/temp.bundle/test.txt"
-        
-        let path = FilePathParser.resourcePath() + "/temp.bundle/test.txt"
-        Swift.print("path: " + "\(path)")
-        
-        let temp = FileParser.content(path)
-        
-        
-        //let temp = FileParser.resourceContent("example","txt")
-        Swift.print("temp: " + "\(temp)")
-        //Continue here: 🏀 
+        //Continue here: 🏀
             //try with out disableAnim 👈
             //Add more types to Easer/Springer ✅
             //try to do a rotation test back and forth with elastic
