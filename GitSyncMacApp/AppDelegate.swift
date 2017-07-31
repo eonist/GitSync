@@ -16,9 +16,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
-        Swift.print("FilePathParser.appDocPath(): " + "\(FilePathParser.appDocPath())")
+//        Swift.print("FilePathParser.appDocPath(): " + "\(FilePathParser.appDocPath())")
         Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath())")
-        let temp = FileParser.content(FilePathParser.appDocPath() + "/test.txt")
+        
+        let bundlePath:String = Bundle.main.resourcePath! + "/temp.bundle"
+        
+        let temp = FileParser.content(bundlePath)
+        
+        
         //let temp = FileParser.resourceContent("example","txt")
         Swift.print("temp: " + "\(temp)")
         //Continue here: 🏀 
