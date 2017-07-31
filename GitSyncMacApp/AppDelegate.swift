@@ -36,10 +36,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        Swift.print(FileParser.content(/test.txt"))
-        let bundlePath:String  = FilePathParser.resourcePath() + "/temp.bundle"
+        
+        let root:String  = FilePathParser.resourcePath() + "/temp.bundle"//~/Desktop/ElCapitan
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
+        StyleManager.addStylesByURL(root + "/styletest/" + themeStr,true)
         
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         let rect:CGRect = PrefsView.prefs.rect
