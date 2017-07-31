@@ -14,7 +14,7 @@ class ProtoTypeView:WindowView{
     
     /*Values*/
     var modalStayMode:Bool = false/*This is set to true if modal is released above a sertion threshold (modal.y < 30) threshold*/
-    var curModal:ModalButton?//the active modal
+    lazy var curModal:ModalButton = self.firstButton//the active modal
     
     override func resolveSkin(){
         StyleManager.addStyle(Styles.window)//padding-top:24px;
@@ -37,10 +37,9 @@ class ProtoTypeView:WindowView{
     func addEventHandlers(){
 //        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonClickHandler)
         promptBtn.addHandler{ (event:ButtonEvent) in
-            if event.type == ButtonEvent.upInside {promptButtonClickHandler(event)}
+            if event.type == ButtonEvent.upInside {self.promptButtonClickHandler(event)}
             else if event.type == ButtonEvent.down{
-                guard let curModalBtn:ModalButton = self.curModal else{return}
-                self.promptBtn.setAppearance(Colors.PromptButton.Background.down(curModalBtn.index))
+                self.promptBtn.setAppearance(Colors.PromptButton.Background.down(self.curModal.index))
             }
         }
         

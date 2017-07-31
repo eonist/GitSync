@@ -26,6 +26,7 @@ extension ElementKind {
         StyleModifier.overrideStylePropVal(&style, ("fill",depth), color)
         self.skin?.setStyle(style)
     }
+    
     /**
      * New
      */
