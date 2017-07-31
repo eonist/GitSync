@@ -35,10 +35,13 @@ class ProtoTypeView:WindowView{
      * Adds eventHandlers to UI
      */
     func addEventHandlers(){
-        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonClickHandler)
-        promptBtn.addHandler(type:ButtonEvent.down){ _ in
-            guard let curModalBtn:ModalButton = self.curModal else{return}
-            self.promptBtn.setAppearance(Colors.PromptButton.Background.down(curModalBtn.index))
+//        promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonClickHandler)
+        promptBtn.addHandler{ (event:ButtonEvent) in
+            if event.type == ButtonEvent.upInside {promptButtonClickHandler(event)}
+            else if event.type == ButtonEvent.down{
+                guard let curModalBtn:ModalButton = self.curModal else{return}
+                self.promptBtn.setAppearance(Colors.PromptButton.Background.down(curModalBtn.index))
+            }
         }
         
     }
