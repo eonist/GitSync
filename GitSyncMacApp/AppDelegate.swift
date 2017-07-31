@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        
+        let 
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
         
