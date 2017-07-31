@@ -15,8 +15,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        initApp()
-        
+        //initApp()
+        let temp = FileParser.resourceContent("example","txt")
+        Swift.print("temp: " + "\(temp)")
         //Continue here: 🏀 
             //try with out disableAnim 👈
             //Add more types to Easer/Springer ✅
