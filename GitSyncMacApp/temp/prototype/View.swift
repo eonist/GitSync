@@ -36,6 +36,10 @@ class ProtoTypeView:WindowView{
      */
     func addEventHandlers(){
         promptBtn.addHandler(type:ButtonEvent.upInside,promptButtonClickHandler)
+        promptBtn.addHandler(type:ButtonEvent.upInside){ _ in
+            promptBtn.setAppearance(Colors.PromptButton.Background.down(curModalBtn.index))
+        }
+        
     }
     /**
      * New
