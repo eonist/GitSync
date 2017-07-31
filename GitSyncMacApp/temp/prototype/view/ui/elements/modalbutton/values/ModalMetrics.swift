@@ -20,7 +20,7 @@ enum Modal {
         return RoundedRect(p,size,fillet)
     }
     static let expanded:RoundedRect = {//when modal is in expanded mode
-        let size = CGSize(ProtoTypeView.WinRect.size.w,ProtoTypeView.WinRect.size.w) - CGSize(40,0)
+        let size = CGSize(ProtoTypeView.WinRect.size.w,ProtoTypeView.WinRect.size.w) + CGSize(-40,40)
         let p:CGPoint = Align.alignmentPoint(size, ProtoTypeView.WinRect.size, Alignment.centerCenter, Alignment.centerCenter)
         let fillet:CGFloat = 20
         return RoundedRect(p,size,fillet)
