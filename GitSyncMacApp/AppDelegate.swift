@@ -16,14 +16,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         initApp()
-
-        
-        //Continue here: 🏀
-            //try with out disableAnim 👈
-            //Add more types to Easer/Springer ✅
-            //try to do a rotation test back and forth with elastic
-            //Playground testing
-        //add interuptabable animators to the fold
         
         //peekAndPopTest()
     }
@@ -37,9 +29,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        let root:String  = FilePathParser.resourcePath() + "/temp.bundle"//~/Desktop/ElCapitan
+        let root:String  = FilePathParser.resourcePath() + "/temp.bundle"
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
-        StyleManager.addStylesByURL(root + "/styles/styletest/" + themeStr,true)
+        let styleFilePath:String = root + "/styles/styletest/" + themeStr
+        StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         let rect:CGRect = PrefsView.prefs.rect
