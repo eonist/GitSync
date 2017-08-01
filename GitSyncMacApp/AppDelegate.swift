@@ -38,9 +38,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-        let rect:CGRect = PrefsView.prefs.rect
-        win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
-        menu = Menu()/*This creates the App menu*/
+//        let rect:CGRect = PrefsView.prefs.rect
+//        win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
+//        menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.Bundle.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
