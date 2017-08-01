@@ -51,7 +51,7 @@ TreeList3 CheckBoxButton{
 }
 TreeList3 CheckBox{
 	float:left;
-	fill:yellow,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;/*grey5*/
+	fill:yellow,../../svg/arrow_right.svg grey6;/*grey5*/
     transform:rotate(0deg),rotate(0deg);
 	fill-alpha:0,1;
 	line:none,none;
@@ -60,7 +60,7 @@ TreeList3 CheckBox{
 	width:24px,12px;
 }
 TreeList3 CheckBox:checked{
-	fill:orange,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;/*grey5*/
+	fill:orange,../../svg/arrow_right.svg grey6;/*grey5*/
     transform:rotate(0deg),rotate(90deg);
 	fill-alpha:0,1;
 	line:none,none;

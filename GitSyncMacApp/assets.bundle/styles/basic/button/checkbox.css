@@ -1,6 +1,6 @@
 /*Core*/
 CheckBox{
-	fill:white,~/Desktop/ElCapitan/svg/check.svg grey;
+    fill:white,../../svg/check.svg grey;
 	fill-alpha:1,0;
 	float:left;
 	corner-radius:2px;
@@ -14,7 +14,7 @@ CheckBox{
 	line-offset-type:outside;
 }
 CheckBox:checked{
-	fill:#3B99FC,~/Desktop/ElCapitan/svg/check.svg white;
+	fill:#3B99FC,../../svg/check.svg white;
 	fill-alpha:1,1;
 	line:#2C90FC;
 }

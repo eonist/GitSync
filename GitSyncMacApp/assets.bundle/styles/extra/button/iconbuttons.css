@@ -14,36 +14,36 @@
 }
 #iconButtonsCard SelectButton#first{
 	clear:left;
-	fill:white,~/Desktop/ElCapitan/svg/view/icons.svg #585858;
+	fill:white,../../svg/view/icons.svg #585858;
 	corner-radius:4px 0px 4px 0px;
 	lline-offset-type-right:inside;
 }
 #iconButtonsCard SelectButton#first:selected{
-	fill:#6E6C6E,~/Desktop/ElCapitan/svg/view/icons.svg white;
+	fill:#6E6C6E,../../svg/view/icons.svg white;
 }
 #iconButtonsCard SelectButton#second{
-	fill:white,~/Desktop/ElCapitan/svg/view/list.svg #585858;
+	fill:white,../../svg/view/list.svg #585858;
 	corner-radius:0px;
 	line-offset-type-right:inside;
 	line-offset-type-left:inside;
 }
 #iconButtonsCard SelectButton#second:selected{
-	fill:#6E6C6E,~/Desktop/ElCapitan/svg/view/list.svg white;
+	fill:#6E6C6E,../../svg/view/list.svg white;
 }
 #iconButtonsCard SelectButton#third{
-	fill:white,~/Desktop/ElCapitan/svg/view/columns.svg #585858;
+	fill:white,../../svg/view/columns.svg #585858;
 	corner-radius:0px;
 	lline-offset-type-right:inside;
 	line-offset-type-left:inside;
 }
 #iconButtonsCard SelectButton#third:selected{
-	fill:#6E6C6E,~/Desktop/ElCapitan/svg/view/columns.svg white;
+	fill:#6E6C6E,../../svg/view/columns.svg white;
 }
 #iconButtonsCard SelectButton#fourth{
-	fill:white,~/Desktop/ElCapitan/svg/view/coverflow.svg #585858;
+	fill:white,../../svg/view/coverflow.svg #585858;
 	corner-radius:0px 4px 0px 4px;
 	line-offset-type-left:inside;
 }
 #iconButtonsCard SelectButton#fourth:selected{
-	fill:#6E6C6E,~/Desktop/ElCapitan/svg/view/coverflow.svg white;
+	fill:#6E6C6E,../../svg/view/coverflow.svg white;
 }

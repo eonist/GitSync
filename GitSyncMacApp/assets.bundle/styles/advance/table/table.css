@@ -42,7 +42,7 @@ Table Column CheckTextButton#header{
 	offset:0px 0px,-18px 7px;
 }
 Table Column CheckTextButton#header:checked{
-	fill:white,~/Desktop/ElCapitan/svg/arrow_up.svg grey6;
+	fill:white,../../svg/arrow_up.svg grey6;
 }
 Table Column#0 CheckTextButton#header{
 	line-offset-type-left:inside;

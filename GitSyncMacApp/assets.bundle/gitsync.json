@@ -1,0 +1,25 @@
+{
+	"repoDetailView":[
+		{"type":"TextInput","id":"title","text":"Name:"},
+		{"type":"TextInput","id":"local","text":"Local:"},
+		{"type":"TextInput","id":"remote","text":"Remote:"},
+		{"type":"TextInput","id":"branch","text":"Branch:"},
+		{"type":"CheckBoxButton","id":"active","text":"Active:"},
+		{"type":"CheckBoxButton","id":"message","text":"Message:"},
+		{"type":"CheckBoxButton","id":"auto","text":"Auto:"}
+	],
+	"prefsView":[
+		{"type":"TextInput","id":"login","text":"Github login:"},
+		{"type":"TextInput","id":"pass","text":"Github pass:"},
+		{"type":"TextInput","id":"local","text":"Local path:"},
+		{"type":"CheckBoxButton","id":"darkMode","text":"DarkMode:"}
+	],
+	"commitDialogView":[
+		{"type":"Text","id":"header","text":"Commit message:"},
+		{"type":"TextInput","id":"repo","text":"Repository:"},
+		{"type":"TextInput","id":"title","text":"Title:"},
+		{"type":"TextInput","id":"desc","text":"Description:"},
+		{"type":"TextButton","id":"cancel","text":"Cancel"},
+		{"type":"TextButton","id":"ok","text":"OK"}
+	]
+}

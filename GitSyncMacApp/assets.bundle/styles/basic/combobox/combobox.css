@@ -7,7 +7,7 @@ ComboBox{
 ComboBox TextButton{
 	width:100%,24px;
 	height:24px,24px;
-	fill:linear-gradient(top,white,white),~/Desktop/assets/svg/icons/popup_menu_arrows.svg grey;
+	fill:linear-gradient(top,white,white),../../svg/icons/popup_menu_arrows.svg grey;
 	padding:-1px;
 	margin-left:0px,100%;
 	offset:0px 0px,-24px 1px;

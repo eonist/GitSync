@@ -5,7 +5,7 @@ import Foundation
 class CommitDialogView:Element,UnFoldable {
     override func resolveSkin() {
         super.resolveSkin()
-        UnFoldUtils.unFold(Config.app,"commitDialogView",self)
+        UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
         let data:[String:[String:Any]] = [
             "repo":["inputText":"Element iOS"],
             "title":["inputText":"Added support for padding"],

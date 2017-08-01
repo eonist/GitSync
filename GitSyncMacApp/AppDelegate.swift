@@ -29,9 +29,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        let root:String  = FilePathParser.resourcePath() + "/temp.bundle"
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
-        let styleFilePath:String = root + "/styles/styletest/" + themeStr
+        let styleFilePath:String = Config.Bundle.assets + "styles/styletest/" + themeStr
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
@@ -40,9 +39,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {
-        _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
+        _ = FileModifier.write(Config.Bundle.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
-        _ = FileModifier.write(Config.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
+        _ = FileModifier.write(Config.Bundle.repo.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         Swift.print("💾 Write RepoList to: repo.xml")
         print("Good-bye")
     }

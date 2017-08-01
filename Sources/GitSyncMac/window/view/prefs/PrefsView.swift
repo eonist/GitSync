@@ -11,7 +11,7 @@ class PrefsView:Element {
     static var _prefs:Prefs? = nil
     static var prefs:Prefs = {/*Stores values in a singleton like data-container*/
         if _prefs == nil {
-            let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
+            let xml:XML = FileParser.xml(Config.Bundle.prefs.tildePath)/*Loads the xml*/
             let login = xml.firstNode(PrefsType.login)!.stringValue!
             let local = xml.firstNode(PrefsType.local)!.stringValue!
             let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
@@ -26,7 +26,7 @@ class PrefsView:Element {
     }()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
-        UnFoldUtils.unFold(Config.app,"prefsView",self)
+        UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
         setPrefs(PrefsView.prefs)
     }
     override func onEvent(_ event:Event) {

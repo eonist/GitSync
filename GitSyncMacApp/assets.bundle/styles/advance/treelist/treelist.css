@@ -68,7 +68,7 @@ TreeList TreeListItem{
 /*TreeListItem - CheckBox*/
 TreeList TreeListItem CheckBox{
 	float:left;
-	fill:grey5,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;
+	fill:grey5,../../svg/arrow_right.svg grey6;
 	fill-alpha:0,1;
 	line:none,none;
 	corner-radius:0px;
@@ -77,7 +77,7 @@ TreeList TreeListItem CheckBox{
 	margin:0px,6px;
 }
 TreeList TreeListItem CheckBox:checked{
-	fill:grey5,~/Desktop/ElCapitan/svg/arrow_down.svg grey6;
+	fill:grey5,../../svg/arrow_down.svg grey6;
 	fill-alpha:0,1;
 	line:none,none;
 }

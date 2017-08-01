@@ -10,7 +10,7 @@ class RepoView:Element {
     static var _treeDP:TreeDP? = nil
     static var treeDP:TreeDP {
         guard let treeDP = _treeDP else{
-            _treeDP = TreeDP(Config.repoListFilePath.tildePath)/*Doesn't exists return new DP*/
+            _treeDP = TreeDP(Config.Bundle.repo.tildePath)/*Doesn't exists return new DP*/
             return _treeDP!
         };return treeDP/*Already exist, return old dp*/
     }

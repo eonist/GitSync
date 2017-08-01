@@ -3,7 +3,7 @@
 	clear:left,left;
 	width:170px,12px;
 	height:24px,12px;
-	fill:white,~/Desktop/ElCapitan/svg/search.svg grey;
+	fill:white,../../svg/search.svg grey;
 	margin-top:0px,6px;
 	margin-left:0px,8px;
 	drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);/*Use generic points instead, subtle and blank*/
