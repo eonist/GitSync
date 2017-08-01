@@ -23,6 +23,8 @@ class CommitDescUtils{
                 case .RM?://new and experimental
                     renamedItems.append(statusItem) //--add a record to a list
 				case .M?:
+                    addedItems.append(statusItem)//--add a record to a list
+                case .AM?://new beta
                     modifiedItems.append(statusItem)//--add a record to a list
 				case .QQ?:
                     addedItems.append(statusItem)//--add a record to a list
