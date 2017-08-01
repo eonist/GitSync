@@ -39,7 +39,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let root:String  = FilePathParser.resourcePath() + "/temp.bundle"//~/Desktop/ElCapitan
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
-        StyleManager.addStylesByURL(root + "/styles/styletest/" + themeStr,false)
+        StyleManager.addStylesByURL(root + "/styles/styletest/" + themeStr,true)
         
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         let rect:CGRect = PrefsView.prefs.rect
