@@ -9,6 +9,7 @@ enum GitCMD:String{
     case D = "D"/*When a file is deleted*/
     case A = "A"/*When a file is added*/
     case R = "R"/*When a file is renamed,*/
+    case AM = "AM"/*Beta, needs description, probably file added with two parents*/
     case MM = "MM"/*There are two Ms in your example because it's a merge commit with two parents*/
     case RM = "RM"/*When a file is renamed, new and experimental*/
     case QQ = "??"
@@ -37,6 +38,8 @@ class CommitMessageUtils{
 					numOfDeletedFiles += 1
 				case .A?:
 					numOfNewFiles += 1
+                case .AM?:
+                    numOfNewFiles += 1
 				case .R?: /*This command seems to never be triggered in git*/
 					numOfRenamedFiles += 1
                 case .RM?://new and experimental
