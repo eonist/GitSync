@@ -33,7 +33,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let testURL:String = "~/Desktop/test.txt"//"../../folderA/folder4/test.txt", "test.txt"
         /**
          * PARAM: baseURL: must be absolute: "Users/John/Desktop/temp"
-         * EXAMPLE: 
+         * EXAMPLE: expand("Users/John/Desktop/temp")//Users/John/Desktop/temp
+         * EXAMPLE: expand("~/Desktop/temp")//Users/John/Desktop/temp
+         * EXAMPLE: expand("/temp/colors/star.svg",Users/John/Desktop)//Users/John/Desktop/temp/colors/star.svg
+         * EXAMPLE: expand("/temp/colors/star.svg",Users/John/Desktop)//Users/John/Desktop/temp/colors/star.svg
+         * IMPORTANT: ⚠️️ Tilde paths can't have backlash syntax like ../../ etc
          */
         func expand(_ filePath:String, baseURL:String) -> String{
             if FilePathAsserter.isTildePath(filePath) {
@@ -42,7 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 return FilePathModifier.normalize(baseURL + filePath)//returns absolute path
             }else if FileAsserter.exists(filePath){//absolute path that exists
                 return filePath
-            }else if FilePathAsserter.isAbsolute(filePath){ //absolute but doesnt exists
+            }else if FilePathAsserter.isAbsolute(filePath){//absolute but doesn't exists
                 return baseURL + filePath
             }else{
                 return baseURL + "/" + filePath
