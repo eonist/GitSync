@@ -30,6 +30,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("f: " + "\(f)")
         Swift.print("e.tildify: " + "\(e.tildify.tildePath)")
         
+        Swift.print(("~/Desktop/test/../test.txt").tildePath)
         Swift.print(("~/Desktop/test/../test.txt").tildePath.content)
         //Continue here: 🏀
             //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
