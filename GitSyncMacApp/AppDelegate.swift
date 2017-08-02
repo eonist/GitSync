@@ -29,7 +29,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //take a look at URL patterns
             //(../)*? or (/\\w*?)
             //your essentially making relativeURLPattern
-            //
         
         let svgFileName:String = "\\b.*(?=.svg)\\z"
         let string = "ab    c"
