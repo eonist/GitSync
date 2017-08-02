@@ -34,9 +34,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         /**
          *
          */
-        func expand(_ url:String) -> String{
-            if FilePathAsserter.isTildePath(url) {
-                return 
+        func expand(_ filePath:String, baseURL:String) -> String{
+            if FilePathAsserter.isTildePath(filePath) {
+                return filePath.tildePath
+            } else if !FilePathAsserter.isAbsolute(filePath) {//isRelative
+                return FilePathModifier.normalize(FilePathParser.resourcePath + filePath)//returns absolute path
             }
         }
         
