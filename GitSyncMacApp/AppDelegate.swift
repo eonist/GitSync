@@ -17,7 +17,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
         
-        FilePathModifier.normalize(FilePathParser.resourcePath + "/styles/" + "../test")
+        let url = FilePathModifier.normalize(FilePathParser.resourcePath + "/styles/" + "../test.txt")
+        let path = FilePathParser.path(url)
+        Swift.print("path: " + "\(path)")
         
         //continue here: ball
             //when css creates svg, grab hold of the base url if the svg url starts with ../ else use absolute url
