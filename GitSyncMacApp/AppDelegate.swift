@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func expand(_ filePath:String, baseURL:String = "") -> String{
             if FilePathAsserter.isTildePath(filePath) {
                 return filePath.tildePath
-            }else if !FilePathAsserter.isAbsolute(filePath) {//isRelative
+            }else if FilePathAsserter.isBacklash(filePath) {//isRelative
                 return FilePathModifier.normalize(baseURL + filePath)//returns absolute path
             }else if FileAsserter.exists(filePath){//absolute path that exists
                 return filePath
@@ -76,6 +76,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         css += "fill:star.svg;"
         css += "}"
         let string = "Button{fillabc ~/Desktop/styles/star.svg white}"
+        _ = string
         let relativeURLPattern = "(?=[,: ]?)([\\w/~]+.svg)(?=[,; ]?)"
         let result = css.replace(relativeURLPattern, "👉$1👈")
         Swift.print("result: " + "\(result)")
