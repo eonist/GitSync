@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          * EXAMPLE: expand("star.svg",Users/John/Desktop)//Users/John/Desktop/star.svg
          * IMPORTANT: ⚠️️ Tilde paths can't have backlash syntax like ../../ etc
          */
-        func expand(_ filePath:String, baseURL:String) -> String{
+        func expand(_ filePath:String, baseURL:String = "") -> String{
             if FilePathAsserter.isTildePath(filePath) {
                 return filePath.tildePath
             }else if !FilePathAsserter.isAbsolute(filePath) {//isRelative
@@ -48,7 +48,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        Swift.print(expand("~/Desktop/test.txt", baseURL: ""))
+        Swift.print(expand("/Users/John/Desktop/temp"))
+        Swift.print(expand("~/Desktop/test.txt"))
+        Swift.print(expand("/temp/colors/star.svg",baseURL:"/Users/John/Desktop"))
     }
     /**
      *
