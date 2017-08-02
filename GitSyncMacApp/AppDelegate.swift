@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print(expand("/Users/John/Desktop/temp"))
         Swift.print(expand("~/Desktop/test.txt"))
         Swift.print(expand("/temp/colors/star.svg",baseURL:"/Users/John/Desktop"))
-        Swift.print(expand("star.svg",baseURL:"Users/John/Desktop"))
+        Swift.print(expand("star.svg",baseURL:"/Users/John/Desktop"))
     }
     /**
      *
