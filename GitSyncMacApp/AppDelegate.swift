@@ -17,10 +17,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
 //        initApp()
         
-        Swift.print("FilePathParser.resourcePath: " + "\(FilePathParser.resourcePath)")
-        
-        Swift.print("Config.Bundle.repo: " + "\(Config.Bundle.repo)")
-        Swift.print("Config.Bundle.repo.content: " + "\(Config.Bundle.repo.content)")
+//        Swift.print("FilePathParser.resourcePath: " + "\(FilePathParser.resourcePath)")
+//        Swift.print("Config.Bundle.repo: " + "\(Config.Bundle.repo)")
+//        Swift.print("Config.Bundle.repo.content: " + "\(Config.Bundle.repo.content)")
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
@@ -29,11 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      * It's all about making UI / UX dribbble style !
      */
-    func peekAndPopTest(){
-        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        win = ProtoTypeWindow(ProtoTypeView.WinRect.size.w,ProtoTypeView.WinRect.size.h)/*⬅️️🚪*/
-    }
-    func initApp(){
+        func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
