@@ -21,7 +21,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //        FilePathParser.path(<#T##url: URL##URL#>)
         
-        Swift.print(FilePathParser.path(FilePathModifier.normalize(FilePathParser.resourcePath)))
+        Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
         //continue here: ball
             //when css creates svg, grab hold of the base url if the svg url starts with ../ else use absolute url
