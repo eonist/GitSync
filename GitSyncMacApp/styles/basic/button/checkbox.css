@@ -1,0 +1,20 @@
+/*Core*/
+CheckBox{
+    fill:white,../../svg/check.svg grey;
+	fill-alpha:1,0;
+	float:left;
+	corner-radius:2px;
+	width:13px,13px;
+	height:13px,13px;
+	margin-left:0px,1px;
+	margin-top:0px,1px;
+	line:#BEBEBE;
+	line-alpha:1;
+	line-thickness:1px;
+	line-offset-type:outside;
+}
+CheckBox:checked{
+	fill:#3B99FC,../../svg/check.svg white;
+	fill-alpha:1,1;
+	line:#2C90FC;
+}

@@ -1,0 +1,26 @@
+#searchBoxCard TextArea{
+	float:left,left;
+	clear:left,left;
+	width:170px,12px;
+	height:24px,12px;
+	fill:white,../../svg/search.svg grey;
+	margin-top:0px,6px;
+	margin-left:0px,8px;
+	drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);/*Use generic points instead, subtle and blank*/
+	corner-radius:4px,0px;
+}
+#searchBoxCard TextArea Text{
+	float:left;
+	margin-top:3px;
+	margin-left:24px;
+	align:left;
+	color:#B2B2B2;
+	font:Helvetica Neue;
+	size:14px;
+	type:input;
+	multiline:false;
+	wordWrap:false;
+	selectable:true;
+	width:100%;
+	height:24px;
+}

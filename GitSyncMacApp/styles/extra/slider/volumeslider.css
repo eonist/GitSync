@@ -1,0 +1,50 @@
+VolumeSlider{
+	float:left;
+	clear:left;
+	height:5px;
+	fill:#C8C8C8;
+	line:grey9;
+	line-offset-type:outside;
+	line-alpha:0;
+	line-thickness:0px;
+	corner-radius:2.5px;
+	margin-top:8px;
+	margin-bottom:16px;
+}
+VolumeSlider #volumeGraphic{
+	float:left;
+	clear:left;
+	fill:#3083FB;
+	height:5px;
+	corner-radius:2.5px;
+	margin-top:0px;
+	margin-bottom:16px;
+}
+VolumeSlider Button{
+	float:none;
+	clear:none;
+	fill:white;
+	fill-alpha:1;
+	line:white;
+	line-alpha:1;
+	line-thickness:1px;
+	line-offset-type:outside;
+	/*width:20px;*/
+	/*height:20px;*/
+	drop-shadow:<SubtleShadow>;
+	corner-radius:10px;
+}
+VolumeSlider Button:down{/*resets default button styles*/
+	float:none;
+	clear:none;
+	fill:white;
+	fill-alpha:1;
+	line:white;
+	line-alpha:1;
+	line-thickness:1px;
+	line-offset-type:outside;
+	/*width:20px;*/
+	/*height:20px;*/
+	drop-shadow:<SubtleShadow>;
+	corner-radius:10px;
+}

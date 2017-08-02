@@ -1,0 +1,56 @@
+CommitDetailView {
+	fill:red;
+	fill-alpha:0;
+	float:left;
+	clear:none;
+	width:100%;
+	height:100%;
+	padding-top:12px;
+	padding-left:12px;
+	padding-right:12px;
+}
+CommitDetailView Text{
+	float:left;
+	clear:left;
+	font:Lucida Grande;
+	size:12px;
+	align:left;
+	autoSize:none;
+	color:<TextTheme>;
+	type:dynamic;
+	selectable:false;
+	wordWrap:true;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:0px;
+	background:false;
+	border:false;
+}
+CommitDetailView Text#repoName{
+	backgroundColor:blue;
+	width:100%;
+	height:20px;
+}
+CommitDetailView Text#title{ 
+	size:16px;
+	margin-top:0px;
+	color:<TextTheme2>;
+	backgroundColor:green;
+	float:left;
+	clear:left;
+	width:100%;
+	height:24px;
+}
+CommitDetailView Text#description{
+	width:100%;
+	height:calc(100% -44px);
+	margin-top:0px;
+	backgroundColor:yellow;
+	scrollable:false;
+	multiline:true;
+	wordWrap:true;
+	border:false;
+}

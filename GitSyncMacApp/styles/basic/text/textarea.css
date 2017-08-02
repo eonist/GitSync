@@ -1,0 +1,18 @@
+TextArea{
+	float:left;
+	clear:left;
+	fill:white;
+	line:white9;
+	line-alpha:1;
+	line-thickness:1px;
+	line-offset-type:outside;
+	/*padding-right:12px;*/
+}
+TextArea Text{
+	width:100%;
+	scrollable:false;
+	multiline:true;
+	wordWrap:true;
+	/*margin-top:0px;*/
+	/*margin-left:4px;*/
+}

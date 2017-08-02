@@ -1,0 +1,46 @@
+#tabBar SelectTextButton{
+	float:left;
+	width:50px;
+	height:22px;
+	fill:<ButtonBase>;
+	line:<ButtonBase>;
+	line-alpha:1;
+	line-offset-type:outside;
+	line-thickness:0.5px;
+	drop-shadow:<SubtleShadow>;
+}
+#tabBar SelectTextButton Text{
+	selectable:false;
+	color:black;
+	width:100%;
+	height:20px;
+	font:Helvetica Neue;
+	wordWrap:true;
+	autoSize:left;
+	align:center;
+	/*backgroundColor:orange;*/
+	/*background:false;*/
+	margin-top:2px;
+}
+#tabBar Text:down{
+	color:black;
+}
+#tabBar SelectTextButton:selected Text{
+	color:white;
+}
+#tabBar SelectTextButton#first{
+	corner-radius:4px 0px 4px 0px;
+	clear:left;
+}
+#tabBar SelectTextButton#second{
+	corner-radius:0px 0px 0px 0px;
+	line-offset-type-right:inside;
+	line-offset-type-left:inside;
+}
+#tabBar SelectTextButton#third{
+	corner-radius:0px 4px 0px 4px;
+}
+#tabBar SelectTextButton:selected{
+	fill:<ButtonHighlight>;
+	line:<ButtonHighlight>;
+}

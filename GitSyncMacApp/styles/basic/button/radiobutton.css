@@ -1,0 +1,18 @@
+RadioButton{
+	float:left;
+	width:80px;
+	height:14px;
+	margin-top:4px;
+}
+RadioButton Text{
+	float:right;
+	clear:none;
+	width:100%;
+	color:black;
+	autoSize:left;
+	margin-left:-16px;/*temp fix*/
+	margin-top:-1px;
+}
+RadioButton RadioBullet{
+	margin-right:20px;
+}
