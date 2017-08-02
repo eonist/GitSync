@@ -30,7 +30,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          * EXAMPLE: expand("Users/John/Desktop/temp")//Users/John/Desktop/temp
          * EXAMPLE: expand("~/Desktop/temp")//Users/John/Desktop/temp
          * EXAMPLE: expand("/temp/colors/star.svg",Users/John/Desktop)//Users/John/Desktop/temp/colors/star.svg
-         * EXAMPLE: expand("/temp/colors/star.svg",Users/John/Desktop)//Users/John/Desktop/temp/colors/star.svg
          * EXAMPLE: expand("star.svg",Users/John/Desktop)//Users/John/Desktop/star.svg
          * IMPORTANT: ⚠️️ Tilde paths can't have backlash syntax like ../../ etc
          */
