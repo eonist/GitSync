@@ -27,7 +27,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          * Must support: ../../folderA/folder4/
          *
          */
-        func expand(_ baseURL:String, _ url:String){
+        func combine(_ baseURL:String, _ url:String){
+            
+        }
+        /**
+         *
+         */
+        func expand(){
             
         }
         let testURL:String = ""
