@@ -23,14 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
-        /**
-         * Must support: ../../folderA/folder4/
-         *
-         */
-        func combine(_ baseURL:String, _ url:String){
-            
-        }
-        let testURL:String = "~/Desktop/test.txt"//"../../folderA/folder4/test.txt", "test.txt"
+        let a:String = "~/Desktop/test.txt"//"../../folderA/folder4/test.txt", "test.txt"
         /**
          * PARAM: baseURL: must be absolute: "Users/John/Desktop/temp"
          * EXAMPLE: expand("Users/John/Desktop/temp")//Users/John/Desktop/temp
