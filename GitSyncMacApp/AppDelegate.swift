@@ -34,7 +34,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print(("~/Desktop/test/../test.txt").tildePath.content)
         
         let url = FilePathParser.path(("~/Desktop/test/../test.txt").tildePath)
-        let urlStr = FilePathParser.path(<#T##url: URL##URL#>)
+        let urlStr = FilePathParser.stringPath(url)
+        Swift.print("urlStr: " + "\(urlStr)")
         //Continue here: 🏀
             //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
                 //then test here before implementing in CssPropertyParser
