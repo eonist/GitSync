@@ -25,10 +25,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         
-        let str = "big bad wolf bad dog bad sheep"
+        let str = "bad wolf, bad dog, bad sheep"
         Swift.print("str: " + "\(str)")
         
-        let newStr = RegExp.replace(str, pattern: " bad "){
+        let newStr = RegExp.replace(str, pattern: "\\b(bad)\\b"){
             return $0.uppercased()
         }
         Swift.print("newStr: " + "\(newStr)")
