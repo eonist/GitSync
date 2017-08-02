@@ -32,13 +32,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         let testURL:String = "~/Desktop/test.txt"//"../../folderA/folder4/test.txt", "test.txt"
         /**
-         * PARAM: baseURL: must be absolute
+         * PARAM: baseURL: must be absolute: "Users/John/Desktop/temp"
          */
         func expand(_ filePath:String, baseURL:String) -> String{
             if FilePathAsserter.isTildePath(filePath) {
                 return filePath.tildePath
-            } else if !FilePathAsserter.isAbsolute(filePath) {//isRelative
+            }else if !FilePathAsserter.isAbsolute(filePath) {//isRelative
                 return FilePathModifier.normalize(baseURL + filePath)//returns absolute path
+            }else if FileAsserter.exists(filePath){//absolute path that exists
+                return filePath
+            }else if FilePathAsserter.isAbsolute(filePath){ //absolute but doesnt exists
+                return baseURL + filePath
+            }else{
+                return baseURL + "/" + filePath
             }
         }
         
