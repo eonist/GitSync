@@ -19,6 +19,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath())")
         
         print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
+        
+        print((FilePathParser.resourcePath() + "/promt_draft.txt").content)
         //continue here: ball
             //when css creates svg, grab hold of the base url if the svg url starts with ../ else use absolute url
                 //you might need a absolute utl asserter bbj
