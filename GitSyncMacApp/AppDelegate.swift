@@ -18,6 +18,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath()+"/../")")
         
+        //Continue here: 🏀
+            //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
+                //then test
+        
         print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
         
         print((FilePathParser.resourcePath() + "/promt_draft.txt").content)
