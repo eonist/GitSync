@@ -1,7 +1,0 @@
-@import url("titleBar.css");
-Window{
-	fill:white;/*<--was EFEFF4 then was E7E7E7*/
-	fill-alpha:1.0;/*<--set this to 0 if your using the translucent window*/
-	corner-radius:4px;
-	drop-shadow:drop-shadow(6px 90 #FF0000 0.2 24 24 2 2 false);
-}

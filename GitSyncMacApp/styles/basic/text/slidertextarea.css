@@ -1,7 +1,0 @@
-TextArea VSlider{
-	float:right;
-	clear:none;
-}
-TextArea VSlider Button{
-	offset:-5px 0px;/*temp fix*/
-}
