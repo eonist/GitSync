@@ -33,13 +33,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //        let svgFileName:String = "\\b.*.svg\\z"
         var css = "#iconButtonCard Button#question{"
-        css += "float:left;"
+        
         css += "clear:left;"
         css += "fill:white,~/Desktop/ElCapitan/svg/question.svg #0A4DCB;"
+        css += "clear:left;"
+        css += "fill:white,/Desktop/ElCapitan/svg/star.svg #0A4DCB;"
+        css += "float:left;"
+        css += "fill:star.svg;"
         css += "}"
         let string = "Button{fillabc ~/Desktop/styles/star.svg white}"
-        let pattern = "(?=[,: ]?)([\\w/~]+.svg)(?=[,; ]?)"
-        let result = css.replace(pattern, "👉$1👈")
+        let relativeURLPattern = "(?=[,: ]?)([\\w/~]+.svg)(?=[,; ]?)"
+        let result = css.replace(relativeURLPattern, "👉$1👈")
         Swift.print("result: " + "\(result)")
         
         
