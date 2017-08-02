@@ -25,7 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         
-       
+       let str = "big bad wolf bad dog"
         
         
     }
@@ -58,12 +58,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let result = css.replace(relativeURLPattern, "👉$1👈")
         Swift.print("result: " + "\(result)")
         
-        "str".matches("(\\w+?)\\:([A-Z0-9]+?)(?: |$)").forEach {
-            Swift.print("match.numberOfRanges: " + "\($0.numberOfRanges)")/*The first item is the entire match*/
-            let content = ("" as NSString).substringWithRange($0.rangeAtIndex(0))/*the entire match*/
-            let name = $0.value("", 1)/*capturing group 1*/
-            
-        }
+        
         
     }
     /**
