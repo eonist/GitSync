@@ -16,15 +16,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
-        Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath()+"/../")")
+        Swift.print("FilePathParser.resourcePath(): " + "\((FilePathParser.resourcePath().tildify+"/../../").tildePath)")
         
         //Continue here: 🏀
             //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
                 //then test here before implementing in CssPropertyParser
         
-        print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
+//        print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
         
-        print((FilePathParser.resourcePath() + "/promt_draft.txt").content)
+//        print((FilePathParser.resourcePath() + "/promt_draft.txt").content)
         //continue here: ball
             //when css creates svg, grab hold of the base url if the svg url starts with ../ else use absolute url
                 //you might need a absolute utl asserter bbj
