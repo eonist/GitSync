@@ -60,9 +60,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         "str".matches("(\\w+?)\\:([A-Z0-9]+?)(?: |$)").forEach {
             Swift.print("match.numberOfRanges: " + "\($0.numberOfRanges)")/*The first item is the entire match*/
-            let content = (str as NSString).substringWithRange($0.rangeAtIndex(0))/*the entire match*/
-            let name = $0.value(str, 1)/*capturing group 1*/
-            let value = $0.value(str, 2)/*capturing group 2*/
+            let content = ("" as NSString).substringWithRange($0.rangeAtIndex(0))/*the entire match*/
+            let name = $0.value("", 1)/*capturing group 1*/
+            
         }
         
     }
