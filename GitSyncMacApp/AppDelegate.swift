@@ -24,8 +24,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
         let string = "abc"
-        let result = string.match("b")
+        let result = string.replace("b", "x")
         Swift.print("result: " + "\(result)")
+        
+        
     }
     /**
      * It's all about making UI / UX dribbble style !
