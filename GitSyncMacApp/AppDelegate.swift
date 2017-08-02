@@ -22,7 +22,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        Swift.print("Config.Bundle.repo.content: " + "\(Config.Bundle.repo.content)")
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
+        //../../folderA/folder4/graphic.svg
+        //folderA/folderB/graphic.svg
         
+        let svgFileName:String = \b.*(?=.svg)
         let string = "ab    c"
         let result = string.replace("b", "x")
         Swift.print("result: " + "\(result)")
