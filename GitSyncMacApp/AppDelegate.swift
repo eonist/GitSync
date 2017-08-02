@@ -34,6 +34,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print(("~/Desktop/test/../test.txt").tildePath.content)
         
         let url = FilePathParser.path(("~/Desktop/test/../test.txt").tildePath)
+        Swift.print("relativePath: " + "\(url.relativePath)")
+        Swift.print("url.absoluteString: " + "\(url.absoluteString)")
+        Swift.print("url.absoluteURL.absoluteString: " + "\(url.absoluteURL.absoluteString)")
         let urlStr = FilePathParser.stringPath(url)
         Swift.print("urlStr: " + "\(urlStr)")
         //Continue here: 🏀
