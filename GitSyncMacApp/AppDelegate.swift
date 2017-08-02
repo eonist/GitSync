@@ -25,7 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //../../folderA/folder4/graphic.svg
         //folderA/folderB/graphic.svg
         
-        let svgFileName:String = \b.*(?=.svg)
+        let svgFileName:String = "\\b.*(?=.svg)\\z"
         let string = "ab    c"
         let result = string.replace("b", "x")
         Swift.print("result: " + "\(result)")
