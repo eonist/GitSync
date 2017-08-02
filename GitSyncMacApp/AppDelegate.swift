@@ -23,6 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         //../../folderA/folder4/graphic.svg
+        //~/
         //folderA/folderB/graphic.svg
         
         //Continue here: 🏀 
@@ -31,7 +32,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //your essentially making relativeURLPattern
         
 //        let svgFileName:String = "\\b.*.svg\\z"
-        let string = "abc /styles/star.svg white"
+        let string = "abc   /styles/star.svg white"
         let result = string.replace("\\w+.svg", "x")
         Swift.print("result: " + "\(result)")
         
