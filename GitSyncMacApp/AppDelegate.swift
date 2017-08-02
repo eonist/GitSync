@@ -28,6 +28,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("e: " + "\(e)")
         let f = (b + "../").tildify
         Swift.print("f: " + "\(f)")
+        Swift.print("e.tildify: " + "\(e.tildify.tildePath)")
+        e.content + "/test.txt"
         //Continue here: 🏀
             //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
                 //then test here before implementing in CssPropertyParser
