@@ -25,6 +25,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //../../folderA/folder4/graphic.svg
         //folderA/folderB/graphic.svg
         
+        //Continue here: 🏀 
+            //take a look at URL patterns
+            //(../)*? or (/\\w*?)
+            //your essentially making relativeURLPattern
+            //
+        
         let svgFileName:String = "\\b.*(?=.svg)\\z"
         let string = "ab    c"
         let result = string.replace("b", "x")
