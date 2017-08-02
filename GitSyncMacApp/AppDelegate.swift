@@ -32,9 +32,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //your essentially making relativeURLPattern
         
 //        let svgFileName:String = "\\b.*.svg\\z"
+        var css = "#iconButtonCard Button#question{"
+        css += "float:left;"
+        css += "clear:left;"
+        css += "fill:white,~/Desktop/ElCapitan/svg/question.svg #0A4DCB;"
+        css += "}"
         let string = "Button{fillabc ~/Desktop/styles/star.svg white}"
         let pattern = "(?=[,: ]?)([\\w/~]+.svg)(?=[,; ]?)"
-        let result = string.replace(pattern, "👉$1👈")
+        let result = css.replace(pattern, "👉$1👈")
         Swift.print("result: " + "\(result)")
         
         
