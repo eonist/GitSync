@@ -30,9 +30,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //(../)*? or (/\\w*?)
             //your essentially making relativeURLPattern
         
-        let svgFileName:String = "\\b.*(?=.svg)\\z"
+//        let svgFileName:String = "\\b.*.svg\\z"
         let string = "abc star.svg"
-        let result = string.replace("b", "x")
+        let result = string.replace("\\w*?.svg", "x")
         Swift.print("result: " + "\(result)")
         
         
