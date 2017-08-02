@@ -16,8 +16,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
-        Swift.print("FilePathParser.resourcePath(): " + "\((FilePathParser.resourcePath().tildify+"/../../").tildePath)")
-        
+//        Swift.print("FilePathParser.resourcePath(): " + "\((FilePathParser.resourcePath().tildify+"/../../").tildePath)")
+        let a = "~/Desktop/"
+        Swift.print("a: " + "\(a)")
+        let b = a.tildePath
+        Swift.print("b: " + "\(b)")
+        let c = b.tildify
+        Swift.print("c: " + "\(c)")
+        let d = a + "../"
+        let e = d.tildePath
+        Swift.print("e: " + "\(e)")
+        let f = (b + "../").tildify
+        Swift.print("f: " + "\(f)")
         //Continue here: 🏀
             //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
                 //then test here before implementing in CssPropertyParser
