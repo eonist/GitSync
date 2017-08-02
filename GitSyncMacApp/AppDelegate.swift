@@ -33,6 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let testURL:String = "~/Desktop/test.txt"//"../../folderA/folder4/test.txt", "test.txt"
         /**
          * PARAM: baseURL: must be absolute: "Users/John/Desktop/temp"
+         * EXAMPLE: 
          */
         func expand(_ filePath:String, baseURL:String) -> String{
             if FilePathAsserter.isTildePath(filePath) {
