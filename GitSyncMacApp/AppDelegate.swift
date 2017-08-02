@@ -48,7 +48,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        swift.print(expand("~/Desktop/test.txt", baseURL: ""))
+        Swift.print(expand("~/Desktop/test.txt", baseURL: ""))
     }
     /**
      *
