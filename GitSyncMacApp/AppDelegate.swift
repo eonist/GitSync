@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //        let svgFileName:String = "\\b.*.svg\\z"
         let string = "abc /styles/star.svg white"
-        let result = string.replace("(?=[,: ]?)[\\w/~]+.svg", "x$1")
+        let result = string.replace("(?=[,: ]?)[\\w/~]+.svg", "$1")
         Swift.print("result: " + "\(result)")
         
         
