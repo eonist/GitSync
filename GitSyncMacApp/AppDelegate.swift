@@ -31,7 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
         }
         let testURL:String = ""
-//        if FilePathAsserter.is
+        if FilePathAsserter.isTildePath(<#T##path: String##String#>)
     }
     /**
      *
