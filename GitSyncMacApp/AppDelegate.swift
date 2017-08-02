@@ -15,8 +15,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        initApp()
+        //initApp()
+        Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath())")
         
+        print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
         //continue here: ball
             //when css creates svg, grab hold of the base url if the svg url starts with ../ else use absolute url
                 //you might need a absolute utl asserter bbj
