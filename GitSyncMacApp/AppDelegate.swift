@@ -31,7 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //your essentially making relativeURLPattern
         
         let svgFileName:String = "\\b.*(?=.svg)\\z"
-        let string = "ab    c"
+        let string = "abc star.svg"
         let result = string.replace("b", "x")
         Swift.print("result: " + "\(result)")
         
