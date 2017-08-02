@@ -30,7 +30,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func expand(_ baseURL:String, _ url:String){
             
         }
-        
+        let testURL:String = ""
+//        if FilePathAsserter.is
     }
     /**
      *
