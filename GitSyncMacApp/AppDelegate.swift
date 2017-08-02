@@ -23,7 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
-        let string = "abc"
+        let string = "ab    c"
         let result = string.replace("b", "x")
         Swift.print("result: " + "\(result)")
         
