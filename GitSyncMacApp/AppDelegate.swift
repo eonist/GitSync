@@ -20,7 +20,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //figure out how you expand ../ filePaths, look inside StyleManager and importURL etc
-                //then test
+                //then test here before implementing in CssPropertyParser
         
         print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
         
