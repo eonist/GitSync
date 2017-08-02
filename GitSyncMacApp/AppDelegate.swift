@@ -47,7 +47,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 return baseURL + "/" + filePath
             }
         }
-        
     }
     /**
      *
