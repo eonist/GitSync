@@ -23,7 +23,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
-        //peekAndPopTest()
+        let string = "abc"
+        string.match("")
     }
     /**
      * It's all about making UI / UX dribbble style !
