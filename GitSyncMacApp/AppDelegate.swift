@@ -17,6 +17,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
         
+        Swift.print("FilePathParser.resourcePath: " + "\(FilePathParser.resourcePath)")
+//        FilePathParser.path(<#T##url: URL##URL#>)
         let url = FilePathModifier.normalize(FilePathParser.resourcePath + "/styles/" + "../test.txt")
         let path = FilePathParser.path(url)
         Swift.print("path: " + "\(path)")
