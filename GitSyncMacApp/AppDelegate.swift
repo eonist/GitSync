@@ -22,16 +22,30 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        Swift.print("Config.Bundle.repo.content: " + "\(Config.Bundle.repo.content)")
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
+        
+        /**
+         * Must support: ../../folderA/folder4/
+         *
+         */
+        func expand(_ baseURL:String, _ url:String){
+            
+        }
+        
+    }
+    /**
+     *
+     */
+    func relativeURLPatternTest(){
         //../../folderA/folder4/graphic.svg
         //~/
         //folderA/folderB/graphic.svg
         
-        //Continue here: 🏀 
-            //take a look at URL patterns
-            //(../)*? or (/\\w*?)
-            //your essentially making relativeURLPattern
+        //Continue here: 🏀
+        //take a look at URL patterns
+        //(../)*? or (/\\w*?)
+        //your essentially making relativeURLPattern
         
-//        let svgFileName:String = "\\b.*.svg\\z"
+        //        let svgFileName:String = "\\b.*.svg\\z"
         var css = "#iconButtonCard Button#question{"
         
         css += "clear:left;"
