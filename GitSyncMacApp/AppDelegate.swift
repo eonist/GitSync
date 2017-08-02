@@ -16,7 +16,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //initApp()
-        Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath())")
+        Swift.print("FilePathParser.resourcePath(): " + "\(FilePathParser.resourcePath()+"/../")")
         
         print(FileAsserter.exists(FilePathParser.resourcePath() + "/promt_draft.txt"))
         
