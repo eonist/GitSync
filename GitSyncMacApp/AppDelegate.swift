@@ -33,7 +33,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print(("~/Desktop/test/../test.txt").tildePath)
         Swift.print(("~/Desktop/test/../test.txt").tildePath.content)
         
-        let url = FilePathParser.path(("~/Desktop/test/../test.txt").tildePath)
+        var url = FilePathParser.path(("~/Desktop/test/../test.txt").tildePath)
+        Swift.print("url.standardized: " + "\(url.standardized)")
+        url.standardize()
+        Swift.print("url.standardizedFileURL: " + "\(url.standardizedFileURL)")
         Swift.print("relativePath: " + "\(url.relativePath)")
         Swift.print("url.absoluteString: " + "\(url.absoluteString)")
         Swift.print("url.absoluteURL.absoluteString: " + "\(url.absoluteURL.absoluteString)")
