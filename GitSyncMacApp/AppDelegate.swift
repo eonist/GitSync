@@ -30,16 +30,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func combine(_ baseURL:String, _ url:String){
             
         }
+        let testURL:String = "~/Desktop/test.txt"//"../../folderA/folder4/test.txt", "test.txt"
         /**
          *
          */
-        func expand(){
-            
+        func expand(_ url:String) -> String{
+            if FilePathAsserter.isTildePath(url) {
+                return 
+            }
         }
-        let testURL:String = ""
-        if FilePathAsserter.isTildePath(testURL) {
-            
-        }
+        
     }
     /**
      *
