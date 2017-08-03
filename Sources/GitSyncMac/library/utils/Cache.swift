@@ -2,7 +2,8 @@ import Foundation
 @testable import Utils
 typealias CommitDPCache = Cache//temp
 class  Cache{
-    static var url:String = "~/Desktop/sortedcommits.xml"
+    //TODO: ⚠️️ move sortedCommits into .bundle
+    static let url:String = "~/Desktop/sortedcommits.xml"
     /**
      * Read commits from disk (xml)
      */
