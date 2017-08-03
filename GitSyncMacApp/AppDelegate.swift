@@ -17,11 +17,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
         
-        //Continue here:
-            //design the new UI
+        //Continue here: 🏀
+            //design the new UI mockups
             //prototype menu
-            //prompt dialog popups
-            //prototype ivew transitions
+            //prototype prompt dialog popups
+            //prototype view transitions
+            //prototype new refresh anim (triple dots)
     }
     /**
      * Initializes the app
