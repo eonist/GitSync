@@ -4,6 +4,7 @@ import Foundation
 
 class CommitDialogView:Element,UnFoldable {
     override func resolveSkin() {
+        Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
         let data:[String:[String:Any]] = [
