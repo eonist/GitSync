@@ -16,15 +16,15 @@ class PrefsView:Element {
         let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
         let w = xml.firstNode(PrefsType.w)!.stringValue!.cgFloat
         let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
-        let x:CGFloat = {
-            if let xSTR:String = xml.firstNode(PrefsType.x)?.stringValue {
+        let x:CGFloat = {//TODO: ⚠️️ refactor this when you have time
+            if let xSTR:String = xml.firstNode(PrefsType.x)?.stringValue,!xSTR.isEmpty {
                 return xSTR.cgFloat
             } else {
                 return NaN
             }
         }()
-        let y:CGFloat = {
-            if let ySTR:String = xml.firstNode(PrefsType.y)?.stringValue {
+        let y:CGFloat = {//TODO: ⚠️️ refactor this when you have time
+            if let ySTR:String = xml.firstNode(PrefsType.y)?.stringValue,!ySTR.isEmpty {
                 return ySTR.cgFloat
             } else {
                 return NaN
