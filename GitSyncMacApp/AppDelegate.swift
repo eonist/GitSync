@@ -24,13 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
         
-        
-        let str = "bad wolf, bad dog, Bad sheep"
-        let newStr = str.replace(pattern: "\\b([bB]ad)\\b"){
-            return $0.isLowerCased ? $0 : $0.lowercased()
-        }
-        Swift.print("newStr: " + "\(newStr)")//bad wolf, bad dog, bad sheep
-        
+                
         //Continue here:
             //improve the regex.replace method
             //implement it in cssPropParser class and see if things work ✌️
