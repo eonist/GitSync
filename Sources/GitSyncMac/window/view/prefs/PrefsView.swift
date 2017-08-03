@@ -16,9 +16,20 @@ class PrefsView:Element {
         let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
         let w = xml.firstNode(PrefsType.w)!.stringValue!.cgFloat
         let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
-        let x:CGFloat = if let xSTR = xml.firstNode(PrefsType.x)?.stringValue? {xStr}
-        let yStr:String? = xml.firstNode(PrefsType.y)?.stringValue?
-        
+        let x:CGFloat = {
+            if let xSTR:String = xml.firstNode(PrefsType.x)?.stringValue {
+                return xSTR.cgFloat
+            } else {
+                return NaN
+            }
+        }()
+        let y:CGFloat = {
+            if let ySTR:String = xml.firstNode(PrefsType.y)?.stringValue {
+                return ySTR.cgFloat
+            } else {
+                return NaN
+            }
+        }()
         let rect:CGRect = CGRect(x,y,w,h)
         return (login:login,pass:"",local:local,darkMode:darkMode,rect:rect)
     }()
