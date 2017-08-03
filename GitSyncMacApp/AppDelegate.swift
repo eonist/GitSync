@@ -23,9 +23,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
-        let iconButtonCSSContent:String = "~/Desktop/iconbutton2.css".content!
+        print(FilePathModifier.normalize("/Users/John/Desktop/temp2/../test.txt"))
         
-        let newCSSStr:String = StyleManagerUtils.expandURLS(iconButtonCSSContent, baseURL: "~/Desktop/temp".tildePath)
+//        
+//        let iconButtonCSSContent:String = "~/Desktop/iconbutton2.css".content!
+//        
+//        let newCSSStr:String = StyleManagerUtils.expandURLS(iconButtonCSSContent, baseURL: "~/Desktop/temp".tildePath)
         //Swift.print(newCSSStr)
         
         
