@@ -9,21 +9,17 @@ import Cocoa
  */
 class PrefsView:Element {
     //TODO: ⚠️️ just use singlton instead of the bellow
-    static var _prefs:Prefs? = nil
     static var prefs:Prefs = {/*Stores values in a singleton like data-container*/
-        if _prefs == nil {
-            let xml:XML = FileParser.xml(Config.Bundle.prefs.tildePath)/*Loads the xml*/
-            let login = xml.firstNode(PrefsType.login)!.stringValue!
-            let local = xml.firstNode(PrefsType.local)!.stringValue!
-            let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
-            let w = xml.firstNode(PrefsType.w)!.stringValue!.cgFloat
-            let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
-            let x = xml.firstNode(PrefsType.x)!.stringValue!.cgFloat
-            let y = xml.firstNode(PrefsType.y)!.stringValue!.cgFloat
-            let rect:CGRect = CGRect(x,y,w,h)
-            _prefs = (login:login,pass:"",local:local,darkMode:darkMode,rect:rect)
-        }
-        return _prefs!
+        let xml:XML = FileParser.xml(Config.Bundle.prefs.tildePath)/*Loads the xml*/
+        let login = xml.firstNode(PrefsType.login)!.stringValue!
+        let local = xml.firstNode(PrefsType.local)!.stringValue!
+        let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
+        let w = xml.firstNode(PrefsType.w)!.stringValue!.cgFloat
+        let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
+        let x = xml.firstNode(PrefsType.x)!.stringValue!.cgFloat
+        let y = xml.firstNode(PrefsType.y)!.stringValue!.cgFloat
+        let rect:CGRect = CGRect(x,y,w,h)
+        return (login:login,pass:"",local:local,darkMode:darkMode,rect:rect)
     }()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
