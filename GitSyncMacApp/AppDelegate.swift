@@ -17,6 +17,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
         
+        //Continue here:
+            //
     }
     /**
      * Initializes the app
@@ -27,10 +29,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
         let styleFilePath:String = Config.Bundle.assets + "styles/styletest/" + themeStr
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
-        
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-        let rect:CGRect = PrefsView.prefs.rect
-        win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
+        win = StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {
