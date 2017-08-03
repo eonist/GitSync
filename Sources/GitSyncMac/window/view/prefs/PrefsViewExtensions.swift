@@ -35,7 +35,3 @@ extension PrefsView{
     var local:TextInput? {return self.element(PrefsType.local)}
     var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
 }
-extension PrefsView{
-    
-
-}
