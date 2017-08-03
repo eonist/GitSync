@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here:
             //improve the regex.replace method
-            //implement
+            //implement it in cssPropparser class and see if things work ✌️     
     }
     /**
      *
@@ -64,7 +64,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let result = css.replace(relativeURLPattern, "👉$1👈")
         Swift.print("result: " + "\(result)")
         
-         it
+        
         
     }
     /**
