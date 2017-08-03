@@ -8,7 +8,9 @@ enum Config {
         /*The root of the asset bundle*/
         static let assets:String = FilePathParser.resourcePath + "/assets.bundle/"
         /*Stores the repo details*/
-        static let repo:String = assets + "repo2.xml"
+        static let repo:String = {
+            return assets + (Config.release == .dev ? "repos_dev.xml" : "repos_pub.xml")
+        }()
         /*UI structure of the app*/
         static let app:String = assets + "gitsync.json"
         /*The app prefs*/
