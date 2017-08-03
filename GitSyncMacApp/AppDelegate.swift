@@ -19,7 +19,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //design the new UI mockups
-            //prototype menu
+            //prototype menu 
+                //Research menu micro anims
             //prototype prompt dialog popups
             //prototype view transitions
             //prototype new refresh anim (triple dots)
