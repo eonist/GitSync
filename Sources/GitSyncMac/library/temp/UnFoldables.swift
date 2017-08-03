@@ -50,7 +50,9 @@ extension TextButton{
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextButton{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        let config:TextButtonConfig = (text:text) as! TextButton.TextButtonConfig
+        Swift.print("text: " + "\(text)")
+        Swift.print("dict: " + "\(dict)")
+        let config:TextButtonConfig = (text) as! TextButton.TextButtonConfig
         return TextButton.init(elementConfig, config)
     }
     convenience init(_ element:ElementConfig, _ config:TextButtonConfig) {
