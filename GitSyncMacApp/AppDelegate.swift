@@ -26,12 +26,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         let str = "bad wolf, bad dog, Bad sheep"
-        Swift.print("str: " + "\(str)")
-        
         let newStr = RegExp.replace(str, pattern: "\\b([bB]ad)\\b"){
             return $0.isLowerCased ? $0 : $0.lowercased()
         }
-        Swift.print("newStr: " + "\(newStr)")
+        Swift.print("newStr: " + "\(newStr)")//bad wolf, bad dog, bad sheep
     }
     /**
      *
