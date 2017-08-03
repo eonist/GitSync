@@ -18,12 +18,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here: 🏀
-            //design the new UI mockups
+            //design the new UI mockups 👈
             //prototype menu 
                 //Research menu micro anims
             //prototype prompt dialog popups
             //prototype view transitions
             //prototype new refresh anim (triple dots)
+                //research refresh micro anims (see victor from medium)
     }
     /**
      * Initializes the app
