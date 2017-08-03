@@ -9,30 +9,7 @@ import Cocoa
  */
 class PrefsView:Element {
     //TODO: ⚠️️ just use singlton instead of the bellow
-    static var prefs:Prefs = {/*Stores values in a singleton like data-container*/
-        let xml:XML = FileParser.xml(Config.Bundle.prefs.tildePath)/*Loads the xml*/
-        let login = xml.firstNode(PrefsType.login)!.stringValue!
-        let local = xml.firstNode(PrefsType.local)!.stringValue!
-        let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
-        let w = xml.firstNode(PrefsType.w)!.stringValue!.cgFloat
-        let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
-        let x:CGFloat = {//TODO: ⚠️️ refactor this when you have time
-            if let xSTR:String = xml.firstNode(PrefsType.x)?.stringValue,!xSTR.isEmpty {
-                return xSTR.cgFloat
-            } else {
-                return NaN
-            }
-        }()
-        let y:CGFloat = {//TODO: ⚠️️ refactor this when you have time
-            if let ySTR:String = xml.firstNode(PrefsType.y)?.stringValue,!ySTR.isEmpty {
-                return ySTR.cgFloat
-            } else {
-                return NaN
-            }
-        }()
-        let rect:CGRect = CGRect(x,y,w,h)
-        return (login:login,pass:"",local:local,darkMode:darkMode,rect:rect)
-    }()
+    static var prefs:Prefs = PrefsType.createPrefs()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
