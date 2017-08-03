@@ -36,7 +36,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //improve the regex.replace method
             //implement it in cssPropParser class and see if things work ✌️
     }
-    
     /**
      * It's all about making UI / UX dribbble style !
      */
