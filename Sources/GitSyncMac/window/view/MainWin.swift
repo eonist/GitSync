@@ -3,6 +3,7 @@ import Cocoa
 @testable import Utils
 
 class StyleTestWin:Window {
+    //TODO: ⚠️️ make this a singlton
     static var view:StyleTestView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)

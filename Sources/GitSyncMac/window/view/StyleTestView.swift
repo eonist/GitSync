@@ -5,6 +5,7 @@ import Cocoa
  * TODO: Maybe make mainView into a lazy static prop similar to RepoView
  */
 class StyleTestView:CustomView{
+    //TODO: ⚠️️ make this a singlton
     var main:Section?
     static var content:Section?
     static var currentView:Element?
@@ -18,7 +19,7 @@ class StyleTestView:CustomView{
         
         StyleTestView.leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         StyleTestView.content = main?.addSubView(Section(NaN,NaN,main,"content"))
-        Nav.setView(.main(.commit))/*⬅️️🚪*///.dialog(.commit)
+        Nav.setView(.dialog(.commit))/*⬅️️🚪*///.main(.commit)
         //Nav.setView(.repoDetail([0,0,0]))
     }
     /**
