@@ -23,8 +23,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
         
+        let iconButtonCSSContent:String = "~/Desktop/iconbutton.css".content!
         
-                
+        let newCSSStr:String = StyleManagerUtils.expandURLS(iconButtonCSSContent, baseURL: "")
+        Swift.print(newCSSStr)
+        
+        
         //Continue here:
             //improve the regex.replace method
             //implement it in cssPropParser class and see if things work ✌️
