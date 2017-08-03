@@ -16,4 +16,4 @@
 
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 17.49.33 copy.png">
 
-[MIT License](http://opensource.org/licenses/MIT)
+[Download](https://github.com/eonist/GitSync/releases) 
