@@ -13,5 +13,7 @@ enum Config {
         static let app:String = assets + "gitsync.json"//"~/Desktop/gitsync.json"
         /*The app prefs*/
         static let prefs:String = assets + "gitsyncprefs.xml"//"~/Desktop/gitsyncprefs.xml"
+        /*Cache.swift uses this url*/
+        static let commitCacheURL:String = assets + "sortedcommits.xml"
     }
 }
