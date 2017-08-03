@@ -19,7 +19,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
     }
     /**
-     * It's all about making UI / UX dribbble style !
+     * Initializes the app
      */
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
