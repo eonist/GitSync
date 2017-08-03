@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here:
             //improve the regex.replace method
-            //implement it in cssPropparser class and see if things work ✌️     
+            //implement it in cssPropParser class and see if things work ✌️
     }
     /**
      *
