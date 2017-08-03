@@ -18,7 +18,9 @@ enum Config {
             return assets + (Config.release == .dev ? "prefs_dev.xml" : "prefs_pub.xml")
         }()
         /*Cache.swift uses this url*/
-        static let commitCacheURL:String = assets + "sortedcommits.xml"
+        static let commitCacheURL:String = {
+            return assets + (Config.release == .dev ? "sortedcommits_dev.xml" : "sortedcommits_pub.xml")
+        }()
     }
     enum ReleaseType {case dev,pub}
     static let release:ReleaseType = .pub
