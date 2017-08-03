@@ -17,24 +17,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
         
-//        Swift.print("FilePathParser.resourcePath: " + "\(FilePathParser.resourcePath)")
-//        Swift.print("Config.Bundle.repo: " + "\(Config.Bundle.repo)")
-//        Swift.print("Config.Bundle.repo.content: " + "\(Config.Bundle.repo.content)")
-    
-        //Swift.print(FilePathModifier.normalize(FilePathParser.resourcePath + "/../"))
-        
-//        print(FilePathModifier.normalize("/Users/John/Desktop/temp2/../../test.txt"))
-        
-////        
-//        let iconButtonCSSContent:String = "~/Desktop/iconbutton2.css".content!
-//        
-//        let newCSSStr:String = StyleManagerUtils.expandURLS(iconButtonCSSContent, baseURL: "~/Desktop/temp".tildePath)
-//        Swift.print(newCSSStr)
-        
-        
-        //Continue here:
-            //improve the regex.replace method
-            //implement it in cssPropParser class and see if things work ✌️
     }
     /**
      * It's all about making UI / UX dribbble style !
