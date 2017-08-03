@@ -8,6 +8,7 @@ import Cocoa
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
 class PrefsView:Element {
+    //TODO: ⚠️️ just use singlton instead of the bellow
     static var _prefs:Prefs? = nil
     static var prefs:Prefs = {/*Stores values in a singleton like data-container*/
         if _prefs == nil {

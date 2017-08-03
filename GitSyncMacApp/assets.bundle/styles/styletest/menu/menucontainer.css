@@ -18,16 +18,16 @@ MenuContainer#buttonSection SelectButton:selected{
 	fill-alpha:0.0,1.0;
 }
 /*selected*/
-MenuContainer#buttonSection SelectButton#commit:selected{fill:white,~/Desktop/gitsync/assets/svg/new/home.svg #1DA1F2;}
-MenuContainer#buttonSection SelectButton#repo:selected{fill:white,~/Desktop/gitsync/assets/svg/new/list.svg #1DA1F2;}
-MenuContainer#buttonSection SelectButton#stats:selected{fill:white,~/Desktop/gitsync/assets/svg/new/bars.svg #1DA1F2;}
-MenuContainer#buttonSection SelectButton#prefs:selected{fill:white,~/Desktop/gitsync/assets/svg/new/cog.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#commit:selected{fill:white,../svg/new/home.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#repo:selected{fill:white,../svg/new/list.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#stats:selected{fill:white,../svg/new/bars.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#prefs:selected{fill:white,../svg/new/cog.svg #1DA1F2;}
 
 /*unselected*/
-MenuContainer#buttonSection SelectButton#commit{fill:teal,~/Desktop/gitsync/assets/svg/new/home.svg #8899A6;}
-MenuContainer#buttonSection SelectButton#repo{fill:aqua,~/Desktop/gitsync/assets/svg//new/list.svg #8899A6;}
-MenuContainer#buttonSection SelectButton#stats{fill:maroon,~/Desktop/gitsync/assets/svg/new/bars.svg #8899A6;}
-MenuContainer#buttonSection SelectButton#prefs{fill:fuchsia,~/Desktop/gitsync/assets/svg/new/cog.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#commit{fill:teal,../svg/new/home.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#repo{fill:aqua,../svg//new/list.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#stats{fill:maroon,../svg/new/bars.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#prefs{fill:fuchsia,../svg/new/cog.svg #8899A6;}
 /*Ruler*/
 LeftSideBar #ruler{
 	float:left;
