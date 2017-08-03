@@ -29,7 +29,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let iconButtonCSSContent:String = "~/Desktop/iconbutton2.css".content!
         
         let newCSSStr:String = StyleManagerUtils.expandURLS(iconButtonCSSContent, baseURL: "~/Desktop/temp".tildePath)
-        //Swift.print(newCSSStr)
+        Swift.print(newCSSStr)
         
         
         //Continue here:
