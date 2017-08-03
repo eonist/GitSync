@@ -18,7 +18,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here:
-            //
+            //design the new UI
+            //prototype menu
+            //prompt dialog popups
+            //prototype ivew transitions
     }
     /**
      * Initializes the app
