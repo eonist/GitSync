@@ -20,18 +20,19 @@ class CommitViewUtils {
     }
     /**
      * -> Dictionary<String, String>
+     * TODO: Use the new CommitDataItem
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData)-> [String:String]{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
         let dict:[String:String] = [
-            CommitItem.repoName.rawValue:repoTitle,
-            CommitItem.contributor.rawValue:commitData.author,
-            CommitItem.title.rawValue:data.subject,
-            CommitItem.description.rawValue:data.body,
-            CommitItem.date.rawValue:data.relativeDate,
-            CommitItem.sortableDate.rawValue:data.descendingDate,
-            CommitItem.hash.rawValue:commitData.hash,
-            CommitItem.gitDate.rawValue:commitData.date]
+            CommitItem.repoName:repoTitle,
+            CommitItem.contributor:commitData.author,
+            CommitItem.title:data.subject,
+            CommitItem.description:data.body,
+            CommitItem.date:data.relativeDate,
+            CommitItem.sortableDate:data.descendingDate,
+            CommitItem.hash:commitData.hash,
+            CommitItem.gitDate:commitData.date]
         return dict
     }
     /**
@@ -66,15 +67,15 @@ class CommitViewUtils {
         return (task,pipe,repoTitle,repoIndex)
     }
 }
-enum CommitItem:String {
-    case repoName = "repo-name"
-    case contributor = "contributor"
-    case title = "title"
-    case description = "description"
-    case date = "date"
-    case sortableDate = "sortableDate"
-    case hash = "hash"
-    case gitDate = "gitDate"
+enum CommitItem {
+    static let repoName:String = "repo-name"
+    static let contributor:String = "contributor"
+    static let title:String = "title"
+    static let description:String = "description"
+    static let date:String = "date"
+    static let sortableDate:String = "sortableDate"
+    static let hash:String = "hash"
+    static let gitDate:String = "gitDate"
 }
 
 //DEPRECATED

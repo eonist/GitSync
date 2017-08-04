@@ -78,7 +78,7 @@ extension CommitListable{
         autoSyncStartTime = NSDate()/*Sets debug timer*/
         func onAllAutoSyncCompleted(){/*Refresh happens after AutoSync is fully completed*/
             Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-            refresh.initRefresh()/*⬅️️ */
+            refresh.initRefresh()/* ⬅️️ */
         }
         AutoSync.initSync(onAllAutoSyncCompleted)/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
     }
