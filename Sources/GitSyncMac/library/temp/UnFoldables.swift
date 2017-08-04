@@ -52,7 +52,7 @@ extension TextButton{
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         Swift.print("text: " + "\(text)")
         Swift.print("dict: " + "\(dict)")
-        let config:TextButtonConfig = (text) as! TextButton.TextButtonConfig
+        let config:TextButtonConfig = (text) 
         return TextButton.init(elementConfig, config)
     }
     convenience init(_ element:ElementConfig, _ config:TextButtonConfig) {

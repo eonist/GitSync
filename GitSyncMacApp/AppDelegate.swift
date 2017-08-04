@@ -18,6 +18,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here: 🏀
+            //fix no showing commits
+            //fix > arrow in repo
+            //use relative paths for .swift files
+            //write the clone into algo (find old uml, and old applescript code)
             //design the new UI mockups 👈
             //prototype menu 
                 //Research menu micro anims

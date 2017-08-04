@@ -4,14 +4,7 @@ import Foundation
 
 class CommitView:Element{
     static var selectedIdx:Int = 1
-    /*static let w:CGFloat = MainView.w
-     static let h:CGFloat = MainView.h-48*/
-    lazy var list:CommitsList = {
-        let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
-        let list = self.addSubView(CommitsList.init(self.getWidth(), self.getHeight(), CGSize(24,102), dp, self,"commitsList"))/*24 should be allowed to be nan no?*/
-        //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
-        return list
-    }()
+    lazy var list:CommitsList = self.createCommitList()
     var commitDetailView:CommitDetailView?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
@@ -28,7 +21,7 @@ class CommitView:Element{
         
         Swift.print("event.index: " + "\(event.index)")
         let commitData:[String:String] = list.dp.getItemAt(event.index)!
-        Nav.setView(.commitDetail(commitData))//updates the UI elements with the selected commit item
+        Nav.setView(.commitDetail(commitData))/*updates the UI elements with the selected commit item*/
         commitDetailView?.setCommitData(commitData)
     }
     override func onEvent(_ event:Event) {
@@ -44,5 +37,16 @@ class CommitView:Element{
         /*Swift.print("list.contentContainer.frame.width: " + "\(list.contentContainer.frame.width)")
          */
         super.setSize(width, height)
+    }
+}
+extension CommitView{
+    /**
+     *
+     */
+    func createCommitList() -> CommitsList{
+        let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
+        let list = self.addSubView(CommitsList.init(self.getWidth(), self.getHeight(), CGSize(24,102), dp, self,"commitsList"))/*24 should be allowed to be nan no?*/
+        //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
+        return list
     }
 }
