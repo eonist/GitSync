@@ -6,9 +6,10 @@ typealias CommitDPRefresher = Refresh//temp
  * Basically creates/updates a list of the latest commits
  */
 class Refresh{
+    typealias RefreshComplete = ()->Void
     var commitDP:CommitDP?
     var startTime:NSDate?/*Debugging*/
-    var onAllRefreshComplete:()->Void = {fatalError("Must attach onComplete handler")}/*When all repos has refreshed this method signature is called*/
+    var onAllRefreshComplete:RefreshComplete = {fatalError("Must attach onComplete handler")}/*When all repos has refreshed this method signature is called*/
     init(_ commitDP:CommitDP){
         self.commitDP = commitDP
     }
