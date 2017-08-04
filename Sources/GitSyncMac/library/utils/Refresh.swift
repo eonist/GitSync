@@ -128,8 +128,8 @@ class RefreshUtils{
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        //        let group = DispatchGroup()
-        let group = ThreadGroup{
+        let group = DispatchGroup()
+        group.notify(queue: main){
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
             Swift.print("🏁 group completed. results: " + "\(results.count)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
@@ -139,10 +139,8 @@ class RefreshUtils{
         Swift.print("totalCommitCount: " + "\(totalCommitCount)")
         for i in 0..<limit{
             commitCount += 1
-            
-            
+            group.enter()
             bg.async{/*inner*/
-                group.enter()
                 let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
 //                Swift.print("result: " + "\(result.count)")
@@ -153,7 +151,5 @@ class RefreshUtils{
                 }
             }
         }
-        Swift.print("commitCount: " + "\(commitCount)")
-        Swift.print("commitsCompletedCount: " + "\(commitsCompletedCount)")
     }
 }

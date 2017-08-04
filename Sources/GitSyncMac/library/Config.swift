@@ -23,5 +23,5 @@ enum Config {
         }()
     }
     enum ReleaseType {case dev,pub}
-    static let release:ReleaseType = .dev
+    static let release:ReleaseType = .pub
 }
