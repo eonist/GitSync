@@ -15,7 +15,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
-        initApp()
+//        initApp()
+        
+        AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "https://github.com/gitsync/welcome.git", branch: "master")
         
         //Continue here: 🏀
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
