@@ -84,6 +84,7 @@ class RefreshUtils{
             Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
             RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
+        Swift.print("THIS FIRES ONLY ONCE")
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
     }
     /**
