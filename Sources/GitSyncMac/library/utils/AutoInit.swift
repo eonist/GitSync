@@ -10,7 +10,7 @@ class AutoInit {
      * PARAM branch: the branch you want to use as origin branch
      */
     static func autoInit(_ localPath:String,remotePath:String,branch:String){
-        
+        Swift.print("AutoInit.autoInit()")
         let doesPathExist = FileAsserter.exists(localPath)
         Swift.print("doesPathExist: " + "\(doesPathExist)")
         if doesPathExist {
@@ -19,6 +19,7 @@ class AutoInit {
             if isFolderEmpty {//--folder is empty
                 //GitUtils.manualClone(localPath, remotePath)
                 _ = GitModifier.clone(remotePath, localPath)
+                Swift.print(    )
                 //GitUtil's clone(remote_url, local_dir)--git clone with custom file path
             }else{//--folder is not empty, files already exist
                 let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
