@@ -26,11 +26,8 @@ class Refresh{
      * NOTE: This method is called from the freshness onComplete
      */
     private func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
-        Swift.print("refreshRepos")
+//        Swift.print("refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
-        repos.forEach{
-            Swift.print("refreshRepos.$0.title: " + "\($0.title)")
-        }
         var idx:Int = 0
         func onComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             idx += 1
@@ -65,7 +62,7 @@ class RefreshUtils{
      * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
-        Swift.print("RefreshUtils.refreshRepo")
+        Swift.print("RefreshUtils.refreshRepo 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
