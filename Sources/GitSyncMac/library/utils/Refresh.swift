@@ -121,24 +121,30 @@ class RefreshUtils{
      */
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
-        let group = DispatchGroup()
+        let outerGroup = DispatchGroup()
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
+            let innerGroup = DispatchGroup()
             bg.async{/*inner*/
-                group.enter()
+                innerGroup.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 Swift.print("result: " + "\(result)")
                 main.async {
                     Swift.print("inserted in results")
                     results[i] = result//results.append(result)
                 }
-                group.leave()
+                innerGroup.leave()
             }
+            innerGroup.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
+                //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+                Swift.print("group completed. results: " + "\(results)")
+                onComplete(results.reversed()) //reversed is a temp fix
+            })
         }
-        group.wait()
-        group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
+        
+        outerGroup.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
             Swift.print("group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix
