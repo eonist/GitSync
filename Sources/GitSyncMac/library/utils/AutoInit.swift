@@ -1,6 +1,7 @@
 import Foundation
 @testable import Utils
 @testable import Element
+@testable import GitSyncMac
 /**
  * Automatically creates a local git repo based on the remote repo, if a local repo already exists, it is unharmfully merged into
  * TODO: ⚠️️ this method is complete except merge_conflict_file_list needs to be generated somehow
@@ -32,11 +33,11 @@ class AutoInit {
                     _ = GitModifier.initialize(localPath)
                     _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
                 }
+                let gitRepo:GitRepo = (localPath:localPath,  remotePath:remotePath,  branch:branch)
+                MergeUtils.manualMerge(gitRepo)
             }
         }
-        
     }
-
 }
 /*
 on auto_init(local_path,remote_path,branch)
