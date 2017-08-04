@@ -96,13 +96,15 @@ class RefreshUtils{
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
         }
-        group.enter()
+        
         bg.async {/*do some work in the background*/
+            group.enter()
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
             group.leave()
         }
-        group.enter()
+        
         bg.async {/*maybe do some work*/
+            group.enter()
             if(dp.items.count > 0){
                 let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
                 let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
@@ -131,9 +133,9 @@ class RefreshUtils{
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
-            group.enter()
+            
             bg.async{/*inner*/
-                
+                group.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 //Swift.print("result: " + "\(result)")
                 main.async {
