@@ -92,7 +92,7 @@ class RefreshUtils{
         Swift.print("RefreshUtils.commitCount()")
         var commitCount:Int = 0
         var totCommitCount:Int = 0
-        let group = ThreadGroup(2){
+        let group = ThreadGroup{
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
         }
@@ -101,12 +101,13 @@ class RefreshUtils{
 //        group.notify(queue: main, execute: {/*⚠️️ Notice how the queue is set to main, this enables updating the ui while items are added rather than all in one go*/
 //        })
         bg.async {//do some work
-//            group.enter()
+            group.enter()
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
-            main.async {group.onComplete()}
+            main.async {group.exit()}
 //            group.leave()
         }
         bg.async {/*maybe do some work*/
+            group.enter()
             if(dp.items.count > 0){
                 let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
                 let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
@@ -117,7 +118,7 @@ class RefreshUtils{
             }else {//< 100
                 commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
             }
-            main.async {group.onComplete()}
+            main.async {group.exit()}
         }
         
     }
@@ -129,7 +130,7 @@ class RefreshUtils{
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        let group = ThreadGroup(limit){
+        let group = ThreadGroup{
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
 //            Swift.print("🏁 group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
@@ -138,12 +139,13 @@ class RefreshUtils{
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             bg.async{/*inner*/
+                group.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 //Swift.print("result: " + "\(result)")
                 main.async {
                     Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
-                    group.onComplete()
+                    group.exit()
                 }
             }
         }
