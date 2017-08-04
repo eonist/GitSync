@@ -20,11 +20,9 @@ extension CommitListable{
      * TODO: Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
-        if dir == .ver {
+        if dir == .ver && hasReleasedBeyondTop{
             //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-            if(hasReleasedBeyondTop){
-                iterateProgressBar(value)
-            }
+            iterateProgressBar(value)
         }
         (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
     }
@@ -75,7 +73,6 @@ extension CommitListable{
      */
     private func startAutoSync(){
         Swift.print("🌵 ICommitList.startAutoSync")
-        
         let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
         refresh.onAllRefreshComplete = loopAnimationCompleted/*Attach the refresh.completion handler here*/
         autoSyncStartTime = NSDate()/*Sets debug timer*/

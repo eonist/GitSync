@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * Since This uses POP, a lot of the logic is in  CommitListable
+ * ⚠️️⚠️️⚠️️ Since This uses POP, a lot of the logic is in  CommitListable
  */
 class CommitsList:ElasticSlideScrollFastList3,CommitListable{
     /*The following variables exists to facilitate the pull to refresh functionality*/
