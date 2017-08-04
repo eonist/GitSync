@@ -46,7 +46,7 @@ class Refresh{
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDP!.items.forEach{
-            //Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
+        //Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
         //}
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         //Swift.print("💾 Refresh.onRefreshReposComplete() Written to disk")
@@ -96,15 +96,15 @@ class RefreshUtils{
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
         }
-//        let group = DispatchGroup()
-//        group.wait()
-//        group.notify(queue: main, execute: {/*⚠️️ Notice how the queue is set to main, this enables updating the ui while items are added rather than all in one go*/
-//        })
+        //        let group = DispatchGroup()
+        //        group.wait()
+        //        group.notify(queue: main, execute: {/*⚠️️ Notice how the queue is set to main, this enables updating the ui while items are added rather than all in one go*/
+        //        })
         bg.async {//do some work
             group.enter()
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
             main.async {group.leave()}
-//            group.leave()
+            //            group.leave()
         }
         bg.async {/*maybe do some work*/
             group.enter()
@@ -130,31 +130,26 @@ class RefreshUtils{
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        let group = DispatchGroup()
-//        let group = ThreadGroup{
-            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-//
-        
-        group.notify(queue: main){
+        //        let group = DispatchGroup()
+        let group = ThreadGroup()
+        //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+        group.onComplete = {
             Swift.print("🏁 group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
-            group.enter()
             bg.async{/*inner*/
-                
+                group.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 //Swift.print("result: " + "\(result)")
                 main.async {
                     Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
-                    
+                    group.leave()
                 }
-                group.leave()
             }
         }
-        
     }
 }
