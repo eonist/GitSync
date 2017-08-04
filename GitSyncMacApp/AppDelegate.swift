@@ -19,6 +19,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //fix no showing commits ✅
+            //clean up async code
+                //try with the mini libs
             //fix > arrow in repo
             //use relative paths for .swift files ✅
             //write the clone into algo (find old uml, and old applescript code)
