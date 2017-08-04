@@ -96,19 +96,16 @@ class RefreshUtils{
         var commitCount:Int = 0
         var totCommitCount:Int = 0
         let group = DispatchGroup()
-        group.notify(queue: main){
-            let clippedCommitCount = Swift.min(totCommitCount,commitCount)
-            onComplete(clippedCommitCount)/*🚪➡️️*/
-        }
         
+        group.enter()
         bg.async {/*do some work in the background*/
-            group.enter()
+            
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
             group.leave()
         }
-        
+        group.enter()
         bg.async {/*maybe do some work*/
-            group.enter()
+            
             if(dp.items.count > 0){
                 let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
                 let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
@@ -118,6 +115,10 @@ class RefreshUtils{
                 commitCount = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
             }
             group.leave()
+        }
+        group.notify(queue: main){
+            let clippedCommitCount = Swift.min(totCommitCount,commitCount)
+            onComplete(clippedCommitCount)/*🚪➡️️*/
         }
     }
     static var totalCommitCount:Int = 0
@@ -133,11 +134,7 @@ class RefreshUtils{
         Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let group = DispatchGroup()
-        group.notify(queue: main){
-            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 group completed. results: " + "\(results.count)")
-            onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
-        }
+        
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         totalCommitCount += limit
         Swift.print("totalCommitCount: " + "\(totalCommitCount)")
@@ -154,6 +151,11 @@ class RefreshUtils{
                     group.leave()
                 }
             }
+        }
+        group.notify(queue: main){
+            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+            Swift.print("🏁 group completed. results: " + "\(results.count)")
+            onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
         if limit == 0 {onComplete([])}//if there was nothing to process just return, TODO: ⚠️️ should be handled by called really
     }
