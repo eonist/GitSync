@@ -98,13 +98,11 @@ class RefreshUtils{
         }
         group.enter()
         bg.async {/*do some work in the background*/
-            
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
             group.leave()
         }
         group.enter()
         bg.async {/*maybe do some work*/
-            
             if(dp.items.count > 0){
                 let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
                 let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
