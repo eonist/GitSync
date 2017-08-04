@@ -92,6 +92,7 @@ class RefreshUtils{
         Swift.print("RefreshUtils.commitCount()")
         var commitCount:Int = 0
         var totCommitCount:Int = 0
+        let group = ThreadGroup()
         let group = DispatchGroup()
         group.wait()
         group.notify(queue: main, execute: {/*⚠️️ Notice how the queue is set to main, this enables updating the ui while items are added rather than all in one go*/
