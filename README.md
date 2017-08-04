@@ -17,3 +17,10 @@
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 17.49.33 copy.png">
 
 [Download](https://github.com/eonist/GitSync/releases) 
+
+#### Change-log:
+
+**2017-08-05**
+- Fixed Commit items not showing in CommitView
+- Made Element work with user agnostic paths (GitSync can now work by jsut downloading it)
+- Added dev and prod Enviroment for debugging faster
