@@ -17,7 +17,8 @@ class AutoInit {
         if doesPathExist {
             let is_folder_empty:Bool = FileParser.contentOfDir(localPath)?.isEmpty ?? false
             if(is_folder_empty){//--folder is empty
-                GitUtils.manualClone(localPath, remotePath)
+                //GitUtils.manualClone(localPath, remotePath)
+                _ = GitModifier.clone(remotePath, localPath)
                 //GitUtil's clone(remote_url, local_dir)--git clone with custom file path
             }else{//--folder is not empty, files already exist
                 let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
@@ -36,6 +37,10 @@ class AutoInit {
                 let gitRepo:GitRepo = (localPath:localPath,  remotePath:remotePath,  branch:branch)
                 MergeUtils.manualMerge(gitRepo)
             }
+        }else {//--path does not exist
+            //GitUtils.manualClone(localPath, remotePath)
+            _ = GitModifier.clone(remotePath, localPath)
+            //GitUtil's clone(remote_url, local_dir)//--this will also create the folders if they dont exist, even nested
         }
     }
 }
