@@ -11,7 +11,7 @@ class RepoUtils {
      * We want parent folders to override all its children.
      */
     static var repoListFlattenedOverridden:[RepoItem]{
-        Swift.print("repoListFlattenedOverridden")
+//        Swift.print("repoListFlattenedOverridden")
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let overrideKeys:[String] = [RepoType.active.rawValue,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.auto.rawValue/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
@@ -20,7 +20,7 @@ class RepoUtils {
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
         let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
         activeRepoList.forEach{
-            Swift.print("$0.title: " + "\($0.title)")
+            //Swift.print("$0.title: " + "\($0.title)")
         }
         return activeRepoList
     }

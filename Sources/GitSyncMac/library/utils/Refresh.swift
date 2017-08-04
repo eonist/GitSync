@@ -26,9 +26,10 @@ class Refresh{
      * NOTE: This method is called from the freshness onComplete
      */
     private func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
+        Swift.print("refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         repos.forEach{
-            Swift.print("$0.title: " + "\($0.title)")
+            Swift.print("refreshRepos.$0.title: " + "\($0.title)")
         }
         var idx:Int = 0
         func onComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
