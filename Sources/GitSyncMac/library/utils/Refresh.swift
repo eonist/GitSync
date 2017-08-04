@@ -103,7 +103,7 @@ class RefreshUtils{
         bg.async {//do some work
             group.enter()
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
-            main.async {group.leave()}
+            group.leave()
             //            group.leave()
         }
         bg.async {/*maybe do some work*/
@@ -118,7 +118,7 @@ class RefreshUtils{
             }else {//< 100
                 commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
             }
-            main.async {group.leave()}
+            group.leave()
         }
     }
     /**
