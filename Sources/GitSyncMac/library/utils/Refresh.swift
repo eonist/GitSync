@@ -78,14 +78,15 @@ class RefreshUtils{
                     //Swift.print("RefreshUtils.refreshRepo() ERROR: repo: \(repo.title) at result index: \(i) didn't have any characters")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
+            Swift.print("THIS FIRES ONLY ONCE")
             onComplete()/*🚪➡️️*/
         }
-        func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
+        
+        
+        commitCount(dp,repo) { (commitCount:Int) in /*once these completes then do result, you do not want to wait until calling refreshRepo*/
             Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
             RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
-        }
-        Swift.print("THIS FIRES ONLY ONCE")
-        commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
+        }//🚪⬅️️
     }
     /**
      * Find the range of commits to add to CommitDB for this repo
