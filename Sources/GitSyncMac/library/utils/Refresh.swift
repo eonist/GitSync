@@ -65,6 +65,7 @@ class RefreshUtils{
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
+                Swift.print("result: " + "\(result)")
                 if result.count > 0 {/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
                     Swift.print("commitData: " + "\(commitData)")
@@ -119,8 +120,9 @@ class RefreshUtils{
      * PARAM: limit = max Items Allowed per repo
      */
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
+        Swift.print("RefreshUtils.commitItems()")
         let group = DispatchGroup()
-        var results:[String] = Array(repeating: "", count: limit)
+        var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
@@ -134,11 +136,9 @@ class RefreshUtils{
             }
         }
         //group.wait()
-        group.notify(queue: bg, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
-            main.async {/*Jump back on the main thread bc: onComplete resides there*/
-                //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-                onComplete(results.reversed()) //reversed is a temp fix
-            }
+        group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
+            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+            onComplete(results.reversed()) //reversed is a temp fix
         })
     }
 }
