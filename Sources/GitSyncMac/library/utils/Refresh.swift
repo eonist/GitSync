@@ -131,7 +131,7 @@ class RefreshUtils{
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 //Swift.print("result: " + "\(result)")
                 main.async {
-                    Swift.print("inserted in results")
+                    //Swift.print("inserted in results")
                     results[i] = result//results.append(result)
                 }
                 group.leave()
