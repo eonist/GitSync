@@ -18,8 +18,8 @@ class AutoInit {
             Swift.print("isFolderEmpty: " + "\(isFolderEmpty)")
             if isFolderEmpty {//--folder is empty
                 //GitUtils.manualClone(localPath, remotePath)
-                _ = GitModifier.clone(remotePath, localPath)
-                Swift.print(    )
+                let cloneRetVal = GitModifier.clone(remotePath, localPath)
+                Swift.print("cloneRetVal: " + "\(cloneRetVal)")
                 //GitUtil's clone(remote_url, local_dir)--git clone with custom file path
             }else{//--folder is not empty, files already exist
                 let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
