@@ -93,6 +93,11 @@ class RefreshUtils{
         var commitCount:Int = 0
         var totCommitCount:Int = 0
         let group = DispatchGroup()
+        group.wait()
+        group.notify(queue: main, execute: {/*⚠️️ Notice how the queue is set to main, this enables updating the ui while items are added rather than all in one go*/
+            let clippedCommitCount = Swift.min(totCommitCount,commitCount)
+            onComplete(clippedCommitCount)/*🚪➡️️*/
+        })
         bg.async {//do some work
             group.enter()
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
@@ -110,11 +115,8 @@ class RefreshUtils{
         }else {//< 100
              commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
-        group.wait()
-        group.notify(queue: main, execute: {/*⚠️️ Notice how the queue is set to main, this enables updating the ui while items are added rather than all in one go*/
-            let clippedCommitCount = Swift.min(totCommitCount,commitCount)
-            onComplete(clippedCommitCount)/*🚪➡️️*/
-        })
+        
+        
     }
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
@@ -123,8 +125,16 @@ class RefreshUtils{
      */
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
-        let group = DispatchGroup()
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
+        let group = DispatchGroup()
+        group.wait()
+        //👈 adding to the results array doesnt work unless we add a wait, it could slow down things so test it. alt use completion counter instead
+        group.notify(queue: main){/*Jump back on the main thread bc: onComplete resides there*/
+            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+            Swift.print("🏁 group completed. results: " + "\(results)")
+            onComplete(results.reversed()) //reversed is a temp fix
+        }
+        
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
@@ -135,18 +145,13 @@ class RefreshUtils{
                 main.async {
                     //
                     
-                    Swift.print("result main: " + "\(result)")
+                    Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
-                    
+                    group.leave()
                 }
-                group.leave()
+                
             }
         }
-        group.wait()//👈 adding to the results array doesnt work unless we add a wait, it could slow down things so test it. alt use completion counter instead
-        group.notify(queue: main){/*Jump back on the main thread bc: onComplete resides there*/
-            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 group completed. results: " + "\(results)")
-            onComplete(results.reversed()) //reversed is a temp fix
-        }
+        
     }
 }
