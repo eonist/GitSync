@@ -18,7 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here: 🏀
-            //make animation idea: circle with graphbar, circle with 3 dots animating indicating sync, circle with tree list repo, 
+            //make animation idea: circle with graphbar, circle with 3 dots animating indicating sync, circle with tree list repo, circle w/ darkMode/light mode 
             //fix no showing commits ✅
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
