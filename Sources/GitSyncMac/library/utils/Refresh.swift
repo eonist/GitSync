@@ -92,7 +92,8 @@ class RefreshUtils{
         Swift.print("RefreshUtils.commitCount()")
         var commitCount:Int = 0
         var totCommitCount:Int = 0
-        let group = ThreadGroup{
+        let group = DispatchGroup()
+        group.notify(queue: main){
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
         }
@@ -151,5 +152,6 @@ class RefreshUtils{
                 }
             }
         }
+        if limit == 0 {onComplete([])}//if there was nothing to process just return
     }
 }
