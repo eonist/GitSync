@@ -116,6 +116,8 @@ class RefreshUtils{
             group.leave()
         }
     }
+    static var totalCommitCount:Int = 0
+    static var commitCount:Int = 0
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
@@ -131,13 +133,16 @@ class RefreshUtils{
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
+        totalCommitCount += limit
+        Swift.print("totalCommitCount: " + "\(totalCommitCount)")
         for i in 0..<limit{
+            commitCount += 1
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             
             bg.async{/*inner*/
                 group.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
-                Swift.print("result: " + "\(result.count)")
+//                Swift.print("result: " + "\(result.count)")
                 main.async {
 //                    Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
@@ -145,5 +150,6 @@ class RefreshUtils{
                 }
             }
         }
+        Swift.print("commitCount: " + "\(commitCount)") 
     }
 }
