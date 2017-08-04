@@ -17,14 +17,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
         
-        //Continue here: 🏀
-            //make animation idea: circle with graphbar, circle with 3 dots animating indicating sync, circle with tree list repo, circle w/ darkMode/light mode 
-            //fix no showing commits ✅
+        //Continue here: 🏀 
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
                 //try with the mini libs
             //fix > arrow in repo
-            //use relative paths for .swift files ✅
             //write the clone into algo (find old uml, and old applescript code)
             //design the new UI mockups 👈
             //prototype menu 
