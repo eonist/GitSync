@@ -129,21 +129,20 @@ class RefreshUtils{
             bg.async{/*inner*/
                 group.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
-                Swift.print("result: " + "\(result)")
+                //Swift.print("result: " + "\(result)")
                 main.async {
-                    Swift.print("result main: " + "\(result)")
+                    //Swift.print("result main: " + "\(result)")
                     results[i] = result//results.append(result)
                     
                 }
                 group.leave()
             }
         }
-        group.wait()
-        Swift.print("🎉 ran after wait 🎉")
-        group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
+        group.wait()//👈 adding to the results array doesnt work unless we add a wait, it could slow down things so test it. alt use completion counter instead
+        group.notify(queue: main){/*Jump back on the main thread bc: onComplete resides there*/
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
             Swift.print("🏁 group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix
-        })
+        }
     }
 }
