@@ -152,6 +152,6 @@ class RefreshUtils{
                 }
             }
         }
-        if limit == 0 {onComplete([])}//if there was nothing to process just return
+        if limit == 0 {onComplete([])}//if there was nothing to process just return, TODO: ⚠️️ should be handled by called really
     }
 }
