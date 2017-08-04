@@ -81,12 +81,12 @@ class RefreshUtils{
             Swift.print("THIS FIRES ONLY ONCE")
             onComplete()/*🚪➡️️*/
         }
-        
-        
-        commitCount(dp,repo) { (commitCount:Int) in /*once these completes then do result, you do not want to wait until calling refreshRepo*/
+        func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
             Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
             RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
-        }//🚪⬅️️
+        }
+        
+        commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
     }
     /**
      * Find the range of commits to add to CommitDB for this repo
