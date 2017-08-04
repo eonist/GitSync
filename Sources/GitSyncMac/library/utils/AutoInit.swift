@@ -41,7 +41,8 @@ class AutoInit {
             }
         }else {//--path does not exist
             //GitUtils.manualClone(localPath, remotePath)
-            _ = GitModifier.clone(remotePath, localPath)
+            GitUtils.manualClone(localPath, remotePath)
+            //_ = GitModifier.clone(remotePath, localPath)
             //GitUtil's clone(remote_url, local_dir)//--this will also create the folders if they dont exist, even nested
         }
     }
