@@ -19,6 +19,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //fix no showing commits ✅
+            //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
                 //try with the mini libs
             //fix > arrow in repo
