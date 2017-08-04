@@ -18,7 +18,7 @@
 
 [Download](https://github.com/eonist/GitSync/releases) 
 
-#### Change-log:
+### Change-log:
 
 **2017-08-05**
 - Fixed Commit items not showing in CommitView
