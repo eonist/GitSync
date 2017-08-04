@@ -137,7 +137,7 @@ class RefreshUtils{
                 group.leave()
             }
         }
-        group.wait()
+        
         group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
             Swift.print("group completed. results: " + "\(results)")
