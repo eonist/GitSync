@@ -118,6 +118,8 @@ class RefreshUtils{
     }
     static var totalCommitCount:Int = 0
     static var commitCount:Int = 0
+    static var commitsCompletedCount:Int = 0
+    
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
@@ -146,10 +148,12 @@ class RefreshUtils{
                 main.async {
 //                    Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
+                    commitsCompletedCount += 1
                     group.leave()
                 }
             }
         }
-        Swift.print("commitCount: " + "\(commitCount)") 
+        Swift.print("commitCount: " + "\(commitCount)")
+        Swift.print("commitsCompletedCount: " + "\(commitsCompletedCount)")
     }
 }
