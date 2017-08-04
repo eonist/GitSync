@@ -30,7 +30,7 @@ class Refresh{
         var idx:Int = 0
         func onComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             idx += 1
-            Swift.print("refreshRepo.onComplete() i: \(idx)")
+            Swift.print("refreshRepo.onComplete() i: \(idx) of: \(repos.count)")
             if idx == repos.count {
                 allRefreshesCompleted()
             }
