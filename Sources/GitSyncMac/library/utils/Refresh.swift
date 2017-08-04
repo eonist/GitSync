@@ -103,7 +103,7 @@ class RefreshUtils{
         bg.async {//do some work
             group.enter()
             totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
-            main.async {group.exit()}
+            main.async {group.leave()}
 //            group.leave()
         }
         bg.async {/*maybe do some work*/
@@ -118,7 +118,7 @@ class RefreshUtils{
             }else {//< 100
                 commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
             }
-            main.async {group.exit()}
+            main.async {group.leave()}
         }
         
     }
@@ -133,9 +133,12 @@ class RefreshUtils{
         let group = DispatchGroup()
 //        let group = ThreadGroup{
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-//            Swift.print("🏁 group completed. results: " + "\(results)")
+//
         
-        
+        group.notify(queue: main){
+            Swift.print("🏁 group completed. results: " + "\(results)")
+            onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
+        }
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
@@ -146,10 +149,10 @@ class RefreshUtils{
                 main.async {
                     Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
-                    group.exit()
+                    group.leave()
                 }
             }
         }
-        group.notify(queue: main, execute: <#T##() -> Void#>)
+        
     }
 }
