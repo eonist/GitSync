@@ -130,11 +130,12 @@ class RefreshUtils{
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        let group = ThreadGroup{
+        let group = DispatchGroup()
+//        let group = ThreadGroup{
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
 //            Swift.print("🏁 group completed. results: " + "\(results)")
-            onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
-        }
+        
+        
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
@@ -149,5 +150,6 @@ class RefreshUtils{
                 }
             }
         }
+        group.notify(queue: main, execute: <#T##() -> Void#>)
     }
 }
