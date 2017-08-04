@@ -131,7 +131,7 @@ class RefreshUtils{
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let group = ThreadGroup(limit){
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 group completed. results: " + "\(results)")
+//            Swift.print("🏁 group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
