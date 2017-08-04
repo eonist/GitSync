@@ -68,7 +68,7 @@ class RefreshUtils{
                 Swift.print("result: " + "\(result)")
                 if result.count > 0 {/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
-                    Swift.print("commitData: " + "\(commitData)")
+//                    Swift.print("commitData: " + "\(commitData)")
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData)
@@ -125,7 +125,7 @@ class RefreshUtils{
         //        let group = DispatchGroup()
         let group = ThreadGroup{
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 group completed. results: " + "\(results)")
+            Swift.print("🏁 group completed. results: " + "\(results.count)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
