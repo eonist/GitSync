@@ -133,15 +133,16 @@ class RefreshUtils{
                 main.async {
                     Swift.print("result main: " + "\(result)")
                     results[i] = result//results.append(result)
-                    group.leave()
+                    
                 }
-                
+                group.leave()
             }
         }
-        
+        group.wait()
+        Swift.print("🎉 ran after wait 🎉")
         group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("group completed. results: " + "\(results)")
+            Swift.print("🏁 group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix
         })
     }
