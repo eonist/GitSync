@@ -127,19 +127,22 @@ class RefreshUtils{
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             bg.async{/*inner*/
-                group.enter()
+                
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 //Swift.print("result: " + "\(result)")
                 main.async {
+                    group.enter()
+                    Swift.print("inserted in results")
                     results[i] = result//results.append(result)
+                    group.leave()
                 }
-                group.leave()
+                
             }
         }
         //group.wait()
         group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("results: " + "\(results)")
+            Swift.print("group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix
         })
     }
