@@ -133,8 +133,9 @@ class RefreshUtils{
                 main.async {
                     Swift.print("result main: " + "\(result)")
                     results[i] = result//results.append(result)
+                    group.leave()
                 }
-                group.leave()
+                
             }
         }
         
