@@ -61,11 +61,13 @@ class RefreshUtils{
      * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
+        Swift.print("RefreshUtils.refreshRepo")
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
-                if(result.count > 0){/*resulting string must have characters*/
+                if result.count > 0 {/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
+                    Swift.print("commitData: " + "\(commitData)")
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData)
