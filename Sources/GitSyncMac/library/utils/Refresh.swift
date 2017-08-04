@@ -65,12 +65,12 @@ class RefreshUtils{
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
-                Swift.print("result: " + "\(result.count)")
+//                Swift.print("result: " + "\(result.count)")
                 if result.count > 0 {/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
 //                    Swift.print("commitData: " + "\(commitData)")
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
-                    Swift.print("repo.title: " + "\(repo.title)")
+//                    Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData)
                     dp.addCommitItem(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                 }else{
@@ -136,7 +136,7 @@ class RefreshUtils{
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 //Swift.print("result: " + "\(result)")
                 main.async {
-                    Swift.print("result main: " + "\(result.count)")
+//                    Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
                     group.leave()
                 }
