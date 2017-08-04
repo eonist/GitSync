@@ -67,7 +67,7 @@ class RefreshUtils{
                 if(result.count > 0){/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
-                    //Swift.print("repo.title: " + "\(repo.title)")
+                    Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData)
                     dp.addCommitItem(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                 }else{
@@ -77,7 +77,7 @@ class RefreshUtils{
             onComplete()/*🚪➡️️*/
         }
         func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
-            //Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
+            Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
             RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
