@@ -1,8 +1,10 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
-class CommitsList:ElasticSlideScrollFastList3,ICommitList{
+/**
+ * Since This uses POP, a lot of the logic is in  CommitListable
+ */
+class CommitsList:ElasticSlideScrollFastList3,CommitListable{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
