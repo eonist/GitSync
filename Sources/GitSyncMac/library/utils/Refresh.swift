@@ -84,6 +84,12 @@ class RefreshUtils{
         func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
             Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
             RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            if commitCount > 0 {
+                
+            }else {
+                
+            }
+            
         }
         
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
@@ -150,14 +156,10 @@ class RefreshUtils{
                 }
             }
         }
-        if limit > 0 {
-            group.notify(queue: main){
-                //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-                Swift.print("🏁 group completed. results: " + "\(results.count)")
-                onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
-            }
-        }else{
-            onComplete([])//if there was nothing to process just return, TODO: ⚠️️ should be handled by called really
+        group.notify(queue: main){
+            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+            Swift.print("🏁 group completed. results: " + "\(results.count)")
+            onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
     }
 }
