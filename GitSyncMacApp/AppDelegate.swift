@@ -16,12 +16,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
-        //  testASync()
         
         //Continue here: 🏀
-            //fix no showing commits
+            //fix no showing commits ✅
             //fix > arrow in repo
-            //use relative paths for .swift files
+            //use relative paths for .swift files ✅
             //write the clone into algo (find old uml, and old applescript code)
             //design the new UI mockups 👈
             //prototype menu 
