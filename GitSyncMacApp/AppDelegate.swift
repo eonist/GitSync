@@ -17,13 +17,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
         
-        //Continue here: 🏀 
+        //Continue here: 🏀
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
                 //try with the mini libs
             //fix > arrow in repo
-            //write the clone into algo (find old uml, and old applescript code)
-            //design the new UI mockups 👈
+            //write the clone into algo 👈
+                //(find old uml, and old applescript code)
+            //design the new UI mockups
             //prototype menu 
                 //Research menu micro anims
             //prototype prompt dialog popups
