@@ -16,6 +16,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
+        //testASync()
         
         //Continue here: 🏀
             //fix no showing commits
@@ -30,6 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //prototype new refresh anim (triple dots)
                 //research refresh micro anims (see victor from medium)
     }
+    
     /**
      * Initializes the app
      */
