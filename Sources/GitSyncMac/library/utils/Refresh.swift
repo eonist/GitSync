@@ -116,7 +116,7 @@ class RefreshUtils{
                 commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
                 //                group.leave()
             }else {//< 100
-                commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+                commitCount = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
             }
             group.leave()
         }
