@@ -130,12 +130,12 @@ class RefreshUtils{
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        let group = DispatchGroup()
-//        let group = ThreadGroup{
+//        let group = DispatchGroup()
+        let group = ThreadGroup{
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
 //
         
-        group.notify(queue: main){
+        group.allComplete
             Swift.print("🏁 group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
