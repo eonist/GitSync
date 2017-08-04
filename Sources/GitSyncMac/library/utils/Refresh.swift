@@ -152,11 +152,15 @@ class RefreshUtils{
                 }
             }
         }
-        group.notify(queue: main){
-            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 group completed. results: " + "\(results.count)")
-            onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
+        if limit > 0 {
+            group.notify(queue: main){
+                //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+                Swift.print("🏁 group completed. results: " + "\(results.count)")
+                onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
+            }
+        }else{
+            onComplete([])//if there was nothing to process just return, TODO: ⚠️️ should be handled by called really
         }
-        if limit == 0 {onComplete([])}//if there was nothing to process just return, TODO: ⚠️️ should be handled by called really
+
     }
 }
