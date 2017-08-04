@@ -121,35 +121,27 @@ class RefreshUtils{
      */
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         Swift.print("RefreshUtils.commitItems()")
-//        let outerGroup = DispatchGroup()
-        let innerGroup = DispatchGroup()
+        let group = DispatchGroup()
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
-            
             bg.async{/*inner*/
-                innerGroup.enter()
+                group.enter()
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
-                Swift.print("result: " + "\(result)")
+                //Swift.print("result: " + "\(result)")
                 main.async {
                     Swift.print("inserted in results")
                     results[i] = result//results.append(result)
-                    innerGroup.leave()
                 }
-                
+                group.leave()
             }
-            
         }
-        innerGroup.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
+        group.wait()
+        group.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
             Swift.print("group completed. results: " + "\(results)")
             onComplete(results.reversed()) //reversed is a temp fix
         })
-//        outerGroup.notify(queue: main, execute: {/*Jump back on the main thread bc: onComplete resides there*/
-//            //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-//            Swift.print("group completed. results: " + "\(results)")
-//            onComplete(results.reversed()) //reversed is a temp fix
-//        })
     }
 }
