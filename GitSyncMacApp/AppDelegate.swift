@@ -17,17 +17,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
         
-        AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
+//        AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
         
         //Continue here: 🏀
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
-                //try with the mini libs
             //fix > arrow in repo
             //Hock up the dialog prompts to manualMerge etc 👈
                 //fullscreen prompts, add singlton to fix hide menu problem
-            //write the clone into algo ✅
-                //(find old uml, and old applescript code) ✅
             //design the new UI mockups
             //prototype menu 
                 //Research menu micro anims
