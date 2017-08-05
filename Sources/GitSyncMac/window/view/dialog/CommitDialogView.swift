@@ -3,30 +3,27 @@ import Foundation
 @testable import Element
 
 class CommitDialogView:Element,UnFoldable {
-    enum DataType{
-        static let repo = "repo"
-        static let title = "title"
-        static let desc = "desc"
-        /**
-         * New,convenient
-         * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
-         */
-        static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
-            let data:[String:[String:Any]] = [
-                DataType.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
-                DataType.title:[Unfold.TextInput.inputText:commitTitle],
-                DataType.desc:[Unfold.TextInput.inputText:commitDescription]
-            ]
-            return data
-        }
-        
-    }
+    var repoItem:RepoItem?
     override func resolveSkin() {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
         self.data = DataType.getData("Element iOS", "Added support for padding", "4 Files changed")//test data
     }
+    override func onEvent(_ event:Event) {
+        if event.assert(.upInside, id: "ok"){
+            Swift.print("do commit stuff here")
+            Swift.print("remove commit dialog from view")
+            onOKButtonClick()
+        }else if event.assert(.upInside, id: "cancel"){
+            Swift.print("stop the auto sync process")
+            Swift.print("remove commit dialog from view")
+            fatalError("not supported yet")
+            //Nav.setView(.main(.commit))
+        }
+    }
+}
+extension CommitDialogView{
     /**
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
@@ -44,8 +41,6 @@ class CommitDialogView:Element,UnFoldable {
             }
         }
     }
-    var repoItem:RepoItem?
-    
     /**
      * New
      */
@@ -53,7 +48,7 @@ class CommitDialogView:Element,UnFoldable {
         self.repoItem = repoItem
         self.data = DataType.getData(repoItem.title, commitMessage.title, commitMessage.description)
     }
-  
+    
     /**
      * EventHandler for the okButton click event
      */
@@ -70,16 +65,21 @@ class CommitDialogView:Element,UnFoldable {
         GitSync.initCommit(self.repoItem!, commitMessage: commitMessage, AutoSync.shared.onRepoWithMSGSyncComplete)
         Nav.setView(.main(.commit))
     }
-    override func onEvent(_ event:Event) {
-        if event.assert(.upInside, id: "ok"){
-            Swift.print("do commit stuff here")
-            Swift.print("remove commit dialog from view")
-            onOKButtonClick()
-        }else if event.assert(.upInside, id: "cancel"){
-            Swift.print("stop the auto sync process")
-            Swift.print("remove commit dialog from view")
-            fatalError("not supported yet")
-            //Nav.setView(.main(.commit))
+    enum DataType{
+        static let repo = "repo"
+        static let title = "title"
+        static let desc = "desc"
+        /**
+         * New,convenient
+         * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
+         */
+        static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
+            let data:[String:[String:Any]] = [
+                DataType.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
+                DataType.title:[Unfold.TextInput.inputText:commitTitle],
+                DataType.desc:[Unfold.TextInput.inputText:commitDescription]
+            ]
+            return data
         }
     }
 }
