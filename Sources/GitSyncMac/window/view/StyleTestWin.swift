@@ -13,9 +13,9 @@ class StyleTestWin:Window {
         self.maxSize = CGSize(600,800)
     }
     override func resolveSkin() {
-        self.contentView = StyleTestView(frame.size.width,frame.size.height)
-        //Nav.setView(.dialog(.commit))/*⬅️️🚪*///
-        Nav.setView(.main(.commit))
+        self.contentView = StyleTestView.shared
+        Nav.setView(.dialog(.commit))/*⬅️️🚪*///
+//        Nav.setView(.main(.commit))
         //Nav.setView(.repoDetail([0,0,0]))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}

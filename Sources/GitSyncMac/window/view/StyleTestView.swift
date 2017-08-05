@@ -5,7 +5,11 @@ import Cocoa
  * TODO: Maybe make mainView into a lazy static prop similar to RepoView
  */
 class StyleTestView:CustomView{
-    
+    static let shared:StyleTestView = {
+        let frame = PrefsView.prefs.rect
+        Swift.print("StyleTestView.frame: " + "\(frame)")
+        return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
+    }()
     lazy var main:Section = {
         return self.addSubView(Section(NaN,NaN,self,"main"))
     }()
@@ -17,15 +21,12 @@ class StyleTestView:CustomView{
         return self.main.addSubView(LeftSideBar(NaN,NaN,self.main,"leftBar"))
     }()
     override func resolveSkin(){
-        Swift.print("StyleTestView.resolveSkin")
-        StyleManager.addStyle("bgTest{fill:blue;clear:none;float:none;}")
+        Swift.print("StyleTestView")
         super.resolveSkin()
         
-//        _ = main
-//        _ = leftBar
-//        _ = content
-        
-        let bg = self.addSubView(Element(200,200,self,"bgTest"))
+        _ = main
+        _ = leftBar
+        _ = content
         
     }
     /**
