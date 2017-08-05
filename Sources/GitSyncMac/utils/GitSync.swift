@@ -3,11 +3,12 @@ import Foundation
 
 class GitSync{
     typealias CommitComplete = (_ idx:Int,_ hasCommited:Bool)->Void
+    typealias PushComplete = (_ hasPushed:Bool)->Void
     /**
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:@escaping CommitComplete){
+    static func initCommit(_ repoList:[RepoItem],_ idx:Int, onPushComplete:@escaping PushComplete, onCommitComplete:@escaping CommitComplete,){
         let repoItem = repoList[idx]
         bg.async {/*All these git processes needs to happen one after the other*/
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
@@ -16,9 +17,13 @@ class GitSync{
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local)/*🌵 if there were no commits false will be returned*/
-            main.async {/*Jump back on the main thread again*/
-                onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
+            if(hasCommited){
+                main.async {/*Jump back on the main thread again*/
+                    //onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
+                    initPush(repoItem,onPushComplete)
+                }
             }
+            
         }
     }
     /**
@@ -27,7 +32,6 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    typealias PushComplete = (_ hasPushed:Bool)->Void
     static func initPush(_ repoItem:RepoItem, onComplete:@escaping PushComplete){
         Swift.print("initPush")
         bg.async {/*The git calls needs to happen one after the other on bg thread*/
