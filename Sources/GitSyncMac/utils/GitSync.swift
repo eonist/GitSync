@@ -8,8 +8,7 @@ class GitSync{
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onPushComplete:@escaping PushComplete, _ onCommitComplete:@escaping CommitComplete){
-        let repoItem = repoList[idx]
+    static func initCommit(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete, _ onCommitComplete:@escaping CommitComplete){
         bg.async {/*All these git processes needs to happen one after the other*/
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
             if hasUnMergedpaths {
@@ -21,7 +20,7 @@ class GitSync{
         }
     }
     /**
-     * Handles the process of making a push for a single repository
+     * Handles the process of making a push for a single repository (When a singular commit has competed this method is called)
      * NOTE: We must always merge the remote branch into the local branch before we push our changes.
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
