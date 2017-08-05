@@ -65,7 +65,7 @@ class AutoSync {
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
         if listSansMSG.isEmpty {
-            onComplete()
+            onComplete!()
         }
     }
     /**

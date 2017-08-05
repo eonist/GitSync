@@ -73,11 +73,11 @@ extension CommitListable{
      */
     private func startAutoSync(){
         Swift.print("🌵 ICommitList.startAutoSync")
-        let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
-        refresh.onAllRefreshComplete = loopAnimationCompleted/*Attach the refresh.completion handler here*/
         autoSyncStartTime = NSDate()/*Sets debug timer*/
         func onAllAutoSyncCompleted(){/*Refresh happens after AutoSync is fully completed*/
             Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+            let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
+            refresh.onAllRefreshComplete = loopAnimationCompleted/*Attach the refresh.completion handler here*/
             refresh.initRefresh()/* ⬅️️ */
         }
         AutoSync.shared.initSync(onAllAutoSyncCompleted)/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
