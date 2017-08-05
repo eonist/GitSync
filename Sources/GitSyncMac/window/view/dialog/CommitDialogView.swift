@@ -3,14 +3,19 @@ import Foundation
 @testable import Element
 
 class CommitDialogView:Element,UnFoldable {
+    enum DataType{
+        static let repo = "repo"
+        static let title = "title"
+        static let desc = "desc"
+    }
     override func resolveSkin() {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
         let data:[String:[String:Any]] = [
-            "repo":["inputText":"Element iOS"],
-            "title":["inputText":"Added support for padding"],
-            "desc":["inputText":"4 Files changed"]
+            DataType.repo:["inputText":"Element iOS"],
+            DataType.title:["inputText":"Added support for padding"],
+            DataType.desc:["inputText":"4 Files changed"]
         ]
         self.data = data
     }
@@ -21,6 +26,9 @@ class CommitDialogView:Element,UnFoldable {
                 UnFoldUtils.applyData(self, data)
             }
         }
+    }
+    var data:RepoItem{
+        get{fatalError("not avialbe")}
     }
     /**
      * EventHandler for the okButton click event
