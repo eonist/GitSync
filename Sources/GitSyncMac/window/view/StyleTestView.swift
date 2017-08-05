@@ -12,7 +12,7 @@ class StyleTestView:CustomView{
     var main:Section?
     lazy var content:Section = {
         return main?.addSubView(Section(NaN,NaN,main,"content"))
-    }()
+    }() 
     static var currentView:Element?
     lazy var leftbar:LeftSideBar = {
         return main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
