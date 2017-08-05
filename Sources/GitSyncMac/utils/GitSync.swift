@@ -22,6 +22,8 @@ class GitSync{
                     //onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
                     initPush(repoItem,onComplete: onPushComplete)
                 }
+            }else{
+                onPushComplete(false)
             }
             
         }

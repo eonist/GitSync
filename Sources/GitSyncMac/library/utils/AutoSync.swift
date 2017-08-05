@@ -36,6 +36,7 @@ class AutoSync {
      * When a singular push is compelete this method is called
      */
     func onPushComplete(_ hasPushed:Bool){
+        Swift.print("onPushComplete")
         autoSyncGroup?.leave()
     }
 }
