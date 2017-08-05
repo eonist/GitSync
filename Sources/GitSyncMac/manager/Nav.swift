@@ -2,29 +2,13 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-enum Views2{
-    enum Main:String{
-        case commit = "commit"
-        case repo = "repo"
-        case prefs = "prefs"
-    }
-    case main(Main)
-    case commitDetail([String:String])
-    case repoDetail([Int])
-    case dialog(Dialog)
-    enum Dialog{
-        case conflict
-        case commit
-    }
-}
-
 class Nav {
     /**
      * Navigate between views
      * EXAMPLE: Nav.setView(.main(.prefs))
      * EXAMPLE: Nav.setView(.dialog(.commit))
      */
-    static func setView(_ viewType:Views2){
+    static func setView(_ viewType:ViewType){
         //Navigation.activeView = view
         guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
         StyleTestView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
@@ -32,7 +16,7 @@ class Nav {
         let view = getView(viewType,mainView/*size*/)
         StyleTestView.currentView = mainView.addSubView(view)
     }
-    private static func getView(_ view:Views2,_ mainView:Element)->Element{
+    private static func getView(_ view:ViewType,_ mainView:Element)->Element{
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {

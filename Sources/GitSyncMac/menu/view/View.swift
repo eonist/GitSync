@@ -32,16 +32,16 @@ class PagesMenu:CustomMenuItem{
 
 class LogMenu:CustomMenuItem{
     override func onSelect(event: AnyObject) {
-        Nav.setView(Views2.main(.commit))
+        Nav.setView(.main(.commit))
     }
 }
 class RepoMenu:CustomMenuItem{
     override func onSelect(event: AnyObject) {
-        Nav.setView(Views2.main(.repo))
+        Nav.setView(.main(.repo))
     }
 }
 class PrefsMenu:CustomMenuItem{
     override func onSelect(event: AnyObject) {
-        Nav.setView(Views2.main(.prefs))
+        Nav.setView(.main(.prefs))
     }
 }
