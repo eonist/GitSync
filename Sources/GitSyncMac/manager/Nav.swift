@@ -15,6 +15,10 @@ class Nav {
             let view = getView(viewType,StyleTestView.shared.content)
             return StyleTestView.shared.content.addSubView(view)
         }()
+        
+        
+        
+        
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
