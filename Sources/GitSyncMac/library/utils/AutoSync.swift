@@ -8,7 +8,7 @@ class AutoSync {
     static let shared = AutoSync()
     var repoList:[RepoItem]?
     var repoListThatRequireManualMSG:[RepoItem]?
-    var msgCount:Int = 0
+    var countForRepoWithMSG:Int = 0
     var autoSyncGroup:DispatchGroup?
     /**
      * The GitSync automation algo (Basically Commits and pushes)
@@ -23,19 +23,19 @@ class AutoSync {
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         repoListThatRequireManualMSG = repoList?.filter{!$0.message}
-        iterateMessageCount()
+        incrementCountForRepoWithMSG()
     }
     /**
      * New
      */
-    func iterateMessageCount(){
-        if let messageList = repoListThatRequireManualMSG, msgCount < messageList.count {
-            let repo = messageList[msgCount]
-            msgCount += 1
+    func incrementCountForRepoWithMSG(){
+        if let messageList = repoListThatRequireManualMSG, countForRepoWithMSG < messageList.count {
+            let repo = messageList[countForRepoWithMSG]
+            countForRepoWithMSG += 1
             if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
-                iterateMessageCount()//nothing to commit, iterate
+                incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
         }else {
             syncRepoItemsWithAutoMessage()
