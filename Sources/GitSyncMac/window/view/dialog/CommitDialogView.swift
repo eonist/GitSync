@@ -23,7 +23,7 @@ class CommitDialogView:Element,UnFoldable {
         }
     }
     override func onEvent(_ event: Event) {
-        if event.assert(ButtonEvent., id: <#T##String#>){
+        if event.assert(ButtonEvent.upInside, id: "ok"){
             Swift.print("event.origin: " + "\(event.origin)")
         }else if event.origin.id == "ok" && event.type == ButtonEvent.upInside{
             Swift.print("event.origin: " + "\(event.origin)")
