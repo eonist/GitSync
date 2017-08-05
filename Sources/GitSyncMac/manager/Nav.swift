@@ -16,7 +16,7 @@ class Nav {
             return StyleTestView.shared.content.addSubView(view)
         }()
         
-        if case viewType        {
+        if case Nav.ViewType.dialog(.commit) = viewType{
             
         }
         
