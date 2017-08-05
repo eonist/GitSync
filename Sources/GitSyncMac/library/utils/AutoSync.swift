@@ -4,14 +4,15 @@ import Foundation
  * NOTE: It seems its dificult to add Dispatch group to this, as all commits are fired of at once and depending on its result a subsequent push is called
  */
 class AutoSync {
-    static var repoList:[RepoItem]?
-    static var idx:Int?
-    static var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
+    static let shared = AutoSync()
+    var repoList:[RepoItem]?
+    var idx:Int?
+    var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
      */
-    static func initSync(_ onComplete:@escaping ()->Void){
+    func initSync(_ onComplete:@escaping ()->Void){
         //Swift.print("🔁 AutoSync.initSync() 🔁")
         onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden
@@ -23,14 +24,14 @@ class AutoSync {
     /**
      * When a commit has competed this method is called
      */
-    static func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
+    func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
         //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
         GitSync.initPush(repoList!,idx,onPushComplete)
     }
     /**
      * When a push is compelete this method is called
      */
-    static func onPushComplete(_ hasPushed:Bool){
+    func onPushComplete(_ hasPushed:Bool){
         //Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
         idx? += 1
         if(idx == repoList?.count){//TODO: ⚠️️ USE dispatchgroup instead

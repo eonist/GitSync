@@ -80,7 +80,7 @@ extension CommitListable{
             Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh()/* ⬅️️ */
         }
-        AutoSync.initSync(onAllAutoSyncCompleted)/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
+        AutoSync.shared.initSync(onAllAutoSyncCompleted)/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
      * Basically not in refreshState
