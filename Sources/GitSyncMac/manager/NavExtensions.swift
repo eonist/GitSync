@@ -2,14 +2,20 @@ import Foundation
 
 extension Nav{
     enum ViewType{
+        /*Main*/
         enum Main:String{
             case commit = "commit"
             case repo = "repo"
             case prefs = "prefs"
         }
         case main(Main)
-        case commitDetail([String:String])
-        case repoDetail([Int])
+        /*Detail*/
+        enum Detail{
+            case commit([String:String])
+            case repo([Int])
+        }
+        case detail(Detail)
+        /*Dialog*/
         case dialog(Dialog)
         enum Dialog{
             case conflict

@@ -33,6 +33,7 @@ class Nav {
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
+        /*Main*/
         case .main(let viewType):/*Main*/
             switch viewType {
             case .commit:
@@ -42,16 +43,21 @@ class Nav {
             case .prefs:
                 return PrefsView(NaN,NaN,parentView)
             }
-        case .commitDetail(let commitData):/*CommitDetail*/
-             let view:CommitDetailView = CommitDetailView(NaN,NaN,parentView)
-             view.setCommitData(commitData)
-             return view
+        /*Detail*/
+        case .detail(let viewType):/*Main*/
+            switch viewType {
+            case .commit(let commitData):/*CommitDetail*/
+                let view:CommitDetailView = CommitDetailView(NaN,NaN,parentView)
+                view.setCommitData(commitData)
+                return view
             //fatalError("not implemented yet")
-        case .repoDetail(let idx3d):/*RepoDetail*/
-             let view:RepoDetailView = RepoDetailView(NaN,NaN,parentView)
-             view.setRepoData(idx3d)
-             return view
-            //fatalError("not implemented yet")
+            case .repo(let idx3d):/*RepoDetail*/
+                let view:RepoDetailView = RepoDetailView(NaN,NaN,parentView)
+                view.setRepoData(idx3d)
+                return view
+                //fatalError("not implemented yet")
+            }
+        /*Dialog*/
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
             switch dialog{
