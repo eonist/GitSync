@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class MenuContainer:Element {
-    static let buttonTitles:[Views2.Main] = [.commit,.repo,.prefs]
+    static let buttonTitles:[Nav.ViewType.Main] = [.commit,.repo,.prefs]
     var selectGroup:SelectGroup?
     
     override func resolveSkin() {
@@ -33,8 +33,8 @@ class MenuContainer:Element {
         if(event === (SelectGroupEvent.change,selectGroup!)){
             let buttonId:String = (selectGroup!.selected as! Element).id!
             Swift.print("LeftBarMenu.onSelect() buttonId: " + "\(buttonId)")
-            let type:Views2.Main = Views2.Main(rawValue:buttonId)!//<--nice!
-            Nav.setView(Views2.main(type))//👌
+            let type = Nav.ViewType.Main(rawValue:buttonId)!//<--nice!
+            Nav.setView(.main(type))//👌
         }
     }
 }
@@ -43,7 +43,7 @@ extension MenuContainer{
     /**
      * Selects the button based on Main view enum case 👌
      */
-    func selectButton(_ view:Views2){
+    func selectButton(_ view:Nav.ViewType){
         switch view {
         case .main(let viewType):
             selectGroup!.selectables.forEach{
