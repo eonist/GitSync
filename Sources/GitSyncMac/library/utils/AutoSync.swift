@@ -6,8 +6,6 @@ import Foundation
 class AutoSync {
     static let shared = AutoSync()
     lazy var repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
-//    var idx:Int?
-//    var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
     var autoSyncGroup:DispatchGroup?
     /**
      * The GitSync automation algo (Basically Commits and pushes)
