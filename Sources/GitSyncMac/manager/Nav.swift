@@ -59,10 +59,10 @@ class Nav {
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
             switch dialog{
-            case .commit(let repoItem):
+            case .commit(let repoItem, commitMessage):
                 let view:CommitDialogView = CommitDialogView(NaN,NaN,parentView)
+                view.setData(RepoItem, commitMessage)
                 return view
-                //fatalError("not implemented yet")
             case .conflict:
                 //return ConflictDialogView(w,h,mainView)
                 fatalError("not implemented yet")

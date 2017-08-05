@@ -20,7 +20,7 @@ extension Nav{
         case dialog(Dialog)
         enum Dialog{
             case conflict
-            case commit(RepoItem)
+            case commit(RepoItem,CommitMessage)
         }
     }
 }

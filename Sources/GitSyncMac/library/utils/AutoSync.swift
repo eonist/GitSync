@@ -30,7 +30,8 @@ class AutoSync {
     func iterateMessageCount(){
         if let messageList = repoListThatRequireManualMSG, msgCount < messageList.count {
             let repo = messageList[msgCount]
-            Nav.setView(.dialog(.commit(repo)))/*⬅️️🚪*/
+            let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local)
+            Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             msgCount += 1
         }else {
             syncRepoItemsWithAutoMessage()
