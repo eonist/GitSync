@@ -59,9 +59,9 @@ class Nav {
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
             switch dialog{
-            case .commit(let repoItem, commitMessage):
+            case .commit(let repoItem, let commitMessage):
                 let view:CommitDialogView = CommitDialogView(NaN,NaN,parentView)
-                view.setData(RepoItem, commitMessage)
+                view.setData(repoItem, commitMessage)
                 return view
             case .conflict:
                 //return ConflictDialogView(w,h,mainView)
