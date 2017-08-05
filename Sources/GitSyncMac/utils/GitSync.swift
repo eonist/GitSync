@@ -59,6 +59,15 @@ class GitSync{
      */
     static func commit(_ localRepoPath:String, commitMessage:CommitMessage? = nil)->Bool{
         //Swift.print("commit()")
-        CommitMessage.commitMessage(localRepoPath)
+        
+        guard let commitMSG:CommitMessage = CommitMessageUtils.generateCommitMessage(localRepoPath) else {
+            return false
+        }
+        
+        
+        let commitResult = GitModifier.commit(localRepoPath, (commitMSG.title,commitMSG.description))//🌵 commit
+
+        
+        
     }
 }
