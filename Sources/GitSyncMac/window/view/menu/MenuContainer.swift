@@ -8,12 +8,9 @@ class MenuContainer:Element {
     
     override func resolveSkin() {
         Swift.print("MenuContainer.resolveSkin()")
-        
         super.resolveSkin()//skin = SkinResolver.skin(self)
         createButtons()
-        
     }
-    
     func createButtons(){
         var buttons:[ISelectable] = MenuContainer.buttonTitles.map{ buttonTitle in
             return self.addSubView(SelectButton(20,20,false,self,buttonTitle.rawValue))
