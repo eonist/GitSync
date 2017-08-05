@@ -2,9 +2,10 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-enum UnfoldType{
+enum Unfold{
     enum TextInput{
         static let inputText = "inputText"
+        static let text = "text"
     }
 }
 
@@ -15,8 +16,8 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
-        let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
+        let text:String = UnFoldUtils.string(dict, Unfold.TextInput.text) ?? ""
+        let inputText:String = UnFoldUtils.string(dict, Unfold.TextInput.inputText) ?? ""
         let config:TextInputConfig = (text:text,inputText:inputText)
         let textInput:TextInput = TextInput.init(elementConfig, config)
         return textInput
@@ -27,8 +28,8 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     var data:[String:Any] {
         get{fatalError("not avilabale")}
         set{
-            if let text:String = newValue["text"] as? String { self.text.setText(text) }
-            if let inputText:String = newValue["inputText"] as? String { self.inputTextArea.setTextValue(inputText) }
+            if let text:String = newValue[Unfold.TextInput.text] as? String { self.text.setText(text) }
+            if let inputText:String = newValue[Unfold.TextInput.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
         }
     }
 }
