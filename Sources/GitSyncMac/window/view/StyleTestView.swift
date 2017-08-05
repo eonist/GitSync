@@ -36,7 +36,7 @@ class StyleTestView:CustomView{
      * 2. make then you can make this method a non-static one and use regular optionals
      * 3. Then continue making the hide sidebar when dialog etc
      */
-    func toggleSideBar(_ hide:Bool){
+    func toggleSideBar(hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
         let mainView:StyleTestView = self
