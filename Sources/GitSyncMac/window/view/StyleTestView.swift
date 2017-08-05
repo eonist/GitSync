@@ -27,9 +27,7 @@ class StyleTestView:CustomView{
         _ = main
         _ = leftBar
         _ = content
-        Nav.setView(.dialog(.commit))/*⬅️️🚪*///
-        //Nav.setView(.main(.commit))
-        //Nav.setView(.repoDetail([0,0,0]))
+        
     }
     /**
      * NOTE: gets calls from Window.didResize
