@@ -37,7 +37,7 @@ class AutoInit {
                     _ = GitModifier.initialize(localPath)
                     _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
                 }
-                let gitRepo:GitRepo = (localPath:localPath,  remotePath:remotePath,  branch:branch)
+                let gitRepo:GitRepo = .init(localPath,  remotePath,  branch)
                 MergeUtils.manualMerge(gitRepo)
             }
         }else {//--path does not exist
