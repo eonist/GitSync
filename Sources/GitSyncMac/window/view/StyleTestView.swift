@@ -16,10 +16,11 @@ class StyleTestView:CustomView{
     lazy var content:Section = {
         return self.main.addSubView(Section(NaN,NaN,self.main,"content"))
     }()
-    var currentView:Element?//attached to content
     lazy var leftBar:LeftSideBar = {
         return self.main.addSubView(LeftSideBar(NaN,NaN,self.main,"leftBar"))
     }()
+    var currentView:Element?//attached to content
+    var currentPrompt:Element?//attached to content
     override func resolveSkin(){
         Swift.print("StyleTestView")
         super.resolveSkin()
