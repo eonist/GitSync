@@ -7,17 +7,23 @@ class CommitDialogView:Element,UnFoldable {
         static let repo = "repo"
         static let title = "title"
         static let desc = "desc"
+        /**
+         * New
+         */
+        static func data(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
+            let data:[String:[String:Any]] = [
+                DataType.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
+                DataType.title:[Unfold.TextInput.inputText:commitTitle],
+                DataType.desc:[Unfold.TextInput.inputText:commitDescription]
+            ]
+            return data
+        }
     }
     override func resolveSkin() {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
-        let data:[String:[String:Any]] = [
-            DataType.repo:[Unfold.TextInput.inputText:"Element iOS"],//TODO:⚠️️    make inputText a const
-            DataType.title:[Unfold.TextInput.inputText:"Added support for padding"],
-            DataType.desc:[Unfold.TextInput.inputText:"4 Files changed"]
-        ]
-        self.data = data
+        self.data = DataType.data("Element iOS", "Added support for padding", "4 Files changed")
     }
     var data:[String:Any] {
         get{fatalError("not avialbe")}
@@ -31,12 +37,7 @@ class CommitDialogView:Element,UnFoldable {
      * New
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
-        let data:[String:[String:Any]] = [
-            DataType.repo:[Unfold.TextInput.inputText:repoItem.title],
-            DataType.title:[Unfold.TextInput.inputText:commitMessage.title],
-            DataType.desc:[Unfold.TextInput.inputText:commitMessage.description]
-        ]
-        self.data = data
+        self.data = DataType.data(repoItem.title, commitMessage.title, commitMessage.description)
     }
   
     /**
