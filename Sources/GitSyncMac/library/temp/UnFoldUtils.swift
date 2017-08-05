@@ -57,8 +57,11 @@ class UnFoldUtils{
      */
     static func applyData(_ view:Element, _ data:[String:[String:Any]]){
         view.subviews.forEach{ subView in
-            if var unFoldable:UnFoldable = subView as? UnFoldable, let element = subView as? IElement, let id:String = element.id, let value:[String:Any] = data[id] {
-                unFoldable.data = value
+            if var unFoldable:UnFoldable = subView as? UnFoldable,
+                let element = subView as? IElement,
+                let id:String = element.id,
+                let value:[String:Any] = data[id] {
+                    unFoldable.data = value
             }
         }
     }
