@@ -16,8 +16,10 @@ class Nav {
             return StyleTestView.shared.content.addSubView(view)
         }()
         
-        if case Nav.ViewType.dialog(.commit) = viewType{
-            
+        if case Nav.ViewType.dialog( _) = viewType{
+            Swift.print("🏀")
+        }else if case Nav.ViewType.main( _ ) = viewType{
+            Swift.print("🍏")
         }
         
 //        switch viewType {
