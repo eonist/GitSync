@@ -3,6 +3,10 @@ import Cocoa
 @testable import Utils
 
 class StyleTestWin:Window {
+    static let shared = {
+        return StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
+//        return StyleTestWin(frame.size.width,frame.size.height)/*⬅️️🚪*/
+    }()
     //TODO: ⚠️️ make this a singlton
     static var view:StyleTestView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
