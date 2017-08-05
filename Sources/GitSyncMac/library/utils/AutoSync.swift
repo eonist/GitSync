@@ -5,7 +5,9 @@ import Foundation
  */
 class AutoSync {
     static let shared = AutoSync()
-    lazy var repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
+    var repoList:[RepoItem]?
+    var messageList:[RepoItem]?
+    var msgCount:Int = 0
     var autoSyncGroup:DispatchGroup?
     /**
      * The GitSync automation algo (Basically Commits and pushes)
@@ -19,9 +21,12 @@ class AutoSync {
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        let repoListThatNeedsMessagePrompt = repoList.filter{
-            return $0.message
+        messageList = repoList?.filter{$0.message}
+        
+        if let messageList = messageList, !messageList.isEmpty {
+            Nav.setView(.dialog(.commit))/*⬅️️🚪*/
         }
+        
 //        repoList.filter{!$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
 //            
 //            if repoItem.message {
