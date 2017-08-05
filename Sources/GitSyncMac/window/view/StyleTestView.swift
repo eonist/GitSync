@@ -20,7 +20,6 @@ class StyleTestView:CustomView{
     lazy var leftBar:LeftSideBar = {
         return self.main.addSubView(LeftSideBar(NaN,NaN,self.main,"leftBar"))
     }()
-    
     override func resolveSkin(){
         Swift.print("StyleTestView")
         super.resolveSkin()
