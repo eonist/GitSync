@@ -68,8 +68,15 @@ class UnFoldUtils{
     /**
      *
      */
-    static func retriveData(){
-        
+    static func retrieveData(_ view:Element, _ id:String, ) -> {
+        view.subviews.forEach{ subView in
+            if var unFoldable:UnFoldable = subView as? UnFoldable,
+                let element = subView as? IElement,
+                element.id == id
+            
+            }
+        }
+
     }
     /**
      *
