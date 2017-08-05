@@ -6,7 +6,7 @@ import Cocoa
  */
 class StyleTestView:CustomView{
     static let shared:StyleTestView = {
-        let frame = StyleTestWin.shared.frame
+        let frame = PrefsView.prefs.rect
         return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
     }()
     lazy var main:Section = {
@@ -23,6 +23,7 @@ class StyleTestView:CustomView{
     override func resolveSkin(){
         Swift.print("StyleTestView")
         super.resolveSkin()
+        
         _ = main
         _ = leftBar
         _ = content
