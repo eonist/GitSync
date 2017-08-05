@@ -18,12 +18,7 @@ class CommitDialogView:Element,UnFoldable {
             ]
             return data
         }
-        /**
-         *
-         */
-        static func gestData(){
-            
-        }
+        
     }
     override func resolveSkin() {
         Swift.print("CommitDialogView.resolveSkin()")
@@ -33,7 +28,9 @@ class CommitDialogView:Element,UnFoldable {
     }
     var data:[String:Any] {
         get{
-            return
+            return {
+                UnFoldUtils.retrieveData(<#T##view: Element##Element#>, <#T##id: String##String#>)
+            }
         }
         set{
             if let data = newValue as? [String:[String:Any]] {
