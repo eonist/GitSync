@@ -22,14 +22,14 @@ class AutoSync {
         }
     }
     /**
-     * When a commit has competed this method is called
+     * When a singular commit has competed this method is called
      */
     func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
         //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
         GitSync.initPush(repoList!,idx,onPushComplete)
     }
     /**
-     * When a push is compelete this method is called
+     * When a singular push is compelete this method is called
      */
     func onPushComplete(_ hasPushed:Bool){
         //Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
