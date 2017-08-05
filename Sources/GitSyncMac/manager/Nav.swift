@@ -9,6 +9,7 @@ class Nav {
      * EXAMPLE: Nav.setView(.dialog(.commit))
      */
     static func setView(_ viewType:ViewType){
+        Swift.print("setView: \(viewType)")
         //Navigation.activeView = view
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
