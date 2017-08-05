@@ -12,15 +12,15 @@ class Nav {
         Swift.print("setView: \(viewType)")
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         
-        if case Nav.ViewType.dialog( _) = viewType{
+        switch viewType{
+        case .dialog(_):
             //add View above everything
             Swift.print("🍏")
             StyleTestView.shared.currentPrompt = {
                 let view = getView(viewType,StyleTestView.shared.main)
                 return StyleTestView.shared.main.addSubView(view)
             }()
-            
-        }else if case Nav.ViewType.main( _) = viewType, case Nav.ViewType.detail( _) = viewType{
+        case .main(_),.detail(_):
             Swift.print("🍊")
             StyleTestView.shared.currentView = {
                 Swift.print()
@@ -32,8 +32,6 @@ class Nav {
                 return StyleTestView.shared.content.addSubView(view)
             }()
         }
-        
-        
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
