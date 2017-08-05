@@ -5,9 +5,8 @@ import Cocoa
  * TODO: Maybe make mainView into a lazy static prop similar to RepoView
  */
 class StyleTestView:CustomView{
-    //TODO: ⚠️️ make this a singlton
-    static let shared = {
-        let rect = StyleTestWin.shar
+    static let shared:StyleTestView = {
+        let frame = StyleTestWin.shared.frame
         return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
     }()
     var main:Section?

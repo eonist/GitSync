@@ -4,10 +4,9 @@ import Cocoa
 
 class StyleTestWin:Window {
     static let shared = {
-        return StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
-//        return StyleTestWin(frame.size.width,frame.size.height)/*⬅️️🚪*/
+        return StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)/*⬅️️🚪*/
     }()
-    //TODO: ⚠️️ make this a singlton
+    
     static var view:StyleTestView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
