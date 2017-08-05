@@ -26,7 +26,7 @@ class AutoSync {
      */
     func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
         //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
-        GitSync.initPush(repoList,idx,onPushComplete)
+        GitSync.initPush(repoList[idx],onComplete:onPushComplete)
     }
     /**
      * When a singular push is compelete this method is called
