@@ -85,8 +85,7 @@ class CommitMessageUtils{
             //Swift.print("commitMsgTitle: " + "\(title)")
             let desc = CommitDescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
             //Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
-            let commitResult = GitModifier.commit(localRepoPath, (title,desc))//🌵 commit
-            _ = commitResult
+           
             //Swift.print("commitResult: " + "\(commitResult)")
             return CommitMessage(title,desc)/*return true to indicate that the commit completed*/
         }else{
