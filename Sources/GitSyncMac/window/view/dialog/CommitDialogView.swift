@@ -27,6 +27,7 @@ class CommitDialogView:Element,UnFoldable {
             }
         }
     }
+    
     var data:RepoItem{
         get{fatalError("not avialbe")}
         set{
