@@ -62,7 +62,7 @@ extension CommitDialogView{
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
         
-        GitSync.initCommit(self.repoItem!, commitMessage: commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
+        GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
         Nav.setView(.main(.commit))
     }
     enum DataType{
