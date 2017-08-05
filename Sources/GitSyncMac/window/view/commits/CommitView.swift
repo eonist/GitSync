@@ -21,7 +21,7 @@ class CommitView:Element{
         
         Swift.print("event.index: " + "\(event.index)")
         let commitData:[String:String] = list.dp.getItemAt(event.index)!
-        Nav.setView(.commitDetail(commitData))/*updates the UI elements with the selected commit item*/
+        Nav.setView(.detail(.commit(commitData)))/*updates the UI elements with the selected commit item*/
         commitDetailView?.setCommitData(commitData)
     }
     override func onEvent(_ event:Event) {
