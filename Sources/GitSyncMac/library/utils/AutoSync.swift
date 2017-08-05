@@ -22,20 +22,30 @@ class AutoSync {
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageList = repoList?.filter{$0.message}
-        
-        if let messageList = messageList, !messageList.isEmpty {
+    }
+    /**
+     *
+     */
+    private func incrementMessage(){
+        if let messageList = messageList, msgCount < messageList.count  {
             Nav.setView(.dialog(.commit))/*⬅️️🚪*/
+            msgCount += 1
+        }else {
+            syncNonMessageRepoItems()
         }
-        
-//        repoList.filter{!$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
-//            
-//            if repoItem.message {
-//                //prompt user
-//                Nav.setView(.dialog(.commit))
-//            }
-//            autoSyncGroup?.enter()
-//            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
-//        }
+    }
+    /**
+     *
+     */
+    private func syncNonMessageRepoItems(){
+        repoList?.filter{!$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+            if repoItem.message {
+                //prompt user
+                Nav.setView(.dialog(.commit))
+            }
+            autoSyncGroup?.enter()
+            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
+        }
     }
     /**
      * When a singular push is compelete this method is called
