@@ -9,7 +9,7 @@ class GitSync{
      */
     static func initCommit(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete){
         bg.async {/*All these git processes needs to happen one after the other*/
-            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
+            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
             if hasUnMergedpaths {
                 let unMergedFiles = GitParser.unMergedFiles(repoItem.local)/*🌵 Asserts if there are unmerged paths that needs resolvment*/
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
