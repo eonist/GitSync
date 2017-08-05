@@ -16,7 +16,7 @@ class Nav {
             return StyleTestView.shared.content.addSubView(view)
         }()
         
-        if let case     viewType    {
+        if case viewType        {
             
         }
         
