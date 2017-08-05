@@ -30,7 +30,6 @@ class AutoSync {
     func incrementMessageCount(){
         if let messageList = messageList, msgCount < messageList.count  {
             Nav.setView(.dialog(.commit))/*⬅️️🚪*/
-            msgCount += 1
         }else {
             syncNonMessageRepoItems()
         }
