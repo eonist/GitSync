@@ -59,10 +59,7 @@ class Nav {
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
             switch dialog{
-            case .commit:
-//                if !StyleTestView.shared.leftBar.isLeftBarHidden {//if leftSideBar is visible
-//                    StyleTestView.shared.toggleSideBar(hide: true)
-//                }
+            case .commit(let repoItem):
                 let view:CommitDialogView = CommitDialogView(NaN,NaN,parentView)
                 return view
                 //fatalError("not implemented yet")
