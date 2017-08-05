@@ -68,6 +68,12 @@ class UnFoldUtils{
     /**
      *
      */
+    static func retriveData(){
+        
+    }
+    /**
+     *
+     */
     /*static func applyData(_ dict:[String:Any]){
      guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
      switch true{
