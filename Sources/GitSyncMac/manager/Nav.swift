@@ -16,7 +16,16 @@ class Nav {
             return StyleTestView.shared.content.addSubView(view)
         }()
         
+        if viewType is Nav.ViewType.Dialog {
+            
+        }
         
+//        switch viewType {
+//        case .dialog(let dialog):
+//            //
+//        default:
+//            //
+//        }
         
         
     }
