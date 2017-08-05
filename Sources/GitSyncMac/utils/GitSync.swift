@@ -13,6 +13,7 @@ class GitSync{
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
+            Swift.print("hasCommited: " + "\(hasCommited)")
             hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
         }
     }
@@ -56,7 +57,7 @@ class GitSync{
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ localRepoPath:String, _ commitMessage:CommitMessage? = nil)->Bool{
-        //Swift.print("commit()")
+        Swift.print("commit()")
         let commitMSG:CommitMessage? = {
             if commitMessage == nil{
                 return CommitMessageUtils.generateCommitMessage(localRepoPath)
