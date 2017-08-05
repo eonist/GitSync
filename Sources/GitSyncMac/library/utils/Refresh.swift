@@ -62,11 +62,11 @@ class RefreshUtils{
      * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
-        Swift.print("RefreshUtils.refreshRepo 🔄💾")
+//        Swift.print("RefreshUtils.refreshRepo 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
-                Swift.print("result: " + "\(result.count)")
+//                Swift.print("result: " + "\(result.count)")
                 if result.count > 0 {/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
 //                    Swift.print("commitData: " + "\(commitData)")
@@ -78,7 +78,7 @@ class RefreshUtils{
                     //Swift.print("RefreshUtils.refreshRepo() ERROR: repo: \(repo.title) at result index: \(i) didn't have any characters")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
-            Swift.print("THIS FIRES ONLY ONCE")
+//            Swift.print("THIS FIRES ONLY ONCE")
             onComplete()/*🚪➡️️*/
         }
         func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
@@ -92,7 +92,7 @@ class RefreshUtils{
      * Find the range of commits to add to CommitDB for this repo
      */
     private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
-        Swift.print("RefreshUtils.commitCount()")
+//        Swift.print("RefreshUtils.commitCount()")
         var commitCount:Int = 0
         var totCommitCount:Int = 0
         let group = DispatchGroup()
@@ -129,13 +129,13 @@ class RefreshUtils{
      * PARAM: limit = max Items Allowed per repo
      */
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
-        Swift.print("RefreshUtils.commitItems()")
+//        Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let group = DispatchGroup()
         
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         totalCommitCount += limit
-        Swift.print("totalCommitCount: " + "\(totalCommitCount)")
+//        Swift.print("totalCommitCount: " + "\(totalCommitCount)")
         for i in 0..<limit{
             commitCount += 1
             group.enter()
@@ -152,7 +152,7 @@ class RefreshUtils{
         }
         group.notify(queue: main){
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 group completed. results: " + "\(results.count)")
+//            Swift.print("🏁 group completed. results: " + "\(results.count)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
     }
