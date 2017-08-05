@@ -15,7 +15,7 @@ class AutoSync {
      * TODO: ⚠️️ Try to use dispathgroups instead
      */
     func initSync(_ onComplete:@escaping AutoSyncComplete){
-        //Swift.print("🔁 AutoSync.initSync() 🔁")
+        Swift.print("🔁 AutoSync.initSync() 🔁")
         autoSyncGroup = DispatchGroup()
         autoSyncGroup?.notify(queue: main){
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
@@ -29,12 +29,17 @@ class AutoSync {
      * New
      */
     func incrementCountForRepoWithMSG(){
+        Swift.print("incrementCountForRepoWithMSG")
+        Swift.print("countForRepoWithMSG: " + "\(countForRepoWithMSG)")
+        Swift.print("repoListThatRequireManualMSG!.count: " + "\(repoListThatRequireManualMSG!.count)")
         if countForRepoWithMSG < repoListThatRequireManualMSG!.count {
             let repo = repoListThatRequireManualMSG![countForRepoWithMSG]
             countForRepoWithMSG += 1
             if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
+                Swift.print("something to commit")
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
+                Swift.print("nothing to commit")
                 onRepoWithMSGSyncComplete(false)//fire of an anonmouse onCOmplete call
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
