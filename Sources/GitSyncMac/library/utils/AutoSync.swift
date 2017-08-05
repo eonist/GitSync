@@ -20,6 +20,11 @@ class AutoSync {
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         repoList.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+            
+            if repoItem.message {
+                //prompt user
+                Nav.setView(.dialog(.commit))
+            }
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
