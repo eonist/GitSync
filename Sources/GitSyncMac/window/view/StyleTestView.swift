@@ -7,6 +7,7 @@ import Cocoa
 class StyleTestView:CustomView{
     //TODO: ⚠️️ make this a singlton
     static let shared = {
+        let rect = StyleTestWin.shar
         return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
     }()
     var main:Section?
