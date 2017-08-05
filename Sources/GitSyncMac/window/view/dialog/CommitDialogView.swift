@@ -26,10 +26,12 @@ class CommitDialogView:Element,UnFoldable {
         if event.assert(.upInside, id: "ok"){
             Swift.print("do commit stuff here")
             Swift.print("remove commit dialog from view")
+            AutoSync.shared.incrementMessageCount()
             Nav.setView(.main(.commit))
         }else if event.assert(.upInside, id: "cancel"){
             Swift.print("stop the auto sync process")
             Swift.print("remove commit dialog from view")
+            AutoSync.shared.incrementMessageCount()
             Nav.setView(.main(.commit))
         }
     }
