@@ -27,13 +27,18 @@ class CommitDialogView:Element,UnFoldable {
             }
         }
     }
-    
-    var data:RepoItem{
-        get{fatalError("not avialbe")}
-        set{
-            
-        }
+    /**
+     * New
+     */
+    func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
+        let data:[String:[String:Any]] = [
+            DataType.repo:["inputText":repoItem.title],
+            DataType.title:["inputText":commitMessage.title],
+            DataType.desc:["inputText":commitMessage.description]
+        ]
+        self.data = data
     }
+  
     /**
      * EventHandler for the okButton click event
      */

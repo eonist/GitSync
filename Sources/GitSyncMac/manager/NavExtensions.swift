@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils  
 
 extension Nav{
     enum ViewType{
@@ -19,7 +20,7 @@ extension Nav{
         case dialog(Dialog)
         enum Dialog{
             case conflict
-            case commit(RepoItem)
+            case commit(RepoItem,CommitMessage)
         }
     }
 }
