@@ -7,8 +7,8 @@ CommitDialogView Text#header{
 }
 /*General*/
 CommitDialogView{
-	fill:green;
-	fill-alpha:0;
+	fill:white;
+	fill-alpha:1;
 	float:none;
 	clear:none;
 	width:100%;

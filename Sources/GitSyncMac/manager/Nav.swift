@@ -11,11 +11,10 @@ class Nav {
     static func setView(_ viewType:ViewType){
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         
-        
         if case Nav.ViewType.dialog( _) = viewType{
             //add View above everything
             Swift.print("🍏")
-            let view = getView(viewType,StyleTestView.shared)
+            let view = getView(viewType,StyleTestView.shared.main)
             _ = StyleTestView.shared.main.addSubView(view)
             
         }else if case Nav.ViewType.main( _) = viewType, case Nav.ViewType.detail( _) = viewType{
