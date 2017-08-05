@@ -22,11 +22,12 @@ class AutoSync {
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageList = repoList?.filter{$0.message}
+        incrementMessageCount()
     }
     /**
-     *
+     * New
      */
-    private func incrementMessage(){
+    func incrementMessageCount(){
         if let messageList = messageList, msgCount < messageList.count  {
             Nav.setView(.dialog(.commit))/*⬅️️🚪*/
             msgCount += 1
