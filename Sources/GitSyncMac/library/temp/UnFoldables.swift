@@ -2,6 +2,12 @@ import Foundation
 @testable import Utils
 @testable import Element
 
+enum UnfoldType{
+    enum TextInput{
+        static let inputText = "inputText"
+    }
+}
+
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     typealias TextInputConfig = (text:String, inputText:String)
     /**
