@@ -54,12 +54,12 @@ class GitSync{
      * Returns true if a commit was made, false if no commit was made or an error occured
      * NOTE: checks git staus, then adds changes to the index, then compiles a commit message, then commits the changes, and is now ready for a push
      * NOTE: only commits if there is something to commit
-     * TODO: add branch parameter to this call
+     * TODO: ⚠️️ add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ localRepoPath:String)->Bool{
         //Swift.print("commit()")
-        let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
+        let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
         //Swift.print("statusList.count: " + "\(statusList.count)")
         if (statusList.count > 0) {
             //Swift.print("doCommit().there is something to add or commit")
