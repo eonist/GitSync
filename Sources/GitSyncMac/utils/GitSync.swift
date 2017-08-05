@@ -66,13 +66,13 @@ class GitSync{
                 return nil
             }
         }()
-        
-        
-        let commitResult:String = GitModifier.commit(localRepoPath, (commitMSG.title,commitMSG.description))//🌵 commit
+        guard let msg = commitMSG else{
+             return false
+        }
+        let commitResult:String = GitModifier.commit(localRepoPath, (msg.title,msg.description))//🌵 commit
         _ = commitResult
-        
-        
-        
         return true
+
+       
     }
 }
