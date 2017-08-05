@@ -29,12 +29,13 @@ class AutoSync {
      * New
      */
     func incrementCountForRepoWithMSG(){
-        if let messageList = repoListThatRequireManualMSG, countForRepoWithMSG < messageList.count {
-            let repo = messageList[countForRepoWithMSG]
+        if countForRepoWithMSG < repoListThatRequireManualMSG!.count {
+            let repo = repoListThatRequireManualMSG![countForRepoWithMSG]
             countForRepoWithMSG += 1
             if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
+                onRepoWithMSGSyncComplete()//fire of an anonmouse onCOmplete call
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
         }
@@ -43,7 +44,7 @@ class AutoSync {
      *
      */
     func onRepoWithMSGSyncComplete(){
-        if countForRepoWithMSG == messageList.count{
+        if countForRepoWithMSG == repoListThatRequireManualMSG!.count{
             syncRepoItemsWithAutoMessage()
         }
     }
