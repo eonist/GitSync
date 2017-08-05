@@ -10,16 +10,16 @@ class Nav {
      */
     static func setView(_ viewType:ViewType){
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
-        StyleTestView.shared.currentView = {
-            if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
-            let view = getView(viewType,StyleTestView.shared.content)
-            return StyleTestView.shared.content.addSubView(view)
-        }()
+        
         
         if case Nav.ViewType.dialog( _) = viewType{
             Swift.print("🏀")
-        }else if case Nav.ViewType.main( _ ) = viewType{
-            Swift.print("🍏")
+        }else if case Nav.ViewType.main( _ ) = viewType, {
+            StyleTestView.shared.currentView = {
+                if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
+                let view = getView(viewType,StyleTestView.shared.content)
+                return StyleTestView.shared.content.addSubView(view)
+            }()
         }
         
 //        switch viewType {
