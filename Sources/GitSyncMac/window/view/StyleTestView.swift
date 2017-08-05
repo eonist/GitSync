@@ -6,6 +6,9 @@ import Cocoa
  */
 class StyleTestView:CustomView{
     //TODO: ⚠️️ make this a singlton
+    static let shared = {
+        return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
+    }()
     var main:Section?
     static var content:Section?
     static var currentView:Element?
