@@ -12,20 +12,12 @@ class GitSync{
         let repoItem = repoList[idx]
         bg.async {/*All these git processes needs to happen one after the other*/
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
-            if(hasUnMergedpaths){
+            if hasUnMergedpaths {
                 let unMergedFiles = GitParser.unMergedFiles(repoItem.local)/*🌵 Asserts if there are unmerged paths that needs resolvment*/
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local)/*🌵 if there were no commits false will be returned*/
-            if(hasCommited){
-                main.async {/*Jump back on the main thread again*/
-                    //onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
-                    initPush(repoItem,onComplete: onPushComplete)
-                }
-            }else{
-                onPushComplete(false)
-            }
-            
+            hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete(false)
         }
     }
     /**
@@ -34,7 +26,7 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    static func initPush(_ repoItem:RepoItem, onComplete:@escaping PushComplete){
+    private static func initPush(_ repoItem:RepoItem, onComplete:@escaping PushComplete){
         Swift.print("initPush")
         bg.async {/*The git calls needs to happen one after the other on bg thread*/
             var remotePath:String = repoItem.remote
