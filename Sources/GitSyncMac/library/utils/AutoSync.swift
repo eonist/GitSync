@@ -37,7 +37,13 @@ class AutoSync {
             }else {
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
-        }else {
+        }
+    }
+    /**
+     *
+     */
+    func onRepoWithMSGSyncComplete(){
+        if countForRepoWithMSG == messageList.count{
             syncRepoItemsWithAutoMessage()
         }
     }
