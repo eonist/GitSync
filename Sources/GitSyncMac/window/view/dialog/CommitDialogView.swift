@@ -59,10 +59,15 @@ class CommitDialogView:Element,UnFoldable {
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        let title:String = data[DataType.title][Unfold.TextInput.inputText]
-        let title:String = data[DataType.title][Unfold.TextInput.inputText]
-        CommitMessage(title,data[DataType.desc])
-        GitSync.initCommit(self.repoItem, commitMessage: <#T##CommitMessage?#>, <#T##onPushComplete: GitSync.PushComplete##GitSync.PushComplete##(Bool) -> Void#>)
+        guard let title:String = data[DataType.title] as? String,
+            let desc:String = data[DataType.title] as? String else{
+                fatalError("something went wrong")
+        }
+        let commitMessage = CommitMessage(title,desc)
+        Swift.print("commitMessage.title: " + "\(commitMessage.title)")
+        Swift.print("commitMessage.description: " + "\(commitMessage.description)")
+        
+        GitSync.initCommit(self.repoItem!, commitMessage: commitMessage, AutoSync.shared.onRepoWithMSGSyncComplete)
         Nav.setView(.main(.commit))
     }
     override func onEvent(_ event:Event) {

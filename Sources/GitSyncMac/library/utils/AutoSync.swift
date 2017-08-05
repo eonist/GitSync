@@ -35,7 +35,7 @@ class AutoSync {
             if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
-                onRepoWithMSGSyncComplete()//fire of an anonmouse onCOmplete call
+                onRepoWithMSGSyncComplete(false)//fire of an anonmouse onCOmplete call
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
         }
@@ -43,7 +43,7 @@ class AutoSync {
     /**
      *
      */
-    func onRepoWithMSGSyncComplete(){
+    func onRepoWithMSGSyncComplete(_ hasPushed:Bool){
         if countForRepoWithMSG == repoListThatRequireManualMSG!.count{
             syncRepoItemsWithAutoMessage()
         }
