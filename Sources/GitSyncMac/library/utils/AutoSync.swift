@@ -42,23 +42,17 @@ class AutoSync {
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
                 Swift.print("nothing to commit")
-                onRepoWithMSGSyncComplete()//fire of an annonmouse onCOmplete call
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
-        }
-    }
-    /**
-     *
-     */
-    func onRepoWithMSGSyncComplete(){
-        if countForRepoWithMSG == repoListThatRequireManualMSG!.count{
+        }else{//aka complete
             syncRepoItemsWithAutoMessage()
         }
     }
     /**
-     *
+     * New
      */
     private func syncRepoItemsWithAutoMessage(){
+        Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
         let listSansMSG = repoList?.filter{!$0.message} ?? []
         listSansMSG.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
