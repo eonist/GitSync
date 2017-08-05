@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let styleFilePath:String = Config.Bundle.assets + "styles/styletest/" + themeStr
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-        win = StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)/*⬅️️🚪*/
+        win = StyleTestWin.shared
         menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {

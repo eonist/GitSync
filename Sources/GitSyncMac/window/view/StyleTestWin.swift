@@ -6,7 +6,6 @@ class StyleTestWin:Window {
     static let shared = {
         return StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)/*⬅️️🚪*/
     }()
-    
     static var view:StyleTestView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
