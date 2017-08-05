@@ -6,7 +6,7 @@ import Foundation
 class AutoSync {
     static let shared = AutoSync()
     lazy var repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
-    var idx:Int?
+//    var idx:Int?
 //    var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
     var autoSyncGroup:DispatchGroup?
     /**
@@ -18,12 +18,13 @@ class AutoSync {
         autoSyncGroup = DispatchGroup()
         autoSyncGroup?.notify(queue: main){
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
-            onComplete()
+            onComplete()/*All commits and pushes was completed*/
         }
 //        onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
-        idx = 0/*reset the idx*/
+//        idx = 0/*reset the idx*/
         repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
+            autoSyncGroup?.enter()
             GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
         }
     }
@@ -38,11 +39,12 @@ class AutoSync {
      * When a singular push is compelete this method is called
      */
     func onPushComplete(_ hasPushed:Bool){
+        autoSyncGroup?.leave()
         //Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
-        idx? += 1
-        if(idx == repoList.count){//TODO: ⚠️️ USE dispatchgroup instead
-            Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
-            onAllCommitAndPushComplete()/*All commits and pushes was completed*/
-        }
+//        idx? += 1
+//        if(idx == repoList.count){//TODO: ⚠️️ USE dispatchgroup instead
+//            Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
+//            onAllCommitAndPushComplete()/*All commits and pushes was completed*/
+//        }
     }
 }
