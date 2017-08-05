@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
-//        initApp()
+        initApp()
         
         AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
         
