@@ -8,7 +8,7 @@ class CommitDialogView:Element,UnFoldable {
         static let title = "title"
         static let desc = "desc"
         /**
-         * New
+         * New,convenient
          */
         static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
             let data:[String:[String:Any]] = [
@@ -26,11 +26,16 @@ class CommitDialogView:Element,UnFoldable {
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
         self.data = DataType.getData("Element iOS", "Added support for padding", "4 Files changed")//test data
     }
+    /**
+     * TODO: ⚠️️
+     */
     var data:[String:Any] {
         get{
-            return {
-                UnFoldUtils.retrieveData(<#T##view: Element##Element#>, <#T##id: String##String#>)
-            }
+            var data:[String:Any] = [:]
+            data[DataType.repo] = UnFoldUtils.retrieveData(self, DataType.repo)
+            data[DataType.title] = UnFoldUtils.retrieveData(self, DataType.repo)
+            data[DataType.desc] = UnFoldUtils.retrieveData(self, DataType.desc)
+            return data
         }
         set{
             if let data = newValue as? [String:[String:Any]] {
