@@ -34,8 +34,8 @@ class CommitDialogView:Element,UnFoldable {
         get{
             var data:[String:Any] = [:]
             data[DataType.repo] = ""
-            data[DataType.title] = UnFoldUtils.retrieveData(self, DataType.title)[Unfold.TextInput.inputText]
-            data[DataType.desc] = UnFoldUtils.retrieveData(self, DataType.desc)[Unfold.TextInput.inputText]
+            data[DataType.title] = UnFoldUtils.retrieveData(self, DataType.title)![Unfold.TextInput.inputText]
+            data[DataType.desc] = UnFoldUtils.retrieveData(self, DataType.desc)![Unfold.TextInput.inputText]
             return data
         }
         set{
