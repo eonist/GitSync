@@ -16,7 +16,7 @@ class Nav {
             return StyleTestView.shared.content.addSubView(view)
         }()
         
-        if viewType is Nav.ViewType.Dialog {
+        if let case     viewType    {
             
         }
         
