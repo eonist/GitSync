@@ -29,6 +29,9 @@ class CommitDialogView:Element,UnFoldable {
     }
     var data:RepoItem{
         get{fatalError("not avialbe")}
+        set{
+            
+        }
     }
     /**
      * EventHandler for the okButton click event
