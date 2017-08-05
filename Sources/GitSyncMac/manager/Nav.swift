@@ -10,9 +10,9 @@ class Nav {
      */
     static func setView(_ viewType:ViewType){
         //Navigation.activeView = view
-        guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
-        StyleTestView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
+        StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
+        let mainView = StyleTestView.shared.content
         let view = getView(viewType,mainView/*size*/)
         StyleTestView.currentView = mainView.addSubView(view)
     }
