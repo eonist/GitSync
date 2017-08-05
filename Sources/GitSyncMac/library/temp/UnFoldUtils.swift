@@ -66,10 +66,15 @@ class UnFoldUtils{
         }
     }
     /**
-     *
+     * Similar to apply data but retrives data instead of applying
      */
-    static func retrieveData(_ view:Element, _ id:String){
-        fatalError("similar to apply data but retrives data instead of applying ")
+    static func retrieveData(_ view:Element, _ id:String) -> [String:Any]{
+        fatalError(" ")
+        view.subviews.forEach{ subView in
+            if let unFoldable:UnFoldable = subView as? UnFoldable {
+                return unFoldable.data
+            }
+        }
     }
     /**
      *
