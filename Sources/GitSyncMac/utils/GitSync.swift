@@ -54,7 +54,7 @@ class GitSync{
      * Returns true if a commit was made, false if no commit was made or an error occured
      * NOTE: checks git staus, then adds changes to the index, then compiles a commit message, then commits the changes, and is now ready for a push
      * NOTE: only commits if there is something to commit
-     * TODO: bbbbbbgbbbbfffdfcvbbnnbbhbbbhbbbbbbbbbbbbbbbbbbbbbbbbvbbbbbhlhhkdhbnhbgv nmbv nbv bv nvghbvnhjgvbcfvgbhngfjkhkljnb mhjgfcvcfdxcdgh '       >T⚠️️ add branch parameter to this call
+     * TODO: ⚠️️ add branch parameter to this call 
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ localRepoPath:String)->Bool{
