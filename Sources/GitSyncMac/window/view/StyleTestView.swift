@@ -9,23 +9,23 @@ class StyleTestView:CustomView{
         let frame = StyleTestWin.shared.frame
         return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
     }()
-    var main:Section?
+    lazy var main:Section = {
+        return self.addSubView(Section(NaN,NaN,self,"main"))
+    }()
     lazy var content:Section = {
-        return main?.addSubView(Section(NaN,NaN,main,"content"))
-    }() 
+        return self.main.addSubView(Section(NaN,NaN,self.main,"content"))
+    }()
     static var currentView:Element?
-    lazy var leftbar:LeftSideBar = {
-        return main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
+    lazy var leftBar:LeftSideBar = {
+        return self.main.addSubView(LeftSideBar(NaN,NaN,self.main,"leftBar"))
     }()
     
     override func resolveSkin(){
         Swift.print("StyleTestView")
-        
         super.resolveSkin()
-        main = self.addSubView(Section(NaN,NaN,self,"main"))
-        
+        _ = main
         _ = leftBar
-        StyleTestView.content =
+        _ = content
         Nav.setView(.dialog(.commit))/*⬅️️🚪*///
         //Nav.setView(.main(.commit))
         //Nav.setView(.repoDetail([0,0,0]))
@@ -36,7 +36,7 @@ class StyleTestView:CustomView{
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
         //Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
-        ElementModifier.refreshSize(main!)
+        ElementModifier.refreshSize(self.main)
     }
     /**
      * 1. make StyleTestWin have a static view 👈
@@ -47,8 +47,6 @@ class StyleTestView:CustomView{
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
         let mainView:StyleTestView = self
-        guard let leftBar = StyleTestView.leftbar else{fatalError("must be available")}
-        guard let content = StyleTestView.content else{fatalError("must be available")}
         let iconSection = mainView.iconSection
         
         if hide {
