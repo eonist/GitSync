@@ -19,6 +19,9 @@ class AutoSync {
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
+        repoList.filter(){
+            
+        }
         repoList.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             
             if repoItem.message {
