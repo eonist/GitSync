@@ -33,6 +33,10 @@ class CommitDialogView:Element,UnFoldable {
             }
         }
     }
+    var repoItem:RepoItem?
+    var commitMessage:CommitMessage{
+        return CommitMessage()
+    }
     /**
      * New
      */
@@ -45,7 +49,7 @@ class CommitDialogView:Element,UnFoldable {
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-//        GitSync.inc
+        GitSync.initCommit(<#T##repoItem: RepoItem##RepoItem#>, commitMessage: <#T##CommitMessage?#>, <#T##onPushComplete: GitSync.PushComplete##GitSync.PushComplete##(Bool) -> Void#>)
         Nav.setView(.main(.commit))
     }
     override func onEvent(_ event:Event) {
