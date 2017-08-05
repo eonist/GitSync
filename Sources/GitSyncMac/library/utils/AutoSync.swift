@@ -22,14 +22,15 @@ class AutoSync {
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageList = repoList?.filter{$0.message}
-        incrementMessageCount()
+        itterateMessageCount()
     }
     /**
      * New
      */
-    func incrementMessageCount(){
+    func itterateMessageCount(){
         if let messageList = messageList, msgCount < messageList.count  {
             Nav.setView(.dialog(.commit))/*⬅️️🚪*/
+            msgCount += 1
         }else {
             syncNonMessageRepoItems()
         }
