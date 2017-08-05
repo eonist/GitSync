@@ -23,8 +23,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
             //fix > arrow in repo
-            //Hock up the dialog prompts to manualMerge etc 👈
-                //fullscreen prompts, add singlton to fix hide menu problem
+        
+        
+        
+            //Hock up the dialog prompts to manualMerge etc
+                //fullscreen prompts, add singlton to fix hide menu problem ✅
+                //trigger the CommitMessagePrompt if repo has message flag disabled 👈
+        
             //design the new UI mockups
             //prototype menu 
                 //Research menu micro anims
