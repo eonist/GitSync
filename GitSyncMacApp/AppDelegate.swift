@@ -24,8 +24,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //clean up async code
                 //try with the mini libs
             //fix > arrow in repo
-            //write the clone into algo 👈
-                //(find old uml, and old applescript code)
+            //Hock up the dialog prompts to manualMerge etc 👈
+                //fullscreen prompts, add singlton to fix hide menu problem
+            //write the clone into algo ✅
+                //(find old uml, and old applescript code) ✅
             //design the new UI mockups
             //prototype menu 
                 //Research menu micro anims
