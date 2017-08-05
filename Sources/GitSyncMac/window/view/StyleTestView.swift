@@ -22,11 +22,14 @@ class StyleTestView:CustomView{
     }()
     override func resolveSkin(){
         Swift.print("StyleTestView")
+        StyleManager.addStyle("bgTest{fill:blue;clear:none;float:left;}")
         super.resolveSkin()
         
         _ = main
-        _ = leftBar
+//        _ = leftBar
         _ = content
+        
+        let bg = main.addSubView(Element(200,200,main,"bgTest"))
         
     }
     /**
