@@ -69,7 +69,7 @@ class GitSync{
         guard let msg = commitMSG else{
              return false
         }
-        let commitResult:String = GitModifier.commit(localRepoPath, (msg.title,msg.description))//🌵 commit
+        let commitResult:String = GitModifier.commit(localRepoPath, CommitMessage(msg.title,msg.description))//🌵 commit
         _ = commitResult
         return true
 
