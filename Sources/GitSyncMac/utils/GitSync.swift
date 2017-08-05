@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 
 class GitSync{
-    typealias PushComplete = (_ hasPushed:Bool)->Void
+    typealias PushComplete = (/*_ hasPushed:Bool*/)->Void
     /**
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item

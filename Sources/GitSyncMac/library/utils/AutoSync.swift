@@ -42,7 +42,7 @@ class AutoSync {
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
                 Swift.print("nothing to commit")
-                onRepoWithMSGSyncComplete(false)//fire of an annonmouse onCOmplete call
+                onRepoWithMSGSyncComplete()//fire of an annonmouse onCOmplete call
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
         }
@@ -50,7 +50,7 @@ class AutoSync {
     /**
      *
      */
-    func onRepoWithMSGSyncComplete(_ hasPushed:Bool){
+    func onRepoWithMSGSyncComplete(){
         if countForRepoWithMSG == repoListThatRequireManualMSG!.count{
             syncRepoItemsWithAutoMessage()
         }
@@ -71,7 +71,7 @@ class AutoSync {
     /**
      * When a singular push is compelete this method is called
      */
-    func onPushComplete(_ hasPushed:Bool){
+    func onPushComplete(){
         Swift.print("onPushComplete")
         autoSyncGroup?.leave()
     }
