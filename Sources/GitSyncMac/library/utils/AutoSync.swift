@@ -7,14 +7,17 @@ class AutoSync {
     static let shared = AutoSync()
     lazy var repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
     var idx:Int?
-    var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
+//    var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
+    var autoSyncGroup:DispatchGroup?
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
      */
     func initSync(_ onComplete:@escaping ()->Void){
         //Swift.print("🔁 AutoSync.initSync() 🔁")
-        onAllCommitAndPushComplete = onComplete
+        autoSyncGroup = DispatchGroup()
+        autoSyncGroup?.notify(queue: main, execute: onComplete)
+//        onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
         idx = 0/*reset the idx*/
         repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
