@@ -19,18 +19,18 @@ class AutoSync {
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        repoList.filter(){
-            
+        let repoListThatNeedsMessagePrompt = repoList.filter{
+            return $0.message
         }
-        repoList.forEach { repoItem in/*all the initCommit calls are non-waiting. */
-            
-            if repoItem.message {
-                //prompt user
-                Nav.setView(.dialog(.commit))
-            }
-            autoSyncGroup?.enter()
-            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
-        }
+//        repoList.filter{!$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+//            
+//            if repoItem.message {
+//                //prompt user
+//                Nav.setView(.dialog(.commit))
+//            }
+//            autoSyncGroup?.enter()
+//            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
+//        }
     }
     /**
      * When a singular push is compelete this method is called
