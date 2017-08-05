@@ -14,8 +14,12 @@ class Nav {
         
         if case Nav.ViewType.dialog( _) = viewType{
             //add View above everything
-            StyleTestView.shared.main
+            Swift.print("🍏")
+            let view = getView(viewType,StyleTestView.shared)
+            _ = StyleTestView.shared.main.addSubView(view)
+            
         }else if case Nav.ViewType.main( _) = viewType, case Nav.ViewType.detail( _) = viewType{
+            Swift.print("🍊")
             StyleTestView.shared.currentView = {
                 if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
                 let view = getView(viewType,StyleTestView.shared.content)
