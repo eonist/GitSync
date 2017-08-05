@@ -26,7 +26,10 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
     }
     var data:[String:Any] {
-        get{fatalError("not avilabale")}
+        get{
+            //fatalError("not avilabale")
+            return [Unfold.TextInput.text:self.text.getText(),Unfold.TextInput.inputText:self.inputTextArea.text.getText()]
+        }
         set{
             if let text:String = newValue[Unfold.TextInput.text] as? String { self.text.setText(text) }
             if let inputText:String = newValue[Unfold.TextInput.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
