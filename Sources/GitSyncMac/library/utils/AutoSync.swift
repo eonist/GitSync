@@ -4,6 +4,7 @@ import Foundation
  * NOTE: It seems its dificult to add Dispatch group to this, as all commits are fired of at once and depending on its result a subsequent push is called
  */
 class AutoSync {
+    typealias AutoSyncComplete = ()->Void
     static let shared = AutoSync()
     var repoList:[RepoItem]?
     var repoListThatRequireManualMSG:[RepoItem]?
@@ -13,7 +14,7 @@ class AutoSync {
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
      */
-    func initSync(_ onComplete:@escaping ()->Void){
+    func initSync(_ onComplete:@escaping AutoSyncComplete){
         //Swift.print("🔁 AutoSync.initSync() 🔁")
         autoSyncGroup = DispatchGroup()
         autoSyncGroup?.notify(queue: main){
