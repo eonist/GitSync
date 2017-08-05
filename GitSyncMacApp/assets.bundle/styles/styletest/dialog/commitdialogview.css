@@ -51,6 +51,7 @@ CommitDialogView TextButton#cancel{
 	margin-left:calc(50% -106px);
 	height:24px;
 	margin-right:6px;
+    margin-top:4px;
 }
 CommitDialogView TextButton#ok{
 	fill:#2AA3EF;
@@ -58,6 +59,7 @@ CommitDialogView TextButton#ok{
 	clear:none;
 	width:100px;
 	height:24px;
+    margin-top:4px;
 }
 CommitDialogView TextButton#ok Text{
 	color:#E8EAEB;
@@ -66,7 +68,7 @@ CommitDialogView TextButton#ok Text{
 	border:false;
     margin-top:0px;
 }
-CommitDialogView cancel Text{
+CommitDialogView TextButton#cancel Text{
     margin-top:0px;
 }
 /**/
