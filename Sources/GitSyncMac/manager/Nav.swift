@@ -18,25 +18,25 @@ class Nav {
         Swift.print("view.frame: " + "\(view.frame)")
          StyleTestView.shared.currentView = StyleTestView.shared.content.addSubView(view)
     }
-    private static func getView(_ view:ViewType,_ mainView:Element)->Element{
+    private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
             case .commit:
-                return CommitView(NaN,NaN,mainView)
+                return CommitView(NaN,NaN,parentView)
             case .repo:
-                return RepoView(NaN,NaN,mainView)//RepoView2
+                return RepoView(NaN,NaN,parentView)//RepoView2
             case .prefs:
-                return PrefsView(NaN,NaN,mainView)
+                return PrefsView(NaN,NaN,parentView)
             }
         case .commitDetail(let commitData):/*CommitDetail*/
-             let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
+             let view:CommitDetailView = CommitDetailView(NaN,NaN,parentView)
              view.setCommitData(commitData)
              return view
             //fatalError("not implemented yet")
         case .repoDetail(let idx3d):/*RepoDetail*/
              _ = idx3d
-             let view:RepoDetailView = RepoDetailView(NaN,NaN,mainView)
+             let view:RepoDetailView = RepoDetailView(NaN,NaN,parentView)
              view.setRepoData(idx3d)
              return view
             //fatalError("not implemented yet")
@@ -48,7 +48,7 @@ class Nav {
                     guard let styleTestView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else {fatalError("not avilable")}
                     styleTestView.toggleSideBar(true)/*true means hide*/
                 }*/
-                let view:CommitDialogView = CommitDialogView(NaN,NaN,mainView)
+                let view:CommitDialogView = CommitDialogView(NaN,NaN,parentView)
                 return view
                 //fatalError("not implemented yet")
             case .conflict:
