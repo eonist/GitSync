@@ -6,7 +6,7 @@ import Foundation
 class AutoSync {
     static let shared = AutoSync()
     var repoList:[RepoItem]?
-    var messageList:[RepoItem]?
+    var repoListThatRequireManualMSG:[RepoItem]?
     var msgCount:Int = 0
     var autoSyncGroup:DispatchGroup?
     /**
@@ -21,30 +21,26 @@ class AutoSync {
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        messageList = repoList?.filter{$0.message}
+        repoListThatRequireManualMSG = repoList?.filter{!$0.message}
         iterateMessageCount()
     }
     /**
      * New
      */
     func iterateMessageCount(){
-        if let messageList = messageList, msgCount < messageList.count {
+        if let messageList = repoListThatRequireManualMSG, msgCount < messageList.count {
             let repo = messageList[msgCount]
             Nav.setView(.dialog(.commit(repo)))/*⬅️️🚪*/
             msgCount += 1
         }else {
-            syncNonMessageRepoItems()
+            syncRepoItemsWithAutoMessage()
         }
     }
     /**
      *
      */
-    private func syncNonMessageRepoItems(){
-        repoList?.filter{!$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
-            if repoItem.message {
-                //prompt user
-                Nav.setView(.dialog(.commit))
-            }
+    private func syncRepoItemsWithAutoMessage(){
+        repoList?.filter{$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
