@@ -22,6 +22,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
             //clean up async code
+                //make autosync singelton ✅
+                //make autosync use dispgroup ✅ 
+                //Refresh signleton
+                //refresh dispgroup
             //fix > arrow in repo
         
         

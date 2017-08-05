@@ -20,9 +20,7 @@ class AutoSync {
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
             onComplete()/*All commits and pushes was completed*/
         }
-//        onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
-//        idx = 0/*reset the idx*/
         repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
@@ -40,11 +38,5 @@ class AutoSync {
      */
     func onPushComplete(_ hasPushed:Bool){
         autoSyncGroup?.leave()
-        //Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
-//        idx? += 1
-//        if(idx == repoList.count){//TODO: ⚠️️ USE dispatchgroup instead
-//            Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
-//            onAllCommitAndPushComplete()/*All commits and pushes was completed*/
-//        }
     }
 }
