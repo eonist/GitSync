@@ -54,6 +54,7 @@ class UnFoldUtils{
     }
     /**
      * Apply data to unfoldable items to all subviews in an Element
+     * TODO:    ⚠️️  probably do .first instead
      */
     static func applyData(_ view:Element, _ data:[String:[String:Any]]){
         view.subviews.forEach{ subView in
@@ -68,13 +69,15 @@ class UnFoldUtils{
     /**
      * Similar to apply data but retrives data instead of applying
      */
-    static func retrieveData(_ view:Element, _ id:String) -> [String:Any]{
-        fatalError(" ")
-        view.subviews.forEach{ subView in
-            if let unFoldable:UnFoldable = subView as? UnFoldable {
-                return unFoldable.data
+    static func retrieveData(_ view:Element, _ id:String) -> [String:Any]?{
+        for subView in view.subviews {
+            if let unFoldable:UnFoldable = subView as? UnFoldable,
+                let element = subView as? IElement,
+                id == element.id {
+                    return unFoldable.data
             }
         }
+        return nil
     }
     /**
      *
