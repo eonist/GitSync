@@ -13,7 +13,7 @@ class GitSync{
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
-            hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete(false)
+            hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
         }
     }
     /**
@@ -44,7 +44,7 @@ class GitSync{
         }
         Swift.print("hasPushed: " + "\(hasPushed)")
         main.async {/*jump back on the main thread*/
-            onComplete(hasPushed)
+            onComplete()
         }
     }
     /**
