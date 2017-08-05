@@ -9,6 +9,7 @@ class CommitDialogView:Element,UnFoldable {
         static let desc = "desc"
         /**
          * New,convenient
+         * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
          */
         static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
             let data:[String:[String:Any]] = [
@@ -27,7 +28,7 @@ class CommitDialogView:Element,UnFoldable {
         self.data = DataType.getData("Element iOS", "Added support for padding", "4 Files changed")//test data
     }
     /**
-     * TODO: ⚠️️
+     * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
     var data:[String:Any] {
         get{
@@ -44,13 +45,12 @@ class CommitDialogView:Element,UnFoldable {
         }
     }
     var repoItem:RepoItem?
-    var commitMessage:CommitMessage{
-        return CommitMessage("","")
-    }
+    
     /**
      * New
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
+        self.repoItem = repoItem
         self.data = DataType.getData(repoItem.title, commitMessage.title, commitMessage.description)
     }
   
