@@ -22,11 +22,13 @@ class CommitDialogView:Element,UnFoldable {
             }
         }
     }
-    override func onEvent(_ event: Event) {
+    override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
-            Swift.print("event.origin: " + "\(event.origin)")
+            Swift.print("do commit stuff here")
+            Swift.print("remove commit dialog from view")
         }else if event.assert(.upInside, id: "cancel"){
-            Swift.print("event.origin: " + "\(event.origin)")
+            Swift.print("stop the auto sync process")
+            Swift.print("remove commit dialog from view")
         }
     }
 }
