@@ -55,7 +55,7 @@ class MergeUtils{
             Swift.print("branch: " + "\(branch)")
             Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
             Swift.print("unMergedFile: " + "\(unMergedFile)")
-            fatalError("not implemented yet")
+            fatalError("mergeConflict resolutin is not implemented yet")
             //let listWindow:ListWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 		}
