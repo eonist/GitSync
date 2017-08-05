@@ -41,9 +41,8 @@ class Nav {
             _ = dialog
             switch dialog{
             case .commit:
-                if !ToggleSideBarMenuItem.isSideMenuHidden {
-                    guard let styleTestView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else {fatalError("not avilable")}
-                    styleTestView.toggleSideBar(true)
+                if !StyleTestView.shared.leftBar.isLeftBarHidden {//if leftSideBar is visible   
+                    StyleTestView.shared.toggleSideBar(hide: true)
                 }
                 let view:CommitDialogView = CommitDialogView(NaN,NaN,parentView)
                 return view
