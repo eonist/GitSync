@@ -12,7 +12,7 @@ enum Config {
             return assets + (Config.release == .dev ? "user/dev/repos.xml" : "user/pub/repos.xml")
         }()
         /*UI structure of the app*/
-        static let app:String = assets + "gitsync.json"
+        static let app:String = assets + "gitsync.json"//rename to structure?
         /*The app prefs*/
         static let prefs:String = {
             return assets + (Config.release == .dev ? "user/dev/prefs.xml" : "user/pub/prefs.xml")
