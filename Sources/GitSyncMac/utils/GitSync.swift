@@ -7,12 +7,12 @@ class GitSync{
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete){
+    static func initCommit(_ repoItem:RepoItem, commitMessage:CommitMessage?, _ onPushComplete:@escaping PushComplete){
         bg.async {/*All these git processes needs to happen one after the other*/
             if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
-            let hasCommited = commit(repoItem.local)/*🌵 if there were no commits false will be returned*/
+            let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
             hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete(false)
         }
     }
@@ -55,7 +55,7 @@ class GitSync{
      * TODO: ⚠️️ add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    static func commit(_ localRepoPath:String, commitMessage:CommitMessage? = nil)->Bool{
+    static func commit(_ localRepoPath:String, _ commitMessage:CommitMessage? = nil)->Bool{
         //Swift.print("commit()")
         let commitMSG:CommitMessage? = {
             if commitMessage == nil{
