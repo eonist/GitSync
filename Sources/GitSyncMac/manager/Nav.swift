@@ -9,11 +9,12 @@ class Nav {
      * EXAMPLE: Nav.setView(.dialog(.commit))
      */
     static func setView(_ viewType:ViewType){
-        Swift.print("setView: \(viewType)")
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
-        if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
-        let view = getView(viewType,StyleTestView.shared.content)
-        StyleTestView.shared.currentView = StyleTestView.shared.content.addSubView(view)
+        StyleTestView.shared.currentView = {
+            if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
+            let view = getView(viewType,StyleTestView.shared.content)
+            return StyleTestView.shared.content.addSubView(view)
+        }()
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
@@ -32,7 +33,6 @@ class Nav {
              return view
             //fatalError("not implemented yet")
         case .repoDetail(let idx3d):/*RepoDetail*/
-             _ = idx3d
              let view:RepoDetailView = RepoDetailView(NaN,NaN,parentView)
              view.setRepoData(idx3d)
              return view
