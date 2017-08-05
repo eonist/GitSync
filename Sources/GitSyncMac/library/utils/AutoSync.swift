@@ -19,9 +19,9 @@ class AutoSync {
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
+        repoList.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
-            GitSync.initCommit(repoList,i,onPushComplete,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
+            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
     }
     /**

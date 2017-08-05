@@ -2,13 +2,12 @@ import Foundation
 @testable import Utils
 
 class GitSync{
-    typealias CommitComplete = (_ idx:Int,_ hasCommited:Bool)->Void
     typealias PushComplete = (_ hasPushed:Bool)->Void
     /**
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete, _ onCommitComplete:@escaping CommitComplete){
+    static func initCommit(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete){
         bg.async {/*All these git processes needs to happen one after the other*/
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
             if hasUnMergedpaths {
