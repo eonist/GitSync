@@ -19,7 +19,8 @@ class StyleTestView:CustomView{
         
         StyleTestView.leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         StyleTestView.content = main?.addSubView(Section(NaN,NaN,main,"content"))
-        Nav.setView(.main(.commit))/*⬅️️🚪*///.dialog(.commit)
+        Nav.setView(.dialog(.commit))/*⬅️️🚪*///
+        //Nav.setView(.main(.commit))
         //Nav.setView(.repoDetail([0,0,0]))
     }
     /**
