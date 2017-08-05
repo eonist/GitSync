@@ -54,6 +54,7 @@ class AutoSync {
     private func syncRepoItemsWithAutoMessage(){
         Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
         let listSansMSG = repoList?.filter{!$0.message} ?? []
+        Swift.print("listSansMSG: " + "\(listSansMSG)") 
         listSansMSG.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
