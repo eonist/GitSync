@@ -12,7 +12,9 @@ class Nav {
         Swift.print("setView: \(viewType)")
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}
+        Swift.print("curView: " + "\(curView?)")
         let view = getView(viewType,StyleTestView.shared.content/*size*/)
+        Swift.print("view: " + "\(view)")
          StyleTestView.shared.currentView = StyleTestView.shared.content.addSubView(view)
     }
     private static func getView(_ view:ViewType,_ mainView:Element)->Element{
