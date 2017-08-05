@@ -57,7 +57,7 @@ class GitSync{
      * TODO: ⚠️️ add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    static func commit(_ localRepoPath:String)->Bool{
+    static func commit(_ localRepoPath:String, commitMessage:CommitMessage? = nil)->Bool{
         //Swift.print("commit()")
         let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
         //Swift.print("statusList.count: " + "\(statusList.count)")
