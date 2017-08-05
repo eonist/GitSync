@@ -23,7 +23,7 @@ class CommitDialogView:Element,UnFoldable {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
-        self.data = DataType.data("Element iOS", "Added support for padding", "4 Files changed")
+        self.data = DataType.data("Element iOS", "Added support for padding", "4 Files changed")//test data
     }
     var data:[String:Any] {
         get{fatalError("not avialbe")}

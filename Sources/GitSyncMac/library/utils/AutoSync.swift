@@ -31,7 +31,7 @@ class AutoSync {
         if let messageList = repoListThatRequireManualMSG, msgCount < messageList.count {
             let repo = messageList[msgCount]
             msgCount += 1
-            if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {
+            if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
                 iterateMessageCount()//nothing to commit, iterate
