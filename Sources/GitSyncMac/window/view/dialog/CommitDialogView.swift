@@ -34,7 +34,7 @@ class CommitDialogView:Element,UnFoldable {
         get{
             var data:[String:Any] = [:]
             data[DataType.repo] = UnFoldUtils.retrieveData(self, DataType.repo)
-            data[DataType.title] = UnFoldUtils.retrieveData(self, DataType.repo)
+            data[DataType.title] = UnFoldUtils.retrieveData(self, DataType.title)
             data[DataType.desc] = UnFoldUtils.retrieveData(self, DataType.desc)
             return data
         }
@@ -59,7 +59,8 @@ class CommitDialogView:Element,UnFoldable {
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        GitSync.initCommit(<#T##repoItem: RepoItem##RepoItem#>, commitMessage: <#T##CommitMessage?#>, <#T##onPushComplete: GitSync.PushComplete##GitSync.PushComplete##(Bool) -> Void#>)
+        CommitMessage(data[DataType.title],data[DataType.desc])
+        GitSync.initCommit(self.repoItem, commitMessage: <#T##CommitMessage?#>, <#T##onPushComplete: GitSync.PushComplete##GitSync.PushComplete##(Bool) -> Void#>)
         Nav.setView(.main(.commit))
     }
     override func onEvent(_ event:Event) {
