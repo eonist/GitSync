@@ -17,6 +17,7 @@ class AutoSync {
      */
     func initSync(_ onComplete:@escaping AutoSyncComplete){
         Swift.print("🔁 AutoSync.initSync() 🔁")
+        countForRepoWithMSG = 0//reset
         self.onComplete = onComplete
         autoSyncGroup = DispatchGroup()
         autoSyncGroup?.notify(queue: main){
