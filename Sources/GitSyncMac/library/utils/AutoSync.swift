@@ -18,7 +18,7 @@ class AutoSync {
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
             onComplete()/*All commits and pushes was completed*/
         }
-        repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
+        repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo   list
         repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
