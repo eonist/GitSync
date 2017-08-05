@@ -22,7 +22,7 @@ class AutoSync {
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        repoListThatRequireManualMSG = repoList?.filter{!$0.message}
+        repoListThatRequireManualMSG = repoList?.filter{$0.message}
         incrementCountForRepoWithMSG()
     }
     /**
@@ -57,7 +57,7 @@ class AutoSync {
      *
      */
     private func syncRepoItemsWithAutoMessage(){
-        repoList?.filter{$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+        repoList?.filter{!$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
