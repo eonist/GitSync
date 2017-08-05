@@ -5,7 +5,7 @@ import Foundation
  */
 class AutoSync {
     static let shared = AutoSync()
-    var repoList:[RepoItem]?
+    lazy var repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
     var idx:Int?
     var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
     /**
@@ -15,10 +15,10 @@ class AutoSync {
     func initSync(_ onComplete:@escaping ()->Void){
         //Swift.print("🔁 AutoSync.initSync() 🔁")
         onAllCommitAndPushComplete = onComplete
-        repoList = RepoUtils.repoListFlattenedOverridden
+        repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
         idx = 0/*reset the idx*/
-        repoList?.indices.forEach { i in /*all the initCommit calls are non-waiting. */
-            GitSync.initCommit(repoList!,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
+        repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
+            GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
         }
     }
     /**
@@ -26,7 +26,7 @@ class AutoSync {
      */
     func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
         //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
-        GitSync.initPush(repoList!,idx,onPushComplete)
+        GitSync.initPush(repoList,idx,onPushComplete)
     }
     /**
      * When a singular push is compelete this method is called
@@ -34,7 +34,7 @@ class AutoSync {
     func onPushComplete(_ hasPushed:Bool){
         //Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
         idx? += 1
-        if(idx == repoList?.count){//TODO: ⚠️️ USE dispatchgroup instead
+        if(idx == repoList.count){//TODO: ⚠️️ USE dispatchgroup instead
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
             onAllCommitAndPushComplete()/*All commits and pushes was completed*/
         }
