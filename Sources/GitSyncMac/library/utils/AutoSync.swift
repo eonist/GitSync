@@ -21,15 +21,16 @@ class AutoSync {
         repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
         repoList.indices.forEach { i in /*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
-            GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
+            GitSync.initCommit(repoList,i,onPushComplete,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
         }
     }
     /**
      * When a singular commit has competed this method is called
      */
     func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
+        fatalError("bug")
         //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
-        GitSync.initPush(repoList[idx],onComplete:onPushComplete)
+//        GitSync.initPush(repoList[idx],onComplete:onPushComplete)
     }
     /**
      * When a singular push is compelete this method is called

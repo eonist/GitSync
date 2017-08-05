@@ -8,7 +8,7 @@ class GitSync{
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoList:[RepoItem],_ idx:Int, onPushComplete:@escaping PushComplete, onCommitComplete:@escaping CommitComplete,){
+    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onPushComplete:@escaping PushComplete, _ onCommitComplete:@escaping CommitComplete){
         let repoItem = repoList[idx]
         bg.async {/*All these git processes needs to happen one after the other*/
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
@@ -20,7 +20,7 @@ class GitSync{
             if(hasCommited){
                 main.async {/*Jump back on the main thread again*/
                     //onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
-                    initPush(repoItem,onPushComplete)
+                    initPush(repoItem,onComplete: onPushComplete)
                 }
             }
             
