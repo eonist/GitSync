@@ -9,6 +9,7 @@ class Nav {
      * EXAMPLE: Nav.setView(.dialog(.commit))
      */
     static func setView(_ viewType:ViewType){
+        Swift.print("setView: \(viewType)")
         StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         
         if case Nav.ViewType.dialog( _) = viewType{
@@ -22,7 +23,10 @@ class Nav {
         }else if case Nav.ViewType.main( _) = viewType, case Nav.ViewType.detail( _) = viewType{
             Swift.print("🍊")
             StyleTestView.shared.currentView = {
-                if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}/*Remove the old prompt view*/
+                Swift.print()
+                if let curPrompt = StyleTestView.shared.currentPrompt {
+                    curPrompt.removeFromSuperview()
+                }/*Remove the old prompt view*/
                 if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
                 let view = getView(viewType,StyleTestView.shared.content)
                 return StyleTestView.shared.content.addSubView(view)
