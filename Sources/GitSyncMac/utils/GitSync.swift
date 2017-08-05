@@ -65,6 +65,5 @@ class GitSync{
         let commitResult:String = GitModifier.commit(localRepoPath, (commitMSG.title,commitMSG.description))//🌵 commit
         _ = commitResult
         return true
-        
     }
 }
