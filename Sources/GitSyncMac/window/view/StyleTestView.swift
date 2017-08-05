@@ -10,9 +10,13 @@ class StyleTestView:CustomView{
         return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
     }()
     var main:Section?
-    static var content:Section?
+    lazy var content:Section = {
+        return main?.addSubView(Section(NaN,NaN,main,"content"))
+    }()
     static var currentView:Element?
-    static var leftbar:LeftSideBar?
+    lazy var leftbar:LeftSideBar = {
+        return main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
+    }()
     
     override func resolveSkin(){
         Swift.print("StyleTestView")
@@ -20,8 +24,8 @@ class StyleTestView:CustomView{
         super.resolveSkin()
         main = self.addSubView(Section(NaN,NaN,self,"main"))
         
-        StyleTestView.leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        StyleTestView.content = main?.addSubView(Section(NaN,NaN,main,"content"))
+        _ = leftBar
+        StyleTestView.content =
         Nav.setView(.dialog(.commit))/*⬅️️🚪*///
         //Nav.setView(.main(.commit))
         //Nav.setView(.repoDetail([0,0,0]))

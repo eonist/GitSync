@@ -8,6 +8,7 @@ class AutoInit {
      * Automatically creates a local git repo based on the remote repo, if a local repo already exists, it is unharmfully merged into
      * TODO: ⚠️️ this method is complete except merge_conflict_file_list needs to be generated somehow
      * PARAM branch: the branch you want to use as origin branch
+     * EXAMPLE: AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
      */
     static func autoInit(_ localPath:String,remotePath:String,branch:String){
         Swift.print("AutoInit.autoInit()")
