@@ -16,7 +16,10 @@ class AutoSync {
     func initSync(_ onComplete:@escaping ()->Void){
         //Swift.print("🔁 AutoSync.initSync() 🔁")
         autoSyncGroup = DispatchGroup()
-        autoSyncGroup?.notify(queue: main, execute: onComplete)
+        autoSyncGroup?.notify(queue: main){
+            Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
+            onComplete()
+        }
 //        onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden//re-new the repo list
         idx = 0/*reset the idx*/
