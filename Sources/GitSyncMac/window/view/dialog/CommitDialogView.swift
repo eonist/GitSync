@@ -45,6 +45,7 @@ class CommitDialogView:Element,UnFoldable {
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
+        GitSync
         Nav.setView(.main(.commit))
     }
     override func onEvent(_ event:Event) {

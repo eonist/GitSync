@@ -46,7 +46,7 @@ class AutoSync {
     private func syncRepoItemsWithAutoMessage(){
         repoList?.filter{$0.message}.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
-            GitSync.initCommit(repoItem,commitMessage:nil,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
+            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
     }
     /**
