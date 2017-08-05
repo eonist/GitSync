@@ -42,7 +42,7 @@ class AutoSync {
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
                 Swift.print("nothing to commit")
-                onRepoWithMSGSyncComplete(false)//fire of an anonmouse onCOmplete call
+                onRepoWithMSGSyncComplete(false)//fire of an annonmouse onCOmplete call
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
         }
