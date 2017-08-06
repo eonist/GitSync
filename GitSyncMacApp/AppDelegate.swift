@@ -53,6 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
         let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
+        Swift.print("styleFilePath: " + "\(styleFilePath)")
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         win = StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
