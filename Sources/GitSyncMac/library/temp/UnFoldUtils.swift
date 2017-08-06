@@ -18,7 +18,7 @@ class UnFoldUtils{
     /**
      * Initiates and returns a UI Component
      */
-    static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> Element?{
+    private static func unFold(_ dict:[String:Any], _ parent:ElementKind? = nil) -> Element?{
         Swift.print("UnFoldUtils.unFold")
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         Swift.print("type: " + "\(type)")
@@ -39,7 +39,7 @@ class UnFoldUtils{
     /**
      * String
      */
-    static func string(_ dict:[String:Any],_ key:String) -> String?{
+    private static func string(_ dict:[String:Any],_ key:String) -> String?{
         if let value:Any = dict[key] {
             if let str = value as? String {return str}
             else {fatalError("type not supported: \(value)")}
@@ -48,7 +48,7 @@ class UnFoldUtils{
     /**
      * cgFloat
      */
-    static func cgFloat(_ dict:[String:Any],_ key:String) -> CGFloat{
+    private static func cgFloat(_ dict:[String:Any],_ key:String) -> CGFloat{
         if let value:Any = dict[key] {
             if let str = value as? String {return str.cgFloat}
             else if let int = value as? Int {return int.cgFloat}

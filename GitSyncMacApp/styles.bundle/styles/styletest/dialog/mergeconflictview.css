@@ -60,8 +60,8 @@ MergeConflictView CheckBoxButton Text{
 	color:<TextTheme2>;
 	border:false;
 	align:left;
-	background:true;
-	backgroundColor:green;
+	/*background:true;*/
+	/*backgroundColor:green;*/
     margin-left:12px;
 }
 /*Confirm buttons*/
