@@ -19,8 +19,7 @@ class AutoSync {
     func initSync(_ onComplete:@escaping AutoSyncComplete){
         Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
-        self.autoSyncComplete = onComplete
-        
+        autoSyncComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageRepos = repoList?.filter{$0.message} ?? []
         otherRepos = repoList?.filter{!$0.message} ?? []
