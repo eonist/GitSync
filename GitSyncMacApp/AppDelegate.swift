@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
             //The autosync on interval 👈
                 //auto fill local path
-                //design UX for 
+                //design UX for stashing / remove preexisting files / merge into
         
             //Add Auto init
         
