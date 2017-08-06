@@ -15,3 +15,31 @@ MergeConflictView{
     height:100%;
     padding:12px;
 }
+/*TextInput*/
+CommitDialogView TextInput{
+	float:left;
+	clear:left;
+	height:32px;
+	width:100%;
+}
+CommitDialogView TextInput Text{
+	width:100px;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+	bold:true;
+}
+CommitDialogView TextInput TextArea{
+	width:calc(100% -100px);
+	fill:#E8EAEB;/*2A3D51*/
+	drop-shadow:none;
+	line-alpha:0;
+	line-thickness:0px;
+	/*fill:white9;*/
+	fill-alpha:1;
+}
+CommitDialogView TextInput TextArea Text{
+	width:100%;
+	color:<TextTheme2>;/*192633*/
+	align:left;
+}

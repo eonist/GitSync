@@ -15,6 +15,7 @@ CommitDialogView{
 	height:100%;
 	padding:12px;
 }
+/*TextInput*/
 CommitDialogView TextInput{
 	float:left;
 	clear:left;
@@ -71,7 +72,7 @@ CommitDialogView TextButton#ok Text{
 CommitDialogView TextButton#cancel Text{
     margin-top:0px;
 }
-/**/
+/*TextInput desc*/
 CommitDialogView TextInput#desc{
 	width:100%;
 	height:calc(100% -128px);
