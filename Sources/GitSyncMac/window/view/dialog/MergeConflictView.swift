@@ -9,11 +9,9 @@ class MergeConflictView:Element,UnFoldable{
         UnFoldUtils.unFold(Config.Bundle.app,"mergeConflictView",self)
         Swift.print("unfold completed")
         let data:[String:[String:Any]] = [
-            "issueText":[Unfold.Text.text:repoTitle],//TODO:⚠️️    make inputText a const
-            DataType.title:[Unfold.TextInput.inputText:commitTitle],
-            DataType.desc:[Unfold.TextInput.inputText:commitDescription]
+            "issueText":[Unfold.Text.text:"Conflict: Local file is older than the remote file"]
         ]
-//        self.data = DataType.getData("Repo title", "Commit title", "Commit description")//test data
+        self.data = data
     }
     override func onEvent(_ event:Event) {
         //

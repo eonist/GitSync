@@ -60,6 +60,7 @@ class UnFoldUtils{
      * TODO:    ⚠️️  probably do .first instead
      */
     static func applyData(_ view:Element, _ data:[String:[String:Any]]){
+        Swift.print("applyData")
         view.subviews.forEach{ subView in
             if var unFoldable:UnFoldable = subView as? UnFoldable,
                 let element = subView as? IElement,
