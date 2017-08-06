@@ -11,7 +11,7 @@ class AutoSync {
     var otherRepos:[RepoItem]?//auto message
     var countForRepoWithMSG:Int = 0
     var autoSyncGroup:DispatchGroup?
-    var autoSyncComplete:AutoSyncComplete?
+    var autoSyncComplete:AutoSyncComplete = {fatalError("Must attach onComplete handler")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
@@ -33,7 +33,7 @@ class AutoSync {
             syncOtherRepos()
         }else {//nothing to sync, return
             Swift.print("nothing to sync, return")
-            autoSyncComplete!()
+            autoSyncComplete()
         }
     }
     /**
@@ -72,11 +72,11 @@ class AutoSync {
             
         }
         if otherRepos != nil && otherRepos!.isEmpty {
-            autoSyncComplete!()
+            autoSyncComplete()
         }
         autoSyncGroup?.notify(queue: main){
             Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
-            self.autoSyncComplete!()/*All commits and pushes was completed*/
+            self.autoSyncComplete()/*All commits and pushes was completed*/
         }
     }
 }

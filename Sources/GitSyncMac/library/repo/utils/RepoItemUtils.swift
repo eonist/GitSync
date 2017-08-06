@@ -9,6 +9,7 @@ class RepoUtils {
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      * NOTE: parent override child for every key in overrideKeys
      * We want parent folders to override all its children.
+     * ⚠️️ You need to check if the local path is still avilable. FileASserter.exists, or else you might get strange bugs using the Git lib, and prompt the user to correct the path
      */
     static var repoListFlattenedOverridden:[RepoItem]{
 //        Swift.print("repoListFlattenedOverridden")

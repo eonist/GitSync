@@ -9,14 +9,16 @@ class Refresh{
     typealias RefreshComplete = ()->Void
     var commitDP:CommitDP?
     var startTime:NSDate?/*Debugging*/
-    var onAllRefreshComplete:RefreshComplete = {fatalError("Must attach onComplete handler")}/*When all repos has refreshed this method signature is called*/
+    var onAllRefreshComplete:RefreshComplete = {fatalError("Must attach onComplete handler")}
     init(_ commitDP:CommitDP){
         self.commitDP = commitDP
     }
     /**
      * Inits the refresh process
+     * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called
      */
-    func initRefresh(){
+    func initRefresh(_ onAllRefreshComplete:@escaping RefreshComplete){
+        self.onAllRefreshComplete = onAllRefreshComplete
         Swift.print("🔄 Refresh.initRefresh() ")
         startTime = NSDate()/*Measure the time of the refresh*/
         refreshRepos()//🚪⬅️️Enter refresh process here
@@ -29,19 +31,15 @@ class Refresh{
         Swift.print("Refresh.refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         Swift.print("repos.count: " + "\(repos.count)")
-        var idx:Int = 0
-        func onRefreshRepoComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
-            Swift.print("refreshRepo.onComplete() i: \(idx) of: \(repos.count)")
-            idx += 1
-            if idx == repos.count {
-                allRefreshesCompleted()
-            }
-            
-        }
+//        var idx:Int = 0
+        let group = DispatchGroup()
+        
         repos.forEach { repo in
-            Swift.print("repo.title: " + "\(repo.title)")   
-            RefreshUtils.refreshRepo(self.commitDP!,repo,onRefreshRepoComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
+            Swift.print("repo.title: " + "\(repo.title)")
+            group.enter()
+            RefreshUtils.refreshRepo(self.commitDP!,repo,{group.leave()})//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
+        group.notify(queue: main, execute: allRefreshesCompleted)
     }
     /**
      * The final complete call

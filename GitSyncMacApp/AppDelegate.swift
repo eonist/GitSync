@@ -20,19 +20,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
         
         //Continue here: 🏀
-            //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers 
-            //clean up async code
-                //make autosync singelton ✅
-                //make autosync use dispgroup ✅ 
-                //Refresh signleton
-                //refresh dispgroup
+        
+            //Hock up the dialog prompts to manualMerge etc 👈
+                //trigger the CommitMessagePrompt if repo has message flag disabled ✅
+        
+            //The autosync on interval 👈
+        
+            //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers
+        
             //fix > arrow in repo
-        
-        
-        
-            //Hock up the dialog prompts to manualMerge etc
-                //fullscreen prompts, add singlton to fix hide menu problem ✅
-                //trigger the CommitMessagePrompt if repo has message flag disabled 👈
+
         
             //design the new UI mockups
             //prototype menu 

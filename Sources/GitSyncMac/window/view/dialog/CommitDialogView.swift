@@ -1,7 +1,9 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * TODO: ⚠️️ Rename to CommitPromptView?
+ */
 class CommitDialogView:Element,UnFoldable {
     var repoItem:RepoItem?
     override func resolveSkin() {
