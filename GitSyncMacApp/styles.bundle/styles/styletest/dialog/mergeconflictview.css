@@ -1,19 +1,19 @@
-/*HeaderText*/
-MergeConflictView Text#header{
-	width:100%;
-	height:32px;
-	color:<TextTheme2>;
-	align:center;
-}
 /*General*/
 MergeConflictView{
-    fill:yellow;
+    fill:white;
     fill-alpha:1;
     float:none;
     clear:none;
     width:100%;
     height:100%;
     padding:12px;
+}
+/*HeaderText*/
+MergeConflictView Text#header{
+	width:100%;
+	height:32px;
+	color:<TextTheme2>;
+	align:center;
 }
 /*TextInput*/
 MergeConflictView TextInput{
