@@ -25,6 +25,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //trigger the CommitMessagePrompt if repo has message flag disabled ✅
         
             //The autosync on interval 👈
+                //auto fill local path
+                //design UX for 
         
             //Add Auto init
         
