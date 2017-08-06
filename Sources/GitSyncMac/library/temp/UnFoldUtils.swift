@@ -64,7 +64,9 @@ class UnFoldUtils{
         view.subviews.forEach{ subView in
 //            Swift.print("subView: " + "\((subView))")
             if (subView as? ElementKind != nil){
-                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id)")
+                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
+                let isUnfoldable = subView as? UnFoldable != nil
+                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
             }
             if var unFoldable:UnFoldable = subView as? UnFoldable,
                 let element = subView as? ElementKind,
