@@ -21,30 +21,24 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
         
-            //Hock up the dialog prompts to manualMerge etc 👈
-                //trigger the CommitMessagePrompt if repo has message flag disabled ✅
+            //Hock up the dialog prompts to manualMerge etc
+                //add support for radiobullter in unfoldable 👈
         
-            //The autosync on interval 👈
+            //The autosync on interval
+        
+        
+            //Add Auto init
                 //auto fill local path
                 //design UX for stashing / remove preexisting files / merge into
         
-            //Add Auto init
-        
             //add filepicker prompt
                 //needs filepicker UI
-        
-            //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers
-        
-            //fix > arrow in repo
 
+            //prototype enhanced menu
+                //Research menu micro anims (fant4life awesome anim list)
         
-            //design the new UI mockups
-            //prototype menu 
-                //Research menu micro anims
-            //prototype prompt dialog popups
-            //prototype view transitions
             //prototype new refresh anim (triple dots)
-                //research refresh micro anims (see victor from medium)
+                //research refresh micro anims (see victors githum from medium)
     }
     
     /**
