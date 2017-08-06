@@ -7,10 +7,11 @@ class AutoSync {
     typealias AutoSyncComplete = ()->Void
     static let shared = AutoSync()
     var repoList:[RepoItem]?
-    var repoListThatRequireManualMSG:[RepoItem]?
+    var messageRepos:[RepoItem]?
+    var otherRepos:[RepoItem]?
     var countForRepoWithMSG:Int = 0
     var autoSyncGroup:DispatchGroup?
-    var onComplete:AutoSyncComplete?
+    var autoSyncComplete:AutoSyncComplete?
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
@@ -18,14 +19,15 @@ class AutoSync {
     func initSync(_ onComplete:@escaping AutoSyncComplete){
         Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
-        self.onComplete = onComplete
+        self.autoSyncComplete = onComplete
         autoSyncGroup = DispatchGroup()
         autoSyncGroup?.notify(queue: main){
             Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
             onComplete()/*All commits and pushes was completed*/
         }
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        repoListThatRequireManualMSG = repoList?.filter{$0.message}
+        messageRepos = repoList?.filter{$0.message} ?? []
+        otherRepos = repoList?.filter{!$0.message} ?? []
         incrementCountForRepoWithMSG()
     }
     /**
@@ -34,9 +36,9 @@ class AutoSync {
     func incrementCountForRepoWithMSG(){
         Swift.print("incrementCountForRepoWithMSG")
         Swift.print("countForRepoWithMSG: " + "\(countForRepoWithMSG)")
-        Swift.print("repoListThatRequireManualMSG!.count: " + "\(repoListThatRequireManualMSG!.count)")
-        if countForRepoWithMSG < repoListThatRequireManualMSG!.count {
-            let repo = repoListThatRequireManualMSG![countForRepoWithMSG]
+        Swift.print("repoListThatRequireManualMSG!.count: " + "\(messageRepos!.count)")
+        if countForRepoWithMSG < messageRepos!.count {
+            let repo = messageRepos![countForRepoWithMSG]
             countForRepoWithMSG += 1
             if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Swift.print("something to commit")
@@ -46,22 +48,22 @@ class AutoSync {
                 incrementCountForRepoWithMSG()//nothing to commit, iterate
             }
         }else{//aka complete
-            syncRepoItemsWithAutoMessage()
+            syncOtherRepos()
         }
     }
     /**
      * New
      */
-    private func syncRepoItemsWithAutoMessage(){
+    private func syncOtherRepos(){
         Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
-        let listSansMSG = repoList?.filter{!$0.message} ?? []
-        Swift.print("listSansMSG: " + "\(listSansMSG)") 
-        listSansMSG.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+        
+        Swift.print("listSansMSG: " + "\(otherRepos)") 
+        otherRepos.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
-        if listSansMSG.isEmpty {
-            onComplete!()
+        if otherRepos.isEmpty {
+            autoSyncComplete!()
         }
     }
     /**
