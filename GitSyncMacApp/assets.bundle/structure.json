@@ -24,7 +24,10 @@
     ],
     "mergeConflictView":[
         {"type":"Text","id":"header","text":"Resolve merge conflict:"},
-        {"type":"TextArea","id":"issueText","text":"Repository:"},
+        {"type":"TextArea","id":"issueText","text":"Conflict:"},
+        {"type":"TextArea","id":"fileText","text":"File:"},
+        {"type":"TextArea","id":"repoText","text":"Repository:"},
+        {"type":"TextArea","id":"repoText","text":"Repository:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ]
