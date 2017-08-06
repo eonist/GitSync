@@ -28,9 +28,9 @@ class Refresh{
     private func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         Swift.print("Refresh.refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
+        Swift.print("repos.count: " + "\(repos.count)")
         var idx:Int = 0
         func onRefreshRepoComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
-            
             Swift.print("refreshRepo.onComplete() i: \(idx) of: \(repos.count)")
             if idx == repos.count {
                 allRefreshesCompleted()
@@ -38,6 +38,7 @@ class Refresh{
             idx += 1
         }
         repos.forEach { repo in
+            Swift.print("repo.title: " + "\(repo.title)")   
             RefreshUtils.refreshRepo(self.commitDP!,repo,onRefreshRepoComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
     }
@@ -66,7 +67,7 @@ class RefreshUtils{
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping RefreshRepoComplete){
 //        Swift.print("RefreshUtils.refreshRepo 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
-            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
+            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.getCommitItems competed: \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
 //                Swift.print("result: " + "\(result.count)")
                 if result.count > 0 {/*resulting string must have characters*/
