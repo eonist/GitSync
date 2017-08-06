@@ -10,16 +10,8 @@ class AutoSync {
     var messageRepos:[RepoItem]?//manual message
     var otherRepos:[RepoItem]?//auto message
     var countForRepoWithMSG:Int = 0
+    var autoSyncGroup:DispatchGroup?
     var autoSyncComplete:AutoSyncComplete?
-    lazy var autoSyncGroup:DispatchGroup = {
-        let autoSyncGroup = DispatchGroup()
-        autoSyncGroup.notify(queue: main){
-            Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
-            self.autoSyncComplete!()/*All commits and pushes was completed*/
-        }
-        return autoSyncGroup
-    }()
-    
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
@@ -27,7 +19,6 @@ class AutoSync {
     func initSync(_ onComplete:@escaping AutoSyncComplete){
         Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
-        autoSyncGroup = nil
         self.autoSyncComplete = onComplete
         
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
@@ -70,6 +61,11 @@ class AutoSync {
      */
     private func syncOtherRepos(){
         Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
+        autoSyncGroup = DispatchGroup()
+        autoSyncGroup?.notify(queue: main){
+            Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
+            self.autoSyncComplete!()/*All commits and pushes was completed*/
+        }
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,{self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here
