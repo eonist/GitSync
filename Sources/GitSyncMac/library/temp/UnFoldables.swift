@@ -7,6 +7,9 @@ enum Unfold{
         static let inputText = "inputText"
         static let text = "text"
     }
+    enum Text{
+        static let text = "text"
+    }
 }
 
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/

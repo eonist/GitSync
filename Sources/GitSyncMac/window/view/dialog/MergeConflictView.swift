@@ -8,6 +8,11 @@ class MergeConflictView:Element,UnFoldable{
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"mergeConflictView",self)
         Swift.print("unfold completed")
+        let data:[String:[String:Any]] = [
+            "issueText":[Unfold.Text.text:repoTitle],//TODO:⚠️️    make inputText a const
+            DataType.title:[Unfold.TextInput.inputText:commitTitle],
+            DataType.desc:[Unfold.TextInput.inputText:commitDescription]
+        ]
 //        self.data = DataType.getData("Repo title", "Commit title", "Commit description")//test data
     }
     override func onEvent(_ event:Event) {
