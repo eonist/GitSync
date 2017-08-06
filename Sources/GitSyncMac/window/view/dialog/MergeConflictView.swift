@@ -18,6 +18,11 @@ class MergeConflictView:Element,UnFoldable{
     }
 }
 extension MergeConflictView{
+    enum ID{
+        static let issue = "issueText"
+        static let file = "fileText"
+        static let repo = "repoText"
+    }
     var data:[String:Any] {
         get{
             fatalError("not yet")

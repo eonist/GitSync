@@ -10,7 +10,7 @@ class CommitDialogView:Element,UnFoldable {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
-        self.data = DataType.getData("Repo title", "Commit title", "Commit description")//test data
+        self.data = ID.getData("Repo title", "Commit title", "Commit description")//test data
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
@@ -30,9 +30,9 @@ extension CommitDialogView{
     var data:[String:Any] {
         get{
             var data:[String:Any] = [:]
-            data[DataType.repo] = ""
-            data[DataType.title] = UnFoldUtils.retrieveData(self, DataType.title)![Unfold.TextInput.inputText]
-            data[DataType.desc] = UnFoldUtils.retrieveData(self, DataType.desc)![Unfold.TextInput.inputText]
+            data[ID.repo] = ""
+            data[ID.title] = UnFoldUtils.retrieveData(self, ID.title)![Unfold.TextInput.inputText]
+            data[ID.desc] = UnFoldUtils.retrieveData(self, ID.desc)![Unfold.TextInput.inputText]
             return data
         }
         set{
@@ -46,7 +46,7 @@ extension CommitDialogView{
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
         self.repoItem = repoItem
-        self.data = DataType.getData(repoItem.title, commitMessage.title, commitMessage.description)
+        self.data = ID.getData(repoItem.title, commitMessage.title, commitMessage.description)
     }
     
     /**
@@ -54,8 +54,8 @@ extension CommitDialogView{
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        guard let title:String = data[DataType.title] as? String,
-            let desc:String = data[DataType.title] as? String else{
+        guard let title:String = data[ID.title] as? String,
+            let desc:String = data[ID.title] as? String else{
                 fatalError("something went wrong")
         }
         let commitMessage = CommitMessage(title,desc)
@@ -68,7 +68,7 @@ extension CommitDialogView{
 //      Nav.setView(.main(.commit))
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }
-    enum DataType{
+    enum ID{
         static let repo = "repo"
         static let title = "title"
         static let desc = "desc"
@@ -78,9 +78,9 @@ extension CommitDialogView{
          */
         static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
             let data:[String:[String:Any]] = [
-                DataType.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
-                DataType.title:[Unfold.TextInput.inputText:commitTitle],
-                DataType.desc:[Unfold.TextInput.inputText:commitDescription]
+                ID.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
+                ID.title:[Unfold.TextInput.inputText:commitTitle],
+                ID.desc:[Unfold.TextInput.inputText:commitDescription]
             ]
             return data
         }
