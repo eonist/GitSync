@@ -22,8 +22,8 @@
 		{"type":"TextButton","id":"cancel","text":"Cancel"},
 		{"type":"TextButton","id":"ok","text":"OK"}
     ],
-    "mergeConflictDialogView":[
-        {"type":"Text","id":"header","text":"Commit message:"},
+    "mergeConflictView":[
+        {"type":"Text","id":"header","text":"Resolve merge conflict:"},
         {"type":"TextInput","id":"repo","text":"Repository:"},
         {"type":"TextInput","id":"title","text":"Title:"},
         {"type":"TextInput","id":"desc","text":"Description:"},
