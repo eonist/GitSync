@@ -27,7 +27,9 @@
         {"type":"TextArea","id":"issueText","text":"Conflict:"},
         {"type":"TextArea","id":"fileText","text":"File:"},
         {"type":"TextArea","id":"repoText","text":"Repository:"},
-        {"type":"TextArea","id":"repoText","text":"Repository:"},
+        {"type":"RadioButton","id":"keepLocalVersion","text":"keep local version:"},
+        {"type":"RadioButton","id":"keepRemoteVersion","text":"keep remote version:"},
+        {"type":"RadioButton","id":"keepMixedVersions","text":"keep mix of both versions:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ]
