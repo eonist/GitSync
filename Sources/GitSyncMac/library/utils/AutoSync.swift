@@ -68,7 +68,7 @@ class AutoSync {
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             Swift.print("autoSyncGroup.enter")
             autoSyncGroup?.enter()
-            GitSync.initCommit(repoItem,{Swift.print("autoSyncGroup.leave");bg.async {self.autoSyncGroup?.leave()}})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+            GitSync.initCommit(repoItem,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
         }
         if otherRepos != nil && otherRepos!.isEmpty {
             autoSyncComplete!()
