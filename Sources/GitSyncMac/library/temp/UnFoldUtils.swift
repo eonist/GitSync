@@ -8,6 +8,7 @@ class UnFoldUtils{
      * TODO: ⚠️️ In the future you will use a json method that can take an [Any] that contains str and int for the path. so you can do path:["app",0,"repoView"] etc
      */
     static func unFold(_ fileURL:String, _ path:String, _ parent:Element){
+        Swift.print("UnFoldUtils.unFold()")
         JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{
             if let element:Element = UnFoldUtils.unFold($0,parent) {
                 parent.addSubview(element)
