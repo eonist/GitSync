@@ -7,11 +7,19 @@ class AutoSync {
     typealias AutoSyncComplete = ()->Void
     static let shared = AutoSync()
     var repoList:[RepoItem]?
-    var messageRepos:[RepoItem]?
-    var otherRepos:[RepoItem]?
+    var messageRepos:[RepoItem]?//manual message
+    var otherRepos:[RepoItem]?//auto message
     var countForRepoWithMSG:Int = 0
-    var autoSyncGroup:DispatchGroup?
     var autoSyncComplete:AutoSyncComplete?
+    lazy var autoSyncGroup:DispatchGroup = {
+        let autoSyncGroup = DispatchGroup()
+        autoSyncGroup.notify(queue: main){
+            Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
+            self.autoSyncComplete!()/*All commits and pushes was completed*/
+        }
+        return autoSyncGroup
+    }()
+    
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      * TODO: ⚠️️ Try to use dispathgroups instead
@@ -19,12 +27,9 @@ class AutoSync {
     func initSync(_ onComplete:@escaping AutoSyncComplete){
         Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
+        autoSyncGroup = nil
         self.autoSyncComplete = onComplete
-        autoSyncGroup = DispatchGroup()
-        autoSyncGroup?.notify(queue: main){
-            Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
-            onComplete()/*All commits and pushes was completed*/
-        }
+        
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageRepos = repoList?.filter{$0.message} ?? []
         otherRepos = repoList?.filter{!$0.message} ?? []
