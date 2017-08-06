@@ -25,7 +25,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //add support for radiobullter in unfoldable 👈
         
             //The autosync on interval
-        
+                //stop on pull gesture init
+                //start after pull gesture completes
         
             //Add Auto init
                 //auto fill local path
@@ -34,11 +35,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //add filepicker prompt
                 //needs filepicker UI
 
-            //prototype enhanced menu
-                //Research menu micro anims (fant4life awesome anim list)
-        
-            //prototype new refresh anim (triple dots)
-                //research refresh micro anims (see victors githum from medium)
     }
     
     /**
