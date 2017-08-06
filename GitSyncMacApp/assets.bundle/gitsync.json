@@ -21,5 +21,13 @@
 		{"type":"TextInput","id":"desc","text":"Description:"},
 		{"type":"TextButton","id":"cancel","text":"Cancel"},
 		{"type":"TextButton","id":"ok","text":"OK"}
-	]
+    ],
+    "mergeConflictDialogView":[
+        {"type":"Text","id":"header","text":"Commit message:"},
+        {"type":"TextInput","id":"repo","text":"Repository:"},
+        {"type":"TextInput","id":"title","text":"Title:"},
+        {"type":"TextInput","id":"desc","text":"Description:"},
+        {"type":"TextButton","id":"cancel","text":"Cancel"},
+        {"type":"TextButton","id":"ok","text":"OK"}
+    ]
 }
