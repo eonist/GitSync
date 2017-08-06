@@ -72,7 +72,7 @@ extension CommitListable{
      * Starts the auto sync process (Happens after the pull to refresh gesture)
      */
     private func startAutoSync(){
-        Swift.print("🌵 ICommitList.startAutoSync")
+        Swift.print("🌵 CommitListale.startAutoSync")
         autoSyncStartTime = NSDate()/*Sets debug timer*/
         let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
         refresh.onAllRefreshComplete = loopAnimationCompleted/*Attach the refresh.completion handler here*/

@@ -25,7 +25,7 @@ class MergeUtils{
      * TODO: we should use two branch params here since its entirly possible to merge from a different remote branch
      */
     class func manualMerge(_ repo:GitRepo){
-        //Swift.print("MergeUtils.manualMerge()")
+        Swift.print("🍊 MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(repo.localPath)) { //Asserts if there are unmerged paths that needs resolvment
             //Swift.print("has unmerged paths to resolve")
             MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
