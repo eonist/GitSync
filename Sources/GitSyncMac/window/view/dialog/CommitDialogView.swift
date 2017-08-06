@@ -78,7 +78,7 @@ extension CommitDialogView{
          * New,convenient
          * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
          */
-        static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
+        static func getData( repoTitle:String, commitTitle:String, commitDescription:String) -> [String:[String:Any]]{
             let data:[String:[String:Any]] = [
                 DataType.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
                 DataType.title:[Unfold.TextInput.inputText:commitTitle],
