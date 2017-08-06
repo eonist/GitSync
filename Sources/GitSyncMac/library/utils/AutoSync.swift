@@ -32,8 +32,9 @@ class AutoSync {
             incrementCountForRepoWithMSG()
         }else if otherRepos != nil && !otherRepos!.isEmpty {
             syncOtherRepos()
-        }else {
-            
+        }else {//nothing to sync, return
+            Swift.print("nothing to sync, return")
+            autoSyncComplete!()
         }
     }
     /**
@@ -70,5 +71,4 @@ class AutoSync {
             autoSyncComplete!()
         }
     }
-   
 }
