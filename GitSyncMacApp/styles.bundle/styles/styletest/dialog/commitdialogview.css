@@ -43,6 +43,27 @@ CommitDialogView TextInput TextArea Text{
 	color:<TextTheme2>;/*192633*/
 	align:left;
 }
+/*TextInput desc*/
+CommitDialogView TextInput#desc{
+	width:100%;
+	height:calc(100% -128px);
+	padding-top:0px;
+	padding-bottom:12px;
+	padding-left:0px;
+	padding-right:0px;
+}
+CommitDialogView TextInput#desc TextArea{
+	height:100%;
+	/*width:100%;*/
+}
+CommitDialogView TextInput#desc TextArea Text{
+	height:100%;
+	width:100%;
+	scrollable:false;
+	multiline:true;
+	wordWrap:true;
+	border:false;
+}
 /*Confirm buttons*/
 CommitDialogView TextButton#cancel{
 	fill:white5;
@@ -71,25 +92,4 @@ CommitDialogView TextButton#ok Text{
 }
 CommitDialogView TextButton#cancel Text{
     margin-top:0px;
-}
-/*TextInput desc*/
-CommitDialogView TextInput#desc{
-	width:100%;
-	height:calc(100% -128px);
-	padding-top:0px;
-	padding-bottom:12px;
-	padding-left:0px;
-	padding-right:0px;
-}
-CommitDialogView TextInput#desc TextArea{
-	height:100%;
-	/*width:100%;*/
-}
-CommitDialogView TextInput#desc TextArea Text{
-	height:100%;
-	width:100%;
-	scrollable:false;
-	multiline:true;
-	wordWrap:true;
-	border:false;
 }

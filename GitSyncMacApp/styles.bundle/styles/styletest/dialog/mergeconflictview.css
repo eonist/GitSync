@@ -43,3 +43,32 @@ MergeConflictView TextInput TextArea Text{
 	color:<TextTheme2>;/*192633*/
 	align:left;
 }
+/*Confirm buttons*/
+MergeConflictView TextButton#cancel{
+	fill:white5;
+	float:left;
+	clear:left;
+	width:100px;
+	margin-left:calc(50% -106px);
+	height:24px;
+	margin-right:6px;
+    margin-top:4px;
+}
+MergeConflictView TextButton#ok{
+	fill:#2AA3EF;
+	float:left;
+	clear:none;
+	width:100px;
+	height:24px;
+    margin-top:4px;
+}
+MergeConflictView TextButton#ok Text{
+	color:#E8EAEB;
+	backgroundColor:orange;
+	background:false;
+	border:false;
+    margin-top:0px;
+}
+MergeConflictView TextButton#cancel Text{
+    margin-top:0px;
+}
