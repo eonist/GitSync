@@ -13,9 +13,9 @@ class StyleTestWin:Window {
     }
     override func resolveSkin() {
         self.contentView = StyleTestView.shared
-//        Nav.setView(.dialog(.commit))/*⬅️️🚪*///
-        Nav.setView(.dialog(.conflict))
-//        Nav.setView(.main(.commit))
+        Nav.setView(.main(.commit))/*⬅️️🚪*///
+//        Nav.setView(.dialog(.conflict))
+
         //Nav.setView(.repoDetail([0,0,0]))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}

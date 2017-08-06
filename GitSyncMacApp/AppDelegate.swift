@@ -55,7 +55,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let styleFilePath:String = Config.Bundle.assets + "styles/styletest/" + themeStr
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-        win = StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
+        win = StyleTestWin.init(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
+        WinModifier.align(win!, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
         menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {
