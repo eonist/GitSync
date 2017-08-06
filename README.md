@@ -19,8 +19,11 @@
 [Download](https://github.com/eonist/GitSync/releases) 
 
 ### Change-log:
+**2017-08-06**
+- Fixed a problem with pulling when there was no commits.
+- Fixed the issue where commitlist wouldn't update if CommitMessagePrompt had been shown
 
 **2017-08-05**
 - Fixed Commit items not showing in CommitView
 - Made Element work with user agnostic paths (GitSync can now work by jsut downloading it)
-- Added dev and prod Enviroment for debugging faster
+- Added dev and prod Environment for debugging faster
