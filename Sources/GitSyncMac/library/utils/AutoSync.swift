@@ -57,12 +57,12 @@ class AutoSync {
     private func syncOtherRepos(){
         Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
         
-        Swift.print("listSansMSG: " + "\(otherRepos)") 
-        otherRepos.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+        
+        otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
         }
-        if otherRepos.isEmpty {
+        if otherRepos != nil && otherRepos!.isEmpty {
             autoSyncComplete!()
         }
     }
