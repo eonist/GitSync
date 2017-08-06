@@ -63,7 +63,8 @@ extension CommitDialogView{
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
         
         GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
-        Nav.setView(.main(.commit))
+//        Nav.setView(.main(.commit))
+        if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }
     enum DataType{
         static let repo = "repo"
