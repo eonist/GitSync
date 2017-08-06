@@ -22,7 +22,9 @@ class AutoSync {
         autoSyncComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageRepos = repoList?.filter{$0.message} ?? []
+        Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
         otherRepos = repoList?.filter{!$0.message} ?? []
+        Swift.print("otherRepos.count: " + "\(otherRepos!.count)")
         if messageRepos != nil && !messageRepos!.isEmpty {
             Swift.print("has repos that has manual msg")
             incrementCountForRepoWithMSG()
