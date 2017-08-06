@@ -62,7 +62,7 @@ extension CommitDialogView{
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
         bg.async {
-            GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, {main.async{AutoSync.shared.incrementCountForRepoWithMSG()}})
+            GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
         }
         
 //      Nav.setView(.main(.commit))
