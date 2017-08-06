@@ -69,7 +69,7 @@ class AutoSync {
             autoSyncGroup?.enter()
             GitSync.initCommit(repoItem,{self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here
         }
-        if otherRepos != nil && !otherRepos!.isEmpty {
+        if otherRepos != nil && otherRepos!.isEmpty {
             autoSyncComplete!()
         }
     }
