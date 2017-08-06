@@ -1,3 +1,10 @@
+/*HeaderText*/
+CommitDialogView Text#header{
+	width:100%;
+	height:32px;
+	color:<TextTheme2>;
+	align:center;
+}
 /*General*/
 CommitDialogView{
 	fill:white;
@@ -7,13 +14,6 @@ CommitDialogView{
 	width:100%;
 	height:100%;
 	padding:12px;
-}
-/*HeaderText*/
-CommitDialogView Text#header{
-    width:100%;
-    height:32px;
-    color:<TextTheme2>;
-    align:center;
 }
 CommitDialogView TextInput{
 	float:left;
