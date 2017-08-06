@@ -1,5 +1,7 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
-class ConflictView {
+class MergeConflictView:Element,UnFoldable{
 
 }
