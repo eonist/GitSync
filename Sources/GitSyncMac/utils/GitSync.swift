@@ -44,9 +44,9 @@ class GitSync{
             hasPushed = true
         }
         Swift.print("hasPushed: " + "\(hasPushed)")
-        main.async {/*jump back on the main thread*/
+//        main.async {/*jump back on the main thread*/
             onComplete()
-        }
+//        }
     }
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
