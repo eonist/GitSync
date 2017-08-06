@@ -85,7 +85,7 @@ class RefreshUtils{
         }
         func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
             Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
-            RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            RefreshUtils.getCommitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
@@ -131,7 +131,7 @@ class RefreshUtils{
      * PARAM: limit = max Items Allowed per repo
      */
     typealias CommitItemsComplete = (_ results:[String])->Void
-    static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
+    static func getCommitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
 //        Swift.print("RefreshUtils.commitItems()")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let group = DispatchGroup()
@@ -155,7 +155,7 @@ class RefreshUtils{
         }
         group.notify(queue: main){
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-//            Swift.print("🏁 group completed. results: " + "\(results.count)")
+            Swift.print("🏁 group completed. results: " + "\(results.count)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
     }
