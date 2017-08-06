@@ -3,9 +3,7 @@ import Cocoa
 @testable import Utils
 
 class StyleTestWin:Window {
-    static let shared = {
-        return StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
-    }()
+    
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/

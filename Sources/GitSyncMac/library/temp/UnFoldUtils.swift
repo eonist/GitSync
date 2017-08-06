@@ -19,7 +19,9 @@ class UnFoldUtils{
      * Initiates and returns a UI Component
      */
     static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> Element?{
+        Swift.print("UnFoldUtils.unFold")
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
+        Swift.print("type: " + "\(type)")
         switch true{
             case type == "\(TextInput.self)":
                 return TextInput.unFold(dict,parent)
@@ -30,6 +32,7 @@ class UnFoldUtils{
             case type == "\(Text.self)":
                 return Text.unFold(dict,parent)
             default:
+                Swift.print("Type is not unFoldable: \(type)")
                 fatalError("Type is not unFoldable: \(type)")
                 //return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
         }
