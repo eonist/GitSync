@@ -28,7 +28,13 @@ class AutoSync {
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         messageRepos = repoList?.filter{$0.message} ?? []
         otherRepos = repoList?.filter{!$0.message} ?? []
-        incrementCountForRepoWithMSG()
+        if messageRepos != nil && !messageRepos!.isEmpty {
+            incrementCountForRepoWithMSG()
+        }else if otherRepos != nil && !otherRepos!.isEmpty {
+            syncOtherRepos()
+        }else {
+            
+        }
     }
     /**
      * New
@@ -56,21 +62,13 @@ class AutoSync {
      */
     private func syncOtherRepos(){
         Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
-        
-        
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             autoSyncGroup?.enter()
-            GitSync.initCommit(repoItem,onPushComplete)//🚪⬅️️ Enter the AutoSync process here
+            GitSync.initCommit(repoItem,{self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here
         }
-        if otherRepos != nil && otherRepos!.isEmpty {
+        if otherRepos != nil && !otherRepos!.isEmpty {
             autoSyncComplete!()
         }
     }
-    /**
-     * When a singular push is compelete this method is called
-     */
-    func onPushComplete(){
-        Swift.print("onPushComplete")
-        autoSyncGroup?.leave()
-    }
+   
 }
