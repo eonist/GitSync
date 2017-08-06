@@ -76,7 +76,7 @@ extension Text:UnFoldable{
     /**
      * UnFolds a Text Component
      */
-    static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> Text{
+    static func unFold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> Text{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         return Text.init(elementConfig, text)
