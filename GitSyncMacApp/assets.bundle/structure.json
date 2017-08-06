@@ -26,6 +26,8 @@
         {"type":"Text","id":"header","text":"Resolve merge conflict:"},
         {"type":"TextInput","id":"issueText","text":"Conflict:"},
         {"type":"TextInput","id":"fileText","text":"File:"},
-        {"type":"TextInput","id":"repoText","text":"Repository:"}
+        {"type":"TextInput","id":"repoText","text":"Repository:"},
+        {"type":"TextButton","id":"cancel","text":"Cancel"},
+        {"type":"TextButton","id":"ok","text":"OK"}
     ]
 }
