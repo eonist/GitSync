@@ -10,7 +10,7 @@ class CommitDialogView:Element,UnFoldable {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
-        self.data = DataType.getData("Element iOS", "Added support for padding", "4 Files changed")//test data
+        self.data = DataType.getData("Repo title", "Commit title", "Commit description")//test data
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
@@ -78,7 +78,7 @@ extension CommitDialogView{
          * New,convenient
          * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
          */
-        static func getData( repoTitle:String, commitTitle:String, commitDescription:String) -> [String:[String:Any]]{
+        static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
             let data:[String:[String:Any]] = [
                 DataType.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
                 DataType.title:[Unfold.TextInput.inputText:commitTitle],
