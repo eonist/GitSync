@@ -7,6 +7,7 @@ class MergeConflictView:Element,UnFoldable{
         Swift.print("MergeConflictView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"mergeConflictView",self)
+        Swift.print("unfold completed")
 //        self.data = DataType.getData("Repo title", "Commit title", "Commit description")//test data
     }
     override func onEvent(_ event:Event) {
