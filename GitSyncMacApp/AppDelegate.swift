@@ -52,7 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
-        let styleFilePath:String = Config.Bundle.assets + "styles/styletest/" + themeStr
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         win = StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
