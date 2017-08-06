@@ -29,7 +29,7 @@ class Refresh{
         Swift.print("Refresh.refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         var idx:Int = 0
-        func onComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
+        func onRefreshRepoComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             
             Swift.print("refreshRepo.onComplete() i: \(idx) of: \(repos.count)")
             if idx == repos.count {
@@ -38,7 +38,7 @@ class Refresh{
             idx += 1
         }
         repos.forEach { repo in
-            RefreshUtils.refreshRepo(self.commitDP!,repo,onComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
+            RefreshUtils.refreshRepo(self.commitDP!,repo,onRefreshRepoComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
     }
     /**
@@ -62,7 +62,8 @@ class RefreshUtils{
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      * Retrieve the commit log items for this repo with the range specified
      */
-    static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
+    typealias RefreshRepoComplete = ()->Void
+    static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping RefreshRepoComplete){
 //        Swift.print("RefreshUtils.refreshRepo 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
