@@ -9,6 +9,8 @@
 @import url("repo/detail/repodetailview.css");
 @import url("prefs/prefsview.css");
 @import url("dialog/commitdialogview.css");
+@import url("dialog/mergeconflictview.css");
+
 Window{
 	fill-alpha:1.0;
 	fill:<Theme>;
