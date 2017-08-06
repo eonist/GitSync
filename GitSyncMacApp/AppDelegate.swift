@@ -26,6 +26,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
             //The autosync on interval 👈
         
+            //Add Auto init
+        
+            //add filepicker prompt
+                //needs filepicker UI
+        
             //Get rid of typealias data containers and start using structs. also get rid of dictionary data containers
         
             //fix > arrow in repo
