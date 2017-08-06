@@ -16,7 +16,7 @@ MergeConflictView Text#header{
 	align:center;
 }
 /*HeaderText*/
-MergeConflictView Text#issueText{
+MergeConflictView [Text#issueText,Text#fileText,Text#repoText]{
 	width:100%;
 	height:32px;
 	color:<TextTheme2>;
