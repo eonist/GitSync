@@ -64,7 +64,7 @@ class Nav {
                 view.setData(repoItem, commitMessage)
                 return view
             case .conflict:
-                //return ConflictDialogView(w,h,mainView)
+                return ConflictDialogView(w,h,mainView)
                 fatalError("not implemented yet")
             }
         }

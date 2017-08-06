@@ -30,9 +30,8 @@
         {"type":"RadioButton","id":"keepLocalVersion","text":"keep local version:"},
         {"type":"RadioButton","id":"keepRemoteVersion","text":"keep remote version:"},
         {"type":"RadioButton","id":"keepMixedVersions","text":"keep mix of both versions:"},
-        {"type":"CheckBoxButton","id":"darkMode","text":"Apply to all conflicts:"},
-        {"type":"CheckBoxButton","id":"darkMode","text":"Apply to all repos:"},
-                         
+        {"type":"CheckBoxButton","id":"applyAllConflicts","text":"Apply to all conflicts:"},
+        {"type":"CheckBoxButton","id":"applyAllRepos","text":"Apply to all repos:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ]
