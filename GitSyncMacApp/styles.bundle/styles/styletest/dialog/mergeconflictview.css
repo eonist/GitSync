@@ -15,33 +15,14 @@ MergeConflictView Text#header{
 	color:<TextTheme2>;
 	align:center;
 }
-/*TextInput*/
-MergeConflictView TextInput{
-	float:left;
-	clear:left;
+/*HeaderText*/
+MergeConflictView Text#issueText{
+	width:100%;
 	height:32px;
-	width:100%;
-}
-MergeConflictView TextInput Text{
-	width:100px;
 	color:<TextTheme2>;
-	border:false;
-	align:left;
-	bold:true;
-}
-MergeConflictView TextInput TextArea{
-	width:calc(100% -100px);
-	fill:#E8EAEB;/*2A3D51*/
-	drop-shadow:none;
-	line-alpha:0;
-	line-thickness:0px;
-	/*fill:white9;*/
-	fill-alpha:1;
-}
-MergeConflictView TextInput TextArea Text{
-	width:100%;
-	color:<TextTheme2>;/*192633*/
-	align:left;
+	align:center;
+    clear:left;
+    float:left;
 }
 /*CheckBox*/
 MergeConflictView CheckBoxButton{
