@@ -6,7 +6,7 @@ import Foundation
 enum Config {
     enum Bundle{
         /*The root of the asset bundle*/
-        static let assets:String = FilePathParser.resourcePath + "/assets.bundle/"
+        static let assets:String = FilePathParser.resourcePath + "/assets.bundle/"//rename to user maybe?
         static let styles:String = FilePathParser.resourcePath + "/styles.bundle/"
         /*Stores the repo details*/
         static let repo:String = {
