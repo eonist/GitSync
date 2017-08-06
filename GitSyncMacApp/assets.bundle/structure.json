@@ -27,6 +27,7 @@
         {"type":"TextInput","id":"issueText","text":"Conflict:"},
         {"type":"TextInput","id":"fileText","text":"File:"},
         {"type":"TextInput","id":"repoText","text":"Repository:"},
+        {"type":"CheckBoxButton","id":"applyAllConflicts","text":"Apply to all conflicts:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ]
