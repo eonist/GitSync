@@ -24,9 +24,7 @@
     ],
     "mergeConflictView":[
         {"type":"Text","id":"header","text":"Resolve merge conflict:"},
-        {"type":"TextInput","id":"repo","text":"Repository:"},
-        {"type":"TextInput","id":"title","text":"Title:"},
-        {"type":"TextInput","id":"desc","text":"Description:"},
+        {"type":"TextArea","id":"issueText","text":"Repository:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ]
