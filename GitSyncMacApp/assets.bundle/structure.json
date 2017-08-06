@@ -24,6 +24,6 @@
     ],
     "mergeConflictView":[
         {"type":"Text","id":"header","text":"Resolve merge conflict:"},
-        {"type":"TextArea","id":"issueText","text":"Conflict:"},
+        {"type":"TextInput","id":"issueText","text":"Conflict:"},
     ]
 }
