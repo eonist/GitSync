@@ -72,7 +72,7 @@ extension TextButton{
         self.init(element.width, element.height,config, element.parent, element.id)
     }
 }
-extension Text{
+extension Text:UnFoldable{
     /**
      * UnFolds a Text Component
      */
@@ -84,6 +84,15 @@ extension Text{
     convenience init(_ element:ElementConfig, _ text:String) {
         self.init(element.width, element.height, text, element.parent, element.id)
     }
+    var data:[String:Any] {
+        get{
+            return [Unfold.Text.text:self.getText()]
+        }
+        set{
+            if let text:String = newValue[Unfold.Text.text] as? String { self.setText(text) }
+        }
+    }
+
 }
 extension Element{
     typealias ElementConfig = (width:CGFloat, height:CGFloat, parent:IElement?, id:String?)
