@@ -62,18 +62,20 @@ class AutoSync {
         Swift.print("AutoSync.syncRepoItemsWithAutoMessage")
         autoSyncGroup = DispatchGroup()
         
-        otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
-            Swift.print("autoSyncGroup.enter")
-            autoSyncGroup?.enter()
-            GitSync.initCommit(repoItem,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here
-        }
-        if otherRepos != nil && otherRepos!.isEmpty {
-            autoSyncComplete!()
-        }
-        autoSyncGroup?.wait()
         autoSyncGroup?.notify(queue: main){
             Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
             self.autoSyncComplete!()/*All commits and pushes was completed*/
         }
-    }
+
+        otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+            Swift.print("autoSyncGroup.enter")
+            autoSyncGroup?.enter()
+            GitSync.initCommit(repoItem,{Swift.print("autoSyncGroup.leave");bg.async {
+                self.autoSyncGroup?.leave()
+                }})//🚪⬅️️ Enter the AutoSync process here
+        }
+        if otherRepos != nil && otherRepos!.isEmpty {
+            autoSyncComplete!()
+        }
+            }
 }
