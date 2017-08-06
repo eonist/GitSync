@@ -43,6 +43,22 @@ MergeConflictView TextInput TextArea Text{
 	color:<TextTheme2>;/*192633*/
 	align:left;
 }
+/*CheckBox*/
+MergeConflictView CheckBoxButton{
+	width:120px;
+	height:24px;
+	float:left;
+	clear:left;
+}
+MergeConflictView CheckBoxButton CheckBox{
+	float:right;
+}
+MergeConflictView CheckBoxButton Text{
+	width:100px;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+}
 /*Confirm buttons*/
 MergeConflictView TextButton#cancel{
 	fill:white5;

@@ -28,6 +28,7 @@
         {"type":"TextInput","id":"fileText","text":"File:"},
         {"type":"TextInput","id":"repoText","text":"Repository:"},
         {"type":"CheckBoxButton","id":"applyAllConflicts","text":"Apply to all conflicts:"},
+        {"type":"CheckBoxButton","id":"applyAllRepos","text":"Apply to all repos:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ]
