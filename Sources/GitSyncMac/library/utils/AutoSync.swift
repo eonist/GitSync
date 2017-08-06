@@ -29,8 +29,10 @@ class AutoSync {
         messageRepos = repoList?.filter{$0.message} ?? []
         otherRepos = repoList?.filter{!$0.message} ?? []
         if messageRepos != nil && !messageRepos!.isEmpty {
+            Swift.print("has repos that has manual msg")
             incrementCountForRepoWithMSG()
         }else if otherRepos != nil && !otherRepos!.isEmpty {
+            Swift.print("has repos that has auto msg")
             syncOtherRepos()
         }else {//nothing to sync, return
             Swift.print("nothing to sync, return")
