@@ -24,16 +24,15 @@ class UnFoldUtils{
         Swift.print("type: " + "\(type)")
         switch true{
             case type == "\(TextInput.self)":
-                return TextInput.unfold(dict,parent)
-            case type == "\(CheckBoxButton.self)":
-                return CheckBoxButton.unfold(dict,parent)
+                return TextInput.init(unfoldDict:dict,parent:parent)
             case type == "\(RadioButton.self)":
-                let radioButton:RadioButton = RadioButton.unfold(dict,parent)
-                return radioButton
+                return RadioButton.init(unfoldDict:dict,parent:parent)
+            case type == "\(CheckBoxButton.self)":
+                return CheckBoxButton.init(radiobuttonUnfoldDict:dict,parent:parent)
             case type == "\(TextButton.self)":
-                return TextButton.unfold(dict,parent)
+                return TextButton.init(unfoldDict:dict,parent:parent)
             case type == "\(Text.self)":
-                return Text.unfold(dict,parent)
+                return Text.unfold(unfoldDict:dict,parent:parent)
             default:
                 fatalError("Type is not unFoldable: \(type)")
                 //return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/

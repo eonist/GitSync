@@ -20,7 +20,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
             inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
         }
     }
-    static func unfold(_ unfoldDict:[String:Any],_ parent:IElement? = nil) -> TextInput{
+    static func unfold(unfoldDict:[String:Any],parent:IElement? = nil) -> TextInput{
         let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
@@ -72,7 +72,7 @@ extension CheckBoxButton:UnFoldable{
     /**
      * UnFolds a CheckBoxButton
      */
-    convenience init(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil){
+    convenience init( unfoldDict:[String:Any],  parent:ElementKind? = nil){
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         self.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
@@ -94,7 +94,7 @@ extension TextButton:UnFoldable{
             text = UnFoldUtils.string(dict, "text") ?? ""
         }
     }
-    convenience init(_ unfoldDict:[String:Any], _ parent:IElement?) {
+    convenience init( unfoldDict:[String:Any],  parent:IElement?) {
         let config:TextButtonConfig = .init(unfoldDict,parent)
         self.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id)
     }
@@ -110,7 +110,7 @@ extension Text:UnFoldable{
     enum Key{
         static let text = "text"
     }
-    convenience init(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) {
+    convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
         let elementConfig:ElementConfig = .init(unfoldDict,parent)
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
         self.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
