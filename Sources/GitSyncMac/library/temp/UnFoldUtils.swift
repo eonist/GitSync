@@ -26,11 +26,11 @@ class UnFoldUtils{
             case type == "\(TextInput.self)":
                 return TextInput.init(unfoldDict:dict,parent:parent)
             case type == "\(CheckBoxButton.self)":
-                return CheckBoxButton.unFold(dict,parent)
+                return CheckBoxButton.init(unfoldDict:dict,parent:parent)
             case type == "\(TextButton.self)":
-                return TextButton.unFold(dict,parent)
+                return TextButton.init(unfoldDict:dict,parent:parent)
             case type == "\(Text.self)":
-                return Text.unFold(dict,parent)
+                return Text.init(unfoldDict:dict,parent:parent)
             default:
                 fatalError("Type is not unFoldable: \(type)")
                 //return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
