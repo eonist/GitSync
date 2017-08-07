@@ -3,16 +3,20 @@ import Foundation
 @testable import Element
 
 enum Unfold{//stores keys to access getters and setters,should be moved to the individuel UI extensions
-    enum TextInput{
-        static let inputText = "inputText"
-        static let text = "text"
-    }
+//    enum TextInput{
+//        static let inputText = "inputText"
+//        static let text = "text"
+//    }
     enum Text{
         static let text = "text"
     }
 }
 
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
+    enum Key{
+        static let text = "text"
+        static let inputText = "inputText"
+    }
     struct TextInputConfig{
         let element:ElementConfig
         let text:String
@@ -37,6 +41,19 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         }set{
             if let text:String = newValue[Unfold.TextInput.text] as? String { self.text.setText(text) }
             if let inputText:String = newValue[Unfold.TextInput.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
+        }
+    }
+}
+extension RadioButton{
+    struct CheckBoxButtonConfig{
+        let text:String
+        let isChecked:Bool
+        let elementConfig:ElementConfig
+        init(_ dict:[String:Any],_ parent:ElementKind?){
+            elementConfig = .init(dict,parent)
+            text = UnFoldUtils.string(dict, "text") ?? ""
+            let isCheckedStr = UnFoldUtils.string(dict, "isChecked") ?? "false"
+            isChecked = isCheckedStr.bool
         }
     }
 }
