@@ -49,7 +49,7 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
+    convenience init(radioButtonUnfoldDict unfoldDict:[String:Any], parent:ElementKind? = nil) {
         let config:RadioButtonConfig = .init(unfoldDict,parent)
         self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isSelected, config.elementConfig.parent, config.elementConfig.id)
     }
