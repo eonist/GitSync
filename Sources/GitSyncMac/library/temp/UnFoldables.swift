@@ -46,11 +46,13 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
+    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], _ parent:IElement? = nil) -> RadioButton{
         Swift.print("RadioButton.unfold")
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        Swift.print("config create")
-        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
+        Swift.print("config: " + "\(config)")
+        let retVal = RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
+        Swift.print("after retval")
+        return retVal
     }
     override var data:[String:Any] {
         get{
