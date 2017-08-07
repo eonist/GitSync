@@ -5,6 +5,12 @@ import Foundation
  */
 struct MergeConflict{
     let issue:String,file:String,repo:String
+    static let template:MergeConflict = {
+        let issue:String = "Conflict: Local file is older than the remote file"
+        let file:String = "File: "
+        let repo:String = "Repository: Element - iOS"
+        return MergeConflict(issue: issue, file: file, repo: repo)
+    }
 }
 
 class MergeUtils{

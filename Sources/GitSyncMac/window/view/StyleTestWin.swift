@@ -15,7 +15,7 @@ class StyleTestWin:Window {
         self.contentView = StyleTestView.shared
 //        Nav.setView(.main(.commit))/*⬅️️🚪*///
 //        Nav.setView(.dialog(.commit(RepoItem.init(local: "user file path",branch: "master",title: "Element iOS"), CommitMessage("Fixed bug","Lots of bugs"))))
-        Nav.setView(.dialog(.conflict))
+        Nav.setView(.dialog(.conflict(MergeConflict(issue: "",file: "",repo: ""))))
 
         //Nav.setView(.repoDetail([0,0,0]))
     }
