@@ -24,7 +24,7 @@ MergeConflictView [Text#issueText,Text#fileText,Text#repoText]{
     clear:left;
     float:left;
 }
-/*CheckBoxButton*/
+/*CheckBox*/
 MergeConflictView CheckBoxButton{
 	width:200px;
 	margin-left:calc(50% -76px);
