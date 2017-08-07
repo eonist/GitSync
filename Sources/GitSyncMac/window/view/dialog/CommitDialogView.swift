@@ -31,8 +31,8 @@ extension CommitDialogView{
         get{
             var data:[String:Any] = [:]
             data[ID.repo] = ""
-            data[ID.title] = UnFoldUtils.retrieveData(self, ID.title)![Unfold.TextInput.inputText]
-            data[ID.desc] = UnFoldUtils.retrieveData(self, ID.desc)![Unfold.TextInput.inputText]
+            data[ID.title] = UnFoldUtils.retrieveData(self, ID.title)![TextInput.Key.inputText]
+            data[ID.desc] = UnFoldUtils.retrieveData(self, ID.desc)![TextInput.Key.inputText]
             return data
         }
         set{
@@ -78,9 +78,9 @@ extension CommitDialogView{
          */
         static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
             let data:[String:[String:Any]] = [
-                ID.repo:[Unfold.TextInput.inputText:repoTitle],//TODO:⚠️️    make inputText a const
-                ID.title:[Unfold.TextInput.inputText:commitTitle],
-                ID.desc:[Unfold.TextInput.inputText:commitDescription]
+                ID.repo:[TextInput.Key.inputText:repoTitle],//TODO:⚠️️    make inputText a const
+                ID.title:[TextInput.Key.inputText:commitTitle],
+                ID.desc:[TextInput.Key.inputText:commitDescription]
             ]
             return data
         }

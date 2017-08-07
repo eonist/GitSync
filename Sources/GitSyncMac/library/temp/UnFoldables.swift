@@ -7,9 +7,9 @@ enum Unfold{//stores keys to access getters and setters,should be moved to the i
 //        static let inputText = "inputText"
 //        static let text = "text"
 //    }
-    enum Text{
-        static let text = "text"
-    }
+//    enum Text{
+//        static let text = "text"
+//    }
 }
 
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
@@ -23,8 +23,8 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         let inputText:String
         init(_ dict:[String:Any],_ parent:IElement? = nil){
             element = .init(dict,parent)
-            text = UnFoldUtils.string(dict, Unfold.TextInput.text) ?? ""
-            inputText = UnFoldUtils.string(dict, Unfold.TextInput.inputText) ?? ""
+            text = UnFoldUtils.string(dict, Key.text) ?? ""
+            inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
         }
     }
     /**
@@ -37,10 +37,10 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     var data:[String:Any] {
         get{
             //fatalError("not avilabale")
-            return [Unfold.TextInput.text:self.text.getText(),Unfold.TextInput.inputText:self.inputTextArea.text.getText()]
+            return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
         }set{
-            if let text:String = newValue[Unfold.TextInput.text] as? String { self.text.setText(text) }
-            if let inputText:String = newValue[Unfold.TextInput.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
+            if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
+            if let inputText:String = newValue[Key.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
         }
     }
 }
