@@ -19,11 +19,15 @@
 [Download](https://github.com/eonist/GitSync/releases) 
 
 ### Change-log:
+**2017-08-07**
+- Improved UnfoldLib in order to make Dialogs faster to setup
+- Created the MergeConflict Dialog
+
 **2017-08-06**
 - Fixed a problem with pulling when there was no commits.
-- Fixed the issue where commitlist wouldn't update if CommitMessagePrompt had been shown
+- Fixed the issue where commimtlist wouldn't update if CommitMessagePrompt had been shown
 
 **2017-08-05**
 - Fixed Commit items not showing in CommitView
-- Made Element work with user agnostic paths (GitSync can now work by jsut downloading it)
+- Made Element work with user agnostic paths (GitSync can now work by just downloading it)
 - Added dev and prod Environment for debugging faster
