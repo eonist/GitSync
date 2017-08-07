@@ -82,7 +82,7 @@ class UnFoldUtils{
         }
     }
     /**
-     * Basically the id path to search a hierarchy with
+     * PARAM: pathBasically the id path to search a hierarchy with
      * This method is recursive
      */
     static func applyData(_ view:Element, _ path:[String],_ value:Any){
@@ -102,6 +102,14 @@ class UnFoldUtils{
                 }
             }
         }
+    }
+    /**
+     * Retrieve value from hierarchy with PARAM: path
+     * PARAM: pathBasically the id path to search a hierarchy with
+     * This method is recursive
+     */
+    static func retrieveData(_ view:Element, _ path:[String]) -> [String:Any]?{
+        //continue here
     }
     /**
      * Similar to apply data but retrives data instead of applying
