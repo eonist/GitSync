@@ -14,6 +14,7 @@ class UnFoldUtils{
                 parent.addSubview(element)
             }
         }
+        Swift.print("after unFold fileUrl")
     }
     /**
      * Initiates and returns a UI Component
