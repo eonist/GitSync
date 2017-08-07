@@ -11,12 +11,21 @@ protocol UnFoldable {
     //init(unfoldDict:[String:Any], parent:ElementKind?)
 }
 extension Element:UnFoldable{
-    subscript(path: [String]) -> T? {
+    var data: [String : Any] {
         get {
-            return UnFoldUtils.retrieve(self, path)
+            fatalError("error")
         }
         set {
-            UnFoldUtils.applyData(self, <#T##path: [String]##[String]#>, <#T##value: Any##Any#>)
+            fatalError("error")
+        }
+    }
+
+    subscript(path: [String]) -> T? {
+        get {
+            return UnFoldUtils.retrieve(self, path) as? T
+        }
+        set {
+            UnFoldUtils.applyData(self, path, newValue)
         }
     }
 }
