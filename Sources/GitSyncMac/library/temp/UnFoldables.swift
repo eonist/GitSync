@@ -13,20 +13,26 @@ enum Unfold{
 }
 
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
-    typealias TextInputConfig = (text:String, inputText:String)
+    struct TextInputConfig{
+        let element:ElementConfig
+        let text:String
+        let inputText:String
+        init(_ dict:[String:Any],_ parent:IElement? = nil){
+            element = .init(dict,parent)
+            text = UnFoldUtils.string(dict, Unfold.TextInput.text) ?? ""
+            inputText = UnFoldUtils.string(dict, Unfold.TextInput.inputText) ?? ""
+        }
+    }
     /**
      * Unfolds a TextInput component
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
-        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
-        let text:String = UnFoldUtils.string(dict, Unfold.TextInput.text) ?? ""
-        let inputText:String = UnFoldUtils.string(dict, Unfold.TextInput.inputText) ?? ""
-        let config:TextInputConfig = (text:text,inputText:inputText)
-        let textInput:TextInput = TextInput.init(elementConfig, config)
+        let config:TextInputConfig = .init(dict,parent)
+        let textInput:TextInput = .init(config)
         return textInput
     }
-    convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
-        self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
+    convenience init(_ config:TextInputConfig) {
+        self.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
