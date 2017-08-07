@@ -40,14 +40,18 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
 extension RadioButton{
     struct RadioButtonConfig{
         let text:String
-        let isChecked:Bool
+        let isSelected:Bool
         let elementConfig:ElementConfig
         init(_ dict:[String:Any],_ parent:ElementKind?){
             elementConfig = .init(dict,parent)
             text = UnFoldUtils.string(dict, "text") ?? ""
-            let isCheckedStr = UnFoldUtils.string(dict, "isChecked") ?? "false"
-            isChecked = isCheckedStr.bool
+            let isSelectedStr = UnFoldUtils.string(dict, "isSelected") ?? "false"
+            isSelected = isSelectedStr.bool
         }
+    }
+    convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
+        let config:RadioButtonConfig = .init(unfoldDict,parent)
+        self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isSelected, config.elementConfig.parent, config.elementConfig.id)
     }
 }
 extension CheckBoxButton{
