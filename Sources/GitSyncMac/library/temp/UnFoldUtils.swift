@@ -10,20 +10,20 @@ class UnFoldUtils{
      * TODO: ⚠️️ In the future you will use a json method that can take an [Any] that contains str and int for the path. so you can do path:["app",0,"repoView"] etc
      */
     static func unFold(_ fileURL:String, _ path:String, _ parent:Element){
-        Swift.print("UnFoldUtils.unFold()")
+//        Swift.print("UnFoldUtils.unFold()")
         JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{ dict in
             guard let element:Element = UnFoldUtils.unFold(dict,parent) else{fatalError("unFold failed")}
             parent.addSubview(element)
         }
-        Swift.print("after unFold fileUrl")
+//        Swift.print("after unFold fileUrl")
     }
     /**
      * Initiates and returns a UI Component
      */
     static func unFold(_ dict:[String:Any], _ parent:ElementKind? = nil) -> Element?{
-        Swift.print("UnFoldUtils.unFold")
+//        Swift.print("UnFoldUtils.unFold")
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
-        Swift.print("type: " + "\(type)")
+//        Swift.print("type: " + "\(type)")
         switch true{
             case type == "\(TextInput.self)":
                 return TextInput.unfold(dict,parent)
