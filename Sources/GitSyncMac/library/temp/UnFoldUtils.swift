@@ -77,14 +77,17 @@ class UnFoldUtils{
         for subView in view.subviews{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 Swift.print("id: " + "\(id)")
-                if path.isEmpty {fatalError("error: path is empty")}
-                else if path[0] == id{
-                    if path.count == 1 {
-                        return unFoldable
-                    }else /*if path.count > 1*/ {//keep searching down hierarchy
-                        return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
-                    }
+                if path.count == 1 && path[0] == id{
+                    return unFoldable
+                }else{
+                    return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
                 }
+                    if path.count == 1 {
+                        
+                    }else /*if path.count > 1*/ {//keep searching down hierarchy
+                        
+                    }
+                
             }
         }
         return nil
