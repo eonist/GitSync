@@ -39,7 +39,10 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
 }
 extension CheckBoxButton{
-    typealias CheckBoxButtonConfig = (text:String, isChecked:Bool)
+    struct CheckBoxButtonConfig{
+        text:String
+        (, isChecked:Bool)
+    }
     /**
      * UnFolds a CheckBoxButton
      */
