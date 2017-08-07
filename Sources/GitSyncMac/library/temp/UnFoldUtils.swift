@@ -86,7 +86,9 @@ class UnFoldUtils{
      * This method is recursive
      */
     static func applyData(_ view:Element, _ path:[String],_ value:Any){
-        retrieve(view, path)?
+        if var unfoldable = retrieve(view, path)?.data, let last = path.last{
+            unfoldable.data = [last:value]
+        }
     }
     static func retrieve(_ view:Element, _ path:[String]) -> UnFoldable?{
         for subView in view.subviews{
