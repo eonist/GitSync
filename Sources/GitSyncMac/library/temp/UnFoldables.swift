@@ -50,9 +50,9 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    convenience init(radioButtonUnfoldDict unfoldDict:[String:Any], parent:ElementKind? = nil) {
+    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], parent:ElementKind? = nil) -> RadioButton{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        self.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
+        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
 }
 extension CheckBoxButton{
@@ -70,7 +70,7 @@ extension CheckBoxButton{
     /**
      * UnFolds a CheckBoxButton
      */
-    static func unfold(unfoldDict:[String:Any], parent:ElementKind? = nil) -> CheckBoxButton{
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> CheckBoxButton{
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
