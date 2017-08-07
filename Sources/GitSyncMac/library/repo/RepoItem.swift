@@ -21,6 +21,9 @@ struct RepoItem {
         self.branch = branch
         self.title = title
     }
+    init(){
+        
+    }
     
 }
 enum RepoType:String{
