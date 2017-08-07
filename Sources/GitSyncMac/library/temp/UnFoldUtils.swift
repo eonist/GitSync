@@ -65,7 +65,9 @@ class UnFoldUtils{
      */
     static func applyData(_ view:Element, _ data:[String:[String:Any]]){
         Swift.print("applyData")
-        view.subviews.forEach{ subView in
+        view.subviews.filter{
+            return $0 as? UnFoldable != nil
+            }.forEach{ subView in
 //            Swift.print("subView: " + "\((subView))")
 //            if let subView = subView as? ElementKind, let isUnfoldable = subView as? UnFoldable{
 //                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
