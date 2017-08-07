@@ -9,9 +9,9 @@ class MergeConflictView:Element,UnFoldable{
         UnFoldUtils.unFold(Config.Bundle.app,"mergeConflictView",self)
         Swift.print("unfold completed")
         let data:[String:[String:Any]] = [
-            ID.issue:[Unfold.Text.text:"Conflict: Local file is older than the remote file"],
-            ID.file:[Unfold.Text.text:"File: AppDelegate.swift"],
-            ID.repo:[Unfold.Text.text:"Repository: Element - iOS"]
+            ID.issue:[Text.Key.text:"Conflict: Local file is older than the remote file"],
+            ID.file:[Text.Key.text:"File: AppDelegate.swift"],
+            ID.repo:[Text.Key.text:"Repository: Element - iOS"]
         ]
         self.data = data
     }

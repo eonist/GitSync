@@ -90,6 +90,9 @@ extension TextButton{
     }
 }
 extension Text:UnFoldable{
+    enum Key{
+        static let text = "text"
+    }
     /**
      * UnFolds a Text Component
      */
@@ -100,9 +103,9 @@ extension Text:UnFoldable{
     }
     var data:[String:Any] {
         get{
-            return [Unfold.Text.text:self.getText()]
+            return [Key.text:self.getText()]
         }set{
-            if let text:String = newValue[Unfold.Text.text] as? String { self.setText(text) }
+            if let text:String = newValue[Key.text] as? String { self.setText(text) }
         }
     }
 }
