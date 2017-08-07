@@ -14,7 +14,8 @@ class StyleTestWin:Window {
     override func resolveSkin() {
         self.contentView = StyleTestView.shared
 //        Nav.setView(.main(.commit))/*⬅️️🚪*///
-        Nav.setView(.dialog(.conflict))
+        Nav.setView(.dialog(.commit(RepoItem(), CommitMessage("",""))))
+//        Nav.setView(.dialog(.conflict))
 
         //Nav.setView(.repoDetail([0,0,0]))
     }
