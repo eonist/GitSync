@@ -16,6 +16,11 @@ struct RepoItem {
     //var download:Bool = false
     //var autoSyncInterval:Bool = false
     //var fileChange:Bool = false
+    init(local:String,branch:String,title:String){
+        self.local = local
+        self.branch = branch
+        self.title = title
+    }
     
 }
 enum RepoType:String{
