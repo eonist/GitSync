@@ -84,8 +84,10 @@ class UnFoldUtils{
     /**
      *
      */
-    static func applyData(_ view:Element, _ data:[String:[String:Any]]){
-        
+    static func applyData(_ view:Element, _ id:String, value:Any){
+        view.subviews.first(where:{}){ subView in
+            
+        }
     }
     /**
      *
