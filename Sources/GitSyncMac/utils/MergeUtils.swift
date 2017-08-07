@@ -4,6 +4,9 @@ import Foundation
  * Utility methods for merging branches
  */
 class MergeUtils{
+    struct MergeConflict{
+        let issue:String,file:String,repo:String
+    }
     static var options:[String] = [
         "keep local version",
         "keep remote version",
@@ -36,7 +39,7 @@ class MergeUtils{
         if(hasManualPullReturnedError){
             //make a list of unmerged files
             let unMergedFiles:[String] = GitParser.unMergedFiles(repo.localPath)//🌵 Compile a list of conflicting files somehow
-            resolveMergeConflicts(repo.localPath, repo.branch, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
+            resolveMergeConflicts(repo, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
             _ = GitSync.commit(repo.localPath)//🌵 add,commit if any files has an altered status
         }else{
             //Swift.print("MergeUtils.manualMerge() Success no resolvment needed")
@@ -46,21 +49,23 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * PARAM branch: the branch you tried to merge into
  	 */
-    private static func resolveMergeConflicts(_ repo:RepoItem, _ unMergedFiles:[String]){
+    private static func resolveMergeConflicts(_ repo:GitRepo, _ unMergedFiles:[String]){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
 			let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-			Swift.print("localRepoPath: " + "\(repo.local)")
+			Swift.print("localRepoPath: " + "\(repo.localPath)")
             Swift.print("branch: " + "\(repo.branch)")
             Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
             Swift.print("unMergedFile: " + "\(unMergedFile)")
             fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
             
-            let headerTitle:String = "Resolve merge conflict in: "
-            let b = unMergedFile + ":"
+            let issue:String = "Conflict: Local file is older than the remote file"
+            let file:String = "File: \(unMergedFile)"
+            let repo:String = "Repository: Element - iOS"
             
-            view.setData(issue:"Conflict: Local file is older than the remote file",file:"File: \(unMergedFile)",repo:"Repository: Element - iOS")
+            
+            _ = MergeConflict(issue:issue,file:file,repo:repo)
             
             //promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
