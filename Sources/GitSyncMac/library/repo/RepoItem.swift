@@ -22,6 +22,7 @@ struct RepoItem {
         self.branch = branch
         self.title = title
     }
+    init(){}//dont delete this
     var gitRepo:GitRepo { return GitRepo(self.local, self.remote, self.branch) }//temp
 }
 enum RepoType:String{
