@@ -26,12 +26,8 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     /**
      * Unfolds a TextInput component
      */
-    static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
-        let config:TextInputConfig = .init(dict,parent)
-        let textInput:TextInput = .init(config)
-        return textInput
-    }
-    convenience init(_ config:TextInputConfig) {
+    convenience init(unfoldDict:[String:Any],parent:IElement? = nil) {
+        let config:TextInputConfig = .init(unfoldDict,parent)
         self.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
