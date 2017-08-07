@@ -73,13 +73,18 @@ extension CheckBoxButton{
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
-    
+    var value: Any {
+        get {
+            return getChecked()
+        }set{
+            if let newValue = newValue as? Bool {setChecked(newValue)}
+        }
+    }
 }
 extension TextButton:UnFoldable{
     struct TextButtonConfig{
         let text:String
         let element:ElementConfig
-
         init(_ dict:[String:Any],_ parent:ElementKind?){
             element = .init(dict,parent)
             text = UnFoldUtils.string(dict, "text") ?? ""
@@ -104,7 +109,7 @@ extension Text:UnFoldable{
         get{
             return [Key.text:self.getText()]
         }set{
-            if let text:String = newValue as? String { self.setText(text) }
+            if let newValue:String = newValue as? String { self.setText(newValue) }
         }
     }
 }
