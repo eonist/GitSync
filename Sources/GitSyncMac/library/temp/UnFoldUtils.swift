@@ -81,23 +81,23 @@ class UnFoldUtils{
             }
         }
     }
+//    /**
+//     *
+//     */
+//    static func applyData(_ view:Element, _ id:String, value:Any){
+//        let match:ElementKind? = view.subviews.lazy.flatMap{$0 as? ElementKind}.first(where:{$0.id == id})
+//        
+//        
+////        let match = matches
+//    }
     /**
      *
      */
-    static func applyData(_ view:Element, _ id:String, value:Any){
-        let match:ElementKind? = view.subviews.lazy.flatMap{$0 as? ElementKind}.first(where:{$0.id == id})
-        
-        
-//        let match = matches
-    }
-    /**
-     *
-     */
-    typealias ApplyDataTuple = (path:[String],value:Any)
+    typealias ApplyDataTuple = (path:[String],value:Any)//basically the id path to search a hierarchy with
     static func applyData(_ view:Element, _ data:ApplyDataTuple){
         view.subviews.forEach{ subView in
             if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? ElementKind,let id:String = element.id{
-                if data.path.count == 1{
+                if data.path.count == 2{
                     unFoldable.data = [data.path[0]:data.value]
                 }else if data.path.count > 1{
                     
