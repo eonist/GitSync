@@ -47,9 +47,9 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold(_ unfoldDict:[String:Any], _ parent:IElement? = nil) -> RadioButton{
+    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement? = nil) -> T{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
+        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id) as! T
     }
 }
 extension CheckBoxButton{
