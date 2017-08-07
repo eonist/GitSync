@@ -26,7 +26,7 @@ extension UnFoldable{
      * NOTE: Can't use generics because subscript doesn't support generics other than in classes
      */
     func retrieve<T>(_ path: [String]) -> T?{
-        return UnFoldUtils.retrieve(self, path) as? T
+        return UnFoldUtils.retrieveValue(self, path)
     }
     /**
      * New

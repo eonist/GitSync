@@ -95,7 +95,7 @@ extension MergeConflictView{
         let isApplyAllConflictsChecked:Bool? = self.retrieve([Key.applyAllConflicts])
         Swift.print("isApplyAllConflictsChecked: " + "\(String(describing: isApplyAllConflictsChecked))")
         let isApplyApplyAllReposChecked:Bool? = self.retrieve([Key.applyAllRepos])// ?? {fatalError("error")}()
-        Swift.print("isApplyApplyAllReposChecked: " + "\(isApplyApplyAllReposChecked)")
+        Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
 //        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)

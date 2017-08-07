@@ -65,23 +65,23 @@ class UnFoldUtils{
      * IMPROVMENT: ⚠️️ Might need to change view to generic, because not all NSViews are unfoldable, think containers etc
      */
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
-        if var unfoldable:UnFoldable = retrieve(view, path)/*, let last = path.last*/{
+        if var unfoldable:UnFoldable = retrieveUnFoldable(view, path)/*, let last = path.last*/{
             unfoldable.value = value
         }
     }
     /**
      * Traverses a hierarchy and find the Unfoldable at the correct path
      */
-    static func retrieve(_ view:UnFoldable, _ path:[String]) -> UnFoldable?{
+    static func retrieveUnFoldable(_ view:UnFoldable, _ path:[String]) -> UnFoldable?{
         guard let view = view as? NSView else{return nil}
         for subView in view.subviews{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 //Swift.print("id: " + "\(id)" + " path[0]: " + "\(path[0])")
                 if path.count == 1 && path[0] == id{
-                    Swift.print("found the match")
+//                    Swift.print("found the match")
                     return unFoldable
                 }else if path.count > 2{//keep searching down hierarchy
-                    return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
+                    return retrieveUnFoldable(unFoldable, path.slice2(0, path.count))//removes first item in path
                 }
             }
         }
@@ -100,11 +100,11 @@ class UnFoldUtils{
     /**
      * EXAMPLE: let repo:String = UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
-    static func retrieve<T>(_ view:UnFoldable, _ path:[String]) -> T?{
-        let unfoldable:UnFoldable? = retrieve(view, path)
-        Swift.print("unfoldable: " + "\(String(describing: unfoldable))")
+    static func retrieveValue<T>(_ view:UnFoldable, _ path:[String]) -> T?{
+        let unfoldable:UnFoldable? = retrieveUnFoldable(view, path)
+//        Swift.print("unfoldable: " + "\(String(describing: unfoldable))")
         let value:T? = unfoldable?.value as? T
-        Swift.print("value: " + "\(String(describing: value))")
+//        Swift.print("value: " + "\(String(describing: value))")
         return value
         
     }
