@@ -5,5 +5,5 @@ import Foundation
 protocol UnFoldable {
     //unfold
     //data 
-    var data:[String:Any] {get set}//this should probably be just any?
+    var data:[String:Any] {get set}//this should probably be just any? TODO: Rename to unfoldData, as data is ambigiouse
 }

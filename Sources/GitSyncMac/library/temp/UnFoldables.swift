@@ -37,7 +37,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
 }
 extension RadioButton{
-    struct CheckBoxButtonConfig{
+    struct RadioButtonConfig{
         let text:String
         let isChecked:Bool
         let elementConfig:ElementConfig
