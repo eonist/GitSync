@@ -4,15 +4,15 @@ import Foundation
 
 class MergeConflictView:Element,UnFoldable{
     lazy var radioButtonGroup:SelectGroup = {
-        let radioButtons:[RadioButton] = ElementParser.children(self)
-        let group = SelectGroup(radioButtons,radioButtons.first)
+        let buttons:[RadioButton] = ElementParser.children(self)
+        let group = SelectGroup(buttons,buttons.first)
         group.event = self.onSelectGroupChange
         return group
     }()
-    lazy var radioButtonGroup:SelectGroup = {
-        let radioButtons:[RadioButton] = ElementParser.children(self)
-        let group = SelectGroup(radioButtons,radioButtons.first)
-        group.event = self.onSelectGroupChange
+    lazy var checkBoxButtonGroup:CheckGroup = {
+        let buttons:[CheckBoxButton] = ElementParser.children(self)
+        let group = CheckGroup(buttons,buttons.first)
+        group.event = self.onCheckGroupChange
         return group
     }()
     override func resolveSkin() {
