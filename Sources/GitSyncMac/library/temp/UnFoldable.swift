@@ -12,24 +12,20 @@ protocol UnFoldable {
 }
 extension Element:UnFoldable{
     var data: [String : Any] {
-        get {
-            fatalError("error")
-        }
-        set {
-            fatalError("error")
-        }
+        get {fatalError("error")}
+        set {fatalError("error")}
     }
     /**
-     *
+     * New
+     * NOTE: Can't use generics because subscript doesn't support generics other than in classes
      */
-    func retrieve(path: [String]) -> T?{
+    func retrieve<T>(_ path: [String]) -> T?{
         return UnFoldUtils.retrieve(self, path) as? T
     }
     /**
-     *
+     * New
      */
-    func apply(path: [String]){
-        UnFoldUtils.applyData(self, path, newValue)
+    func apply(_ path:[String],_ value:Any){
+        UnFoldUtils.applyData(self, path, value)
     }
-        
 }
