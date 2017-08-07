@@ -9,8 +9,8 @@ class UnFoldUtils{
      */
     static func unFold(_ fileURL:String, _ path:String, _ parent:Element){
         Swift.print("UnFoldUtils.unFold()")
-        JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{
-            if let element:Element = UnFoldUtils.unFold($0,parent) {
+        JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{ dict in
+            if let element:Element = UnFoldUtils.unFold(dict,parent) {
                 parent.addSubview(element)
             }
         }
