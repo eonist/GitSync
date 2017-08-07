@@ -28,7 +28,7 @@ class MergeUtils{
         Swift.print("🍊 MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(repo.localPath)) { //Asserts if there are unmerged paths that needs resolvment
             //Swift.print("has unmerged paths to resolve")
-            resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
+            resolveMergeConflicts(repo, GitParser.unMergedFiles(repo.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
         }
         _ = GitSync.commit(repo.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull.
 
@@ -46,13 +46,13 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * PARAM branch: the branch you tried to merge into
  	 */
-	private static func resolveMergeConflicts(_ localRepoPath:String, _ branch:String, _ unMergedFiles:[String]){
+    private static func resolveMergeConflicts(_ repo:RepoItem, _ unMergedFiles:[String]){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
 			let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-			Swift.print("localRepoPath: " + "\(localRepoPath)")
-            Swift.print("branch: " + "\(branch)")
+			Swift.print("localRepoPath: " + "\(repo.local)")
+            Swift.print("branch: " + "\(repo.branch)")
             Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
             Swift.print("unMergedFile: " + "\(unMergedFile)")
             fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
@@ -60,7 +60,9 @@ class MergeUtils{
             let headerTitle:String = "Resolve merge conflict in: "
             let b = unMergedFile + ":"
             
-            let listWindow:ListWindow = ListWindow(options,,title:,selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
+            view.setData(issue:"Conflict: Local file is older than the remote file",file:"File: \(unMergedFile)",repo:"Repository: Element - iOS")
+            
+            //promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 		}
 	}
