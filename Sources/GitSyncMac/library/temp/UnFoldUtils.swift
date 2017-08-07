@@ -24,7 +24,7 @@ class UnFoldUtils{
         Swift.print("type: " + "\(type)")
         switch true{
             case type == "\(TextInput.self)":
-                return TextInput.unFold(dict,parent)
+                return TextInput.init(unfoldDict:dict,parent:parent)
             case type == "\(CheckBoxButton.self)":
                 return CheckBoxButton.unFold(dict,parent)
             case type == "\(TextButton.self)":
