@@ -1,7 +1,12 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * MERGE Conflict dialog view
+ * TODO: Make the review buttons as a clickable text in the keep radiobuttons.
+ * TODO: Inline the radiobuttons: Keep: (x) local, () remote, () both
+ * TODO: Remove the cancel button and enable the close button again
+ */
 class MergeConflictView:Element,UnFoldable{
     lazy var radioButtonGroup:SelectGroup = {
         let buttons:[RadioButton] = ElementParser.children(self)
@@ -60,6 +65,22 @@ extension MergeConflictView{
     func onOKButtonClick(){
         //retrive state of radioBUtton and CheckBoxButtons
         
+        //Looping repos (happens in MainView, so that it's not canceled)
+        //create a static array of repos
+        //when an repo is "synced" remove it from the array
+        //sync(repos[0])
+        //if(sync has conflict)
+        //conflictResolutionPopUp()
+        
+        //when you click ok:
+        //Alter static class var's (conflictSolved = true)//remember to reset this
+        //init looping the static repo list
+        //Navigate.setView(CommitView)
+        
+        //when you click cancel:
+        //empty the syncRepoList in MainView
+        //restart timer
+        //Navigate.setView(CommitView)
         
         
         let selectedRadioButtonId:String? = (radioButtonGroup.selected as? ElementKind)?.id
