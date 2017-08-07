@@ -23,6 +23,12 @@ class CommitDialogView:Element,UnFoldable {
     }
 }
 extension CommitDialogView{
+    enum Key{
+        static let repo = "repo"
+        static let title = "title"
+        static let desc = "desc"
+        
+    }
     /**
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
@@ -48,7 +54,7 @@ extension CommitDialogView{
 //        ID.title:[TextInput.Key.inputText:commitTitle],
 //        ID.desc:[TextInput.Key.inputText:commitDescription]
         
-        UnFoldUtils.applyData(self,[ID.repo,TextInput.Key.inputText],repoItem.title)
+        UnFoldUtils.applyData(self,[Key.repo,TextInput.Key.inputText],repoItem.title)
         //self.data = ID.getData(, commitMessage.title, commitMessage.description)
     }
     
@@ -57,9 +63,8 @@ extension CommitDialogView{
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        guard let title:String = data[ID.title] as? String,
-            let desc:String = data[ID.title] as? String else{
-                fatalError("something went wrong")
+        guard let title:String = data[Key.title] as? String,let desc:String = data[Key.title] as? String else{
+            fatalError("something went wrong")
         }
         let commitMessage = CommitMessage(title,desc)
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
@@ -71,10 +76,5 @@ extension CommitDialogView{
 //      Nav.setView(.main(.commit))
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }
-    enum ID{
-        static let repo = "repo"
-        static let title = "title"
-        static let desc = "desc"
-       
-    }
+    
 }
