@@ -91,13 +91,19 @@ class UnFoldUtils{
 ////        let match = matches
 //    }
     /**
-     *
+     * basically the id path to search a hierarchy with
      */
-    typealias ApplyDataTuple = (path:[String],value:Any)//basically the id path to search a hierarchy with
-    static func applyData(_ view:Element, _ data:ApplyDataTuple){
+    static func applyData(_ view:Element, path:[String],value:Any){
         view.subviews.forEach{ subView in
             if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? ElementKind,let id:String = element.id{
-                if 
+                if data.path.isEmpty {fatalError("error")}
+                else if data.path[0] == id{
+                    if data.path.count > 2 {
+                        applyData(element, <#T##data: [String : [String : Any]]##[String : [String : Any]]#>)
+                    }
+                }
+                    
+                
                 if data.path.count == 2{
                     unFoldable.data = [data.path[1]:[data.path[0]:data.value]]
                 }else if data.path.count > 2{
