@@ -75,6 +75,7 @@ extension CheckBoxButton:UnFoldable{
     }
     var value: Any {
         get {
+            Swift.print("CheckBoxButton.getChecked(): \(getChecked())")
             return getChecked()
         }set{
             if let newValue = newValue as? Bool {setChecked(newValue)}
