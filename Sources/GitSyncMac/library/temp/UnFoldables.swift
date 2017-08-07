@@ -46,7 +46,13 @@ extension RadioButton{
 //        Swift.print("after retval")
         return retVal
     }
-    
+    var value: Any {
+        get {
+           return getSelected()
+        }set{
+            if let newValue = newValue as? Bool {setSelected(newValue)}
+        }
+    }
 }
 extension CheckBoxButton{
     struct CheckBoxButtonConfig{
