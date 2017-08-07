@@ -19,13 +19,17 @@ extension Element:UnFoldable{
             fatalError("error")
         }
     }
-
-    subscript(path: [String]) -> T? {
-        get {
-            return UnFoldUtils.retrieve(self, path) as? T
-        }
-        set {
-            UnFoldUtils.applyData(self, path, newValue)
-        }
+    /**
+     *
+     */
+    func retrieve(path: [String]) -> T?{
+        return UnFoldUtils.retrieve(self, path) as? T
     }
+    /**
+     *
+     */
+    func apply(path: [String]){
+        UnFoldUtils.applyData(self, path, newValue)
+    }
+        
 }
