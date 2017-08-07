@@ -14,8 +14,8 @@ class StyleTestWin:Window {
     override func resolveSkin() {
         self.contentView = StyleTestView.shared
 //        Nav.setView(.main(.commit))/*⬅️️🚪*///
-        Nav.setView(.dialog(.commit(RepoItem.init(local: "user file path",branch: "master",title: "Element iOS"), CommitMessage("Fixed bug","Lots of bugs"))))
-//        Nav.setView(.dialog(.conflict))
+//        Nav.setView(.dialog(.commit(RepoItem.init(local: "user file path",branch: "master",title: "Element iOS"), CommitMessage("Fixed bug","Lots of bugs"))))
+        Nav.setView(.dialog(.conflict))
 
         //Nav.setView(.repoDetail([0,0,0]))
     }
