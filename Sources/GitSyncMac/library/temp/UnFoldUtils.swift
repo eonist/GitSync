@@ -97,6 +97,12 @@ class UnFoldUtils{
         return retrieve(view, path)?.data
     }
     /**
+     * EXAMPLE: UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
+     */
+    static func retrieve(_ view:Element, _ path:[String]){
+        
+    }
+    /**
      *
      */
 //    static func retrieveData(_ view:Element, _ id:String) -> [String:Any]?{
