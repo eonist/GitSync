@@ -3,21 +3,21 @@ import Foundation
 @testable import Element
 /**
  * MERGE Conflict dialog view
- * TODO: Make the review buttons as a clickable text in the keep radiobuttons.
- * TODO: Inline the radiobuttons: Keep: (x) local, () remote, () both
- * TODO: Remove the cancel button and enable the close button again
+ * TODO: ⚠️️ Make the review buttons as a clickable text in the keep radiobuttons.
+ * TODO: ⚠️️ Inline the radiobuttons: Keep: (x) local, () remote, () both
+ * TODO: ⚠️️ Remove the cancel button and enable the close button again
  */
 class MergeConflictView:Element,UnFoldable{
     lazy var radioButtonGroup:SelectGroup = {
         let buttons:[RadioButton] = ElementParser.children(self)
         let group = SelectGroup(buttons,buttons.first)
-        group.event = self.onSelectGroupChange
+        group.addHandler(type: SelectGroupEvent.change, self.onSelectGroupChange)
         return group
     }()
     lazy var checkBoxButtonGroup:CheckGroup = {
         let buttons:[CheckBoxButton] = ElementParser.children(self)
         let group = CheckGroup(buttons)
-        group.event = self.onCheckGroupChange
+        group.addHandler(type: SelectGroupEvent.change, self.onCheckGroupChange)
         return group
     }()
     override func resolveSkin() {
