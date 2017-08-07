@@ -65,8 +65,8 @@ class UnFoldUtils{
      * IMPROVMENT: ⚠️️ Might need to change view to generic, because not all NSViews are unfoldable, think containers etc
      */
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
-        if var unfoldable:UnFoldable = retrieve(view, path), let last = path.last{
-            unfoldable.data = [last:value]
+        if var unfoldable:UnFoldable = retrieve(view, path)/*, let last = path.last*/{
+            unfoldable.value = value
         }
     }
     /**
