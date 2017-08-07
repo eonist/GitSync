@@ -4,7 +4,6 @@ import Foundation
 /**
  * NOTE: Key: stores keys to access getters and setters,should be moved to the individuel UI extensions
  * NOTE: The structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
- * NOTE: We use static func unfold instead of init, as init cant be overriden in subClasses, static func can
  */
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     enum Key{
