@@ -40,8 +40,9 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
 }
 extension CheckBoxButton{
     struct CheckBoxButtonConfig{
-        text:String
-        (, isChecked:Bool)
+        let text:String
+        let isChecked:Bool
+        let elementConfig:ElementConfig
     }
     /**
      * UnFolds a CheckBoxButton
@@ -50,7 +51,7 @@ extension CheckBoxButton{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let isCheckedStr:String = UnFoldUtils.string(dict, "isChecked") ?? "false"
-        let config:CheckBoxButtonConfig = (text:text,isChecked:isCheckedStr.bool)
+        let config:CheckBoxButtonConfig = .init(text:text,isChecked:isCheckedStr.bool,elementConfig:elementConfig)
         return CheckBoxButton.init(elementConfig, config)
     }
     convenience init(_ element:ElementConfig, _ config:CheckBoxButtonConfig) {
