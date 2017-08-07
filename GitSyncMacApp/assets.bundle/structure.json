@@ -28,6 +28,8 @@
         {"type":"Text","id":"fileText","text":"File:"},
         {"type":"Text","id":"repoText","text":"Repository:"},
         {"type":"RadioButton","id":"keepLocalVersion","text":"Keep local version:"},
+        {"type":"RadioButton","id":"keepRemoteVersion","text":"Keep remote version:"},
+        {"type":"RadioButton","id":"keepRemoteVersion","text":"Keep mix of both versions:"},
         {"type":"CheckBoxButton","id":"applyAllConflicts","text":"Apply to all conflicts:"},
         {"type":"CheckBoxButton","id":"applyAllRepos","text":"Apply to all repos:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
