@@ -27,4 +27,12 @@ extension MergeConflictView{
         static let file = "fileText"
         static let repo = "repoText"
     }
+    /**
+     * EventHandler for the okButton click event
+     */
+    func onOKButtonClick(){
+        
+        //iterate merge process along see legacy code
+        if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
+    }
 }
