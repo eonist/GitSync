@@ -3,11 +3,10 @@ import Foundation
 @testable import Element
 
 class MergeConflictView:Element,UnFoldable{
-    lazy var selectGroup:SelectGroup = {
-       
+    lazy var radioButtonGroup:SelectGroup = {
         let radioButtons:[RadioButton] = ElementParser.children(self)
         let group = SelectGroup(radioButtons,radioButtons.first)
-//        selectGroup.event = self.onSelectGroupChange
+        group.event = self.onSelectGroupChange
         return group
     }()
     override func resolveSkin() {
@@ -20,7 +19,7 @@ class MergeConflictView:Element,UnFoldable{
         self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
         self.apply([Key.repo,Text.Key.text], "Repository: Element - iOS")
         
-        _ = selectGroup
+        _ = radioButtonGroup
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
