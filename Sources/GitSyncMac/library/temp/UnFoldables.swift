@@ -71,7 +71,7 @@ extension CheckBoxButton{
      */
     convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
-        self.init(config.element.width, config.element.height,config.text,config.isChecked, config.element.parent, config.element.id)
+        self.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
