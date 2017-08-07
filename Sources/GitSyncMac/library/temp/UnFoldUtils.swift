@@ -26,7 +26,7 @@ class UnFoldUtils{
             case type == "\(TextInput.self)":
                 return TextInput.init(unfoldDict:dict,parent:parent)
             case type == "\(CheckBoxButton.self)":
-                return CheckBoxButton.init(unfoldDict:dict,parent:parent)
+                return CheckBoxButton.unfold(dict,parent)
             case type == "\(TextButton.self)":
                 return TextButton.unfold(dict,parent)
             case type == "\(Text.self)":

@@ -7,5 +7,6 @@ protocol UnFoldable {
     //unfold
     //data 
     var data:[String:Any] {get set}//this should probably be just any? TODO: Rename to unfoldData, as data is ambigiouse
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind?) -> Self
     //init(unfoldDict:[String:Any], parent:ElementKind?)
 }
