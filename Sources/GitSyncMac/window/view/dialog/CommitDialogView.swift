@@ -28,11 +28,10 @@ extension CommitDialogView{
      */
     var data:[String:Any] {
         get{
-            var data:[String:Any] = [:]
-            data[ID.repo] = ""
-            data[ID.title] = UnFoldUtils.retrieve(self, [ID.title])
-            data[ID.desc] = UnFoldUtils.retrieve(self, ID.desc)![TextInput.Key.inputText]
-            return data
+            fatalError("error")
+//            var data:[String:Any] = [:]
+//            UnFoldUtils.retrieve(self, [ID.title])
+            
         }set{
             if let data = newValue as? [String:[String:Any]] {
                 UnFoldUtils.applyData(self, data)
