@@ -91,15 +91,16 @@ class UnFoldUtils{
 ////        let match = matches
 //    }
     /**
-     * basically the id path to search a hierarchy with
+     * Basically the id path to search a hierarchy with
+     * This method is recursive
      */
     static func applyData(_ view:Element, path:[String],value:Any){
         view.subviews.forEach{ subView in
-            if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? ElementKind,let id:String = element.id{
+            if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 if path.isEmpty {fatalError("error")}
                 else if path[0] == id{
                     if path.count > 2 {
-                        applyData(element, [1,2,3,4,5][1..<path.count])
+                        applyData(element, path[1..<path.count],value)
                     }
                 }
                     
