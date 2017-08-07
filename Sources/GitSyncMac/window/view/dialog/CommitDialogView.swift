@@ -10,7 +10,6 @@ class CommitDialogView:Element,UnFoldable {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
-//        self.data = ID.getData("Repo title", "Commit title", "Commit description")//test data
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
@@ -27,6 +26,8 @@ extension CommitDialogView{
     /**
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
+    
+    //id
     var data:[String:Any] {
         get{
             var data:[String:Any] = [:]
