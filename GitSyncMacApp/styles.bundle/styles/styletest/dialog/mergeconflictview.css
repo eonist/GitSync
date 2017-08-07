@@ -64,8 +64,8 @@ MergeConflictView RadioButton Text{
 	border:false;
     float:right;
 	align:left;
-	background:true;
-	backgroundColor:green;
+	/*background:true;*/
+	/*backgroundColor:green;*/
     margin-left:12px;
     margin-top:0px;
 }
