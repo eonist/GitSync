@@ -99,8 +99,8 @@ class UnFoldUtils{
     /**
      * EXAMPLE: UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
-    static func retrieve(_ view:Element, _ path:[String]){
-        
+    static func retrieve<T>(_ view:Element, _ path:[String]) -> T?{
+        retrieve(view, path)?.data[path]
     }
     /**
      *
