@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
         
             //Hock up the dialog prompts to manualMerge etc
-                //add support for radiobullter in unfoldable 👈
+                //add support for radiobtn in unfoldable 👈
         
             //The autosync on interval
                 //stop on pull gesture init
