@@ -81,15 +81,6 @@ class UnFoldUtils{
             }
         }
     }
-//    /**
-//     *
-//     */
-//    static func applyData(_ view:Element, _ id:String, value:Any){
-//
-//        
-//        
-////        let match = matches
-//    }
     /**
      * Basically the id path to search a hierarchy with
      * This method is recursive
@@ -99,17 +90,15 @@ class UnFoldUtils{
             if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 if path.isEmpty {fatalError("error")}
                 else if path[0] == id{
-                    if path.count > 2 {
+                    if path.count > 2 {//keep searching down hierarchy
                         applyData(element, path.slice2(0, path.count),value)//removes first item in path
+                    }else if path.count == 2{
+                        unFoldable.data = [path[1]:[path[0]:value]]
+                    }else {
+                        fatalError("error")
                     }
-                }
-                    
-                
-                if data.path.count == 2{
-                    unFoldable.data = [data.path[1]:[data.path[0]:data.value]]
-                }else if data.path.count > 2{
-                    let id:String = data.path[0]
-                    let match:ElementKind? = view.subviews.lazy.flatMap{$0 as? ElementKind}.first(where:{$0.id == id})
+                }else{
+                    fatalError("error")
                 }
             }
         }
