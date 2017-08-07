@@ -43,13 +43,10 @@ class MergeConflictView:Element,UnFoldable{
     }
 }
 extension MergeConflictView{
-    var value: Any {
-        get {fatalError("error")}
-        set {
-            self.apply([Key.issue,Text.Key.text], "Conflict: Local file is older than the remote file")
-            self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
-            self.apply([Key.repo,Text.Key.text], "Repository: Element - iOS")
-        }
+    func setData(issue:String,file:String,repo:String){
+        self.apply([Key.issue,Text.Key.text], issue)
+        self.apply([Key.file,Text.Key.text], file)
+        self.apply([Key.repo,Text.Key.text], repo)
     }
     enum Key{
         static let issue = "issueText"

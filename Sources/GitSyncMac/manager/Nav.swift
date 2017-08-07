@@ -65,6 +65,7 @@ class Nav {
                 return view
             case .conflict:
                 let view = MergeConflictView(NaN,NaN,parentView)
+                view.setData(issue:"Conflict: Local file is older than the remote file",file:"File: AppDelegate.swift",repo:"Repository: Element - iOS")
                 return view
             }
         }
