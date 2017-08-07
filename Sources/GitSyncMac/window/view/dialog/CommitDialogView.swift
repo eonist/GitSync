@@ -26,8 +26,6 @@ extension CommitDialogView{
     /**
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
-    
-    //[]
     var data:[String:Any] {
         get{
             var data:[String:Any] = [:]
@@ -35,8 +33,7 @@ extension CommitDialogView{
             data[ID.title] = UnFoldUtils.retrieveData(self, ID.title)![TextInput.Key.inputText]
             data[ID.desc] = UnFoldUtils.retrieveData(self, ID.desc)![TextInput.Key.inputText]
             return data
-        }
-        set{
+        }set{
             if let data = newValue as? [String:[String:Any]] {
                 UnFoldUtils.applyData(self, data)
             }
