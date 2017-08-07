@@ -26,7 +26,6 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
     var data:[String:Any] {
         get{
-            //fatalError("not avilabale")
             return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
         }set{
             if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
@@ -34,7 +33,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         }
     }
 }
-extension RadioButton:UnFoldable{
+extension RadioButton{
     struct RadioButtonConfig{
         let text:String
         let isSelected:Bool
@@ -46,9 +45,9 @@ extension RadioButton:UnFoldable{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
+    convenience init(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil){
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id) as! T
+        self.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
     override var data:[String:Any] {
         get{
@@ -58,7 +57,7 @@ extension RadioButton:UnFoldable{
         }
     }
 }
-extension CheckBoxButton{
+extension CheckBoxButton:UnFoldable{
     struct CheckBoxButtonConfig{
         let text:String
         let isChecked:Bool
@@ -111,10 +110,10 @@ extension Text:UnFoldable{
     enum Key{
         static let text = "text"
     }
-    init(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) {
+    convenience init(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) {
         let elementConfig:ElementConfig = .init(unfoldDict,parent)
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
-        return Text.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
+        self.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
     }
     var data:[String:Any] {
         get{
