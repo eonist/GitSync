@@ -4,6 +4,7 @@ import Foundation
 /**
  * NOTE: Key: stores keys to access getters and setters,should be moved to the individuel UI extensions
  * NOTE: The structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
+ * NOTE: We use static func unfold instead of .init. As .init would clutter up Element.init. always favour KISS
  */
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     enum Key{
@@ -26,7 +27,6 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
     var data:[String:Any] {
         get{
-            //fatalError("not avilabale")
             return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
         }set{
             if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
@@ -46,7 +46,7 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
+    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
         return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
