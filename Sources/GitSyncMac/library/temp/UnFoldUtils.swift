@@ -63,33 +63,36 @@ class UnFoldUtils{
      * Apply data to unfoldable items to all subviews in an Element
      * TODO:    ⚠️️  probably do .first instead
      */
-    static func applyData(_ view:Element, _ data:[String:[String:Any]]){
-        Swift.print("applyData")
-        view.subviews.forEach{ subView in
-//            Swift.print("subView: " + "\((subView))")
-//            if let subView = subView as? ElementKind, let isUnfoldable = subView as? UnFoldable{
-//                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
-                
-//                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
+//    static func applyData(_ view:Element, _ data:[String:[String:Any]]){
+//        Swift.print("applyData")
+//        view.subviews.forEach{ subView in
+////            Swift.print("subView: " + "\((subView))")
+////            if let subView = subView as? ElementKind, let isUnfoldable = subView as? UnFoldable{
+////                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
+//                
+////                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
+////            }
+//            if var unFoldable:UnFoldable = subView as? UnFoldable,
+//                let element = subView as? ElementKind,
+//                let id:String = element.id,
+//                let value:[String:Any] = data[id] {
+//                    Swift.print("set data to unfoldable")
+//                    unFoldable.data = value
 //            }
-            if var unFoldable:UnFoldable = subView as? UnFoldable,
-                let element = subView as? ElementKind,
-                let id:String = element.id,
-                let value:[String:Any] = data[id] {
-                    Swift.print("set data to unfoldable")
-                    unFoldable.data = value
-            }
-        }
-    }
+//        }
+//    }
     /**
-     * PARAM: pathBasically the id path to search a hierarchy with
+     * PARAM: path: Basically the id path to search a hierarchy with
      * This method is recursive
      */
     static func applyData(_ view:Element, _ path:[String],_ value:Any){
-        if var unfoldable = retrieve(view, path)?.data, let last = path.last{
+        if var unfoldable:UnFoldable = retrieve(view, path), let last = path.last{
             unfoldable.data = [last:value]
         }
     }
+    /**
+     * Traverses a hierarchy and find the Unfoldable at the correct path
+     */
     static func retrieve(_ view:Element, _ path:[String]) -> UnFoldable?{
         for subView in view.subviews{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
