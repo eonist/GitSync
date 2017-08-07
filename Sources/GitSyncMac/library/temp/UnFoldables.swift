@@ -82,15 +82,21 @@ extension CheckBoxButton{
     }
 }
 extension TextButton{
+    struct TextButtonConfig{
+        let text:String
+        let element:ElementConfig
+
+        init(_ dict:[String:Any],_ parent:ElementKind?){
+            element = .init(dict,parent)
+            text = UnFoldUtils.string(dict, "text") ?? ""
+        }
+    }
     /**
      * UnFolds a TextButton Component
      */
     convenience init(unfoldDict:[String:Any], parent:IElement? = nil) {
-        let elementConfig:ElementConfig = .init(unfoldDict,parent)
-        let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
-        //        Swift.print("text: " + "\(text)")
-        //        Swift.print("dict: " + "\(dict)")
-        self.init(elementConfig.width, elementConfig.height,text, elementConfig.parent, elementConfig.id)
+        let config:TextButtonConfig = .init(unfoldDict,parent)
+        self.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id)
     }
 }
 extension Text:UnFoldable{
