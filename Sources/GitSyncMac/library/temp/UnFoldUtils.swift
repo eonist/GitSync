@@ -96,10 +96,10 @@ class UnFoldUtils{
     static func applyData(_ view:Element, path:[String],value:Any){
         view.subviews.forEach{ subView in
             if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? ElementKind,let id:String = element.id{
-                if data.path.isEmpty {fatalError("error")}
-                else if data.path[0] == id{
-                    if data.path.count > 2 {
-                        applyData(element, <#T##data: [String : [String : Any]]##[String : [String : Any]]#>)
+                if path.isEmpty {fatalError("error")}
+                else if path[0] == id{
+                    if path.count > 2 {
+                        applyData(element, [1,2,3,4,5][1..<path.count])
                     }
                 }
                     
