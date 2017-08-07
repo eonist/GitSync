@@ -25,14 +25,6 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
-//    var data:[String:Any] {
-//        get{
-//            return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
-//        }set{
-//            if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
-//            if let inputText:String = newValue[Key.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
-//        }
-//    }
 }
 extension RadioButton{
     struct RadioButtonConfig{
@@ -54,13 +46,7 @@ extension RadioButton{
 //        Swift.print("after retval")
         return retVal
     }
-    override var data:[String:Any] {
-        get{
-            fatalError("not availale")
-        }set{
-            fatalError("not availale")
-        }
-    }
+    
 }
 extension CheckBoxButton{
     struct CheckBoxButtonConfig{
@@ -81,13 +67,7 @@ extension CheckBoxButton{
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
-    var data:[String:Any] {
-        get{
-            fatalError("not availale")
-        }set{
-            fatalError("not availale")
-        }
-    }
+    
 }
 extension TextButton:UnFoldable{
     struct TextButtonConfig{
@@ -103,13 +83,7 @@ extension TextButton:UnFoldable{
         let config:TextButtonConfig = .init(unfoldDict,parent)
         return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) 
     }
-    var data:[String:Any] {
-        get{
-            fatalError("not availale")
-        }set{
-            fatalError("not availale")
-        }
-    }
+   
 }
 extension Text:UnFoldable{
     enum Key{
@@ -120,11 +94,11 @@ extension Text:UnFoldable{
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
         return Text.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
     }
-    var data:[String:Any] {
+    var value:Any {
         get{
             return [Key.text:self.getText()]
         }set{
-            if let text:String = newValue[Key.text] as? String { self.setText(text) }
+            if let text:String = newValue as? String { self.setText(text) }
         }
     }
 }
