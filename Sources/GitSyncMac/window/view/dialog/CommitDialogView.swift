@@ -65,9 +65,20 @@ extension CommitDialogView{
         //AutoSync.shared.iterateMessageCount()
 //        let title:String = UnFoldUtils.retrieve(self, [Key.repo]).
         //let desc:String =
-        if let data = UnFoldUtils.retrieveData(self, [Key.repo,]) let  {
-            //[TextInput.Key.inputText]
-        }
+        let desc:String = {
+            guard let data = UnFoldUtils.retrieveData(self, [Key.repo]), let desc:String = data[TextInput.Key.inputText] as? String else{
+                fatalError("error")
+            }
+            return desc
+        }()
+        
+        let title:String = {
+            guard let data = UnFoldUtils.retrieveData(self, [Key.title]), let title:String = data[TextInput.Key.inputText] as? String else{
+                fatalError("error")
+            }
+            return title
+        }()
+        
 //        guard let title:String = data[Key.title] as? String,let desc:String = data[Key.title] as? String else{
 //            fatalError("something went wrong")
 //        }
