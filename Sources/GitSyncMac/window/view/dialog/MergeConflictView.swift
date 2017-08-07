@@ -12,12 +12,21 @@ class MergeConflictView:Element,UnFoldable{
         self.apply([Key.issue,Text.Key.text], "Conflict: Local file is older than the remote file")
         self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
         self.apply([Key.repo,Text.Key.text], "Repository: Element - iOS")
+        
+        selectGroup = SelectGroup()
+        let selectGroup:SelectGroup = SelectGroup([radioButton1,radioButton2],radioButton2)
+        func onSelectGroupChange(event:Event){
+            Swift.print("event.selectable: " + "\(event)")
+        }
+        selectGroup.event = onSelectGroupChange
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
+        }else if event.assert(SelectEvent.select){
+            
         }
     }
 }
