@@ -86,22 +86,7 @@ class UnFoldUtils{
      * This method is recursive
      */
     static func applyData(_ view:Element, _ path:[String],_ value:Any){
-        view.subviews.forEach{ subView in
-            if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
-                if path.isEmpty {fatalError("error")}
-                else if path[0] == id{
-                    if path.count > 2 {//keep searching down hierarchy
-                        applyData(element, path.slice2(0, path.count),value)//removes first item in path
-                    }else if path.count == 2{
-                        unFoldable.data = [path[1]:[path[0]:value]]
-                    }else {
-                        fatalError("error")
-                    }
-                }else{
-                    fatalError("error")
-                }
-            }
-        }
+        retrieve(view, path)?
     }
     static func retrieve(_ view:Element, _ path:[String]) -> UnFoldable?{
         for subView in view.subviews{
@@ -125,7 +110,7 @@ class UnFoldUtils{
      */
     static func retrieve(_ view:Element, _ path:[String]) -> [String:Any]?{
         //continue here
-        retrieve(view, path)
+        return retrieve(view, path)?.data
     }
     /**
      * Similar to apply data but retrives data instead of applying
