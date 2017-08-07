@@ -33,9 +33,10 @@ extension CommitDialogView{
 //            UnFoldUtils.retrieve(self, [ID.title])
             
         }set{
-            if let data = newValue as? [String:[String:Any]] {
-                UnFoldUtils.applyData(self, data)
-            }
+//            if let data = newValue as? [String:[String:Any]] {
+//                UnFoldUtils.applyData(self, data)
+//            }
+            fatalError("error")
         }
     }
     /**

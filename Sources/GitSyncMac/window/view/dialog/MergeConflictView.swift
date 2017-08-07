@@ -30,9 +30,10 @@ extension MergeConflictView{
             fatalError("not yet")
         }
         set{
-            if let data = newValue as? [String:[String:Any]] {
-                UnFoldUtils.applyData(self, data)
-            }
+            fatalError("error")
+//            if let data = newValue as? [String:[String:Any]] {
+//                UnFoldUtils.applyData(self, data)
+//            }
         }
     }
 }
