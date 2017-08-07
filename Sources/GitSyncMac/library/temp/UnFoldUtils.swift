@@ -85,9 +85,10 @@ class UnFoldUtils{
      *
      */
     static func applyData(_ view:Element, _ id:String, value:Any){
-        view.subviews.first(where:{}){ subView in
-            
+        if let match = view.subviews.filter({return $0 as? Element != nil}).first(where:{$0.id == id}) {
+            match.
         }
+       
     }
     /**
      *
