@@ -79,15 +79,9 @@ class UnFoldUtils{
                 Swift.print("id: " + "\(id)")
                 if path.count == 1 && path[0] == id{
                     return unFoldable
-                }else{
+                }else if path.count > 2{//keep searching down hierarchy
                     return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
                 }
-                    if path.count == 1 {
-                        
-                    }else /*if path.count > 1*/ {//keep searching down hierarchy
-                        
-                    }
-                
             }
         }
         return nil
