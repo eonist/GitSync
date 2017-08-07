@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-enum Unfold{
+enum Unfold{//stores keys to access getters and setters,should be moved to the individuel UI extensions
     enum TextInput{
         static let inputText = "inputText"
         static let text = "text"
@@ -65,25 +65,21 @@ extension TextButton{
      * UnFolds a TextButton Component
      */
     convenience init(unfoldDict:[String:Any], parent:IElement? = nil) {
-        let elementConfig:ElementConfig = .init(dict,parent)
-        let text:String = UnFoldUtils.string(dict, "text") ?? ""
+        let elementConfig:ElementConfig = .init(unfoldDict,parent)
+        let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
         //        Swift.print("text: " + "\(text)")
         //        Swift.print("dict: " + "\(dict)")
-        let config:TextButtonConfig = (text)
-        self.init(elementConfig.width, elementConfig.height,config, elementConfig.parent, elementConfig.id)
+        self.init(elementConfig.width, elementConfig.height,text, elementConfig.parent, elementConfig.id)
     }
 }
 extension Text:UnFoldable{
     /**
      * UnFolds a Text Component
      */
-    static func unFold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> Text{
-        let elementConfig:ElementConfig = .init(dict,parent)
-        let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        return Text.init(elementConfig, text)
-    }
-    convenience init(_ element:ElementConfig, _ text:String) {
-        self.init(element.width, element.height, text, element.parent, element.id)
+    convenience init(unfoldDict:[String:Any], parent:IElement? = nil) {
+        let elementConfig:ElementConfig = .init(unfoldDict,parent)
+        let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
+        self.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
     }
     var data:[String:Any] {
         get{
