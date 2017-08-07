@@ -32,7 +32,7 @@ extension CommitDialogView{
     /**
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
-    var data:[String:Any] {
+    override var data:[String:Any] {
         get{fatalError("error")
         }set{fatalError("error")}
     }
@@ -45,7 +45,7 @@ extension CommitDialogView{
 //        ID.title:[TextInput.Key.inputText:commitTitle],
 //        ID.desc:[TextInput.Key.inputText:commitDescription]
         
-        UnFoldUtils.applyData(self,[Key.repo,TextInput.Key.inputText],repoItem.title)
+        self.apply([Key.repo,TextInput.Key.inputText],repoItem.title)
         //self.data = ID.getData(, commitMessage.title, commitMessage.description)
     }
     
