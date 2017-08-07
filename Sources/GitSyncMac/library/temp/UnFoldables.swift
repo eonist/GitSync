@@ -25,14 +25,14 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
-    var data:[String:Any] {
-        get{
-            return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
-        }set{
-            if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
-            if let inputText:String = newValue[Key.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
-        }
-    }
+//    var data:[String:Any] {
+//        get{
+//            return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
+//        }set{
+//            if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
+//            if let inputText:String = newValue[Key.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
+//        }
+//    }
 }
 extension RadioButton{
     struct RadioButtonConfig{
