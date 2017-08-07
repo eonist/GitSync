@@ -31,6 +31,7 @@ extension MergeConflictView{
      * EventHandler for the okButton click event
      */
     func onOKButtonClick(){
+        //retrive state of radioBUtton and CheckBoxButtons
         
         //iterate merge process along see legacy code
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
