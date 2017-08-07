@@ -78,7 +78,7 @@ class UnFoldUtils{
                 else if path[0] == id{
                     if path.count > 2 {//keep searching down hierarchy
                         return retrieve(element, path.slice2(0, path.count))//removes first item in path
-                    }else if path.count == 2{
+                    }else{
                         return unFoldable
                     }
                 }
