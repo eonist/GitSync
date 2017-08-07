@@ -43,19 +43,22 @@ extension CheckBoxButton{
         let text:String
         let isChecked:Bool
         let elementConfig:ElementConfig
+        init(_ dict:[String:Any],_ parent:ElementKind?){
+            elementConfig = Element.elementConfig(dict,parent)
+            text = UnFoldUtils.string(dict, "text") ?? ""
+            let isCheckedStr = UnFoldUtils.string(dict, "isChecked") ?? "false"
+            isChecked = isCheckedStr.bool
+        }
     }
     /**
      * UnFolds a CheckBoxButton
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> CheckBoxButton{
-        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
-        let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        let isCheckedStr:String = UnFoldUtils.string(dict, "isChecked") ?? "false"
-        let config:CheckBoxButtonConfig = .init(text:text,isChecked:isCheckedStr.bool,elementConfig:elementConfig)
-        return CheckBoxButton.init(elementConfig, config)
+        let config:CheckBoxButtonConfig = .init(dict,parent)
+        return CheckBoxButton.init(config)
     }
-    convenience init(_ element:ElementConfig, _ config:CheckBoxButtonConfig) {
-        self.init(element.width, element.height,config.text,config.isChecked, element.parent, element.id)
+    convenience init(_ config:CheckBoxButtonConfig) {
+        self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isChecked, config.elementConfig.parent, config.elementConfig.id)
     }
 }
 extension TextButton{
