@@ -28,7 +28,6 @@ MergeConflictView [Text#issueText,Text#fileText,Text#repoText]{
 MergeConflictView CheckBoxButton{
 	width:200px;
 	margin-left:calc(50% -76px);
-	/*width:120px;*/
 	height:24px;
 	float:left;
 	clear:left;
@@ -48,9 +47,8 @@ MergeConflictView CheckBoxButton Text{
 /*RadioButton*/
 MergeConflictView RadioButton{
 	width:200px;
-	height:14px;
+	height:24px;
 	margin-left:calc(50% -76px);
-	/*width:120px;*/
 	height:24px;
 	float:left;
 	clear:left;
@@ -63,8 +61,8 @@ MergeConflictView RadioButton Text{
 	color:<TextTheme2>;
 	border:false;
 	align:left;
-	/*background:true;*/
-	/*backgroundColor:green;*/
+	background:true;
+	backgroundColor:green;
     margin-left:12px;
 }
 /*Confirm buttons*/

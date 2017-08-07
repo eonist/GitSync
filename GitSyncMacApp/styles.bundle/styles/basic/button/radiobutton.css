@@ -8,6 +8,7 @@ RadioButton Text{
 	float:right;
 	clear:none;
 	width:100%;
+	height:22px;
 	color:black;
 	autoSize:left;
 	margin-left:-16px;/*temp fix*/
