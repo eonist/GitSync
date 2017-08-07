@@ -62,8 +62,9 @@ class UnFoldUtils{
     /**
      * PARAM: path: Basically the id path to search a hierarchy with
      * This method is recursive
+     * IMPROVMENT: ⚠️️ Might need to change view to generic, because not all NSViews are unfoldable, think containers etc
      */
-    static func applyData(_ view:Element, _ path:[String],_ value:Any){
+    static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
         if var unfoldable:UnFoldable = retrieve(view, path), let last = path.last{
             unfoldable.data = [last:value]
         }
@@ -71,13 +72,14 @@ class UnFoldUtils{
     /**
      * Traverses a hierarchy and find the Unfoldable at the correct path
      */
-    static func retrieve(_ view:Element, _ path:[String]) -> UnFoldable?{
+    static func retrieve(_ view:UnFoldable, _ path:[String]) -> UnFoldable?{
+        guard let view = view as? NSView else{return nil}
         for subView in view.subviews{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 if path.isEmpty {fatalError("error")}
                 else if path[0] == id{
                     if path.count > 2 {//keep searching down hierarchy
-                        return retrieve(element, path.slice2(0, path.count))//removes first item in path
+                        return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
                     }else{
                         return unFoldable
                     }
@@ -92,13 +94,13 @@ class UnFoldUtils{
      * PARAM: pathBasically the id path to search a hierarchy with
      * This method is recursive
      */
-    static func retrieveData(_ view:Element, _ path:[String]) -> [String:Any]?{
+    static func retrieveData(_ view:UnFoldable, _ path:[String]) -> [String:Any]?{
         return retrieve(view, path)?.data
     }
     /**
      * EXAMPLE: let repo:String = UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
-    static func retrieve<T>(_ view:Element, _ path:[String]) -> T?{
+    static func retrieve<T>(_ view:UnFoldable, _ path:[String]) -> T?{
         guard let data = retrieveData(view, path), let last = path.last, let value:T = data[last] as? T else{
             return nil
         }

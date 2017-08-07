@@ -10,7 +10,7 @@ protocol UnFoldable {
 //    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T
     //init(unfoldDict:[String:Any], parent:ElementKind?)
 }
-extension Element:UnFoldable{
+extension UnFoldable{
     var data: [String : Any] {
         get {fatalError("error")}
         set {fatalError("error")}
