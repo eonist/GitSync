@@ -10,7 +10,7 @@ class CommitDialogView:Element,UnFoldable {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
-        self.data = ID.getData("Repo title", "Commit title", "Commit description")//test data
+//        self.data = ID.getData("Repo title", "Commit title", "Commit description")//test data
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
