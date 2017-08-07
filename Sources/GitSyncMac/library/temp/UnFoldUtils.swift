@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Element
 @testable import Utils
-
+/**
+ * TODO: ⚠️️ rename unFold to unfold
+ */
 class UnFoldUtils{
     /**
      * New
