@@ -54,7 +54,7 @@ extension RadioButton{
         }
     }
 }
-extension CheckBoxButton{
+extension CheckBoxButton:UnFoldable{
     struct CheckBoxButtonConfig{
         let text:String
         let isChecked:Bool
