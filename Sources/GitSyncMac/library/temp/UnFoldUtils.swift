@@ -67,11 +67,11 @@ class UnFoldUtils{
         Swift.print("applyData")
         view.subviews.forEach{ subView in
 //            Swift.print("subView: " + "\((subView))")
-            if (subView as? ElementKind != nil){
-                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
-                let isUnfoldable = subView as? UnFoldable != nil
-                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
-            }
+//            if let subView = subView as? ElementKind, let isUnfoldable = subView as? UnFoldable{
+//                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
+                
+//                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
+//            }
             if var unFoldable:UnFoldable = subView as? UnFoldable,
                 let element = subView as? ElementKind,
                 let id:String = element.id,
@@ -80,6 +80,13 @@ class UnFoldUtils{
                     unFoldable.data = value
             }
         }
+    }
+    /**
+     *
+     */
+    typealias ApplyDataTuple = (path:[String],value:Any)
+    static func applyData(_ view:Element, _ data:ApplyDataTuple){
+        
     }
     /**
      * Similar to apply data but retrives data instead of applying
