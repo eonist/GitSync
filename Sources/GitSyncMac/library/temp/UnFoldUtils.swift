@@ -103,6 +103,24 @@ class UnFoldUtils{
             }
         }
     }
+    static func retrieve(_ view:Element, _ path:[String]) -> UnFoldable{
+        view.subviews.forEach{ subView in
+            if let unFoldable:UnFoldable = subView as? UnFoldable,var element = subView as? Element,let id:String = element.id{
+                if path.isEmpty {fatalError("error")}
+                else if path[0] == id{
+                    if path.count > 2 {//keep searching down hierarchy
+                        return retrieve(element, path.slice2(0, path.count))//removes first item in path
+                    }else if path.count == 2{
+                        return unFoldable
+                    }else {
+                        fatalError("error")
+                    }
+                }else{
+                    fatalError("error")
+                }
+            }
+        }
+    }
     /**
      * Retrieve value from hierarchy with PARAM: path
      * PARAM: pathBasically the id path to search a hierarchy with
