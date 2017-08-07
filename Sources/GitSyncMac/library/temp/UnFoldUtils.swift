@@ -91,8 +91,7 @@ class UnFoldUtils{
                 let element = subView as? ElementKind,
                 let id:String = element.id,
                 !data.path.isEmpty,
-                id == data.path[0],
-                let value:[String:Any] = data[id] {
+                id == data.path[0] {
                 Swift.print("set data to unfoldable")
                 unFoldable.data = value
             }
