@@ -44,7 +44,7 @@ extension CheckBoxButton{
         let isChecked:Bool
         let elementConfig:ElementConfig
         init(_ dict:[String:Any],_ parent:ElementKind?){
-            elementConfig = Element.elementConfig(dict,parent)
+            elementConfig = .init(dict,parent)
             text = UnFoldUtils.string(dict, "text") ?? ""
             let isCheckedStr = UnFoldUtils.string(dict, "isChecked") ?? "false"
             isChecked = isCheckedStr.bool
@@ -67,7 +67,7 @@ extension TextButton{
      * UnFolds a TextButton Component
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextButton{
-        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
+        let elementConfig:ElementConfig = .init(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
 //        Swift.print("text: " + "\(text)")
 //        Swift.print("dict: " + "\(dict)")
@@ -83,7 +83,7 @@ extension Text:UnFoldable{
      * UnFolds a Text Component
      */
     static func unFold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> Text{
-        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
+        let elementConfig:ElementConfig = .init(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         return Text.init(elementConfig, text)
     }
@@ -97,10 +97,9 @@ extension Text:UnFoldable{
             if let text:String = newValue[Unfold.Text.text] as? String { self.setText(text) }
         }
     }
-
 }
 extension Element{
-    struct ElementConfig{
+    struct ElementConfig{/*Default Element config*/
         let width:CGFloat
         let height:CGFloat
         let parent:IElement?
@@ -108,14 +107,8 @@ extension Element{
         init(_ dict:[String:Any],_ parent:ElementKind? = nil){
             width = UnFoldUtils.cgFloat(dict, "width")
             height = UnFoldUtils.cgFloat(dict, "height")
+            self.parent = parent
             id = UnFoldUtils.string(dict, "id")
         }
-    }
-    /**
-     * Default Element config
-     */
-    static func elementConfig(_ dict:[String:Any], _ parent:IElement? = nil) -> ElementConfig{
-        
-        return .init(width:width,height:height,parent:parent,id:id)
     }
 }
