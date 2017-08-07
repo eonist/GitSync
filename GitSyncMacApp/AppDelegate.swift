@@ -22,7 +22,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
         
             //Hock up the dialog prompts to manualMerge etc
-                //add support for radiobtn in unfoldable 👈
+                //add support for radiobtn in unfoldable ✅
+                    //clean up unfold a bit ✅   
+                //try default values in unfold 👈
+                //start hocking up MergeConflicView logic
+                //use unfoldData as your source for state
         
             //The autosync on interval
                 //stop on pull gesture init
