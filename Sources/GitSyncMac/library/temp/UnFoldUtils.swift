@@ -27,8 +27,9 @@ class UnFoldUtils{
                 return TextInput.unfold(dict,parent)
             case type == "\(CheckBoxButton.self)":
                 return CheckBoxButton.unfold(dict,parent)
-            case type == "\(CheckBoxButton.self)":
-                return CheckBoxButton.unfold(dict,parent)
+            case type == "\(RadioButton.self)":
+                let radioButton:RadioButton = RadioButton.unfold(dict,parent)
+                return radioButton
             case type == "\(TextButton.self)":
                 return TextButton.unfold(dict,parent)
             case type == "\(Text.self)":

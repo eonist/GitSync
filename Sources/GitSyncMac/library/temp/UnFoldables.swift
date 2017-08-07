@@ -21,9 +21,6 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
             inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
         }
     }
-    /**
-     * Unfolds a TextInput component
-     */
     static func unfold(_ unfoldDict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
@@ -50,7 +47,7 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], parent:ElementKind? = nil) -> RadioButton{
+    static func unfold(_ unfoldDict:[String:Any], _ parent:IElement? = nil) -> RadioButton{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
         return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
@@ -92,9 +89,6 @@ extension TextButton{
             text = UnFoldUtils.string(dict, "text") ?? ""
         }
     }
-    /**
-     * UnFolds a TextButton Component
-     */
     static func unfold(_ unfoldDict:[String:Any], _ parent:IElement? = nil) -> TextButton{
         let config:TextButtonConfig = .init(unfoldDict,parent)
         return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id)
@@ -104,9 +98,6 @@ extension Text:UnFoldable{
     enum Key{
         static let text = "text"
     }
-    /**
-     * UnFolds a Text Component
-     */
     static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> Text{
         let elementConfig:ElementConfig = .init(unfoldDict,parent)
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
