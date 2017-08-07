@@ -93,7 +93,7 @@ class UnFoldUtils{
                 !data.path.isEmpty,
                 id == data.path[0] {
                 Swift.print("set data to unfoldable")
-                unFoldable.data = value
+                unFoldable.data = data.value
             }
         }
     }
