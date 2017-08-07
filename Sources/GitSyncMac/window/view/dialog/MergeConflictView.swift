@@ -5,9 +5,9 @@ import Foundation
 class MergeConflictView:Element,UnFoldable{
     lazy var selectGroup:SelectGroup = {
        
-    
-        let group = SelectGroup([radioButton1,radioButton2],radioButton2)
-        selectGroup.event = onSelectGroupChange
+        let radioButtons:[RadioButton] = ElementParser.children(self)
+        let group = SelectGroup(radioButtons,radioButtons.first)
+//        selectGroup.event = self.onSelectGroupChange
         return group
     }()
     override func resolveSkin() {
