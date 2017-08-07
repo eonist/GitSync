@@ -95,19 +95,15 @@ class UnFoldUtils{
      * PARAM: pathBasically the id path to search a hierarchy with
      * This method is recursive
      */
-    static func retrieveData(_ view:UnFoldable, _ path:[String]) -> [String:Any]?{
-        return retrieve(view, path)?.data
-    }
+//    static func retrieveData(_ view:UnFoldable, _ path:[String]) -> [String:Any]?{
+//        return retrieve(view, path)?.data
+//    }
     /**
      * EXAMPLE: let repo:String = UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
     static func retrieve<T>(_ view:UnFoldable, _ path:[String]) -> T?{
-        guard let data = retrieveData(view, path), let last = path.last, let value:T = data[last] as? T else{
-            return nil
-        }
-        return value
+        return retrieve(view, path)?.value as? T
     }
-    
     
     /**
      *
