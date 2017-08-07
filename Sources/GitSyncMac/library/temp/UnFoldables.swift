@@ -55,11 +55,8 @@ extension CheckBoxButton{
     /**
      * UnFolds a CheckBoxButton
      */
-    static func unFold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> CheckBoxButton{
-        let config:CheckBoxButtonConfig = .init(dict,parent)
-        return CheckBoxButton.init(config)
-    }
-    convenience init(_ config:CheckBoxButtonConfig) {
+    convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
+        let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isChecked, config.elementConfig.parent, config.elementConfig.id)
     }
 }
