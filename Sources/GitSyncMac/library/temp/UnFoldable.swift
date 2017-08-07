@@ -10,6 +10,13 @@ protocol UnFoldable {
 //    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T
     //init(unfoldDict:[String:Any], parent:ElementKind?)
 }
-extension UnFoldable{
-    
+extension Element:UnFoldable{
+    subscript(path: [String]) -> T? {
+        get {
+            return UnFoldUtils.retrieve(self, path)
+        }
+        set {
+            UnFoldUtils.applyData(self, <#T##path: [String]##[String]#>, <#T##value: Any##Any#>)
+        }
+    }
 }
