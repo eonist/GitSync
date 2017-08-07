@@ -47,6 +47,7 @@ extension RadioButton{
         }
     }
     static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
+        Swift.print("RadioButton.unfold")
         let config:RadioButtonConfig = .init(unfoldDict,parent)
         return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
