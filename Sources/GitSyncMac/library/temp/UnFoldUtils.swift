@@ -87,13 +87,12 @@ class UnFoldUtils{
     typealias ApplyDataTuple = (path:[String],value:Any)
     static func applyData(_ view:Element, _ data:ApplyDataTuple){
         view.subviews.forEach{ subView in
-            if var unFoldable:UnFoldable = subView as? UnFoldable,
-                let element = subView as? ElementKind,
-                let id:String = element.id,
-                !data.path.isEmpty,
-                id == data.path[0] {
-                Swift.print("set data to unfoldable")
-                unFoldable.data = data.value
+            if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? ElementKind,let id:String = element.id{
+                if data.path.count == 1 {
+                    unFoldable.data = [data.path[0]:data.value]
+                }else{
+                    
+                }
             }
         }
     }
