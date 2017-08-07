@@ -78,7 +78,7 @@ class UnFoldUtils{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 if path.isEmpty {fatalError("error")}
                 else if path[0] == id{
-                    if path.count > 2 {//keep searching down hierarchy
+                    if path.count > 1 {//keep searching down hierarchy
                         return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
                     }else{
                         return unFoldable
@@ -88,6 +88,7 @@ class UnFoldUtils{
         }
         return nil
     }
+    
     /**
      * Retrieve value from hierarchy with PARAM: path
      * NOTE: Similar to apply data but retrives data instead of applying
@@ -106,6 +107,8 @@ class UnFoldUtils{
         }
         return value
     }
+    
+    
     /**
      *
      */
