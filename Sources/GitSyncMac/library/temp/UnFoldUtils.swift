@@ -60,28 +60,6 @@ class UnFoldUtils{
         };return NaN
     }
     /**
-     * Apply data to unfoldable items to all subviews in an Element
-     * TODO:    ⚠️️  probably do .first instead
-     */
-//    static func applyData(_ view:Element, _ data:[String:[String:Any]]){
-//        Swift.print("applyData")
-//        view.subviews.forEach{ subView in
-////            Swift.print("subView: " + "\((subView))")
-////            if let subView = subView as? ElementKind, let isUnfoldable = subView as? UnFoldable{
-////                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
-//                
-////                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
-////            }
-//            if var unFoldable:UnFoldable = subView as? UnFoldable,
-//                let element = subView as? ElementKind,
-//                let id:String = element.id,
-//                let value:[String:Any] = data[id] {
-//                    Swift.print("set data to unfoldable")
-//                    unFoldable.data = value
-//            }
-//        }
-//    }
-    /**
      * PARAM: path: Basically the id path to search a hierarchy with
      * This method is recursive
      */
@@ -110,6 +88,7 @@ class UnFoldUtils{
     }
     /**
      * Retrieve value from hierarchy with PARAM: path
+     * NOTE: Similar to apply data but retrives data instead of applying
      * PARAM: pathBasically the id path to search a hierarchy with
      * This method is recursive
      */
@@ -118,18 +97,40 @@ class UnFoldUtils{
         return retrieve(view, path)?.data
     }
     /**
-     * Similar to apply data but retrives data instead of applying
+     *
      */
-    static func retrieveData(_ view:Element, _ id:String) -> [String:Any]?{
-        for subView in view.subviews {
-            if let unFoldable:UnFoldable = subView as? UnFoldable,
-                let element = subView as? IElement,
-                id == element.id {
-                    return unFoldable.data
-            }
-        }
-        return nil
-    }
+//    static func retrieveData(_ view:Element, _ id:String) -> [String:Any]?{
+//        for subView in view.subviews {
+//            if let unFoldable:UnFoldable = subView as? UnFoldable,
+//                let element = subView as? IElement,
+//                id == element.id {
+//                    return unFoldable.data
+//            }
+//        }
+//        return nil
+//    }
+    /**
+     * Apply data to unfoldable items to all subviews in an Element
+     * TODO:    ⚠️️  probably do .first instead
+     */
+//    static func applyData(_ view:Element, _ data:[String:[String:Any]]){
+//        Swift.print("applyData")
+//        view.subviews.forEach{ subView in
+////            Swift.print("subView: " + "\((subView))")
+////            if let subView = subView as? ElementKind, let isUnfoldable = subView as? UnFoldable{
+////                 Swift.print("(subview as! ElementKind).id: " + "\((subView as! ElementKind).id!)")
+//
+////                Swift.print("isUnfoldable: " + "\(isUnfoldable)")
+////            }
+//            if var unFoldable:UnFoldable = subView as? UnFoldable,
+//                let element = subView as? ElementKind,
+//                let id:String = element.id,
+//                let value:[String:Any] = data[id] {
+//                    Swift.print("set data to unfoldable")
+//                    unFoldable.data = value
+//            }
+//        }
+//    }
     /**
      *
      */
