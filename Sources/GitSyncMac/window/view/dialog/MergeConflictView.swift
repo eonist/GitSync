@@ -16,7 +16,7 @@ class MergeConflictView:Element,UnFoldable{
     }()
     lazy var checkBoxButtonGroup:CheckGroup = {
         let buttons:[CheckBoxButton] = ElementParser.children(self)
-        let group = CheckGroup(buttons,buttons.first)
+        let group = CheckGroup(buttons)
         group.event = self.onCheckGroupChange
         return group
     }()
@@ -63,6 +63,7 @@ extension MergeConflictView{
      * EventHandler for the okButton click event
      */
     func onOKButtonClick(){
+        Swift.print("onOKButtonClick")
         //retrive state of radioBUtton and CheckBoxButtons
         
         //Looping repos (happens in MainView, so that it's not canceled)
@@ -83,8 +84,13 @@ extension MergeConflictView{
         //Navigate.setView(CommitView)
         
         
-        let selectedRadioButtonId:String? = (radioButtonGroup.selected as? ElementKind)?.id
+        let selectedRadioButtonId:String = (radioButtonGroup.selected as? ElementKind)?.id ?? {fatalError("error")}()
         Swift.print("selectedRadioButtonId: " + "\(String(describing: selectedRadioButtonId))")
+        
+        let isApplyAllConflictsChecked:Bool = self.retrieve([Key.applyAllConflicts]) ?? {fatalError("error")}()
+        Swift.print("isApplyAllConflictsChecked: " + "\(isApplyAllConflictsChecked)")
+        let isApplyApplyAllReposChecked:Bool = self.retrieve([Key.applyAllRepos]) ?? {fatalError("error")}()
+        Swift.print("isApplyApplyAllReposChecked: " + "\(isApplyApplyAllReposChecked)")
 //        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
