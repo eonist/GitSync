@@ -59,9 +59,16 @@ extension MergeConflictView{
      */
     func onOKButtonClick(){
         //retrive state of radioBUtton and CheckBoxButtons
+        
+        
+        
         let selectedRadioButtonId:String? = (radioButtonGroup.selected as? ElementKind)?.id
         Swift.print("selectedRadioButtonId: " + "\(String(describing: selectedRadioButtonId))")
-        let selectedRadioButtonId:String? = (radioButtonGroup.selected as? ElementKind)?.id
+//        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
+        
+        //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
+        
+        //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         
         //iterate merge process along see legacy code
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
