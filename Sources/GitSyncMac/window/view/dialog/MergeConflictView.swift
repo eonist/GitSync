@@ -9,6 +9,12 @@ class MergeConflictView:Element,UnFoldable{
         group.event = self.onSelectGroupChange
         return group
     }()
+    lazy var radioButtonGroup:SelectGroup = {
+        let radioButtons:[RadioButton] = ElementParser.children(self)
+        let group = SelectGroup(radioButtons,radioButtons.first)
+        group.event = self.onSelectGroupChange
+        return group
+    }()
     override func resolveSkin() {
         Swift.print("MergeConflictView.resolveSkin()")
         super.resolveSkin()
@@ -28,7 +34,7 @@ class MergeConflictView:Element,UnFoldable{
             fatalError("not yet supported")
         }/*else if event.assert(SelectEvent.select){
          
-         }*/
+        }*/
     }
 }
 extension MergeConflictView{
@@ -39,11 +45,8 @@ extension MergeConflictView{
         static let keepLocal = "keepLocalVersion"
         static let keepRemote = "keepRemoteVersion"
         static let keepMixed = "keepMixedVersion"
-        static let keepMixed = "keepMixedVersion"
         static let applyAllConflicts = "applyAllConflicts"
         static let applyAllRepos = "applyAllRepos"
-        
-        
     }
     func onSelectGroupChange(event:Event){
         Swift.print("event.selectable: " + "\(event)")
@@ -54,7 +57,7 @@ extension MergeConflictView{
     func onOKButtonClick(){
         //retrive state of radioBUtton and CheckBoxButtons
         let selectedRadioButtonId:String? = (radioButtonGroup.selected as? ElementKind)?.id
-        Swift.print("selectedRadioButtonId: " + "\(selectedRadioButtonId)")
+        Swift.print("selectedRadioButtonId: " + "\(String(describing: selectedRadioButtonId))")
         
         //iterate merge process along see legacy code
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
