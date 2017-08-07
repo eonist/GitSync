@@ -33,17 +33,8 @@ extension CommitDialogView{
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
     var data:[String:Any] {
-        get{
-            fatalError("error")
-//            var data:[String:Any] = [:]
-//            UnFoldUtils.retrieve(self, [ID.title])
-            
-        }set{
-//            if let data = newValue as? [String:[String:Any]] {
-//                UnFoldUtils.applyData(self, data)
-//            }
-            fatalError("error")
-        }
+        get{fatalError("error")
+        }set{fatalError("error")}
     }
     /**
      * New
