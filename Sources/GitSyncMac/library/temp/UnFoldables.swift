@@ -105,14 +105,17 @@ extension Element{
         let height:CGFloat
         let parent:IElement?
         let id:String?
+        init(_ dict:[String:Any],_ parent:ElementKind? = nil){
+            width = UnFoldUtils.cgFloat(dict, "width")
+            height = UnFoldUtils.cgFloat(dict, "height")
+            id = UnFoldUtils.string(dict, "id")
+        }
     }
     /**
      * Default Element config
      */
     static func elementConfig(_ dict:[String:Any], _ parent:IElement? = nil) -> ElementConfig{
-        let width:CGFloat = UnFoldUtils.cgFloat(dict, "width")
-        let height:CGFloat = UnFoldUtils.cgFloat(dict, "height")
-        let id:String? = UnFoldUtils.string(dict, "id")
+        
         return .init(width:width,height:height,parent:parent,id:id)
     }
 }
