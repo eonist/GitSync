@@ -6,11 +6,17 @@ import Foundation
 protocol UnFoldable {
     //unfold
     //data 
+    
+    var value:Any {get set}
     var data:[String:Any] {get set}//this should probably be just any? TODO: Rename to unfoldData, as data is ambigiouse
 //    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T
     //init(unfoldDict:[String:Any], parent:ElementKind?)
 }
 extension UnFoldable{
+    var value: Any {
+        get {fatalError("error")}
+        set {fatalError("error")}
+    }
     var data: [String : Any] {
         get {fatalError("error")}
         set {fatalError("error")}
