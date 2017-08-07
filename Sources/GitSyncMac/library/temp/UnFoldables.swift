@@ -20,12 +20,13 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
             inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
         }
     }
-    static func unfold(unfoldDict:[String:Any],parent:IElement? = nil) -> TextInput{
+    static func unfold(_ unfoldDict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
+            //fatalError("not avilabale")
             return [Key.text:self.text.getText(),Key.inputText:self.inputTextArea.text.getText()]
         }set{
             if let text:String = newValue[Key.text] as? String { self.text.setText(text) }
@@ -33,7 +34,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         }
     }
 }
-extension RadioButton{
+extension RadioButton:UnFoldable{
     struct RadioButtonConfig{
         let text:String
         let isSelected:Bool
@@ -45,9 +46,9 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    convenience init(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil){
+    static func unfold(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        self.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
+        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id) as! T
     }
     override var data:[String:Any] {
         get{
@@ -57,7 +58,7 @@ extension RadioButton{
         }
     }
 }
-extension CheckBoxButton:UnFoldable{
+extension CheckBoxButton{
     struct CheckBoxButtonConfig{
         let text:String
         let isChecked:Bool
@@ -72,9 +73,9 @@ extension CheckBoxButton:UnFoldable{
     /**
      * UnFolds a CheckBoxButton
      */
-    convenience init( unfoldDict:[String:Any],  parent:ElementKind? = nil){
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> CheckBoxButton{
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
-        self.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
+        return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
@@ -94,9 +95,9 @@ extension TextButton:UnFoldable{
             text = UnFoldUtils.string(dict, "text") ?? ""
         }
     }
-    convenience init( unfoldDict:[String:Any],  parent:IElement?) {
+    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T {
         let config:TextButtonConfig = .init(unfoldDict,parent)
-        self.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id)
+        return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) as! T
     }
     var data:[String:Any] {
         get{
@@ -110,10 +111,10 @@ extension Text:UnFoldable{
     enum Key{
         static let text = "text"
     }
-    convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> Text{
         let elementConfig:ElementConfig = .init(unfoldDict,parent)
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
-        self.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
+        return Text.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
     }
     var data:[String:Any] {
         get{
