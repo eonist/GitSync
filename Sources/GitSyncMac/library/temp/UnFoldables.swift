@@ -32,8 +32,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         get{
             //fatalError("not avilabale")
             return [Unfold.TextInput.text:self.text.getText(),Unfold.TextInput.inputText:self.inputTextArea.text.getText()]
-        }
-        set{
+        }set{
             if let text:String = newValue[Unfold.TextInput.text] as? String { self.text.setText(text) }
             if let inputText:String = newValue[Unfold.TextInput.inputText] as? String { self.inputTextArea.setTextValue(inputText) }
         }
@@ -63,9 +62,9 @@ extension TextButton{
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextButton{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        Swift.print("text: " + "\(text)")
-        Swift.print("dict: " + "\(dict)")
-        let config:TextButtonConfig = (text) 
+//        Swift.print("text: " + "\(text)")
+//        Swift.print("dict: " + "\(dict)")
+        let config:TextButtonConfig = (text)
         return TextButton.init(elementConfig, config)
     }
     convenience init(_ element:ElementConfig, _ config:TextButtonConfig) {
@@ -87,8 +86,7 @@ extension Text:UnFoldable{
     var data:[String:Any] {
         get{
             return [Unfold.Text.text:self.getText()]
-        }
-        set{
+        }set{
             if let text:String = newValue[Unfold.Text.text] as? String { self.setText(text) }
         }
     }
