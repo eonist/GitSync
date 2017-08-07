@@ -46,7 +46,7 @@ extension RadioButton:UnFoldable{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement? = nil) -> T{
+    static func unfold(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
         return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id) as! T
     }
@@ -73,9 +73,9 @@ extension CheckBoxButton{
     /**
      * UnFolds a CheckBoxButton
      */
-    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> CheckBoxButton{
+    convenience init(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil){
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
-        return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
+        self.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
@@ -95,9 +95,9 @@ extension TextButton:UnFoldable{
             text = UnFoldUtils.string(dict, "text") ?? ""
         }
     }
-    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T {
+    convenience init(_ unfoldDict:[String:Any], _ parent:IElement?) {
         let config:TextButtonConfig = .init(unfoldDict,parent)
-        return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) as! T
+        self.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
@@ -111,7 +111,7 @@ extension Text:UnFoldable{
     enum Key{
         static let text = "text"
     }
-    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> Text{
+    init(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) {
         let elementConfig:ElementConfig = .init(unfoldDict,parent)
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
         return Text.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
