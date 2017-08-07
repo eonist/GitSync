@@ -93,7 +93,6 @@ class UnFoldUtils{
      * This method is recursive
      */
     static func retrieveData(_ view:Element, _ path:[String]) -> [String:Any]?{
-        //continue here
         return retrieve(view, path)?.data
     }
     /**

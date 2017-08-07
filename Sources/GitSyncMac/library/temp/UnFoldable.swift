@@ -10,3 +10,6 @@ protocol UnFoldable {
 //    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T
     //init(unfoldDict:[String:Any], parent:ElementKind?)
 }
+extension UnFoldable{
+    
+}
