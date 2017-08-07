@@ -92,9 +92,9 @@ extension MergeConflictView{
         let selectedRadioButtonId:String = (radioButtonGroup.selected as? ElementKind)?.id ?? {fatalError("error")}()
         Swift.print("selectedRadioButtonId: " + "\(String(describing: selectedRadioButtonId))")
         
-        let isApplyAllConflictsChecked:Bool = self.retrieve([Key.applyAllConflicts]) ?? {fatalError("error")}()
-        Swift.print("isApplyAllConflictsChecked: " + "\(isApplyAllConflictsChecked)")
-        let isApplyApplyAllReposChecked:Bool = self.retrieve([Key.applyAllRepos]) ?? {fatalError("error")}()
+        let isApplyAllConflictsChecked:Bool? = self.retrieve([Key.applyAllConflicts])
+        Swift.print("isApplyAllConflictsChecked: " + "\(String(describing: isApplyAllConflictsChecked))")
+        let isApplyApplyAllReposChecked:Bool? = self.retrieve([Key.applyAllRepos])// ?? {fatalError("error")}()
         Swift.print("isApplyApplyAllReposChecked: " + "\(isApplyApplyAllReposChecked)")
 //        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
