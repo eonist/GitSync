@@ -1,17 +1,9 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
-enum Unfold{//stores keys to access getters and setters,should be moved to the individuel UI extensions
-//    enum TextInput{
-//        static let inputText = "inputText"
-//        static let text = "text"
-//    }
-//    enum Text{
-//        static let text = "text"
-//    }
-}
-
+/**
+ * Key: stores keys to access getters and setters,should be moved to the individuel UI extensions
+ */
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     enum Key{
         static let text = "text"
@@ -75,6 +67,13 @@ extension CheckBoxButton{
     convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isChecked, config.elementConfig.parent, config.elementConfig.id)
+    }
+    var data:[String:Any] {
+        get{
+            fatalError("not availale")
+        }set{
+            fatalError("not availale")
+        }
     }
 }
 extension TextButton{
