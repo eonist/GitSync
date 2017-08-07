@@ -72,8 +72,8 @@ class MergeUtils{
             let repo:String = "Repository: Element - iOS"
             
             
-            _ = MergeConflict(issue:issue,file:file,repo:repo)
-            
+            let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
+            Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
             //promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
             
