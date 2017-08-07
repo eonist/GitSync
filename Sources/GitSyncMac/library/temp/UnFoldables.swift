@@ -34,7 +34,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         }
     }
 }
-extension RadioButton:UnFoldable{
+extension RadioButton{
     struct RadioButtonConfig{
         let text:String
         let isSelected:Bool
@@ -48,7 +48,7 @@ extension RadioButton:UnFoldable{
     }
     static func unfold(radiobuttonUnfoldDict unfoldDict:[String:Any], parent:IElement? = nil) -> RadioButton{
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id) as! T
+        return RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
     override var data:[String:Any] {
         get{
@@ -95,9 +95,9 @@ extension TextButton:UnFoldable{
             text = UnFoldUtils.string(dict, "text") ?? ""
         }
     }
-    static func unfold<T>(_ unfoldDict:[String:Any], _ parent:IElement?) -> T {
+    static func unfold(_ unfoldDict:[String:Any], _ parent:IElement?) -> TextButton {
         let config:TextButtonConfig = .init(unfoldDict,parent)
-        return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) as! T
+        return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) 
     }
     var data:[String:Any] {
         get{
