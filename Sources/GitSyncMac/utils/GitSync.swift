@@ -13,8 +13,8 @@ class GitSync{
             if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
                 Swift.print("unMergedFiles: " + "\(unMergedFiles)")
                 
-                let gitRepo:GitRepo = .init(repoItem.local, repoItem.remote, repoItem.branch)
-                MergeUtils.resolveMergeConflicts(gitRepo, unMergedFiles)
+                
+                MergeUtils.resolveMergeConflicts(repoItem.gitRepo, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
             Swift.print("hasCommited: " + "\(hasCommited)")

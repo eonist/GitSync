@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /**
  * TODO: Could this be a struct?
  */
@@ -21,10 +22,7 @@ struct RepoItem {
         self.branch = branch
         self.title = title
     }
-    init(){
-        
-    }
-    
+    var gitRepo:GitRepo { return GitRepo(self.local, self.remote, self.branch) }//temp
 }
 enum RepoType:String{
     case title = "title"
