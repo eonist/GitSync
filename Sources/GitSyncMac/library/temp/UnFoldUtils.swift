@@ -101,7 +101,12 @@ class UnFoldUtils{
      * EXAMPLE: let repo:String = UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
     static func retrieve<T>(_ view:UnFoldable, _ path:[String]) -> T?{
-        return retrieve(view, path)?.value as? T
+        let unfoldable:UnFoldable? = retrieve(view, path)
+        Swift.print("unfoldable: " + "\(String(describing: unfoldable))")
+        let value:T? = unfoldable?.value as? T
+        Swift.print("value: " + "\(String(describing: value))")
+        return value
+        
     }
     
     /**
