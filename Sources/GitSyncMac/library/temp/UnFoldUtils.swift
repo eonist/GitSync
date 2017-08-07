@@ -76,8 +76,9 @@ class UnFoldUtils{
         guard let view = view as? NSView else{return nil}
         for subView in view.subviews{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
-                Swift.print("id: " + "\(id)")
+                Swift.print("id: " + "\(id)" + " path[0]: " + "\(path[0])")
                 if path.count == 1 && path[0] == id{
+                    Swift.print("found the match")
                     return unFoldable
                 }else if path.count > 2{//keep searching down hierarchy
                     return retrieve(unFoldable, path.slice2(0, path.count))//removes first item in path
