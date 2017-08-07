@@ -97,10 +97,13 @@ class UnFoldUtils{
         return retrieve(view, path)?.data
     }
     /**
-     * EXAMPLE: UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
+     * EXAMPLE: let repo:String = UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
     static func retrieve<T>(_ view:Element, _ path:[String]) -> T?{
-        retrieve(view, path)?.data[path]
+        guard let data = retrieveData(view, path), let last = path.last, let value:T = data[last] as? T else{
+            return nil
+        }
+        return value
     }
     /**
      *
