@@ -94,13 +94,13 @@ class UnFoldUtils{
      * Basically the id path to search a hierarchy with
      * This method is recursive
      */
-    static func applyData(_ view:Element, path:[String],value:Any){
+    static func applyData(_ view:Element, _ path:[String],_ value:Any){
         view.subviews.forEach{ subView in
             if var unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 if path.isEmpty {fatalError("error")}
                 else if path[0] == id{
                     if path.count > 2 {
-                        applyData(element, path[1..<path.count],value)
+                        applyData(element, path.slice2(0, path.count),value)//removes first item in path
                     }
                 }
                     
