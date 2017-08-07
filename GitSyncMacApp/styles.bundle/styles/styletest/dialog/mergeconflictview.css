@@ -55,7 +55,9 @@ MergeConflictView RadioButton{
 }
 MergeConflictView RadioButton RadioBullet{
 	float:left;
+    margin-right:0px;
 }
+
 MergeConflictView RadioButton Text{
 	width:140px;
 	color:<TextTheme2>;
@@ -64,6 +66,7 @@ MergeConflictView RadioButton Text{
 	background:true;
 	backgroundColor:green;
     margin-left:12px;
+    margin-top:opx;
 }
 /*Confirm buttons*/
 MergeConflictView TextButton#cancel{
