@@ -41,9 +41,9 @@ extension RadioButton{
     struct RadioButtonConfig{
         let text:String
         let isSelected:Bool
-        let elementConfig:ElementConfig
+        let element:ElementConfig
         init(_ dict:[String:Any],_ parent:ElementKind?){
-            elementConfig = .init(dict,parent)
+            element = .init(dict,parent)
             text = UnFoldUtils.string(dict, "text") ?? ""
             let isSelectedStr = UnFoldUtils.string(dict, "isSelected") ?? "false"
             isSelected = isSelectedStr.bool
@@ -51,16 +51,16 @@ extension RadioButton{
     }
     convenience init(radioButtonUnfoldDict unfoldDict:[String:Any], parent:ElementKind? = nil) {
         let config:RadioButtonConfig = .init(unfoldDict,parent)
-        self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isSelected, config.elementConfig.parent, config.elementConfig.id)
+        self.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
     }
 }
 extension CheckBoxButton{
     struct CheckBoxButtonConfig{
         let text:String
         let isChecked:Bool
-        let elementConfig:ElementConfig
+        let element:ElementConfig
         init(_ dict:[String:Any],_ parent:ElementKind?){
-            elementConfig = .init(dict,parent)
+            element = .init(dict,parent)
             text = UnFoldUtils.string(dict, "text") ?? ""
             let isCheckedStr = UnFoldUtils.string(dict, "isChecked") ?? "false"
             isChecked = isCheckedStr.bool
@@ -71,7 +71,7 @@ extension CheckBoxButton{
      */
     convenience init(unfoldDict:[String:Any], parent:ElementKind? = nil) {
         let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
-        self.init(config.elementConfig.width, config.elementConfig.height,config.text,config.isChecked, config.elementConfig.parent, config.elementConfig.id)
+        self.init(config.element.width, config.element.height,config.text,config.isChecked, config.element.parent, config.element.id)
     }
     var data:[String:Any] {
         get{
