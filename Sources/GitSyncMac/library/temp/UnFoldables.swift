@@ -53,7 +53,7 @@ extension CheckBoxButton{
     /**
      * UnFolds a CheckBoxButton
      */
-    static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> CheckBoxButton{
+    static func unFold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> CheckBoxButton{
         let config:CheckBoxButtonConfig = .init(dict,parent)
         return CheckBoxButton.init(config)
     }
@@ -100,7 +100,12 @@ extension Text:UnFoldable{
 
 }
 extension Element{
-    typealias ElementConfig = (width:CGFloat, height:CGFloat, parent:IElement?, id:String?)
+    struct ElementConfig{
+        let width:CGFloat
+        let height:CGFloat
+        let parent:IElement?
+        let id:String?
+    }
     /**
      * Default Element config
      */
@@ -108,6 +113,6 @@ extension Element{
         let width:CGFloat = UnFoldUtils.cgFloat(dict, "width")
         let height:CGFloat = UnFoldUtils.cgFloat(dict, "height")
         let id:String? = UnFoldUtils.string(dict, "id")
-        return (width:width,height:height,parent:parent,id:id)
+        return .init(width:width,height:height,parent:parent,id:id)
     }
 }
