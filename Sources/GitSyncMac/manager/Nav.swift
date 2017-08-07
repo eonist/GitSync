@@ -63,9 +63,9 @@ class Nav {
                 let view = CommitDialogView(NaN,NaN,parentView)
                 view.setData(repoItem, commitMessage)
                 return view
-            case .conflict:
+            case .conflict(let mergeConflict):
                 let view = MergeConflictView(NaN,NaN,parentView)
-                view.setData(issue:"Conflict: Local file is older than the remote file",file:"File: AppDelegate.swift",repo:"Repository: Element - iOS")
+                view.setData(mergeConflict)
                 return view
             }
         }

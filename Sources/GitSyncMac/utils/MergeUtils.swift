@@ -3,10 +3,11 @@ import Foundation
 /**
  * Utility methods for merging branches
  */
+struct MergeConflict{
+    let issue:String,file:String,repo:String
+}
+
 class MergeUtils{
-    struct MergeConflict{
-        let issue:String,file:String,repo:String
-    }
     static var options:[String] = [
         "keep local version",
         "keep remote version",

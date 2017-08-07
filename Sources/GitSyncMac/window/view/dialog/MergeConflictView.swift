@@ -43,11 +43,11 @@ class MergeConflictView:Element,UnFoldable{
     }
 }
 extension MergeConflictView{
-    func setData(issue:String,file:String,repo:String){
+    func setData(_ mergeConflict:MergeConflict){
         Swift.print("MergeConflictView.setData")
-        self.apply([Key.issue], issue)
-        self.apply([Key.file], file)
-        self.apply([Key.repo], repo)
+        self.apply([Key.issue], mergeConflict.issue)
+        self.apply([Key.file], mergeConflict.file)
+        self.apply([Key.repo], mergeConflict.repo)
     }
     enum Key{
         static let issue = "issueText"

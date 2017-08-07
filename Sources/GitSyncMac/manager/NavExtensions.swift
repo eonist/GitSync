@@ -19,7 +19,7 @@ extension Nav{
         /*Dialog*/
         case dialog(Dialog)
         enum Dialog{
-            case conflict
+            case conflict(MergeConflict)
             case commit(RepoItem,CommitMessage)
         }
     }
