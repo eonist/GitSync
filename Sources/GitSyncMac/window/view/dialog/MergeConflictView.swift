@@ -3,6 +3,13 @@ import Foundation
 @testable import Element
 
 class MergeConflictView:Element,UnFoldable{
+    lazy var selectGroup:SelectGroup = {
+       
+    
+        let group = SelectGroup([radioButton1,radioButton2],radioButton2)
+        selectGroup.event = onSelectGroupChange
+        return group
+    }()
     override func resolveSkin() {
         Swift.print("MergeConflictView.resolveSkin()")
         super.resolveSkin()
@@ -13,21 +20,16 @@ class MergeConflictView:Element,UnFoldable{
         self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
         self.apply([Key.repo,Text.Key.text], "Repository: Element - iOS")
         
-        selectGroup = SelectGroup()
-        let selectGroup:SelectGroup = SelectGroup([radioButton1,radioButton2],radioButton2)
-        func onSelectGroupChange(event:Event){
-            Swift.print("event.selectable: " + "\(event)")
-        }
-        selectGroup.event = onSelectGroupChange
+        _ = selectGroup
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
-        }else if event.assert(SelectEvent.select){
-            
-        }
+        }/*else if event.assert(SelectEvent.select){
+         
+         }*/
     }
 }
 extension MergeConflictView{
@@ -35,6 +37,12 @@ extension MergeConflictView{
         static let issue = "issueText"
         static let file = "fileText"
         static let repo = "repoText"
+        static let keepLocal = "keepLocalVersion"
+        static let keepRemote = "keepRemoteVersion"
+        static let keepMixed = "keepMixedVersion"
+    }
+    func onSelectGroupChange(event:Event){
+        Swift.print("event.selectable: " + "\(event)")
     }
     /**
      * EventHandler for the okButton click event
