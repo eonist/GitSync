@@ -85,7 +85,9 @@ class UnFoldUtils{
      *
      */
     static func applyData(_ view:Element, _ id:String, value:Any){
-        let matche:ElementKind = view.subviews.lazy.flatMap{return $0 as? ElementKind}.first(where:{$0.id == id})
+        let match:ElementKind? = view.subviews.lazy.flatMap{$0 as? ElementKind}.first(where:{$0.id == id})
+        
+        
 //        let match = matches
     }
     /**
