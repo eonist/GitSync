@@ -27,7 +27,7 @@ extension CommitDialogView{
      * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
      */
     
-    //id
+    //[]
     var data:[String:Any] {
         get{
             var data:[String:Any] = [:]
