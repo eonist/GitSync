@@ -106,10 +106,10 @@ extension Text:UnFoldable{
     /**
      * UnFolds a Text Component
      */
-    convenience init(unfoldDict:[String:Any], parent:IElement? = nil) {
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> Text{
         let elementConfig:ElementConfig = .init(unfoldDict,parent)
         let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
-        self.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
+        return Text.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
     }
     var data:[String:Any] {
         get{
