@@ -3,7 +3,7 @@ import Foundation
 @testable import Element
 /**
  * Key: stores keys to access getters and setters,should be moved to the individuel UI extensions
- * The structs are nice if you want to sub-class Components, then they can be re-used
+ * The structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
  */
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     enum Key{
