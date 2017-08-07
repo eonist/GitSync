@@ -56,7 +56,7 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * PARAM branch: the branch you tried to merge into
  	 */
-    private static func resolveMergeConflicts(_ repo:GitRepo, _ unMergedFiles:[String]){
+    static func resolveMergeConflicts(_ repo:GitRepo, _ unMergedFiles:[String]){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
@@ -73,7 +73,7 @@ class MergeUtils{
             
             
             let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
-            Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
+            Nav.setView(.dialog(.conflict(mergeConflict)))
             //promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
             
