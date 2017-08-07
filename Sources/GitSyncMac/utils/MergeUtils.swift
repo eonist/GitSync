@@ -5,12 +5,12 @@ import Foundation
  */
 struct MergeConflict{
     let issue:String,file:String,repo:String
-    static let template:MergeConflict = {
+    static let dummyData:MergeConflict = {
         let issue:String = "Conflict: Local file is older than the remote file"
-        let file:String = "File: "
+        let file:String = "File: Element.swift"
         let repo:String = "Repository: Element - iOS"
         return MergeConflict(issue: issue, file: file, repo: repo)
-    }
+    }()
 }
 
 class MergeUtils{
@@ -65,7 +65,7 @@ class MergeUtils{
             Swift.print("branch: " + "\(repo.branch)")
             Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
             Swift.print("unMergedFile: " + "\(unMergedFile)")
-            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
+            
             
             let issue:String = "Conflict: Local file is older than the remote file"
             let file:String = "File: \(unMergedFile)"
@@ -76,6 +76,8 @@ class MergeUtils{
             
             //promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
+            
+            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
 		}
 	}
     /*
