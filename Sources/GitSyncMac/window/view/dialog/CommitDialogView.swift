@@ -63,9 +63,11 @@ extension CommitDialogView{
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        guard let title:String = data[Key.title] as? String,let desc:String = data[Key.title] as? String else{
-            fatalError("something went wrong")
-        }
+        let title:String = UnFoldUtils.retrieve(self, [Key.repo,TextInput.Key.inputText])
+        let desc:String = UnFoldUtils.retrieve(self, [Key.repo,TextInput.Key.inputText])
+//        guard let title:String = data[Key.title] as? String,let desc:String = data[Key.title] as? String else{
+//            fatalError("something went wrong")
+//        }
         let commitMessage = CommitMessage(title,desc)
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
