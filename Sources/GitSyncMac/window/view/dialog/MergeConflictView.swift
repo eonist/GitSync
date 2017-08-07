@@ -25,6 +25,12 @@ extension MergeConflictView{
         static let file = "fileText"
         static let repo = "repoText"
     }
+    /**
+     *
+     */
+    func setData(){
+        
+    }
     var data:[String:Any] {
         get{
             fatalError("not yet")
