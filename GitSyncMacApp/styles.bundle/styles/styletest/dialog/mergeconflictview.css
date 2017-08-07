@@ -46,7 +46,7 @@ MergeConflictView CheckBoxButton Text{
 }
 /*RadioButton*/
 MergeConflictView RadioButton{
-	width:166px;
+	width:176px;
 	height:24px;
 	margin-left:calc(50% -76px);
 	height:24px;
@@ -59,7 +59,7 @@ MergeConflictView RadioButton RadioBullet{
 }
 
 MergeConflictView RadioButton Text{
-	width:140px;
+	width:150px;
 	color:<TextTheme2>;
 	border:false;
     float:right;
