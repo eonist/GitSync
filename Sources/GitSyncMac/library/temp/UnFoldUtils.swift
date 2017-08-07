@@ -92,7 +92,7 @@ class UnFoldUtils{
      * PARAM: pathBasically the id path to search a hierarchy with
      * This method is recursive
      */
-    static func retrieve(_ view:Element, _ path:[String]) -> [String:Any]?{
+    static func retrieveData(_ view:Element, _ path:[String]) -> [String:Any]?{
         //continue here
         return retrieve(view, path)?.data
     }
