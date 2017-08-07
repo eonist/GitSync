@@ -30,8 +30,8 @@ extension CommitDialogView{
         get{
             var data:[String:Any] = [:]
             data[ID.repo] = ""
-            data[ID.title] = UnFoldUtils.retrieveData(self, ID.title)![TextInput.Key.inputText]
-            data[ID.desc] = UnFoldUtils.retrieveData(self, ID.desc)![TextInput.Key.inputText]
+            data[ID.title] = UnFoldUtils.retrieve(self, [ID.title])
+            data[ID.desc] = UnFoldUtils.retrieve(self, ID.desc)![TextInput.Key.inputText]
             return data
         }set{
             if let data = newValue as? [String:[String:Any]] {
@@ -44,7 +44,12 @@ extension CommitDialogView{
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
         self.repoItem = repoItem
-        self.data = ID.getData(repoItem.title, commitMessage.title, commitMessage.description)
+//        ID.repo:[:repoTitle],//TODO:⚠️️    make inputText a const
+//        ID.title:[TextInput.Key.inputText:commitTitle],
+//        ID.desc:[TextInput.Key.inputText:commitDescription]
+        
+        UnFoldUtils.applyData(self,[ID.repo,TextInput.Key.inputText],repoItem.title)
+        //self.data = ID.getData(, commitMessage.title, commitMessage.description)
     }
     
     /**
@@ -70,17 +75,6 @@ extension CommitDialogView{
         static let repo = "repo"
         static let title = "title"
         static let desc = "desc"
-        /**
-         * New,convenient
-         * TODO: ⚠️️ this should be possible to abstract into an universal util metod for all Unfoldables
-         */
-        static func getData(_ repoTitle:String,_ commitTitle:String,_ commitDescription:String) -> [String:[String:Any]]{
-            let data:[String:[String:Any]] = [
-                ID.repo:[TextInput.Key.inputText:repoTitle],//TODO:⚠️️    make inputText a const
-                ID.title:[TextInput.Key.inputText:commitTitle],
-                ID.desc:[TextInput.Key.inputText:commitDescription]
-            ]
-            return data
-        }
+       
     }
 }
