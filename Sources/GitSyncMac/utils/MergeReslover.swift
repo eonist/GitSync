@@ -95,7 +95,7 @@ class MergeReslover {
             index += 1
             nextConflict()
         case Option.all(let allOption):
-            switch allOption {
+            switch allOption {  
             case .local:
                 Swift.print("keep all local versions")
                 _ = GitModifier.checkOut(localRepoPath, "--ours", "*")/*keep all local versions*/
