@@ -11,7 +11,7 @@ class MergeReslover {
      * Promts the user with a list of options to aid in resolving merge conflicts
      * PARAM branch: the branch you tried to merge into
      */
-     func resolveConflict(_ repoItem:RepoItem, _ unMergedFiles:[String]){
+     func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String]){
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
         conflictCount = unMergedFiles.count
