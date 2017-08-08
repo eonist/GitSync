@@ -60,21 +60,31 @@ class MergeReslover {
         "open all remote versions",
         "open all mixed versions"
     ]
-    enum Options{
+    enum Option{
+        
         enum All{
             case local,remote,mix
         }
         enum Singular{
             case local,remote,mix
         }
+        case all(All)
+        case singular(Singular)
     }
     /**
      * Handles the choice made in the merge conflict dialog
      * TODO: test the open file clauses
      */
-    func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
+    func handleMergeConflictDialog(_ option:Option, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
         //Swift.print("MergeUtil.handleMergeConflictDialog())
         //last_selected_action = selected
+        switch option {
+        case Option.singular(let ):
+            Swift.print("")
+        default:
+            Swift.print("")
+        }
+        let selected = ""
         switch selected{
         case options[0]:/*keep local version*/
             _ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
