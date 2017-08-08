@@ -74,8 +74,9 @@ class UnFoldUtils{
     
     
     private static func isMatch(_ unfoldable:UnFoldable,_ path:[String]) -> Bool{
+        Swift.print("isMatch: unfoldable: \(unfoldable) path: \(path)")
         if let element = unfoldable as? Element, element.id == path[0] {
-            Swift.print("found a match")
+            Swift.print("found a match: element.id: \(element.id)")
             return true
         }else{
             Swift.print("no match")
