@@ -99,11 +99,12 @@ extension MergeConflictView{
         Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
         
         
-        
-        
-        let strategy = MergeConflictView.strategy(isApplyAllConflictsChecked,selectedRadioButtonId)
-        MergeReslover.shared.processMergeStrategy(strategy)
-        
+        _ = {
+            if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
+            
+            let strategy = MergeConflictView.strategy(isApplyAllConflictsChecked,selectedRadioButtonId)
+            MergeReslover.shared.processMergeStrategy(strategy)
+        }()
         
 //        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
@@ -112,7 +113,7 @@ extension MergeConflictView{
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         
         //iterate merge process along see legacy code
-        if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
+        
     }
 }
 extension MergeConflictView{
