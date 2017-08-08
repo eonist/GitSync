@@ -66,6 +66,7 @@ class UnFoldUtils{
      */
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
         if var unfoldable:UnFoldable = retrieveUnFoldable(view, path)/*, let last = path.last*/{
+            Swift.print("unfoldable: " + "\(unfoldable)")
             unfoldable.value = value
         }
     }
