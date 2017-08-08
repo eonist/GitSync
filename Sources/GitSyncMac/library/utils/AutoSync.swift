@@ -69,9 +69,9 @@ class AutoSync {
             }
             
         }
-        if let otherRepos = otherRepos, otherRepos.isEmpty {
-            autoSyncComplete()//retur early if there were no other repos
-        }
+//        if let otherRepos = otherRepos, otherRepos.isEmpty {
+//            autoSyncComplete()//retur early if there were no other repos
+//        }
         autoSyncGroup?.notify(queue: main){
             Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
             self.autoSyncComplete()/*All commits and pushes was completed*/
