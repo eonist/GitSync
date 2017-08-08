@@ -64,7 +64,7 @@ class RefreshUtils{
      */
     typealias RefreshRepoComplete = ()->Void
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping RefreshRepoComplete){
-        Swift.print("RefreshUtils.refreshRepo \(repo.title)🔄💾")
+        Swift.print("RefreshUtils.refreshRepo \(repo.title) 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.getCommitItems competed: \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
