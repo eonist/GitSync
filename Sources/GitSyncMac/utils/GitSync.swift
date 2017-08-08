@@ -15,12 +15,13 @@ class GitSync{
             //hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
             initPush(repoItem,onComplete: onPushComplete)//psuh or check if you need to pull down changes and subsequently merge something
         }
-        guard let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional else {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
-            doCommit();return;
-        }
-        Swift.print("unMergedFiles: " + "\(unMergedFiles)")
-        MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
-            doCommit()
+        if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
+            Swift.print("unMergedFiles: " + "\(unMergedFiles)")
+            MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
+                doCommit()
+            }
+        }else{
+           doCommit()
         }
     }
     /**
