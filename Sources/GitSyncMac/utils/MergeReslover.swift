@@ -103,6 +103,8 @@ class MergeReslover {
             }
         }
         
+        nextConflict()
+        
         
         /*open local version*/
         //_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
