@@ -112,7 +112,7 @@ extension MergeConflictView{
         }
         
         let option:MergeReslover.Option
-        
+            
         if isApplyAllConflictsChecked {
             
         }else {
