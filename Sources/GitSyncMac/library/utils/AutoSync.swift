@@ -40,13 +40,13 @@ class AutoSync {
      * New
      */
     func incrementCountForRepoWithMSG(){
-        Swift.print("incrementCountForRepoWithMSG")
+        Swift.print("incrementCountForRepoWithMSG 🍏")
         Swift.print("countForRepoWithMSG: " + "\(countForRepoWithMSG)")
         Swift.print("repoListThatRequireManualMSG!.count: " + "\(messageRepos!.count)")
         if countForRepoWithMSG < messageRepos!.count {
             let repo = messageRepos![countForRepoWithMSG]
             countForRepoWithMSG += 1
-            if let commitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
+            if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Swift.print("something to commit")
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
@@ -61,7 +61,7 @@ class AutoSync {
      * New
      */
     private func syncOtherRepos(){
-        Swift.print("AutoSync.syncOtherRepos()")
+        Swift.print("AutoSync.syncOtherRepos() 🍊 ")
         autoSyncGroup = DispatchGroup()
         
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
