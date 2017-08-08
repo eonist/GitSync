@@ -99,7 +99,7 @@ extension MergeConflictView{
         Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
         
         
-                
+        
         
         let strategy = MergeConflictView.strategy(isApplyAllConflictsChecked,selectedRadioButtonId)
         MergeReslover.shared.processMergeStrategy(strategy)
