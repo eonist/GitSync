@@ -27,7 +27,7 @@
 3. Copy/Paste the content of [Package.swift](https://github.com/eonist/Element/blob/master/Package.swift) to your newly created Package.swift file:
 4. Terminal: `swift build` + <kbd>Enter</kbd>
 5. Terminal: `swift package generate-xcodeproj` + <kbd>Enter</kbd>
-6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd> <kbd>R</kbd>
+6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd>  <kbd>R</kbd>
 
 ### Change-log:
 
