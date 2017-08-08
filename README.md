@@ -19,6 +19,11 @@
 [Download](https://github.com/eonist/GitSync/releases) 
 
 ### Change-log:
+
+**2017-08-09**
+- Added functionality to MergeConflict
+- Added more UI types to UnfoldLib
+
 **2017-08-07**
 - Improved UnfoldLib in order to make Dialogs faster to setup
 - Created the MergeConflict Dialog
