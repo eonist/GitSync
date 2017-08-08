@@ -83,9 +83,18 @@ class UnFoldUtils{
     }
     
     private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
-        guard let parentView = unfoldable as? NSView else{
+        guard let view = unfoldable as? NSView else{
             Swift.print("parent isnt a nsview")
             return nil
+        }
+        
+        if isMatch(unfoldable) {//check if parent it self is a match
+            return unfoldable
+        }else {//check if children can be a match
+            let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
+            if retVal != nil {
+                return retVal
+            }
         }
     }
     /**
@@ -114,11 +123,6 @@ class UnFoldUtils{
         
         
      
-        if isMatch(parent) {//check if parent it self is a match
-            return parent
-        }else {//check if children can be a match
-            
-        }
         return nil
     }
     
