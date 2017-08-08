@@ -14,20 +14,7 @@ struct MergeConflict{
 }
 
 class MergeUtils{
-    static var options:[String] = [
-        "keep local version",
-        "keep remote version",
-        "keep mix of both versions",
-        "open local version",
-        "open remote version",
-        "open mix of both versions",
-        "keep all local versions",
-        "keep all remote versions",
-        "keep all local and remote versions",
-        "open all local versions",
-        "open all remote versions",
-        "open all mixed versions"
-    ]
+    
     /**
      * Manual merge
      * NOTE: tries to merge a remote branch into a local branch
