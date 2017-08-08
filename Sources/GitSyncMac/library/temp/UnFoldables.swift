@@ -27,7 +27,21 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
 }
 extension TextArea:UnFoldable{
-    
+    enum Key{
+        static let text = "text"
+    }
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> TextArea{
+        let elementConfig:ElementConfig = .init(unfoldDict,parent)
+        let text:String = UnFoldUtils.string(unfoldDict, "text") ?? ""
+        return TextArea.init(elementConfig.width, elementConfig.height, text, elementConfig.parent, elementConfig.id)
+    }
+    var value:Any {
+        get{
+            return [Key.text:self.getText()]
+        }set{
+            if let newValue:String = newValue as? String { self.setText(newValue) }
+        }
+    }
 }
 extension RadioButton{
     struct RadioButtonConfig{
