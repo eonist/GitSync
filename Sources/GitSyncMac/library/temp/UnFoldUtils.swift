@@ -89,20 +89,24 @@ class UnFoldUtils{
                 return false
             }
         }
-
-        
-        for subView in parentView.subviews{
-            if let unfoldable = subView as? UnFoldable  {
-                if isMatch(unfoldable) {
-                    return unfoldable
-                }else {
-                    let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
-                    if retVal != nil {
-                        return retVal
+        if isMatch(parent) {//check if parent it self is a match
+            return parent
+        }else {//check if children can be a match
+            for subView in parentView.subviews{
+                if let unfoldable = subView as? UnFoldable  {
+                    if isMatch(unfoldable) {
+                        return unfoldable
+                    }else {
+                        let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
+                        if retVal != nil {
+                            return retVal
+                        }
                     }
                 }
             }
         }
+        
+        
         
         
         
