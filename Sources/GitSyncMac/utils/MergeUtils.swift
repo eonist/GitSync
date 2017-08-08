@@ -23,7 +23,7 @@ class MergeUtils{
      */
     static func manualMerge(_ repoItem:RepoItem){
         Swift.print("🍊 MergeUtils.manualMerge()")
-        if (GitAsserter.hasUnMergedPaths(repoItem.localPath)) { //Asserts if there are unmerged paths that needs resolvment
+        if GitAsserter.hasUnMergedPaths(repoItem.localPath) { //Asserts if there are unmerged paths that needs resolvment
             //Swift.print("has unmerged paths to resolve")
             MergeReslover.shared.resolveConflicts(repoItem, GitParser.unMergedFiles(repoItem.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
         }

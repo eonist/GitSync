@@ -3,6 +3,7 @@ import Foundation
 
 class MergeReslover {
     typealias AllComplete = () -> Void
+    var allComplete:AllComplete = {fatalError("No handler attached")}
     static let shared = MergeReslover()
     var conflictCount:Int = 0
     var index:Int = 0//curConflictIndex
@@ -12,9 +13,11 @@ class MergeReslover {
      * Promts the user with a list of options to aid in resolving merge conflicts
      * PARAM branch: the branch you tried to merge into
      */
-    func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String], _ onComplete:AllComplete){
+    func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String], _ allComplete:@escaping AllComplete){
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
+        self.allComplete = allComplete
+        index = 0//reset
         conflictCount = unMergedFiles.count
         self.unMergedFiles = unMergedFiles
         self.repoItem = repoItem
@@ -24,7 +27,10 @@ class MergeReslover {
      * Iterate throught the conflicts
      */
      func nextConflict(){
-        guard index < conflictCount else{return}//stop iteration if all conflicts are resolved
+        guard index < conflictCount else{//stop iteration if all conflicts are resolved
+            allComplete()
+            return
+        }
 //        let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
         guard let repoItem = repoItem else{fatalError("error")}
         Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
