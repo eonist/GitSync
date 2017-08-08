@@ -2,15 +2,15 @@ import Foundation
 
 class MergeConflictReslover {
     static let shared = MergeConflictReslover()
-    static var conflictCount:Int = 0
-    static var curConflictIteration:Int = 0
-    static var unMergedFiles:[String] = []
-    static var curRepoItem:RepoItem?
+     var conflictCount:Int = 0
+     var index:Int = 0
+     var unMergedFiles:[String] = []
+     var repoItem:RepoItem?
     /**
      * Promts the user with a list of options to aid in resolving merge conflicts
      * PARAM branch: the branch you tried to merge into
      */
-    static func resolveMergeConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String]){
+     func resolveMergeConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String]){
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
         conflictCount = unMergedFiles.count
@@ -22,12 +22,12 @@ class MergeConflictReslover {
     /**
      *
      */
-    static func nextConflict(){
+     func nextConflict(){
         let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-        Swift.print("localRepoPath: " + "\(repoItem.localPath)")
-        Swift.print("branch: " + "\(repoItem.branch)")
+        Swift.print("localRepoPath: " + "\(repoItem?.localPath)")
+        Swift.print("branch: " + "\(repoItem?.branch)")
         Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
-        Swift.print("unMergedFile: " + "\(unMergedFile)")
+        Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
         
         
         let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
@@ -43,12 +43,25 @@ class MergeConflictReslover {
         //            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
     }
     
-    
+     var options:[String] = [
+        "keep local version",
+        "keep remote version",
+        "keep mix of both versions",
+        "open local version",
+        "open remote version",
+        "open mix of both versions",
+        "keep all local versions",
+        "keep all remote versions",
+        "keep all local and remote versions",
+        "open all local versions",
+        "open all remote versions",
+        "open all mixed versions"
+    ]
     /**
      * Handles the choice made in the merge conflict dialog
      * TODO: test the open file clauses
      */
-    private static func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
+     static func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
         //Swift.print("MergeUtil.handleMergeConflictDialog())
         //last_selected_action = selected
         switch selected{
