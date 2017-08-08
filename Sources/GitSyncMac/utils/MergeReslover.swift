@@ -2,6 +2,7 @@ import Foundation
 @testable import Utils
 
 class MergeReslover {
+    typealias AllComplete = () -> Void
     static let shared = MergeReslover()
     var conflictCount:Int = 0
     var index:Int = 0//curConflictIndex
@@ -11,7 +12,7 @@ class MergeReslover {
      * Promts the user with a list of options to aid in resolving merge conflicts
      * PARAM branch: the branch you tried to merge into
      */
-     func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String]){
+    func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String], _ onComplete:AllComplete){
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
         conflictCount = unMergedFiles.count
