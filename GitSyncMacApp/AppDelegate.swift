@@ -24,8 +24,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Hock up the dialog prompts to manualMerge etc ✅
                 //start hocking up MergeConflicView logic ✅
                     //check legacy code ✅
+                    //test merge then commit dialog👈
         
-            //The autosync on interval 👈
+            //The autosync on interval
                 //stop on pull gesture init 🚫
                 //start after pull gesture completes etc
         
