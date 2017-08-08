@@ -87,7 +87,11 @@ class UnFoldUtils{
         }
         
         //check if item is a match
-        
+        if isMatch(unfoldable) {
+            return unfoldable
+        } else {
+            
+        }
         
         //check if any subItem is a match
         
