@@ -73,8 +73,12 @@ class UnFoldUtils{
     /**
      * Traverses a hierarchy and find the Unfoldable at the correct path
      */
-    static func retrieveUnFoldable(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
+    static func retrieveUnFoldable(_ parent:UnFoldable, _ path:[String]) -> UnFoldable?{
         
+        guard let parentView = parent as? NSView else{
+            Swift.print("parent isnt a nsview")
+            return nil
+        }
         
         func isMatch(_ unfoldable:UnFoldable) -> Bool{
             if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
@@ -85,40 +89,50 @@ class UnFoldUtils{
                 return false
             }
         }
-        
-        //check if item is a match
-        if isMatch(unfoldable) {
-            return unfoldable
-        } else {
-            
-        }
-        
-        //check if any subItem is a match
-        
-        
-        Swift.print("unfoldable: unfoldable:\(unfoldable) path: \(path) element.id: \((unfoldable as! ElementKind).id) path[0]: \(path[0])")
-        guard let view = unfoldable as? NSView else{
-            Swift.print("view isnt a nsview")
-            return nil
-        }
 
         
-        if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
-            Swift.print("found a match")
-            return unfoldable
-        }else if path.count > 1 && !view.subviews.isEmpty{
-            Swift.print("no match, keep searching")
-            for subView in view.subviews{
-                if let unfoldable = subView as? UnFoldable  {
+        for subView in parentView.subviews{
+            if let unfoldable = subView as? UnFoldable  {
+                if isMatch(unfoldable) {
+                    return unfoldable
+                }else {
                     let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
                     if retVal != nil {
                         return retVal
                     }
                 }
             }
-        }else{
-            Swift.print("no match, cant keep searching")
         }
+        
+        
+        
+        
+        //check if item is a match
+        
+        
+        //check if any subItem is a match
+        
+        
+//        Swift.print("unfoldable: unfoldable:\(unfoldable) path: \(path) element.id: \((unfoldable as! ElementKind).id) path[0]: \(path[0])")
+//       
+//
+//        
+//        if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
+//            Swift.print("found a match")
+//            return unfoldable
+//        }else if path.count > 1 && !view.subviews.isEmpty{
+//            Swift.print("no match, keep searching")
+//            for subView in view.subviews{
+//                if let unfoldable = subView as? UnFoldable  {
+//                    let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
+//                    if retVal != nil {
+//                        return retVal
+//                    }
+//                }
+//            }
+//        }else{
+//            Swift.print("no match, cant keep searching")
+//        }
         
 //        
 //        Swift.print("view: " + "\(view)")
