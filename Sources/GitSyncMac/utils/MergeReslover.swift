@@ -60,6 +60,21 @@ class MergeReslover {
         "open all remote versions",
         "open all mixed versions"
     ]
+    enum Options{
+        enum All{
+            
+        }
+        enum 
+        enum Local{
+            case
+        }
+        enum Remote{
+            
+        }
+        enum Mixed{
+            
+        }
+    }
     /**
      * Handles the choice made in the merge conflict dialog
      * TODO: test the open file clauses
