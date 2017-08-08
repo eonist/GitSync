@@ -23,7 +23,16 @@ struct RepoItem {
         self.title = title
     }
     init(){}//dont delete this
-    var gitRepo:GitRepo { return GitRepo(self.local, self.remote, self.branch) }//temp
+    var gitRepo:GitRepo {
+        let remotePath:String = {
+            if self.remote.test("^https://.+$") {
+                return self.remote.subString(8, self.remote.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
+            else {
+                return self.remote
+            }
+        }()
+        return GitRepo(self.local, remotePath, self.branch)
+    }//temp
 }
 enum RepoType:String{
     case title = "title"

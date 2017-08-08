@@ -32,10 +32,9 @@ class GitSync{
      */
     private static func initPush(_ repoItem:RepoItem, onComplete:@escaping PushComplete){
         Swift.print("GitSync.initPush")
-        var remotePath:String = repoItem.remote
-        if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-        let repo:GitRepo = .init(repoItem.local, remotePath, repoItem.branch)
-        MergeUtils.manualMerge(repo)//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        
+        MergeUtils.manualMerge(repoItem)//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        let repo:GitRepo = repoItem.gitRepo
         let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
         //Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
         var hasPushed:Bool = false
