@@ -3,11 +3,11 @@ import Cocoa
 @testable import Utils
 /**
  * TODO: ⚠️️ rename unFold to unfold
- * TODO:    Move into parser and modifier
  */
 class UnFoldUtils{
     /**
      * New
+     * TODO:    Move into parser and modifier
      * TODO: ⚠️️ In the future you will use a json method that can take an [Any] that contains str and int for the path. so you can do path:["app",0,"repoView"] etc
      */
     static func unFold(_ fileURL:String, _ path:String, _ parent:Element){
@@ -67,7 +67,7 @@ class UnFoldUtils{
      */
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
         if var unfoldable:UnFoldable = retrieveUnFoldable(parent:view, path)/*, let last = path.last*/{
-//            Swift.print("unfoldable: " + "\(unfoldable)")
+            Swift.print("unfoldable: " + "\(unfoldable)")
             unfoldable.value = value
         }
     }
@@ -75,16 +75,16 @@ class UnFoldUtils{
     
     private static func isMatch(_ unfoldable:UnFoldable,_ path:[String]) -> Bool{
         if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
-//            Swift.print("found a match")
+            Swift.print("found a match")
             return true
         }else{
-//            Swift.print("no match")
+            Swift.print("no match")
             return false
         }
     }
     
     private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
-//        Swift.print("retrieve unfoldable.id: \((unfoldable as! ElementKind).id) path: \(path)")
+        Swift.print("retrieve unfoldable.id: \((unfoldable as! ElementKind).id) path: \(path)")
         if isMatch(unfoldable,path) {//check if unfoldable it self is a match
             return unfoldable
         }else {//check if children can be a match
@@ -96,7 +96,7 @@ class UnFoldUtils{
      */
     static func retrieveUnFoldable(parent:UnFoldable, _ path:[String]) -> UnFoldable?{
         guard let parentView = parent as? NSView else{
-//            Swift.print("parent isn't a nsview")
+            Swift.print("parent isn't a nsview")
             return nil
         }
         for subView in parentView.subviews{
@@ -106,7 +106,9 @@ class UnFoldUtils{
                 }
             }
         }
-    
+        
+        
+     
         return nil
     }
     
