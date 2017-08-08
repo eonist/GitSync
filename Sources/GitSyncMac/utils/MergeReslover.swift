@@ -70,7 +70,9 @@ class MergeReslover {
     func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
         //Swift.print("MergeUtil.handleMergeConflictDialog())
         //last_selected_action = selected
-        let unmergedFile = unmergedFiles[0]
+        let unmergedFile = unMergedFiles[0]
+        let localRepoPath = repoItem?.localPath ?? {fatalError("error")}()
+        let branch = repoItem?.branch ?? {fatalError("error")}()
         switch option {
         case Option.singular(let singularOption):
             switch singularOption {
