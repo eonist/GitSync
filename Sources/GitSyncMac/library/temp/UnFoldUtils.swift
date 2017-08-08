@@ -83,15 +83,6 @@ class UnFoldUtils{
             return false
         }
     }
-    
-    private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
-//        Swift.print("retrieve unfoldable.id: \((unfoldable as! ElementKind).id) path: \(path)")
-        if isMatch(unfoldable,path[0]) {//check if unfoldable it self is a match
-            return unfoldable
-        }else {//check if children can be a match
-            return retrieveUnFoldable(parent:unfoldable, path.slice2(1, path.count))//removes first item in path
-        }
-    }
     /**
      * Traverses a hierarchy and find the Unfoldable at the correct path
      */
@@ -103,14 +94,14 @@ class UnFoldUtils{
         for subView in parentView.subviews{
             if let sub = subView as? UnFoldable  {
                 if isMatch(sub, path[0]){
-                    return retrieve(sub, path)
+                    if path.count > 1 {
+                        return retrieveUnFoldable(parent:sub, path.slice2(1, path.count))//removes first item in path//retrieve(sub, path)
+                    }else{
+                        return sub
+                    }
                 }
-                
             }
         }
-        
-        
-     
         return nil
     }
     
