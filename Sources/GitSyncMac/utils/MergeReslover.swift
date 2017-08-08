@@ -50,7 +50,7 @@ class MergeReslover {
         
         main.async{Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))}
 //        Nav.setView(.dialog(.conflict(mergeConflict)))//promt user with list of options, title: Merge conflict in: unmerged_file
-        index += 1
+        
         
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
         
