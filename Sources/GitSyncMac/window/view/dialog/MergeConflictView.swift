@@ -107,14 +107,13 @@ extension MergeConflictView{
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
           
         
-//        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
+//      let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         
         //iterate merge process along see legacy code
-        
     }
 }
 extension MergeConflictView{
