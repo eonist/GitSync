@@ -67,9 +67,10 @@ class MergeReslover {
      * Handles the choice made in the merge conflict dialog
      * TODO: test the open file clauses
      */
-    func handleMergeConflictDialog(_ option:Option, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
+    func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
         //Swift.print("MergeUtil.handleMergeConflictDialog())
         //last_selected_action = selected
+        let unmergedFile = unmergedFiles[0]
         switch option {
         case Option.singular(let singularOption):
             switch singularOption {
