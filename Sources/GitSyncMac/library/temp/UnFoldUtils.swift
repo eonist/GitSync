@@ -74,7 +74,7 @@ class UnFoldUtils{
     
     
     private static func isMatch(_ unfoldable:UnFoldable,_ path:[String]) -> Bool{
-        if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
+        if let element = unfoldable as? Element, element.id == path[0] {
             Swift.print("found a match")
             return true
         }else{
@@ -101,9 +101,10 @@ class UnFoldUtils{
         }
         for subView in parentView.subviews{
             if let sub = subView as? UnFoldable  {
-                if let retVal = retrieve(sub, path){
-                    return retVal
+                if isMatch(sub, path){
+                    return retrieve(sub, path)
                 }
+                
             }
         }
         
