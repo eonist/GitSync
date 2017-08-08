@@ -112,33 +112,7 @@ extension MergeConflictView{
         }
         let id = selectedRadioButtonId
         
-        let option:MergeReslover.Option = {
-            if isApplyAllConflictsChecked {
-                return MergeReslover.Option.singular(
-                    {
-                        if id == Key.keepLocal {
-                            return .local
-                        }else if id == Key.keepRemote{
-                            return .remote
-                        }else{//Key.keepMixed
-                            return .mix
-                        }
-                    }()
-                )
-            }else {
-                return MergeReslover.Option.all(
-                    {
-                        if id == Key.keepLocal {
-                            return .local
-                        }else if id == Key.keepRemote{
-                            return .remote
-                        }else{//Key.keepMixed
-                            return .mix
-                        }
-                    }()
-                )
-            }
-        }()
+        
         
         MergeReslover.shared.processMergeStrategy(option)
         
@@ -152,4 +126,10 @@ extension MergeConflictView{
         //iterate merge process along see legacy code
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }
+}
+
+
+extension MergeReslover.Option{
+    
+    
 }
