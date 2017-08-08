@@ -101,6 +101,12 @@ class MergeReslover {
                 Swift.print("")
             }
         }
+        
+        
+        /*open local version*/
+        //FileUtils.openFile(localRepoPath + unmergedFile)
+        
+        /*open remote version*/
         let selected = ""
         switch selected{
         case options[0]:/**/
@@ -109,10 +115,10 @@ class MergeReslover {
             
         case options[2]:/**/
             
-        case options[3]:/*open local version*/
+        case options[3]:
             _ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
-            FileUtils.openFile(localRepoPath + unmergedFile)
-        case options[4]:/*open remote version*/
+            
+        case options[4]:
             _ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
             FileUtils.openFile(localRepoPath + unmergedFile)
         case options[5]:/*open mix of both versions*/
