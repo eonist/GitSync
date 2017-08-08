@@ -83,7 +83,7 @@ class UnFoldUtils{
     }
     
     private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
-        Swift.print("retrieve unfoldable: \(unfoldable) path: \(path)")
+        Swift.print("retrieve unfoldable.id: \((unfoldable as! ElementKind).id) path: \(path)")
         if isMatch(unfoldable,path) {//check if unfoldable it self is a match
             return unfoldable
         }else {//check if children can be a match
