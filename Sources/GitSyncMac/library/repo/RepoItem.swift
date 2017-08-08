@@ -34,6 +34,9 @@ struct RepoItem {
         return GitRepo(self.local, remotePath, self.branch)
     }//temp
 }
+extension RepoItem{
+    var localPath:String {get {return local} set{local = newValue}}
+}
 enum RepoType:String{
     case title = "title"
     case local = "local"

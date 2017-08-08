@@ -34,52 +34,64 @@ class MergeUtils{
      * NOTE: prompts the users if a merge conflicts occure
      * TODO: we should use two branch params here since its entirly possible to merge from a different remote branch
      */
-    static func manualMerge(_ repo:RepoItem){
+    static func manualMerge(_ repoItem:RepoItem){
         Swift.print("🍊 MergeUtils.manualMerge()")
-        if (GitAsserter.hasUnMergedPaths(repo.localPath)) { //Asserts if there are unmerged paths that needs resolvment
+        if (GitAsserter.hasUnMergedPaths(repoItem.localPath)) { //Asserts if there are unmerged paths that needs resolvment
             //Swift.print("has unmerged paths to resolve")
-            resolveMergeConflicts(repo, GitParser.unMergedFiles(repo.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
+            resolveMergeConflicts(repoItem, GitParser.unMergedFiles(repoItem.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
         }
-        _ = GitSync.commit(repo.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull.
+        _ = GitSync.commit(repoItem.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull.
 
-        let hasManualPullReturnedError:Bool = GitUtils.manualPull(repo)//🌵 Manual clone down files
+        let hasManualPullReturnedError:Bool = GitUtils.manualPull(repoItem.gitRepo)//🌵 Manual clone down files
         if(hasManualPullReturnedError){
             //make a list of unmerged files
-            let unMergedFiles:[String] = GitParser.unMergedFiles(repo.localPath)//🌵 Compile a list of conflicting files somehow
-            resolveMergeConflicts(repo, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
-            _ = GitSync.commit(repo.localPath)//🌵 add,commit if any files has an altered status
+            let unMergedFiles:[String] = GitParser.unMergedFiles(repoItem.localPath)//🌵 Compile a list of conflicting files somehow
+            resolveMergeConflicts(repoItem, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
+            _ = GitSync.commit(repoItem.localPath)//🌵 add,commit if any files has an altered status
         }else{
             //Swift.print("MergeUtils.manualMerge() Success no resolvment needed")
         }
     }
+    static var conflictCount:Int = 0
+    static var curConflictIteration:Int = 0
+    static var unMergedFiles:[String] = []
+    static var curRepoItem:RepoItem?
 	/**
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * PARAM branch: the branch you tried to merge into
  	 */
-    static func resolveMergeConflicts(_ repo:GitRepo, _ unMergedFiles:[String]){
+    static func resolveMergeConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String]){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
-        for unMergedFile:String in unMergedFiles {
-			let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-			Swift.print("localRepoPath: " + "\(repo.localPath)")
-            Swift.print("branch: " + "\(repo.branch)")
-            Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
-            Swift.print("unMergedFile: " + "\(unMergedFile)")
-            
-            
-            let issue:String = "Conflict: Local file is older than the remote file"
-            let file:String = "File: \(unMergedFile)"
-            let repo:String = "Repository: Element - iOS"
-            
-            
-            let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
-            Nav.setView(.dialog(.conflict(mergeConflict)))
-            //promt user with list of options, title: Merge conflict in: unmerged_file
-			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
-            
-            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
-		}
+        conflictCount = unMergedFiles.count
+        self.unMergedFiles = unMergedFiles
+        self.repoItem = repoItem
+        nextConflict()
+        
 	}
+    /**
+     *
+     */
+    static func nextConflict(){
+        let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
+        Swift.print("localRepoPath: " + "\(repoItem.localPath)")
+        Swift.print("branch: " + "\(repoItem.branch)")
+        Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
+        Swift.print("unMergedFile: " + "\(unMergedFile)")
+        
+        
+        let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
+        let file:String = "File: \(unMergedFile)"
+        let repo:String = "Repository: \(repoItem.title)"
+        
+        
+        let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
+        Nav.setView(.dialog(.conflict(mergeConflict)))
+        //promt user with list of options, title: Merge conflict in: unmerged_file
+        //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
+        
+        //            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
+    }
     /*
     func complete(sender:ListWindow!) {
 	   print("Complete: " + sender.tag)
