@@ -24,7 +24,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Hock up the dialog prompts to manualMerge etc ✅
                 //start hocking up MergeConflicView logic ✅
                     //check legacy code ✅
-                    //test merge then commit dialog👈
+                    //test merge then commit dialog
+        
+        
+            //THere is a problem where repos are not pulled. Fetch is never being called on each autoSync. test this again 👈
         
             //The autosync on interval
                 //stop on pull gesture init 🚫
