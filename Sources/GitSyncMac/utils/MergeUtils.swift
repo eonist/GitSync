@@ -26,6 +26,8 @@ class MergeUtils{
         if GitAsserter.hasUnMergedPaths(repoItem.localPath) { //Asserts if there are unmerged paths that needs resolvment
             //Swift.print("has unmerged paths to resolve")
             MergeReslover.shared.resolveConflicts(repoItem, GitParser.unMergedFiles(repoItem.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
+        }else {
+            
         }
         _ = GitSync.commit(repoItem.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull.
 
