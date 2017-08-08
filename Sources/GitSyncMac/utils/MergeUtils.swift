@@ -38,7 +38,7 @@ class MergeUtils{
         Swift.print("🍊 MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(repoItem.localPath)) { //Asserts if there are unmerged paths that needs resolvment
             //Swift.print("has unmerged paths to resolve")
-            MergeReslover.shared.resolveConflic(repoItem, GitParser.unMergedFiles(repoItem.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
+            MergeReslover.shared.resolveConflict(repoItem, GitParser.unMergedFiles(repoItem.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
         }
         _ = GitSync.commit(repoItem.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull.
 
@@ -46,7 +46,7 @@ class MergeUtils{
         if(hasManualPullReturnedError){
             //make a list of unmerged files
             let unMergedFiles:[String] = GitParser.unMergedFiles(repoItem.localPath)//🌵 Compile a list of conflicting files somehow
-            MergeReslover.shared.resolveConflic(repoItem, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
+            MergeReslover.shared.resolveConflict(repoItem, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
             _ = GitSync.commit(repoItem.localPath)//🌵 add,commit if any files has an altered status
         }else{
             //Swift.print("MergeUtils.manualMerge() Success no resolvment needed")

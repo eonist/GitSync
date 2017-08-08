@@ -3,22 +3,21 @@ import Foundation
 
 class MergeReslover {
     static let shared = MergeReslover()
-     var conflictCount:Int = 0
-     var index:Int = 0
-     var unMergedFiles:[String] = []
-     var repoItem:RepoItem?
+    var conflictCount:Int = 0
+    var index:Int = 0
+    var unMergedFiles:[String] = []
+    var repoItem:RepoItem?
     /**
      * Promts the user with a list of options to aid in resolving merge conflicts
      * PARAM branch: the branch you tried to merge into
      */
-     func resolveConflic(_ repoItem:RepoItem, _ unMergedFiles:[String]){
+     func resolveConflict(_ repoItem:RepoItem, _ unMergedFiles:[String]){
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
         conflictCount = unMergedFiles.count
         self.unMergedFiles = unMergedFiles
         self.repoItem = repoItem
         nextConflict()
-        
     }
     /**
      * Iterate throught the conflicts
@@ -32,7 +31,6 @@ class MergeReslover {
         Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
         Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
         
-        
         let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
         let file:String = "File: \(unMergedFiles[index])"
         let repo:String = "Repository: \(repoItem.title)"
@@ -45,7 +43,7 @@ class MergeReslover {
         
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
         
-        //            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
+        //fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
     }
     
      var options:[String] = [
