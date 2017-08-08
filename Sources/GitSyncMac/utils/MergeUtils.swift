@@ -23,8 +23,12 @@ class MergeUtils{
      */
     static func manualMerge(_ repoItem:RepoItem){
         Swift.print("🍊 MergeUtils.manualMerge()")
-        var hasUnMergedPaths:Bool  {return GitAsserter.hasUnMergedPaths(repoItem.localPath)}//🌵 Asserts if there are unmerged paths that needs resolvment
-        var hasManualPullReturnedError:Bool {return GitUtils.manualPull(repoItem.gitRepo)}//🌵 Manual clone down files
+        var hasUnMergedPaths:Bool  {
+            return GitAsserter.hasUnMergedPaths(repoItem.localPath)//🌵 Asserts if there are unmerged paths that needs resolvment
+        }
+        var hasManualPullReturnedError:Bool {
+            return GitUtils.manualPull(repoItem.gitRepo)//🌵 Manual pull down files
+        }
         if  hasUnMergedPaths || hasManualPullReturnedError{
             Swift.print("has unmerged paths to resolve")
             let unMergedFiles:[String] = GitParser.unMergedFiles(repoItem.localPath)//🌵 Compile a list of conflicting files somehow
