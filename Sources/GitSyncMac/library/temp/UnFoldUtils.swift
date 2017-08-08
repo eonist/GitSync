@@ -81,11 +81,17 @@ class UnFoldUtils{
 
         
         if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
+            Swift.print("found a match")
             return unfoldable
         }else if path.count > 1 && !view.subviews.isEmpty{
+            Swift.print("no match, keep searching")
             for subView in view.subviews{
-                return retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
+                if let unfoldable = subView as? UnFoldable  {
+                    return retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
+                }
             }
+        }else{
+            Swift.print("")
         }
         
 //        
