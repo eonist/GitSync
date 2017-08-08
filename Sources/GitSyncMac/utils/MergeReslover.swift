@@ -79,19 +79,36 @@ class MergeReslover {
         //Swift.print("MergeUtil.handleMergeConflictDialog())
         //last_selected_action = selected
         switch option {
-        case Option.singular(let ):
-            Swift.print("")
-        default:
-            Swift.print("")
+        case Option.singular(let singularOption):
+            switch singularOption {
+            case .local:
+                Swift.print("keep local version")
+                _ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)/*keep local version*/
+            case .remote:
+                Swift.print("keep remote version")
+                _ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)/*keep remote version*/
+            case .mix:
+                Swift.print("keep mix of both versions")
+                _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
+            }
+        case Option.all(let allOption):
+            switch allOption {
+            case .local:
+                Swift.print("")
+            case .remote:
+                Swift.print("")
+            case .mix:
+                Swift.print("")
+            }
         }
         let selected = ""
         switch selected{
-        case options[0]:/*keep local version*/
-            _ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
-        case options[1]:/*keep remote version*/
-            _ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
-        case options[2]:/*keep mix of both versions*/
-            _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
+        case options[0]:/**/
+            
+        case options[1]:/**/
+            
+        case options[2]:/**/
+            
         case options[3]:/*open local version*/
             _ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
             FileUtils.openFile(localRepoPath + unmergedFile)
