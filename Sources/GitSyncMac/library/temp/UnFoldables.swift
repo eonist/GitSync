@@ -26,6 +26,9 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
 }
+extension TextArea:UnFoldable{
+    
+}
 extension RadioButton{
     struct RadioButtonConfig{
         let text:String
