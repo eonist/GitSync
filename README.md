@@ -22,12 +22,12 @@
 
 ### Build:
 
-1. Terminal: cd ~/dev/MyProject/ 👈 navigate to your project
-2. Terminal: swift package init 👈 creates the initial SPM files
-3. Add the content of [Package.swift](https://github.com/eonist/Element/blob/master/Package.swift) to your newly created Package.swift file:
-4. Terminal: swift build 
-5. Terminal: swift package generate-xcodeproj 👈 Creates an XCode project
-6. XCode: open your project and run it (cmd + r )
+1. Terminal: `cd ~/dev/GitSync/` + <kbd>Enter</kbd>
+2. Terminal: `swift package init` + <kbd>Enter</kbd>
+3. Copy/Paste the content of [Package.swift](https://github.com/eonist/Element/blob/master/Package.swift) to your newly created Package.swift file:
+4. Terminal: `swift build` + <kbd>Enter</kbd>
+5. Terminal: `swift package generate-xcodeproj` + <kbd>Enter</kbd>
+6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd> <kbd>R</kbd>
 
 ### Change-log:
 
