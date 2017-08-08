@@ -47,9 +47,9 @@ extension CommitDialogView{
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        
+        Swift.print("onOKButtonClick")
         let title:String = self.retrieve([Key.title,TextInput.Key.inputText])  ?? {fatalError("error")}()
-        let desc:String = self.retrieve([Key.repo,TextInput.Key.inputText])  ?? {fatalError("error")}()
+        let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error")}()
         
         let commitMessage = CommitMessage(title,desc)
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
