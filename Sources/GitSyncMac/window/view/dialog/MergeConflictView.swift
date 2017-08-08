@@ -93,12 +93,12 @@ extension MergeConflictView{
         let selectedRadioButtonId:String = (radioButtonGroup.selected as? ElementKind)?.id ?? {fatalError("error")}()
         Swift.print("selectedRadioButtonId: " + "\(String(describing: selectedRadioButtonId))")
         
-        let isApplyAllConflictsChecked:Bool? = self.retrieve([Key.applyAllConflicts])
+        let isApplyAllConflictsChecked:Bool = self.retrieve([Key.applyAllConflicts])  ?? {fatalError("error")}()
         Swift.print("isApplyAllConflictsChecked: " + "\(String(describing: isApplyAllConflictsChecked))")
-        let isApplyApplyAllReposChecked:Bool? = self.retrieve([Key.applyAllRepos])// ?? {fatalError("error")}()
+        let isApplyApplyAllReposChecked:Bool = self.retrieve([Key.applyAllRepos]) ?? {fatalError("error")}()
         Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
         
-        MergeReslover.Option.singular(.local)
+        
         
         switch selectedRadioButtonId {
         case Key.keepLocal:
@@ -111,13 +111,16 @@ extension MergeConflictView{
             Swift.print("")
         }
         
-        let option:MergeReslover.Option
+        let option:MergeReslover.Option = {
+            if isApplyAllConflictsChecked {
+                return MergeReslover.Option.singular(.local)
+            }else {
+                return MergeReslover.Option.all(.local)
+            }
+        }()
         
-        if isApplyAllConflictsChecked {
-            
-        }else {
-            
-        }
+        MergeReslover.shared.processMergeStrategy(option)
+        
         
 //        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
