@@ -93,7 +93,7 @@ class MergeReslover {
                 _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
             }
             index += 1
-            nextConflict()
+            
         case Option.all(let allOption):
             switch allOption {  
             case .local:
@@ -107,10 +107,11 @@ class MergeReslover {
                 _ = GitModifier.checkOut(localRepoPath, branch, "*")
             }
             index = conflictCount
-            nextConflict()
+            
         }
-        
-        
+         //after each iteration you have to commit, bring that into the fold
+        _ = GitSync.commit(localRepoPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
+        nextConflict()
         
         
         /*open local version*/
