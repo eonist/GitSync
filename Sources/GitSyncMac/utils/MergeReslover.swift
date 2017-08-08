@@ -75,6 +75,7 @@ class MergeReslover {
         let unmergedFile = unMergedFiles[0]
         let localRepoPath = repoItem?.localPath ?? {fatalError("error")}()
         let branch = repoItem?.branch ?? {fatalError("error")}()
+        //TODO:⚠️️ merge the two blocks together somehow, they are similar in design
         switch option {
         case Option.singular(let singularOption):
             switch singularOption {
