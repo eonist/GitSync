@@ -70,6 +70,24 @@ class UnFoldUtils{
             unfoldable.value = value
         }
     }
+    
+    
+    private static func isMatch(_ unfoldable:UnFoldable,_ path:[String]) -> Bool{
+        if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
+            Swift.print("found a match")
+            return true
+        }else{
+            Swift.print("no match")
+            return false
+        }
+    }
+    
+    private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
+        guard let parentView = unfoldable as? NSView else{
+            Swift.print("parent isnt a nsview")
+            return nil
+        }
+    }
     /**
      * Traverses a hierarchy and find the Unfoldable at the correct path
      */
@@ -79,13 +97,11 @@ class UnFoldUtils{
             return nil
         }
         
-        func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
-            
-        }
+        
         
         for subView in parentView.subviews{
             if let unfoldable = subView as? UnFoldable  {
-                if isMatch(unfoldable) {
+                if isMatch(unfoldable,path) {
                     return unfoldable
                 }else {
                     let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
@@ -98,16 +114,6 @@ class UnFoldUtils{
         
         
      
-        
-        func isMatch(_ unfoldable:UnFoldable) -> Bool{
-            if let element = unfoldable as? Element, path.count == 1, element.id == path[0] {
-                Swift.print("found a match")
-                return true
-            }else{
-                Swift.print("no match")
-                return false
-            }
-        }
         if isMatch(parent) {//check if parent it self is a match
             return parent
         }else {//check if children can be a match
