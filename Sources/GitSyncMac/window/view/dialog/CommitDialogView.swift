@@ -32,6 +32,7 @@ extension CommitDialogView{
      * New
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
+        Swift.print("setData")
         self.repoItem = repoItem
         self.apply([Key.repo,TextInput.Key.inputText],repoItem.title)
         self.apply([Key.title,TextInput.Key.inputText],commitMessage.title)
