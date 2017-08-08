@@ -72,6 +72,7 @@ class MergeReslover {
         let localRepoPath = repoItem?.localPath ?? {fatalError("error")}()
         let branch = repoItem?.branch ?? {fatalError("error")}()
         //TODO:⚠️️ merge the two blocks together somehow, they are similar in design
+        Swift.print("option: " + "\(option)")
         switch option {
         case Option.singular(let singularOption):
             switch singularOption {
@@ -88,7 +89,7 @@ class MergeReslover {
             index += 1
             
         case Option.all(let allOption):
-            switch allOption {  
+            switch allOption {
             case .local:
                 Swift.print("keep all local versions")
                 _ = GitModifier.checkOut(localRepoPath, "--ours", "*")/*keep all local versions*/

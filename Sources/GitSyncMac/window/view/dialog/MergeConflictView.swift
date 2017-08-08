@@ -122,18 +122,6 @@ extension MergeConflictView{
     static func strategy(_ applyToAll:Bool,_ id:String) -> MergeReslover.Option{
         let option:MergeReslover.Option = {
             if applyToAll {
-                return MergeReslover.Option.singular(
-                    {
-                        if id == Key.keepLocal {
-                            return .local
-                        }else if id == Key.keepRemote{
-                            return .remote
-                        }else{//Key.keepMixed
-                            return .mix
-                        }
-                    }()
-                )
-            }else {
                 return MergeReslover.Option.all(
                     {
                         if id == Key.keepLocal {
@@ -145,6 +133,19 @@ extension MergeConflictView{
                         }
                     }()
                 )
+            }else {
+                return MergeReslover.Option.singular(
+                    {
+                        if id == Key.keepLocal {
+                            return .local
+                        }else if id == Key.keepRemote{
+                            return .remote
+                        }else{//Key.keepMixed
+                            return .mix
+                        }
+                    }()
+                )
+                
             }
         }()
         return option
