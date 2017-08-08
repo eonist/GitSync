@@ -1,7 +1,7 @@
 import Foundation
 
-class MergeConflictReslover {
-    static let shared = MergeConflictReslover()
+class MergeReslover {
+    static let shared = MergeReslover()
      var conflictCount:Int = 0
      var index:Int = 0
      var unMergedFiles:[String] = []
@@ -10,7 +10,7 @@ class MergeConflictReslover {
      * Promts the user with a list of options to aid in resolving merge conflicts
      * PARAM branch: the branch you tried to merge into
      */
-     func resolveMergeConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String]){
+     func resolveConflic(_ repoItem:RepoItem, _ unMergedFiles:[String]){
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
         conflictCount = unMergedFiles.count
@@ -24,14 +24,15 @@ class MergeConflictReslover {
      */
      func nextConflict(){
         let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-        Swift.print("localRepoPath: " + "\(repoItem?.localPath)")
-        Swift.print("branch: " + "\(repoItem?.branch)")
+        guard let repoItem = repoItem else{fatalError("error")}
+        Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
+        Swift.print("branch: " + "\(String(describing: repoItem.branch))")
         Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
         Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
         
         
         let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
-        let file:String = "File: \(unMergedFile)"
+        let file:String = "File: \(unMergedFiles[index])"
         let repo:String = "Repository: \(repoItem.title)"
         
         
