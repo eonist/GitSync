@@ -129,7 +129,38 @@ extension MergeConflictView{
 }
 
 
-extension MergeReslover.Option{
-    
-    
+extension MergeConflictView{
+    /**
+     *
+     */
+    static func option(applyToAll:Bool,id:String) -> MergeReslover.Option{
+        let option:MergeReslover.Option = {
+            if applyToAll {
+                return MergeReslover.Option.singular(
+                    {
+                        if id == Key.keepLocal {
+                            return .local
+                        }else if id == Key.keepRemote{
+                            return .remote
+                        }else{//Key.keepMixed
+                            return .mix
+                        }
+                    }()
+                )
+            }else {
+                return MergeReslover.Option.all(
+                    {
+                        if id == Key.keepLocal {
+                            return .local
+                        }else if id == Key.keepRemote{
+                            return .remote
+                        }else{//Key.keepMixed
+                            return .mix
+                        }
+                    }()
+                )
+            }
+        }()
+        return option
+    }
 }
