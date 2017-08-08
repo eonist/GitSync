@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class MergeReslover {
     static let shared = MergeReslover()
@@ -20,9 +21,10 @@ class MergeReslover {
         
     }
     /**
-     *
+     * Iterate throught the conflicts
      */
      func nextConflict(){
+        guard index < conflictCount else{return}//stop iteration if all conflicts are resolved
         let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
         guard let repoItem = repoItem else{fatalError("error")}
         Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
@@ -37,8 +39,10 @@ class MergeReslover {
         
         
         let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
-        Nav.setView(.dialog(.conflict(mergeConflict)))
-        //promt user with list of options, title: Merge conflict in: unmerged_file
+        
+        Nav.setView(.dialog(.conflict(mergeConflict)))//promt user with list of options, title: Merge conflict in: unmerged_file
+        index += 1
+        
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
         
         //            fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
@@ -62,7 +66,7 @@ class MergeReslover {
      * Handles the choice made in the merge conflict dialog
      * TODO: test the open file clauses
      */
-     static func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
+    func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]){
         //Swift.print("MergeUtil.handleMergeConflictDialog())
         //last_selected_action = selected
         switch selected{
