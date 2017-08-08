@@ -68,8 +68,10 @@ class MergeReslover {
     func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
         Swift.print("MergeUtil.processMergeStrategy()")
         //last_selected_action = selected
-        let unmergedFile = unMergedFiles[0]
+        let unmergedFile = unMergedFiles[index]
+        Swift.print("unmergedFile: " + "\(unmergedFile)")
         let localRepoPath = repoItem?.localPath ?? {fatalError("error")}()
+        Swift.print("localRepoPath: " + "\(localRepoPath)")
         let branch = repoItem?.branch ?? {fatalError("error")}()
         //TODO:⚠️️ merge the two blocks together somehow, they are similar in design
         Swift.print("option: " + "\(option)")
