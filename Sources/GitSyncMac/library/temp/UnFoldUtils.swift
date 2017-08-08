@@ -65,7 +65,7 @@ class UnFoldUtils{
      * IMPROVMENT: ⚠️️ Might need to change view to generic, because not all NSViews are unfoldable, think containers etc
      */
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
-        if var unfoldable:UnFoldable = retrieveUnFoldable(view, path)/*, let last = path.last*/{
+        if var unfoldable:UnFoldable = retrieveUnFoldable(parent:view, path)/*, let last = path.last*/{
             Swift.print("unfoldable: " + "\(unfoldable)")
             unfoldable.value = value
         }
@@ -83,6 +83,7 @@ class UnFoldUtils{
     }
     
     private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
+        Swift.print("retrieve unfoldable: \(unfoldable) path: \(path)")
         if isMatch(unfoldable,path) {//check if unfoldable it self is a match
             return unfoldable
         }else {//check if children can be a match
@@ -123,7 +124,7 @@ class UnFoldUtils{
      * EXAMPLE: let repo:String = UnFoldUtils.retrive(self,Key.repo,[TextInput.Key.inputText])
      */
     static func retrieveValue<T>(_ view:UnFoldable, _ path:[String]) -> T?{
-        let unfoldable:UnFoldable? = retrieveUnFoldable(view, path)
+        let unfoldable:UnFoldable? = retrieveUnFoldable(parent:view, path)
 //        Swift.print("unfoldable: " + "\(String(describing: unfoldable))")
         let value:T? = unfoldable?.value as? T
 //        Swift.print("value: " + "\(String(describing: value))")
