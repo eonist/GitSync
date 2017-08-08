@@ -61,7 +61,6 @@ class MergeReslover {
         "open all mixed versions"
     ]
     enum Option{
-        
         enum All{
             case local,remote,mix
         }
@@ -94,53 +93,42 @@ class MergeReslover {
         case Option.all(let allOption):
             switch allOption {
             case .local:
-                Swift.print("")
+                Swift.print("keep all local versions")
+                _ = GitModifier.checkOut(localRepoPath, "--ours", "*")/*keep all local versions*/
             case .remote:
-                Swift.print("")
+                Swift.print("keep all remote versions")
+                _ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
             case .mix:
-                Swift.print("")
+                Swift.print("keep all local and remote versions")
+                _ = GitModifier.checkOut(localRepoPath, branch, "*")
             }
         }
         
         
         /*open local version*/
+        //_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
         //FileUtils.openFile(localRepoPath + unmergedFile)
         
         /*open remote version*/
-        let selected = ""
-        switch selected{
-        case options[0]:/**/
-            
-        case options[1]:/**/
-            
-        case options[2]:/**/
-            
-        case options[3]:
-            _ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
-            
-        case options[4]:
-            _ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
-            FileUtils.openFile(localRepoPath + unmergedFile)
-        case options[5]:/*open mix of both versions*/
-            _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
-            FileUtils.openFile(localRepoPath + unmergedFile)
-        case options[6]:/*keep all local versions*/
-            _ = GitModifier.checkOut(localRepoPath, "--ours", "*")
-        case options[7]:/*keep all remote versions*/
-            _ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
-        case options[8]:/*keep all local and remote versions*/
-            _ = GitModifier.checkOut(localRepoPath, branch, "*")
-        case options[9]:/*open all local versions*/
-            _ = GitModifier.checkOut(localRepoPath, "--ours", "*")
-            FileUtils.openFiles([])/*localRepoPath unmergedFiles*/
-        case options[10]:/*open all remote versions*/
-            _ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
-            FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
-        case options[11]:/*open all mixed versions*/
-            _ = GitModifier.checkOut(localRepoPath, branch, "*")
-            FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
-        default:
-            break;
-        }
+//        _ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
+//        FileUtils.openFile(localRepoPath + unmergedFile)
+        
+        /*open mix of both versions*/
+//        _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
+//        FileUtils.openFile(localRepoPath + unmergedFile)
+        
+        /*open all local versions*/
+//        _ = GitModifier.checkOut(localRepoPath, "--ours", "*")
+//        FileUtils.openFiles([])/*localRepoPath unmergedFiles*/
+        
+        /*open all remote versions*/
+//        _ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
+//        FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
+
+        /*open all mixed versions*/
+//        _ = GitModifier.checkOut(localRepoPath, branch, "*")
+//        FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
+        
+        
     }
 }
