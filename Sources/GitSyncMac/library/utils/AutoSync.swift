@@ -40,9 +40,7 @@ class AutoSync {
      * New
      */
     func incrementCountForRepoWithMSG(){
-        Swift.print("incrementCountForRepoWithMSG 🍏")
-        Swift.print("countForRepoWithMSG: " + "\(countForRepoWithMSG)")
-        Swift.print("repoListThatRequireManualMSG!.count: " + "\(messageRepos!.count)")
+        Swift.print("incrementCountForRepoWithMSG 🍏 curIndex: \(countForRepoWithMSG) of tot: \(messageRepos!.count)")
         if countForRepoWithMSG < messageRepos!.count {
             let repo = messageRepos![countForRepoWithMSG]
             countForRepoWithMSG += 1
