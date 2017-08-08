@@ -37,7 +37,10 @@ class AutoInit {
                     _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
                 }
                 let gitRepo = GitRepo(localPath,  remotePath,  branch)
-                MergeUtils.manualMerge(RepoItem.repoItem(gitRepo))
+                let repoItem = RepoItem.repoItem(gitRepo)
+                MergeUtils.manualMerge(repoItem){
+                    Swift.print("Manual merge completed")
+                }
             }
         }else {//--path does not exist
             //GitUtils.manualClone(localPath, remotePath)
