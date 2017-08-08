@@ -14,7 +14,6 @@ struct MergeConflict{
 }
 
 class MergeUtils{
-    
     /**
      * Manual merge
      * NOTE: tries to merge a remote branch into a local branch
