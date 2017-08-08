@@ -28,7 +28,9 @@ class MergeReslover {
      * Iterate throught the conflicts
      */
      func nextConflict(){
+        Swift.print("nextConflict")
         guard index < conflictCount else{//stop iteration if all conflicts are resolved
+            Swift.print("allComplete")
             allComplete()
             return
         }
@@ -64,7 +66,7 @@ class MergeReslover {
      * TODO: test the open file clauses
      */
     func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
-        Swift.print("MergeUtil.handleMergeConflictDialog()")
+        Swift.print("MergeUtil.processMergeStrategy()")
         //last_selected_action = selected
         let unmergedFile = unMergedFiles[0]
         let localRepoPath = repoItem?.localPath ?? {fatalError("error")}()
@@ -101,6 +103,7 @@ class MergeReslover {
             
         }
          //after each iteration you have to commit, bring that into the fold
+        
         _ = GitSync.commit(localRepoPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
         nextConflict()
         
