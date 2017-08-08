@@ -29,7 +29,11 @@ class MergeUtils{
             //Swift.print("has unmerged paths to resolve")
             let unMergedFiles:[String] = GitParser.unMergedFiles(repoItem.localPath)//🌵 Compile a list of conflicting files somehow
             MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
-                _ = GitSync.commit(repoItem.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
+                
+             //Continue here: 🏀
+                //after each iteration you have to commit, bring that into the fold
+                
+            _ = GitSync.commit(repoItem.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
             }//🌵 Asserts if there are unmerged paths that needs resolvment
         }else {
             Swift.print("MergeUtils.manualMerge() no resolvment needed")
