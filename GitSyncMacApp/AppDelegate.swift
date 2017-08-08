@@ -25,9 +25,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //start hocking up MergeConflicView logic ✅
                     //check legacy code ✅
         
-            //The autosync on interval
-                //stop on pull gesture init
-                //start after pull gesture completes
+            //The autosync on interval 👈
+                //stop on pull gesture init 🚫
+                //start after pull gesture completes etc
         
             //Add Auto init
                 //auto fill local path
