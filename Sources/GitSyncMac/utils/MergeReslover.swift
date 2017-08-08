@@ -48,8 +48,10 @@ class MergeReslover {
         
         let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
         
-        main.async{Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))}
-//        Nav.setView(.dialog(.conflict(mergeConflict)))//promt user with list of options, title: Merge conflict in: unmerged_file
+        
+        main.async{
+            Nav.setView(.dialog(.conflict(mergeConflict)))//promt user with list of options, title: Merge conflict in: unmerged_file
+        }
         
         
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
@@ -90,6 +92,8 @@ class MergeReslover {
                 Swift.print("keep mix of both versions")
                 _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
             }
+            index += 1
+            nextConflict()
         case Option.all(let allOption):
             switch allOption {
             case .local:
@@ -102,9 +106,11 @@ class MergeReslover {
                 Swift.print("keep all local and remote versions")
                 _ = GitModifier.checkOut(localRepoPath, branch, "*")
             }
+            index = conflictCount
+            nextConflict()
         }
         
-        nextConflict()
+        
         
         
         /*open local version*/
