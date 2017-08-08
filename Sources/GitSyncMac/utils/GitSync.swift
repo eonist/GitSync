@@ -37,7 +37,7 @@ class GitSync{
         MergeUtils.manualMerge(repoItem)//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
         let repo:GitRepo = repoItem.gitRepo
         let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
-        //Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
+        Swift.print("initPush.hasLocalCommits: " + "\(hasLocalCommits)")
         var hasPushed:Bool = false
         if hasLocalCommits { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
             guard let keychainPassword:String = KeyChainParser.password("GitSyncApp") else{ fatalError("password not found")}
@@ -49,7 +49,7 @@ class GitSync{
             Swift.print("pushCallBack: " + "\(pushCallBack)")
             hasPushed = true
         }
-        Swift.print("hasPushed: " + "\(hasPushed)")
+        Swift.print("initPush.hasPushed: " + "\(hasPushed)")
 //        main.async {/*jump back on the main thread*/
             onComplete()
 //        }
