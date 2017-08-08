@@ -43,6 +43,8 @@ class MergeReslover {
         let file:String = "File: \(unMergedFiles[index])"
         let repo:String = "Repository: \(repoItem.title)"
         
+        //Continue here:
+            //call processMergeStrategy from MergeResolver
         
         let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
         
