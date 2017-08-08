@@ -119,10 +119,10 @@ class UnFoldUtils{
      */
     static func retrieveValue<T>(_ view:UnFoldable, _ path:[String]) -> T?{
         let unfoldable:UnFoldable? = retrieveUnFoldable(parent:view, path)
-        Swift.print("unfoldable: " + "\(String(describing: unfoldable))")
+        Swift.print("unfoldable: " + "\(unfoldable)")
         Swift.print("unfoldable?.value: " + "\(unfoldable?.value)")
-        let value:T? = unfoldable?.value as? T
-        Swift.print("value: " + "\(String(describing: value))")
+        let value:T? = unfoldable!.value as? T
+        Swift.print("value: " + "\(value)")
         return value
     }
     
