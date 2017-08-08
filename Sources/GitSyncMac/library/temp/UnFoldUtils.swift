@@ -107,7 +107,7 @@ class UnFoldUtils{
                 if isMatch(unfoldable,path) {
                     return unfoldable
                 }else {
-                    let retVal =  retrieveUnFoldable(unfoldable, path.slice2(1, path.count))//removes first item in path
+                    let retVal =  retrieveUnFoldable(unfoldable, path.slice2(0, path.count))//removes first item in path
                     if retVal != nil {
                         return retVal
                     }
