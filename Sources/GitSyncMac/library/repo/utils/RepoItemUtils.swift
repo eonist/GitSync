@@ -65,7 +65,7 @@ class RepoUtils {
 private class Utils{
     /**
      * Recursive flatMap with parent overriding abilities
-     * NOTE: this also lets parents override the values in some keyes in children
+     * NOTE: this also lets parents override the values in some keys in children
      * INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
      * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
      * PARAM: overriders: only let items with either of these be able to override (aka folders)
