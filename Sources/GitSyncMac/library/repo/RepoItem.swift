@@ -23,6 +23,11 @@ struct RepoItem {
         self.title = title
     }
     init(){}//dont delete this
+    
+
+}
+extension RepoItem{
+    var localPath:String {get {return local} set{local = newValue}}
     var gitRepo:GitRepo {
         let remotePath:String = {
             if self.remote.test("^https://.+$") {
@@ -33,17 +38,13 @@ struct RepoItem {
         }()
         return GitRepo(self.local, remotePath, self.branch)
     }//temp
-    func repoItem(_ gitRepo:GitRepo) -> RepoItem {
+    static func repoItem(_ gitRepo:GitRepo) -> RepoItem {
         var repoItem = RepoItem()
         repoItem.local = gitRepo.localPath
         repoItem.remote = "https://" + gitRepo.remotePath
         repoItem.branch = gitRepo.branch
         return repoItem
     }
-
-}
-extension RepoItem{
-    var localPath:String {get {return local} set{local = newValue}}
 }
 enum RepoType:String{
     case title = "title"

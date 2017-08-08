@@ -1,7 +1,6 @@
 import Foundation
 @testable import Utils
 @testable import Element
-@testable import GitSyncMac
 
 class AutoInit {
     /**
@@ -37,8 +36,8 @@ class AutoInit {
                     _ = GitModifier.initialize(localPath)
                     _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
                 }
-                let gitRepo:GitRepo = .init(localPath,  remotePath,  branch)
-                MergeUtils.manualMerge(gitRepo)
+                let gitRepo = GitRepo(localPath,  remotePath,  branch)
+                MergeUtils.manualMerge(RepoItem.repoItem(gitRepo))
             }
         }else {//--path does not exist
             //GitUtils.manualClone(localPath, remotePath)
