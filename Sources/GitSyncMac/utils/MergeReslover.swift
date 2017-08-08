@@ -58,16 +58,7 @@ class MergeReslover {
         
         //fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
     }
-    enum Option{
-        enum All{
-            case local,remote,mix
-        }
-        enum Singular{
-            case local,remote,mix
-        }
-        case all(All)
-        case singular(Singular)
-    }
+    
     /**
      * Handles the choice made in the merge conflict dialog
      * TODO: test the open file clauses
@@ -113,31 +104,45 @@ class MergeReslover {
         _ = GitSync.commit(localRepoPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
         nextConflict()
         
-        
-        /*open local version*/
-        //_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
-        //FileUtils.openFile(localRepoPath + unmergedFile)
-        
-        /*open remote version*/
+    }
+}
+
+extension MergeReslover{
+    enum Option{
+        enum All{
+            case local,remote,mix
+        }
+        enum Singular{
+            case local,remote,mix
+        }
+        case all(All)
+        case singular(Singular)
+    }
+}
+
+
+/*open local version*/
+//_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
+//FileUtils.openFile(localRepoPath + unmergedFile)
+
+/*open remote version*/
 //        _ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 //        FileUtils.openFile(localRepoPath + unmergedFile)
-        
-        /*open mix of both versions*/
+
+/*open mix of both versions*/
 //        _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
 //        FileUtils.openFile(localRepoPath + unmergedFile)
-        
-        /*open all local versions*/
+
+/*open all local versions*/
 //        _ = GitModifier.checkOut(localRepoPath, "--ours", "*")
 //        FileUtils.openFiles([])/*localRepoPath unmergedFiles*/
-        
-        /*open all remote versions*/
+
+/*open all remote versions*/
 //        _ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
 //        FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
 
-        /*open all mixed versions*/
+/*open all mixed versions*/
 //        _ = GitModifier.checkOut(localRepoPath, branch, "*")
 //        FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
-        
-        
-    }
-}
+
+       
