@@ -4,19 +4,30 @@
 # GitSync
 <img width="516" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Element210-01.png">
 
-### Commits:
+**Commits:**
 
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 18.01.40.png">
 
-### Prefs: 
+**Prefs:** 
 
 <img width="404" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 23.34.36.png">
 
-### DarkMode:
+**DarkMode:**	
 
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 17.49.33 copy.png">
 
+### Install:
+
 [Download](https://github.com/eonist/GitSync/releases) 
+
+### Build:
+
+1. Terminal: cd ~/dev/MyProject/ 👈 navigate to your project
+2. Terminal: swift package init 👈 creates the initial SPM files
+3. Add the content of [Package.swift](https://github.com/eonist/Element/blob/master/Package.swift) to your newly created Package.swift file:
+4. Terminal: swift build 
+5. Terminal: swift package generate-xcodeproj 👈 Creates an XCode project
+6. XCode: open your project and run it (cmd + r )
 
 ### Change-log:
 
