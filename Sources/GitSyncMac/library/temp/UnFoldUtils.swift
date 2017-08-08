@@ -98,11 +98,11 @@ class UnFoldUtils{
             return nil
         }
         for subView in parentView.subviews{
-            if let unfoldable = subView as? UnFoldable  {
-                if isMatch(unfoldable,path) {
-                    return unfoldable
+            if let sub = subView as? UnFoldable  {
+                if isMatch(sub,path) {
+                    return sub
                 }else {
-                    let retVal =  retrieve(unfoldable, path.slice2(0, path.count))//removes first item in path
+                    let retVal =  retrieve(sub, path.slice2(0, path.count))//removes first item in path
                     if retVal != nil {
                         return retVal
                     }
