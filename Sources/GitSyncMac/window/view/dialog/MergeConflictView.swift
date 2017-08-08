@@ -99,12 +99,13 @@ extension MergeConflictView{
         Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
         
         
-        _ = {
-            if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
-            
+        defer{
             let strategy = MergeConflictView.strategy(isApplyAllConflictsChecked,selectedRadioButtonId)
             MergeReslover.shared.processMergeStrategy(strategy)
-        }()
+        }
+        
+        if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
+          
         
 //        let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
         
