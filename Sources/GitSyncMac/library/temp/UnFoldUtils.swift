@@ -73,10 +73,10 @@ class UnFoldUtils{
     }
     
     
-    private static func isMatch(_ unfoldable:UnFoldable,_ path:[String]) -> Bool{
-        Swift.print("isMatch: unfoldable: \(unfoldable) path: \(path)")
-        if let element = unfoldable as? Element, element.id == path[0] {
-            Swift.print("found a match: element.id: \(element.id)")
+    private static func isMatch(_ unfoldable:UnFoldable, _ id:String) -> Bool{
+        
+        if let element = unfoldable as? ElementKind, element.id == id {
+            Swift.print("found a match")
             return true
         }else{
             Swift.print("no match")
@@ -85,8 +85,8 @@ class UnFoldUtils{
     }
     
     private static func retrieve(_ unfoldable:UnFoldable, _ path:[String]) -> UnFoldable?{
-        Swift.print("retrieve unfoldable.id: \((unfoldable as! ElementKind).id) path: \(path)")
-        if isMatch(unfoldable,path) {//check if unfoldable it self is a match
+//        Swift.print("retrieve unfoldable.id: \((unfoldable as! ElementKind).id) path: \(path)")
+        if isMatch(unfoldable,path[0]) {//check if unfoldable it self is a match
             return unfoldable
         }else {//check if children can be a match
             return retrieveUnFoldable(parent:unfoldable, path.slice2(1, path.count))//removes first item in path
@@ -102,7 +102,7 @@ class UnFoldUtils{
         }
         for subView in parentView.subviews{
             if let sub = subView as? UnFoldable  {
-                if isMatch(sub, path){
+                if isMatch(sub, path[0]){
                     return retrieve(sub, path)
                 }
                 
