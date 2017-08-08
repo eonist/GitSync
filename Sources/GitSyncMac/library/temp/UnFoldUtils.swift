@@ -74,17 +74,19 @@ class UnFoldUtils{
      * Traverses a hierarchy and find the Unfoldable at the correct path
      */
     static func retrieveUnFoldable(_ view:UnFoldable, _ path:[String]) -> UnFoldable?{
-        
-        
-        
-        
-        
-        Swift.print("view: " + "\(view)")
         guard let view = view as? NSView else{
             Swift.print("view isnt a nsview")
             return nil
         }
-        for subView in view.subviews{
+
+        
+        if let element = view as? Element, path.count == 1, element.id == path[0]{
+            
+        }
+        
+        
+        Swift.print("view: " + "\(view)")
+                for subView in view.subviews{
             if let unFoldable:UnFoldable = subView as? UnFoldable,let element = subView as? Element,let id:String = element.id{
                 Swift.print("id: " + "\(id)" + " path[0]: " + "\(path[0]) path: \(path)")
                 if path.count == 1 && path[0] == id{
