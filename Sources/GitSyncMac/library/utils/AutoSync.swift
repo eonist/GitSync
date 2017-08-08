@@ -49,8 +49,9 @@ class AutoSync {
                 Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
             }else {
                 Swift.print("nothing to commit")
-                MergeUtils.manualMerge(repo)//nothing to commit but  check if remote has updates
-                incrementCountForRepoWithMSG()//nothing to commit, iterate
+                MergeUtils.manualMerge(repo){//nothing to commit but  check if remote has updates
+                    self.incrementCountForRepoWithMSG()//nothing to commit, iterate
+                }
             }
         }else{//aka complete
             syncOtherRepos()
