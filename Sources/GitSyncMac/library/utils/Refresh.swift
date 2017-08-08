@@ -18,8 +18,8 @@ class Refresh{
      * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called
      */
     func initRefresh(_ onAllRefreshComplete:@escaping RefreshComplete){
+        Swift.print("🔄🔄🔄 Refresh.initRefresh() ")
         self.onAllRefreshComplete = onAllRefreshComplete
-        Swift.print("🔄 Refresh.initRefresh() ")
         startTime = NSDate()/*Measure the time of the refresh*/
         refreshRepos()//🚪⬅️️Enter refresh process here
     }
