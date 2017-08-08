@@ -38,7 +38,7 @@ class MergeUtils{
             }//🌵 Asserts if there are unmerged paths that needs resolvment
         }else {
             Swift.print("MergeUtils.manualMerge() no resolvment needed")
-            onManualMergeComplete()
+            onManualMergeComplete() 
         }
     }
 }
