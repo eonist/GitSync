@@ -62,17 +62,10 @@ class MergeReslover {
     ]
     enum Options{
         enum All{
-            
+            case local,remote,mix
         }
-        enum 
-        enum Local{
-            case
-        }
-        enum Remote{
-            
-        }
-        enum Mixed{
-            
+        enum Singular{
+            case local,remote,mix
         }
     }
     /**
