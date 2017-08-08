@@ -14,7 +14,7 @@ class GitSync{
                 Swift.print("unMergedFiles: " + "\(unMergedFiles)")
                 
                 
-                MergeUtils.resolveMergeConflicts(repoItem, unMergedFiles)
+                M.resolveMergeConflicts(repoItem, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
             Swift.print("hasCommited: " + "\(hasCommited)")

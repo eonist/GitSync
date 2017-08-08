@@ -4,7 +4,7 @@ import Foundation
 class MergeReslover {
     static let shared = MergeReslover()
     var conflictCount:Int = 0
-    var index:Int = 0
+    var index:Int = 0//curConflictIndex
     var unMergedFiles:[String] = []
     var repoItem:RepoItem?
     /**
@@ -24,11 +24,11 @@ class MergeReslover {
      */
      func nextConflict(){
         guard index < conflictCount else{return}//stop iteration if all conflicts are resolved
-        let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
+//        let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
         guard let repoItem = repoItem else{fatalError("error")}
         Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
         Swift.print("branch: " + "\(String(describing: repoItem.branch))")
-        Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
+//        Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
         Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
         
         let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
@@ -45,21 +45,6 @@ class MergeReslover {
         
         //fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
     }
-    
-     var options:[String] = [
-        "keep local version",
-        "keep remote version",
-        "keep mix of both versions",
-        "open local version",
-        "open remote version",
-        "open mix of both versions",
-        "keep all local versions",
-        "keep all remote versions",
-        "keep all local and remote versions",
-        "open all local versions",
-        "open all remote versions",
-        "open all mixed versions"
-    ]
     enum Option{
         enum All{
             case local,remote,mix
