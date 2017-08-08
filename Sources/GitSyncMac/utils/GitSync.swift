@@ -13,7 +13,7 @@ class GitSync{
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
             Swift.print("hasCommited: " + "\(hasCommited)")
             //hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
-            initPush(repoItem,onComplete: onPushComplete)//push or check if you need to pull down changes and subsequently merge something
+            initPush(repoItem, onPushComplete)//push or check if you need to pull down changes and subsequently merge something
         }
         if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
             Swift.print("unMergedFiles.count: " + "\(unMergedFiles.count)")
@@ -31,7 +31,7 @@ class GitSync{
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      * IMPORTANT: ⚠️️ this is called on a background thread
      */
-    private static func initPush(_ repoItem:RepoItem, onPushComplete:@escaping PushComplete){
+    private static func initPush(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete){
         Swift.print("GitSync.initPush")
         
         MergeUtils.manualMerge(repoItem){//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
