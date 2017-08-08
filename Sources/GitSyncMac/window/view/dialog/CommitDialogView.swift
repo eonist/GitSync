@@ -48,16 +48,15 @@ extension CommitDialogView{
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
         Swift.print("onOKButtonClick")
-        let title:String = self.retrieve([Key.title,TextInput.Key.inputText])  ?? {fatalError("error")}()
-        let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error")}()
+        let title:String = self.retrieve([Key.title,TextInput.Key.inputText])  ?? {fatalError("error - must have title")}()
+        let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error - must have description")}()
         
         let commitMessage = CommitMessage(title,desc)
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
-//        bg.async {
-//            GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
-//        }
-//      Nav.setView(.main(.commit))
+        bg.async {
+            GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
+        }
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }
     
