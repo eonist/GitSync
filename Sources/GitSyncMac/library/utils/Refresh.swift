@@ -96,7 +96,7 @@ class RefreshUtils{
      * Find the range of commits to add to CommitDB for this repo
      */
     private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
-//        Swift.print("RefreshUtils.commitCount()")
+        Swift.print("RefreshUtils.commitCount()")
         var commitCount:Int = 0
         var totCommitCount:Int = 0
         let group = DispatchGroup()
