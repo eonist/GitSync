@@ -98,6 +98,8 @@ extension MergeConflictView{
         let isApplyApplyAllReposChecked:Bool? = self.retrieve([Key.applyAllRepos])// ?? {fatalError("error")}()
         Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
         
+        MergeReslover.Option.singular(.local)
+        
         switch selectedRadioButtonId {
         case Key.keepLocal:
             Swift.print("")
@@ -108,6 +110,8 @@ extension MergeConflictView{
         default:
             Swift.print("")
         }
+        
+        let option:MergeReslover.Option
         
         if isApplyAllConflictsChecked {
             
