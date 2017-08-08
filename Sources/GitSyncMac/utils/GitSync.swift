@@ -9,19 +9,26 @@ class GitSync{
      */
     static func initCommit(_ repoItem:RepoItem, commitMessage:CommitMessage? = nil, _ onPushComplete:@escaping PushComplete){
         Swift.print("GitSync.initCommit")
-        //bg.async {/*All these git processes needs to happen one after the other*/
-            if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
-                Swift.print("unMergedFiles: " + "\(unMergedFiles)")
-                MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
-                    let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
-                    Swift.print("hasCommited: " + "\(hasCommited)")
-                    //          hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
-                    //TODO:⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️ the next step should be psuh or check if you need to pull down changes and subsequently merge something
-                    initPush(repoItem,onComplete: onPushComplete)
-                }
-            }
         
-        //}
+        if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
+            Swift.print("unMergedFiles: " + "\(unMergedFiles)")
+            MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
+                let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
+                Swift.print("hasCommited: " + "\(hasCommited)")
+                //          hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
+                //TODO:⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️ the next step should be psuh or check if you need to pull down changes and subsequently merge something
+                initPush(repoItem,onComplete: onPushComplete)
+            }
+        }else{
+            let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
+            Swift.print("hasCommited: " + "\(hasCommited)")
+            //          hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
+            //TODO:⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️ the next step should be psuh or check if you need to pull down changes and subsequently merge something
+            initPush(repoItem,onComplete: onPushComplete)
+            
+        }
+        
+        
     }
     /**
      * Handles the process of making a push for a single repository (When a singular commit has competed this method is called)

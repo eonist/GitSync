@@ -14,6 +14,7 @@ class MergeReslover {
      * PARAM branch: the branch you tried to merge into
      */
     func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String], _ allComplete:@escaping AllComplete){
+        Swift.print("MergeReslover.resolveConflicts")
         //log "resolve_merge_conflicts()"
         //log ("MergeUtil's resolve_merge_conflicts()")
         self.allComplete = allComplete
