@@ -37,9 +37,9 @@ extension TextArea:UnFoldable{
     }
     var value:Any {
         get{
-            return [Key.text:self.getText()]
+            return [Key.text:self.getTextValue()]
         }set{
-            if let newValue:String = newValue as? String { self.setText(newValue) }
+            if let newValue:String = newValue as? String { self.setTextValue(newValue) }
         }
     }
 }
