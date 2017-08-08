@@ -33,6 +33,14 @@ struct RepoItem {
         }()
         return GitRepo(self.local, remotePath, self.branch)
     }//temp
+    func repoItem(_ gitRepo:GitRepo) -> RepoItem {
+        var repoItem = RepoItem()
+        repoItem.local = gitRepo.localPath
+        repoItem.remote = "https://" + gitRepo.remotePath
+        repoItem.branch = gitRepo.branch
+        return repoItem
+    }
+
 }
 extension RepoItem{
     var localPath:String {get {return local} set{local = newValue}}
