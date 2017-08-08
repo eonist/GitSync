@@ -23,12 +23,9 @@ class GitSync{
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
             Swift.print("hasCommited: " + "\(hasCommited)")
             //          hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
-            //TODO:⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️ the next step should be psuh or check if you need to pull down changes and subsequently merge something
-            initPush(repoItem,onComplete: onPushComplete)
+            initPush(repoItem,onComplete: onPushComplete)//psuh or check if you need to pull down changes and subsequently merge something
             
         }
-        
-        
     }
     /**
      * Handles the process of making a push for a single repository (When a singular commit has competed this method is called)
