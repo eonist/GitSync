@@ -110,10 +110,12 @@ extension MergeConflictView{
         default:
             Swift.print("")
         }
-        
+        let id = selectedRadioButtonId
         let option:MergeReslover.Option = {
             if isApplyAllConflictsChecked {
-                return MergeReslover.Option.singular(.local)
+                return MergeReslover.Option.singular(
+                    {if id == Key.keepLocal { return .local} else{ return .remote}}()
+                )
             }else {
                 return MergeReslover.Option.all(.local)
             }
