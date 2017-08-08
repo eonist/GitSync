@@ -73,7 +73,7 @@ class MergeReslover {
      * TODO: test the open file clauses
      */
     func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
-        //Swift.print("MergeUtil.handleMergeConflictDialog())
+        Swift.print("MergeUtil.handleMergeConflictDialog()")
         //last_selected_action = selected
         let unmergedFile = unMergedFiles[0]
         let localRepoPath = repoItem?.localPath ?? {fatalError("error")}()
