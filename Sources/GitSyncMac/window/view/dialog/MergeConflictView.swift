@@ -8,13 +8,13 @@ import Foundation
  * TODO: ⚠️️ Remove the cancel button and enable the close button again
  */
 class MergeConflictView:Element,UnFoldable{
-    lazy var radioButtonGroup:SelectGroup = {
+    lazy var radioButtonGroup:SelectGroup = {//TODO: ⚠️️  move this into an extension
         let buttons:[RadioButton] = ElementParser.children(self)
         let group = SelectGroup(buttons,buttons.first)
         group.addHandler(type: SelectGroupEvent.change, self.onSelectGroupChange)
         return group
     }()
-    lazy var checkBoxButtonGroup:CheckGroup = {
+    lazy var checkBoxButtonGroup:CheckGroup = {//TODO: ⚠️️  move this into an extension
         let buttons:[CheckBoxButton] = ElementParser.children(self)
         let group = CheckGroup(buttons)
         group.addHandler(type: SelectGroupEvent.change, self.onCheckGroupChange)
