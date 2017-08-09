@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //stop on pull gesture init 🚫
                 //start after pull gesture completes etc
         
-            //Fix the problem where the text gets reset if you change focus 👈
+            //Fix the problem where the text gets reset if you change focus ✅
         
             //Add Auto init
                 //auto fill local path
