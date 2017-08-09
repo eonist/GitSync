@@ -84,7 +84,7 @@ extension AutoInitConflict{
         }else if pathExists && hasPathContent == false{
             issue = "There is no content in the file path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote?"
-        }else if pathExists{
+        }else if pathExists && hasPathContent{
             issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote and initiate a merge wizard?"
         }
