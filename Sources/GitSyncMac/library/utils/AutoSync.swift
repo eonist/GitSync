@@ -86,10 +86,13 @@ class AutoSync {
     static func initCommitProcess(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onComplete:@escaping ()->Void){
         let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
         if pathExists == false {
-            //AutoInitView
+            
+            //Continue here: 🏀
+                //Create the AutoInitView.swift
+            //
             //There is no folder in the file path: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
             //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
-            //There is preExisiting files in path: ~/dev/demo3, do you want to 
+            //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
         }
         Swift.print("pathExists: " + "\(pathExists)")
         GitSync.initCommit(repoItem, commitMessage, onComplete)
