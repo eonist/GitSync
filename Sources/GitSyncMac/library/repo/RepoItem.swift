@@ -45,6 +45,9 @@ extension RepoItem{
         repoItem.branch = gitRepo.branch
         return repoItem
     }
+    var dummyData:RepoItem {
+        return RepoItem(local: "user file path",branch: "master",title: "Element iOS")
+    }
 }
 enum RepoType:String{
     case title = "title"
