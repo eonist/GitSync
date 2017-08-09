@@ -41,7 +41,7 @@ extension AutoInitView{
 
 struct AutoInitConflict{
 //
-    let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool
+    let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
 }
 extension AutoInitConflict{
     static let dummyData:AutoInitConflict = {
@@ -58,7 +58,7 @@ extension AutoInitConflict{
     /**
      *
      */
-    func createAutoInitConflict(){
+    func generateConflict(){
         if pathExists == false {
             //There is no folder in the file path: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
         }else if pathExists && hasPathContent == false{
