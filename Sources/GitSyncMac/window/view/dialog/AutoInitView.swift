@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 
 class AutoInitView:Element,UnFoldable{
+    var onComplete:() -> Void = {}
     override func resolveSkin() {
         Swift.print("AutoInitView.resolveSkin()")
         super.resolveSkin()
@@ -36,6 +37,8 @@ extension AutoInitView{
      */
     func onOKButtonClick(){
         Swift.print("onOKButtonClick")
+        
+        onComplete()
     }
 }
 
