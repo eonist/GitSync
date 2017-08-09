@@ -42,7 +42,7 @@ extension AutoInitView{
 struct AutoInitConflict{
 //
     let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
-    
+    let conflict:(issue:String,proposal:String)
 }
 extension AutoInitConflict{
     static let dummyData:AutoInitConflict = {
@@ -53,10 +53,8 @@ extension AutoInitConflict{
     /**
      *
      */
-    func generateConflict(){
-        
-    }
-    var conflict:(issue:String,proposal:String) {
+    func generateConflict() -> (issue:String,proposal:String){
+    
         var issue:String = ""
         var proposal:String = ""
         if pathExists == false {
@@ -68,8 +66,10 @@ extension AutoInitConflict{
         }else if pathExists{
             //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
         }
+        return (issue,proposal)
         
     }
+    
     
     
 }
