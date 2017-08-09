@@ -67,6 +67,10 @@ class Nav {
                 let view = MergeConflictView(NaN,NaN,parentView)
                 view.setData(mergeConflict)
                 return view
+            case .autoInit(let autoInitConflict):
+                let view = AutoInitView(NaN,NaN,parentView)
+                view.setData(autoInitConflict)
+                return view
             }
         }
     }

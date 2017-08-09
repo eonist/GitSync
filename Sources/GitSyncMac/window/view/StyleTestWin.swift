@@ -13,11 +13,12 @@ class StyleTestWin:Window {
     }
     override func resolveSkin() {
         self.contentView = StyleTestView.shared
-        Nav.setView(.main(.repo))/*⬅️️🚪*///
+//        Nav.setView(.main(.repo))/*⬅️️🚪*///
 //        Nav.setView(.dialog(.commit(RepoItem.dummyData, CommitMessage.dummyData)))
 //        Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
-
-        //Nav.setView(.repoDetail([0,0,0]))
+        
+        Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
+//        Nav.setView(.repoDetail([0,0,0]))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
