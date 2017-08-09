@@ -47,7 +47,7 @@ struct AutoInitConflict{
     let conflict:(issue:String,proposal:String)
     let repoItem:RepoItem!
     lazy var isGitRepo: Bool = {
-        return self.pathExists && GitAsserter.isGitRepo(repoItem.localPath)
+        return GitAsserter.isGitRepo(repoItem.localPath)
     }()
     init(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool){
         
