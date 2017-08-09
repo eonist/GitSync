@@ -62,7 +62,7 @@ class GitSync{
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ localRepoPath:String, _ commitMessage:CommitMessage? = nil)->Bool{
-        Swift.print("commit()")
+        Swift.print("GitSync.commit()")
         let commitMSG:CommitMessage? = {
             guard let message = commitMessage else {
                 return CommitMessageUtils.generateCommitMessage(localRepoPath)

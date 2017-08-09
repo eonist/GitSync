@@ -94,11 +94,5 @@ class AutoSync {
             let hasContent:Bool = FileParser.contentOfDir(repoItem.localPath)
             Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
         }
-        
-        
-        
-        
-        
-        
     }
 }
