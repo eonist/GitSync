@@ -44,16 +44,16 @@ struct AutoInitConflict{
    
 //    let conflict:(issue:String,proposal:String)
     let repoItem:RepoItem
-//   
-//    init(repoItem:RepoItem){
-//        self.repoItem = repoItem
-    
+   
+    init(_ repoItem:RepoItem){
+        self.repoItem = repoItem
+        
         
 //        self.pathExists = pathExists
 //        self.isGitRepo = isGitRepo
 //        self.hasPathContent = hasPathContent
 //        self.conflict = self.generateConflict()
-//    }
+    }
 }
 extension AutoInitConflict{
     var pathExists:Bool {
@@ -69,7 +69,7 @@ extension AutoInitConflict{
     static let dummyData:AutoInitConflict = {
 //        let issue:String = "There is no folder in the file path: ~/dev/demo3"
 //        let proposal:String = "Do you want to create it and download from remote?"
-        return AutoInitConflict(RepoItem("~/dev/demo","master","demo")/*pathExists:false,isGitRepo:false,hasPathContent:false*/)
+        return AutoInitConflict(RepoItem(local: "~/dev/demo",branch: "master",title: "demo")/*pathExists:false,isGitRepo:false,hasPathContent:false*/)
     }()
     /**
      *
@@ -78,10 +78,10 @@ extension AutoInitConflict{
     
         var issue:String = ""
         var proposal:String = ""
+        let pathExists = self.pathExists
         if pathExists == false {
-            issue = "There is no folder in the file path"
-            proposal = ""
-            //: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
+            issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
+            proposal = "do you want to create it and download from remote? OK, Cancel"
         }else if pathExists && hasPathContent == false{
             //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
         }else if pathExists{
