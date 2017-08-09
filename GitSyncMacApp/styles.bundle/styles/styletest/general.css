@@ -10,6 +10,7 @@
 @import url("prefs/prefsview.css");
 @import url("dialog/commitdialogview.css");
 @import url("dialog/mergeconflictview.css");
+@import url("dialog/autoInitview.css");
 
 Window{
 	fill-alpha:1.0;
