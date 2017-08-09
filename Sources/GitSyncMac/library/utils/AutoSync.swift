@@ -93,6 +93,9 @@ class AutoSync {
         }else{
             Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
             
+            //continue here: 🏀
+                //checking if path is valid should happen before commit process. because you cant generate commit msg before repo exists etc
+            
         }
        
         
