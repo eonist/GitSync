@@ -85,7 +85,7 @@ class AutoSync {
      */
     static func initCommitProcess(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onComplete:@escaping ()->Void){
         let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
-        let is 
+        let isGitRepository:Bool = GitAsserter.isGitRepo(repoItem.localPath)
         if pathExists == false {
              Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
            
