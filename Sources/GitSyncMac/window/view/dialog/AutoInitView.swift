@@ -25,7 +25,7 @@ extension AutoInitView{
     func setData(_ conflict:AutoInitConflict){
         Swift.print("MergeConflictView.setData")
         self.apply([Key.issue], conflict.conflict.issue)
-        self.apply([Key.proposal], conflict.proposal)
+        self.apply([Key.proposal], conflict.conflict.proposal)
     }
     enum Key{
         static let issue = "issueText"
@@ -74,7 +74,7 @@ extension AutoInitConflict{
     /**
      * New
      */
-    func generateConflict() -> (issue:String,proposal:String){
+    var conflict:(issue:String,proposal:String){
         var issue:String = ""
         var proposal:String = ""
         let pathExists = self.pathExists
