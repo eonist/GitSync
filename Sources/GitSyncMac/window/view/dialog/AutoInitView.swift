@@ -41,15 +41,20 @@ extension AutoInitView{
 
 struct AutoInitConflict{
 //
-    let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
+    let pathExists:Bool
+    let isGitRepo:Bool
+    let hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
     let conflict:(issue:String,proposal:String)
     let repoItem:RepoItem!
+    lazy var isGitRepo: Bool = {
+        return self.pathExists && GitAsserter.isGitRepo(repoItem.localPath)
+    }()
     init(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool){
         
         self.pathExists = FileAsserter.exists(repoItem.localPath)
         Swift.print("pathExists: " + "\(pathExists)")
-        self.isGitRepo = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
-        self.hasPathContent = 
+        self.isGitRepo = pathExists &&
+        self.hasPathContent =
         
         
         self.pathExists = pathExists
