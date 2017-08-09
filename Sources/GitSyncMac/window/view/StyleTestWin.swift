@@ -13,8 +13,8 @@ class StyleTestWin:Window {
     }
     override func resolveSkin() {
         self.contentView = StyleTestView.shared
-//        Nav.setView(.main(.commit))/*⬅️️🚪*///
-        Nav.setView(.dialog(.commit(RepoItem.dummyData, CommitMessage.dummyData)))
+        Nav.setView(.main(.commit))/*⬅️️🚪*///
+//        Nav.setView(.dialog(.commit(RepoItem.dummyData, CommitMessage.dummyData)))
 //        Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
 
         //Nav.setView(.repoDetail([0,0,0]))
