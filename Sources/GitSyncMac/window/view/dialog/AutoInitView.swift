@@ -40,7 +40,7 @@ extension AutoInitView{
 }
 
 struct AutoInitConflict{
-//    let issue:String,proposal:String
+//
     let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool
 }
 extension AutoInitConflict{
@@ -49,6 +49,23 @@ extension AutoInitConflict{
 //        let proposal:String = "Do you want to create it and download from remote?"
         return AutoInitConflict(pathExists:false,isGitRepo:false,hasPathContent:false)
     }()
-    
+    var issue:String {
+        return ""
+    }
+    var proposal:String {
+        return ""
+    }
+    /**
+     *
+     */
+    func createAutoInitConflict(){
+        if pathExists == false {
+            //There is no folder in the file path: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
+        }else if pathExists && hasPathContent == false{
+            //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
+        }else if {
+            //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
+        }
+    }
 }
 
