@@ -42,7 +42,13 @@ extension AutoInitView{
 struct AutoInitConflict{
 //
     let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
-    let conflict:(issue:String,proposal:String)
+    var conflict:(issue:String,proposal:String) = {generateConflict()}()
+    init(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool){
+        self.pathExists = pathExists
+        self.isGitRepo = isGitRepo
+        self.hasPathContent = hasPathContent
+//        self.conflict = self.generateConflict()
+    }
 }
 extension AutoInitConflict{
     static let dummyData:AutoInitConflict = {
@@ -59,7 +65,7 @@ extension AutoInitConflict{
         var proposal:String = ""
         if pathExists == false {
             issue = "There is no folder in the file path"
-            proposal =
+            proposal = ""
             //: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
         }else if pathExists && hasPathContent == false{
             //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
