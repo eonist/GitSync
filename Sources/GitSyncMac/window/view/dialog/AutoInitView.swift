@@ -24,7 +24,7 @@ class AutoInitView:Element,UnFoldable{
 extension AutoInitView{
     func setData(_ conflict:AutoInitConflict){
         Swift.print("MergeConflictView.setData")
-        self.apply([Key.issue], conflict.issue)
+        self.apply([Key.issue], conflict.conflict.issue)
         self.apply([Key.proposal], conflict.proposal)
     }
     enum Key{
@@ -50,17 +50,25 @@ extension AutoInitConflict{
 //        let proposal:String = "Do you want to create it and download from remote?"
         return AutoInitConflict(pathExists:false,isGitRepo:false,hasPathContent:false)
     }()
+    /**
+     *
+     */
+    func generateConflict(){
+        
+    }
     var conflict:(issue:String,proposal:String) {
         var issue:String = ""
         var proposal:String = ""
         if pathExists == false {
-            //There is no folder in the file path: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
+            issue = "There is no folder in the file path"
+            proposal =
+            //: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
         }else if pathExists && hasPathContent == false{
             //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
         }else if pathExists{
             //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
         }
-
+        
     }
     
     
