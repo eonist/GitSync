@@ -43,7 +43,15 @@ struct AutoInitConflict{
 //
     let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
     let conflict:(issue:String,proposal:String)
+    let repoItem:RepoItem!
     init(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool){
+        
+        self.pathExists = FileAsserter.exists(repoItem.localPath)
+        Swift.print("pathExists: " + "\(pathExists)")
+        self.isGitRepo = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
+        self.hasPathContent = 
+        
+        
         self.pathExists = pathExists
         self.isGitRepo = isGitRepo
         self.hasPathContent = hasPathContent
