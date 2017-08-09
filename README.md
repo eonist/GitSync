@@ -32,6 +32,9 @@
 ## Change-log:
 
 **2017-08-09**
+- Fixed TextField Enter/Exit Focus issue
+
+**2017-08-08**
 - Added functionality to MergeConflict
 - Added more UI types to UnfoldLib
 
