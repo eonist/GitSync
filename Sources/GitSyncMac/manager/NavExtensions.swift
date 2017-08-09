@@ -21,6 +21,7 @@ extension Nav{
         enum Dialog{
             case conflict(MergeConflict)
             case commit(RepoItem,CommitMessage)
+            case autoInit(AutoInitConflict)
         }
     }
 }

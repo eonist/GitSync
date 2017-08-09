@@ -4,16 +4,14 @@ import Cocoa
 
 class AutoInitView:Element,UnFoldable{
     override func resolveSkin() {
-        Swift.print("MergeConflictView.resolveSkin()")
+        Swift.print("AutoInitView.resolveSkin()")
         super.resolveSkin()
-        UnFoldUtils.unFold(Config.Bundle.app,"mergeConflictView",self)
+        UnFoldUtils.unFold(Config.Bundle.app,"autoInitView",self)
         Swift.print("unfold completed")
         
-        self.apply([Key.issue,Text.Key.text], "Conflict: Local file is older than the remote file")
-        self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
-        self.apply([Key.repo,Text.Key.text], "Repository: Element - iOS")
+//        self.apply([Key.issue,Text.Key.text], "Conflict: Local file is older than the remote file")
+//        self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
         
-        _ = radioButtonGroup
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
