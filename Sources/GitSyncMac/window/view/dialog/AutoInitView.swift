@@ -42,12 +42,12 @@ extension AutoInitView{
 struct AutoInitConflict{
 //
     let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool//TODO: ⚠️️ make priv get pub set
-    var conflict:(issue:String,proposal:String) = {generateConflict()}()
+    let conflict:(issue:String,proposal:String)
     init(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool){
         self.pathExists = pathExists
         self.isGitRepo = isGitRepo
         self.hasPathContent = hasPathContent
-//        self.conflict = self.generateConflict()
+        self.conflict = self.generateConflict()
     }
 }
 extension AutoInitConflict{
