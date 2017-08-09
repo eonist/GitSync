@@ -16,7 +16,7 @@ AutoInitView Text#header{
 	align:center;
 }
 /*Text*/
-AutoInitView [Text#issueText,Text#fileText,Text#repoText]{
+AutoInitView [Text#issueText,Text#proposalText]{
 	width:100%;
 	height:32px;
 	color:<TextTheme2>;

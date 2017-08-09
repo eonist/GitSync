@@ -35,13 +35,7 @@ extension AutoInitView{
     }
     enum Key{
         static let issue = "issueText"
-        static let file = "fileText"
-        static let repo = "repoText"
-        static let keepLocal = "keepLocalVersion"
-        static let keepRemote = "keepRemoteVersion"
-        static let keepMixed = "keepMixedVersion"
-        static let applyAllConflicts = "applyAllConflicts"
-        static let applyAllRepos = "applyAllRepos"
+        static let proposal = "proposalText"
     }
     func onSelectGroupChange(event:Event){
         Swift.print("onSelectGroupChange event.selectable: " + "\(event)")
@@ -63,7 +57,7 @@ extension AutoInitView{
 //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
 
 struct AutoInitConflict{
-    let issue:String,file:String,repo:String
+    let issue:String,proposal:String
 }
 extension AutoInitConflict{
     static let dummyData:MergeConflict = {
