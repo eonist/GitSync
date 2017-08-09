@@ -81,14 +81,22 @@ extension AutoInitConflict{
         if pathExists == false {
             issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
             proposal = "Do you want to create it and download from remote?"
-        }else if pathExists && hasPathContent == false{
+            return (issue,proposal)
+        }
+        let hasPathContent = self.hasPathContent
+        if pathExists && hasPathContent == false{
             issue = "There is no content in the file path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote?"
-        }else if pathExists && hasPathContent{
+            return (issue,proposal)
+        }
+        if pathExists && hasPathContent{
             issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote and initiate a merge wizard?"
+            return (issue,proposal)
+        }else{
+            fatalError("this case cant happen")
         }
-        return (issue,proposal)
+        
     }
 }
 
