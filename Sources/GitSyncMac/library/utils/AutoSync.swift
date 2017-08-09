@@ -91,7 +91,7 @@ class AutoSync {
         if isGitRepository {
             GitSync.initCommit(repoItem, commitMessage, onComplete)
         }else{
-            let hasContent:Bool = FileParser.contentOfDir(repoItem.localPath)
+            let hasContent:Bool = !.isEmpty ?? false
             Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
         }
     }
