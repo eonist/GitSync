@@ -33,6 +33,7 @@
 
 **2017-08-09**
 - Fixed TextField Enter/Exit Focus issue
+- Added AutoInitView to resolve AutoInit conflicts
 
 **2017-08-08**
 - Added functionality to MergeConflict
