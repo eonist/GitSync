@@ -20,28 +20,18 @@ class AutoInitView:Element,UnFoldable{
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
-        }/*else if event.assert(SelectEvent.select){
-         
-         }*/
+        }
     }
-
 }
 extension AutoInitView{
-    func setData(_ mergeConflict:MergeConflict){
+    func setData(_ conflict:AutoInitConflict){
         Swift.print("MergeConflictView.setData")
-        self.apply([Key.issue], mergeConflict.issue)
-        self.apply([Key.file], mergeConflict.file)
-        self.apply([Key.repo], mergeConflict.repo)
+        self.apply([Key.issue], conflict.issue)
+        self.apply([Key.proposal], conflict.proposal)
     }
     enum Key{
         static let issue = "issueText"
         static let proposal = "proposalText"
-    }
-    func onSelectGroupChange(event:Event){
-        Swift.print("onSelectGroupChange event.selectable: " + "\(event)")
-    }
-    func onCheckGroupChange(event:Event){/*this is the event handler*/
-        Swift.print("onSelectGroupChange event.selectable: " + "\(event)")
     }
     /**
      * EventHandler for the okButton click event
@@ -61,10 +51,9 @@ struct AutoInitConflict{
 }
 extension AutoInitConflict{
     static let dummyData:MergeConflict = {
-        let issue:String = "Conflict: Local file is older than the remote file"
-        let file:String = "File: Element.swift"
-        let repo:String = "Repository: Element - iOS"
-        return MergeConflict(issue: issue, file: file, repo: repo)
+        let issue:String = "There is no folder in the file path: ~/dev/demo3"
+        let proposal:String = "Do you want to create it and download from remote?"
+        return AutoInitConflict(issue: issue, proposal:proposal)
     }()
 }
 
