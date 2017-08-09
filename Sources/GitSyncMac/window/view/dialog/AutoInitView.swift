@@ -48,7 +48,7 @@ struct AutoInitConflict{
     let issue:String,proposal:String
 }
 extension AutoInitConflict{
-    static let dummyData:MergeConflict = {
+    static let dummyData:AutoInitConflict = {
         let issue:String = "There is no folder in the file path: ~/dev/demo3"
         let proposal:String = "Do you want to create it and download from remote?"
         return AutoInitConflict(issue: issue, proposal:proposal)
