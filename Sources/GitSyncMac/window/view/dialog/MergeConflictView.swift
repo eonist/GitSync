@@ -70,24 +70,7 @@ extension MergeConflictView{
      */
     func onOKButtonClick(){
         Swift.print("onOKButtonClick")
-        //retrive state of radioBUtton and CheckBoxButtons
         
-        //Looping repos (happens in MainView, so that it's not canceled)
-        //create a static array of repos
-        //when an repo is "synced" remove it from the array
-        //sync(repos[0])
-        //if(sync has conflict)
-        //conflictResolutionPopUp()
-        
-        //when you click ok:
-        //Alter static class var's (conflictSolved = true)//remember to reset this
-        //init looping the static repo list
-        //Navigate.setView(CommitView)
-        
-        //when you click cancel:
-        //empty the syncRepoList in MainView
-        //restart timer
-        //Navigate.setView(CommitView)
         
         
         let selectedRadioButtonId:String = (radioButtonGroup.selected as? ElementKind)?.id ?? {fatalError("error")}()
@@ -107,13 +90,6 @@ extension MergeConflictView{
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
           
         
-//      let checkedCheck:String? = (radioButtonGroup.selected as? ElementKind)?.id
-        
-        //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
-        
-        //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
-        
-        //iterate merge process along see legacy code
     }
 }
 extension MergeConflictView{

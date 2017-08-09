@@ -5,6 +5,8 @@ import Foundation
  */
 struct MergeConflict{
     let issue:String,file:String,repo:String
+}
+extension MergeConflict{
     static let dummyData:MergeConflict = {
         let issue:String = "Conflict: Local file is older than the remote file"
         let file:String = "File: Element.swift"
