@@ -37,7 +37,7 @@
 	],
     "autoInitView":[
         {"type":"Text","id":"header","text":"Auto init:"},
-        {"type":"Text","id":"issueText","text":"Conflict:"},
+        {"type":"Text","id":"issueText","text":"There is no folder in the file path:"},
         {"type":"TextButton","id":"cancel","text":"Cancel"},
         {"type":"TextButton","id":"ok","text":"OK"}
     ],
