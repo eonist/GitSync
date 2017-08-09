@@ -106,12 +106,10 @@ extension AutoSync{
         
         if pathExists == false {
             //There is no folder in the file path: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
-        }else if {
+        }else if pathExists && hasPathContent == false{
             //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
+        }else if {
+            //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
         }
-        
-        
-        //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
-
     }
 }
