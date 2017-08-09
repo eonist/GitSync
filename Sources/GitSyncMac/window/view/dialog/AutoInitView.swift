@@ -41,35 +41,35 @@ extension AutoInitView{
 
 struct AutoInitConflict{
 //
-    let pathExists:Bool
-    let isGitRepo:Bool
-    
-//    let conflict:(issue:String,proposal:String)
-    let repoItem:RepoItem!
    
-    init(repoItem:RepoItem){
-        self.repoItem = repoItem
-        
-        self.pathExists = FileAsserter.exists(repoItem.localPath)
-        Swift.print("pathExists: " + "\(pathExists)")
-        self.isGitRepo = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
-        
-        
+//    let conflict:(issue:String,proposal:String)
+    let repoItem:RepoItem
+//   
+//    init(repoItem:RepoItem){
+//        self.repoItem = repoItem
+    
         
 //        self.pathExists = pathExists
 //        self.isGitRepo = isGitRepo
 //        self.hasPathContent = hasPathContent
 //        self.conflict = self.generateConflict()
-    }
+//    }
 }
 extension AutoInitConflict{
+    var pathExists:Bool {
+        return FileAsserter.exists(repoItem.localPath)
+    }
+    var isGitRepo:Bool {
+        return GitAsserter.isGitRepo(repoItem.localPath)
+    }
+    
     var hasPathContent:Bool {
         return FileAsserter.hasContent(repoItem.localPath)
     }//TODO: ⚠️️ make priv get pub set
     static let dummyData:AutoInitConflict = {
 //        let issue:String = "There is no folder in the file path: ~/dev/demo3"
 //        let proposal:String = "Do you want to create it and download from remote?"
-        return AutoInitConflict(pathExists:false,isGitRepo:false,hasPathContent:false)
+        return AutoInitConflict(RepoItem("~/dev/demo","master","demo")/*pathExists:false,isGitRepo:false,hasPathContent:false*/)
     }()
     /**
      *
