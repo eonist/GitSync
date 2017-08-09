@@ -67,6 +67,8 @@ class AutoSync {
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             self.autoSyncGroup?.enter()
             bg.async {
+                let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
+                Swift.print("pathExists: " + "\(pathExists)")
                 GitSync.initCommit(repoItem,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
             }
             
