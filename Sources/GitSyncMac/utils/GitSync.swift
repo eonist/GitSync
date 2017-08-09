@@ -7,7 +7,7 @@ class GitSync{
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoItem:RepoItem, commitMessage:CommitMessage? = nil, _ onPushComplete:@escaping PushComplete){
+    static func initCommit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onPushComplete:@escaping PushComplete){
         Swift.print("GitSync.initCommit")
         func doCommit(){
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/

@@ -56,7 +56,7 @@ extension CommitDialogView{
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
         bg.async {
-            GitSync.initCommit(self.repoItem!, commitMessage:commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
+            AutoSync.initCommitProcess(self.repoItem!, commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
         }
         if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }

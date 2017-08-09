@@ -68,7 +68,7 @@ class AutoSync {
             self.autoSyncGroup?.enter()
             bg.async {
                 
-                self.initCommitProcess(repoItem,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+                self.initCommitProcess(repoItem,nil,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
             }
             
         }
@@ -83,9 +83,9 @@ class AutoSync {
     /**
      * New
      */
-    func initCommitProcess(_ repoItem:RepoItem, _ onComplete:@escaping ()->Void){
+    static func initCommitProcess(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onComplete:@escaping ()->Void){
         let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
         Swift.print("pathExists: " + "\(pathExists)")
-        GitSync.initCommit(repoItem, onComplete)
+        GitSync.initCommit(repoItem, commitMessage, onComplete)
     }
 }
