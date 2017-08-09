@@ -96,3 +96,22 @@ class AutoSync {
         }
     }
 }
+
+
+extension AutoSync{
+    /**
+     *
+     */
+    static func createAutoInitConflict(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool){
+        
+        if pathExists == false {
+            //There is no folder in the file path: ~/dev/demo3, do you want to create it and download from remote? OK, Cancel
+        }else if {
+            //There is no content in the file path: ~/dev/demo3, do you want to download from remote? OK, Cancel
+        }
+        
+        
+        //There is preExisiting files in path: ~/dev/demo3, do you want to download from remote and initiate a merge dialog
+
+    }
+}
