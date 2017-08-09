@@ -12,6 +12,7 @@ class CommitDialogView:Element,UnFoldable {
         UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
     }
     override func onEvent(_ event:Event) {
+        Swift.print("CommitDialogView.onEvent")
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){

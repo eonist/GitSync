@@ -25,6 +25,7 @@ class CommitView:Element{
         commitDetailView?.setCommitData(commitData)
     }
     override func onEvent(_ event:Event) {
+        
         if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}
         //else {super.onEvent(event)}//forward other events
     }
