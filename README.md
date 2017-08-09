@@ -16,20 +16,20 @@
 
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 17.49.33 copy.png">
 
-### Install:
+## Install:
 
 [Download](https://github.com/eonist/GitSync/releases) 
 
-### Build:
+## Build:
 
-1. Terminal: `cd ~/dev/GitSync/` + <kbd>Enter</kbd>
-2. Terminal: `swift package init` + <kbd>Enter</kbd>
+1. Terminal: `cd ~/dev/GitSync/` 
+2. Terminal: `swift package init` 
 3. Copy/Paste the content of [Package.swift](https://github.com/eonist/Element/blob/master/Package.swift) to your newly created Package.swift file:
-4. Terminal: `swift build` + <kbd>Enter</kbd>
-5. Terminal: `swift package generate-xcodeproj` + <kbd>Enter</kbd>
+4. Terminal: `swift build` 
+5. Terminal: `swift package generate-xcodeproj` 
 6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd>  <kbd>R</kbd>
 
-### Change-log:
+## Change-log:
 
 **2017-08-09**
 - Added functionality to MergeConflict
