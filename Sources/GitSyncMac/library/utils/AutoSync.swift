@@ -94,6 +94,7 @@ class AutoSync {
             Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
             
             //continue here: 🏀
+                //try to make that lazy var https://stackoverflow.com/questions/44164578/lazy-var-in-struct
                 //checking if path is valid should happen before commit process. because you cant generate commit msg before repo exists etc
             
         }
