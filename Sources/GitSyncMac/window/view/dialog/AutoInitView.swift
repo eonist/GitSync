@@ -40,13 +40,15 @@ extension AutoInitView{
 }
 
 struct AutoInitConflict{
-    let issue:String,proposal:String
+//    let issue:String,proposal:String
+    let pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool
 }
 extension AutoInitConflict{
     static let dummyData:AutoInitConflict = {
-        let issue:String = "There is no folder in the file path: ~/dev/demo3"
-        let proposal:String = "Do you want to create it and download from remote?"
-        return AutoInitConflict(issue: issue, proposal:proposal)
+//        let issue:String = "There is no folder in the file path: ~/dev/demo3"
+//        let proposal:String = "Do you want to create it and download from remote?"
+        return AutoInitConflict(pathExists:false,isGitRepo:false,hasPathContent:false)
     }()
+    
 }
 
