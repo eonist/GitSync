@@ -46,7 +46,7 @@ class AutoSync {
             countForRepoWithMSG += 1
             if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repo.local) {//if no commit msg is generated, then no commit is needed
                 Swift.print("something to commit")
-                Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪*/
+                Nav.setView(.dialog(.commit(repo,commitMessage)))/*⬅️️🚪 this view eventually calls initCommit*/
             }else {
                 Swift.print("nothing to commit")
                 MergeUtils.manualMerge(repo){//nothing to commit but  check if remote has updates
