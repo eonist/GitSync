@@ -7,7 +7,7 @@ Text{
 	align:left;
 	type:dynamic;
 	color:grey6;
-	selectable:true;
+	selectable:false;
 	wordWrap:true;
 	/*margin-top:4px;*/
 }

@@ -13,6 +13,7 @@ TextArea Text{
 	scrollable:false;
 	multiline:true;
 	wordWrap:true;
+    selectable:false;
 	/*margin-top:0px;*/
 	/*margin-left:4px;*/
 }
