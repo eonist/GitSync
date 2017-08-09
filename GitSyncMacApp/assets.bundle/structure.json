@@ -34,5 +34,11 @@
 	    {"type":"CheckBoxButton","id":"applyAllRepos","text":"Apply to all repos:"},
 	    {"type":"TextButton","id":"cancel","text":"Cancel"},
 	    {"type":"TextButton","id":"ok","text":"OK"}
-	]
+	],
+    "autoInitView":[
+        {"type":"Text","id":"header","text":"Auto init:"},
+        {"type":"Text","id":"issueText","text":"Conflict:"},
+        {"type":"TextButton","id":"cancel","text":"Cancel"},
+        {"type":"TextButton","id":"ok","text":"OK"}
+    ],
 }
