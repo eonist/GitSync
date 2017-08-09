@@ -50,7 +50,7 @@ extension AutoInitConflict{
 //        let proposal:String = "Do you want to create it and download from remote?"
         return AutoInitConflict(pathExists:false,isGitRepo:false,hasPathContent:false)
     }()
-    var conflict:(issue:String,proposal:String)
+    var conflict:(issue:String,proposal:String  )
     var issue:String {
         return ""
     }
