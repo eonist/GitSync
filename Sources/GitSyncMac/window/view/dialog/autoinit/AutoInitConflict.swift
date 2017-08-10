@@ -4,16 +4,14 @@ import Foundation
 class AutoInitConflict{
     let repoItem:RepoItem
     lazy var pathExists:Bool = {
-        return Utils.pathExists(self.repoItem)
+        return FileAsserter.exists(self.repoItem.localPath)
     }()
     lazy var isGitRepo:Bool = {
-        return self.pathExists && Utils.isGitRepo(self.repoItem)
+        return self.pathExists && GitAsserter.isGitRepo(self.repoItem.localPath)
     }()
     lazy var hasPathContent:Bool = {
-        return self.pathExists && !self.isGitRepo && Utils.hasPathContent(self.repoItem)
+        return self.pathExists && !self.isGitRepo && FileAsserter.hasContent(self.repoItem.localPath)
     }()
-//    let strategy:Strategy
-    
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
     }
