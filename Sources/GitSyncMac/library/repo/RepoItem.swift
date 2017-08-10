@@ -21,6 +21,7 @@ struct RepoItem {
         self.local = local
         self.branch = branch
         self.title = title
+        self.remote = remote
     }
     init(){}//dont delete this
     
