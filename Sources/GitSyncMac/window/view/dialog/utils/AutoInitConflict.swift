@@ -44,9 +44,9 @@ extension AutoInitConflict{
          */
         static func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
             let _isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo = isGitRepo ? .yes : .no
-            let _hasPathContent:Strategy.PathExists.HasPathContent = hasPathContent ? .yes(_isGitRepo) : .no(_isGitRepo)
-            let _pathExists:Strategy.PathExists = 
-            return .configure(pathExists:.yes(hasContent: .yes(isGitRepo: .yes)))
+            let _hasPathContent:Strategy.PathExists.HasPathContent = hasPathContent ? .yes(isGitRepo:_isGitRepo) : .no(isGitRepo:_isGitRepo)
+            let _pathExists:Strategy.PathExists = pathExists ? .yes(hasContent:_hasPathContent) : .no(hasContent:_hasPathContent)
+            return .configure(pathExists:_pathExists)
         }
         /**
          *
