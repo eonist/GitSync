@@ -17,7 +17,7 @@ struct RepoItem {
     //var download:Bool = false
     //var autoSyncInterval:Bool = false
     //var fileChange:Bool = false
-    init(local:String,branch:String,title:String,remotePath:String = ""){
+    init(local:String,branch:String,title:String,remote:String = ""){
         self.local = local
         self.branch = branch
         self.title = title
