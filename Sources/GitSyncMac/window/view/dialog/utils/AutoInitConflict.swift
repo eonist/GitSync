@@ -62,16 +62,29 @@ extension AutoInitConflict{
             _ = proposal
             proposal = ""
             
+            /**
+             *
+             */
+            func hasContent( hasContent:Strategy.PathExists.HasPathContent){
+                
+            }
+            /**
+             *
+             */
+            func isGitRepo( isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo){
+                switch isGitRepo {
+                case .yes(let isGitRepo):
+                    print("")
+                case .no(let isGitRepo):
+                    print("")
+                }
+            }
+            
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
                 case .yes(let hasContent):
-                    switch hasContent {
-                    case .yes(let isGitRepo):
-                        print("")
-                    case .no(let isGitRepo):
-                        print("")
-                    }
+                    
                     print("")
                 case .no(let hasContent):
                     print("")
