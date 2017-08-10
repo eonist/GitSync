@@ -3,23 +3,30 @@ import Foundation
 
 struct AutoInitConflict{
     let repoItem:RepoItem
+    let pathExists:Bool
+    let isGitRepo:Bool
+    let hasPathContent:Bool
+    
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
-        let pathExistss = self.pathExists
-        let isGitRepo = pathExists && self.isGitRepo
-        let hasPathContent = pathExists && !isGitRepo && self.hasPathContent
+        self.pathExists = Utils.pathExists(repoItem)
+        self.isGitRepo = pathExists && Utils.isGitRepo(repoItem)
+        self.hasPathContent = pathExists && !isGitRepo && Utils.hasPathContent(repoItem)
+    }
+}
+private class Utils{
+    static func pathExists(_ repoItem:RepoItem)->Bool {
+        return FileAsserter.exists(repoItem.localPath)
+    }
+    static func isGitRepo(_ repoItem:RepoItem)->Bool {
+        return GitAsserter.isGitRepo(repoItem.localPath)
+    }
+    static func hasPathContent(_ repoItem:RepoItem)->Bool {
+        return FileAsserter.hasContent(repoItem.localPath)
     }
 }
 extension AutoInitConflict{
-    fileprivate var pathExists:Bool {
-        return FileAsserter.exists(repoItem.localPath)
-    }
-    fileprivate var isGitRepo:Bool {
-        return GitAsserter.isGitRepo(repoItem.localPath)
-    }
-    fileprivate var hasPathContent:Bool {
-        return FileAsserter.hasContent(repoItem.localPath)
-    }//TODO: ⚠️️ make priv get pub set
+    //TODO: ⚠️️ make priv get pub set
     static let dummyData:AutoInitConflict = {
         //        let issue:String = "There is no folder in the file path: ~/dev/demo3"
         //        let proposal:String = "Do you want to create it and download from remote?"
