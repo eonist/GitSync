@@ -9,7 +9,7 @@ class AutoInit {
      * PARAM branch: the branch you want to use as origin branch
      * EXAMPLE: AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
      */
-    static func autoInit(_ repoItem:RepoItem,doesPathExist:Bool,isGitFolder:Bool){
+    static func autoInit(_ repoItem:RepoItem,doesPathExist:Bool,isGitFolder:Bool,isFolderEmpty:Bool){
         let localPath:String = repoItem.localPath
         let remotePath:String = repoItem.remotePath
         let branch:String = repoItem.branch
@@ -17,8 +17,8 @@ class AutoInit {
 //        let doesPathExist = FileAsserter.exists(localPath)
         Swift.print("doesPathExist: " + "\(doesPathExist)")
         if doesPathExist {
-            let isFolderEmpty:Bool = FileParser.contentOfDir(localPath)?.isEmpty ?? false
-            Swift.print("isFolderEmpty: " + "\(isFolderEmpty)")
+//            let isFolderEmpty:Bool = FileParser.contentOfDir(localPath)?.isEmpty ?? false
+//            Swift.print("isFolderEmpty: " + "\(isFolderEmpty)")
             if isFolderEmpty {//--folder is empty
                 //GitUtils.manualClone(localPath, remotePath)
                 _ = GitModifier.clone(remotePath,localPath)

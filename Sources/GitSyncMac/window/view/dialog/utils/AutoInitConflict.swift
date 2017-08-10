@@ -2,10 +2,7 @@ import Foundation
 @testable import Utils
 
 struct AutoInitConflict{
-  
     let repoItem:RepoItem
- 
-    
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
     
@@ -18,7 +15,6 @@ extension AutoInitConflict{
     var isGitRepo:Bool {
         return GitAsserter.isGitRepo(repoItem.localPath)
     }
-    
     var hasPathContent:Bool {
         return FileAsserter.hasContent(repoItem.localPath)
     }//TODO: ⚠️️ make priv get pub set
