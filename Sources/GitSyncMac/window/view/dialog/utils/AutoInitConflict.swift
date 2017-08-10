@@ -81,6 +81,10 @@ extension AutoInitConflict{
          *
          */
         func process(_ repoItem:RepoItem){
+            let localPath:String = repoItem.localPath
+            let remotePath:String = repoItem.remotePath
+            let branch:String = repoItem.branch
+            
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
@@ -92,17 +96,27 @@ extension AutoInitConflict{
                             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
                             if curRemotePath != repoItem.remotePath {
                                
+                            }else{
+                                let has_remote_repo_attached = GitAsserter.hasRemoteRepoAttached(localPath, branch)
+                                if has_remote_repo_attached  {//--the .git folder already has a remote repo attached
+                                    _ = GitModifier.detachRemoteRepo(localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
+                                    _ = GitModifier.attachRemoteRepo(localPath,branch)
+                                }else{//--does not have remote repo attached
+                                    _ = GitModifier.attachRemoteRepo(localPath,branch)//--attach remote repo
+                                }
+
                             }
                         case .no:
-                           print("")
+                            _ = GitModifier.initialize(localPath)
+                            _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
                         }
                     case .no(let isGitRepo):
                         _ = isGitRepo
-                        
+                        _ = GitModifier.clone(remotePath,localPath)
                     }
                 case .no(let hasContent):
                     _ = hasContent
-                   
+                   _ = GitModifier.clone(remotePath,localPath)//--this will also create the folders if they dont exist, even nested
                 }
             }
         }
@@ -118,23 +132,16 @@ extension AutoInitConflict{
                 //            Swift.print("isFolderEmpty: " + "\(isFolderEmpty)")
                 if isFolderEmpty {//--folder is empty
                     //GitUtils.manualClone(localPath, remotePath)
-                    _ = GitModifier.clone(remotePath,localPath)
+                    
                     //let cloneRetVal = GitModifier.clone(remotePath, localPath)
                     //Swift.print("cloneRetVal: " + "\(cloneRetVal)")
                     //GitUtil's clone(remote_url, local_dir)--git clone with custom file path
                 }else{//--folder is not empty, files already exist
                     //                let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
                     if isGitFolder {//--folder already contains a .git folder (aka git repo data)
-                        let has_remote_repo_attached = GitAsserter.hasRemoteRepoAttached(localPath, branch)
-                        if has_remote_repo_attached  {//--the .git folder already has a remote repo attached
-                            _ = GitModifier.detachRemoteRepo(localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
-                            _ = GitModifier.attachRemoteRepo(localPath,branch)
-                        }else{//--does not have remote repo attached
-                            _ = GitModifier.attachRemoteRepo(localPath,branch)//--attach remote repo
-                        }
+                        
                     }else{//--has no .git folder, but there are some files like text.txt
-                        _ = GitModifier.initialize(localPath)
-                        _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
+                        
                     }
                     //                let gitRepo = GitRepo(localPath,  remotePath,  branch)
                     //                let repoItem = RepoItem.repoItem(gitRepo)
@@ -144,9 +151,9 @@ extension AutoInitConflict{
                 }
             }else {//--path does not exist
                 //GitUtils.manualClone(localPath, remotePath)
-                _ = GitModifier.clone(remotePath,localPath)
+                
                 //_ = GitModifier.clone(remotePath, localPath)
-                //GitUtil's clone(remote_url, local_dir)//--this will also create the folders if they dont exist, even nested
+                //GitUtil's clone(remote_url, local_dir)
             }
         }
     }
