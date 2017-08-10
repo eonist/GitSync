@@ -33,34 +33,7 @@ extension AutoInitConflict{
             var issue:String = ""
             var proposal:String = ""
             /**/
-            switch self{
-            case .configure(let pathExists):
-                switch pathExists {
-                case .yes(let hasContent):
-                    switch hasContent {
-                    case .yes(let isGitRepo):
-                        switch isGitRepo {
-                        case .yes:
-                            
-                        case .no:
-                            
-                        }
-                    case .no(let isGitRepo):
-                       
-                    }
-                case .no(let hasContent):
-                   
-                }
-            }
-            if case Strategy.configure(pathExists: .yes(hasContent: .yes(isGitRepo: .yes))) = self {
-                
-            }else if case Strategy.configure(pathExists: .yes(hasContent: .yes(isGitRepo: .no))) = self{
-                
-            }else if case Strategy.configure(pathExists: .yes(hasContent: .no(isGitRepo: _))) = self{
-                
-            }else if case Strategy.configure(pathExists: .no(hasContent: _)) = self{
-                
-            }
+           
             let pathExists:Bool = false
             let isGitRepo:Bool = false
             let hasPathContent:Bool = false
@@ -76,11 +49,9 @@ extension AutoInitConflict{
                 issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
                 proposal = "Do you want to download from remote and start a merge wizard?"
             case (true,false,_):
-                _ = isGitRepo
                 issue = "There is no content in the file path: " + "\(repoItem.localPath)"
                 proposal = "Do you want to download from remote?"
             case (false,_,_):
-                _ = hasContent
                 issue = "There is nothing in the path \(repoItem.localPath)"
                 proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
             default:
