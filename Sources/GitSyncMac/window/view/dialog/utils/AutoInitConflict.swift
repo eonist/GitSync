@@ -72,16 +72,16 @@ extension AutoInitConflict{
                                 proposal = "Do you want to assign a new remote URL and then initiate a merge wizard?"
                             }
                         case .no:
-                            print("")
-                            print("")
+                            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+                            proposal = "Do you want to download from remote?"
                         }
                     case .no(let isGitRepo):
                         switch isGitRepo {
                         case .yes:
                             print("")
                         case .no:
-                            print("")
-                            print("")
+                            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+                            proposal = "Do you want to download from remote?"
                         }
                     }
                 case .no(let hasContent):
@@ -107,12 +107,9 @@ extension AutoInitConflict{
             
             
 //            switch self {
-//            case .a:
-//                issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
-//                proposal = "Do you want to create it and download from remote?"
+//            ca
 //            case .b:
-//                issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-//                proposal = "Do you want to download from remote?"
+//
 //            case .c:
 //                issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
 //                proposal = "Do you want to download from remote and initiate a merge wizard?"
