@@ -23,7 +23,7 @@ extension AutoInitConflict{
             if curRemotePath != repoItem.remotePath {
                 issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
                 proposal = "Do you want to assign a new remote URL and start a merge wizard?"
-            }
+            }//else no need to show AutoInit Dialog, proceed
         case (true,true,false):
             issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote and start a merge wizard?"
