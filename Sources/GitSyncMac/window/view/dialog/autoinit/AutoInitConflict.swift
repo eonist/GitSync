@@ -32,28 +32,7 @@ private class Utils{
 extension AutoInitConflict{
     //TODO: ⚠️️ make priv get pub set
     static let dummyData:AutoInitConflict = {
-        //        let issue:String = "There is no folder in the file path: ~/dev/demo3"
-        //        let proposal:String = "Do you want to create it and download from remote?"
         var repoItem:RepoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://www.github.com/gitsync/demo.git")
-        
         return AutoInitConflict(repoItem)
     }()
-//    /**
-//     * New
-//     */
-//    var conflict:(issue:String,proposal:String){
-//        var issue:String = ""
-//        var proposal:String = ""
-//        if pathExists == false {
-//            issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
-//            proposal = "Do you want to create it and download from remote?"
-//        }else if pathExists && hasPathContent == false{
-//            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-//            proposal = "Do you want to download from remote?"
-//        }else if pathExists && hasPathContent{
-//            issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
-//            proposal = "Do you want to download from remote and initiate a merge wizard?"
-//        }
-//        return (issue,proposal)
-//    }
 }

@@ -11,8 +11,6 @@ class AutoInitView:Element,UnFoldable{
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"autoInitView",self)
         Swift.print("AutoInitView.unfold completed")
-        
-        
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
@@ -27,7 +25,7 @@ class AutoInitView:Element,UnFoldable{
 }
 extension AutoInitView{
     func setData(_ conflict:AutoInitConflict, _ onComplete:@escaping Complete){
-        Swift.print("MergeConflictView.setData")
+        Swift.print("AutoInitView.setData")
         self.onComplete = onComplete
         self.conflict = conflict
         let conflictText = conflict.strategy.text(conflict.repoItem)//creates the text for the window
