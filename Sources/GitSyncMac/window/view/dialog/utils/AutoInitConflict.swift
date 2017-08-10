@@ -19,23 +19,28 @@ extension AutoInitConflict{
     enum Strategy{
         enum PathExists{
             enum HasPathContent{
-                
+                enum IsGitRepo{
+                    case yes
+                    case no
+                }
+                case yes(IsGitRepo)
+                case no(IsGitRepo)
             }
             case yes(HasPathContent)
-            case no(HasPathContent)
+            case no(hasContent:HasPathContent)
             case no
         }
         case pathExists(PathExists)
-        case a
-        case b/*Path exists, but has no files*/
-        case c
-        case d/*Path does not exist*/
+//        case a
+//        case b/*Path exists, but has no files*/
+//        case c
+//        case d/*Path does not exist*/
         /**
          *
          */
         static func strategy(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
             if pathExists == false {
-                return .d
+                return .pathExists(.no(hasContent: .no(.no)))
             }else if pathExists && hasPathContent == false{
                 return .b
             }else if pathExists && hasPathContent{
