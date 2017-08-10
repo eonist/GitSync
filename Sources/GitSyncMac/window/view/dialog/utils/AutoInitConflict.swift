@@ -86,7 +86,10 @@ extension AutoInitConflict{
                         switch isGitRepo {
                         case .yes:
                             print("")
-                            GitParser.originUrl(<#T##localPath: String##String#>)
+                            let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
+                            if curRemotePath != repoItem.remotePath {
+                                
+                            }
                         case .no:
                             print("")
                             print("")
