@@ -42,7 +42,8 @@ extension AutoInitConflict{
      * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
      */
     func process(){
-        switch (pathExists,hasPathContent,isGitRepo) {
+        let state:State = (pathExists,hasPathContent,isGitRepo)
+        switch state {
         case (true,true,true):
             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
             if curRemotePath != repoItem.remotePath {//--the .git folder already has a remote repo attached
