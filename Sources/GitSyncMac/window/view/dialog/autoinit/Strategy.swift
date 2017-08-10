@@ -4,19 +4,15 @@ import Foundation
 extension AutoInitConflict{
     enum Strategy{
         typealias State = (pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool)
+        typealias TextData = (issue:String,proposal:String)
         /**
          * Creates the text for the AutoInitPrompt
          */
-        static func text(_ repoItem:RepoItem) -> (issue:String,proposal:String){
+        static func text(_ repoItem:RepoItem,_ state:State) -> TextData{
             var issue:String = ""
             var proposal:String = ""
-            /**/
-           
-            let pathExists:Bool = false
-            let isGitRepo:Bool = false
-            let hasPathContent:Bool = false
-        
-            switch (pathExists,isGitRepo,hasPathContent) {
+         
+            switch state {
             case (true,true,true):
                 let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
                 if curRemotePath != repoItem.remotePath {
@@ -35,14 +31,13 @@ extension AutoInitConflict{
             default:
                 fatalError("Has no strategy for this scenario ")
             }
-            
             return (issue,proposal)
         }
         /**
          * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
          */
-        static func process(_ repoItem:RepoItem){
-            switch (pathExists,isGitRepo,hasPathContent) {
+        static func process(_ repoItem:RepoItem,_ state:State){
+            switch state {
             case (true,true,true):
                 let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
                 if curRemotePath != repoItem.remotePath {//--the .git folder already has a remote repo attached
@@ -57,10 +52,8 @@ extension AutoInitConflict{
                 _ = GitModifier.initialize(repoItem.localPath)
                 _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.branch)//--add new remote origin
             case (true,false,_):
-                _ = isGitRepo
                 _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath)
             case (false,_,_):
-                _ = hasContent
                 _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath)//--this will also create the folders if they dont exist, even nested
             default:
                 fatalError("Has no strategy for this scenario ")
