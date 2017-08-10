@@ -5,17 +5,19 @@ struct AutoInitConflict{
     let repoItem:RepoItem
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
-    
+        let pathExistss = self.pathExists
+        let isGitRepo = pathExists && self.isGitRepo
+        let hasPathContent = pathExists && !isGitRepo && self.hasPathContent
     }
 }
 extension AutoInitConflict{
-    var pathExists:Bool {
+    fileprivate var pathExists:Bool {
         return FileAsserter.exists(repoItem.localPath)
     }
-    var isGitRepo:Bool {
+    fileprivate var isGitRepo:Bool {
         return GitAsserter.isGitRepo(repoItem.localPath)
     }
-    var hasPathContent:Bool {
+    fileprivate var hasPathContent:Bool {
         return FileAsserter.hasContent(repoItem.localPath)
     }//TODO: ⚠️️ make priv get pub set
     static let dummyData:AutoInitConflict = {
