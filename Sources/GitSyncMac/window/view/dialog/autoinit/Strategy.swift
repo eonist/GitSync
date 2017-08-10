@@ -41,24 +41,15 @@ extension AutoInitConflict{
                     case .yes(let isGitRepo):
                         switch isGitRepo {
                         case .yes:
-                            let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
-                            if curRemotePath != repoItem.remotePath {
-                                issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
-                                proposal = "Do you want to assign a new remote URL and start a merge wizard?"
-                            }
+                            
                         case .no:
-                            issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
-                            proposal = "Do you want to download from remote and start a merge wizard?"
+                            
                         }
                     case .no(let isGitRepo):
-                        _ = isGitRepo
-                        issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-                        proposal = "Do you want to download from remote?"
+                       
                     }
                 case .no(let hasContent):
-                    _ = hasContent
-                    issue = "There is nothing in the path \(repoItem.localPath)"
-                    proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
+                   
                 }
             }
             if case Strategy.configure(pathExists: .yes(hasContent: .yes(isGitRepo: .yes))) = self {
@@ -70,14 +61,30 @@ extension AutoInitConflict{
             }else if case Strategy.configure(pathExists: .no(hasContent: _)) = self{
                 
             }
-            let pathExists:Bool 
-            let isGitRepo:Bool,
-            let hasPathContent:Bool
-            switch (pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) {
-            case <#pattern#>:
-                <#code#>
+            let pathExists:Bool = false
+            let isGitRepo:Bool = false
+            let hasPathContent:Bool = false
+        
+            switch (pathExists,isGitRepo,hasPathContent) {
+            case (true,true,true):
+                let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
+                if curRemotePath != repoItem.remotePath {
+                    issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
+                    proposal = "Do you want to assign a new remote URL and start a merge wizard?"
+                }
+            case (true,true,false):
+                issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
+                proposal = "Do you want to download from remote and start a merge wizard?"
+            case (true,false,_):
+                _ = isGitRepo
+                issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+                proposal = "Do you want to download from remote?"
+            case (false,_,_):
+                _ = hasContent
+                issue = "There is nothing in the path \(repoItem.localPath)"
+                proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
             default:
-                <#code#>
+                fatalError("Has no strategy for this scenario ")
             }
             
             return (issue,proposal)
