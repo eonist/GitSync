@@ -132,7 +132,7 @@ extension AutoInitConflict{
     static let dummyData:AutoInitConflict = {
         //        let issue:String = "There is no folder in the file path: ~/dev/demo3"
         //        let proposal:String = "Do you want to create it and download from remote?"
-        var repoItem:RepoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://www.github.com/gitsync/demo")
+        var repoItem:RepoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://www.github.com/gitsync/demo.git")
         
         return AutoInitConflict(repoItem)
     }()
