@@ -94,16 +94,13 @@ extension AutoInitConflict{
                         switch isGitRepo {
                         case .yes:
                             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
-                            if curRemotePath != repoItem.remotePath {
-                               
-                            }else{
-                                let has_remote_repo_attached = GitAsserter.hasRemoteRepoAttached(localPath, branch)
-                                if has_remote_repo_attached  {//--the .git folder already has a remote repo attached
-                                    _ = GitModifier.detachRemoteRepo(localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
-                                    _ = GitModifier.attachRemoteRepo(localPath,branch)
-                                }else{//--does not have remote repo attached
-                                    _ = GitModifier.attachRemoteRepo(localPath,branch)//--attach remote repo
-                                }
+                            if curRemotePath != repoItem.remotePath {//--the .git folder already has a remote repo attached
+                                _ = GitModifier.detachRemoteRepo(localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
+                                _ = GitModifier.attachRemoteRepo(localPath,remotePath)
+                            }else if curRemotePath == repoItem.remotePath{
+                                //do nothing
+                            }else{//--does not have remote repo attached// GitAsserter.hasRemoteRepoAttached(localPath, branch)
+                                _ = GitModifier.attachRemoteRepo(localPath,remotePath)//--attach remote repo
                             }
                         case .no:
                             _ = GitModifier.initialize(localPath)
@@ -119,9 +116,7 @@ extension AutoInitConflict{
                 }
             }
         }
-        
     }
-    
 }
 private class Utils{
     static func pathExists(_ repoItem:RepoItem)->Bool {
