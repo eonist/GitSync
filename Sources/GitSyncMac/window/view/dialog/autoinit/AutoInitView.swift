@@ -16,7 +16,7 @@ class AutoInitView:Element,UnFoldable{
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
             guard let conflict = conflict else {return}
-            conflict.strategy.process(conflict.repoItem)//executes the git commands
+            Strategy.process(conflict.repoItem)//executes the git commands
             onComplete()//all done return to caller
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
