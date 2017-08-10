@@ -37,14 +37,13 @@ extension AutoInitConflict{
             static func create(_ pathExists:Bool,_ isGitRepo:Bool,_ hasPathContent:Bool) -> PathExists{
                 return pathExists ? .yes(hasContent:HasPathContent.create(isGitRepo,hasPathContent)) : .no(hasContent:HasPathContent.create(isGitRepo,hasPathContent))
             }
-//            case no
         }
-        case pathExists(PathExists)
+        case configure(pathExists:PathExists)
         /**
          *
          */
         static func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
-            return .pathExists(PathExists.create(pathExists,isGitRepo,hasPathContent))
+            return .configure(pathExists:PathExists.create(pathExists,isGitRepo,hasPathContent))
         }
         /**
          *
@@ -57,21 +56,35 @@ extension AutoInitConflict{
          */
         func text(_ repoItem:RepoItem) -> (issue:String,proposal:String){
             var issue:String = ""
+            _ = issue
+            issue = ""
             var proposal:String = ""
-            switch self {
-            case .a:
-                issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
-                proposal = "Do you want to create it and download from remote?"
-            case .b:
-                issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-                proposal = "Do you want to download from remote?"
-            case .c:
-                issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
-                proposal = "Do you want to download from remote and initiate a merge wizard?"
-            case .d:
-                issue = ""
-                proposal = ""
+            _ = proposal
+            proposal = ""
+            
+            switch self{
+            case .configure(let pathExists):
+                switch pathExists {
+                case .yes(let hasContent):
+                    print("")
+                case .no(let hasContent:
+                    print("")
+                }
             }
+//            switch self {
+//            case .a:
+//                issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
+//                proposal = "Do you want to create it and download from remote?"
+//            case .b:
+//                issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+//                proposal = "Do you want to download from remote?"
+//            case .c:
+//                issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
+//                proposal = "Do you want to download from remote and initiate a merge wizard?"
+//            case .d:
+//                issue = ""
+//                proposal = ""
+//            }
             
             return (issue,proposal)
         }
