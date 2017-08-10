@@ -61,6 +61,7 @@ extension AutoInitConflict{
                     proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
                 }
             }
+            if case 
             return (issue,proposal)
         }
         /**
