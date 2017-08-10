@@ -18,8 +18,11 @@ struct AutoInitConflict{
 extension AutoInitConflict{
     enum Strategy{
         enum PathExists{
-            case yes
-            case no
+            enum HasPathContent{
+                
+            }
+            case yes(HasPathContent)
+            case no(HasPathContent)
         }
         case pathExists(PathExists)
         case a
