@@ -39,12 +39,7 @@ extension AutoInitConflict{
             let _pathExists:Strategy.PathExists = pathExists ? .yes(hasContent:_hasPathContent) : .no(hasContent:_hasPathContent)
             return .configure(pathExists:_pathExists)
         }
-        /**
-         *
-         */
-        static func process(){
-            //do git stuff
-        }
+        
         /**
          * Creates the text for the AutoInitPrompt
          */
@@ -81,6 +76,12 @@ extension AutoInitConflict{
                 }
             }
             return (issue,proposal)
+        }
+        /**
+         *
+         */
+        static func process(_ repoItem:RepoItem){
+            //do git stuff
         }
     }
     
