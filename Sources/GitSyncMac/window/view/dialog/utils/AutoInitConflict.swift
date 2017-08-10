@@ -33,7 +33,7 @@ extension AutoInitConflict{
         /**
          * Creates a strategy
          */
-        static func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
+        static func strategy(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
             let _isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo = isGitRepo ? .yes : .no
             let _hasPathContent:Strategy.PathExists.HasPathContent = hasPathContent ? .yes(isGitRepo:_isGitRepo) : .no(isGitRepo:_isGitRepo)
             let _pathExists:Strategy.PathExists = pathExists ? .yes(hasContent:_hasPathContent) : .no(hasContent:_hasPathContent)
@@ -132,22 +132,22 @@ extension AutoInitConflict{
         //        let proposal:String = "Do you want to create it and download from remote?"
         return AutoInitConflict(RepoItem(local: "~/dev/demo",branch: "master",title: "demo")/*pathExists:false,isGitRepo:false,hasPathContent:false*/)
     }()
-    /**
-     * New
-     */
-    var conflict:(issue:String,proposal:String){
-        var issue:String = ""
-        var proposal:String = ""
-        if pathExists == false {
-            issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
-            proposal = "Do you want to create it and download from remote?"
-        }else if pathExists && hasPathContent == false{
-            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-            proposal = "Do you want to download from remote?"
-        }else if pathExists && hasPathContent{
-            issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
-            proposal = "Do you want to download from remote and initiate a merge wizard?"
-        }
-        return (issue,proposal)
-    }
+//    /**
+//     * New
+//     */
+//    var conflict:(issue:String,proposal:String){
+//        var issue:String = ""
+//        var proposal:String = ""
+//        if pathExists == false {
+//            issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
+//            proposal = "Do you want to create it and download from remote?"
+//        }else if pathExists && hasPathContent == false{
+//            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+//            proposal = "Do you want to download from remote?"
+//        }else if pathExists && hasPathContent{
+//            issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
+//            proposal = "Do you want to download from remote and initiate a merge wizard?"
+//        }
+//        return (issue,proposal)
+//    }
 }

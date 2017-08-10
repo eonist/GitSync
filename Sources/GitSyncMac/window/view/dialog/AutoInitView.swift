@@ -16,7 +16,7 @@ class AutoInitView:Element,UnFoldable{
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
-            
+            let strategy = AutoInitConflict.Strategy.strategy(pathExists: <#T##Bool#>, isGitRepo: <#T##Bool#>, hasPathContent: <#T##Bool#>)
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
         }
