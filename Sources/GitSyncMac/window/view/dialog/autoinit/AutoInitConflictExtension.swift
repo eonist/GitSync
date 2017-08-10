@@ -66,7 +66,7 @@ extension AutoInitConflict{
 extension AutoInitConflict{
     //TODO: ⚠️️ make priv get pub set
     static let dummyData:AutoInitConflict = {
-        var repoItem:RepoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://www.github.com/gitsync/demo.git")
+        var repoItem:RepoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://github.com/gitsync/demo.git")
         return AutoInitConflict(repoItem)
     }()
 }
