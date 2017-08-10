@@ -17,7 +17,9 @@ class AutoInitView:Element,UnFoldable{
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
-            let strategy = AutoInitConflict.Strategy.strategy(pathExists: <#T##Bool#>, isGitRepo: <#T##Bool#>, hasPathContent: <#T##Bool#>)
+            guard let conflict = conflict else {return}
+            conflict.strategy.process(conflict.repoItem)//executes the git commands
+            onComplete()//all done return to caller
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
         }
@@ -28,8 +30,9 @@ extension AutoInitView{
         Swift.print("MergeConflictView.setData")
         self.onComplete = onComplete
         self.conflict = conflict
-        self.apply([Key.issue], conflict.conflict.issue)
-        self.apply([Key.proposal], conflict.conflict.proposal)
+        let conflictText = conflict.strategy.text(conflict.repoItem)//creates the text for the window
+        self.apply([Key.issue], conflictText.issue)
+        self.apply([Key.proposal], conflictText.proposal)
     }
     enum Key{
         static let issue = "issueText"
