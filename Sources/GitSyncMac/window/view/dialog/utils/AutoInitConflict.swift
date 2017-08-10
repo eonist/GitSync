@@ -22,28 +22,28 @@ extension AutoInitConflict{
                 enum IsGitRepo{
                     case yes
                     case no
-                    static func create(_ isGitRepo:Bool)-> IsGitRepo{
-                        return isGitRepo ? .yes : .no
-                    }
+//                    static func create(_ isGitRepo:Bool)-> IsGitRepo{
+//                        return isGitRepo ? .yes : .no
+//                    }
                 }
                 case yes(isGitRepo:IsGitRepo)
                 case no(isGitRepo:IsGitRepo)
-                static func create(_ isGitRepo:Bool,_ hasPathContent:Bool)-> HasPathContent{
-                    return hasPathContent ? .yes(isGitRepo: IsGitRepo.create(isGitRepo)) : .no(isGitRepo:IsGitRepo.create(isGitRepo))
-                }
+//                static func create(_ isGitRepo:Bool,_ hasPathContent:Bool)-> HasPathContent{
+//                    return hasPathContent ? .yes(isGitRepo: IsGitRepo.create(isGitRepo)) : .no(isGitRepo:IsGitRepo.create(isGitRepo))
+//                }
             }
             case yes(hasContent:HasPathContent)
             case no(hasContent:HasPathContent)
-            static func create(_ pathExists:Bool,_ isGitRepo:Bool,_ hasPathContent:Bool) -> PathExists{
-                return pathExists ? .yes(hasContent:HasPathContent.create(isGitRepo,hasPathContent)) : .no(hasContent:HasPathContent.create(isGitRepo,hasPathContent))
-            }
+//            static func create(_ pathExists:Bool,_ isGitRepo:Bool,_ hasPathContent:Bool) -> PathExists{
+//                return pathExists ? .yes(hasContent:HasPathContent.create(isGitRepo,hasPathContent)) : .no(hasContent:HasPathContent.create(isGitRepo,hasPathContent))
+//            }
         }
         case configure(pathExists:PathExists)
         /**
          *
          */
         static func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
-            return .configure(pathExists:PathExists.create(pathExists,isGitRepo,hasPathContent))
+            return .configure(pathExists:pathExists ? .yes(hasContent: .yes(isGitRepo: .yes)))
         }
         /**
          *
