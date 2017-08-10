@@ -18,9 +18,9 @@ struct AutoInitConflict{
 extension AutoInitConflict{
     enum Strategy{
         case a
-        case b
+        case b/*Path exists,*/
         case c
-        case d
+        case d/*Path does not exist*/
         /**
          *
          */
