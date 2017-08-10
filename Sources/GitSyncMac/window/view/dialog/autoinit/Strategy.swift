@@ -65,6 +65,10 @@ extension AutoInitConflict{
                 
             }else if case Strategy.configure(pathExists: .yes(hasContent: .yes(isGitRepo: .no))) = self{
                 
+            }else if case Strategy.configure(pathExists: .yes(hasContent: .no(isGitRepo: _))) = self{
+                
+            }else if case Strategy.configure(pathExists: .no(hasContent: _)) = self{
+                
             }
             
             
