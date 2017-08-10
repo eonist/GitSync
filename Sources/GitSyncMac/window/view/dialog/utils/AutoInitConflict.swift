@@ -85,10 +85,11 @@ extension AutoInitConflict{
                     case .yes(let isGitRepo):
                         switch isGitRepo {
                         case .yes:
-                            print("")
+                            
                             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
                             if curRemotePath != repoItem.remotePath {
-                                
+                                issue = "There is already a git project in the folder: \(repoItem.local) with a different remote url"
+                                proposal = "Do you want to "
                             }
                         case .no:
                             print("")
