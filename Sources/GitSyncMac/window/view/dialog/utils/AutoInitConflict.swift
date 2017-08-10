@@ -43,7 +43,7 @@ extension AutoInitConflict{
          *
          */
         static func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
-            return .configure(pathExists:pathExists ? .yes(hasContent: .yes(isGitRepo: .yes)))
+            return .configure(pathExists:.yes(hasContent: .yes(isGitRepo: .yes)))
         }
         /**
          *
