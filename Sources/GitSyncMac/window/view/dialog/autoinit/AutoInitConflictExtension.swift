@@ -16,8 +16,10 @@ extension AutoInitConflict{
         switch state {
         case (true,true,true):
             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
-            Swift.print("curRemotePath: " + "\(curRemotePath)")
-            Swift.print("repoItem.remotePath: " + "\(repoItem.remotePath)")
+            Swift.print("curRemotePath: " + ">\(curRemotePath)<")
+            Swift.print("repoItem.remotePath: " + ">\(repoItem.remotePath)<")
+            let isEqual = curRemotePath == repoItem.remotePath
+            Swift.print("isEqual: " + "\(isEqual)")
             if curRemotePath != repoItem.remotePath {
                 issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
                 proposal = "Do you want to assign a new remote URL and start a merge wizard?"
