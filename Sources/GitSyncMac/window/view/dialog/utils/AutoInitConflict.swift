@@ -66,8 +66,14 @@ extension AutoInitConflict{
             case .configure(let pathExists):
                 switch pathExists {
                 case .yes(let hasContent):
+                    switch hasContent {
+                    case .yes(let isGitRepo):
+                        print("")
+                    case .no(let isGitRepo):
+                        print("")
+                    }
                     print("")
-                case .no(let hasContent:
+                case .no(let hasContent):
                     print("")
                 }
             }
