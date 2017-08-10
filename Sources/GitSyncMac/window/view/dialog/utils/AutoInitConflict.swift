@@ -104,7 +104,6 @@ extension AutoInitConflict{
                                 }else{//--does not have remote repo attached
                                     _ = GitModifier.attachRemoteRepo(localPath,branch)//--attach remote repo
                                 }
-
                             }
                         case .no:
                             _ = GitModifier.initialize(localPath)
@@ -145,9 +144,7 @@ extension AutoInitConflict{
                     }
                     //                let gitRepo = GitRepo(localPath,  remotePath,  branch)
                     //                let repoItem = RepoItem.repoItem(gitRepo)
-                    MergeUtils.manualMerge(repoItem){
-                        Swift.print("Manual merge completed")
-                    }
+                    
                 }
             }else {//--path does not exist
                 //GitUtils.manualClone(localPath, remotePath)
