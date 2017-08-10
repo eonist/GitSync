@@ -83,14 +83,14 @@ class AutoSync {
      * New
      * NOTE: checking if path is valid should happen before commit process. because you cant generate commit msg before repo exists etc
      */
-    static func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping ()->Void){
+    static func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping AutoInitView.Complete){
         let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
         Swift.print("pathExists: " + "\(pathExists)")
         let isGitRepository:Bool = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
         if isGitRepository {
             onComplete()
         }else{
-            Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
+            Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData,onComplete)))
         }
     }
 }

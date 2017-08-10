@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 
 class AutoInitView:Element,UnFoldable{
+    typealias Complete = () -> Void
     var onComplete:() -> Void = {fatalError("Please assign handler")}
     override func resolveSkin() {
         Swift.print("AutoInitView.resolveSkin()")
@@ -23,7 +24,7 @@ class AutoInitView:Element,UnFoldable{
     }
 }
 extension AutoInitView{
-    func setData(_ conflict:AutoInitConflict, _ onComplete:@escaping ()->Void){
+    func setData(_ conflict:AutoInitConflict, _ onComplete:@escaping Complete){
         Swift.print("MergeConflictView.setData")
         self.onComplete = onComplete
         self.apply([Key.issue], conflict.conflict.issue)
