@@ -2,16 +2,18 @@ import Foundation
 @testable import Utils
 
 extension AutoInitConflict{
-    //    typealias State = (pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool)
+    typealias State = (pathExists:Bool,hasPathContent:Bool,isGitRepo:Bool)
     typealias TextData = (issue:String,proposal:String)
     /**
      * Creates the text for the AutoInitPrompt
      */
     var text:TextData{
+        Swift.print("AutoInitConflict.text")
         var issue:String = ""
         var proposal:String = ""
-        
-        switch (pathExists,hasPathContent,isGitRepo) {
+        let state:State = (pathExists,hasPathContent,isGitRepo)
+        Swift.print("state: " + "\(state)")
+        switch state {
         case (true,true,true):
             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
             if curRemotePath != repoItem.remotePath {
@@ -26,7 +28,7 @@ extension AutoInitConflict{
             proposal = "Do you want to download from remote?"
         case (false,_,_):
             issue = "There is nothing in the path \(repoItem.localPath)"
-            proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
+            proposal = "Do you want to create it and download files from remote "//\(repoItem.remotePath)
         default:
             fatalError("Has no strategy for this scenario ")
         }
