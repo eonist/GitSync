@@ -86,6 +86,7 @@ extension AutoInitConflict{
                         switch isGitRepo {
                         case .yes:
                             print("")
+                            GitParser.originUrl(<#T##localPath: String##String#>)
                         case .no:
                             print("")
                             print("")
