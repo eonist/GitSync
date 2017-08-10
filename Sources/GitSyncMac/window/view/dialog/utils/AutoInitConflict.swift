@@ -63,7 +63,7 @@ extension AutoInitConflict{
             proposal = ""
             
             //Continue here: 🏀
-                //
+                //FIll in the different scenarios bellow, you can probably use the same tree for generating process
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
