@@ -61,7 +61,13 @@ extension AutoInitConflict{
                     proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
                 }
             }
-            if case 
+            if case Strategy.configure(pathExists: .yes(hasContent: .yes(isGitRepo: .yes))) = self {
+                
+            }else if case Strategy.configure(pathExists: .yes(hasContent: .yes(isGitRepo: .no))) = self{
+                
+            }
+            
+            
             return (issue,proposal)
         }
         /**
