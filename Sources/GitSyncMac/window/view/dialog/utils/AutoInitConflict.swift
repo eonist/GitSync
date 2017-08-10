@@ -23,12 +23,12 @@ extension AutoInitConflict{
                     case yes
                     case no
                 }
-                case yes(IsGitRepo)
-                case no(IsGitRepo)
+                case yes(isGitRepo:IsGitRepo)
+                case no(isGitRepo:IsGitRepo)
             }
-            case yes(HasPathContent)
+            case yes(hasContent:HasPathContent)
             case no(hasContent:HasPathContent)
-            case no
+//            case no
         }
         case pathExists(PathExists)
 //        case a
@@ -40,7 +40,7 @@ extension AutoInitConflict{
          */
         static func strategy(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
             if pathExists == false {
-                return .pathExists(.no(hasContent: .no(.no)))
+                return .pathExists(.no(hasContent:.no(isGitRepo:.no)))
             }else if pathExists && hasPathContent == false{
                 return .b
             }else if pathExists && hasPathContent{
