@@ -18,16 +18,16 @@ struct AutoInitConflict{
     }
 }
 extension AutoInitConflict{
-    typealias State = (pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool)
+//    typealias State = (pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool)
     typealias TextData = (issue:String,proposal:String)
     /**
      * Creates the text for the AutoInitPrompt
      */
-    func text(_ repoItem:RepoItem,_ state:State) -> TextData{
+    var text:TextData{
         var issue:String = ""
         var proposal:String = ""
         
-        switch state {
+        switch (pathExists,hasPathContent,isGitRepo) {
         case (true,true,true):
             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
             if curRemotePath != repoItem.remotePath {
@@ -38,7 +38,7 @@ extension AutoInitConflict{
             issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote and start a merge wizard?"
         case (true,false,_):
-            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+            issue = "There is no content in the path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote?"
         case (false,_,_):
             issue = "There is nothing in the path \(repoItem.localPath)"
@@ -51,8 +51,8 @@ extension AutoInitConflict{
     /**
      * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
      */
-    func process(_ repoItem:RepoItem,_ state:State){
-        switch state {
+    func process(){
+        switch (pathExists,hasPathContent,isGitRepo) {
         case (true,true,true):
             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
             if curRemotePath != repoItem.remotePath {//--the .git folder already has a remote repo attached
