@@ -17,6 +17,11 @@ struct AutoInitConflict{
 }
 extension AutoInitConflict{
     enum Strategy{
+        enum PathExists{
+            case yes
+            case no
+        }
+        case pathExists(PathExists)
         case a
         case b/*Path exists, but has no files*/
         case c
