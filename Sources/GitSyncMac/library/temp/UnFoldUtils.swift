@@ -67,7 +67,7 @@ class UnFoldUtils{
      */
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
         if var unfoldable:UnFoldable = retrieveUnFoldable(parent:view, path)/*, let last = path.last*/{
-            Swift.print("unfoldable: " + "\(unfoldable)")
+//            Swift.print("unfoldable: " + "\(unfoldable)")
             unfoldable.value = value
         }
     }
@@ -76,10 +76,10 @@ class UnFoldUtils{
     private static func isMatch(_ unfoldable:UnFoldable, _ id:String) -> Bool{
         
         if let element = unfoldable as? ElementKind, element.id == id {
-            Swift.print("found a match")
+//            Swift.print("found a match")
             return true
         }else{
-            Swift.print("no match")
+//            Swift.print("no match")
             return false
         }
     }
@@ -88,7 +88,7 @@ class UnFoldUtils{
      */
     static func retrieveUnFoldable(parent:UnFoldable, _ path:[String]) -> UnFoldable?{
         guard let parentView = parent as? NSView else{
-            Swift.print("parent isn't a nsview")
+//            Swift.print("parent isn't a nsview")
             return nil
         }
         for subView in parentView.subviews{
