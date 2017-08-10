@@ -68,9 +68,13 @@ extension AutoInitConflict{
                     case .no(let isGitRepo):
                         print("")
                     }
-                    print("")
                 case .no(let hasContent):
-                    print("")
+                    switch hasContent {
+                    case .yes(let isGitRepo):
+                        print("")
+                    case .no(let isGitRepo):
+                        print("")
+                    }
                 }
             }
             
