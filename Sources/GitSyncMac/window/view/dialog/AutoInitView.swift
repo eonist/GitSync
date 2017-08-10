@@ -47,18 +47,8 @@ struct AutoInitConflict{
    
 //    let conflict:(issue:String,proposal:String)
     let repoItem:RepoItem
-    private lazy var dateFormatter = { () -> DateFormatter in
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        return formatter
-    }()
     
-    var labelText: String? {
-        mutating get {
-            let date = Date()
-            return dateFormatter.string(from: date)
-        }
-    }
+    
    
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
