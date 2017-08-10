@@ -67,8 +67,7 @@ class AutoSync {
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             self.autoSyncGroup?.enter()
             bg.async {
-                
-                AutoSync.initCommitProcess(repoItem,nil,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+                GitSync.initCommit(repoItem,nil,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
             }
             
         }
@@ -82,29 +81,17 @@ class AutoSync {
     }
     /**
      * New
+     * NOTE: checking if path is valid should happen before commit process. because you cant generate commit msg before repo exists etc
      */
-    static func initCommitProcess(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onComplete:@escaping ()->Void){
-//
+    static func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping ()->Void){
         let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
         Swift.print("pathExists: " + "\(pathExists)")
         let isGitRepository:Bool = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
         if isGitRepository {
-            GitSync.initCommit(repoItem, commitMessage, onComplete)
+            
         }else{
             Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
-            
-            //continue here: 🏀
-                //try to make that lazy var https://stackoverflow.com/questions/44164578/lazy-var-in-struct
-                //checking if path is valid should happen before commit process. because you cant generate commit msg before repo exists etc
-            
         }
-       
-        
     }
 }
 
-
-
-extension AutoSync{
-   
-}
