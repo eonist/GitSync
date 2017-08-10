@@ -67,6 +67,9 @@ class AutoSync {
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             self.autoSyncGroup?.enter()
             bg.async {
+                verifyGitProject(repoItem){
+                    
+                }
                 GitSync.initCommit(repoItem,nil,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
             }
             
@@ -81,7 +84,7 @@ class AutoSync {
     }
     /**
      * New
-     * NOTE: checking if path is valid should happen before commit process. because you cant generate commit msg before repo exists etc
+     * NOTE: checking if path is valid should happen before commit process. because you can't generate commit msg before repo exists etc
      */
     static func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping AutoInitView.Complete){
         let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
