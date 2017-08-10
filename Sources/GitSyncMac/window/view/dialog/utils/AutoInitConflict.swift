@@ -18,7 +18,7 @@ struct AutoInitConflict{
 extension AutoInitConflict{
     enum Strategy{
         case a
-        case b/*Path exists,*/
+        case b/*Path exists, but has no files*/
         case c
         case d/*Path does not exist*/
         /**
@@ -28,7 +28,7 @@ extension AutoInitConflict{
             if pathExists == false {
                 return .d
             }else if pathExists && hasPathContent == false{
-                
+                return .b
             }else if pathExists && hasPathContent{
                 
             }else if isGitRepo {
