@@ -12,8 +12,17 @@ struct AutoInitConflict{
         self.pathExists = Utils.pathExists(repoItem)
         let isGitRepo = pathExists && Utils.isGitRepo(repoItem)
         self.isGitRepo = isGitRepo
-        self.hasPathContent = self.pathExists && isGitRepo  && Utils.hasPathContent(repoItem)
+        self.hasPathContent = self.pathExists && !isGitRepo && Utils.hasPathContent(repoItem)
     }
+}
+extension AutoInitConflict{
+    enum Strategy{
+        case a
+        case b
+        case c
+        case d
+    }
+    
 }
 private class Utils{
     static func pathExists(_ repoItem:RepoItem)->Bool {
@@ -39,25 +48,16 @@ extension AutoInitConflict{
     var conflict:(issue:String,proposal:String){
         var issue:String = ""
         var proposal:String = ""
-        let pathExists = self.pathExists
         if pathExists == false {
             issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
             proposal = "Do you want to create it and download from remote?"
-            return (issue,proposal)
-        }
-        let hasPathContent = self.hasPathContent
-        if pathExists && hasPathContent == false{
+        }else if pathExists && hasPathContent == false{
             issue = "There is no content in the file path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote?"
-            return (issue,proposal)
-        }
-        if pathExists && hasPathContent{
+        }else if pathExists && hasPathContent{
             issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
             proposal = "Do you want to download from remote and initiate a merge wizard?"
-            return (issue,proposal)
-        }else{
-            fatalError("this case cant happen")
         }
-        
+        return (issue,proposal)
     }
 }
