@@ -29,6 +29,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Add Auto init
                 //auto fill local path
                 //design UX for stashing / remove preexisting files / merge into
+                    //setup the scenarios ✅
+                    //test the scenarios 👈
+                //center the wizard text in the dialogs
         
             //add filepicker prompt
                 //needs filepicker UI
