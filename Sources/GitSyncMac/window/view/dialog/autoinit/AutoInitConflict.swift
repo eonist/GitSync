@@ -6,7 +6,7 @@ struct AutoInitConflict{
     let pathExists:Bool
     let isGitRepo:Bool
     let hasPathContent:Bool
-    let strategy:Strategy
+//    let strategy:Strategy
     
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
@@ -14,7 +14,7 @@ struct AutoInitConflict{
         let isGitRepo = pathExists && Utils.isGitRepo(repoItem)
         self.isGitRepo = isGitRepo
         self.hasPathContent = self.pathExists && !isGitRepo && Utils.hasPathContent(repoItem)
-        self.strategy = Strategy.strategy(pathExists, isGitRepo, hasPathContent)
+//        self.strategy = Strategy.strategy()
     }
 }
 
