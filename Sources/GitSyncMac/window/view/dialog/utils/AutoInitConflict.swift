@@ -24,8 +24,17 @@ extension AutoInitConflict{
         /**
          *
          */
-        static func strategy(doesPathExist:Bool,isGitFolder:Bool,isFolderEmpty:Bool) -> Strategy{
-            return .a
+        static func strategy(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
+            if pathExists == false {
+                return .d
+            }else if pathExists && hasPathContent == false{
+                
+            }else if pathExists && hasPathContent{
+                
+            }else if isGitRepo {
+                
+            }
+            
         }
         /**
          *
@@ -36,19 +45,24 @@ extension AutoInitConflict{
         /**
          *
          */
-        var text:(issue:String,proposal:String){
+        func text(_ repoItem:RepoItem) -> (issue:String,proposal:String){
             var issue:String = ""
             var proposal:String = ""
-            if pathExists == false {
+            switch self {
+            case .a:
                 issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
                 proposal = "Do you want to create it and download from remote?"
-            }else if pathExists && hasPathContent == false{
+            case .b:
                 issue = "There is no content in the file path: " + "\(repoItem.localPath)"
                 proposal = "Do you want to download from remote?"
-            }else if pathExists && hasPathContent{
+            case .c:
                 issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
                 proposal = "Do you want to download from remote and initiate a merge wizard?"
+            case .d:
+                issue = ""
+                proposal = ""
             }
+            
             return (issue,proposal)
         }
     }
