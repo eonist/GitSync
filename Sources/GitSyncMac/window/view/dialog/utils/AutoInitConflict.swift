@@ -66,7 +66,11 @@ extension AutoInitConflict{
                     case .yes(let isGitRepo):
                         switch isGitRepo {
                         case .yes:
-                            print("")
+                            let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
+                            if curRemotePath != repoItem.remotePath {
+                                issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
+                                proposal = "Do you want to assign a new remote URL and then initiate a merge wizard?"
+                            }
                         case .no:
                             print("")
                             print("")
@@ -85,15 +89,9 @@ extension AutoInitConflict{
                     case .yes(let isGitRepo):
                         switch isGitRepo {
                         case .yes:
-                            
-                            let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
-                            if curRemotePath != repoItem.remotePath {
-                                issue = "There is already a git project in the folder: \(repoItem.local) with a different remote url"
-                                proposal = "Do you want to "
-                            }
+                            fatalError("This can't happen")
                         case .no:
-                            print("")
-                            print("")
+                            fatalError("This can't happen")
                         }
                     case .no(let isGitRepo):
                         switch isGitRepo {
