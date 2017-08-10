@@ -28,6 +28,7 @@ struct RepoItem {
 }
 extension RepoItem{
     var localPath:String {get {return local} set{local = newValue}}
+    var remotePath:String {get {return remote} set{remote = newValue}}
     var gitRepo:GitRepo {
         let remotePath:String = {
             if self.remote.test("^https://.+$") {

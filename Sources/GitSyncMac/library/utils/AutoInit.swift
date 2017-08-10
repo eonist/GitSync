@@ -9,9 +9,12 @@ class AutoInit {
      * PARAM branch: the branch you want to use as origin branch
      * EXAMPLE: AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
      */
-    static func autoInit(_ localPath:String,remotePath:String,branch:String){
+    static func autoInit(_ repoItem:RepoItem,doesPathExist:Bool,isGitFolder:Bool){
+        let localPath:String = repoItem.localPath
+        let remotePath:String = repoItem.remotePath
+        let branch:String = repoItem.branch
         Swift.print("AutoInit.autoInit()")
-        let doesPathExist = FileAsserter.exists(localPath)
+//        let doesPathExist = FileAsserter.exists(localPath)
         Swift.print("doesPathExist: " + "\(doesPathExist)")
         if doesPathExist {
             let isFolderEmpty:Bool = FileParser.contentOfDir(localPath)?.isEmpty ?? false
@@ -23,7 +26,7 @@ class AutoInit {
                 //Swift.print("cloneRetVal: " + "\(cloneRetVal)")
                 //GitUtil's clone(remote_url, local_dir)--git clone with custom file path
             }else{//--folder is not empty, files already exist
-                let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
+//                let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
                 if isGitFolder {//--folder already contains a .git folder (aka git repo data)
                     let has_remote_repo_attached = GitAsserter.hasRemoteRepoAttached(localPath, branch)
                     if has_remote_repo_attached  {//--the .git folder already has a remote repo attached
@@ -36,8 +39,8 @@ class AutoInit {
                     _ = GitModifier.initialize(localPath)
                     _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
                 }
-                let gitRepo = GitRepo(localPath,  remotePath,  branch)
-                let repoItem = RepoItem.repoItem(gitRepo)
+//                let gitRepo = GitRepo(localPath,  remotePath,  branch)
+//                let repoItem = RepoItem.repoItem(gitRepo)
                 MergeUtils.manualMerge(repoItem){
                     Swift.print("Manual merge completed")
                 }
