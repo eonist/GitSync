@@ -46,18 +46,12 @@ extension AutoInitConflict{
             //do git stuff
         }
         /**
-         *
+         * Creates the text for the AutoInitPrompt
          */
         func text(_ repoItem:RepoItem) -> (issue:String,proposal:String){
             var issue:String = ""
-            _ = issue
-            issue = ""
             var proposal:String = ""
-            _ = proposal
-            proposal = ""
-            
-            //Continue here: 🏀
-                //FIll in the different scenarios bellow, you can probably use the same tree for generating process
+            /**/
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
@@ -69,20 +63,16 @@ extension AutoInitConflict{
                             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
                             if curRemotePath != repoItem.remotePath {
                                 issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
-                                proposal = "Do you want to assign a new remote URL and then initiate a merge wizard?"
+                                proposal = "Do you want to assign a new remote URL and start a merge wizard?"
                             }
                         case .no:
-                            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-                            proposal = "Do you want to download from remote?"
+                            issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
+                            proposal = "Do you want to download from remote and start a merge wizard?"
                         }
                     case .no(let isGitRepo):
-                        switch isGitRepo {
-                        case .yes:
-                            fatalError("This can't happen")
-                        case .no:
-                            issue = "There is no content in the file path: " + "\(repoItem.localPath)"
-                            proposal = "Do you want to download from remote?"
-                        }
+                        _ = isGitRepo
+                        issue = "There is no content in the file path: " + "\(repoItem.localPath)"
+                        proposal = "Do you want to download from remote?"
                     }
                 case .no(let hasContent):
                     _ = hasContent
@@ -90,20 +80,6 @@ extension AutoInitConflict{
                     proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
                 }
             }
-            
-            
-//            switch self {
-//            ca
-//            case .b:
-//
-//            case .c:
-//                issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
-//                proposal = "Do you want to download from remote and initiate a merge wizard?"
-//            case .d:
-//                issue = ""
-//                proposal = ""
-//            }
-            
             return (issue,proposal)
         }
     }
