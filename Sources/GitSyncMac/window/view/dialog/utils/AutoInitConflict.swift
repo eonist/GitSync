@@ -80,8 +80,8 @@ extension AutoInitConflict{
         /**
          * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
          */
-        func process(_ repoItem:RepoItem){
-            let localPath:String = repoItem.localPath
+        func process(_ repoItem:RepoItem, _ onComplete:()->Void){
+            
             let remotePath:String = repoItem.remotePath
             let branch:String = repoItem.branch
             
@@ -95,26 +95,27 @@ extension AutoInitConflict{
                         case .yes:
                             let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
                             if curRemotePath != repoItem.remotePath {//--the .git folder already has a remote repo attached
-                                _ = GitModifier.detachRemoteRepo(localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
-                                _ = GitModifier.attachRemoteRepo(localPath,remotePath)
+                                _ = GitModifier.detachRemoteRepo(repoItem.localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
+                                _ = GitModifier.attachRemoteRepo(repoItem.localPath,remotePath)
                             }else if curRemotePath == repoItem.remotePath{
                                 //do nothing
                             }else{//--does not have remote repo attached// GitAsserter.hasRemoteRepoAttached(localPath, branch)
-                                _ = GitModifier.attachRemoteRepo(localPath,remotePath)//--attach remote repo
+                                _ = GitModifier.attachRemoteRepo(repoItem.localPath,remotePath)//--attach remote repo
                             }
                         case .no:
-                            _ = GitModifier.initialize(localPath)
-                            _ = GitModifier.attachRemoteRepo(localPath,branch)//--add new remote origin
+                            _ = GitModifier.initialize(repoItem.localPath)
+                            _ = GitModifier.attachRemoteRepo(repoItem.localPath,branch)//--add new remote origin
                         }
                     case .no(let isGitRepo):
                         _ = isGitRepo
-                        _ = GitModifier.clone(remotePath,localPath)
+                        _ = GitModifier.clone(remotePath,repoItem.localPath)
                     }
                 case .no(let hasContent):
                     _ = hasContent
-                   _ = GitModifier.clone(remotePath,localPath)//--this will also create the folders if they dont exist, even nested
+                   _ = GitModifier.clone(remotePath,repoItem.localPath)//--this will also create the folders if they dont exist, even nested
                 }
             }
+            onComplete()
         }
     }
 }
