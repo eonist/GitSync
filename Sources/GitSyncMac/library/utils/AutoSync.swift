@@ -88,7 +88,7 @@ class AutoSync {
         Swift.print("pathExists: " + "\(pathExists)")
         let isGitRepository:Bool = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
         if isGitRepository {
-            
+            onComplete()
         }else{
             Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData)))
         }
