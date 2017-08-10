@@ -22,7 +22,24 @@ extension AutoInitConflict{
         case c
         case d
     }
-    
+    /**
+     *
+     */
+    static func strategy(doesPathExist:Bool,isGitFolder:Bool,isFolderEmpty:Bool) -> Strategy{
+        return .a
+    }
+    /**
+     *
+     */
+    static func processStrategy(strategy:Strategy){
+        
+    }
+    /**
+     *
+     */
+    static func generateText(strategy:Strategy){
+        
+    }
 }
 private class Utils{
     static func pathExists(_ repoItem:RepoItem)->Bool {
