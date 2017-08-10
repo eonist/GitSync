@@ -22,9 +22,15 @@ extension AutoInitConflict{
                 enum IsGitRepo{
                     case yes
                     case no
+                    static func create(_ isGitRepo:Bool)-> IsGitRepo{
+                        return isGitRepo ? .yes : .no
+                    }
                 }
                 case yes(isGitRepo:IsGitRepo)
                 case no(isGitRepo:IsGitRepo)
+                func create(isGitRepo:Bool,hasPathContent:Bool)-> HasPathContent{
+                    return hasPathContent ? HasPathContent.yes(isGitRepo: IsGitRepo.create(isGitRepo)) : HasPathContent.no(isGitRepo:IsGitRepo.create(isGitRepo))
+                }
             }
             case yes(hasContent:HasPathContent)
             case no(hasContent:HasPathContent)
