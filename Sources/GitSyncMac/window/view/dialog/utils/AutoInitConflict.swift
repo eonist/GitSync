@@ -23,6 +23,7 @@ extension AutoInitConflict{
             }
             case yes(HasPathContent)
             case no(HasPathContent)
+            case no
         }
         case pathExists(PathExists)
         case a
