@@ -68,7 +68,7 @@ extension AutoInitConflict{
             func hasContent( _ hasContent:Strategy.PathExists.HasPathContent){
                 switch hasContent {
                 case .yes(let hasContent):
-                    isGitRepo()
+                    isGitRepo(hasContent)
                     print("")
                 case .no(let hasContent):
                     print("")
