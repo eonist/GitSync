@@ -10,8 +10,9 @@ struct AutoInitConflict{
     init(_ repoItem:RepoItem){
         self.repoItem = repoItem
         self.pathExists = Utils.pathExists(repoItem)
-        self.isGitRepo = pathExists && Utils.isGitRepo(repoItem)
-        self.hasPathContent = false//pathExists && !self.isGitRepo && Utils.hasPathContent(repoItem)
+        let isGitRepo = pathExists && Utils.isGitRepo(repoItem)
+        self.isGitRepo = isGitRepo
+        self.hasPathContent = self.pathExists && isGitRepo  && Utils.hasPathContent(repoItem)
     }
 }
 private class Utils{
