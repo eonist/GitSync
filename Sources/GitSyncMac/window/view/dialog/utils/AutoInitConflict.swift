@@ -28,9 +28,16 @@ extension AutoInitConflict{
             }
             case yes(hasContent:HasPathContent)
             case no(hasContent:HasPathContent)
+            func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool)-> PathExists{
+                return pathExists ? .yes(HasPathContent.create())
+            }
 //            case no
         }
         case pathExists(pathExists:PathExists)
+        /**
+         *
+         */
+        
 //        case a
 //        case b/*Path exists, but has no files*/
 //        case c
