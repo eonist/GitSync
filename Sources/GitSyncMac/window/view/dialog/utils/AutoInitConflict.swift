@@ -28,14 +28,14 @@ extension AutoInitConflict{
                 }
                 case yes(isGitRepo:IsGitRepo)
                 case no(isGitRepo:IsGitRepo)
-                func create(isGitRepo:Bool,hasPathContent:Bool)-> HasPathContent{
-                    return hasPathContent ? HasPathContent.yes(isGitRepo: IsGitRepo.create(isGitRepo)) : HasPathContent.no(isGitRepo:IsGitRepo.create(isGitRepo))
+                static func create(_ isGitRepo:Bool,_ hasPathContent:Bool)-> HasPathContent{
+                    return hasPathContent ? .yes(isGitRepo: IsGitRepo.create(isGitRepo)) : .no(isGitRepo:IsGitRepo.create(isGitRepo))
                 }
             }
             case yes(hasContent:HasPathContent)
             case no(hasContent:HasPathContent)
-            func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool)-> PathExists{
-                return pathExists ? .yes(HasPathContent.create())
+            func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> PathExists{
+                return pathExists ? .yes(hasContent:HasPathContent.create(isGitRepo,hasPathContent)) : .no(hasContent:HasPathContent.create(isGitRepo,hasPathContent))
             }
 //            case no
         }
