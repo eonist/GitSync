@@ -80,7 +80,7 @@ extension AutoInitConflict{
         /**
          * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
          */
-        func process(_ repoItem:RepoItem, _ onComplete:()->Void){
+        func process(_ repoItem:RepoItem){
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
@@ -111,7 +111,6 @@ extension AutoInitConflict{
                    _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath)//--this will also create the folders if they dont exist, even nested
                 }
             }
-            onComplete()
         }
     }
 }
