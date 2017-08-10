@@ -64,16 +64,40 @@ extension AutoInitConflict{
                 case .yes(let hasContent):
                     switch hasContent {
                     case .yes(let isGitRepo):
-                        print("")
+                        switch isGitRepo {
+                        case .yes:
+                            print("")
+                        case .no:
+                            print("")
+                            print("")
+                        }
                     case .no(let isGitRepo):
-                        print("")
+                        switch isGitRepo {
+                        case .yes:
+                            print("")
+                        case .no:
+                            print("")
+                            print("")
+                        }
                     }
                 case .no(let hasContent):
                     switch hasContent {
                     case .yes(let isGitRepo):
-                        print("")
+                        switch isGitRepo {
+                        case .yes:
+                            print("")
+                        case .no:
+                            print("")
+                            print("")
+                        }
                     case .no(let isGitRepo):
-                        print("")
+                        switch isGitRepo {
+                        case .yes:
+                            print("")
+                        case .no:
+                            print("")
+                            print("")
+                        }
                     }
                 }
             }
