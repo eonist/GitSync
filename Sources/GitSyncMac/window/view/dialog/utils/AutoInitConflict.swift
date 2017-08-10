@@ -95,8 +95,8 @@ extension AutoInitConflict{
                         case .yes:
                             print("")
                         case .no:
-                            print("")
-                            print("")
+                            issue = "There is nothing in the path \(repoItem.localPath)"
+                            proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
                         }
                     }
                 }
