@@ -78,7 +78,7 @@ extension AutoInitConflict{
             return (issue,proposal)
         }
         /**
-         *
+         * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
          */
         func process(_ repoItem:RepoItem){
             let localPath:String = repoItem.localPath
@@ -119,40 +119,7 @@ extension AutoInitConflict{
                 }
             }
         }
-        static func autoInit(_ repoItem:RepoItem,doesPathExist:Bool,isGitFolder:Bool,isFolderEmpty:Bool){
-            let localPath:String = repoItem.localPath
-            let remotePath:String = repoItem.remotePath
-            let branch:String = repoItem.branch
-            Swift.print("AutoInit.autoInit()")
-            //        let doesPathExist = FileAsserter.exists(localPath)
-            Swift.print("doesPathExist: " + "\(doesPathExist)")
-            if doesPathExist {
-                //            let isFolderEmpty:Bool = FileParser.contentOfDir(localPath)?.isEmpty ?? false
-                //            Swift.print("isFolderEmpty: " + "\(isFolderEmpty)")
-                if isFolderEmpty {//--folder is empty
-                    //GitUtils.manualClone(localPath, remotePath)
-                    
-                    //let cloneRetVal = GitModifier.clone(remotePath, localPath)
-                    //Swift.print("cloneRetVal: " + "\(cloneRetVal)")
-                    //GitUtil's clone(remote_url, local_dir)--git clone with custom file path
-                }else{//--folder is not empty, files already exist
-                    //                let isGitFolder:Bool = GitAsserter.isGitRepo(localPath)
-                    if isGitFolder {//--folder already contains a .git folder (aka git repo data)
-                        
-                    }else{//--has no .git folder, but there are some files like text.txt
-                        
-                    }
-                    //                let gitRepo = GitRepo(localPath,  remotePath,  branch)
-                    //                let repoItem = RepoItem.repoItem(gitRepo)
-                    
-                }
-            }else {//--path does not exist
-                //GitUtils.manualClone(localPath, remotePath)
-                
-                //_ = GitModifier.clone(remotePath, localPath)
-                //GitUtil's clone(remote_url, local_dir)
-            }
-        }
+        
     }
     
 }
