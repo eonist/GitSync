@@ -16,6 +16,7 @@ class AutoInitView:Element,UnFoldable{
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
+            
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
         }
