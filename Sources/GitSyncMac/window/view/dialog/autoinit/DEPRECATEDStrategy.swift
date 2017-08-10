@@ -1,11 +1,11 @@
-import Foundation
-@testable import Utils
-
-extension AutoInitConflict{
-    enum Strategy{
-        
-    }
-}
+//import Foundation
+//@testable import Utils
+//
+//extension AutoInitConflict{
+//    enum Strategy{
+//        
+//    }
+//}
 //    /**
 //     * New
 //     */
