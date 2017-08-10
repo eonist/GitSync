@@ -34,34 +34,17 @@ extension AutoInitConflict{
             }
             case yes(hasContent:HasPathContent)
             case no(hasContent:HasPathContent)
-            func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> PathExists{
+            static func create(_ pathExists:Bool,_ isGitRepo:Bool,_ hasPathContent:Bool) -> PathExists{
                 return pathExists ? .yes(hasContent:HasPathContent.create(isGitRepo,hasPathContent)) : .no(hasContent:HasPathContent.create(isGitRepo,hasPathContent))
             }
 //            case no
         }
-        case pathExists(pathExists:PathExists)
+        case pathExists(PathExists)
         /**
          *
          */
-        
-//        case a
-//        case b/*Path exists, but has no files*/
-//        case c
-//        case d/*Path does not exist*/
-        /**
-         *
-         */
-        static func strategy(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
-            if pathExists == false {
-                return .pathExists(pathExists:.no(hasContent:.no(isGitRepo:.no)))
-            }else if pathExists && hasPathContent == false{
-                return .b
-            }else if pathExists && hasPathContent{
-                
-            }else if isGitRepo {
-                
-            }
-            
+        static func create(pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) -> Strategy{
+            return .pathExists(PathExists.create(pathExists,isGitRepo,hasPathContent))
         }
         /**
          *
