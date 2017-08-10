@@ -61,33 +61,39 @@ extension AutoInitConflict{
             var proposal:String = ""
             _ = proposal
             proposal = ""
+        
+            
+            func getHasContent(_ hasContent:Strategy.PathExists.HasPathContent){
+                switch hasContent {
+                case .yes(let isGitRepo):
+                    getIsGitRepo(isGitRepo)
+                    print("")
+                case .no(let isGitRepo):
+                    print("")
+                    getIsGitRepo(isGitRepo)
+                }
+                
+            }
+           
+            func getIsGitRepo(_ isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo){
+                switch isGitRepo {
+                case .yes:
+                    print("")
+                case .no:
+                    print("")
+                }
+            }
             
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
                 case .yes(let hasContent):
-                    switch hasContent {
-                    case .yes(let isGitRepo):
-                        print("")
-                    case .no(let isGitRepo):
-                        print("")
-                    }
-                    print("")
+                    getHasContent(hasContent)
                 case .no(let hasContent):
-                    print("")
+                    getHasContent(hasContent)
                 }
             }
-            
-            func hasContent(_ hasContent:Strategy.PathExists.HasPathContent){
-                switch hasContent {
-                case .yes(let isGitRepo):
-                    
-                    print("")
-                case .no(let isGitRepo):
-                    print("")
-                }
-                
-            }
+
 //            switch self {
 //            case .a:
 //                issue = "There is no folder in the file path: " + "\(repoItem.localPath)"
