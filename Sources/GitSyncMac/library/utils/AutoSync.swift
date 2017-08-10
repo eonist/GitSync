@@ -95,6 +95,7 @@ class AutoSync {
         if isGitRepository {
             onComplete()
         }else{
+            let conflict = 
             main.async{
                 Nav.setView(.dialog(.autoInit(AutoInitConflict.dummyData,onComplete)))
             }
