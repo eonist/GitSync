@@ -65,13 +65,20 @@ extension AutoInitConflict{
             /**
              *
              */
-            func hasContent( hasContent:Strategy.PathExists.HasPathContent){
-                
+            func hasContent( _ hasContent:Strategy.PathExists.HasPathContent){
+                switch hasContent {
+                case .yes(let hasContent):
+                    isGitRepo()
+                    print("")
+                case .no(let hasContent):
+                    print("")
+                }
+            
             }
             /**
              *
              */
-            func isGitRepo( isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo){
+            func isGitRepo(_  isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo){
                 switch isGitRepo {
                 case .yes(let isGitRepo):
                     print("")
@@ -83,12 +90,7 @@ extension AutoInitConflict{
             switch self{
             case .configure(let pathExists):
                 switch pathExists {
-                case .yes(let hasContent):
-                    
-                    print("")
-                case .no(let hasContent):
-                    print("")
-                }
+                hasContent(pathExists)
             }
 //            switch self {
 //            case .a:
