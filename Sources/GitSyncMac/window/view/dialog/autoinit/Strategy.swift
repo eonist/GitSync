@@ -3,28 +3,7 @@ import Foundation
 
 extension AutoInitConflict{
     enum Strategy{
-        enum PathExists{
-            enum HasPathContent{
-                enum IsGitRepo{
-                    case yes
-                    case no
-                }
-                case yes(isGitRepo:IsGitRepo)
-                case no(isGitRepo:IsGitRepo)
-            }
-            case yes(hasContent:HasPathContent)
-            case no(hasContent:HasPathContent)
-        }
-        case configure(pathExists:PathExists)
-        /**
-         * Creates a strategy
-         */
-        static func strategy(_ pathExists:Bool,_ isGitRepo:Bool,_ hasPathContent:Bool) -> Strategy{
-            let _isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo = isGitRepo ? .yes : .no
-            let _hasPathContent:Strategy.PathExists.HasPathContent = hasPathContent ? .yes(isGitRepo:_isGitRepo) : .no(isGitRepo:_isGitRepo)
-            let _pathExists:Strategy.PathExists = pathExists ? .yes(hasContent:_hasPathContent) : .no(hasContent:_hasPathContent)
-            return .configure(pathExists:_pathExists)
-        }
+        
         
         /**
          * Creates the text for the AutoInitPrompt
@@ -115,3 +94,27 @@ extension AutoInitConflict{
 //        }
 //        return (issue,proposal)
 //    }
+
+
+//enum PathExists{
+//    enum HasPathContent{
+//        enum IsGitRepo{
+//            case yes
+//            case no
+//        }
+//        case yes(isGitRepo:IsGitRepo)
+//        case no(isGitRepo:IsGitRepo)
+//    }
+//    case yes(hasContent:HasPathContent)
+//    case no(hasContent:HasPathContent)
+//}
+//case configure(pathExists:PathExists)
+///**
+// * Creates a strategy
+// */
+//static func strategy(_ pathExists:Bool,_ isGitRepo:Bool,_ hasPathContent:Bool) -> Strategy{
+//    let _isGitRepo:Strategy.PathExists.HasPathContent.IsGitRepo = isGitRepo ? .yes : .no
+//    let _hasPathContent:Strategy.PathExists.HasPathContent = hasPathContent ? .yes(isGitRepo:_isGitRepo) : .no(isGitRepo:_isGitRepo)
+//    let _pathExists:Strategy.PathExists = pathExists ? .yes(hasContent:_hasPathContent) : .no(hasContent:_hasPathContent)
+//    return .configure(pathExists:_pathExists)
+//}
