@@ -70,7 +70,15 @@ extension AutoInitConflict{
             }else if case Strategy.configure(pathExists: .no(hasContent: _)) = self{
                 
             }
-            
+            let pathExists:Bool 
+            let isGitRepo:Bool,
+            let hasPathContent:Bool
+            switch (pathExists:Bool,isGitRepo:Bool,hasPathContent:Bool) {
+            case <#pattern#>:
+                <#code#>
+            default:
+                <#code#>
+            }
             
             return (issue,proposal)
         }
