@@ -93,7 +93,7 @@ extension AutoInitConflict{
                     case .no(let isGitRepo):
                         switch isGitRepo {
                         case .yes:
-                            print("")
+                            fatalError("This can't happen")
                         case .no:
                             issue = "There is nothing in the path \(repoItem.localPath)"
                             proposal = "Do you want to create it and download files from: \(repoItem.remotePath)"
