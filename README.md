@@ -30,8 +30,10 @@
 6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd>  <kbd>R</kbd>
 
 ## Change-log:
-
 **2017-08-11**
+- Fixed Stuck TextCursor in TextField
+
+**2017-08-10**
 - Added Logic to AutoInitView
 - Created 4 Auto init Scenarios for the AutoInit process
 

@@ -35,6 +35,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
             //add filepicker prompt
                 //needs filepicker UI
+        
+            //Make RepoDetail store date to disk on View.close()
 
     }
     
