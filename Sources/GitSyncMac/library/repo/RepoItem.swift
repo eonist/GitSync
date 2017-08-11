@@ -51,7 +51,7 @@ extension RepoItem{
         return RepoItem(local: "user file path",branch: "master",title: "Element iOS")
     }
 }
-enum RepoType:String{
+enum RepoType:String{//TODO: ⚠️️ move this into RepoItem
     case title = "title"
     case local = "local"
     case remote = "remote"
@@ -60,7 +60,7 @@ enum RepoType:String{
     case message = "message"
     case active = "active"
 }
-enum RepoFolderType:String{
+enum RepoFolderType:String{//TODO: ⚠️️ move this into RepoItem
     case isOpen = "isOpen"
     case hasChildren = "hasChildren"
 }
