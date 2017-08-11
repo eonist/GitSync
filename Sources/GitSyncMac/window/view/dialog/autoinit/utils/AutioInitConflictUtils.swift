@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class AutioInitConflictUtils {
     typealias State = (pathExists:Bool,hasPathContent:Bool,isGitRepo:Bool,areRemotesEqual:Bool)
@@ -6,11 +7,12 @@ class AutioInitConflictUtils {
     /**
      * Creates the text for the AutoInitPrompt
      */
-    var text:TextData{//TODO: ⚠️️ Move to AutoInitUtils
+    static func text(_ conflict:AutoInitConflict)->TextData{//TODO: ⚠️️ Move to AutoInitUtils
         Swift.print("AutoInitConflict.text")
+        let repoItem = conflict.repoItem
         var issue:String = ""
         var proposal:String = ""
-        let state:State = (pathExists,hasPathContent,isGitRepo,areRemotesEqual)
+        let state:State = (conflict.pathExists,conflict.hasPathContent,conflict.isGitRepo,conflict.areRemotesEqual)
         Swift.print("state: " + "\(state)")
         switch state {
         case (true,true,true,false):
@@ -33,13 +35,14 @@ class AutioInitConflictUtils {
     /**
      * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
      */
-    func process(){//TODO: ⚠️️ Move to AutoInitUtils
-        let state:State = (pathExists,hasPathContent,isGitRepo,areRemotesEqual)
+    static func process(_ conflict:AutoInitConflict){//TODO: ⚠️️ Move to AutoInitUtils
+        let state:State = (conflict.pathExists,conflict.hasPathContent,conflict.isGitRepo,conflict.areRemotesEqual)
+        let repoItem = conflict.repoItem
         Swift.print("AutoInitConflic.process() state: \(state)")
         switch state {
         case (true,true,true,false):
             Swift.print("a")
-            if curRemotePath == "" {//does not have remote repo attached
+            if conflict.curRemotePath == "" {//does not have remote repo attached
                 _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--attach remote repo
             }else{//--the .git folder already has a remote repo attached, but is different from repoItem.remote
                 _ = GitModifier.detachRemoteRepo(repoItem.localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
