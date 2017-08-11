@@ -45,6 +45,7 @@ class AutoInitConflictUtils {
 //            let gitURL:String = (repoItem.localPath+"/.git").tildePath
 //            Swift.print("gitURL: " + "\(gitURL)")
             FileModifier.delete(repoItem.localPath.tildePath)
+            FileModifier.createDir(repoItem.localPath.tildePath)
             _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
 //            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
 //            _ = GitModifier.initialize(repoItem.localPath)
@@ -53,7 +54,7 @@ class AutoInitConflictUtils {
             Swift.print("b")
 //            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
             FileModifier.delete(repoItem.localPath.tildePath)
-            
+            FileModifier.createDir(repoItem.localPath.tildePath)
             _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
             //Continue here: 
                 //Try the process manually in appdelegate, something isnt working
