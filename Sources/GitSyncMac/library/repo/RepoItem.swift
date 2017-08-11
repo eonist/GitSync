@@ -23,9 +23,7 @@ struct RepoItem {
         self.title = title
         self.remote = remote
     }
-    init(){}//dont delete this
-    
-
+    init(){}//don't delete this
 }
 extension RepoItem{
     var localPath:String {get {return local} set{local = newValue}}
