@@ -16,9 +16,9 @@ extension AutoInitConflict{
         switch state {
         case (true,true,true,false):
             issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
-            proposal = "Do you want to assign the new remote URL and start a merge wizard?"
+            proposal = "Do you want to keep the files and start a merge wizard?"
         case (true,true,false,_):
-            issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
+            issue = "The path \(repoItem.localPath) is not a git repo but there pre-exisiting files"
             proposal = "Do you want to download files from remote and start a merge wizard?"
         case (true,false,_,_):
             issue = "The folder in path: " + "\(repoItem.localPath) is empty"
