@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 
-class AutioInitConflictUtils {
+class AutoInitConflictUtils {
     typealias State = (pathExists:Bool,hasPathContent:Bool,isGitRepo:Bool,areRemotesEqual:Bool)
     typealias TextData = (issue:String,proposal:String)
     /**
