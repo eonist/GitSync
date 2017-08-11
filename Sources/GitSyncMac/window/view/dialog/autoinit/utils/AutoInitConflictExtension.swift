@@ -7,7 +7,7 @@ extension AutoInitConflict{
     /**
      * Creates the text for the AutoInitPrompt
      */
-    var text:TextData{
+    var text:TextData{//TODO: ⚠️️ Move to AutoInitUtils
         Swift.print("AutoInitConflict.text")
         var issue:String = ""
         var proposal:String = ""
@@ -34,7 +34,7 @@ extension AutoInitConflict{
     /**
      * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
      */
-    func process(){
+    func process(){//TODO: ⚠️️ Move to AutoInitUtils
         let state:State = (pathExists,hasPathContent,isGitRepo,areRemotesEqual)
         Swift.print("AutoInitConflic.process() state: \(state)")
         switch state {
