@@ -112,7 +112,7 @@ class AutoSync {
 //        Swift.print("pathExists: " + "\(pathExists)")
 //        let isGitRepository:Bool = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
         let conflict = AutoInitConflict.init(repoItem)
-        if conflict.areRemotesEqual {//No need to 
+        if conflict.areRemotesEqual {//No need to init AutoInit dialog
             onComplete()
         }else{
             main.async{
