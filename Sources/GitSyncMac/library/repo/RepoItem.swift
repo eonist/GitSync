@@ -31,14 +31,7 @@ extension RepoItem{
     var localPath:String {get {return local} set{local = newValue}}
     var remotePath:String {get {return remote} set{remote = newValue}}
     var gitRepo:GitRepo {
-        let remotePath:String = {
-            if self.remote.test("^https://.+$") {
-                return self.remote.subString(8, self.remote.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-            else {
-                return self.remote
-            }
-        }()
-        return GitRepo(self.local, remotePath, self.branch)
+        return GitRepo.gitRepo(self.local, remotePath, self.branch)
     }//temp
     static func repoItem(_ gitRepo:GitRepo) -> RepoItem {
         var repoItem = RepoItem()
