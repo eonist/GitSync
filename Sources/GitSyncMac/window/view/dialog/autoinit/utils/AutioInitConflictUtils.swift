@@ -46,8 +46,7 @@ class AutoInitConflictUtils {
             Swift.print("gitURL: " + "\(gitURL)")
             FileModifier.delete(gitURL)
             GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
-            _ = GitModifier.initialize(repoItem.localPath)
-            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
+            
         case (true,true,false,_):
             Swift.print("")
             _ = GitModifier.initialize(repoItem.localPath)
