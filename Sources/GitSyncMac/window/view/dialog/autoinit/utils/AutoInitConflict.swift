@@ -9,12 +9,15 @@ class AutoInitConflict{
         return FileAsserter.exists(self.repoItem.localPath.tildePath)
     }()
     lazy var hasPathContent:Bool = {
-        return self.pathExists && FileAsserter.hasContent(self.repoItem.localPath.tildePath)
+        guard self.pathExists else{return false}
+        return FileAsserter.hasContent(self.repoItem.localPath.tildePath)
     }()
     lazy var isGitRepo:Bool = {
-        return self.pathExists && GitAsserter.isGitRepo(self.repoItem.localPath.tildePath)
+        guard self.pathExists else {return false}
+        return GitAsserter.isGitRepo(self.repoItem.localPath.tildePath)
     }()
     lazy var areRemotesEqual:Bool = {
+        guard self.isGitRepo else{return false}
         let curRemotePath:String = GitParser.originUrl(self.repoItem.localPath)
 //        Swift.print("curRemotePath: " + ">\(curRemotePath)<")
 //        Swift.print("repoItem.remotePath: " + ">\(repoItem.remotePath)<")
