@@ -32,6 +32,7 @@
 ## Change-log:
 **2017-08-11**
 - Fixed Stuck TextCursor in TextField
+- Completed the AutoInitDialog
 
 **2017-08-10**
 - Added Logic to AutoInitView

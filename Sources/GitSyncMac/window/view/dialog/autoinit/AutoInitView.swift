@@ -15,9 +15,6 @@ class AutoInitView:Element,UnFoldable{//TODO:⚠️️ rename to AutoInitDialog
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
-            guard let conflict = conflict else {return}
-            AutoInitConflictUtils.process(conflict)//executes the git commands
-            onComplete()//all done return to caller
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
         }
@@ -41,8 +38,10 @@ extension AutoInitView{
      */
     func onOKButtonClick(){
         Swift.print("onOKButtonClick")
-        AutoInitConflictUtils.process(conflict!)
-        onComplete()
+        guard let conflict = conflict else {return}
+        AutoInitConflictUtils.process(conflict)//executes the git commands
+        onComplete()//all done return to caller
+
         self.removeFromSuperview()
     }
 }

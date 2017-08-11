@@ -27,7 +27,7 @@ class AutoSync {
        
         func iterateRepoItems(){
             Swift.print("iterateRepoItems: curRepoIndex:\(curRepoIndex) repoList.count: \(repoList.count)")
-            if curRepoIndex <= repoList.count {
+            if curRepoIndex < repoList.count {
                 let repoItem = repoList[curRepoIndex]
                 curRepoIndex += 1
                 self.verifyGitProject(repoItem,iterateRepoItems)
