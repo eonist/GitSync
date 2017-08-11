@@ -16,30 +16,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
-//            FileModifier.createDir("~/dev/demo2".tildePath)
-//        Swift.print("done")
-//        FileModifier.delete("~/dev/demo2".tildePath)
-        
-//        let status = GitModifier.clone("https://github.com/gitsync/demo2.git","~/dev/demo2".tildePath)
-//        Swift.print("status: " + "\(status)")
-//        FileModifier.delete(gitURL)
-//        AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
-        
+
         //Continue here: 🏀
-            //There is a problem where repos are not pulled. Fetch is never being called on each autoSync. test this again✅
+    
         
-            //The autosync on interval
-                //stop on pull gesture init 🚫
+            //The autosync on interval 👈
                 //start after pull gesture completes etc
         
             //Add Auto init
-                //auto fill local path
-                //design UX for stashing / remove preexisting files / merge into
-                    //setup the scenarios ✅
-                    //test the scenarios 👈
+                //auto fill local path when drag and drop clipboard etc
                 //center the wizard text in the dialogs
         
-            //add filepicker prompt
+            //add filepicker prompt 
                 //needs filepicker UI
         
             //Make RepoDetail store date to disk on View.close()
