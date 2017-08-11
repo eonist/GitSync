@@ -40,6 +40,7 @@ class AutoSync {
      * New
      */
     func onVerificationComplete(){
+        Swift.print("onVerificationComplete")
         messageRepos = repoList!.filter{$0.message}
         Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
         otherRepos = repoList!.filter{!$0.message}
