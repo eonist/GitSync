@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class AutoInitView:Element,UnFoldable{
+class AutoInitView:Element,UnFoldable{//TODO:⚠️️ rename to AutoInitDialog
     typealias Complete = () -> Void
     var onComplete:() -> Void = {fatalError("Please assign handler")}
     var conflict:AutoInitConflict?

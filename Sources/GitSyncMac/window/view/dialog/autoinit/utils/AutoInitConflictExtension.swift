@@ -22,7 +22,7 @@ extension AutoInitConflict{
             proposal = "Do you want to keep the files, download the git repo from remote and start a merge wizard?"
         case (true,false,_,_):
             issue = "The folder in path: " + "\(repoItem.localPath) is empty"
-            proposal = "Do you want to download files from remote?"
+            proposal = "Do you want to create a folder and download files from remote?"
         case (false,_,_,_):
             issue = "The path \(repoItem.localPath) doesn't exist"
             proposal = "Do you want to create it and download files from remote "//\(repoItem.remotePath)
@@ -36,6 +36,7 @@ extension AutoInitConflict{
      */
     func process(){
         let state:State = (pathExists,hasPathContent,isGitRepo,areRemotesEqual)
+        Swift.print("AutoInitConflic.process() state: \(state)")
         switch state {
         case (true,true,true,false):
             if curRemotePath == "" {//does not have remote repo attached
