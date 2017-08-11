@@ -55,6 +55,7 @@ class AutoInitConflictUtils {
             //Continue here: 
                 //Try the process manually in appdelegate, something isnt working
                     //sync normally then use appdelegate after 
+                    //never mind, just delete the path and use normal clone 👈
 //            _ = GitModifier.initialize(repoItem.localPath)
 //            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
         case (true,false,_,_):
