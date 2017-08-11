@@ -15,7 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
-        initApp()
+//        initApp()
+            FileModifier.write("~/dev/demo2".tildePath, <#T##content: String##String#>)
         
 //        FileModifier.delete("~/dev/demo2".tildePath)
         

@@ -53,6 +53,7 @@ class AutoInitConflictUtils {
             Swift.print("b")
 //            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
             FileModifier.delete(repoItem.localPath.tildePath)
+            
             _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
             //Continue here: 
                 //Try the process manually in appdelegate, something isnt working
