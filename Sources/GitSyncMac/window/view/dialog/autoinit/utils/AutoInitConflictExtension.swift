@@ -19,12 +19,12 @@ extension AutoInitConflict{
             proposal = "Do you want to assign the new remote URL and start a merge wizard?"
         case (true,true,false,_):
             issue = "There is preExisiting files in path: " + "\(repoItem.localPath)"
-            proposal = "Do you want to download from remote and start a merge wizard?"
+            proposal = "Do you want to download files from remote and start a merge wizard?"
         case (true,false,_,_):
-            issue = "There is no content in the path: " + "\(repoItem.localPath)"
-            proposal = "Do you want to download from remote?"
+            issue = "The folder in path: " + "\(repoItem.localPath) is empty"
+            proposal = "Do you want to download files from remote?"
         case (false,_,_,_):
-            issue = "There is nothing in the path \(repoItem.localPath)"
+            issue = "The path \(repoItem.localPath) doesn't exist"
             proposal = "Do you want to create it and download files from remote "//\(repoItem.remotePath)
         default:
             fatalError("Has no strategy for this scenario \(state)")
