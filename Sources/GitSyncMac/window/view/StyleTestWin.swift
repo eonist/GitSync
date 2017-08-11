@@ -16,7 +16,7 @@ class StyleTestWin:Window {
 //        Nav.setView(.main(.repo))/*⬅️️🚪*///
 //        Nav.setView(.dialog(.commit(RepoItem.dummyData, CommitMessage.dummyData)))
 //        Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
-        let repoItem = RepoItem(local: "~/dev/demo3",branch: "master",title: "demo",remote: "https://github.com/gitsync/demo2.git")
+        let repoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://github.com/gitsync/demo2.git")
         Nav.setView(.dialog(.autoInit(AutoInitConflict(repoItem),{})))
 //        Nav.setView(.repoDetail([0,0,0]))
     }
