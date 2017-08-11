@@ -1,6 +1,8 @@
 import Foundation
 @testable import Utils
-
+/**
+ * Note: We dont use a struct here because struct doesnt do lazy var
+ */
 class AutoInitConflict{
     let repoItem:RepoItem
     lazy var pathExists:Bool = {

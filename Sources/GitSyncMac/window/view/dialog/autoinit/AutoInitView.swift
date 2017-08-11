@@ -43,6 +43,7 @@ extension AutoInitView{
         Swift.print("onOKButtonClick")
         
         onComplete()
+        self.removeFromSuperview()
     }
 }
 
