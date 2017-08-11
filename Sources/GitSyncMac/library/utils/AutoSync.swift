@@ -20,21 +20,27 @@ class AutoSync {
         Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
         autoSyncComplete = onComplete
-        repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
+        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
+        self.repoList = repoList
         
         var curRepoIndex:Int = 0
        
         func iterateRepoItems(){
-            let repoItem = repoList?[curRepoIndex]
-            curRepoIndex += 1
-            self.verifyGitProject(repoItem){
+            if curRepoIndex < repoList.count {
+                let repoItem = repoList[curRepoIndex]
+                curRepoIndex += 1
+                self.verifyGitProject(repoItem,iterateRepoItems)
+            }else{
+                
+            }
+            
         }
         iterateRepoItems()
         
         
-        messageRepos = repoList?.filter{$0.message} ?? []
+        messageRepos = repoList.filter{$0.message}
         Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
-        otherRepos = repoList?.filter{!$0.message} ?? []
+        otherRepos = repoList.filter{!$0.message}
         Swift.print("otherRepos.count: " + "\(otherRepos!.count)")
         if messageRepos != nil && !messageRepos!.isEmpty {
             Swift.print("has repos that has manual msg")
