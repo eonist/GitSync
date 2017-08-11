@@ -17,9 +17,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
 //        initApp()
         
-        FileModifier.delete("~/dev/demo2".tildePath)
+//        FileModifier.delete("~/dev/demo2".tildePath)
         
         let status = GitModifier.clone("https://github.com/gitsync/demo2.git","~/dev/demo2".tildePath)
+        Swift.print("status: " + "\(status)")
 //        FileModifier.delete(gitURL)
 //        AutoInit.autoInit("~/dev/welcome/".tildePath, remotePath: "github.com/gitsync/welcome.git", branch: "master")
         
