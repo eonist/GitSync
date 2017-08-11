@@ -31,6 +31,10 @@
 
 ## Change-log:
 
+**2017-08-11**
+- Added Logic to AutoInitView
+- Created 4 Auto init Scenarios for the AutoInit process
+
 **2017-08-09**
 - Fixed TextField Enter/Exit Focus issue
 - Added AutoInitView to resolve AutoInit conflicts
