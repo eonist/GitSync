@@ -17,16 +17,16 @@ class AutoInitConflictUtils {
         switch state {
         case (true,true,true,false):
             issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
-            proposal = "Do you want to delete the repo, keep the files, clone from remote, merge?"
+            proposal = "Do you want to delete the repo, download from remote?"
         case (true,true,false,_):
             issue = "The folder \(repoItem.localPath) is not a git repo but there are pre-exisiting files"
-            proposal = "Do you want to keep the files, clone from remote and merge?"
+            proposal = "Do you want to delete the repo, download from remote?"
         case (true,false,_,_):
             issue = "The folder in path: " + "\(repoItem.localPath) is empty"
             proposal = "Do you want to download the remote git repository into this path?"
         case (false,_,_,_):
             issue = "The path \(repoItem.localPath) doesn't exist"
-            proposal = "Do you want to create it and download files from remote "//\(repoItem.remotePath)
+            proposal = "Do you want to download the remote git repository into this path?"//\(repoItem.remotePath)
         default:
             fatalError("Has no strategy for this scenario \(state)")
         }
