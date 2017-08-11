@@ -16,28 +16,30 @@ class CommitDescUtils{
         for statusItem:[String:String] in statusList{
             let cmd:String = statusItem["cmd"]!
 			switch GitCMD(rawValue:cmd){
-				case .D?:
-                    deletedItems.append(statusItem) //--add a record to a list
-                case .R?://new and experimental
-                    renamedItems.append(statusItem) //--add a record to a list
-                case .RM?://new and experimental
-                    renamedItems.append(statusItem) //--add a record to a list
-                case .A?:
-                    addedItems.append(statusItem)//--add a record to a list
-				case .M?:
-                    modifiedItems.append(statusItem)//--add a record to a list
-                case .MM?://new and experimental
-                    modifiedItems.append(statusItem)//--add a record to a list
-                case .AM?://new beta
-                    addedItems.append(statusItem)//--add a record to a list
-				case .QQ?:
-                    addedItems.append(statusItem)//--add a record to a list
-				case .UU?:
-                    modifiedItems.append(statusItem)//--add a record to a list
-				default:
-					/*throw error*/
-                    fatalError("cmd: " + "\(cmd)" + " Not supported")
-					break;
+            case .D?:
+                deletedItems.append(statusItem) //--add a record to a list
+            case .R?://new and experimental
+                renamedItems.append(statusItem) //--add a record to a list
+            case .RM?://new and experimental
+                renamedItems.append(statusItem) //--add a record to a list
+            case .A?:
+                addedItems.append(statusItem)//--add a record to a list
+            case .M?:
+                modifiedItems.append(statusItem)//--add a record to a list
+            case .MM?://new and experimental
+                modifiedItems.append(statusItem)//--add a record to a list
+            case .AA?://new beta
+                addedItems.append(statusItem)//--add a record to a list
+            case .AM?://new beta
+                addedItems.append(statusItem)//--add a record to a list
+            case .QQ?:
+                addedItems.append(statusItem)//--add a record to a list
+            case .UU?:
+                modifiedItems.append(statusItem)//--add a record to a list
+            default:
+                /*throw error*/
+                fatalError("cmd: " + "\(cmd)" + " Not supported")
+                break;
 			}
 		}
 		descText += descriptionParagraph(addedItems, "Added ") + "\n" //--add an extra line break at the end "paragraph like"
