@@ -62,9 +62,10 @@ class AutoInitConflictUtils {
 //            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
         case (true,false,_,_):
             Swift.print("c")
-            _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)//this works because the folder is empty
-            //            let status = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)
-        //            Swift.print("status: " + "\(status)")
+            FileModifier.delete(repoItem.localPath.tildePath)
+            
+                        let status = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)
+                  Swift.print("status: " + "\(status)")
         case (false,_,_,_):
             Swift.print("d")
             FileModifier.delete(repoItem.localPath.tildePath)
