@@ -42,12 +42,7 @@ class AutoInitConflictUtils {
         switch state {
         case (true,true,true,false):
             Swift.print("a")
-            if conflict.curRemotePath == "" {//does not have remote repo attached
-                _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--attach remote repo
-            }else{//--the .git folder already has a remote repo attached, but is different from repoItem.remote
-                _ = GitModifier.detachRemoteRepo(repoItem.localPath/*branch*/)//--promt the user if he wants to use the existing remote origin, this will skip the user needing to input a remote url
-                _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)
-            }
+            
         case (true,true,false,_):
             Swift.print("")
             _ = GitModifier.initialize(repoItem.localPath)
