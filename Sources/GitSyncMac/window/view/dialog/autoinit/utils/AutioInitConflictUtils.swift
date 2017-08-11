@@ -17,7 +17,7 @@ class AutoInitConflictUtils {
         switch state {
         case (true,true,true,false):
             issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
-            proposal = "Do you want to keep the files, download the git repo from remote and start a merge wizard?"
+            proposal = "Do you want delete the current files, download the git repo from remote?"
         case (true,true,false,_):
             issue = "The folder \(repoItem.localPath) is not a git repo but there are pre-exisiting files"
             proposal = "Do you want to keep the files, download the git repo from remote and start a merge wizard?"
