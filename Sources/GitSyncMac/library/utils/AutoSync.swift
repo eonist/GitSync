@@ -22,9 +22,15 @@ class AutoSync {
         autoSyncComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         
-        repoList?.forEach{ repoItem in
-            self.verifyGitProject(repoItem)
+        var curRepoIndex:Int = 0
+       
+        func iterateRepoItems(){
+            let repoItem = repoList?[curRepoIndex]
+            curRepoIndex += 1
+            self.verifyGitProject(repoItem){
         }
+        iterateRepoItems()
+        
         
         messageRepos = repoList?.filter{$0.message} ?? []
         Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
