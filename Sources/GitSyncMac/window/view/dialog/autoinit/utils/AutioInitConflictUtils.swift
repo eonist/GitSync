@@ -51,6 +51,10 @@ class AutoInitConflictUtils {
         case (true,true,false,_):
             Swift.print("b")
             GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
+            
+            //Continue here: 
+                //Try the process manually in appdelegate, something isnt working
+                    //sync normally then use appdelegate after 
 //            _ = GitModifier.initialize(repoItem.localPath)
 //            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
         case (true,false,_,_):
