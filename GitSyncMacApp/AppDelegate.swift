@@ -23,9 +23,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //The autosync on interval 👈
                 //start after pull gesture completes etc
         
-            //Add Auto init
-                //auto fill local path when drag and drop clipboard etc
-                //center the wizard text in the dialogs
+            //auto fill local path when drag and drop clipboard etc
+            //center the wizard text in the dialogs
         
             //add filepicker prompt 
                 //needs filepicker UI
