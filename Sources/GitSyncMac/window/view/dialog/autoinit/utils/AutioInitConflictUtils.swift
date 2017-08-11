@@ -67,7 +67,9 @@ class AutoInitConflictUtils {
         //            Swift.print("status: " + "\(status)")
         case (false,_,_,_):
             Swift.print("d")
-            _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)//--this will create the folders if they dont exist, even nested
+            FileModifier.delete(repoItem.localPath.tildePath)
+            let result = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)//--this will create the folders if they dont exist, even nested
+            Swift.print("result: " + "\(result)")
         default:
             fatalError("Has no strategy for this scenario: \(state) ")
         }
