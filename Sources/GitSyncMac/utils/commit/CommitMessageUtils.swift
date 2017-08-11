@@ -38,6 +38,8 @@ class CommitMessageUtils{
 					numOfDeletedFiles += 1
 				case .A?:
 					numOfNewFiles += 1
+                case .AA?:
+                    numOfNewFiles += 1
                 case .AM?:
                     numOfNewFiles += 1
 				case .R?: /*This command seems to never be triggered in git*/

@@ -37,6 +37,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //needs filepicker UI
         
             //Make RepoDetail store date to disk on View.close()
+                //add a Closable protocol 
+                //add removeSelf and save to repo.xml for RepoDetail and PrefsView
 
     }
     
