@@ -20,7 +20,7 @@ class AutoInitConflictUtils {
             proposal = "Do you want to delete the repo, keep the files, clone from remote, merge?"
         case (true,true,false,_):
             issue = "The folder \(repoItem.localPath) is not a git repo but there are pre-exisiting files"
-            proposal = "Do you want to keep the files, download the git repo from remote and start a merge wizard?"
+            proposal = "Do you want to keep the files, clone from remote and merge?"
         case (true,false,_,_):
             issue = "The folder in path: " + "\(repoItem.localPath) is empty"
             proposal = "Do you want to download the remote git repository into this path?"
