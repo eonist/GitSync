@@ -52,11 +52,11 @@ extension AutoInitConflict{
             _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.branch)//--add new remote origin
         case (true,false,_,_):
             Swift.print("c")
-            let status = GitModifier.clone(repoItem.remotePath,repoItem.localPath)
+            let status = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)
             Swift.print("status: " + "\(status)")
         case (false,_,_,_):
             Swift.print("d")
-            _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath)//--this will also create the folders if they dont exist, even nested
+            _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)//--this will also create the folders if they dont exist, even nested
         default:
             fatalError("Has no strategy for this scenario: \(state) ")
         }
