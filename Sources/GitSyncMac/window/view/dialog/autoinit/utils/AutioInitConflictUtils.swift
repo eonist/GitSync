@@ -42,16 +42,18 @@ class AutoInitConflictUtils {
         switch state {
         case (true,true,true,false):
             Swift.print("a")
-            let gitURL:String = (repoItem.localPath+"/.git").tildePath
-            Swift.print("gitURL: " + "\(gitURL)")
-            FileModifier.delete(gitURL)
-            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
+//            let gitURL:String = (repoItem.localPath+"/.git").tildePath
+//            Swift.print("gitURL: " + "\(gitURL)")
+            FileModifier.delete(repoItem.localPath.tildePath)
+            _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
+//            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
 //            _ = GitModifier.initialize(repoItem.localPath)
 //            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
         case (true,true,false,_):
             Swift.print("b")
-            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
-            
+//            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
+            FileModifier.delete(repoItem.localPath.tildePath)
+            _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
             //Continue here: 
                 //Try the process manually in appdelegate, something isnt working
                     //sync normally then use appdelegate after 
