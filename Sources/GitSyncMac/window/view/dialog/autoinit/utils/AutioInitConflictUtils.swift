@@ -42,7 +42,9 @@ class AutoInitConflictUtils {
         switch state {
         case (true,true,true,false):
             Swift.print("a")
-            FileModifier.delete((repoItem.localPath+".git").tildePath)
+            let gitURL:String = (repoItem.localPath+"/.git").tildePath
+            Swift.print("gitURL: " + "\(gitURL)")
+            FileModifier.delete(gitURL)
             _ = GitModifier.initialize(repoItem.localPath)
             _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.branch)//--add new remote origin
         case (true,true,false,_):
