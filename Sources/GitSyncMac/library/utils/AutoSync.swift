@@ -26,6 +26,7 @@ class AutoSync {
         var curRepoIndex:Int = 0
        
         func iterateRepoItems(){
+            Swift.print("iterateRepoItems")
             if curRepoIndex < repoList.count {
                 let repoItem = repoList[curRepoIndex]
                 curRepoIndex += 1
