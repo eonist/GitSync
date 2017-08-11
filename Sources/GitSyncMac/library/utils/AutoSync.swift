@@ -31,16 +31,18 @@ class AutoSync {
                 curRepoIndex += 1
                 self.verifyGitProject(repoItem,iterateRepoItems)
             }else{
-                
+                onVerificationComplete()
             }
-            
         }
         iterateRepoItems()
-        
-        
-        messageRepos = repoList.filter{$0.message}
+    }
+    /**
+     * New
+     */
+    func onVerificationComplete(){
+        messageRepos = repoList!.filter{$0.message}
         Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
-        otherRepos = repoList.filter{!$0.message}
+        otherRepos = repoList!.filter{!$0.message}
         Swift.print("otherRepos.count: " + "\(otherRepos!.count)")
         if messageRepos != nil && !messageRepos!.isEmpty {
             Swift.print("has repos that has manual msg")
@@ -110,7 +112,7 @@ class AutoSync {
 //        Swift.print("pathExists: " + "\(pathExists)")
 //        let isGitRepository:Bool = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
         let conflict = AutoInitConflict.init(repoItem)
-        if conflict.areRemotesEqual {
+        if conflict.areRemotesEqual {//No need to 
             onComplete()
         }else{
             main.async{
