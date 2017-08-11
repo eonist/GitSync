@@ -72,6 +72,7 @@ class AutoInitConflictUtils {
         case (false,_,_,_):
             Swift.print("d")
 //            FileModifier.delete(repoItem.localPath.tildePath)
+            FileModifier.createDir(repoItem.localPath.tildePath)
             let result = GitModifier.clone(repoItem.remotePath,repoItem.localPath.tildePath)//--this will create the folders if they dont exist, even nested
             Swift.print("result: " + "\(result)")
         default:
