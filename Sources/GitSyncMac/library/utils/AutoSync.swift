@@ -21,6 +21,11 @@ class AutoSync {
         countForRepoWithMSG = 0//reset
         autoSyncComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
+        
+        repoList?.forEach{
+            self.verifyGitProject(repoItem){
+        }
+            
         messageRepos = repoList?.filter{$0.message} ?? []
         Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
         otherRepos = repoList?.filter{!$0.message} ?? []
@@ -44,7 +49,7 @@ class AutoSync {
         if countForRepoWithMSG < messageRepos!.count {
             let repoItem:RepoItem = messageRepos![countForRepoWithMSG]
             countForRepoWithMSG += 1
-            self.verifyGitProject(repoItem){
+            
                 if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {//if no commit msg is generated, then no commit is needed
                     Swift.print("something to commit")
                     Nav.setView(.dialog(.commit(repoItem,commitMessage)))/*⬅️️🚪 this view eventually calls initCommit*/
@@ -54,7 +59,7 @@ class AutoSync {
                         self.incrementCountForRepoWithMSG()//nothing to commit, iterate
                     }
                 }
-            }
+            
         }else{//aka complete
             syncOtherRepos()
         }
@@ -69,9 +74,9 @@ class AutoSync {
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             self.autoSyncGroup?.enter()
             bg.async {
-                self.verifyGitProject(repoItem){
+                
                     GitSync.initCommit(repoItem,nil,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
-                }
+                
                 
             }
             
