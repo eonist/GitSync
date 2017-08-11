@@ -89,7 +89,7 @@ class AutoSync {
             self.autoSyncGroup?.enter()
             bg.async {
                 
-                    GitSync.initCommit(repoItem,nil,{Swift.print("autoSyncGroup.leave");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+                GitSync.initCommit(repoItem,nil,{Swift.print("autoSyncGroup.leave: \(self)");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
                 
                 
             }
