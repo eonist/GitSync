@@ -22,7 +22,7 @@ extension AutoInitConflict{
             proposal = "Do you want to keep the files, download the git repo from remote and start a merge wizard?"
         case (true,false,_,_):
             issue = "The folder in path: " + "\(repoItem.localPath) is empty"
-            proposal = "Do you want to create a folder and download files from remote?"
+            proposal = "Do you want to download the remote git repository into this path?"
         case (false,_,_,_):
             issue = "The path \(repoItem.localPath) doesn't exist"
             proposal = "Do you want to create it and download files from remote "//\(repoItem.remotePath)
@@ -39,6 +39,7 @@ extension AutoInitConflict{
         Swift.print("AutoInitConflic.process() state: \(state)")
         switch state {
         case (true,true,true,false):
+            Swift.print("a")
             if curRemotePath == "" {//does not have remote repo attached
                 _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--attach remote repo
             }else{//--the .git folder already has a remote repo attached, but is different from repoItem.remote
@@ -46,11 +47,15 @@ extension AutoInitConflict{
                 _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)
             }
         case (true,true,false,_):
+            Swift.print("")
             _ = GitModifier.initialize(repoItem.localPath)
             _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.branch)//--add new remote origin
         case (true,false,_,_):
-            _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath)
+            Swift.print("c")
+            let status = GitModifier.clone(repoItem.remotePath,repoItem.localPath)
+            Swift.print("status: " + "\(status)")
         case (false,_,_,_):
+            Swift.print("d")
             _ = GitModifier.clone(repoItem.remotePath,repoItem.localPath)//--this will also create the folders if they dont exist, even nested
         default:
             fatalError("Has no strategy for this scenario: \(state) ")
