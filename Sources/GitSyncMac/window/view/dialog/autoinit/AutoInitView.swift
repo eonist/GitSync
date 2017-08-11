@@ -41,7 +41,7 @@ extension AutoInitView{
      */
     func onOKButtonClick(){
         Swift.print("onOKButtonClick")
-        
+        conflict?.process()
         onComplete()
         self.removeFromSuperview()
     }

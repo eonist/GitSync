@@ -38,7 +38,6 @@ extension AutoInitConflict{
         let state:State = (pathExists,hasPathContent,isGitRepo,areRemotesEqual)
         switch state {
         case (true,true,true,false):
-            let curRemotePath:String = GitParser.originUrl(repoItem.localPath)
             if curRemotePath == "" {//does not have remote repo attached
                 _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--attach remote repo
             }else{//--the .git folder already has a remote repo attached, but is different from repoItem.remote
