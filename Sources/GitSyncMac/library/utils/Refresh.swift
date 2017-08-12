@@ -70,7 +70,7 @@ class RefreshUtils{
             results.forEach { result in
 //                Swift.print("result: " + "\(result.count)")
                 if result.count > 0 {/*resulting string must have characters*/
-                    let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
+                    let commitData:CommitData = CommitDataUtils.conform(raw:result)/*Compartmentalizes the result into a Tuple*/
 //                    Swift.print("commitData.subject: " + "\(commitData.subject)")
 //                    Swift.print("commitData.date: " + "\(commitData.date)")
 //                    Swift.print("commitData.body: " + "\(commitData.body)")
