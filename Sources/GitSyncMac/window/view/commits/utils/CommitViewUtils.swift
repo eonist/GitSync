@@ -3,7 +3,7 @@ import Foundation
 
 typealias CommitLogOperation = (task:Process,pipe:Pipe,repoTitle:String,repoIndex:Int)
 class CommitViewUtils {
-    typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
+//    typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
     /**
      * ProcessedCommitData
      * NOTE: conforms dates, msg-desc, msg-title,
@@ -16,7 +16,7 @@ class CommitViewUtils {
         let descendingDate:String = DateParser.descendingDate(date)
         let compactBody:String = GitLogParser.compactBody(commitData.body)/*Compact the commit msg body*/
         let subject:String = StringParser.trim(commitData.subject, "'", "'")
-        return (date,relativeDate,descendingDate,compactBody,subject,commitData.hash,commitData.author)
+        return .init(date: date,relativeDate: relativeDate,descendingDate: descendingDate,body: compactBody,subject: subject,hash: commitData.hash,author: commitData.author)
     }
     /**
      * -> Dictionary<String, String>
