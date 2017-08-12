@@ -5,25 +5,24 @@ import Cocoa
 typealias ICommitList = CommitListable
 protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidableScrollableFastListable3
     /*Related to ICommitList*/
-    var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator {get set}
-    var isInDeactivateRefreshModeState:Bool {get set}/*is Two Fingers Touching the Touch-Pad*/
-    var hasPulledAndReleasedBeyondRefreshSpace:Bool{get set}
-    var hasReleasedBeyondTop:Bool {get set}
     //func startAutoSync()
     /*Debug*/
     var autoSyncAndRefreshStartTime:NSDate? {get set}
     var autoSyncStartTime:NSDate? {get set}
+    var status:CommitListState {get set}
+}
+struct PerformanceTester{
+    //add the bellow 🏀
+    var autoSyncAndRefreshStartTime:Date?
+    var autoSyncStartTime:NSDate?
 }
 extension CommitListable{
-//    struct State{
-//        
-//    }
     /**
      * TODO: Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
-        if dir == .ver && hasReleasedBeyondTop{
+        if dir == .ver && status.hasReleasedBeyondTop{
             //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
             iterateProgressBar(value)
         }
@@ -48,27 +47,27 @@ extension CommitListable{
     func scrollWheelEnter() {
         //Swift.print("🌵 ICommitsList.scrollWheelEnter")
         //reUseAll()/*Refresh*/
-        isTwoFingersTouching = true
+        status.isTwoFingersTouching = true
     }
     /**
      * TODO: Comment this method
      */
     func scrollWheelExit(){
         //Swift.print("🌵 CommitList.scrollWheelExit()")
-        isTwoFingersTouching = false
+        status.isTwoFingersTouching = false
         let value = moverGroup!.result.y
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
             moverGroup?.yMover.frame.y = 60
             progressIndicator.start()//1. start spinning the progressIndicator
-            hasPulledAndReleasedBeyondRefreshSpace = true
+            status.hasPulledAndReleasedBeyondRefreshSpace = true
             autoSyncAndRefreshStartTime = NSDate()//init debug timer, TODO: move this inside startAutoSync method, maybe?
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if (value > 0){
-            hasReleasedBeyondTop = true
+            status.hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
         }else{
-            hasReleasedBeyondTop = false
+            status.hasReleasedBeyondTop = false
         }/**/
     }
     /**
@@ -91,8 +90,8 @@ extension CommitListable{
         reUseAll()/*Refresh*/
         progressIndicator.progress(0)
         progressIndicator.stop()
-        isInDeactivateRefreshModeState = true
-        hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
+        status.isInDeactivateRefreshModeState = true
+        status.hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
         moverGroup?.yMover.frame.y = 0
         moverGroup?.yMover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         //mover!.isDirectlyManipulating = false
@@ -113,9 +112,9 @@ extension CommitListable{
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
-            if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
+            if status.hasPulledAndReleasedBeyondRefreshSpace {//isInRefreshMode
                 progressIndicator.frame.y = -45 + (scalarVal * 60)
-            }else if(isTwoFingersTouching || hasReleasedBeyondTop){
+            }else if status.isTwoFingersTouching || status.hasReleasedBeyondTop {
                 progressIndicator.frame.y = 15//<--this could be set else where but something kept interfering with it
                 progressIndicator.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
             }
@@ -130,10 +129,10 @@ extension CommitListable{
         Swift.print("🌵 ICommitsList.scrollAnimStopped()")
         //⚠️️ defaultScrollAnimStopped()
         //hideSlider()
-        if(isInDeactivateRefreshModeState){
+        if status.isInDeactivateRefreshModeState {
             //Swift.print("reset refreshState")
-            hasPulledAndReleasedBeyondRefreshSpace = false//reset
-            isInDeactivateRefreshModeState = false//reset
+            status.hasPulledAndReleasedBeyondRefreshSpace = false//reset
+            status.isInDeactivateRefreshModeState = false//reset
         }
     }
 }

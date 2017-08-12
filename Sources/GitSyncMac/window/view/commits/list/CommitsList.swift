@@ -5,12 +5,11 @@ import Cocoa
  * ⚠️️⚠️️⚠️️ Since This uses POP, a lot of the logic is in  CommitListable
  */
 class CommitsList:ElasticSlideScrollFastList3,CommitListable/*⬅️️*/{
+    var status:CommitListState = .init()
+
     /*The following variables exists to facilitate the pull to refresh functionality*/
     lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
-    var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
-    var isInDeactivateRefreshModeState:Bool = false
-    var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
-    var hasReleasedBeyondTop:Bool = false
+    
     /*Debug*/
     var autoSyncStartTime:NSDate?
     var autoSyncAndRefreshStartTime:NSDate?
