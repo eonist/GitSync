@@ -5,23 +5,20 @@ typealias CommitLogOperation = (task:Process,pipe:Pipe,repoTitle:String,repoInde
 class CommitViewUtils {
 //    typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
     
-    /**
-     * -> Dictionary<String, String>
-     * TODO: Use the new CommitDataItem
-     */
-    static func processCommitData(_ repoTitle:String,_ commitData:CommitData)-> [String:String]{
-        let data:ProcessedCommitData = commitData.processCommitData(repoTitle)
-        let dict:[String:String] = [
-            CommitItem.repoName:repoTitle,
-            CommitItem.contributor:data.author,
-            CommitItem.title:data.subject,
-            CommitItem.description:data.body,
-            CommitItem.date:data.relativeDate,
-            CommitItem.sortableDate:data.descendingDate,
-            CommitItem.hash:data.hash,
-            CommitItem.gitDate:commitData.date]
-        return dict
-    }
+//    
+//    static func processCommitData(_ repoTitle:String,_ commitData:CommitData)-> [String:String]{
+//        let data:ProcessedCommitData = commitData.processCommitData(repoTitle)
+//        let dict:[String:String] = [
+//            CommitItem.repoName:repoTitle,
+//            CommitItem.contributor:data.author,
+//            CommitItem.title:data.subject,
+//            CommitItem.description:data.body,
+//            CommitItem.date:data.relativeDate,
+//            CommitItem.sortableDate:data.descendingDate,
+//            CommitItem.hash:data.hash,
+//            CommitItem.gitDate:commitData.date]
+//        return dict
+//    }
     /**
      * PARAM: max = max Items Allowed per repo
      */

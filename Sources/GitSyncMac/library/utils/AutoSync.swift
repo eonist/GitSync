@@ -17,7 +17,7 @@ class AutoSync {
      * TODO: ⚠️️ Try to use dispathgroups instead
      */
     func initSync(_ onComplete:@escaping AutoSyncComplete){
-        Swift.print("🔁 AutoSync.initSync() 🔁")
+//        Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
         autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
@@ -26,7 +26,7 @@ class AutoSync {
         var curRepoIndex:Int = 0
        
         func iterateRepoItems(){
-            Swift.print("iterateRepoItems: curRepoIndex:\(curRepoIndex) repoList.count: \(repoList.count)")
+//            Swift.print("iterateRepoItems: curRepoIndex:\(curRepoIndex) repoList.count: \(repoList.count)")
             if curRepoIndex < repoList.count {
                 let repoItem = repoList[curRepoIndex]
                 curRepoIndex += 1
@@ -41,19 +41,19 @@ class AutoSync {
      * New
      */
     func onVerificationComplete(){
-        Swift.print("onVerificationComplete")
+//        Swift.print("onVerificationComplete")
         messageRepos = repoList!.filter{$0.message}
-        Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
+//        Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
         otherRepos = repoList!.filter{!$0.message}
-        Swift.print("otherRepos.count: " + "\(otherRepos!.count)")
+//        Swift.print("otherRepos.count: " + "\(otherRepos!.count)")
         if messageRepos != nil && !messageRepos!.isEmpty {
-            Swift.print("has repos that has manual msg")
+//            Swift.print("has repos that has manual msg")
             incrementCountForRepoWithMSG()
         }else if otherRepos != nil && !otherRepos!.isEmpty {
-            Swift.print("has repos that has auto msg")
+//            Swift.print("has repos that has auto msg")
             syncOtherRepos()
         }else {//nothing to sync, return
-            Swift.print("nothing to sync, return")
+//            Swift.print("nothing to sync, return")
             autoSyncComplete()
         }
     }
@@ -61,16 +61,16 @@ class AutoSync {
      * New
      */
     func incrementCountForRepoWithMSG(){
-        Swift.print("incrementCountForRepoWithMSG 🍏 curIndex: \(countForRepoWithMSG) of tot: \(messageRepos!.count)")
+//        Swift.print("incrementCountForRepoWithMSG 🍏 curIndex: \(countForRepoWithMSG) of tot: \(messageRepos!.count)")
         if countForRepoWithMSG < messageRepos!.count {
             let repoItem:RepoItem = messageRepos![countForRepoWithMSG]
             countForRepoWithMSG += 1
 //            self.verifyGitProject(repoItem){
                 if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {//if no commit msg is generated, then no commit is needed
-                    Swift.print("something to commit")
+//                    Swift.print("something to commit")
                     Nav.setView(.dialog(.commit(repoItem,commitMessage)))/*⬅️️🚪 this view eventually calls initCommit*/
                 }else {
-                    Swift.print("nothing to commit")
+//                    Swift.print("nothing to commit")
                     MergeUtils.manualMerge(repoItem){//nothing to commit but  check if remote has updates
                         self.incrementCountForRepoWithMSG()//nothing to commit, iterate
                     }
@@ -84,15 +84,15 @@ class AutoSync {
      * New
      */
     private func syncOtherRepos(){
-        Swift.print("AutoSync.syncOtherRepos() 🍊 ")
+//        Swift.print("AutoSync.syncOtherRepos() 🍊 ")
         autoSyncGroup = DispatchGroup()
         
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             self.autoSyncGroup?.enter()
-            Swift.print("autoSyncGroup.enter")
+//            Swift.print("autoSyncGroup.enter")
             bg.async {
                 
-                GitSync.initCommit(repoItem,nil,{Swift.print("autoSyncGroup.leave: \(self)");self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+                GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
                 
                 
             }
