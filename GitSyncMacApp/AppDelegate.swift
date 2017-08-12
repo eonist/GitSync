@@ -31,21 +31,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
             //Make RepoDetail store date to disk on View.close()
                 //add a Closable protocol 
-                //add removeSelf and save to repo.xml for RepoDetail and PrefsView
-                
+                //add removeSelf and save to repo.xml for RepoDetail and PrefsView    
     }
-    
-    
-    
     /**
      * Initializes the app
      */
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
         let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
-        Swift.print("styleFilePath: " + "\(styleFilePath)")
+//        Swift.print("styleFilePath: " + "\(styleFilePath.tildePath)")
         StyleManager.addStyle(url:styleFilePath,liveEdit: false)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         win = StyleTestWin(PrefsView.prefs.rect.w, PrefsView.prefs.rect.h)
