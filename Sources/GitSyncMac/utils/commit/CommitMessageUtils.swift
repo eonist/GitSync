@@ -16,6 +16,7 @@ enum GitCMD:String{
     case RM = "RM"/*When a file is renamed, new and experimental*/
     case QQ = "??"
     case UU = "UU"
+    case UA = "UA"
 }
 class CommitMessageUtils{
 	/**
@@ -53,7 +54,7 @@ class CommitMessageUtils{
 				case .UU?: /*unmerged files*/
 					numOfModifiedFiles += 1
                 case .UA?: /*unmerged files*/
-                    numOfModifiedFiles += 1
+                    numOfNewFiles += 1
 				default:
 					fatalError("cmd: " + "\(cmd)" + " Not supported")
 					break;
