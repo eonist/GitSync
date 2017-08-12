@@ -126,27 +126,24 @@ class RefreshUtils{
      */
     typealias CommitItemsComplete = (_ results:[String])->Void
     static func getCommitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
-//        Swift.print("RefreshUtils.getCommitItems")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        let dispatchGroup = DispatchGroup()
-        
+        let group = DispatchGroup()
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         totalCommitCount += limit
         for i in 0..<limit{
             commitCount += 1
-            dispatchGroup.enter()
+            group.enter()
             bg.async{/*inner*/
                 let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
-                let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
-//                Swift.print("result: " + "\(result.count)")
+                let result:String = GitParser.show(localPath, cmd)/*🌵*/
                 main.async {
 //                    Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
-                    dispatchGroup.leave()
+                    group.leave()
                 }
             }
         }
-        dispatchGroup.notify(queue: main){
+        group.notify(queue: main){
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
 //            Swift.print("🏁 getCommitItemsGroups completed. results: " + "\(results.count)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
