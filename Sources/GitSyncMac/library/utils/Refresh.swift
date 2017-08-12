@@ -6,66 +6,54 @@ typealias CommitDPRefresher = Refresh//temp
  * Basically creates/updates a list of the latest commits
  */
 class Refresh{
-    typealias RefreshComplete = ()->Void
-    var commitDP:CommitDP?
-    var startTime:NSDate?/*Debugging*/
-    var onAllRefreshComplete:RefreshComplete = {fatalError("Must attach onComplete handler")}
+    var dp:CommitDP
+    lazy var performanceTimer:Date = Date()/*Debugging*/
+    var totalCommitCount:Int = 0
+    var commitCount:Int = 0
+    var commitsCompletedCount:Int = 0
     init(_ commitDP:CommitDP){
-        self.commitDP = commitDP
+        self.dp = commitDP
     }
+}
+extension Refresh{
+    typealias RefreshComplete = ()->Void
+    typealias CommitItemsComplete = (_ results:[String])->Void
+    typealias RefreshRepoComplete = ()->Void
     /**
-     * Inits the refresh process
-     * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called
+     * Adds commits to CommitDB
+     * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called (aka The final complete call)
+     * NOTE: This method is called after AutoSync has completed
      */
     func initRefresh(_ onAllRefreshComplete:@escaping RefreshComplete){
         Swift.print("🔄🔄🔄 Refresh.initRefresh() ")
-        self.onAllRefreshComplete = onAllRefreshComplete
-        startTime = NSDate()/*Measure the time of the refresh*/
-        refreshRepos()//🚪⬅️️Enter refresh process here
-    }
-    /**
-     * Adds commits to CommitDB
-     * NOTE: This method is called after AutoSync has completed
-     */
-    private func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
-        Swift.print("Refresh.refreshRepos")
+        //        self.onAllRefreshComplete = onAllRefreshComplete
+        _ = performanceTimer/*Measure the time of the refresh*/
+        //        refreshRepos()//🚪⬅️️Enter refresh process here
+        //        Swift.print("Refresh.refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
-        Swift.print("repos.count: " + "\(repos.count)")
-//        var idx:Int = 0
+        //        Swift.print("repos.count: " + "\(repos.count)")
         let group = DispatchGroup()
         
         repos.forEach { repo in
             Swift.print("repo.title: " + "\(repo.title)")
             group.enter()
-            RefreshUtils.refreshRepo(self.commitDP!,repo,{group.leave()})//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
+            refreshRepo(repo,{group.leave()})//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
-        group.notify(queue: main, execute: allRefreshesCompleted)
+        group.notify(queue: main, execute: {/*All repo items are now refreshed, the entire refresh process is finished*/
+            //Swift.print("💾 Refresh.onRefreshReposComplete() Written to disk")
+            CommitDPCache.write(self.dp)/*write data to disk, we could also do this on app exit*/
+            Swift.print("🔄 Refresh.allRefreshesCompleted() ⏰ Time: " + "\(self.performanceTimer.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
+            onAllRefreshComplete()/*🚪➡️️  Calls a dynamic onComplete method, other classes can override this variable to get callback*/
+        })
     }
-    /**
-     * The final complete call
-     */
-    private func allRefreshesCompleted(){/*All repo items are now refreshed, the entire refresh process is finished*/
-        CommitDPCache.write(commitDP!)/*write data to disk, we could also do this on app exit*/ 
-        //Swift.print("💾 Refresh.onRefreshReposComplete() Written to disk")
-        //isRefreshing = false
-        Swift.print("🔄 Refresh.allRefreshesCompleted() ⏰ Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        onAllRefreshComplete()/*🚪➡️️  Calls a dynamic onComplete method, other classes can override this variable to get callback*/
-    }
-}
-class RefreshUtils{
-    static var totalCommitCount:Int = 0
-    static var commitCount:Int = 0
-    static var commitsCompletedCount:Int = 0
-    typealias CommitItemsComplete = (_ results:[String])->Void
-    typealias RefreshRepoComplete = ()->Void
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      * Retrieve the commit log items for this repo with the range specified
      */
-    static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping RefreshRepoComplete){
+    private func refreshRepo(_ repo:RepoItem,_ onComplete:@escaping RefreshRepoComplete){
         Swift.print("RefreshUtils.refreshRepo \(repo.title) 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
-//            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.getCommitItems competed: \(repo.title) results.count: \(results.count)" )
+            //            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.getCommitItems competed: \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
                 if !result.isEmpty {/*resulting string must have characters*/
                     let commitData:CommitData = CommitDataUtils.convert(raw:result)/*Compartmentalizes the result into a Tuple*/
@@ -76,20 +64,18 @@ class RefreshUtils{
             onComplete()/*🚪➡️️*/
         }
         func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
-//            Swift.print("💙 RefreshUtils.refreshRepo().onCommitCountComplete \(repo.title): commitCount: " + "\(commitCount)")
-            RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            //            Swift.print("💙 RefreshUtils.refreshRepo().onCommitCountComplete \(repo.title): commitCount: " + "\(commitCount)")
+            commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
     }
     /**
      * Find the range of commits to add to CommitDB for this repo
      */
-    private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
-//        Swift.print("RefreshUtils.commitCount()")
+    private func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
         var commitCount:Int = 0
         var totCommitCount:Int = 0
         let group = DispatchGroup()
-        
         group.enter()
         bg.async {
             let totCommitCountStr:String = GitUtils.commitCount(repo.local)
@@ -114,13 +100,12 @@ class RefreshUtils{
             onComplete(clippedCommitCount)/*🚪➡️️*/
         }
     }
-   
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
      * PARAM: limit = max Items Allowed per repo
      */
-    static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
+    private func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let group = DispatchGroup()
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
