@@ -99,14 +99,14 @@ class RefreshUtils{
             group.leave()
         }
         group.enter()
-        bg.async {/*maybe do some work*/
-            if(dp.items.count > 0){
+        bg.async {
+            if !dp.items.isEmpty {/*maybe do some work*/
                 let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
-                let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
+                let gitTime:String = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
                 let rangeCount:Int = GitUtils.commitCount(repo.local, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
                 commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
             }else {//< 100
-                commitCount = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+                commitCount = 100//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
             }
             group.leave()
         }
