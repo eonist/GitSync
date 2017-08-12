@@ -33,16 +33,13 @@ extension CommitDialogView{
      * New
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
-        Swift.print("setData")
+        Swift.print("CommitDialogView.setData")
         Swift.print("repoItem.title: " + "\(repoItem.title)")
         self.repoItem = repoItem
         self.apply([Key.repo,TextInput.Key.inputText],repoItem.title)
         self.apply([Key.title,TextInput.Key.inputText],commitMessage.title)
         self.apply([Key.desc,TextInput.Key.inputText],commitMessage.description)
-        
-        
     }
-    
     /**
      * EventHandler for the okButton click event
      */
@@ -55,10 +52,9 @@ extension CommitDialogView{
         let commitMessage = CommitMessage(title,desc)
         Swift.print("commitMessage.title: " + "\(commitMessage.title)")
         Swift.print("commitMessage.description: " + "\(commitMessage.description)")
+        StyleTestView.shared.currentPrompt?.removeFromSuperview()//remove promptView from window
         bg.async {
-            GitSync.initCommit(self.repoItem!, commitMessage, AutoSync.shared.incrementCountForRepoWithMSG)
+            GitSync.initCommit(self.repoItem!, commitMessage, {main.async{AutoSync.shared.incrementCountForRepoWithMSG()}})
         }
-        if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
     }
-    
 }
