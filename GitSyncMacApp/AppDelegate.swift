@@ -30,16 +30,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Make RepoDetail store date to disk on View.close()
                 //add a Closable protocol 
                 //add removeSelf and save to repo.xml for RepoDetail and PrefsView
-//        let timer = SimpleTimer(interval: 3,repeats: true,target: self,selector: #selector(update))
-//        timer.start()
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
+        func onTick(){
             Swift.print("tick")
         }
+        let timer = SimpleTimer(interval: 3,repeats: true,onTick:onTick)
+//        timer.start()
+//        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
+//            Swift.print("tick")
+//        }
+        /**
+         *
+         */
+        
     }
     
-    @objc func update() {
-        Swift.print("tick")
-    }//method must be in the public or scope
+    
     
     /**
      * Initializes the app
