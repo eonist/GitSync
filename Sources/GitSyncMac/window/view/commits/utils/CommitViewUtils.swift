@@ -26,12 +26,12 @@ class CommitViewUtils {
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
         let dict:[String:String] = [
             CommitItem.repoName:repoTitle,
-            CommitItem.contributor:commitData.author,
+            CommitItem.contributor:data.author,
             CommitItem.title:data.subject,
             CommitItem.description:data.body,
             CommitItem.date:data.relativeDate,
             CommitItem.sortableDate:data.descendingDate,
-            CommitItem.hash:commitData.hash,
+            CommitItem.hash:data.hash,
             CommitItem.gitDate:commitData.date]
         return dict
     }
