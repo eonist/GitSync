@@ -4,6 +4,21 @@ import Foundation
 struct ProcessedCommitData {
     let date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String
 }
+extension ProcessedCommitData{
+    func dict(_ repoTitle:String,_ commitData:CommitData) -> [String:String] {
+        let dict = [
+        CommitItem.repoName:repoTitle,
+        CommitItem.contributor:self.author,
+        CommitItem.title:self.subject,
+        CommitItem.description:self.body,
+        CommitItem.date:self.relativeDate,
+        CommitItem.sortableDate:self.descendingDate,
+        CommitItem.hash:self.hash,
+        CommitItem.gitDate:commitData.date
+        ]
+        return dict
+    }
+}
 extension CommitData{
     /**
      * ProcessedCommitData
