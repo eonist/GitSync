@@ -56,7 +56,7 @@ extension CommitListable{
             moverGroup?.yMover.frame.y = 60
             progressIndicator.start()//1. start spinning the progressIndicator
             status.hasPulledAndReleasedBeyondRefreshSpace = true
-            autoSyncAndRefreshStartTime = NSDate()//init debug timer, TODO: move this inside startAutoSync method, maybe?
+            performanceTester?.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if (value > 0){
             status.hasReleasedBeyondTop = true
@@ -70,10 +70,10 @@ extension CommitListable{
      */
     private func startAutoSync(){
         Swift.print("🌵 CommitListale.startAutoSync")
-        performanceTester.autoSyncStartTime = Date()/*Sets debug timer*/
+        performanceTester?.autoSyncStartTime = Date()/*Sets debug timer*/
         let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
         AutoSync.shared.initSync{/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
-            Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(performanceTester!.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
+            Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(self.performanceTester!.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh(self.loopAnimationCompleted)/* ⬅️️ Refresh happens after AutoSync is fully completed*/
         }
     }
