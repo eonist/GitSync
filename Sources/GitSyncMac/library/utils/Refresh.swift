@@ -94,7 +94,6 @@ class RefreshUtils{
         group.enter()
         bg.async {/*do some work in the background*/
             let totCommitCountStr:String = GitUtils.commitCount(repo.local)
-//            Swift.print("totCommitCountStr: " + "\(totCommitCountStr)")
             totCommitCount = totCommitCountStr.int//🚧1 Git call/*Get the total commitCount of this repo*/
             if totCommitCount > 0 {totCommitCount = totCommitCount - 1}//why is this?
             group.leave()
