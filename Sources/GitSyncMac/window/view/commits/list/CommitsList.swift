@@ -9,11 +9,8 @@ class CommitsList:ElasticSlideScrollFastList3,CommitListable/*⬅️️*/{
 
     /*The following variables exists to facilitate the pull to refresh functionality*/
     lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
-    
-    /*Debug*/
-    var performanceTester:PerformanceTester?
-    
-    
+    var performance:PerformanceTester?/*Debug*/
+
     override func resolveSkin() {
         super.resolveSkin()
         _ = progressIndicator
