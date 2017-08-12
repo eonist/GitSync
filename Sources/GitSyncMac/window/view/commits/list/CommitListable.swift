@@ -13,7 +13,7 @@ protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidabl
 
 extension CommitListable{
     /**
-     * TODO: Comment this method
+     * TODO: ⚠️️ Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
         if dir == .ver && _state.hasReleasedBeyondTop{
@@ -36,7 +36,7 @@ extension CommitListable{
         }
     }
     /**
-     * TODO: Comment this method
+     * TODO: ⚠️️ Comment this method
      */
     func scrollWheelEnter() {
         //Swift.print("🌵 ICommitsList.scrollWheelEnter")
@@ -44,7 +44,7 @@ extension CommitListable{
         _state.isTwoFingersTouching = true
     }
     /**
-     * TODO: Comment this method
+     * TODO: ⚠️️ Comment this method
      */
     func scrollWheelExit(){
         //Swift.print("🌵 CommitList.scrollWheelExit()")
@@ -70,9 +70,10 @@ extension CommitListable{
     private func startAutoSync(){
 //      Swift.print("🌵 CommitListale.startAutoSync")
         performance.autoSyncStartTime = Date()/*Sets debug timer*/
-        let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
+        
         AutoSync.shared.initSync{/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
             Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(self.performance.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
+            let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
             refresh.initRefresh(self.loopAnimationCompleted)/* ⬅️️ Refresh happens after AutoSync is fully completed*/
         }
     }
