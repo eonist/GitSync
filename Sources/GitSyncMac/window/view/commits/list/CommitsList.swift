@@ -11,8 +11,8 @@ class CommitsList:ElasticSlideScrollFastList3,CommitListable/*⬅️️*/{
     lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
     
     /*Debug*/
-    var autoSyncStartTime:NSDate?
-    var autoSyncAndRefreshStartTime:NSDate?
+    var performanceTester:PerformanceTester?
+    
     
     override func resolveSkin() {
         super.resolveSkin()

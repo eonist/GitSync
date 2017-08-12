@@ -8,8 +8,7 @@ protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidabl
     var progressIndicator:ProgressIndicator {get set}
     //func startAutoSync()
     /*Debug*/
-    var autoSyncAndRefreshStartTime:NSDate? {get set}
-    var autoSyncStartTime:NSDate? {get set}
+    var performanceTester:PerformanceTester? {get set}
     var status:CommitListState {get set}
 }
 struct PerformanceTester{
