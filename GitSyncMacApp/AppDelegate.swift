@@ -16,7 +16,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
-
+        
         //Continue here: 🏀
             //The autosync on interval 👈
                 //make the simpletimer class simpler ✅
