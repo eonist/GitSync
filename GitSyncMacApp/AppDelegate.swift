@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func onTick(){
             Swift.print("tick")
         }
-        let timer = SimpleTimer(interval: 3,repeats: true,onTick:onTick)
+        _ = SimpleTimer(interval: 3,repeats: true,onTick:onTick)
 //        timer.start()
 //        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
 //            Swift.print("tick")
