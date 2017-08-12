@@ -14,8 +14,9 @@ class Refresh{
 }
 extension Refresh{
     typealias RefreshReposComplete = ()->Void
-    typealias CommitItemsComplete = (_ results:[String])->Void
     typealias RefreshRepoComplete = ()->Void
+    typealias CommitItemsComplete = (_ results:[String])->Void
+    typealias CommitCountComplete = (_ commitCount:Int)->Void
     /**
      * Adds commits to CommitDB
      * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called (aka The final complete call)
@@ -56,15 +57,13 @@ extension Refresh{
     /**
      * Find the range of commits to add to CommitDB for this repo
      */
-    private func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
+    private func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping CommitCountComplete) {
         var commitCount:Int = 0
         var totCommitCount:Int = 0
         let group = DispatchGroup()
         group.enter()
         bg.async {
-            let totCommitCountStr:String = GitUtils.commitCount(repo.local)
-            totCommitCount = totCommitCountStr.int//🚧1 Git call/*Get the total commitCount of this repo*/
-            if totCommitCount > 0 {totCommitCount = totCommitCount - 1}//why is this?
+            totCommitCount = GitUtils.commitCount(repo.local)
             group.leave()
         }
         group.enter()
