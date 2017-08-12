@@ -8,9 +8,9 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{
     var dp:CommitDP
     lazy var performanceTimer:Date = Date()/*Debugging*/
-    var totalCommitCount:Int = 0
-    var commitCount:Int = 0
-    var commitsCompletedCount:Int = 0
+//    var totalCommitCount:Int = 0
+//    var commitCount:Int = 0
+//    var commitsCompletedCount:Int = 0
     init(_ commitDP:CommitDP){
         self.dp = commitDP
     }
@@ -109,9 +109,9 @@ extension Refresh{
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
         let group = DispatchGroup()
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
-        totalCommitCount += limit
+//        totalCommitCount += limit
         for i in 0..<limit{
-            commitCount += 1
+//            commitCount += 1
             group.enter()
             bg.async{/*inner*/
                 let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
