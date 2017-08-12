@@ -15,11 +15,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
-        initApp()
+//        initApp()
 
         //Continue here: 🏀
-    
-        
             //The autosync on interval 👈
                 //start after pull gesture completes etc
         
@@ -27,13 +25,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //center the wizard text in the dialogs
         
             //add filepicker prompt 
-                //needs filepicker UI
+                //needs ready-made filepicker UI component
         
             //Make RepoDetail store date to disk on View.close()
                 //add a Closable protocol 
                 //add removeSelf and save to repo.xml for RepoDetail and PrefsView
-
+//        let timer = SimpleTimer(3,true,self,#selector(update))
+//        timer.start()
     }
+    
+    @objc func update() {
+        Swift.print("tick")
+    }//method must be in the public or scope
     
     /**
      * Initializes the app
