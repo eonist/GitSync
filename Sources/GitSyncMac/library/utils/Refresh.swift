@@ -127,16 +127,15 @@ class RefreshUtils{
      */
     typealias CommitItemsComplete = (_ results:[String])->Void
     static func getCommitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
-        Swift.print("RefreshUtils.getCommitItems")
+//        Swift.print("RefreshUtils.getCommitItems")
         var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
-        let getCommitItemsGroups = DispatchGroup()
+        let dispatchGroup = DispatchGroup()
         
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         totalCommitCount += limit
-//        Swift.print("totalCommitCount: " + "\(totalCommitCount)")
         for i in 0..<limit{
             commitCount += 1
-            getCommitItemsGroups.enter()
+            dispatchGroup.enter()
             bg.async{/*inner*/
                 let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
                 let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
@@ -144,13 +143,13 @@ class RefreshUtils{
                 main.async {
 //                    Swift.print("result main: " + "\(result.count)")
                     results[i] = result//results.append(result)
-                    getCommitItemsGroups.leave()
+                    dispatchGroup.leave()
                 }
             }
         }
-        getCommitItemsGroups.notify(queue: main){
+        dispatchGroup.notify(queue: main){
             //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
-            Swift.print("🏁 getCommitItemsGroups completed. results: " + "\(results.count)")
+//            Swift.print("🏁 getCommitItemsGroups completed. results: " + "\(results.count)")
             onComplete(results.reversed()) //reversed is a temp fix/*Jump back on the main thread bc: onComplete resides there*/
         }
     }
