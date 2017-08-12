@@ -7,7 +7,7 @@ import Cocoa
 class StyleTestView:CustomView{
     static let shared:StyleTestView = {
         let frame = PrefsView.prefs.rect
-        Swift.print("StyleTestView.frame: " + "\(frame)")
+//        Swift.print("StyleTestView.frame: " + "\(frame)")
         return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
     }()
     lazy var main:Section = {
