@@ -16,6 +16,9 @@ protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidabl
     var autoSyncStartTime:NSDate? {get set}
 }
 extension CommitListable{
+    struct State{
+        
+    }
     /**
      * TODO: Comment this method
      */

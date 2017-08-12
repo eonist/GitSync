@@ -19,6 +19,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
         //Continue here: 🏀
             //The autosync on interval 👈
+                //make the simpletimer class simpler ✅
+                //refactor the commitView to support more state like design
                 //start after pull gesture completes etc
         
             //auto fill local path when drag and drop clipboard etc
