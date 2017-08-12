@@ -14,9 +14,7 @@ class MergeReslover {
      * PARAM branch: the branch you tried to merge into
      */
     func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String], _ allComplete:@escaping AllComplete){
-        Swift.print("MergeReslover.resolveConflicts")
-        //log "resolve_merge_conflicts()"
-        //log ("MergeUtil's resolve_merge_conflicts()")
+//        Swift.print("MergeReslover.resolveConflicts")
         self.allComplete = allComplete
         index = 0//reset
         conflictCount = unMergedFiles.count
@@ -25,7 +23,7 @@ class MergeReslover {
         nextConflict()
     }
     /**
-     * Iterate throught the conflicts
+     * Iterate through the conflicts
      */
      func nextConflict(){
         Swift.print("nextConflict")
@@ -36,29 +34,20 @@ class MergeReslover {
         }
 //        let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
         guard let repoItem = repoItem else{fatalError("error")}
-        Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
-        Swift.print("branch: " + "\(String(describing: repoItem.branch))")
+//        Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
+//        Swift.print("branch: " + "\(String(describing: repoItem.branch))")
 //        Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
-        Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
+//        Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
         
         let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
         let file:String = "File: \(unMergedFiles[index])"
         let repo:String = "Repository: \(repoItem.title)"
-        
-        //Continue here:
-            //call processMergeStrategy from MergeResolver
-        
         let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
-        
         
         main.async{
             Nav.setView(.dialog(.conflict(mergeConflict)))//promt user with list of options, title: Merge conflict in: unmerged_file
         }
-        
-        
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
-        
-        //fatalError("mergeConflict resolutin is not implemented yet")//☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️
     }
     
     /**

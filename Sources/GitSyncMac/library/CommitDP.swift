@@ -10,10 +10,12 @@ class CommitDP:DataProvider{
 }
 extension CommitDP{
     /**
-     *
+     * New
      */
-    func add(_ commitItem:CommitItem, _ repoItemTitle:String){
-        
+    func add(rawCommitData:String,_ repoTitle:String){
+        let processedCommitData:ProcessedCommitData = ProcessedCommitData(rawCommitData:rawCommitData,repoTitle)
+        let commitDict:[String:String] = processedCommitData.dict
+        addCommitItem(commitDict)
     }
     /**
      * Adds An item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)

@@ -17,7 +17,7 @@ class AutoSync {
      * TODO: ⚠️️ Try to use dispathgroups instead
      */
     func initSync(_ onComplete:@escaping AutoSyncComplete){
-//        Swift.print("🔁 AutoSync.initSync() 🔁")
+        Swift.print("🔁 AutoSync.initSync() 🔁")
         countForRepoWithMSG = 0//reset
         autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
@@ -26,7 +26,6 @@ class AutoSync {
         var curRepoIndex:Int = 0
        
         func iterateRepoItems(){
-//            Swift.print("iterateRepoItems: curRepoIndex:\(curRepoIndex) repoList.count: \(repoList.count)")
             if curRepoIndex < repoList.count {
                 let repoItem = repoList[curRepoIndex]
                 curRepoIndex += 1
@@ -41,19 +40,13 @@ class AutoSync {
      * New
      */
     func onVerificationComplete(){
-//        Swift.print("onVerificationComplete")
         messageRepos = repoList!.filter{$0.message}
-//        Swift.print("messageRepos.count: " + "\(messageRepos!.count)")
         otherRepos = repoList!.filter{!$0.message}
-//        Swift.print("otherRepos.count: " + "\(otherRepos!.count)")
         if messageRepos != nil && !messageRepos!.isEmpty {
-//            Swift.print("has repos that has manual msg")
             incrementCountForRepoWithMSG()
         }else if otherRepos != nil && !otherRepos!.isEmpty {
-//            Swift.print("has repos that has auto msg")
             syncOtherRepos()
         }else {//nothing to sync, return
-//            Swift.print("nothing to sync, return")
             autoSyncComplete()
         }
     }
@@ -89,18 +82,11 @@ class AutoSync {
         
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             self.autoSyncGroup?.enter()
-//            Swift.print("autoSyncGroup.enter")
+//          Swift.print("autoSyncGroup.enter")
             bg.async {
-                
                 GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
-                
-                
             }
-            
         }
-//        if let otherRepos = otherRepos, otherRepos.isEmpty {
-//            autoSyncComplete()//retur early if there were no other repos
-//        }
         autoSyncGroup?.notify(queue: main){//it also fires when nothing left or entered
             Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
             self.autoSyncComplete()/*All commits and pushes was completed*/
@@ -108,12 +94,9 @@ class AutoSync {
     }
     /**
      * New
-     * NOTE: checking if path is valid should happen before commit process. because you can't generate commit msg before repo exists etc
+     * NOTE: verifies if a repo exists locally, if not a wizard initiated
      */
     func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping AutoInitView.Complete){
-//        let pathExists:Bool = FileAsserter.exists(repoItem.localPath)
-//        Swift.print("pathExists: " + "\(pathExists)")
-//        let isGitRepository:Bool = pathExists && GitAsserter.isGitRepo(repoItem.localPath)
         let conflict = AutoInitConflict.init(repoItem)
         if conflict.areRemotesEqual {//No need to init AutoInit dialog
             onComplete()
