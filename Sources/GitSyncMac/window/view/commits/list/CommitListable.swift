@@ -11,11 +11,7 @@ protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidabl
     var performanceTester:PerformanceTester? {get set}
     var status:CommitListState {get set}
 }
-struct PerformanceTester{
-    //add the bellow 🏀
-    var autoSyncAndRefreshStartTime:Date?
-    var autoSyncStartTime:NSDate?
-}
+
 extension CommitListable{
     /**
      * TODO: Comment this method
@@ -74,10 +70,10 @@ extension CommitListable{
      */
     private func startAutoSync(){
         Swift.print("🌵 CommitListale.startAutoSync")
-        autoSyncStartTime = NSDate()/*Sets debug timer*/
+        performanceTester.autoSyncStartTime = Date()/*Sets debug timer*/
         let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
         AutoSync.shared.initSync{/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
-            Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(abs(self.autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+            Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(performanceTester!.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh(self.loopAnimationCompleted)/* ⬅️️ Refresh happens after AutoSync is fully completed*/
         }
     }
@@ -97,7 +93,7 @@ extension CommitListable{
         moverGroup?.yMover.value = moverGroup!.yMover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         moverGroup?.yMover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
-        Swift.print("🏁🏁🏁 CommitListable AutoSync and Refresh completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
+        Swift.print("🏁🏁🏁 CommitListable AutoSync and Refresh completed \(performanceTester!.autoSyncAndRefreshStartTime!.secsSinceStart)")
     }
     /**
      * This Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
