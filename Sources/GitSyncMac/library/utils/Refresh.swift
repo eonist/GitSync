@@ -8,9 +8,6 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{
     var dp:CommitDP
     lazy var performanceTimer:Date = Date()/*Debugging*/
-//    var totalCommitCount:Int = 0
-//    var commitCount:Int = 0
-//    var commitsCompletedCount:Int = 0
     init(_ commitDP:CommitDP){
         self.dp = commitDP
     }
@@ -26,16 +23,11 @@ extension Refresh{
      */
     func initRefresh(_ onAllRefreshComplete:@escaping RefreshComplete){
         Swift.print("🔄🔄🔄 Refresh.initRefresh() ")
-        //        self.onAllRefreshComplete = onAllRefreshComplete
         _ = performanceTimer/*Measure the time of the refresh*/
-        //        refreshRepos()//🚪⬅️️Enter refresh process here
-        //        Swift.print("Refresh.refreshRepos")
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
-        //        Swift.print("repos.count: " + "\(repos.count)")
         let group = DispatchGroup()
         
         repos.forEach { repo in
-            Swift.print("repo.title: " + "\(repo.title)")
             group.enter()
             refreshRepo(repo,{group.leave()})//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
@@ -51,9 +43,7 @@ extension Refresh{
      * Retrieve the commit log items for this repo with the range specified
      */
     private func refreshRepo(_ repo:RepoItem,_ onComplete:@escaping RefreshRepoComplete){
-        Swift.print("RefreshUtils.refreshRepo \(repo.title) 🔄💾")
         func onCommitItemsCompleted(_ results:[String]){
-            //            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.getCommitItems competed: \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
                 if !result.isEmpty {/*resulting string must have characters*/
                     let commitData:CommitData = CommitDataUtils.convert(raw:result)/*Compartmentalizes the result into a Tuple*/
