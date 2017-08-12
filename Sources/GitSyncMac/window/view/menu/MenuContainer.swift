@@ -7,7 +7,7 @@ class MenuContainer:Element {
     var selectGroup:SelectGroup?
     
     override func resolveSkin() {
-        Swift.print("MenuContainer.resolveSkin()")
+//        Swift.print("MenuContainer.resolveSkin()")
         super.resolveSkin()//skin = SkinResolver.skin(self)
         createButtons()
     }
@@ -19,7 +19,7 @@ class MenuContainer:Element {
         func onSelect(event:Event){
             if event.type == SelectEvent.select {
                 if let btn:SelectButton = event.origin as? SelectButton{
-                    Swift.print("btn.id: " + "\(String(describing: btn.id))")
+//                    Swift.print("btn.id: " + "\(String(describing: btn.id))")
                 }
             }
         }
@@ -29,13 +29,12 @@ class MenuContainer:Element {
     func onSelectGroupChange(event:Event){
         if(event === (SelectGroupEvent.change,selectGroup!)){
             let buttonId:String = (selectGroup!.selected as! Element).id!
-            Swift.print("LeftBarMenu.onSelect() buttonId: " + "\(buttonId)")
+//            Swift.print("LeftBarMenu.onSelect() buttonId: " + "\(buttonId)")
             let type = Nav.ViewType.Main(rawValue:buttonId)!//<--nice!
             Nav.setView(.main(type))//👌
         }
     }
 }
-
 extension MenuContainer{
     /**
      * Selects the button based on Main view enum case 👌
