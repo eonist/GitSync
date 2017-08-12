@@ -15,18 +15,13 @@ class CommitView:Element{
      */
     func onListSelect(_ event:ListEvent){
         Swift.print("CommitView.onListSelect()")
-        
-        //RepoView.selectedListItemIndex = list!.selectedIndex
         CommitView.selectedIdx = list.selectedIdx!
-        
         Swift.print("event.index: " + "\(event.index)")
         let commitData:[String:String] = list.dp.getItemAt(event.index)!
-        Nav.setView(.detail(.commit(commitData)))/*updates the UI elements with the selected commit item*/
-        commitDetailView?.setCommitData(commitData)
+        Nav.setView(.detail(.commit(commitData)))
     }
     override func onEvent(_ event:Event) {
-        
-        if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}
+        if event.type == ListEvent.select {onListSelect(event as! ListEvent)}
         //else {super.onEvent(event)}//forward other events
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {

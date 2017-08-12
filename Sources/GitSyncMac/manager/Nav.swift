@@ -46,7 +46,7 @@ class Nav {
             switch viewType {
             case .commit(let commitData):/*CommitDetail*/
                 let view:CommitDetailView = CommitDetailView(NaN,NaN,parentView)
-                view.setCommitData(commitData)
+                view.setCommitData(commitData)/*updates the UI elements with the selected commit item*/
                 return view
             //fatalError("not implemented yet")
             case .repo(let idx3d):/*RepoDetail*/
