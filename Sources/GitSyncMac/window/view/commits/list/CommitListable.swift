@@ -7,7 +7,7 @@ protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidabl
     /*Related to ICommitList*/
     var progressIndicator:ProgressIndicator {get set}
     //func startAutoSync()
-    var performance:PerformanceTester? {get set} /*Debug*/
+    var performance:PerformanceTester {get set} /*Debug*/
     var _state:CommitListState {get set}//because state is used by Element
 }
 
