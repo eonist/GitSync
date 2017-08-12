@@ -19,7 +19,7 @@ class MenuContainer:Element {
         func onSelect(event:Event){
             if event.type == SelectEvent.select {
                 if let btn:SelectButton = event.origin as? SelectButton{
-                    
+                      _ = btn.id
 //                    Swift.print("btn.id: " + "\(String(describing: btn.id))")
                 }
             }

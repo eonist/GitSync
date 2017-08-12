@@ -55,7 +55,7 @@ extension CommitListable{
             moverGroup?.yMover.frame.y = 60
             progressIndicator.start()//1. start spinning the progressIndicator
             _state.hasPulledAndReleasedBeyondRefreshSpace = true
-            performance?.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
+            performance.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if (value > 0){
             _state.hasReleasedBeyondTop = true
@@ -69,10 +69,10 @@ extension CommitListable{
      */
     private func startAutoSync(){
 //        Swift.print("🌵 CommitListale.startAutoSync")
-        performance?.autoSyncStartTime = Date()/*Sets debug timer*/
+        performance.autoSyncStartTime = Date()/*Sets debug timer*/
         let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
         AutoSync.shared.initSync{/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
-            Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(self.performance!.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
+            Swift.print("✅✅✅ CommitListable.onAllAutoSyncCompleted" + "\(self.performance.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh(self.loopAnimationCompleted)/* ⬅️️ Refresh happens after AutoSync is fully completed*/
         }
     }
@@ -92,7 +92,7 @@ extension CommitListable{
         moverGroup?.yMover.value = moverGroup!.yMover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         moverGroup?.yMover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
-        Swift.print("🏁🏁🏁 CommitListable AutoSync and Refresh completed \(performance!.autoSyncAndRefreshStartTime!.secsSinceStart)")
+        Swift.print("🏁🏁🏁 CommitListable AutoSync and Refresh completed \(performance.autoSyncAndRefreshStartTime!.secsSinceStart)")
     }
     /**
      * This Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
