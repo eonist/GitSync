@@ -4,26 +4,13 @@ import Foundation
 typealias CommitLogOperation = (task:Process,pipe:Pipe,repoTitle:String,repoIndex:Int)
 class CommitViewUtils {
 //    typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
-    /**
-     * ProcessedCommitData
-     * NOTE: conforms dates, msg-desc, msg-title,
-     */
-    static func processCommitData(_ repoTitle:String,_ commitData:CommitData)->ProcessedCommitData{
-        let date:Date = GitDateUtils.date(commitData.date)
-        //Swift.print("date.shortDate: " + "\(date.shortDate)")
-        let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
-        let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
-        let descendingDate:String = DateParser.descendingDate(date)
-        let compactBody:String = GitLogParser.compactBody(commitData.body)/*Compact the commit msg body*/
-        let subject:String = StringParser.trim(commitData.subject, "'", "'")
-        return .init(date: date,relativeDate: relativeDate,descendingDate: descendingDate,body: compactBody,subject: subject,hash: commitData.hash,author: commitData.author)
-    }
+    
     /**
      * -> Dictionary<String, String>
      * TODO: Use the new CommitDataItem
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData)-> [String:String]{
-        let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
+        let data:ProcessedCommitData = commitData.processCommitData(repoTitle)
         let dict:[String:String] = [
             CommitItem.repoName:repoTitle,
             CommitItem.contributor:data.author,
