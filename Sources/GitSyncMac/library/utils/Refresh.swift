@@ -54,7 +54,6 @@ extension Refresh{
             onComplete()/*🚪➡️️*/
         }
         func onCommitCountComplete(_ commitCount:Int){/*once these completes then do result, you do not want to wait until calling refreshRepo*/
-            //            Swift.print("💙 RefreshUtils.refreshRepo().onCommitCountComplete \(repo.title): commitCount: " + "\(commitCount)")
             commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
