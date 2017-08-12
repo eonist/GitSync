@@ -10,6 +10,12 @@ class CommitDP:DataProvider{
 }
 extension CommitDP{
     /**
+     *
+     */
+    func add(_ commitItem:CommitItem, _ repoItemTitle:String){
+        
+    }
+    /**
      * Adds An item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      * NOTE: Items must be added one after the other. A Bulk add method wouldn't work, unless you iterate one by one I guess???
      */
