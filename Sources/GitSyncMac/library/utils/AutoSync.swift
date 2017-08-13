@@ -4,21 +4,16 @@ import Foundation
  * Takes care of staging, commiting, Pulling, pushing etc
  */
 class AutoSync {
-    typealias AutoSyncComplete = ()->Void
-    static let shared = AutoSync()//TODO: ⚠️️ this does not need to be shared
-    var repoList:[RepoItem]?
-//    var messageRepos:[RepoItem]?
-    var otherRepos:[RepoItem]?/*auto message*/
-    var countForRepoWithMSG:Int = 0
-    var autoSyncComplete:AutoSyncComplete = {fatalError("Must attach onComplete handler")}
+    typealias Completed = ()->Void
+    var curIdxForRepoWithMessage:Int/*the iteration cursor*/
+    let autoSyncComplete:Completed// = {fatalError("Must attach onComplete handler")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      */
-    func initSync(_ onComplete:@escaping AutoSyncComplete){
-        countForRepoWithMSG = 0/*reset*/
-        autoSyncComplete = onComplete
+    init(_ onComplete:@escaping Completed) {
+        self.curIdxForRepoWithMessage = 0
+        self.autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
-        self.repoList = repoList
         var curRepoIndex:Int = 0
         func iterateRepoItems(){
             if curRepoIndex < repoList.count {
@@ -26,7 +21,7 @@ class AutoSync {
                 curRepoIndex += 1
                 self.verifyGitProject(repoItem,iterateRepoItems)
             }else{
-                onVerificationComplete()
+                onVerificationComplete(repoList)
             }
         }
         iterateRepoItems()
@@ -34,13 +29,13 @@ class AutoSync {
     /**
      * New
      */
-    private func onVerificationComplete(){
-        let messageRepos:[RepoItem] = repoList!.filter{$0.message}/*manual message*/
-        otherRepos = repoList!.filter{!$0.message}
+    private func onVerificationComplete(_ repoList:[RepoItem]){
+        let messageRepos:[RepoItem] = repoList.filter{$0.message}/*manual message*/
+        let otherRepos = repoList.filter{!$0.message}/*auto message*/
         if !messageRepos.isEmpty {
-            incrementCountForRepoWithMSG(messageRepos)
-        }else if otherRepos != nil && !otherRepos!.isEmpty {
-            syncOtherRepos()
+            incrementCountForRepoWithMSG(messageRepos,otherRepos)
+        }else if !otherRepos.isEmpty {
+            syncOtherRepos(otherRepos)
         }else {/*nothing to sync, return*/
             autoSyncComplete()
         }
@@ -48,27 +43,27 @@ class AutoSync {
     /**
      * New
      */
-    private func incrementCountForRepoWithMSG(_ messageRepos:[RepoItem]){
-        if countForRepoWithMSG < messageRepos.count {
-            let repoItem:RepoItem = messageRepos[countForRepoWithMSG]
-            countForRepoWithMSG += 1
+    private func incrementCountForRepoWithMSG(_ messageRepos:[RepoItem],_ otherRepos:[RepoItem]){
+        if curIdxForRepoWithMessage < messageRepos.count {
+            let repoItem:RepoItem = messageRepos[curIdxForRepoWithMessage]
+            curIdxForRepoWithMessage += 1
             if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {//if no commit msg is generated, then no commit is needed
-                Nav.setView(.dialog(.commit(repoItem,commitMessage,{self.incrementCountForRepoWithMSG(messageRepos)})))/*this view eventually calls initCommit*/
+                Nav.setView(.dialog(.commit(repoItem,commitMessage,{self.incrementCountForRepoWithMSG(messageRepos,otherRepos)})))/*this view eventually calls initCommit*/
             }else {
                 MergeUtils.manualMerge(repoItem){/*nothing to commit but  check if remote has updates*/
-                    self.incrementCountForRepoWithMSG(messageRepos)/*nothing to commit, iterate*/
+                    self.incrementCountForRepoWithMSG(messageRepos,otherRepos)/*nothing to commit, iterate*/
                 }
             }
         }else{/*aka complete*/
-            syncOtherRepos()
+            syncOtherRepos(otherRepos)
         }
     }
     /**
      * New
      */
-    private func syncOtherRepos(){
+    private func syncOtherRepos(_ otherRepos:[RepoItem]){
         let group:DispatchGroup = DispatchGroup()
-        otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+        otherRepos.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             group.enter()
             bg.async {
                 GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/group.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
