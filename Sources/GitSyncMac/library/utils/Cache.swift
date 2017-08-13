@@ -2,8 +2,6 @@ import Foundation
 @testable import Utils
 typealias CommitDPCache = Cache//temp
 class  Cache{
-    //TODO: ⚠️️ move sortedCommits into .bundle
-    
     /**
      * Read commits from disk (xml)
      */

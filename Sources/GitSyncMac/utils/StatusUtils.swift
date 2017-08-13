@@ -6,7 +6,7 @@ import Foundation
 class StatusUtils{
 	/*
 	 * Returns a descriptive status list of the current git changes
-	 * NOTE: you may use short status, but you must interpret the message if the state has an empty space infront of it
+	 * NOTE: You may use short status, but you must interpret the message if the state has an empty space infront of it
 	 */
     static func generateStatusList(_ localRepoPath:String)->[[String:String]]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") /*the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list*/
@@ -67,7 +67,7 @@ class StatusUtils{
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * NOTE: if the status list is empty then there is nothing to process
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
-	 * TODO: Squash some of the states together with if or or or etc..
+	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
     class func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
 		//Swift.print("StatusUtils.processStatusList()")
