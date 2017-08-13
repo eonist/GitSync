@@ -17,5 +17,4 @@ CommitView List Container#progressIndicatorContainer{
 	margin-right:-50%;
 	offset:-15px 0px;/*<--temp workaround*/
 }
-CommitView List Container#progressIndicatorContainer ProgressIndicator{
-}
+CommitView List Container#progressIndicatorContainer ProgressIndicator{}
