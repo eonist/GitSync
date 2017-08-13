@@ -44,26 +44,22 @@ class CommitDescUtils{
                 break;
 			}
 		}
-		descText += descriptionParagraph(addedItems, "Added ") + "\n" //--add an extra line break at the end "paragraph like"
-		descText += descriptionParagraph(deletedItems, "Deleted ") + "\n"
-        descText += descriptionParagraph(renamedItems, "Renamed ") + "\n"
-		descText += descriptionParagraph(modifiedItems, "Modified ")
+		descText += descriptionParagraph(addedItems, prefix: "Added ") + "\n" //--add an extra line break at the end "paragraph like"
+		descText += descriptionParagraph(deletedItems, prefix: "Deleted ") + "\n"
+        descText += descriptionParagraph(renamedItems, prefix: "Renamed ") + "\n"
+		descText += descriptionParagraph(modifiedItems, prefix: "Modified ")
         //descText = StringParser.decode(descText)!
         return descText
 	}
 	/**
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-    class func descriptionParagraph(_ theList:[[String:String]], _ prefixText:String)->String{
-		var descText:String = ""
-		if (theList.count > 0) {
-			var theSuffix:String = " file"
-			if theList.count > 1 { theSuffix += "s" }/*multiple*/
-			descText += prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
-            descText = theList.reduce(descText) {
-				$0 + $1["fileName"]! + "\n"
-			}
-		}
-		return descText
+    class func descriptionParagraph(_ theList:[[String:String]], prefix prefixText:String)->String{
+        var theSuffix:String = " file"
+        if theList.count > 1 { theSuffix += "s" }/*multiple*/
+        let descText:String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
+        return theList.reduce(descText) {
+            $0 + $1["fileName"]! + "\n"
+        }
 	}
 }

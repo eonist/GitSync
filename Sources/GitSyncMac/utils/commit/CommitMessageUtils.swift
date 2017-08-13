@@ -94,10 +94,10 @@ class CommitMessageUtils{
         if (statusList.count > 0) {
             //Swift.print("doCommit().there is something to add or commit")
             StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
-            let title = CommitMessageUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
+            let title:String = CommitMessageUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
             //Swift.print("commitMsgTitle: " + "\(title)")
-            let desc = CommitDescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
-            //Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
+            let desc:String = CommitDescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
+            Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
            
             //Swift.print("commitResult: " + "\(commitResult)")
             return CommitMessage(title,desc)/*return true to indicate that the commit completed*/
