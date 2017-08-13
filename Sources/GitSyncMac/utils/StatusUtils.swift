@@ -9,18 +9,12 @@ class StatusUtils{
 	 * NOTE: you may use short status, but you must interpret the message if the state has an empty space infront of it
 	 */
     static func generateStatusList(_ localRepoPath:String)->[[String:String]]{
-		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
+		let theStatus:String = GitParser.status(localRepoPath, "-s") /*the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list*/
 		//Swift.print("theStatus: " + "\(theStatus)")
-		let theStatusList:[String] = StringParser.paragraphs(theStatus) //--store each line as items in a list
-        var transformedList:[[String:String]] = []
-		if theStatusList.count > 0 {
-			transformedList = transformStatusList(theStatusList)
-		}else{
-			//Swift.print("nothing to commit, working directory clean")// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
-		}
-        //Swift.print("transformedList.count: " + "\(transformedList.count)")
-		//Swift.print("transformedList: " + "\(transformedList)")
-		return transformedList
+		let theStatusList:[String] = StringParser.paragraphs(theStatus) /*store each line as items in a list*/
+        guard !theStatusList.isEmpty else {return []}/*this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin, aka nothing to commit, working directory clean*/
+        let transformedList = transformStatusList(theStatusList)
+        return transformedList
 	}
 	/*
  	 * Transforms the "compact git status list" by adding more context to each item (a list with acociative lists, aka records)
@@ -34,13 +28,8 @@ class StatusUtils{
      * TODO: ⚠️️ Use functional programming on this method.
  	 */
     static func transformStatusList(_ theStatusList:[String])->[[String:String]]{
-        //Swift.print("transformStatusList()")
         var transformedList:[[String:String]] = []
         for theStatusItem:String in theStatusList {
-			//Swift.print("theStatusItem: " + "\(theStatusItem)")
-            
-            //Continue here: do an isloated test with: "?? a.txt"
-            
             let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
