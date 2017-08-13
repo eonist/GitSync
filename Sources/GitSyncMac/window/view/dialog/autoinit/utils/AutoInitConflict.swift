@@ -18,8 +18,8 @@ class AutoInitConflict{
     }()
     lazy var areRemotesEqual:Bool = {
         guard self.isGitRepo else{return false}
-        Swift.print("curRemotePath: " + ">\(self.curRemotePath)<")
-        Swift.print("repoItem.remotePath: " + ">\(self.repoItem.remotePath)<")
+//        Swift.print("curRemotePath: " + ">\(self.curRemotePath)<")
+//        Swift.print("repoItem.remotePath: " + ">\(self.repoItem.remotePath)<")
         return self.curRemotePath == self.repoItem.remotePath
     }()
     lazy var curRemotePath:String = {
