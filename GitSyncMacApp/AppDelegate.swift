@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //refactor the commitView to support more state like design 👈
                 //Refactor AutoSync, Refresh etc for easier debugging ✅
                 //start after pull gesture completes etc
-                //export/import repo list feature
+                //export/import repo list feature✅
         
             //auto fill local path when drag and drop clipboard etc
             //center the wizard text in the dialogs
