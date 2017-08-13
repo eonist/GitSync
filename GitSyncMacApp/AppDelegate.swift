@@ -15,24 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
-        initApp()
-        
-        //Continue here: 🏀
-            //The autosync on interval
-                //refactor the commitView to support more state like design 👈
-                //Refactor AutoSync, Refresh etc for easier debugging ✅
-                //start after pull gesture completes etc
-                //export/import repo list feature✅
-        
-            //auto fill local path when drag and drop clipboard etc
-            //center the wizard text in the dialogs
-        
-            //add filepicker prompt 
-                //needs ready-made filepicker UI component
-        
-            //Make RepoDetail store date to disk on View.close()
-                //add a Closable protocol 
-                //add removeSelf and save to repo.xml for RepoDetail and PrefsView    
+        initApp()   
     }
     /**
      * Initializes the app
