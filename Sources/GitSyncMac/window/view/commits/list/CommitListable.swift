@@ -53,7 +53,7 @@ extension CommitListable{
             progressIndicator.start()//1. start spinning the progressIndicator
             _state.hasPulledAndReleasedBeyondRefreshThreshold = true
             performance.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
-            startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
+            startAutoSync(self.onRefreshComplete)/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if value > 0{
             _state.hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
@@ -64,19 +64,18 @@ extension CommitListable{
     /**
      * Starts the auto sync process (Happens after the pull to refresh gesture)
      */
-    private func startAutoSync(){
+    fileprivate func startAutoSync(_ syncComplete:@escaping ()->Void){
         performance.autoSyncStartTime = Date()/*Sets debug timer*/
         _ = AutoSync{/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
             Swift.print("🏁🏁🏁 AutoSyncCompleted" + "\(self.performance.autoSyncStartTime!.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
-            let refresh = Refresh(self.dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
-            refresh.initRefresh(self.loopAnimationCompleted)/* ⬅️️ Refresh happens after AutoSync is fully completed*/
+            _ = Refresh(self.dp as! CommitDP, syncComplete)/* ⬅️️ Refresh happens after AutoSync is fully completed, also Attach the dp that RBSliderFastList uses*/
         }
     }
     /**
      * NOTE: Basically not in refreshState
      */
-    func loopAnimationCompleted(){
-        //Swift.print("🌵 CommitListable.loopAnimationCompleted()")
+    func onRefreshComplete(){
+        Swift.print("🌵 CommitListable.onRefreshComplete()")
         reUseAll()/*Refresh*/
         progressIndicator.progress(0)
         progressIndicator.stop()
@@ -129,11 +128,14 @@ extension CommitListable{
 
 extension CommitListable{
     /**
-     *
+     * Used to start autosync externally, from an interval timer for instance.
+     * PARAM: onComplete
      */
-    func initiateAutoSyncMode(){
+    func initiateAutoSyncMode(_ onComplete:@escaping ()->Void){
+        Swift.print("initiateAutoSyncMode()")
         progressIndicator.start()/*start spinning the progressIndicator*/
         _state.hasPulledAndReleasedBeyondRefreshThreshold = true/*set the state*/
+        startAutoSync({self.onRefreshComplete();onComplete()})
     }
 }
 

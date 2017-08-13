@@ -8,21 +8,13 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{
     var dp:CommitDP
     lazy var performanceTimer:Date = Date()/*Debugging*/
-    init(_ commitDP:CommitDP){
-        self.dp = commitDP
-    }
-}
-extension Refresh{
-    typealias RefreshReposComplete = ()->Void
-    typealias RefreshRepoComplete = ()->Void
-    typealias CommitItemsComplete = (_ results:[String])->Void
-    typealias CommitCountComplete = (_ commitCount:Int)->Void
     /**
      * Adds commits to CommitDB
      * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called (aka The final complete call)
      * NOTE: This method is called after AutoSync has completed
      */
-    func initRefresh(_ onReposRefreshComplete:@escaping RefreshReposComplete){
+    init(_ commitDP:CommitDP,_ onReposRefreshComplete:@escaping RefreshReposComplete){
+        self.dp = commitDP
         Swift.print("🔄🔄🔄 Refresh.initRefresh() ")
         _ = performanceTimer/*Measure the time of the refresh*/
         let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
@@ -37,11 +29,17 @@ extension Refresh{
             onReposRefreshComplete()
         })
     }
+}
+extension Refresh{
+    typealias RefreshReposComplete = ()->Void
+    typealias RefreshRepoComplete = ()->Void
+    typealias CommitItemsComplete = (_ results:[String])->Void
+    typealias CommitCountComplete = (_ commitCount:Int)->Void
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      * Retrieve the commit log items for this repo with the range specified
      */
-    private func refreshRepo(_ repo:RepoItem,_ onRefreshRepoComplete:@escaping RefreshRepoComplete){
+    fileprivate func refreshRepo(_ repo:RepoItem,_ onRefreshRepoComplete:@escaping RefreshRepoComplete){
         Refresh.commitCount(dp,repo){ commitCount in/*once these completes then do result, you do not want to wait until calling refreshRepo*/
             Refresh.commitItems(repo.local, commitCount) { results in //🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
                 results.forEach { result in

@@ -6,9 +6,24 @@ class CommitView:Element{
     static var selectedIdx:Int = 1
     lazy var list:CommitsList = self.createCommitList()
     var commitDetailView:CommitDetailView?
+//    lazy var intervalTimer:SimpleTimer = .init(interval: 30, onTick: )
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         _ = list/*creates the GUI List*/
+    }
+    /**
+     *
+     */
+    func onInterval(){
+        
+        //continue here: use bg.{sleep30}
+//        self.list.initiateAutoSyncMode()
+    }
+    /**
+     * New
+     */
+    func initInterval(){
+//        intervalTimer.start()
     }
     /**
      * EventHandler when a CommitsListItem is clicked
