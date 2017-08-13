@@ -96,7 +96,7 @@ class MergeReslover {
         }
          //after each iteration you have to commit, bring that into the fold
         Swift.print("before commit")
-        _ = GitSync.commit(localRepoPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
+        _ = GitSync.commit(repoItem!)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
         Swift.print("after commit")
         nextConflict()
         

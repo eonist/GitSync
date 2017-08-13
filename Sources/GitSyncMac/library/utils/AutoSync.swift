@@ -3,7 +3,8 @@ import Foundation
 /**
  * Takes care of staging, commiting, Pulling, pushing etc
  */
-class AutoSync {
+
+class AutoSync/*:NSUserNotificationCenter,NSUserNotificationCenterDelegate*/    {
     typealias Completed = ()->Void
     var curIdxForRepoWithMessage:Int/*the iteration cursor*/
     let autoSyncComplete:Completed// = {fatalError("Must attach onComplete handler")}
@@ -11,6 +12,7 @@ class AutoSync {
      * The GitSync automation algo (Basically Commits and pushes)
      */
     init(_ onComplete:@escaping Completed) {
+        
         self.curIdxForRepoWithMessage = 0
         self.autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
@@ -26,6 +28,7 @@ class AutoSync {
         }
         iterateRepoItems()
     }
+    
     /**
      * New
      */

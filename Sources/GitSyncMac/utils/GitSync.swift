@@ -2,6 +2,7 @@ import Foundation
 @testable import Utils
 
 class GitSync{
+    
     typealias PushComplete = (/*_ hasPushed:Bool*/)->Void
     /**
      * Handles the process of making a commit for a single repository
@@ -10,15 +11,9 @@ class GitSync{
     static func initCommit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onPushComplete:@escaping PushComplete){
 //        Swift.print("GitSync.initCommit")
         func doCommit(){
-            let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
+            let hasCommited = commit(repoItem,commitMessage)/*🌵 if there were no commits false will be returned*/
             _ = hasCommited
-            if hasCommited {
-                let notification = NSUserNotification()
-                notification.title = "Committed in: \(repoItem.title)"
-                notification.informativeText = "\(commitMessage?.title ?? "") \n\(commitMessage?.description ?? "")"
-                notification.soundName = nil//NSUserNotificationDefaultSoundName
-                NSUserNotificationCenter.default.deliver(notification)
-            }
+            
 //            Swift.print("hasCommited: " + "\(hasCommited)")
             //hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
             initPush(repoItem, onPushComplete)//push or check if you need to pull down changes and subsequently merge something
@@ -56,7 +51,6 @@ class GitSync{
 //                Swift.print("pushCallBack: " + "\(pushCallBack)")
 //                hasPushed = true
             }
-//            Swift.print("initPush.hasPushed: " + "\(hasPushed)")
             onPushComplete()
         }
     }
@@ -68,18 +62,29 @@ class GitSync{
      * TODO: ⚠️️ add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    static func commit(_ localRepoPath:String, _ commitMessage:CommitMessage? = nil)->Bool{
-//        Swift.print("GitSync.commit()")
+    static func commit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil)->Bool{
         let commitMSG:CommitMessage? = {
-            guard let message = commitMessage else {
-                return CommitMessageUtils.generateCommitMessage(localRepoPath)
-            };return message
+            guard let msg = commitMessage else {
+                return CommitMessageUtils.generateCommitMessage(repoItem.localPath)
+            };return msg
         }()
-        guard let msg = commitMSG else{
-             return false
-        }
-        let commitResult:String = GitModifier.commit(localRepoPath, CommitMessage(msg.title,msg.description))//🌵 commit
+        guard let msg = commitMSG else{return false}
+        notifyUser(msg,repoItem)
+        let commitResult:String = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit
         _ = commitResult
         return true
+    }
+}
+extension GitSync{
+    /**
+     * Sends Message to NotificationCenter in MacOS about latest commit
+     */
+    static func notifyUser(_ commitMessage:CommitMessage,_ repoItem:RepoItem){
+        let notification = NSUserNotification()
+        notification.title = "Committed in: \(repoItem.title)"
+        notification.subtitle = commitMessage.title
+        notification.informativeText = commitMessage.description
+        notification.soundName = nil//NSUserNotificationDefaultSoundName
+        NSUserNotificationCenter.default.deliver(notification)
     }
 }

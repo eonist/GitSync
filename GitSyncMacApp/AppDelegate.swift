@@ -16,7 +16,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
+        NSUserNotificationCenter.default.delegate = self
     }
+    
     /**
      * Initializes the app
      */
@@ -37,5 +39,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         _ = FileModifier.write(Config.Bundle.repo.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         Swift.print("💾 Write RepoList to: repo.xml")
         print("Good-bye")
+    }
+}
+extension AppDelegate:NSUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
     }
 }
