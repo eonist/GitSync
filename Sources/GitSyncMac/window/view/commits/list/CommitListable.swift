@@ -64,8 +64,8 @@ extension CommitListable{
      * Starts the auto sync process (Happens after the pull to refresh gesture)
      */
     fileprivate func startAutoSync(_ syncComplete:@escaping ()->Void){
-        _ = performance.autoSyncAndRefreshStartTime//init debug timer, TODO: move this inside startAutoSync method, maybe?
-        _ = performance.autoSyncStartTime/*Sets debug timer*/
+        performance.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
+        performance.autoSyncStartTime = Date()/*Sets debug timer*/
         _ = AutoSync{/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
             Swift.print("🏁🏁🏁 AutoSyncCompleted" + "\(self.performance.autoSyncStartTime.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
             _ = Refresh(self.dp as! CommitDP, syncComplete)/* ⬅️️ Refresh happens after AutoSync is fully completed, also Attach the dp that RBSliderFastList uses*/
