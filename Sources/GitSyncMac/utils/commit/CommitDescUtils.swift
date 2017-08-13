@@ -49,7 +49,7 @@ class CommitDescUtils{
         descText += descriptionParagraph(renamedItems, prefix: "Renamed ") + "\n"
 		descText += descriptionParagraph(modifiedItems, prefix: "Modified ")
         //descText = StringParser.decode(descText)!
-        return descText
+        return descText.trimRight("\n")//remove the last newLine if it exists
 	}
 	/**
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
@@ -61,7 +61,7 @@ class CommitDescUtils{
             let descText:String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
             return theList.reduce(descText) {
                 $0 + $1["fileName"]! + "\n"
-            }
+            } + "\n"
         }else{
             return ""
         }
