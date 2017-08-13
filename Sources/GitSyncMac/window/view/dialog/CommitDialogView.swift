@@ -6,6 +6,8 @@ import Foundation
  */
 class CommitDialogView:Element,UnFoldable {
     var repoItem:RepoItem?
+    var onCommitDialogComplete:Completed = {fatalError("no completion handler assigned")}
+    
     override func resolveSkin() {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
@@ -24,6 +26,7 @@ class CommitDialogView:Element,UnFoldable {
     }
 }
 extension CommitDialogView{
+    typealias Completed = ()->Void
     enum Key{
         static let repo = "repo"
         static let title = "title"
@@ -32,9 +35,10 @@ extension CommitDialogView{
     /**
      * New
      */
-    func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage){
-        Swift.print("CommitDialogView.setData")
-        Swift.print("repoItem.title: " + "\(repoItem.title)")
+    func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage, _ onCommitDialogComplete:@escaping Completed){
+        self.onCommitDialogComplete = onCommitDialogComplete
+//        Swift.print("CommitDialogView.setData")
+//        Swift.print("repoItem.title: " + "\(repoItem.title)")
         self.repoItem = repoItem
         self.apply([Key.repo,TextInput.Key.inputText],repoItem.title)
         self.apply([Key.title,TextInput.Key.inputText],commitMessage.title)
@@ -50,11 +54,11 @@ extension CommitDialogView{
         let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error - must have description")}()
         
         let commitMessage = CommitMessage(title,desc)
-        Swift.print("commitMessage.title: " + "\(commitMessage.title)")
-        Swift.print("commitMessage.description: " + "\(commitMessage.description)")
+//        Swift.print("commitMessage.title: " + "\(commitMessage.title)")
+//        Swift.print("commitMessage.description: " + "\(commitMessage.description)")
         StyleTestView.shared.currentPrompt?.removeFromSuperview()//remove promptView from window
         bg.async {
-            GitSync.initCommit(self.repoItem!, commitMessage, {main.async{AutoSync.shared.incrementCountForRepoWithMSG()}})
+            GitSync.initCommit(self.repoItem!, commitMessage, {main.async{self.onCommitDialogComplete()}})
         }
     }
 }

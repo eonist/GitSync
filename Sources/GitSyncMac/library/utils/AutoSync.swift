@@ -5,20 +5,17 @@ import Foundation
  */
 class AutoSync {
     typealias AutoSyncComplete = ()->Void
-    static let shared = AutoSync()
+    static let shared = AutoSync()//TODO: ⚠️️ this does not need to be shared
     var repoList:[RepoItem]?
-    var messageRepos:[RepoItem]?/*manual message*/
+//    var messageRepos:[RepoItem]?
     var otherRepos:[RepoItem]?/*auto message*/
     var countForRepoWithMSG:Int = 0
-    
     var autoSyncComplete:AutoSyncComplete = {fatalError("Must attach onComplete handler")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
-     * TODO: ⚠️️ Try to use dispathgroups instead
      */
     func initSync(_ onComplete:@escaping AutoSyncComplete){
-        Swift.print("🔁 AutoSync.initSync() 🔁")
-        countForRepoWithMSG = 0//reset
+        countForRepoWithMSG = 0/*reset*/
         autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         self.repoList = repoList
@@ -37,11 +34,11 @@ class AutoSync {
     /**
      * New
      */
-    func onVerificationComplete(){
-        messageRepos = repoList!.filter{$0.message}
+    private func onVerificationComplete(){
+        let messageRepos:[RepoItem] = repoList!.filter{$0.message}/*manual message*/
         otherRepos = repoList!.filter{!$0.message}
-        if messageRepos != nil && !messageRepos!.isEmpty {
-            incrementCountForRepoWithMSG()
+        if !messageRepos.isEmpty {
+            incrementCountForRepoWithMSG(messageRepos)
         }else if otherRepos != nil && !otherRepos!.isEmpty {
             syncOtherRepos()
         }else {/*nothing to sync, return*/
@@ -51,19 +48,17 @@ class AutoSync {
     /**
      * New
      */
-    func incrementCountForRepoWithMSG(){
-//        Swift.print("incrementCountForRepoWithMSG 🍏 curIndex: \(countForRepoWithMSG) of tot: \(messageRepos!.count)")
-        if countForRepoWithMSG < messageRepos!.count {
-            let repoItem:RepoItem = messageRepos![countForRepoWithMSG]
+    private func incrementCountForRepoWithMSG(_ messageRepos:[RepoItem]){
+        if countForRepoWithMSG < messageRepos.count {
+            let repoItem:RepoItem = messageRepos[countForRepoWithMSG]
             countForRepoWithMSG += 1
-                if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {//if no commit msg is generated, then no commit is needed
-                    Nav.setView(.dialog(.commit(repoItem,commitMessage)))/*⬅️️🚪 this view eventually calls initCommit*/
-                }else {
-                    MergeUtils.manualMerge(repoItem){/*nothing to commit but  check if remote has updates*/
-                        self.incrementCountForRepoWithMSG()/*nothing to commit, iterate*/
-                    }
+            if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {//if no commit msg is generated, then no commit is needed
+                Nav.setView(.dialog(.commit(repoItem,commitMessage,{self.incrementCountForRepoWithMSG(messageRepos)})))/*this view eventually calls initCommit*/
+            }else {
+                MergeUtils.manualMerge(repoItem){/*nothing to commit but  check if remote has updates*/
+                    self.incrementCountForRepoWithMSG(messageRepos)/*nothing to commit, iterate*/
                 }
-//            }
+            }
         }else{/*aka complete*/
             syncOtherRepos()
         }
@@ -72,7 +67,6 @@ class AutoSync {
      * New
      */
     private func syncOtherRepos(){
-//      Swift.print("AutoSync.syncOtherRepos() 🍊 ")
         let group:DispatchGroup = DispatchGroup()
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             group.enter()
@@ -81,7 +75,6 @@ class AutoSync {
             }
         }
         group.notify(queue: main){//it also fires when nothing left or entered
-            Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
             self.autoSyncComplete()/*All commits and pushes was completed*/
         }
     }
@@ -89,7 +82,7 @@ class AutoSync {
      * New
      * NOTE: verifies if a repo exists locally, if not a wizard initiated
      */
-    func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping AutoInitView.Complete){
+    private func verifyGitProject(_ repoItem:RepoItem, _ onComplete:@escaping AutoInitView.Complete){
         let conflict = AutoInitConflict.init(repoItem)
         if conflict.areRemotesEqual {//No need to init AutoInit dialog
             onComplete()

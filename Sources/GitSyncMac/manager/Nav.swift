@@ -31,7 +31,6 @@ class Nav {
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
-        /*Main*/
         case .main(let viewType):/*Main*/
             switch viewType {
             case .commit:
@@ -41,27 +40,23 @@ class Nav {
             case .prefs:
                 return PrefsView(NaN,NaN,parentView)
             }
-        /*Detail*/
-        case .detail(let viewType):/*Main*/
+        case .detail(let viewType):/*Detail*/
             switch viewType {
             case .commit(let commitData):/*CommitDetail*/
                 let view:CommitDetailView = CommitDetailView(NaN,NaN,parentView)
                 view.setCommitData(commitData)/*Updates the UI elements with the selected commit item*/
                 return view
-            //fatalError("not implemented yet")
             case .repo(let idx3d):/*RepoDetail*/
                 let view:RepoDetailView = RepoDetailView(NaN,NaN,parentView)
                 view.setRepoData(idx3d)
                 return view
-                //fatalError("not implemented yet")
             }
-        /*Dialog*/
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
             switch dialog{
-            case .commit(let repoItem, let commitMessage):
+            case .commit(let repoItem, let commitMessage, let onComplete):
                 let view = CommitDialogView(NaN,NaN,parentView)
-                view.setData(repoItem, commitMessage)
+                view.setData(repoItem, commitMessage, onComplete)
                 return view
             case .conflict(let mergeConflict):
                 let view = MergeConflictView(NaN,NaN,parentView)
