@@ -55,11 +55,16 @@ class CommitDescUtils{
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
     class func descriptionParagraph(_ theList:[[String:String]], prefix prefixText:String)->String{
-        var theSuffix:String = " file"
-        if theList.count > 1 { theSuffix += "s" }/*multiple*/
-        let descText:String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
-        return theList.reduce(descText) {
-            $0 + $1["fileName"]! + "\n"
+        if !theList.isEmpty {
+            var theSuffix:String = " file"
+            if theList.count > 1 { theSuffix += "s" }/*multiple*/
+            let descText:String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
+            return theList.reduce(descText) {
+                $0 + $1["fileName"]! + "\n"
+            }
+        }else{
+            return ""
         }
+        
 	}
 }
