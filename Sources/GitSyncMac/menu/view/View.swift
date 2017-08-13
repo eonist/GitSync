@@ -8,13 +8,45 @@ class ViewMenu:CustomMenuItem {
         submenu = NSMenu(title: "View")
         _ = submenu?.addMenuItem(ToggleSideBarMenuItem())
         _ = submenu?.addMenuItem(PagesMenu())
+        _ = submenu?.addMenuItem(ExportReposMenu("Export repos", "e"))
+        _ = submenu?.addMenuItem(ImportReposMenu("Import repos", "i"))  
     }
     override func onSelect(event sender: AnyObject){
         Swift.print("ViewMenu.onSelect() " + "\(sender)")
     }
     required init(coder decoder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
+class ExportReposMenu:CustomMenuItem{
+    override func onSelect(event: AnyObject) {
+        //grab the xml
+        let xml = RepoView.treeDP.tree.xml
+        //prompt the file viewer
+        let myFileDialog:NSSavePanel = NSSavePanel.initialize(["xml"], "Export repos", true)
+        myFileDialog.runModal()
+        let thePath:String? = myFileDialog.url?.path /*Get the path to the file chosen in the NSOpenPanel*/
+        
+        if let thePath = thePath {/*Make sure that a path was chosen*/
+            _ = xml.xmlString.write(filePath:thePath.tildePath)
+        }
+    }
+}
+class ImportReposMenu:CustomMenuItem{
+    override func onSelect(event: AnyObject) {
+        //grab the xml
+        
+        //prompt the file viewer
+        let myFileDialog:NSOpenPanel = NSOpenPanel()
+        myFileDialog.runModal()
+        let thePath:String? = myFileDialog.url?.path /*Get the path to the file chosen in the NSOpenPanel*/
+        
+        //TODO: use two guards on the bellow instead
+        if let thePath = thePath {/*Make sure that a path was chosen*/
+            if let xml = thePath.tildePath.content?.xml{
+                 RepoView._treeDP = TreeDP(xml)
+            }
+        }
+    }
+}
 class PagesMenu:CustomMenuItem{
     init(){
         super.init("Pages", "")

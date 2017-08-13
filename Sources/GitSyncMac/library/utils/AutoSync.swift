@@ -1,16 +1,16 @@
 import Foundation
 @testable import Utils
 /**
- * NOTE: It seems its dificult to add Dispatch group to this, as all commits are fired of at once and depending on its result a subsequent push is called
+ * Takes care of staging, commiting, Pulling, pushing etc
  */
 class AutoSync {
     typealias AutoSyncComplete = ()->Void
     static let shared = AutoSync()
     var repoList:[RepoItem]?
-    var messageRepos:[RepoItem]?//manual message
-    var otherRepos:[RepoItem]?//auto message
+    var messageRepos:[RepoItem]?/*manual message*/
+    var otherRepos:[RepoItem]?/*auto message*/
     var countForRepoWithMSG:Int = 0
-    var autoSyncGroup:DispatchGroup?
+    
     var autoSyncComplete:AutoSyncComplete = {fatalError("Must attach onComplete handler")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
@@ -22,9 +22,7 @@ class AutoSync {
         autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
         self.repoList = repoList
-        
         var curRepoIndex:Int = 0
-       
         func iterateRepoItems(){
             if curRepoIndex < repoList.count {
                 let repoItem = repoList[curRepoIndex]
@@ -46,7 +44,7 @@ class AutoSync {
             incrementCountForRepoWithMSG()
         }else if otherRepos != nil && !otherRepos!.isEmpty {
             syncOtherRepos()
-        }else {//nothing to sync, return
+        }else {/*nothing to sync, return*/
             autoSyncComplete()
         }
     }
@@ -58,18 +56,15 @@ class AutoSync {
         if countForRepoWithMSG < messageRepos!.count {
             let repoItem:RepoItem = messageRepos![countForRepoWithMSG]
             countForRepoWithMSG += 1
-//            self.verifyGitProject(repoItem){
                 if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {//if no commit msg is generated, then no commit is needed
-//                    Swift.print("something to commit")
                     Nav.setView(.dialog(.commit(repoItem,commitMessage)))/*⬅️️🚪 this view eventually calls initCommit*/
                 }else {
-//                    Swift.print("nothing to commit")
-                    MergeUtils.manualMerge(repoItem){//nothing to commit but  check if remote has updates
-                        self.incrementCountForRepoWithMSG()//nothing to commit, iterate
+                    MergeUtils.manualMerge(repoItem){/*nothing to commit but  check if remote has updates*/
+                        self.incrementCountForRepoWithMSG()/*nothing to commit, iterate*/
                     }
                 }
 //            }
-        }else{//aka complete
+        }else{/*aka complete*/
             syncOtherRepos()
         }
     }
@@ -77,17 +72,15 @@ class AutoSync {
      * New
      */
     private func syncOtherRepos(){
-//        Swift.print("AutoSync.syncOtherRepos() 🍊 ")
-        autoSyncGroup = DispatchGroup()
-        
+//      Swift.print("AutoSync.syncOtherRepos() 🍊 ")
+        let group:DispatchGroup = DispatchGroup()
         otherRepos?.forEach { repoItem in/*all the initCommit calls are non-waiting. */
-            self.autoSyncGroup?.enter()
-//          Swift.print("autoSyncGroup.enter")
+            group.enter()
             bg.async {
-                GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/self.autoSyncGroup?.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+                GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/group.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
             }
         }
-        autoSyncGroup?.notify(queue: main){//it also fires when nothing left or entered
+        group.notify(queue: main){//it also fires when nothing left or entered
             Swift.print("🏁🏁🏁 AutoSyncGroup: All repos are now AutoSync'ed")//now go and read commits to list
             self.autoSyncComplete()/*All commits and pushes was completed*/
         }

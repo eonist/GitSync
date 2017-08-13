@@ -20,6 +20,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //The autosync on interval
                 //refactor the commitView to support more state like design 👈
+                //Refactor AutoSync, Refresh etc for easier debugging ✅
                 //start after pull gesture completes etc
                 //export/import repo list feature
         

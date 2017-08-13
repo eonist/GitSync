@@ -4,6 +4,7 @@ import Cocoa
 
 /**
  * TODO: ⚠️️ Should remember previous selected item between transitions
+ * TODO: use singleton instead of the bellow ⚠️️
  */
 class RepoView:Element {
     static var selectedListItemIndex:[Int] = []
