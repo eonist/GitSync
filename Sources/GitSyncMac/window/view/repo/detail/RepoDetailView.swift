@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:Element {
+class RepoDetailView:Element,Closable {
     override func resolveSkin() {
         super.resolveSkin()
         UnFoldUtils.unFold(Config.Bundle.app,"repoDetailView",self)
