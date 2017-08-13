@@ -79,7 +79,8 @@ Section#textContainer Text#date{
 :selected Section#textContainer Text#title{ 
 	color:grey3;/*#2AA3EF*/
 }
-Section#textContainer Text#title{ 
+Section#textContainer Text#title{
+    width:100%;
 	size:16px;
 	margin-top:0px;
 	color:<TextTheme3>;
