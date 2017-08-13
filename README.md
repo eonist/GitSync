@@ -30,6 +30,11 @@
 6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd>  <kbd>R</kbd>
 
 ## Change-log:
+
+**2017-08-12**
+- Refactored and cleaned up AutoSync and Refresh classes
+- Added export/import repos feature
+
 **2017-08-11**
 - Fixed Stuck TextCursor in TextField
 - Completed the AutoInitDialog
