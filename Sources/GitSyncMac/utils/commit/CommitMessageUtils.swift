@@ -33,18 +33,18 @@ class CommitMessageUtils{
 			}
 		}
 		var commitMessage:String = ""
-		if numOfNewFiles > 0 {
+		if !numOfNewFiles.isEmpty {
 			commitMessage +=  "New files added: " + "\(numOfNewFiles)"
 		}
-		if numOfModifiedFiles > 0 {
+		if !numOfModifiedFiles.isEmpty {
 			if !commitMessage.isEmpty {  commitMessage +=  ", " }/*--append comma*/
 			commitMessage +=  "Files modified: " + "\(numOfModifiedFiles)"
 		}
-		if numOfDeletedFiles > 0 {
+		if !numOfDeletedFiles.isEmpty {
 			if !commitMessage.isEmpty {  commitMessage += ", " }/*--append comma*/
 			commitMessage +=  "Files deleted: " + "\(numOfDeletedFiles)"
 		}
-		if numOfRenamedFiles > 0 {
+		if !numOfRenamedFiles.isEmpty {
 			if !commitMessage.isEmpty {  commitMessage +=  ", "}/*--append comma*/
 			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
