@@ -1,5 +1,11 @@
 import Foundation
 
-class Closable {
-
+protocol Closable {
+    func close()
+    func removeFromSuperview()
+}
+extension Closable{
+    func close() {
+        self.removeFromSuperview()
+    }
 }
