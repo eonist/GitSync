@@ -63,36 +63,33 @@ class StatusUtils{
 		}
 		return transformedList
 	}
+    enum StatusType{
+        static let untrackedFiles = "Untracked files"
+        static let  changesNotStagedForCommit = "Changes not staged for commit"
+        static let  changestoBeCommitted = "Changes to be committed"
+        static let  unmergedPath = "Unmerged path"
+    }
 	/**
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * NOTE: if the status list is empty then there is nothing to process
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
-    class func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
-		//Swift.print("StatusUtils.processStatusList()")
-        for statusItem:[String:String] in statusList{
-			//log "len of status_item: " & (length of statusItem)
-			//set cmd to cmd of status_item
+    static func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
+         statusList.forEach{ (statusItem:[String:String]) in
             let state:String = statusItem["state"]!
-            //Swift.print("state: " + "\(state)")
             let fileName:String = statusItem["fileName"]!
-            //Swift.print("fileName: " + "\(fileName)")
 			switch state {
-				case "Untracked files": //--this is when there exists a new file
-					//Swift.print("1. " + "Untracked files")
+				case StatusType.untrackedFiles: //--this is when there exists a new file
 					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-				case "Changes not staged for commit": //--this is when you have not added a file that has changed to the next commit
-					//Swift.print("2. " + "Changes not staged for commit")
+				case StatusType.changesNotStagedForCommit: //--this is when you have not added a file that has changed to the next commit
 					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-				case "Changes to be committed"://--this is when you have added a file to the next commit, but not commited it
-                    _ = ""
-                    //Swift.print("3. " + "Changes to be committed")//do nothing here
-				case "Unmerged path": //--This is when you have files that have to be resolved first, but eventually added aswell
-					//Swift.print("4. " + "Unmerged path")
+				case StatusType.changestoBeCommitted://--this is when you have added a file to the next commit, but not commited it
+                    _ = {}/*do nothing here*/
+				case StatusType.unmergedPath: //--This is when you have files that have to be resolved first, but eventually added aswell
 					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
                 default :
-					//throw error
+					fatalError("type not supported")
 					break
 			}
 		}
