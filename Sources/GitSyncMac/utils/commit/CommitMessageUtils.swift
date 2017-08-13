@@ -48,7 +48,6 @@ class CommitMessageUtils{
 			if !commitMessage.isEmpty {  commitMessage +=  ", "}/*--append comma*/
 			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
-        //commitMessage = StringParser.decode(commitMessage)!
 		return commitMessage
 	}
     /**
@@ -56,14 +55,12 @@ class CommitMessageUtils{
      */
     static func generateCommitMessage(_ localRepoPath:String) -> CommitMessage? {
         let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
-        //Swift.print("statusList.count: " + "\(statusList.count)")
         if !statusList.isEmpty {/*there is something to add or commit*/
             StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
             let title:String = CommitMessageUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
             let desc:String = CommitDescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
             return CommitMessage(title,desc)/*return true to indicate that the commit completed*/
-        }else{
-            //Swift.print("nothing to add or commit")
+        }else{/*nothing to add or commit*/
             return nil/*break the flow since there is nothing to commit or process*/
         }
     }
