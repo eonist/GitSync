@@ -58,10 +58,10 @@ class CommitDescUtils{
 		var descText:String = ""
 		if (theList.count > 0) {
 			var theSuffix:String = " file"
-			if (theList.count > 1) { theSuffix += "s" }/*multiple*/
+			if theList.count > 1 { theSuffix += "s" }/*multiple*/
 			descText += prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
-            for theItem:Dictionary<String,String> in theList {
-				descText += theItem["fileName"]! + "\n"
+            descText = theList.reduce(descText) {
+				$0 + $1["fileName"]! + "\n"
 			}
 		}
 		return descText
