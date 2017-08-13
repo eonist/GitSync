@@ -4,10 +4,8 @@ import Cocoa
 /**
  * ⚠️️⚠️️⚠️️ Since This uses POP, a lot of the logic is in  CommitListable
  */
-class CommitsList:ElasticSlideScrollFastList3,CommitListable/*⬅️️*/{
+class CommitsList:ElasticSlideScrollFastList3,CommitListable{
     var _state:CommitListState = .init()
-
-    /*The following variables exists to facilitate the pull to refresh functionality*/
     lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
     var performance:PerformanceTester = PerformanceTester()/*Debug*/
 

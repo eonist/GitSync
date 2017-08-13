@@ -3,6 +3,7 @@ import Foundation
 struct CommitListState{
     var isTwoFingersTouching:Bool = false
     var isInDeactivateRefreshModeState:Bool = false /*is Two Fingers Touching the Touch-Pad*/
-    var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
+    var hasPulledAndReleasedBeyondRefreshThreshold:Bool = false/*Is now in "AutoSync" mode*/
     var hasReleasedBeyondTop:Bool = false
 }
+

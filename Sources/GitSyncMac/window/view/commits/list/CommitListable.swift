@@ -4,13 +4,10 @@ import Cocoa
 
 typealias ICommitList = CommitListable
 protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidableScrollableFastListable3
-    /*Related to ICommitList*/
     var progressIndicator:ProgressIndicator {get set}
-    //func startAutoSync()
     var performance:PerformanceTester {get set} /*Debug*/
     var _state:CommitListState {get set}//because state is used by Element
 }
-
 extension CommitListable{
     /**
      * TODO: ⚠️️ Comment this method
@@ -27,11 +24,11 @@ extension CommitListable{
      */
     func scroll(_ event:NSEvent) {
         //Swift.print("🌵 ICommitList.scroll()")
-        if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
+        if event.phase == NSEventPhase.changed {//this is only direct manipulation, not momentum
             iterateProgressBar(moverGroup!.result.y)/*mover!.result*/
-        }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+        }else if event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began {
             (self as ICommitList).scrollWheelEnter()
-        }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
+        }else if event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled {
             (self as ICommitList).scrollWheelExit()
         }
     }
@@ -50,14 +47,14 @@ extension CommitListable{
         //Swift.print("🌵 CommitList.scrollWheelExit()")
         _state.isTwoFingersTouching = false
         let value = moverGroup!.result.y
-        if(value > 60){
+        if value > 60{
             //Swift.print("start animation the ProgressIndicator")
             moverGroup?.yMover.frame.y = 60
             progressIndicator.start()//1. start spinning the progressIndicator
-            _state.hasPulledAndReleasedBeyondRefreshSpace = true
+            _state.hasPulledAndReleasedBeyondRefreshThreshold = true
             performance.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
-        }else if (value > 0){
+        }else if value > 0{
             _state.hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
         }else{
@@ -105,7 +102,7 @@ extension CommitListable{
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
-            if _state.hasPulledAndReleasedBeyondRefreshSpace {//isInRefreshMode
+            if _state.hasPulledAndReleasedBeyondRefreshThreshold {//isInRefreshMode
                 progressIndicator.frame.y = -45 + (scalarVal * 60)
             }else if _state.isTwoFingersTouching || _state.hasReleasedBeyondTop {
                 progressIndicator.frame.y = 15//<--this could be set else where but something kept interfering with it
@@ -124,9 +121,19 @@ extension CommitListable{
         //hideSlider()
         if _state.isInDeactivateRefreshModeState {
             //Swift.print("reset refreshState")
-            _state.hasPulledAndReleasedBeyondRefreshSpace = false//reset
+            _state.hasPulledAndReleasedBeyondRefreshThreshold = false//reset
             _state.isInDeactivateRefreshModeState = false//reset
         }
+    }
+}
+
+extension CommitListable{
+    /**
+     *
+     */
+    func initiateAutoSyncMode(){
+        progressIndicator.start()/*start spinning the progressIndicator*/
+        _state.hasPulledAndReleasedBeyondRefreshThreshold = true/*set the state*/
     }
 }
 

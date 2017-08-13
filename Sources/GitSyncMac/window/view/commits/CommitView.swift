@@ -14,9 +14,7 @@ class CommitView:Element{
      * EventHandler when a CommitsListItem is clicked
      */
     func onListSelect(_ event:ListEvent){
-        Swift.print("CommitView.onListSelect()")
         CommitView.selectedIdx = list.selectedIdx!
-        Swift.print("event.index: " + "\(event.index)")
         let commitData:[String:String] = list.dp.getItemAt(event.index)!
         Nav.setView(.detail(.commit(commitData)))
     }
