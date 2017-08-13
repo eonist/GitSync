@@ -44,9 +44,9 @@ class CommitDescUtils{
                 break;
 			}
 		}
-		descText += descriptionParagraph(addedItems, prefix: "Added ") + "\n" //--add an extra line break at the end "paragraph like"
-		descText += descriptionParagraph(deletedItems, prefix: "Deleted ") + "\n"
-        descText += descriptionParagraph(renamedItems, prefix: "Renamed ") + "\n"
+		descText += descriptionParagraph(addedItems, prefix: "Added ")
+		descText += descriptionParagraph(deletedItems, prefix: "Deleted ")
+        descText += descriptionParagraph(renamedItems, prefix: "Renamed ")
 		descText += descriptionParagraph(modifiedItems, prefix: "Modified ")
         //descText = StringParser.decode(descText)!
         return descText.trimRight("\n")//remove the last newLine if it exists
@@ -60,7 +60,7 @@ class CommitDescUtils{
             if theList.count > 1 { theSuffix += "s" }/*multiple*/
             let descText:String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
             return theList.reduce(descText) {
-                $0 + $1["fileName"]! + "\n"
+                $0 + $1["fileName"]! + "\n" /*adds an extra line break at the end "paragraph like"*/
             } + "\n"
         }else{
             return ""
