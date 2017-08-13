@@ -7,7 +7,7 @@ import Foundation
  * TODO: ⚠️️ Inline the radiobuttons: Keep: (x) local, () remote, () both
  * TODO: ⚠️️ Remove the cancel button and enable the close button again
  */
-class MergeConflictView:Element,UnFoldable{
+class MergeConflictView:Element,UnFoldable,Closable{
     lazy var radioButtonGroup:SelectGroup = {//TODO: ⚠️️  move this into an extension
         let buttons:[RadioButton] = ElementParser.children(self)
         let group = SelectGroup(buttons,buttons.first)

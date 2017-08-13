@@ -31,6 +31,10 @@
 
 ## Change-log:
 
+**2017-08-13**
+- Fix Commit description having many newlines
+- GitSync now Syncs on interval 
+
 **2017-08-12**
 - Refactored and cleaned up AutoSync and Refresh classes
 - Added export/import repos feature

@@ -2,6 +2,6 @@ import Foundation
 
 struct PerformanceTester{
     //add the bellow 🏀
-    var autoSyncAndRefreshStartTime:Date?
-    var autoSyncStartTime:Date?
+    lazy var autoSyncAndRefreshStartTime:Date = Date()
+    lazy var autoSyncStartTime:Date = Date()
 }

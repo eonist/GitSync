@@ -6,24 +6,25 @@ class CommitView:Element{
     static var selectedIdx:Int = 1
     lazy var list:CommitsList = self.createCommitList()
     var commitDetailView:CommitDetailView?
-//    lazy var intervalTimer:SimpleTimer = .init(interval: 30, onTick: )
+    lazy var intervalTimer:SimpleTimer = .init(interval: 60, onTick: self.onTick)
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         _ = list/*creates the GUI List*/
-    }
-    /**
-     *
-     */
-    func onInterval(){
-        
-        //continue here: use bg.{sleep30}
-//        self.list.initiateAutoSyncMode()
+        intervalTimer.start()//starts the ticking
     }
     /**
      * New
      */
-    func initInterval(){
-//        intervalTimer.start()
+    func onTick(){
+        Swift.print("onTick()")
+        intervalTimer.stop()
+        if list._state.isReadyToSync {
+            Swift.print("isReadyToSync")
+            self.list.initiateAutoSyncMode({self.intervalTimer.start()})//only restarts after sync completes
+        }else{
+            Swift.print("try again in 30 seconds")
+            self.intervalTimer.start()/*try again in 30 seconds*/
+        }
     }
     /**
      * EventHandler when a CommitsListItem is clicked
@@ -48,7 +49,12 @@ class CommitView:Element{
         super.setSize(width, height)
     }
 }
-extension CommitView{
+extension CommitView:Closable{
+    func close() {
+        Swift.print("Close and Also stop the timer")
+        intervalTimer.stop()
+        self.removeFromSuperview()
+    }
     /**
      *
      */

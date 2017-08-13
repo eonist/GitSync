@@ -6,7 +6,7 @@ import Cocoa
  * TODO: ⚠️️ Should remember previous selected item between transitions
  * TODO: use singleton instead of the bellow ⚠️️
  */
-class RepoView:Element {
+class RepoView:Element,Closable {
     static var selectedListItemIndex:[Int] = []
     static var _treeDP:TreeDP? = nil
     static var treeDP:TreeDP {

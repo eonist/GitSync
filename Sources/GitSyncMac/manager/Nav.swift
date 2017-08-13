@@ -21,9 +21,8 @@ class Nav {
             }()
         case .main(_),.detail(_):
             StyleTestView.shared.currentView = {
-                Swift.print()
-                if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}/*Remove the old prompt view*/
-                if let curView = StyleTestView.shared.currentView {curView.removeFromSuperview()}/*Remove the old view*/
+                (StyleTestView.shared.currentPrompt as? Closable)?.close()/*Remove the old prompt view*/
+                (StyleTestView.shared.currentView as? Closable)?.close()/*Remove the old view*/
                 let view = getView(viewType,StyleTestView.shared.content)
                 return StyleTestView.shared.content.addSubView(view)
             }()

@@ -4,7 +4,7 @@ import Foundation
 /**
  * TODO: ⚠️️ Rename to CommitPromptView?
  */
-class CommitDialogView:Element,UnFoldable {
+class CommitDialogView:Element,UnFoldable,Closable {
     var repoItem:RepoItem?
     var onCommitDialogComplete:Completed = {fatalError("no completion handler assigned")}
     

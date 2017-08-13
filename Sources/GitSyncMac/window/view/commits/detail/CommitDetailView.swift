@@ -5,7 +5,7 @@ import Foundation
  * Enables you to view the commit title and commit description of a single commit 
  * TODO: ⚠️️ Convert this to 
  */
-class CommitDetailView:Element {
+class CommitDetailView:Element,Closable {
     lazy var repoNameText:Text = {
         let repoNameText = self.addSubView(Text(NaN,NaN,"repo name",self,"repoName"))
         repoNameText.isInteractive = false

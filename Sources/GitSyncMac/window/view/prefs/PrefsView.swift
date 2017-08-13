@@ -7,7 +7,7 @@ import Cocoa
  * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
-class PrefsView:Element {
+class PrefsView:Element,Closable {
     //TODO: ⚠️️ just use singlton instead of the bellow
     static var prefs:Prefs = PrefsType.createPrefs()
     override func resolveSkin() {
