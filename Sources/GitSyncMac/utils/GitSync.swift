@@ -12,6 +12,13 @@ class GitSync{
         func doCommit(){
             let hasCommited = commit(repoItem.local,commitMessage)/*🌵 if there were no commits false will be returned*/
             _ = hasCommited
+            if hasCommited {
+                let notification = NSUserNotification()
+                notification.title = "Committed in: \(repoItem.title)"
+                notification.informativeText = "\(commitMessage?.title ?? "") \n\(commitMessage?.description ?? "")"
+                notification.soundName = nil//NSUserNotificationDefaultSoundName
+                NSUserNotificationCenter.default.deliver(notification)
+            }
 //            Swift.print("hasCommited: " + "\(hasCommited)")
             //hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
             initPush(repoItem, onPushComplete)//push or check if you need to pull down changes and subsequently merge something
