@@ -3,7 +3,7 @@ import Foundation
 @testable import Element
 /**
  * NOTE: Key: stores keys to access getters and setters,should be moved to the individuel UI extensions
- * NOTE: The config structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
+ * NOTE: Config: structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
  * NOTE: We use static func unfold instead of .init. As .init would clutter up Element.init. always favour KISS
  */
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
@@ -27,6 +27,20 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
 }
 extension FilePicker{
+//    enum Key{
+//        static let text = "text"
+//        static let inputText = "inputText"
+//    }
+    struct FilePickerConfig{
+        let element:ElementConfig
+        let text:String
+        let inputText:String
+        init(_ dict:[String:Any],_ parent:ElementKind? = nil){
+            element = .init(dict,parent)
+            text = UnFoldUtils.string(dict, Key.text) ?? ""
+            inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
+        }
+    }
     func setData(text:String,input:String,buttonText:String){
         //Continue here: Add unfold
     }
