@@ -3,7 +3,7 @@ import Foundation
 @testable import Element
 /**
  * NOTE: Key: stores keys to access getters and setters,should be moved to the individuel UI extensions
- * NOTE: The structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
+ * NOTE: The config structs are nice if you want to sub-class Components, then they can be re-used, avoids duplicate code
  * NOTE: We use static func unfold instead of .init. As .init would clutter up Element.init. always favour KISS
  */
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
@@ -11,7 +11,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         static let text = "text"
         static let inputText = "inputText"
     }
-    struct Config{
+    struct TextInputConfig{
         let element:ElementConfig
         let text:String
         let inputText:String
@@ -22,7 +22,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         }
     }
     static func unfold(_ unfoldDict:[String:Any],_ parent:IElement? = nil) -> TextInput{
-        let config:Config = .init(unfoldDict,parent)
+        let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
 }
@@ -49,7 +49,7 @@ extension TextArea:UnFoldable{
     }
 }
 extension RadioButton{
-    struct Config{
+    struct RadioButtonConfig{
         let text:String
         let isSelected:Bool
         let element:ElementConfig
@@ -62,7 +62,7 @@ extension RadioButton{
     }
     static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], _ parent:IElement? = nil) -> RadioButton{
 //        Swift.print("RadioButton.unfold")
-        let config:RadioButton.Config = .init(unfoldDict,parent)
+        let config:RadioButtonConfig = .init(unfoldDict,parent)
 //        Swift.print("config: " + "\(config)")
         let retVal = RadioButton.init(config.element.width, config.element.height,config.text,config.isSelected, config.element.parent, config.element.id)
 //        Swift.print("after retval")
@@ -77,7 +77,7 @@ extension RadioButton{
     }
 }
 extension CheckBoxButton:UnFoldable{
-    struct Config{
+    struct CheckBoxButtonConfig{
         let text:String
         let isChecked:Bool
         let element:ElementConfig
@@ -92,7 +92,7 @@ extension CheckBoxButton:UnFoldable{
      * UnFolds a CheckBoxButton
      */
     static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> CheckBoxButton{
-        let config:Config = .init(unfoldDict,parent)
+        let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
         return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
     var value: Any {
@@ -105,7 +105,7 @@ extension CheckBoxButton:UnFoldable{
     }
 }
 extension TextButton:UnFoldable{
-    struct Config{
+    struct TextButtonConfig{
         let text:String
         let element:ElementConfig
         init(_ dict:[String:Any],_ parent:ElementKind?){
@@ -114,7 +114,7 @@ extension TextButton:UnFoldable{
         }
     }
     static func unfold(_ unfoldDict:[String:Any], _ parent:IElement?) -> TextButton {
-        let config:Config = .init(unfoldDict,parent)
+        let config:TextButtonConfig = .init(unfoldDict,parent)
         return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) 
     }
    
