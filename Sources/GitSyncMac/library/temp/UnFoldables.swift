@@ -77,7 +77,7 @@ extension RadioButton{
     }
 }
 extension CheckBoxButton:UnFoldable{
-    struct CheckBoxButtonConfig{
+    struct Config{
         let text:String
         let isChecked:Bool
         let element:ElementConfig
@@ -92,7 +92,7 @@ extension CheckBoxButton:UnFoldable{
      * UnFolds a CheckBoxButton
      */
     static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> CheckBoxButton{
-        let config:CheckBoxButtonConfig = .init(unfoldDict,parent)
+        let config:Config = .init(unfoldDict,parent)
         return CheckBoxButton.init(config.element.width, config.element.height, config.text, config.isChecked, config.element.parent, config.element.id)
     }
     var value: Any {
