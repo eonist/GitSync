@@ -30,6 +30,13 @@ extension FilePicker{
     func setData(text:String,input:String,buttonText:String){
         //Continue here: Add unfold
     }
+    /**
+     *
+     */
+    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> TextInput {
+        
+//        let config:
+    }
 }
 extension TextArea:UnFoldable{
     enum Key{
