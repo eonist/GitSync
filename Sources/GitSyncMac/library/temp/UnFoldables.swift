@@ -47,13 +47,12 @@ extension FilePicker{
     func setData(text:String,input:String,buttonText:String){
         //Continue here: Add unfold
     }
-    /**
-     *
-     */
-    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> Self {
-        let config:FilePickerConfig = .init(unfoldDict,parent)
-        return FilePicker.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
-    }
+   
+//    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> Self {
+//        let config:FilePickerConfig = .init(unfoldDict,parent)
+//        //config.text, config.inputText,
+//        return FilePicker()
+//    }
 }
 extension TextArea:UnFoldable{
     enum Key{
