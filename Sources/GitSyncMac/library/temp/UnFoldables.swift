@@ -15,13 +15,13 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         let element:ElementConfig
         let text:String
         let inputText:String
-        init(_ dict:[String:Any],_ parent:IElement? = nil){
+        init(_ dict:[String:Any],_ parent:ElementKind? = nil){
             element = .init(dict,parent)
             text = UnFoldUtils.string(dict, Key.text) ?? ""
             inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
         }
     }
-    static func unfold(_ unfoldDict:[String:Any],_ parent:IElement? = nil) -> TextInput{
+    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> TextInput{
         let config:TextInputConfig = .init(unfoldDict,parent)
         return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
@@ -60,7 +60,7 @@ extension RadioButton{
             isSelected = isSelectedStr.bool
         }
     }
-    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], _ parent:IElement? = nil) -> RadioButton{
+    static func unfold(radioButtonUnfoldDict unfoldDict:[String:Any], _ parent:ElementKind? = nil) -> RadioButton{
 //        Swift.print("RadioButton.unfold")
         let config:RadioButtonConfig = .init(unfoldDict,parent)
 //        Swift.print("config: " + "\(config)")
@@ -113,7 +113,7 @@ extension TextButton:UnFoldable{
             text = UnFoldUtils.string(dict, "text") ?? ""
         }
     }
-    static func unfold(_ unfoldDict:[String:Any], _ parent:IElement?) -> TextButton {
+    static func unfold(_ unfoldDict:[String:Any], _ parent:ElementKind?) -> TextButton {
         let config:TextButtonConfig = .init(unfoldDict,parent)
         return TextButton.init(config.element.width, config.element.height,config.text, config.element.parent, config.element.id) 
     }
@@ -140,7 +140,7 @@ extension Element{
     struct ElementConfig{/*Default Element config*/
         let width:CGFloat
         let height:CGFloat
-        let parent:IElement?
+        let parent:ElementKind?
         let id:String?
         init(_ dict:[String:Any],_ parent:ElementKind? = nil){
             width = UnFoldUtils.cgFloat(dict, "width")
