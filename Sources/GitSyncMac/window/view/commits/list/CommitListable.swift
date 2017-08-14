@@ -111,9 +111,7 @@ extension CommitListable{
             progressIndicator.frame.y = 15
         }
     }
-    
     //TODO: ⚠️️ Move into extension ?
-    
     func scrollAnimStopped(){
         Swift.print("🌵 ICommitsList.scrollAnimStopped()")
         //⚠️️ defaultScrollAnimStopped()
