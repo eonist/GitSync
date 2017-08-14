@@ -36,10 +36,12 @@ extension FilePicker{
         let element:ElementConfig
         let text:String
         let inputText:String
+        let buttomText:String
         init(_ dict:[String:Any],_ parent:ElementKind? = nil){
             element = .init(dict,parent)
             text = UnFoldUtils.string(dict, Key.text) ?? ""
-            inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
+            inputText = UnFoldUtils.string(dict, Key.input) ?? ""
+            buttomText = UnFoldUtils.string(dict, Key.buttonText) ?? ""
         }
     }
     func setData(text:String,input:String,buttonText:String){
@@ -48,9 +50,9 @@ extension FilePicker{
     /**
      *
      */
-    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> TextInput {
-        
-//        let config:
+    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> Self {
+        let config:FilePickerConfig = .init(unfoldDict,parent)
+        return FilePicker.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
     }
 }
 extension TextArea:UnFoldable{
@@ -171,4 +173,7 @@ extension Element{
             id = UnFoldUtils.string(dict, "id")
         }
     }
+}
+extension Element.ElementConfig{
+    var size:CGSize {return CGSize(width,height)}
 }
