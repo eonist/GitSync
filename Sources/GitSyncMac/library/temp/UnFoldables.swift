@@ -27,10 +27,11 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
     }
 }
 extension FilePicker{
-//    enum Key{
-//        static let text = "text"
-//        static let inputText = "inputText"
-//    }
+    enum Key{
+        static let text = "text"
+        static let input = "input"
+        static let buttonText = "buttonText"
+    }
     struct FilePickerConfig{
         let element:ElementConfig
         let text:String
