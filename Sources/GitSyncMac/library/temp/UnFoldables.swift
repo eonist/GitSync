@@ -44,14 +44,11 @@ extension FilePicker{
             buttomText = UnFoldUtils.string(dict, Key.buttonText) ?? ""
         }
     }
-    func setData(text:String,input:String,buttonText:String){
-        //Continue here: Add unfold
+    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> Self {
+        let config:FilePickerConfig = .init(unfoldDict,parent)
+        //config.text, config.inputText,
+        return FilePicker()
     }
-//    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> Self {
-//        let config:FilePickerConfig = .init(unfoldDict,parent)
-//        //config.text, config.inputText,
-//        return FilePicker()
-//    }
 }
 extension TextArea:UnFoldable{
     enum Key{
