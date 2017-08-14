@@ -16,14 +16,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
-        NSUserNotificationCenter.default.delegate = self
+        
     }
-    
     /**
      * Initializes the app
      */
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        NSUserNotificationCenter.default.delegate = self//Enables notifications even when app is in focus
         let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
         let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
 //        Swift.print("styleFilePath: " + "\(styleFilePath.tildePath)")
