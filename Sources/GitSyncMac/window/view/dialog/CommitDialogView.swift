@@ -15,7 +15,6 @@ class CommitDialogView:Element,UnFoldable,Closable {
         NSApp.requestUserAttention(.informationalRequest)
     }
     override func onEvent(_ event:Event) {
-//        Swift.print("CommitDialogView.onEvent")
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
