@@ -32,21 +32,20 @@ extension FilePicker{
         static let input = "input"
         static let buttonText = "buttonText"
     }
-    struct FilePickerConfig{
-        let element:ElementConfig
-        let text:String
-        let inputText:String
-        let buttomText:String
-        init(_ dict:[String:Any],_ parent:ElementKind? = nil){
-            element = .init(dict,parent)
-            text = UnFoldUtils.string(dict, Key.text) ?? ""
-            inputText = UnFoldUtils.string(dict, Key.input) ?? ""
-            buttomText = UnFoldUtils.string(dict, Key.buttonText) ?? ""
-        }
+    /**
+     * new
+     */
+    static func unfoldInitial(_ dict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker.FilePickerInitial{
+        let elementConfig = ElementConfig(dict,parent)
+        let text = UnFoldUtils.string(dict, Key.text) ?? ""
+        let inputText = UnFoldUtils.string(dict, Key.input) ?? ""
+        let buttonText = UnFoldUtils.string(dict, Key.buttonText) ?? ""
+        let initial = Initial(size: elementConfig.size, parent: elementConfig.parent, id: elementConfig.id)
+        return .init(text: text, input: inputText, buttonText: buttonText, initial: initial)
     }
     static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker {
-        let c:FilePickerConfig = .init(unfoldDict,parent)
-        return FilePicker.init(size: c.element.size, text: c.text, input: c.inputText, buttonText: c.buttomText, parent: c.element.parent, id: c.element.id)
+        let initial = unfoldInitial(unfoldDict,parent)
+        return FilePicker(initial:initial)
     }
 }
 extension TextArea:UnFoldable{
@@ -154,20 +153,29 @@ extension Text:UnFoldable{
         }
     }
 }
-extension Element{
-    struct ElementConfig{/*Default Element config*/
-        let width:CGFloat
-        let height:CGFloat
-        let parent:ElementKind?
-        let id:String?
-        init(_ dict:[String:Any],_ parent:ElementKind? = nil){
-            width = UnFoldUtils.cgFloat(dict, "width")
-            height = UnFoldUtils.cgFloat(dict, "height")
-            self.parent = parent
-            id = UnFoldUtils.string(dict, "id")
-        }
+protocol ElementConfigurable{
+    var elementConfig:ElementConfig {get}
+    var size:CGSize {get}
+    var parent:ElementKind? {get}
+    var id:String? {get}
+}
+extension ElementConfigurable{
+    var size:CGSize {return elementConfig.size}
+    var id:String? {return elementConfig.id}
+    var parent:ElementKind? {return elementConfig.parent}
+}
+struct ElementConfig{/*Default Element config*/
+    let width:CGFloat
+    let height:CGFloat
+    let parent:ElementKind?
+    let id:String?
+    init(_ dict:[String:Any],_ parent:ElementKind? = nil){
+        width = UnFoldUtils.cgFloat(dict, "width")
+        height = UnFoldUtils.cgFloat(dict, "height")
+        self.parent = parent
+        id = UnFoldUtils.string(dict, "id")
     }
 }
-extension Element.ElementConfig{
+extension ElementConfig{
     var size:CGSize {return CGSize(width,height)}
 }
