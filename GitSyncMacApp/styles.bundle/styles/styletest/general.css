@@ -2,6 +2,7 @@
 @import url("../basic/basic.css");
 @import url("../advance/advance.css");
 @import url("../extra/misc/progressindicator.css");
+@import url("../extra/misc/filepicker.css");
 @import url("menu/menucontainer.css");
 @import url("commit/commitview.css");
 @import url("commit/detail/commitdetailview.css");

@@ -35,7 +35,7 @@ extension FilePicker{
     /**
      * new
      */
-    static func unfoldInitial(_ dict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker.FilePickerInitial{
+    static func unfold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> FilePickerInitial{
         let elementConfig = ElementConfig(dict,parent)
         let text = UnFoldUtils.string(dict, Key.text) ?? ""
         let inputText = UnFoldUtils.string(dict, Key.input) ?? ""
@@ -44,7 +44,7 @@ extension FilePicker{
         return .init(text: text, input: inputText, buttonText: buttonText, initial: initial)
     }
     static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker {
-        let initial = unfoldInitial(unfoldDict,parent)
+        let initial:FilePickerInitial = unfold(unfoldDict,parent)
         return FilePicker(initial:initial)
     }
 }
