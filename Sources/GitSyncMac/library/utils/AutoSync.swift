@@ -12,7 +12,6 @@ class AutoSync/*:NSUserNotificationCenter,NSUserNotificationCenterDelegate*/    
      * The GitSync automation algo (Basically Commits and pushes)
      */
     init(_ onComplete:@escaping Completed) {
-        
         self.curIdxForRepoWithMessage = 0
         self.autoSyncComplete = onComplete
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
