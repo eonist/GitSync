@@ -22,7 +22,6 @@ class CommitDialogView:Element,UnFoldable,Closable {
             Swift.print("stop the auto sync process")
             Swift.print("remove commit dialog from view")
             fatalError("not supported yet")
-            //Nav.setView(.main(.commit))
         }
     }
 }
