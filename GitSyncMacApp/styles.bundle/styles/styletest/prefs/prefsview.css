@@ -9,6 +9,10 @@ PrefsView{
 	padding-left:12px;
 	padding-right:12px;
 }
+PrefsView FilePicker{
+	width:100%;
+	height:32px;
+}
 PrefsView TextInput{
 	float:left;
 	clear:left;

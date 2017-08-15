@@ -14,6 +14,8 @@ class PrefsView:Element,Closable {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
         setPrefs(PrefsView.prefs)
+//        let textInput:TextInput = self.addSubView(TextInput(100, 24, "Description: ", "blue", self,"special"))
+//        _ = textInput
     }
     override func onEvent(_ event:Event) {
         Swift.print("PrefsView.onEvent event.type: \(event.type)")

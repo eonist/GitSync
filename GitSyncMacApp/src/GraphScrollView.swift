@@ -27,7 +27,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
         //Swift.print("GraphAreaX.scrollWheel()")
         //(self as ICommitList).scroll(event)
-        if(event.phase == NSEventPhase.changed){/*this is only direct manipulation, not momentum*/
+        if(event.phase == NSEvent.Phase.changed){/*this is only direct manipulation, not momentum*/
             //Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
             frameTick()
         }

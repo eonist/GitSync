@@ -26,13 +26,13 @@ extension Scrollable2{
             
             //if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
             
-            case NSEventPhase.changed:onScrollWheelChange(event)/*Direct scroll*/
-            case NSEventPhase.mayBegin:onScrollWheelEnter()
-            case NSEventPhase.began:onScrollWheelEnter()
-            case NSEventPhase.ended:onScrollWheelExit()//always exits with event with no delta
-            case NSEventPhase.cancelled:onScrollWheelExit()//always exits with event with no delta
+        case NSEvent.Phase.changed:onScrollWheelChange(event)/*Direct scroll*/
+        case NSEvent.Phase.mayBegin:onScrollWheelEnter()
+        case NSEvent.Phase.began:onScrollWheelEnter()
+        case NSEvent.Phase.ended:onScrollWheelExit()//always exits with event with no delta
+        case NSEvent.Phase.cancelled:onScrollWheelExit()//always exits with event with no delta
             /*Toggeling the bellow on and off can break things*/
-            case NSEventPhase(rawValue:0):onScrollWheelChange(event)/*this is the same as momentum aka inDirect scroll*/
+        case NSEvent.Phase(rawValue:0):onScrollWheelChange(event)/*this is the same as momentum aka inDirect scroll*/
             default:break;
         }
     }

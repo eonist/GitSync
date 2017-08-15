@@ -24,11 +24,11 @@ extension CommitListable{
      */
     func scroll(_ event:NSEvent) {
         //Swift.print("🌵 ICommitList.scroll()")
-        if event.phase == NSEventPhase.changed {//this is only direct manipulation, not momentum
+        if event.phase == NSEvent.Phase.changed {//this is only direct manipulation, not momentum
             iterateProgressBar(moverGroup!.result.y)/*mover!.result*/
-        }else if event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began {
+        }else if event.phase == NSEvent.Phase.mayBegin || event.phase == NSEvent.Phase.began {
             (self as ICommitList).scrollWheelEnter()
-        }else if event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled {
+        }else if event.phase == NSEvent.Phase.ended || event.phase == NSEvent.Phase.cancelled {
             (self as ICommitList).scrollWheelExit()
         }
     }

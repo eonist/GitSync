@@ -44,7 +44,7 @@ extension GraphView2{
     /**
      * This method is called when the user directly manipulates the scroll-wheel
      */
-    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+    @objc override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         //Swift.print("GraphView2.onScrollWheelChange")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)

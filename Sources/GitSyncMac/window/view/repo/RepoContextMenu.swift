@@ -47,7 +47,7 @@ extension RepoContextMenu{
      * TODO: ⚠️️ A bug is that when you add a folder and its the last item then the list isnt resized
      * TODO: ⚠️️ There is a bug if you add items to closed groups, then there will be an error
      */
-    func newGroup(sender:AnyObject) {
+    @objc func newGroup(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
         let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"true\" \(RepoType.active.rawValue)=\"true\"></item>"//hasChildren=\"true\"
@@ -56,7 +56,7 @@ extension RepoContextMenu{
         treeList.insert(newIdx,tree)
         Swift.print("Promt folder name popup")
     }
-    func newRepo(sender:AnyObject) {
+    @objc func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at
         let idx = rightClickItemIdx!
@@ -74,7 +74,7 @@ extension RepoContextMenu{
         treeList.insert(newIdx,tree)
         //Swift.print("Promt repo name popup")
     }
-    func duplicate(sender:AnyObject) {
+    @objc func duplicate(sender:AnyObject) {
         Swift.print("duplicate")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -83,7 +83,7 @@ extension RepoContextMenu{
             treeList.insert(newIdx, tree)
         }
     }
-    func doCopy(sender:AnyObject) {
+    @objc func doCopy(sender:AnyObject) {
         Swift.print("copy")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -92,7 +92,7 @@ extension RepoContextMenu{
             Swift.print("clipBoard: " + "\(clipBoard!.string)")
         }
     }
-    func cut(sender:AnyObject) {
+    @objc func cut(sender:AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -102,7 +102,7 @@ extension RepoContextMenu{
             Swift.print("clipBoard: " + "\(clipBoard!.string)")
         }
     }
-    func paste(sender:AnyObject) {
+    @objc func paste(sender:AnyObject) {
         Swift.print("paste")
         if let idx3d = rightClickItemIdx, let clipBoard:XML = clipBoard{
             Swift.print("idx: " + "\(idx3d)")
@@ -114,7 +114,7 @@ extension RepoContextMenu{
             treeList.insert(newIdx, tree)
         }
     }
-    func delete(sender:AnyObject) {
+    @objc func delete(sender:AnyObject) {
         Swift.print("delete")
         if let idx = rightClickItemIdx {
             treeList.remove(idx)
@@ -124,31 +124,31 @@ extension RepoContextMenu{
         }
     }
     /*move up down top bottom.*/
-    func moveUp(sender:AnyObject){
+    @objc func moveUp(sender:AnyObject){
         Swift.print("moveUp")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveUp(treeList, idx3d)
         }
     }
-    func moveDown(sender:AnyObject){
+    @objc func moveDown(sender:AnyObject){
         Swift.print("moveDown")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveDown(treeList, idx3d)
         }
     }
-    func moveToTop(sender:AnyObject){
+    @objc func moveToTop(sender:AnyObject){
         Swift.print("moveToTop")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveTop(treeList, idx3d)
         }
     }
-    func moveToBottom(sender:AnyObject){
+    @objc func moveToBottom(sender:AnyObject){
         Swift.print("moveToBottom")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveBottom(treeList, idx3d)
         }
     }
-    func showInFinder(sender:AnyObject){
+    @objc func showInFinder(sender:AnyObject){
         Swift.print("showInFinder")
         if let idx = rightClickItemIdx, !TreeList3Asserter.hasChildren(treeList,idx) {
             /*Only repos can be opened in finder*/
@@ -158,7 +158,7 @@ extension RepoContextMenu{
             }
         }
     }
-    func openURL(sender:AnyObject){
+    @objc func openURL(sender:AnyObject){
         Swift.print("openURL")
         if let idx = rightClickItemIdx {
             let hasChildren:Bool = treeList.hasChildren(idx)

@@ -19,6 +19,7 @@ class StyleTestWin:Window {
 //        let repoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://github.com/gitsync/demo2.git")
 //        Nav.setView(.dialog(.autoInit(AutoInitConflict(repoItem),{})))
 //        Nav.setView(.repoDetail([0,0,0]))
+//        Nav.setView(.main(.prefs))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
