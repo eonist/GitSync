@@ -11,7 +11,6 @@
 	"prefsView":[
 		{"type":"TextInput","id":"login","text":"Github login:"},
 		{"type":"TextInput","id":"pass","text":"Github pass:"},
-		{"type":"TextInput","id":"local","text":"Local path:"},
         {"type":"FilePicker","id":"local","text":"Local path:","buttonText":"Browse"},
 		{"type":"CheckBoxButton","id":"darkMode","text":"DarkMode:"}
 	],

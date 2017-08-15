@@ -14,9 +14,10 @@ class PrefsView:Element,Closable {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
         setPrefs(PrefsView.prefs)
-//        let textInput:TextInput = self.addSubView(TextInput(100, 24, "Description: ", "blue", self,"special"))
-//        _ = textInput
     }
+    /**
+     * TODO: ⚠️️ Use ,assert and clean up the nested if else bellow
+     */
     override func onEvent(_ event:Event) {
         Swift.print("PrefsView.onEvent event.type: \(event.type)")
         if event.type == Event.update {
@@ -29,7 +30,7 @@ class PrefsView:Element,Closable {
                     _ = KeyChainModifier.save("GitSyncApp", passStr.dataValue)
                 }
             case event.isChildOf(local):
-                PrefsView.prefs.local = local!.inputText
+                PrefsView.prefs.local = local!.textInput.inputText
             default:
                 break;
             }

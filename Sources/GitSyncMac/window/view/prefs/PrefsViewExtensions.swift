@@ -10,7 +10,7 @@ extension PrefsView{
         login?.setInputText(prefs.login)
         let passStr = KeyChainParser.password("GitSyncApp") ?? ""
         pass?.setInputText(passStr)
-        local?.setInputText(prefs.local)
+        local?.textInput.setInputText(prefs.local)
         darkMode?.setChecked(prefs.darkMode)
     }
     static var xml:XML{
@@ -32,6 +32,6 @@ extension PrefsView{
 extension PrefsView{
     var login:TextInput? {return self.element(PrefsType.login)}
     var pass:TextInput? {return self.element(PrefsType.pass)}
-    var local:TextInput? {return self.element(PrefsType.local)}
+    var local:FilePicker? {return self.element(PrefsType.local)}
     var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
 }
