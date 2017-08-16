@@ -32,7 +32,6 @@ extension FilePicker{
         static let input = "input"
         static let buttonText = "buttonText"
     }
-    
     static func unfold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker {
         let elementConfig:ElementConfig = .init(dict,parent)
         let text = UnFoldUtils.string(dict, Key.text) ?? ""
