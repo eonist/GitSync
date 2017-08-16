@@ -21,13 +21,14 @@ class ExportReposMenu:CustomMenuItem{
         //grab the xml
         let xml = RepoView.treeDP.tree.xml
         //prompt the file viewer
-        let myFileDialog:NSSavePanel = NSSavePanel.initialize(["xml"], "Export repos", true)
-        myFileDialog.runModal()
-        let thePath:String? = myFileDialog.url?.path /*Get the path to the file chosen in the NSOpenPanel*/
+        let dialog:NSSavePanel = NSSavePanel.initialize(["xml"], "Export repos", true)
+        let respons = dialog.runModal()
         
-        if let thePath = thePath {/*Make sure that a path was chosen*/
-            _ = xml.xmlString.write(filePath:thePath.tildePath)
+        
+        if let url = dialog.url,respons == NSApplication.ModalResponse.OK{/*Make sure that a path was chosen*/
+             _ = xml.xmlString.write(filePath:url.path.tildePath)
         }
+        
     }
 }
 class ImportReposMenu:CustomMenuItem{
@@ -35,14 +36,15 @@ class ImportReposMenu:CustomMenuItem{
         //grab the xml
         
         //prompt the file viewer
-        let myFileDialog:NSOpenPanel = NSOpenPanel()
-        myFileDialog.runModal()
-        let thePath:String? = myFileDialog.url?.path /*Get the path to the file chosen in the NSOpenPanel*/
+        let dialog:NSOpenPanel = NSOpenPanel()
+        let respons = dialog.runModal()
+        //let thePath:String? = dialog.url?.path /*Get the path to the file chosen in the NSOpenPanel*/
         
         //TODO: use two guards on the bellow instead
-        if let thePath = thePath {/*Make sure that a path was chosen*/
-            if let xml = thePath.tildePath.content?.xml{
-                 RepoView._treeDP = TreeDP(xml)
+       
+        if let url = dialog.url,respons == NSApplication.ModalResponse.OK{/*Make sure that a path was chosen*/
+            if let xml = url.path.tildePath.content?.xml{
+                RepoView._treeDP = TreeDP(xml)
             }
         }
     }

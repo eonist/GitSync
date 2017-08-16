@@ -1,7 +1,7 @@
 {
 	"repoDetailView":[
 		{"type":"TextInput","id":"title","text":"Name:"},
-		{"type":"TextInput","id":"local","text":"Local:"},
+        {"type":"FilePicker","id":"local","text":"Local:","buttonText":"Browse"},
 		{"type":"TextInput","id":"remote","text":"Remote:"},
 		{"type":"TextInput","id":"branch","text":"Branch:"},
 		{"type":"CheckBoxButton","id":"active","text":"Active:"},

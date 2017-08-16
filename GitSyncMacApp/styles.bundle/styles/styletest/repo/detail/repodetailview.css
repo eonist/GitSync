@@ -9,6 +9,10 @@ RepoDetailView{
 	padding-left:12px;
 	padding-right:12px;
 }
+RepoDetailView FilePicker{
+	width:100%;
+	height:32px;
+}
 RepoDetailView TextInput{
 	float:left;
 	clear:left;

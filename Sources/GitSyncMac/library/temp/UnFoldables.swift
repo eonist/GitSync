@@ -12,18 +12,18 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
         static let inputText = "inputText"
     }
     struct TextInputConfig{
-        let element:ElementConfig
+        let elementConfig:ElementConfig
         let text:String
         let inputText:String
         init(_ dict:[String:Any],_ parent:ElementKind? = nil){
-            element = .init(dict,parent)
+            elementConfig = .init(dict,parent)
             text = UnFoldUtils.string(dict, Key.text) ?? ""
             inputText = UnFoldUtils.string(dict, Key.inputText) ?? ""
         }
     }
     static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> TextInput{
         let config:TextInputConfig = .init(unfoldDict,parent)
-        return TextInput.init(config.element.width, config.element.height, config.text, config.inputText, config.element.parent, config.element.id)
+        return TextInput.init(config.elementConfig.width, config.elementConfig.height, config.text, config.inputText, config.elementConfig.parent, config.elementConfig.id)
     }
 }
 extension FilePicker{
@@ -32,20 +32,14 @@ extension FilePicker{
         static let input = "input"
         static let buttonText = "buttonText"
     }
-    /**
-     * new
-     */
-    static func unfold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> FilePickerInitial{
-        let elementConfig = ElementConfig(dict,parent)
+    
+    static func unfold(_ dict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker {
+        let elementConfig:ElementConfig = .init(dict,parent)
         let text = UnFoldUtils.string(dict, Key.text) ?? ""
         let inputText = UnFoldUtils.string(dict, Key.input) ?? ""
         let buttonText = UnFoldUtils.string(dict, Key.buttonText) ?? ""
-        let initial = Initial(size: elementConfig.size, parent: elementConfig.parent, id: elementConfig.id)
-        return .init(text: text, input: inputText, buttonText: buttonText, initial: initial)
-    }
-    static func unfold(_ unfoldDict:[String:Any],_ parent:ElementKind? = nil) -> FilePicker {
-        let initial:FilePickerInitial = unfold(unfoldDict,parent)
-        return FilePicker(initial:initial)
+        let size = CGSize(elementConfig.parent!.getWidth(),elementConfig.parent!.getHeight())//<-temp fix with getWidth etc
+        return FilePicker(text: text, input: inputText, buttonText: buttonText, size: size, parent: parent, id: elementConfig.id)
     }
 }
 extension TextArea:UnFoldable{

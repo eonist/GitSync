@@ -22,8 +22,8 @@ class RepoDetailView:Element,Closable {
             case event.isChildOf(nameText):
                 //Swift.print("nameText?.inputText: " + "\(nameText?.inputText)")
                 attrib[RepoType.title.rawValue] = nameText?.inputText
-            case event.isChildOf(localText):
-                attrib[RepoType.local.rawValue] = localText?.inputText
+            case event.isChildOf(localPathPicker):
+                attrib[RepoType.local.rawValue] = localPathPicker?.textInput.inputText
             case event.isChildOf(remoteText):
                 attrib[RepoType.remote.rawValue] = remoteText?.inputText
             case event.isChildOf(branchText):
@@ -82,13 +82,14 @@ extension RepoDetailView{
     }
     /**
      * Populates the UI elements with data from the dp item
+     * TODO: ⚠️️ Use the Unfold lib to set data not direct refs like this
      */
     private func setRepoData(_ repoItem:RepoItem){
         //Swift.print("setRepoData(repoItem)")
         /*TextInput*/
         //Swift.print("repoItem.title: " + "\(repoItem.title)")
         nameText?.inputTextArea.setTextValue(repoItem.title)
-        localText?.inputTextArea.setTextValue(repoItem.local)
+        localPathPicker?.textInput.setInputText(repoItem.local)
         remoteText?.inputTextArea.setTextValue(repoItem.remote)
         branchText?.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
@@ -99,7 +100,7 @@ extension RepoDetailView{
 }
 extension RepoDetailView{/*Convenience*/
     var nameText:TextInput? {return self.element(RepoType.title.rawValue)}
-    var localText:TextInput? {return self.element(RepoType.local.rawValue)}
+    var localPathPicker:FilePicker? {return self.element(RepoType.local.rawValue)}
     var remoteText:TextInput? {return self.element(RepoType.remote.rawValue)}
     var branchText:TextInput? {return self.element(RepoType.branch.rawValue)}
     var autoCheckBoxButton:CheckBoxButton? {return self.element(RepoType.auto.rawValue)}

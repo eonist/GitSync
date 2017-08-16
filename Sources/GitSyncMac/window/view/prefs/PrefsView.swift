@@ -13,6 +13,7 @@ class PrefsView:Element,Closable {
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
+    
         setPrefs(PrefsView.prefs)
     }
     /**
