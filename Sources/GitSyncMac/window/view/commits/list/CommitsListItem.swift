@@ -4,7 +4,7 @@ import Cocoa
 /**
  * NOTE: repo-name,contributor,title,description,date
  */
-class CommitsListItem:Button,ISelectable{
+class CommitsListItem:Button,Selectable{
     var repoName:String
     var contributor:String
     var title:String
@@ -16,7 +16,7 @@ class CommitsListItem:Button,ISelectable{
     var contributorText:Text?//TODO: ⚠️️ make lazy
     var descText:Text?//TODO: ⚠️️ make lazy
     var dateText:Text?//TODO: ⚠️️ make lazy
-    init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
+    init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:ElementKind? = nil, _ id:String? = nil){
         self.repoName = repoName
         self.contributor = contributor
         self.title = title

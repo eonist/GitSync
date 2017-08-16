@@ -31,6 +31,10 @@
 
 ## Change-log:
 
+**2017-08-16**
+- Interval sync is now toggle-able per repo 
+- Migrated Element, swift-utils and GitSyncMac to swift 4 and XCode 9
+
 **2017-08-13**
 - Fix Commit description having many newlines
 - GitSync now Syncs on interval 
