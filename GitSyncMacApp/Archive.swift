@@ -4,26 +4,90 @@ import Cocoa
 
 class Archive {
     var window:NSWindow!
+   
     /**
      *
      */
-    init(){
+    func testTextFloating(){
+        window.contentView = InteractiveView2()
         
-        //stateTest()
-        //themeSwitchTest()
-        //testGraphXTest()
-        //testGraphView2()
+        //var css:String = "Text{fill:blue;float:left;clear:none;}Element#b{fill:red;}Element#c{fill:green;clear:left;}"
+        //css +=
         
+        let css:String = "" +
+            "Section{fill:silver;padding:12px;}" +
+            "Text#b{fill:red;}Text#c{fill:green;clear:left;}" +
+            "Text{" +
+            "float:left;" +
+            "clear:none;" +
+            "size:12px;" +
+            "align:left;" +
+            "type:dynamic;" +
+            "color:grey6;" +
+            "selectable:false;" +
+            "wordWrap:true;" +
+        "}"
         
-        //targetAnimationTest()
-        //horizontalListTest()
-        //animator2Test()
-        //circle2RectAnimTest()
-        //zoomBackAndForthAnimTest()
-        //easer4Test()
-        //forceTouchButtonTesting()
+        StyleManager.addStyle(css)
         
+        let section = window.contentView!.addSubView(Section(400,200))
+        
+        let a:Text = section.addSubView(Text(100,24,"This is text a: ",section,"a"))
+        let b:Text = section.addSubView(Text(100,24,"This is text b: ",section,"b"))
+        let c:Text = section.addSubView(Text(100,24,"This is text c: ",section,"c"))
+        a.setText("testing testing")
+        _ = b
+        _ = c
     }
+    func testFloating(){
+        
+        window.contentView = InteractiveView2()
+        
+        var css:String = "Element{fill:blue;float:left;clear:none;}Element#b{fill:red;}Element#c{fill:green;clear:left;}"
+        css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
+        
+        let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
+        StyleManager.addStyle(url: styleFilePath,liveEdit: false)
+        
+        let section = window.contentView!.addSubView(Section(400,200))
+        //3 Elements
+        section.addSubview(Element(50,50,section,"a"))
+        let b = section.addSubView(Element(50,50,section,"b"))
+        let c = section.addSubView(Element(50,50,section,"c"))
+        _ = c
+        b.setSize(100, 100)
+        //figure it out
+    }
+    
+    func calcTest(){
+        window.contentView = InteractiveView2()
+        //        var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
+        //        css += "Section{fill:silver;padding:12px;}"
+        //        StyleManager.addStyle(css)
+        
+        let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
+        StyleManager.addStyle(url:styleFilePath,liveEdit: false)
+        
+        let section = window.contentView!.addSubView(Section(400,200))
+        //        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        
+        //        section.addSubview(btn)
+        
+        //        let card:Card = container.addSubView(Card(NaN, NaN, "TextInput: ", container, "textInputCard"))
+        
+        
+        
+        //        StyleManager.addStyle("TextInput#special{fill:blue;fill-alpha:1;width:100%;height:32px;}TextInput#special Text{width:140px;}TextInput#special TextArea{width:calc(100% -140px);}")
+        let textInput:TextInput = section.addSubView(TextInput(100, 24, "Description: ", "blue", section,"special"))
+        _ = textInput
+        Swift.print("before setText")
+        textInput.setInputText("test")
+        Swift.print("after setText")
+    }
+    
     /**
      *
      */

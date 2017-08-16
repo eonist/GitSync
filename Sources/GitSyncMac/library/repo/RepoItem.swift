@@ -10,7 +10,7 @@ struct RepoItem {
     var active:Bool = false/*Active means that auto and pull will sync the repo*/
     var remote:String = ""/*Remote path to repository*/
     var message:Bool = false/*Auto-created commit message*///TODO: ⚠️️ rename
-    var auto:Bool = false/*Automatically syncs on an intervall*/
+    var auto:Bool = false/*Automatically syncs on an intervall*///TODO: ⚠️️ rename to interval?
     //var interval:Int = 0
     //var keyChainItemName:String = ""
     //var upload:Bool = false
@@ -23,7 +23,7 @@ struct RepoItem {
         self.title = title
         self.remote = remote
     }
-    init(){}//don't delete this
+    init(){}//don't delete this, you should probably delete it
 }
 extension RepoItem{
     var localPath:String {get {return local} set{local = newValue}}

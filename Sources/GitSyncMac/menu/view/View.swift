@@ -22,13 +22,12 @@ class ExportReposMenu:CustomMenuItem{
         let xml = RepoView.treeDP.tree.xml
         //prompt the file viewer
         let dialog:NSSavePanel = NSSavePanel.initialize(["xml"], "Export repos", true)
+        dialog.directoryURL = "~/Desktop/".tildePath.url
         let respons = dialog.runModal()
-        
         
         if let url = dialog.url,respons == NSApplication.ModalResponse.OK{/*Make sure that a path was chosen*/
              _ = xml.xmlString.write(filePath:url.path.tildePath)
         }
-        
     }
 }
 class ImportReposMenu:CustomMenuItem{
@@ -37,6 +36,7 @@ class ImportReposMenu:CustomMenuItem{
         
         //prompt the file viewer
         let dialog:NSOpenPanel = NSOpenPanel()
+        dialog.directoryURL = "~/Desktop/".tildePath.url
         let respons = dialog.runModal()
         //let thePath:String? = dialog.url?.path /*Get the path to the file chosen in the NSOpenPanel*/
         

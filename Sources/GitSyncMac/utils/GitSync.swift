@@ -2,7 +2,6 @@ import Foundation
 @testable import Utils
 
 class GitSync{
-    
     typealias PushComplete = (/*_ hasPushed:Bool*/)->Void
     /**
      * Handles the process of making a commit for a single repository
@@ -13,7 +12,6 @@ class GitSync{
         func doCommit(){
             let hasCommited = commit(repoItem,commitMessage)/*🌵 if there were no commits false will be returned*/
             _ = hasCommited
-            
 //            Swift.print("hasCommited: " + "\(hasCommited)")
             //hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
             initPush(repoItem, onPushComplete)//push or check if you need to pull down changes and subsequently merge something
@@ -69,22 +67,10 @@ class GitSync{
             };return msg
         }()
         guard let msg = commitMSG else{return false}
-        notifyUser(msg,repoItem)
+        NotificationManager.notifyUser(message: msg,repo: repoItem)
         let commitResult:String = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit
         _ = commitResult
         return true
     }
 }
-extension GitSync{
-    /**
-     * Sends Message to NotificationCenter in MacOS about latest commit
-     */
-    static func notifyUser(_ commitMessage:CommitMessage,_ repoItem:RepoItem){
-        let notification = NSUserNotification()
-        notification.title = "Committed in: \(repoItem.title)"
-        notification.subtitle = commitMessage.title
-        notification.informativeText = commitMessage.description
-        notification.soundName = nil//NSUserNotificationDefaultSoundName
-        NSUserNotificationCenter.default.deliver(notification)
-    }
-}
+

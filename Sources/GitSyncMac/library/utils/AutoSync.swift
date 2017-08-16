@@ -3,18 +3,20 @@ import Foundation
 /**
  * Takes care of staging, commiting, Pulling, pushing etc
  */
-
-class AutoSync/*:NSUserNotificationCenter,NSUserNotificationCenterDelegate*/    {
-    typealias Completed = ()->Void
-    var curIdxForRepoWithMessage:Int/*the iteration cursor*/
-    let autoSyncComplete:Completed// = {fatalError("Must attach onComplete handler")}
+class AutoSync {
+    typealias AutoSyncCompleted = ()->Void
+    var curIdxForRepoWithMessage:Int/*The iteration cursor*/
+    let autoSyncComplete:AutoSyncCompleted/*When the AutoSync completes this is fired*/ // = {fatalError("Must attach onComplete handler")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      */
-    init(_ onComplete:@escaping Completed) {
+    init(isUserInitiated:Bool, onComplete:@escaping AutoSyncCompleted) {
         self.curIdxForRepoWithMessage = 0
         self.autoSyncComplete = onComplete
-        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*re-new the repo list*/
+        let repoList:[RepoItem] = {
+            let repoList = RepoUtils.repoListFlattenedOverridden/*Get the latest repo list*/
+            return isUserInitiated ? repoList : repoList.filter{$0.auto}/*if interval initiated then only target repos that have interval set to true*/
+        }()
         var curRepoIndex:Int = 0
         func iterateRepoItems(){
             if curRepoIndex < repoList.count {
@@ -27,23 +29,13 @@ class AutoSync/*:NSUserNotificationCenter,NSUserNotificationCenterDelegate*/    
         }
         iterateRepoItems()
     }
-    
+}
+/**
+ * Methods
+ */
+extension AutoSync{
     /**
-     * New
-     */
-    private func onVerificationComplete(_ repoList:[RepoItem]){
-        let messageRepos:[RepoItem] = repoList.filter{$0.message}/*manual message*/
-        let otherRepos = repoList.filter{!$0.message}/*auto message*/
-        if !messageRepos.isEmpty {
-            incrementCountForRepoWithMSG(messageRepos,otherRepos)
-        }else if !otherRepos.isEmpty {
-            syncOtherRepos(otherRepos)
-        }else {/*nothing to sync, return*/
-            autoSyncComplete()
-        }
-    }
-    /**
-     * New
+     * Increment count
      */
     private func incrementCountForRepoWithMSG(_ messageRepos:[RepoItem],_ otherRepos:[RepoItem]){
         if curIdxForRepoWithMessage < messageRepos.count {
@@ -56,23 +48,8 @@ class AutoSync/*:NSUserNotificationCenter,NSUserNotificationCenterDelegate*/    
                     self.incrementCountForRepoWithMSG(messageRepos,otherRepos)/*nothing to commit, iterate*/
                 }
             }
-        }else{/*aka complete*/
+        }else{/*aka completed manual-message-repos*/
             syncOtherRepos(otherRepos)
-        }
-    }
-    /**
-     * New
-     */
-    private func syncOtherRepos(_ otherRepos:[RepoItem]){
-        let group:DispatchGroup = DispatchGroup()
-        otherRepos.forEach { repoItem in/*all the initCommit calls are non-waiting. */
-            group.enter()
-            bg.async {
-                GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/group.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
-            }
-        }
-        group.notify(queue: main){//it also fires when nothing left or entered
-            self.autoSyncComplete()/*All commits and pushes was completed*/
         }
     }
     /**
@@ -89,5 +66,38 @@ class AutoSync/*:NSUserNotificationCenter,NSUserNotificationCenterDelegate*/    
             }
         }
     }
+    /**
+     * Syncs non-manual-message repos
+     */
+    private func syncOtherRepos(_ otherRepos:[RepoItem]){
+        let group = DispatchGroup()
+        otherRepos.forEach { repoItem in/*all the initCommit calls are non-waiting. */
+            group.enter()
+            bg.async {
+                GitSync.initCommit(repoItem,nil,{/*Swift.print("autoSyncGroup.leave: \(self)");*/group.leave()})//🚪⬅️️ Enter the AutoSync process here, its wrapped in a bg thread because hwne oush complets it jumps back on the main thread
+            }
+        }
+        group.notify(queue: main){//It also fires when nothing left or entered
+            self.autoSyncComplete()/*All commits and pushes was completed*/
+        }
+    }
 }
-
+/**
+ * Event handlers
+ */
+extension AutoSync{
+    /**
+     * This is called when all repos are verified that they exist locally and remotly
+     */
+    private func onVerificationComplete(_ repoList:[RepoItem]){
+        let messageRepos:[RepoItem] = repoList.filter{$0.message}/*repos that have manual commit message*/
+        let otherRepos = repoList.filter{!$0.message}/*Auto message*/
+        if !messageRepos.isEmpty {
+            incrementCountForRepoWithMSG(messageRepos,otherRepos)
+        }else if !otherRepos.isEmpty {
+            syncOtherRepos(otherRepos)
+        }else {/*nothing to sync, return*/
+            autoSyncComplete()
+        }
+    }
+}
