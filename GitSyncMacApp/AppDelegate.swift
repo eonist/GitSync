@@ -16,12 +16,29 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         
-        initApp()
-        
+        //initApp()
+        testFloating()
         //commit what you have. 🏀
             //roll back to 2 hours ago with checkout git 2h ago
     }
-    
+    func testFloating(){
+        
+        window.contentView = InteractiveView()
+        
+        var css:String = "Button{fill:blue;float:left;clear:none;}Button#b{fill:red;}Button#c{fill:green;clear:left;}"
+        css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
+       
+        
+        let section = window.contentView!.addSubView(Section(400,200))
+        //3 Elements
+        section.addSubview(Button(50,50,section,"a"))
+        let b = section.addSubView(Button(50,50,section,"b"))
+        let c = section.addSubView(Button(50,50,section,"c"))
+        _ = c
+        b.setSize(100, 100)
+        //figure it out
+    }
     /**
      * Initializes the app
      */
