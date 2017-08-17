@@ -5,6 +5,9 @@ import Cocoa
  * EventHandlers
  */
 extension PrefsView{
+    /**
+     * When darkmode check button is clicked
+     */
     func onDarkThemeCheck(){
         PrefsView.prefs.darkMode = darkMode!.getChecked()
         StyleManager.reset()
@@ -61,9 +64,5 @@ extension PrefsView{
     var pass:TextInput? {return self.element(PrefsType.pass)}
     var local:FilePicker? {return self.element(PrefsType.local)}
     var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
-<<<<<<< HEAD
     var notification:CheckBoxButton? {return self.element(PrefsType.notification)}
-=======
-    var notification:CheckBoxButton? {return self.element("notification")}
->>>>>>> origin/master
 }

@@ -33,7 +33,6 @@ class PrefsView:Element,Closable {
             default:
                 break;
             }
-<<<<<<< HEAD
         }else if event.assert(.check){// event.assert(.check)
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
@@ -41,7 +40,9 @@ class PrefsView:Element,Closable {
             case event.isChildOf(notification):
                 Swift.print("checked notification")
                 PrefsView.prefs.notification = notification!.getChecked()/*store the value*/
-=======
+            default:
+                break;
+            }
         }else if event.type == CheckEvent.check{// event.assert(.check)
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
@@ -59,7 +60,6 @@ class PrefsView:Element,Closable {
                 }
 //            case event.isChildOf(notification):
 //                Swift.print("checked notification")
->>>>>>> origin/master
             default:
                 Swift.print("no match")
                 break;

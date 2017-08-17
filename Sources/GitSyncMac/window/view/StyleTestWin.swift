@@ -12,11 +12,9 @@ class StyleTestWin:Window {
     override func resolveSkin() {
         let styleTestView = StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
         self.contentView = styleTestView
-<<<<<<< HEAD
+
 //        Nav.setView(.main(.commit))/*⬅️️🚪*///
-=======
 //        Nav.setView(.main(.commit),styleTestView:styleTestView)/*⬅️️🚪*///
->>>>>>> origin/master
 //        Nav.setView(.dialog(.commit(RepoItem.dummyData, CommitMessage.dummyData)))
 //        Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
 //        let repoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://github.com/gitsync/demo2.git")

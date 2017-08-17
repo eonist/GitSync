@@ -5,14 +5,11 @@ import Cocoa
  * TODO: Maybe make mainView into a lazy static prop similar to RepoView
  */
 class StyleTestView:CustomView{
-<<<<<<< HEAD
-=======
 //    static let shared:StyleTestView = {
 //        let frame = PrefsView.prefs.rect
 //        Swift.print("StyleTestView.frame: " + "\(frame)")
 //        return StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
 //    }()
->>>>>>> origin/master
     lazy var main:Section = {
         return self.addSubView(Section(NaN,NaN,self,"main"))
     }()
@@ -31,10 +28,7 @@ class StyleTestView:CustomView{
         _ = leftBar
         Swift.print("resolve b")
         _ = content
-<<<<<<< HEAD
-=======
         Swift.print("resolve complete")
->>>>>>> origin/master
     }
     /**
      * NOTE: gets calls from Window.didResize

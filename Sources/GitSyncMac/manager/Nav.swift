@@ -10,10 +10,7 @@ class Nav {
      */
     static func setView(_ viewType:ViewType,styleTestView:StyleTestView! = nil){
         Swift.print("setView: \(viewType)")
-<<<<<<< HEAD
         guard let styleTestView = Proxy.styleTestView else {fatalError("Main window not present")}
-=======
->>>>>>> origin/master
         styleTestView.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         
         switch viewType{
