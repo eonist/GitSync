@@ -33,6 +33,7 @@ class PrefsView:Element,Closable {
             default:
                 break;
             }
+<<<<<<< HEAD
         }else if event.assert(.check){// event.assert(.check)
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
@@ -40,6 +41,25 @@ class PrefsView:Element,Closable {
             case event.isChildOf(notification):
                 Swift.print("checked notification")
                 PrefsView.prefs.notification = notification!.getChecked()/*store the value*/
+=======
+        }else if event.type == CheckEvent.check{// event.assert(.check)
+            switch true{/*CheckButtons*/
+            case event.isChildOf(darkMode)://TODO: <---use getChecked here
+                PrefsView.prefs.darkMode = darkMode!.getChecked()
+                
+                StyleManager.reset()
+                let themeStr:String = darkMode!.getChecked() ? "dark.css" : "light.css"
+                
+                StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
+                
+                if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
+                    Swift.print("refreshSkin init")
+                    ElementModifier.refreshSkin(styleTestView)
+                    Swift.print("refreshSkin completed")
+                }
+//            case event.isChildOf(notification):
+//                Swift.print("checked notification")
+>>>>>>> origin/master
             default:
                 Swift.print("no match")
                 break;
