@@ -12,7 +12,8 @@
 		{"type":"TextInput","id":"login","text":"Github login:"},
 		{"type":"TextInput","id":"pass","text":"Github pass:"},
         {"type":"FilePicker","id":"local","text":"Local path:","buttonText":"Browse"},
-		{"type":"CheckBoxButton","id":"darkMode","text":"DarkMode:"}
+		{"type":"CheckBoxButton","id":"darkMode","text":"DarkMode:"},
+        {"type":"CheckBoxButton","id":"notification","text":"Notification:"}
 	],
 	"commitDialogView":[
 		{"type":"Text","id":"header","text":"Commit message:"},

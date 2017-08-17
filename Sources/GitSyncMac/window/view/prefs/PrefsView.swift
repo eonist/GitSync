@@ -8,20 +8,18 @@ import Cocoa
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
 class PrefsView:Element,Closable {
-    //TODO: ⚠️️ just use singlton instead of the bellow
-    static var prefs:Prefs = PrefsType.createPrefs()
+    
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
-    
         setPrefs(PrefsView.prefs)
     }
     /**
-     * TODO: ⚠️️ Use ,assert and clean up the nested if else bellow
+     * UI events from subComponents goes here
      */
     override func onEvent(_ event:Event) {
         Swift.print("PrefsView.onEvent event.type: \(event.type)")
-        if event.type == Event.update {
+        if event.assert(.update){
             switch true{/*TextInput*/
             case event.isChildOf(login):
                 PrefsView.prefs.login = login!.inputText
@@ -35,23 +33,13 @@ class PrefsView:Element,Closable {
             default:
                 break;
             }
-        }else if event.type == CheckEvent.check{
+        }else if event.assert(.check){// event.assert(.check)
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
-                PrefsView.prefs.darkMode = darkMode!.getChecked()
-                
-                StyleManager.reset()
-                let themeStr:String = darkMode!.getChecked() ? "dark.css" : "light.css"
-                
-                StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
-                
-                if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
-                    Swift.print("refreshSkin init")
-                    ElementModifier.refreshSkin(styleTestView)
-                    Swift.print("refreshSkin completed")
-                }
-                
-                
+                self.onDarkThemeCheck()
+            case event.isChildOf(notification):
+                Swift.print("checked notification")
+                PrefsView.prefs.notification = notification!.getChecked()/*store the value*/
             default:
                 Swift.print("no match")
                 break;

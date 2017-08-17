@@ -1,14 +1,13 @@
 import Cocoa
 @testable import Utils
 
-typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool,rect:CGRect)
-
-struct PrefsType {
+struct PrefsType {//keys
     static var prefs = "prefs"
     static var login = "login"
     static var pass = "pass"
     static var local = "local"
     static var darkMode = "darkMode"
+    static var notification = "notification"
     static var w = "width"
     static var h = "height"
     static var x = "x"
@@ -17,13 +16,14 @@ struct PrefsType {
 
 extension PrefsType{
     /**
-     *
+     * NOTE: this is re-generated on every call
      */
-    static func createPrefs() -> Prefs{/*Stores values in a singleton like data-container*/
+    static func createPrefs() -> PrefsData{
         let xml:XML = FileParser.xml(Config.Bundle.prefs.tildePath)/*Loads the xml*/
         let login = xml.firstNode(PrefsType.login)!.stringValue!
         let local = xml.firstNode(PrefsType.local)!.stringValue!
         let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
+        let notification = xml.firstNode(PrefsType.notification)!.stringValue!.bool
         let w = xml.firstNode(PrefsType.w)!.stringValue!.cgFloat
         let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
         let x:CGFloat = {//TODO: ⚠️️ refactor this when you have time
@@ -41,6 +41,6 @@ extension PrefsType{
             }
         }()
         let rect:CGRect = CGRect(x,y,w,h)
-        return (login:login,pass:"",local:local,darkMode:darkMode,rect:rect)
+        return .init(login:login,pass:"",local:local,darkMode:darkMode,notification:notification,rect:rect)
     }
 }

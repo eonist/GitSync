@@ -10,21 +10,22 @@ class Nav {
      */
     static func setView(_ viewType:ViewType){
         Swift.print("setView: \(viewType)")
-        StyleTestView.shared.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
+        guard let styleTestView = Proxy.styleTestView else {fatalError("Main window not present")}
+        styleTestView.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         
         switch viewType{
         case .dialog(_):
             //add View above everything
-            StyleTestView.shared.currentPrompt = {
-                let view = getView(viewType,StyleTestView.shared.main)
-                return StyleTestView.shared.main.addSubView(view)
+            styleTestView.currentPrompt = {
+                let view = getView(viewType,styleTestView.main)
+                return styleTestView.main.addSubView(view)
             }()
         case .main(_),.detail(_):
-            StyleTestView.shared.currentView = {
-                (StyleTestView.shared.currentPrompt as? Closable)?.close()/*Remove the old prompt view*/
-                (StyleTestView.shared.currentView as? Closable)?.close()/*Remove the old view*/
-                let view = getView(viewType,StyleTestView.shared.content)
-                return StyleTestView.shared.content.addSubView(view)
+            styleTestView.currentView = {
+                (styleTestView.currentPrompt as? Closable)?.close()/*Remove the old prompt view*/
+                (styleTestView.currentView as? Closable)?.close()/*Remove the old view*/
+                let view = getView(viewType,styleTestView.content)
+                return styleTestView.content.addSubView(view)
             }()
         }
     }

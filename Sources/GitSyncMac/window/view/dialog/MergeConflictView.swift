@@ -87,7 +87,8 @@ extension MergeConflictView{
             MergeReslover.shared.processMergeStrategy(strategy)
         }
         
-        if let curPrompt = StyleTestView.shared.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
+        
+        if let curPrompt = Proxy.styleTestView?.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
           
         
     }
