@@ -35,7 +35,7 @@ class PrefsView:Element,Closable {
             default:
                 break;
             }
-        }else if event.type == CheckEvent.check{
+        }else if event.type == CheckEvent.check{// event.assert(.check)
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
                 PrefsView.prefs.darkMode = darkMode!.getChecked()
@@ -50,8 +50,8 @@ class PrefsView:Element,Closable {
                     ElementModifier.refreshSkin(styleTestView)
                     Swift.print("refreshSkin completed")
                 }
-                
-                
+//            case event.isChildOf(notification):
+//                Swift.print("checked notification")
             default:
                 Swift.print("no match")
                 break;
