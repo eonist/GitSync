@@ -17,6 +17,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         
         initApp()
+        
+        //commit what you have. 🏀
+            //roll back to 2 hours ago with checkout git 2h ago
     }
     
     /**
