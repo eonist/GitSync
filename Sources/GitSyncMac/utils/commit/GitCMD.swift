@@ -4,6 +4,7 @@ import Foundation
  * Utility methods for parsing the the "git status message"
  * TODO: Sometimes RM shows up, figure out what that does
  * NOTE: ' ' = unmodified, M = modified,A = added,D = deleted,R = renamed,C = copied,U = updated but unmerged
+ * IMPORTANT ⚠️️ sequenceCommitMsgTitle and sequenceDescription also uses this enum
  */
 enum GitCMD:String{
     case M = "M"/*When a file is modified*/

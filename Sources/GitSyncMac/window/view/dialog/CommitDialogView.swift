@@ -9,10 +9,10 @@ class CommitDialogView:Element,UnFoldable,Closable {
     var onCommitDialogComplete:Completed = {fatalError("no completion handler assigned")}
     
     override func resolveSkin() {
-        Swift.print("CommitDialogView.resolveSkin()")
+        Swift.print("🍊 CommitDialogView.resolveSkin()")
         super.resolveSkin()
         Unfold.unFold(fileURL: Config.Bundle.app,path: "commitDialogView",parent: self)
-        NSApp.requestUserAttention(.informationalRequest)
+        NSApp.requestUserAttention(.informationalRequest)//bounce the dock icon
     }
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
@@ -36,8 +36,8 @@ extension CommitDialogView{
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage, _ onCommitDialogComplete:@escaping Completed){
         self.onCommitDialogComplete = onCommitDialogComplete
-//        Swift.print("CommitDialogView.setData")
-//        Swift.print("repoItem.title: " + "\(repoItem.title)")
+        Swift.print("CommitDialogView.setData")
+        Swift.print("repoItem.title: " + "\(repoItem.title)")
         self.repoItem = repoItem
         self.apply([Key.repo,TextInput.Key.inputText],repoItem.title)
         self.apply([Key.title,TextInput.Key.inputText],commitMessage.title)

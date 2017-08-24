@@ -9,7 +9,7 @@ class Nav {
      * EXAMPLE: Nav.setView(.dialog(.commit))
      */
     static func setView(_ viewType:ViewType,styleTestView:StyleTestView! = nil){
-        Swift.print("setView: \(viewType)")
+//        Swift.print("setView: \(viewType)")
         guard let styleTestView = Proxy.styleTestView else {fatalError("Main window not present")}
         styleTestView.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         
@@ -18,17 +18,17 @@ class Nav {
             //add View above everything
             styleTestView.currentPrompt = {
                 let view = getView(viewType,styleTestView.main)
-                return styleTestView.main.addSubView(view)
+                return view
             }()
         case .main(_),.detail(_):
             styleTestView.currentView = {
                 (styleTestView.currentPrompt as? Closable)?.close()/*Remove the old prompt view*/
                 (styleTestView.currentView as? Closable)?.close()/*Remove the old view*/
                 let view = getView(viewType,styleTestView.content)
-                Swift.print("before retVal")
-                let retVal = styleTestView.content.addSubView(view)
-                Swift.print("after retVal")
-                return retVal
+//                Swift.print("before retVal")
+                
+//                Swift.print("after retVal")
+                return view
             }()
             Swift.print("after set curView")
         }
@@ -38,20 +38,20 @@ class Nav {
         case .main(let viewType):/*Main*/
             switch viewType {
             case .commit:
-                return CommitView(NaN,NaN,parentView)
+                return parentView.addSubView(CommitView(NaN,NaN,parentView))
             case .repo:
-                return RepoView(NaN,NaN,parentView)//RepoView2
+                return parentView.addSubView(RepoView(NaN,NaN,parentView))//RepoView2
             case .prefs:
-                return PrefsView(NaN,NaN,parentView)
+                return parentView.addSubView(PrefsView(NaN,NaN,parentView))
             }
         case .detail(let viewType):/*Detail*/
             switch viewType {
             case .commit(let commitData):/*CommitDetail*/
-                let view:CommitDetailView = CommitDetailView(NaN,NaN,parentView)
+                let view:CommitDetailView = parentView.addSubView(CommitDetailView(NaN,NaN,parentView))
                 view.setCommitData(commitData)/*Updates the UI elements with the selected commit item*/
                 return view
             case .repo(let idx3d):/*RepoDetail*/
-                let view:RepoDetailView = RepoDetailView(NaN,NaN,parentView)
+                let view:RepoDetailView = parentView.addSubView(RepoDetailView(NaN,NaN,parentView))
                 view.setRepoData(idx3d)
                 return view
             }
@@ -60,14 +60,18 @@ class Nav {
             switch dialog{
             case .commit(let repoItem, let commitMessage, let onComplete):
                 let view = CommitDialogView(NaN,NaN,parentView)
+                Swift.print("🍏  CommitDialogView.setData")
+                parentView.addSubview(view)
                 view.setData(repoItem, commitMessage, onComplete)
                 return view
             case .conflict(let mergeConflict):
                 let view = MergeConflictView(NaN,NaN,parentView)
+                parentView.addSubview(view)
                 view.setData(mergeConflict)
                 return view
             case .autoInit(let autoInitConflict,let onComplete):
                 let view = AutoInitView(NaN,NaN,parentView)
+                parentView.addSubview(view)
                 view.setData(autoInitConflict,onComplete)
                 return view
             }

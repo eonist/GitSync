@@ -16,8 +16,13 @@
 				 {"type":"CheckBoxButton","id":"notification","text":"Notification:"}
                  ],
     "commitDialogView":[
-                {"type":"Text","id":"header","text":"Commit message:"}
-                        ],
+                {"type":"Text","id":"header","text":"Commit message:"},
+                {"type":"TextInput","id":"repo","text":"Repository:"},
+                {"type":"TextInput","id":"title","text":"Title:"},
+                {"type":"TextInput","id":"desc","text":"Description:"},
+                {"type":"TextButton","id":"cancel","text":"Cancel"},
+                {"type":"TextButton","id":"ok","text":"OK"}
+                ],
     "mergeConflictView":[
                 {"type":"Text","id":"header","text":"Resolve merge conflict:"},
                 {"type":"Text","id":"issueText","text":"Conflict:"},
