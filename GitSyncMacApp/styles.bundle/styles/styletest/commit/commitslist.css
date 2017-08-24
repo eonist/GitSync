@@ -91,7 +91,7 @@ Section#textContainer Text#title{
 }
 Section#textContainer Text#description{
 	width:100%;
-	height:calc(100% -44px);
+	height:calc(100% -40px);
 	margin-top:0px;
 	backgroundColor:yellow;
 	scrollable:false;
