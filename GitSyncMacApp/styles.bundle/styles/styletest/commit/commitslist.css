@@ -91,6 +91,7 @@ Section#textContainer Text#title{
 }
 Section#textContainer Text#description{
 	width:100%;
+	height:calc(100% -44px);
 	margin-top:0px;
 	backgroundColor:yellow;
 	scrollable:false;
@@ -98,3 +99,4 @@ Section#textContainer Text#description{
 	wordWrap:true;
 	border:false;
 }
+
