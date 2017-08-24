@@ -3,41 +3,46 @@ import Cocoa
 @testable import Utils
 /**
  * TODO: ⚠️️ rename unFold to unfold
+ * NOTE: https://github.com/Zewo/Reflection  (native swift KVC KeyValueCoding, but complex and brittle)
+ * IMPORTANT: ⚠️️ The reason we don't use convenience init is because it cannot be overriden in extensions, But a static func can if its added inside  an extension that uses where and Self:ClassName. Also init cant be defined as a method pointer
  */
-class UnFoldUtils{
+class Unfold{
     /**
      * New
      * TODO:    Move into parser and modifier
      * TODO: ⚠️️ In the future you will use a json method that can take an [Any] that contains str and int for the path. so you can do path:["app",0,"repoView"] etc
      */
     static func unFold(_ fileURL:String, _ path:String, _ parent:Element){
-//        Swift.print("UnFoldUtils.unFold()")
+//      Swift.print("UnFoldUtils.unFold()")
         JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{ dict in
-            guard let element:Element = UnFoldUtils.unFold(dict,parent) else{fatalError("unFold failed")}
+            guard let element:Element = Unfold.unFold(dict,parent) else{fatalError("unFold failed")}
             parent.addSubview(element)
         }
-//        Swift.print("after unFold fileUrl")
+//      Swift.print("after unFold fileUrl")
+    }
+    /**
+     * We store types as an array as its easier/more dynamic than a swich
+     */
+    static let unfoldables:[UnFoldable.Type] = [Text.self,TextInput.self,RadioButton.self,CheckBoxButton.self,TextButton.self,Text.self,FilePicker.self]
+    
+    static let unfoldableDict:[String:UnFoldable.UnFoldMethod] = unfoldables.reduce([:])  {
+        var dict:[String:UnFoldable.UnFoldMethod] = $0
+        dict["\($1)"] = ($1 as UnFoldable.Type).unfold
+        return dict
     }
     /**
      * Initiates and returns a UI Component
      */
     static func unFold(_ dict:[String:Any], _ parent:ElementKind? = nil) -> Element?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
-        switch true{
-            case type == "\(TextInput.self)":return TextInput.unfold(dict,parent)
-            case type == "\(RadioButton.self)":return RadioButton.unfold(radioButtonUnfoldDict:dict,parent)
-            case type == "\(CheckBoxButton.self)":return CheckBoxButton.unfold(dict,parent)
-            case type == "\(TextButton.self)":return TextButton.unfold(dict,parent)
-            case type == "\(Text.self)":return Text.unfold(dict,parent)
-            case type == "\(FilePicker.self)":return FilePicker.unfold(dict,parent)
-            default:fatalError("Type is not unFoldable: \(type)")
-            //return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
-        }
+        guard let unfoldMethod:UnFoldable.UnFoldMethod = unfoldableDict[type] else {fatalError("Type is not unFoldable: \(type)")}/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
+        Swift.print("type: " + "\(type)")
+        return unfoldMethod(dict,parent) as? Element
     }
     /**
      * String
      */
-    static func string(_ dict:[String:Any],_ key:String) -> String?{
+    static func value(_ dict:[String:Any],_ key:String) -> String?{
         if let value:Any = dict[key] {
             if let str = value as? String {return str}
             else {fatalError("type not supported: \(value)")}
@@ -46,7 +51,7 @@ class UnFoldUtils{
     /**
      * cgFloat
      */
-    static func cgFloat(_ dict:[String:Any],_ key:String) -> CGFloat{
+    static func value(_ dict:[String:Any],_ key:String) -> CGFloat{
         if let value:Any = dict[key] {
             if let str = value as? String {return str.cgFloat}
             else if let int = value as? Int {return int.cgFloat}

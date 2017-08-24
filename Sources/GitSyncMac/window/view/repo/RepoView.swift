@@ -1,7 +1,6 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
 /**
  * TODO: ⚠️️ Should remember previous selected item between transitions
  * TODO: use singleton instead of the bellow ⚠️️
@@ -15,12 +14,10 @@ class RepoView:Element,Closable {
             return _treeDP!
         };return treeDP/*Already exist, return old dp*/
     }
-    lazy var treeList:TreeList3 = {
-        return  self.addSubView(TreeList3(self.getWidth(), self.getHeight(), CGSize(self.getWidth(),24), RepoView.treeDP, self))
-    }()//if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
+    lazy var treeList:TreeList3 = createTreeList()
     lazy var contextMenu:RepoContextMenu = {return RepoContextMenu(self.treeList)}()
     override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         _ = treeList
         _ = contextMenu
     }
@@ -42,5 +39,12 @@ extension RepoView{
         let selectedIndex:[Int] = treeList.selectedIdx3d!
         //Swift.print("selectedIndex: " + "\(selectedIndex)")
         Nav.setView(.detail(.repo(selectedIndex)))/*Updates the UI elements with the selected repo data*/
+    }
+    /**
+     *
+     */
+    func createTreeList() -> TreeList3{
+        return  self.addSubView(TreeList3(self.getWidth(), self.getHeight(), CGSize(self.getWidth(),24), RepoView.treeDP, self))
+        //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
 }

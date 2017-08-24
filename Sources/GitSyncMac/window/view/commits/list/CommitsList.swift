@@ -6,7 +6,7 @@ import Cocoa
  */
 class CommitsList:ElasticSlideScrollFastList3,CommitListable{
     var _state:CommitListState = .init()
-    lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
+    lazy var progressIndicator:ProgressIndicator = self.createProgressIndicator()
     var performance:PerformanceTester = PerformanceTester()/*Debug*/
 
     override func resolveSkin() {

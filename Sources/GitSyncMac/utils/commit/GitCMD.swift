@@ -16,6 +16,7 @@ enum GitCMD:String{
     case AA = "AA"/*unmerged, both added*/
     case AU = "AU"/*unmerged, added by us*/
     case AM = "AM"/*Beta, needs description, probably file added with two parents*/
+    case AD = "AD" //beta
     case MM = "MM"/*There are two Ms in your example because it's a merge commit with two parents*/
     case RM = "RM"/*When a file is renamed, new and experimental*/
     case QQ = "??"/*untracked*/

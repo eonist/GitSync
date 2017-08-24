@@ -1,9 +1,9 @@
 List{
     float:left;
     clear:left;
-    width:100%;
-    height:100%;
-    fill:white;
+    width:100%;/*bug when list has no wrapping container*/
+    height:100%;/*bug when list has no wrapping container*/
+    fill:green;
     fill-alpha:1;
     line:#B8B8B8;
     line-alpha:1;

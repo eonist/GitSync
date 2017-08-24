@@ -22,6 +22,7 @@ class CommitMessageUtils{
 				case .A?:numOfNewFiles += 1
                 case .AA?:numOfNewFiles += 1
                 case .AM?:numOfNewFiles += 1
+                case .AD?:numOfNewFiles += 1
 				case .R?: numOfRenamedFiles += 1/*This command seems to never be triggered in git*/
                 case .RM?:numOfRenamedFiles += 1/*new and experimental*/
 				case .QQ?: numOfNewFiles += 1/*untracked files*/

@@ -5,8 +5,8 @@ import Cocoa
  * NOTE: override maskSize and contentSize in subclasses if you need customization
  */
 class ContainerView2:Element,Containable2 {
-    var maskSize:CGSize {return CGSize(super.width,super.height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
-    var contentSize:CGSize {return CGSize(super.width,super.height)}
+    var maskSize:CGSize {return CGSize(super.skinSize.w,super.skinSize.h)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
+    var contentSize:CGSize {return CGSize(super.skinSize.w,super.skinSize.h)}
     var contentContainer:Element?
     /*item size is not relevant other than in*/var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
     var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -18,8 +18,8 @@ class ContainerView2:Element,Containable2 {
     }
     override func resolveSkin() {
         super.resolveSkin()
-        contentContainer = addSubView(Container(width,height,self,"lable"))//was content, but we want to use old css
-        layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now 👍*/
+        contentContainer = addSubView(Container(skinSize.w,skinSize.h,self,"lable"))//was content, but we want to use old css, TODO: ⚠️️ should be spelled: label
+        layer!.masksToBounds = true/*Masks the children to the frame, I don't think this works, seem to work now 👍*/
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

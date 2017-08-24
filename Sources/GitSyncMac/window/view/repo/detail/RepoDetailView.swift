@@ -5,7 +5,7 @@ import Foundation
 class RepoDetailView:Element,Closable {
     override func resolveSkin() {
         super.resolveSkin()
-        UnFoldUtils.unFold(Config.Bundle.app,"repoDetailView",self)
+        Unfold.unFold(fileURL: Config.Bundle.app,path: "repoDetailView",parent: self)
     }
     /**
      * Modifies the dataProvider item on UI change

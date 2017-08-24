@@ -15,26 +15,108 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
-        
         initApp()
+        
         //quickTest()
+//        quickTest2()
+//        quickTest3()
+    }
+    /**
+     *
+     */
+    func quickTest3(){
+        //Continue here: 🏀
+        //create 1 button
+        StyleManager.addStyle("Button{fill:green;}")
+        window.contentView = InteractiveView()
+        let section = window.contentView?.addSubView(Section(200,200))
+        let btn = section?.addSubView(Button.init(size: CGSize(100,100)))
+        _ = btn
+            //test state
+        //create 2 buttons
+            //test state
+        //create 2 SelectButtons
+            //test state etc
+    }
+    /**
+     *
+     */
+    func quickTest2(){
+         window.contentView = InteractiveView()
+        
+        let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
+        StyleManager.addStyle(url:styleFilePath,liveEdit: false)
+        
+//        StyleManager.addStylesByURL("~/Desktop/ElCapitan/general.css",false)
+//        StyleManager.addStyle("List{fill:blue;}")
+        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
+        let dp:DataProvider = DataProvider(xml)
+        
+//        let list = List4.init(size:CGSize(140,73),id:nil)
+        let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
+        let list = List3.init(140, 73, CGSize(120,24), dp,.ver)
+        Swift.print("y")
+        _ = section?.addSubView(list)
+        Swift.print("x")
+//        list.selectAt(1)
     }
     func quickTest(){
-        
         window.contentView = InteractiveView()
-        
-        var css:String = "Button{fill:blue;float:left;clear:none;}Button#b{fill:red;}Button#c{fill:green;clear:left;}"
-        css += "Section{fill:silver;padding:12px;}"
+
+        //var css:String = "Button{fill:blue;float:left;clear:none;}Button#b{fill:red;}Button#c{fill:green;clear:left;}"
+        let css:String = """
+        TextInput{
+            float:left;
+            clear:left;
+            padding-top:2px;
+        }
+        TextInput Text{
+            float:left;
+            clear:none;
+            width:78px;
+            height:20px;
+            color:black;
+        }
+        TextInput TextArea{
+            float:left;
+            clear:none;
+            width:60px;
+            height:20px;
+            padding:0px;/*Resets padding from Generic TextArea*/
+            padding-left:4px;
+            padding-right:4px;
+            fill:white;
+            line:#A4A4A4;
+            line-alpha:1;
+            line-thickness:1px;
+            line-offset-type:outside;
+            /*margin-left:6px;*/
+        }
+        TextInput TextArea Text{
+            backgroundColor:orange;
+            background:false;
+            type:input;
+            selectable:true;
+        }
+        """
         StyleManager.addStyle(css)
-       
         
         let section = window.contentView!.addSubView(Section(400,200))
-        //3 Elements
-        section.addSubview(Button(50,50,section,"a"))
-        let b = section.addSubView(Button(50,50,section,"b"))
-        let c = section.addSubView(Button(50,50,section,"c"))
-        _ = c
-        b.setSize(100, 100)
+        let textInput:TextInput = section.addSubView(TextInput(240, 24, "Description: ", "blue",section))
+        _ = textInput
+        
+//        css += "Section{fill:silver;padding:12px;}"
+//        StyleManager.addStyle(css)
+//
+//
+//        let section = window.contentView!.addSubView(Section(400,200))
+//        //3 Elements
+//        section.addSubview(Button(50,50,section,"a"))
+//        let b = section.addSubView(Button(50,50,section,"b"))
+//        let c = section.addSubView(Button(50,50,section,"c"))
+//        _ = c
+//        b.setSize(100, 100)
         //figure it out
     }
     /**
@@ -63,3 +145,4 @@ extension AppDelegate:NSUserNotificationCenterDelegate{
         return true
     }
 }
+

@@ -11,7 +11,7 @@ class CommitDialogView:Element,UnFoldable,Closable {
     override func resolveSkin() {
         Swift.print("CommitDialogView.resolveSkin()")
         super.resolveSkin()
-        UnFoldUtils.unFold(Config.Bundle.app,"commitDialogView",self)
+        Unfold.unFold(fileURL: Config.Bundle.app,path: "commitDialogView",parent: self)
         NSApp.requestUserAttention(.informationalRequest)
     }
     override func onEvent(_ event:Event) {

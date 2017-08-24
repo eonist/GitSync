@@ -47,14 +47,12 @@ class CommitsListItem:Button,Selectable{
         super.mouseUpInside(event)
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
     }
-    
-    override func setSkinState(_ skinState:String) {
-        //Swift.print("\(self.dynamicType)" + " setSkinState() skinState: " + "\(skinState)")
-        super.setSkinState(skinState)
-        titleText!.setSkinState(skinState)
-    }
-    override func getSkinState() -> String {
-        return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
+    override var skinState:String {
+        get {return isSelected ? SkinStates.selected + " " + super.skinState : super.skinState}
+        set {
+            super.skinState = newValue
+            titleText?.skinState = newValue
+        }
     }
     override func getClassType() -> String {
         return "\(CommitsListItem.self)"
@@ -97,7 +95,7 @@ extension CommitsListItem{
     func setSelected(_ isSelected:Bool){
         Swift.print("setSelected(): " + "\(isSelected)")
         self.isSelected = isSelected
-        setSkinState(getSkinState())
+        skinState = {skinState}()
     }
     func getSelected() -> Bool {
         return self.isSelected
@@ -105,7 +103,7 @@ extension CommitsListItem{
 }
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>
 
-enum CommitType:String{
+enum CommitType:String{//TODO: ⚠️️ move to its own file
     case repoName = "repo-name"
     case contributor = "contributor"
     case title = "title"

@@ -8,10 +8,9 @@ import Cocoa
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
 class PrefsView:Element,Closable {
-    
     override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)
-        UnFoldUtils.unFold(Config.Bundle.app,"prefsView",self)
+        super.resolveSkin()//self.skin = SkinResolver.skin(self)
+        Unfold.unFold(fileURL: Config.Bundle.app,path: "prefsView",parent: self)
         setPrefs(PrefsView.prefs)
     }
     /**

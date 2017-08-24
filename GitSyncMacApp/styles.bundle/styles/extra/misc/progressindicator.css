@@ -6,4 +6,10 @@ ProgressIndicator{
 	line:grey;
 	line-alpha:0.5;
 	line-thickness:3px;
+	fill:green;
+	fill-alpha:0;
+}
+Container#progressIndicatorContainer{
+	fill:green;
+	fill-alpha:0;
 }

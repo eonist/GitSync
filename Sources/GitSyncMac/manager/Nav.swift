@@ -25,8 +25,12 @@ class Nav {
                 (styleTestView.currentPrompt as? Closable)?.close()/*Remove the old prompt view*/
                 (styleTestView.currentView as? Closable)?.close()/*Remove the old view*/
                 let view = getView(viewType,styleTestView.content)
-                return styleTestView.content.addSubView(view)
+                Swift.print("before retVal")
+                let retVal = styleTestView.content.addSubView(view)
+                Swift.print("after retVal")
+                return retVal
             }()
+            Swift.print("after set curView")
         }
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{

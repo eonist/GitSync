@@ -8,8 +8,10 @@ class CommitView:Element{
     var commitDetailView:CommitDetailView?
     lazy var intervalTimer:SimpleTimer = .init(interval: 60, onTick: self.onTick)/*This timer fires every n seconds and initiates the AutoSync process if apropriate*/
     override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        Swift.print("before list created")
         _ = list/*creates the GUI List*/
+        Swift.print("after list created")
         intervalTimer.start()//starts the ticking
     }
     /**
@@ -41,7 +43,7 @@ class CommitView:Element{
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         Swift.print("CommitView.width: " + "\(width)")
         Swift.print("list.frame.width: " + "\(list.frame.width)")
-        Swift.print("list.contentContainer.width: " + "\(list.contentContainer.width)")
+        Swift.print("list.contentContainer.width: " + "\(list.contentContainer.skinSize.w)")
         
         //Swift.print("list.rbContainer.width: " + "\(list.rbContainer)")
         /*Swift.print("list.contentContainer.frame.width: " + "\(list.contentContainer.frame.width)")
@@ -60,7 +62,10 @@ extension CommitView:Closable{
      */
     func createCommitList() -> CommitsList{
         let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
-        let list = self.addSubView(CommitsList.init(self.getWidth(), self.getHeight(), CGSize(24,102), dp, self,"commitsList"))/*24 should be allowed to be nan no?*/
+        let size:CGSize = CGSize(self.getWidth(), self.getHeight())
+        Swift.print("size: " + "\(size)")
+        let list = CommitsList.init(size.w,size.h, CGSize(24,102), dp, self,"commitsList")
+        self.addSubview(list)/*24 should be allowed to be nan no?*/
         //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
         return list
     }

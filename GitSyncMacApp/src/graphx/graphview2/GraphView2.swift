@@ -16,8 +16,8 @@ class GraphView2:ContainerView2{
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.layer!.position.x, maskSize.w, contentSize.w)}
     
-    override var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
-    override var contentSize:CGSize {return CGSize(3000,height)}
+    override var maskSize:CGSize {return CGSize(super.skinSize.w,super.skinSize.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
+    override var contentSize:CGSize {return CGSize(3000,skinSize.h)}
     
     var prevX:CGFloat = -100
     var prevPoints:[CGPoint]?/*Interim var*/
@@ -78,11 +78,11 @@ extension GraphView2{
         /*gp1*/
         let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
         let y1:CGFloat = findY(x1,points!)/*Here we find the y for x value via trig and finding the correct segment*/
-        graphPoint1!.point = P(0,y1)//min edge
+        graphPoint1!.frame.origin = P(0,y1)//min edge
         /*gp2*/
-        let x2:CGFloat = (-1 * x) + width
+        let x2:CGFloat = (-1 * x) + skinSize.w
         let y2:CGFloat = findY(x2,points!)
-        graphPoint2!.point = P(width,y2)//max edge
+        graphPoint2!.frame.origin = P(skinSize.w,y2)//max edge
         edgeValues = (y1,y2)
         /**/
         let minX:CGFloat = x1/*The begining of the current visible graph*/
@@ -91,12 +91,12 @@ extension GraphView2{
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
-        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
+        let diff:CGFloat = skinSize.h + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
         //Swift.print("🍏 diff: " + "\(diff)")
         
-        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
+        let ratio:CGFloat = skinSize.h / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
         prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use newPoints if they exist or default points if not
-        newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,height)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
+        newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,skinSize.h)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
         
         initAnim()/*initiates the animation*/
     }
@@ -144,7 +144,7 @@ extension GraphView2{
      * NOTE: Returns random y-values and evenly spaced x-values at every 100th pixel
      */
     func createGraphCGPoints() -> [P] {
-        let h:Int = height.int
+        let h:Int = skinSize.h.int
         return (0...30).map{
             let x:CGFloat = 100*$0/*Evenly place points at every 100th pixel*/
             let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate within 0 and height*///TODO: ⚠️️ this could be simplified by not doing the multipliations
@@ -157,9 +157,8 @@ extension GraphView2{
     func addGraphLine(){
         addGraphLineStyle()
         let path:PathKind = Path()/*We use an empty path segment, the cgPath is added later*/
-        graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+        graphLine = contentContainer!.addSubView(GraphLine(skinSize.w,skinSize.h,path))
     }
-    
     /**
      * Adds graphical representations of the begining and end of the graphline
      * NOTE: These are used to display exactly the edges of the graph line. Beginning and end
@@ -174,12 +173,12 @@ extension GraphView2{
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint1!.setPosition(p)
         /*gp2*/
-        let x2:CGFloat = width
+        let x2:CGFloat = skinSize.w
         let p2 = findGraphP(x2,points!)
         //Swift.print("addGraphPoint -p2-: " + "\(p2)")
         
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint2!.point = p2
+        graphPoint2!.frame.origin = p2
         
         edgeValues = (p.y,p2.y)
     }
