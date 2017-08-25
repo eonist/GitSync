@@ -11,7 +11,7 @@ class AutoInitView:Element,UnFoldable,Closable{
     override func resolveSkin() {
         Swift.print("AutoInitView.resolveSkin()")
         super.resolveSkin()
-        Unfold.unFold(fileURL: Config.Bundle.app, path: "autoInitView",parent: self)
+        Unfold.unFold(fileURL: Config.Bundle.structure, path: "autoInitView",parent: self)
         Swift.print("AutoInitView.unfold completed")
     }
     override func onEvent(_ event:Event) {

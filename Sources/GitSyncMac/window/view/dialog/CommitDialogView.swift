@@ -11,7 +11,7 @@ class CommitDialogView:Element,UnFoldable,Closable {
     override func resolveSkin() {
         Swift.print("🍊 CommitDialogView.resolveSkin()")
         super.resolveSkin()
-        Unfold.unFold(fileURL: Config.Bundle.app,path: "commitDialogView",parent: self)
+        Unfold.unFold(fileURL: Config.Bundle.structure,path: "commitDialogView",parent: self)
         NSApp.requestUserAttention(.informationalRequest)//bounce the dock icon
     }
     override func onEvent(_ event:Event) {

@@ -8,12 +8,11 @@ enum Config {
         /*The root of the asset bundle*/
         static let assets:String = FilePathParser.resourcePath + "/assets.bundle/"//rename to user maybe?
         static let styles:String = FilePathParser.resourcePath + "/styles.bundle/"
-        
         static let repo:String = {/*Stores the repo details*/
             return assets + (Config.release == .dev ? "user/dev/repos.xml" : "user/pub/repos.xml")
         }()
-        static let app:String = assets + "structure.json"/*UI structure of the app*/
-        static let prefs:String = {/*The app prefs*/
+        static let structure:String = assets + "structure.json"/*UI structure of the app*/
+        static let prefsURL:String = {/*The app prefs*/
             return assets + (Config.release == .dev ? "user/dev/prefs.xml" : "user/pub/prefs.xml")
         }()
         static let commitCacheURL:String = {/*Cache.swift uses this url*/

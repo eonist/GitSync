@@ -23,7 +23,7 @@ class MergeConflictView:Element,UnFoldable,Closable{
     override func resolveSkin() {
         Swift.print("MergeConflictView.resolveSkin()")
         super.resolveSkin()
-        Unfold.unFold(fileURL: Config.Bundle.app,path: "mergeConflictView",parent: self)
+        Unfold.unFold(fileURL: Config.Bundle.structure,path: "mergeConflictView",parent: self)
         Swift.print("unfold completed")
         
         self.apply([Key.issue,Text.Key.text], "Conflict: Local file is older than the remote file")

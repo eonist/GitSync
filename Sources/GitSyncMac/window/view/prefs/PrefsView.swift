@@ -10,7 +10,7 @@ import Cocoa
 class PrefsView:Element,Closable {
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)
-        Unfold.unFold(fileURL: Config.Bundle.app,path: "prefsView",parent: self)
+        Unfold.unFold(fileURL: Config.Bundle.structure, path: "prefsView", parent: self)
         setPrefs(PrefsView.prefs)
     }
     /**

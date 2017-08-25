@@ -19,7 +19,7 @@ extension PrefsType{
      * NOTE: this is re-generated on every call
      */
     static func createPrefs() -> PrefsData{
-        let xml:XML = FileParser.xml(Config.Bundle.prefs.tildePath)/*Loads the xml*/
+        let xml:XML = FileParser.xml(Config.Bundle.prefsURL.tildePath)/*Loads the xml*/
         let login = xml.firstNode(PrefsType.login)!.stringValue!
         let local = xml.firstNode(PrefsType.local)!.stringValue!
         let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool

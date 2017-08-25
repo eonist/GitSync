@@ -133,7 +133,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {
-        _ = FileModifier.write(Config.Bundle.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
+        _ = FileModifier.write(Config.Bundle.prefsURL.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
         _ = FileModifier.write(Config.Bundle.repo.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         Swift.print("💾 Write RepoList to: repo.xml")

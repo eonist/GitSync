@@ -6,7 +6,7 @@ class Unfoldables {
     /**
      * We store types as an array as its easier/more dynamic than a swich
      */
-    static let arr:[UnFoldable.Type] = [Text.self,TextInput.self,RadioButton.self,CheckBoxButton.self,TextButton.self,Text.self,FilePicker.self]
+    static let arr:[UnFoldable.Type] = [Text.self,TextInput.self,RadioButton.self,CheckBoxButton.self,TextButton.self,Text.self,FilePicker.self,Container.self]
     /**
      * Converts the array to dictionary
      */
