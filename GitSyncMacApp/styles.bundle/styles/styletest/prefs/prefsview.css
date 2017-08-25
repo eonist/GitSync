@@ -84,3 +84,22 @@ PrefsView Spinner TextInput TextArea Text{
 	width:100%;
 	color:<TextTheme>;
 }
+/*Group*/
+PrefsView Section#group{
+	width:100%;
+	height:32px;
+	float:left;
+	clear:left;
+	fill:grey;
+	fill-alpha:0.0;
+}
+PrefsView Section#group Text#description{
+	width:calc(100% -120px);
+	height:20px;
+	clear:none;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+	bold:true;
+	margin-left:8px;
+}

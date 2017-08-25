@@ -12,19 +12,29 @@ class Unfold{
      * TODO: ⚠️️ In the future you will use a json method that can take an [Any] that contains str and int for the path. so you can do path:["app",0,"repoView"] etc
      */
     static func unFold(fileURL:String, path:String, parent:Element){
-//        Swift.print("Unfold.unFold")
+//      Swift.print("Unfold.unFold")
         guard let jsonDict:[String: Any] = JSONParser.dict(fileURL.content?.json) else{fatalError("fileURL: is incorrect: \(fileURL)")}
+        unFold(jsonDict:jsonDict,path:path,parent:parent)
+    }
+    /**
+     * Unfold many UI Items
+     */
+    static func unFold(jsonDict:[String: Any],path:String,parent:Element){
         guard let jsonDictItem:Any = jsonDict[path] else{fatalError("path is incorrect: \(path)")}
-        guard let jsonArr:[[String:Any]] = JSONParser.dictArr(jsonDictItem) else{fatalError("jsonDictItem: is incorrect")}
-        unfold(jsonArr:jsonArr,parent:parent)
+        unFold(jsonDictItem:jsonDictItem, parent:parent)
     }
     /**
      * New
      */
-    static func unfold(jsonArr:[[String:Any]],parent:Element){
+    static func unFold(jsonDictItem:Any,parent:Element){
+        guard let jsonArr:[[String:Any]] = JSONParser.dictArr(jsonDictItem) else{fatalError("jsonDictItem: is incorrect")}
         jsonArr.forEach{ dict in
             guard let element:Element = Unfold.unFold(dict:dict) else{fatalError("unFold failed")}
             parent.addSubview(element)
+            if let content:Any = dict["content"] {/*figure out if item has arg: content, if it does, then keep unfolding down hirerarchy*/
+//                Swift.print("had content \(content)")
+                unFold(jsonDictItem:content,parent:element)
+            }
         }
     }
     /**

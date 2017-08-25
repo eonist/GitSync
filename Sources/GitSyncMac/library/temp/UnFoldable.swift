@@ -27,7 +27,7 @@ extension UnFoldable{
         return UnfoldParser.retrieveValue(self, path)
     }
     /**
-     * New
+     * EXAMPLE: self.apply([PrefsType.login,TextInput.Key.inputText],prefs.login)
      */
     func apply(_ path:[String],_ value:Any){
         UnfoldModifier.applyData(self, path, value)

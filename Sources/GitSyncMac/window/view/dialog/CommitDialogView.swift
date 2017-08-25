@@ -36,8 +36,8 @@ extension CommitDialogView{
      */
     func setData(_ repoItem:RepoItem, _ commitMessage:CommitMessage, _ onCommitDialogComplete:@escaping Completed){
         self.onCommitDialogComplete = onCommitDialogComplete
-        Swift.print("CommitDialogView.setData")
-        Swift.print("repoItem.title: " + "\(repoItem.title)")
+//        Swift.print("CommitDialogView.setData")
+//        Swift.print("repoItem.title: " + "\(repoItem.title)")
         self.repoItem = repoItem
         self.apply([Key.repo,TextInput.Key.inputText],repoItem.title)
         self.apply([Key.title,TextInput.Key.inputText],commitMessage.title)
@@ -48,7 +48,8 @@ extension CommitDialogView{
      */
     func onOKButtonClick(){
         //AutoSync.shared.iterateMessageCount()
-        Swift.print("onOKButtonClick")
+//        Swift.print("onOKButtonClick")
+        guard let repoItem = self.repoItem else {fatalError("repoItem must be available")}
         let title:String = self.retrieve([Key.title,TextInput.Key.inputText])  ?? {fatalError("error - must have title")}()
         let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error - must have description")}()
         
@@ -57,7 +58,7 @@ extension CommitDialogView{
 //        Swift.print("commitMessage.description: " + "\(commitMessage.description)")
         Proxy.styleTestView?.currentPrompt?.removeFromSuperview()//remove promptView from window
         bg.async {
-            GitSync.initCommit(self.repoItem!, commitMessage, {main.async{self.onCommitDialogComplete()}})
+            GitSync.initCommit(repoItem, commitMessage, {main.async{self.onCommitDialogComplete()}})
         }
     }
 }

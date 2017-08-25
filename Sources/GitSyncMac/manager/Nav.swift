@@ -30,7 +30,7 @@ class Nav {
 //                Swift.print("after retVal")
                 return view
             }()
-            Swift.print("after set curView")
+//            Swift.print("after set curView")
         }
     }
     private static func getView(_ view:ViewType,_ parentView:Element)->Element{

@@ -11,14 +11,18 @@ extension CheckBoxButton:UnFoldable{
             if let newValue = newValue as? Bool {setChecked(newValue)}
         }
     }
+    enum Key{
+        static let text = "text"
+        static let isChecked = "isChecked"
+    }
 }
 extension UnFoldable where Self:CheckBoxButton{
     /**
      * UnFolds a CheckBoxButton
      */
     static func unfold(dict: [String : Any]) -> UnFoldable {
-        let text:String = UnfoldUtils.value(dict, "text") ?? ""
-        let isCheckedStr = UnfoldUtils.value(dict, "isChecked") ?? "false"
+        let text:String = UnfoldUtils.value(dict, Key.text) ?? ""
+        let isCheckedStr = UnfoldUtils.value(dict, Key.isChecked) ?? "false"
         let isChecked:Bool = isCheckedStr.bool
         let element:ElementConfig = .init(dict)
         return CheckBoxButton.init(text:text,isChecked:isChecked,size:element.size,id:element.id)

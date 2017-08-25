@@ -1,4 +1,10 @@
 import Foundation
 
-struct PrefsData {var login:String,pass:String,local:String,darkMode:Bool,notification:Bool,rect:CGRect}
-
+struct PrefsData {
+    var login:String
+    var pass:String
+    var local:String
+    var darkMode:Bool
+    var notification:Bool
+    var rect:CGRect
+}

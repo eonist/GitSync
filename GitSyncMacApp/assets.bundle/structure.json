@@ -13,7 +13,7 @@
                  {"type":"TextInput","id":"pass","text":"Github pass:"},
                  {"type":"FilePicker","id":"local","text":"Local path:","buttonText":"Browse"},
                  {"type":"CheckBoxButton","id":"darkMode","text":"DarkMode:"},
-				 {"type":"CheckBoxButton","id":"notification","text":"Notification:"}
+                 {"type":"Section","id":"group","content":[{"type":"CheckBoxButton","id":"notification","text":"Notification:"},{"type":"Text","id":"description","text":"(App-wide notifications)"}]}
                  ],
     "commitDialogView":[
                 {"type":"Text","id":"header","text":"Commit message:"},
