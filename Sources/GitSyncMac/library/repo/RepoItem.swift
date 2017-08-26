@@ -1,5 +1,5 @@
 import Foundation
-@testable import Utils
+
 /**
  * TODO: Could this be a struct?
  */
@@ -25,50 +25,4 @@ struct RepoItem {
     }
     init(){}//don't delete this, you should probably delete it
 }
-extension RepoItem{
-    var localPath:String {get {return local} set{local = newValue}}
-    var remotePath:String {get {return remote} set{remote = newValue}}
-    var gitRepo:GitRepo {
-        return GitRepo.gitRepo(self.local, remotePath, self.branch)
-    }//temp
-    static func repoItem(_ gitRepo:GitRepo) -> RepoItem {
-        var repoItem = RepoItem()
-        repoItem.local = gitRepo.localPath
-        repoItem.remote = "https://" + gitRepo.remotePath
-        repoItem.branch = gitRepo.branch
-        return repoItem
-    }
-    static var dummyData:RepoItem {
-        return RepoItem(local: "user file path",branch: "master",title: "Element iOS")
-    }
-}
-enum RepoType:String{//TODO: ⚠️️ move this into RepoItem
-    case title = "title"
-    case local = "local"
-    case remote = "remote"
-    case branch = "branch"
-    case auto = "auto"
-    case message = "message"
-    case active = "active"
-}
-enum RepoFolderType:String{//TODO: ⚠️️ move this into RepoItem
-    case isOpen = "isOpen"
-    case hasChildren = "hasChildren"
-}
 
-/*
- class RepoItemType {
- static var localPath:String = "localPath"
- static var interval:String = "interval"
- static var branch:String = "branch"
- static var keyChainItemName:String = "keyChainItemName"
- static var upload:String = "upload"
- static var title:String = "title"
- static var download:String = "download"
- static var active:String = "active"
- static var remotePath:String = "remotePath"
- static var autoSyncInterval:String = "autoSyncInterval"
- static var autoCommitMessage:String = "autoCommitMessage"
- static var fileChange:String = "fileChange"
- static var pullToAutoSync:String = "pullToAutoSync"
- }*/

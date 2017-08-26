@@ -8,7 +8,7 @@ import Cocoa
 class RepoView:Element,Closable {
     static var selectedListItemIndex:[Int] = []
     static var _treeDP:TreeDP? = nil
-    static var treeDP:TreeDP {
+    static var treeDP:TreeDP {//all this may not be needed, test if you need to invalidate etc. 
         guard let treeDP = _treeDP else{
             _treeDP = TreeDP(Config.Bundle.repo.tildePath)/*Doesn't exists return new DP*/
             return _treeDP!

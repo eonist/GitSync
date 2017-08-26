@@ -28,8 +28,8 @@ class RepoUtils {
     }
     /**
      * Conforms repoItem data and returns a RepoItem that can be used with git
-     * TODO: if the interval values is not set, then use default values
-     * TODO: test if the full/partly file path still works?
+     * TODO: ⚠️️ if the interval values is not set, then use default values
+     * TODO: ⚠️️ test if the full/partly file path still works?
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
         //Swift.print("dict: " + "\(dict)")

@@ -1,6 +1,8 @@
 import Foundation
 @testable import Utils
-
+/**
+ * Verifies if git project exists locally
+ */
 class RepoVerifier:ArrayIterator<RepoItem>{
     typealias Complete = ()->Void
     let onComplete:Complete

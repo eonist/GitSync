@@ -9,51 +9,33 @@ class RepoDetailView:Element,Closable,UnFoldable {
     }
     /**
      * Modifies the dataProvider item on UI change
-     * TODO: ⚠️️ enumify this method? at least use switch
      */
     override func onEvent(_ event:Event) {
         //Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
-        guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
-            fatalError("no attribs at: \(idx3d)")
-        }
-        if event.type == Event.update {/*TextInput*/
-            switch true{
-            case event.isChildOf(nameText):
-                //Swift.print("nameText?.inputText: " + "\(nameText?.inputText)")
-                attrib[RepoType.title.rawValue] = nameText?.inputText
-            case event.isChildOf(localPathPicker):
-                attrib[RepoType.local.rawValue] = localPathPicker?.textInput.inputText
-            case event.isChildOf(remoteText):
-                attrib[RepoType.remote.rawValue] = remoteText?.inputText
-            case event.isChildOf(branchText):
-                attrib[RepoType.branch.rawValue] = branchText?.inputText
-            default:
-                break;
-            }
-        }else if let event = event as? CheckEvent{/*CheckButtons*/
-            switch true{
-            case event.isChildOf(parentID:Key.active)://TODO: <---use getChecked here
-                attrib[RepoType.active.rawValue] = event.isChecked.str
-            case event.isChildOf(parentID:Key.message) ://event.isChildOf(messageCheckBoxButton)
-                attrib[RepoType.message.rawValue] = event.isChecked.str
-            case event.isChildOf(parentID:Key.auto):
-                attrib[RepoType.auto.rawValue] = event.isChecked.str
-            default:
-                break;
-            }
-        }else{
+        var data:RepoDetailData = RepoDetailData.repoDetailData(treeDP: RepoView.treeDP, idx3d: idx3d)
+        
+        switch true{
+        case event.assert(Event.update,parentID:Key.title):
+            data.title = (event as! TextFieldEvent).stringValue
+        case event.assert(Event.update,parentID:Key.local):
+            data.local = (event as! TextFieldEvent).stringValue
+        case event.assert(Event.update,parentID:Key.remote):
+            data.remote = (event as! TextFieldEvent).stringValue
+        case event.assert(Event.update,parentID:Key.branch):
+            data.branch = (event as! TextFieldEvent).stringValue
+        case event.assert(CheckEvent.check,parentID:Key.active):
+            data.active = (event as! CheckEvent).isChecked
+        case event.assert(CheckEvent.check,parentID:Key.message):
+            data.message = (event as! CheckEvent).isChecked
+        case event.assert(CheckEvent.check,parentID:Key.auto):
+            data.auto = (event as! CheckEvent).isChecked
+        default:
             super.onEvent(event)//forward other events
+            break;
         }
-        if(event.type == CheckEvent.check || event.type == Event.update){
-            //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
-            RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
-            if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                _ = tree
-                //Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
-                //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
-            }
+        if event.assert(.check) || event.assert(.update) {
+            RepoView.treeDP.tree[idx3d]!.props = data.dict/*Overrides the cur attribs*/
         }
     }
 }
-

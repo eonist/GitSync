@@ -5,8 +5,9 @@
                 {"type":"TextInput","id":"remote","text":"Remote:"},
                 {"type":"TextInput","id":"branch","text":"Branch:"},
                 {"type":"Section","id":"activeGroup","content":[{"type":"CheckBoxButton","id":"active","text":"Active:"},{"type":"Text","id":"description","text":"Activates sync for this repo"}]},
+                {"type":"Section","id":"autoGroup","content":[{"type":"CheckBoxButton","id":"auto","text":"Auto:"},{"type":"Text","id":"description","text":"Auto syncs on interval"}]},
                 {"type":"Section","id":"messageGroup","content":[{"type":"CheckBoxButton","id":"message","text":"Message:"},{"type":"Text","id":"description","text":"Generates commit message"}]},
-                {"type":"Section","id":"autoGroup","content":[{"type":"CheckBoxButton","id":"auto","text":"Auto:"},{"type":"Text","id":"description","text":"Auto syncs on interval"}]}
+                {"type":"TextInput","id":"messageTemplate","text":"Template:"}
                 ],
     "prefsView":[
                  {"type":"TextInput","id":"login","text":"Github login:"},

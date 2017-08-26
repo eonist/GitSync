@@ -31,6 +31,11 @@
 
 ## Change-log:
 
+**2017-08-26**
+- Custom commit message now has ability cancel
+- Added description to checkboxes
+- Added ability to group UI components in the Unfold subsystem
+
 **2017-08-16**
 - Interval sync is now toggle-able per repo 
 - Migrated Element, swift-utils and GitSyncMac to swift 4 and XCode 9
