@@ -5,6 +5,7 @@ import Foundation
  */
 class AutoSync {
     typealias AutoSyncCompleted = ()->Void
+//    var messageRepoIterator 🏀
     var curIdxForRepoWithMessage:Int/*The iteration cursor*/
     let autoSyncComplete:AutoSyncCompleted/*When the AutoSync completes this is fired*/ // = {fatalError("Must attach onComplete handler")}
     /**

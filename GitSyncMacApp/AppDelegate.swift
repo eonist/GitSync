@@ -15,6 +15,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
+        
+//        let arrIterator = ArrayIterator(array:[1,2,3,4,5])
+//        while arrIterator.hasNext() {
+//            Swift.print(arrIterator.next())
+//        }
+        
         initApp()
         
         //quickTest()
