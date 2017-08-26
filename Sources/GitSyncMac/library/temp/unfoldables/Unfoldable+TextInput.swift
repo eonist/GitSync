@@ -12,6 +12,10 @@ extension TextInput:UnFoldable{
         static let text = "text"
         static let inputText = "inputText"
     }
+    var value:Any {
+        get{return self.inputText}
+        set{if let newValue:String = newValue as? String { self.setInputText(newValue) }}
+    }
 }
 extension UnFoldable where Self:TextInput{/*<-Attaches the Unfoldable protocol to TextInput*/
     static func unfold(dict:[String:Any]) -> UnFoldable{

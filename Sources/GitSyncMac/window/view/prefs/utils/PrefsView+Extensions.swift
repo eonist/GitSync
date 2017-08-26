@@ -29,15 +29,15 @@ extension PrefsView{
      * New
      */
     func setPrefs(_ prefs:PrefsData){
-        Swift.print("setPrefs")
+//        Swift.print("setPrefs")
         self.apply([Key.login,TextInput.Key.inputText],prefs.login)
         let passStr = KeyChainParser.password("GitSyncApp") ?? ""
         self.apply([Key.pass,TextInput.Key.inputText],passStr)
-        Swift.print("prefs.local: " + "\(prefs.local)")
+//        Swift.print("prefs.local: " + "\(prefs.local)")
         self.apply([Key.local,TextInput.Key.inputText],prefs.local)
-        self.apply([Key.darkMode],prefs.darkMode)
-        Swift.print("prefs.notification: " + "\(prefs.notification)")
-        self.apply([Key.notification],prefs.notification)
+        self.apply(["darkModeGroup",Key.darkMode],prefs.darkMode)
+//        Swift.print("prefs.notification: " + "\(prefs.notification)")
+        self.apply([Section.Key.group,Key.notification],prefs.notification)
     }
     static var xml:XML{
         get{

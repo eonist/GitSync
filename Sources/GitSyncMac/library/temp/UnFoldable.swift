@@ -16,8 +16,8 @@ extension UnFoldable{
      * Returns the UI component data
      */
     var value: Any {
-        get {fatalError("error")}
-        set {fatalError("error")}
+        get {fatalError("error: \(self)")}
+        set {fatalError("error: \(newValue)")}
     }
     /**
      * New

@@ -8,8 +8,8 @@ class StyleTestView:CustomView{
     lazy var main:Section = createMain()
     lazy var content:Section = createContent()
     lazy var leftBar:LeftSideBar = createLeftBar()
-    var currentView:Element?//attached to content
-    var currentPrompt:Element?//attached to content
+    var currentView:Element?/*attached to content*/
+    var currentPrompt:Element?/*attached to content*/
     override func resolveSkin(){
         super.resolveSkin()
         _ = main
@@ -23,7 +23,6 @@ class StyleTestView:CustomView{
         super.setSize(width, height)
         ElementModifier.refreshSize(self.main)
     }
-    
 }
 extension StyleTestView{
     func createMain() -> Section {

@@ -6,15 +6,13 @@ class UnfoldParser{
     /**
      * Traverses a hierarchy and find the Unfoldable at the correct path
      * PARAM: path: consists of many element id's
+     * TODO: ⚠️️ A problem with this method is that it doesnt keep searching similar named parents. So if you have 2 parents with the same id, it only traverses the first
      */
     static func retrieveUnFoldable(parent:UnFoldable, _ path:[String]) -> UnFoldable?{
-        guard let parentView = parent as? NSView else{
-//            Swift.print("parent isn't a nsview")
-            return nil
-        }
+        guard let parentView = parent as? NSView else{ return nil }
         for subView in parentView.subviews{
             if let sub = subView as? UnFoldable  {
-                if UnfoldAsserter.isMatch(sub, path[0]){
+                if UnfoldAsserter.isMatch(sub, path[0]){//asserts element.id
                     if path.count > 1 {
                         return retrieveUnFoldable(parent:sub, path.slice2(1, path.count))/*removes first item in path*/ //retrieve(sub, path)
                     }else{
@@ -30,10 +28,7 @@ class UnfoldParser{
      */
     static func retrieveValue<T>(_ view:UnFoldable, _ path:[String]) -> T?{
         let unfoldable:UnFoldable? = retrieveUnFoldable(parent:view, path)
-        //        Swift.print("unfoldable: " + "\(unfoldable)")
-        //        Swift.print("unfoldable?.value: " + "\(unfoldable?.value)")
         let value:T? = unfoldable!.value as? T
-        //        Swift.print("value: " + "\(value)")
         return value
     }
 }

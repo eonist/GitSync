@@ -60,7 +60,7 @@ class Nav {
             switch dialog{
             case .commit(let repoItem, let commitMessage, let onComplete):
                 let view = CommitDialogView(NaN,NaN,parentView)
-                Swift.print("🍏  CommitDialogView.setData")
+//                Swift.print("🍏  CommitDialogView.setData")
                 parentView.addSubview(view)
                 view.setData(repoItem, commitMessage, onComplete)
                 return view

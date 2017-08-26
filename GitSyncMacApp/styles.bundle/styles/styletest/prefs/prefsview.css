@@ -85,7 +85,7 @@ PrefsView Spinner TextInput TextArea Text{
 	color:<TextTheme>;
 }
 /*Group*/
-PrefsView Section#group{
+PrefsView [Section#group,Section#darkModeGroup]{
 	width:100%;
 	height:32px;
 	float:left;
@@ -93,7 +93,7 @@ PrefsView Section#group{
 	fill:grey;
 	fill-alpha:0.0;
 }
-PrefsView Section#group Text#description{
+PrefsView [Section#group,Section#darkModeGroup] Text#description{
 	width:calc(100% -120px);
 	height:20px;
 	clear:none;
