@@ -11,6 +11,7 @@ struct RepoItem {
     var remote:String = ""/*Remote path to repository*/
     var message:Bool = false/*Auto-created commit message*///TODO: ⚠️️ rename
     var auto:Bool = false/*Automatically syncs on an intervall*///TODO: ⚠️️ rename to interval?
+    var template:String = ""
     //var interval:Int = 0
     //var keyChainItemName:String = ""
     //var upload:Bool = false

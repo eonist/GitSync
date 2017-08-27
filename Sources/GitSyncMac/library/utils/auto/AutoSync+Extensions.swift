@@ -5,7 +5,7 @@ import Foundation
  */
 extension AutoSync{
     /**
-     * Syncs non-manual-message repos
+     * Syncs auto-message repos
      */
     private func syncOtherRepos(){
         let group = DispatchGroup()
@@ -29,7 +29,7 @@ extension AutoSync{
      */
     func onAllReposVerified(){
         if !messageRepoIterator.isEmpty {
-            messageRepoIterator.iterate()
+            messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
         }else if !otherRepos.isEmpty {
             syncOtherRepos()
         }else {/*Nothing to sync*/

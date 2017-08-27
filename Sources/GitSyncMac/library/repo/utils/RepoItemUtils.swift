@@ -41,6 +41,7 @@ class RepoUtils {
         repoItem.title = dict[RepoType.title.rawValue]!
         repoItem.auto = dict[RepoType.auto.rawValue]!.bool
         repoItem.message = dict[RepoType.message.rawValue]!.bool
+        repoItem.template = dict["template"] ?? ""
         //Swift.print("dict[RepoType.active.rawValue]!: " + "\(dict[RepoType.active.rawValue]!)")
         repoItem.active = dict[RepoType.active.rawValue]!.bool
         let remotePath:String = dict[RepoType.remote.rawValue]!

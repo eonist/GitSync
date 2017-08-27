@@ -11,19 +11,24 @@ class RepoDetailView:Element,Closable,UnFoldable {
      * Modifies the dataProvider item on UI change
      */
     override func onEvent(_ event:Event) {
-        //Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
+//        Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
+//        Swift.print("is child of : \(event.isChildOf(parentID: "template"))")
+//        Swift.print("(event.immediate as! ElementKind).id: " + "\((event.immediate as! ElementKind).id)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
         var data:RepoDetailData = RepoDetailData.repoDetailData(treeDP: RepoView.treeDP, idx3d: idx3d)
         
         switch true{
-        case event.assert(Event.update,parentID:Key.title):
+        case event.assert(TextFieldEvent.update,parentID:Key.title):
             data.title = (event as! TextFieldEvent).stringValue
-        case event.assert(Event.update,parentID:Key.local):
+        case event.assert(TextFieldEvent.update,parentID:Key.local):
             data.local = (event as! TextFieldEvent).stringValue
-        case event.assert(Event.update,parentID:Key.remote):
+        case event.assert(TextFieldEvent.update,parentID:Key.remote):
             data.remote = (event as! TextFieldEvent).stringValue
-        case event.assert(Event.update,parentID:Key.branch):
+        case event.assert(TextFieldEvent.update,parentID:Key.branch):
             data.branch = (event as! TextFieldEvent).stringValue
+        case event.assert(TextFieldEvent.update,parentID:Key.template):
+//            Swift.print("template : \((event as! TextFieldEvent).stringValue)")
+            data.template = (event as! TextFieldEvent).stringValue
         case event.assert(CheckEvent.check,parentID:Key.active):
             data.active = (event as! CheckEvent).isChecked
         case event.assert(CheckEvent.check,parentID:Key.message):

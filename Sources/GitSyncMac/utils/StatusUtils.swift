@@ -76,22 +76,26 @@ class StatusUtils{
 	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
     static func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
+        let group:DispatchGroup = .init()
          statusList.forEach{ (statusItem:[String:String]) in
+            group.enter()
             let state:String = statusItem["state"]!
             let fileName:String = statusItem["fileName"]!
 			switch state {
-				case StatusType.untrackedFiles: //--this is when there exists a new file
-					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-				case StatusType.changesNotStagedForCommit: //--this is when you have not added a file that has changed to the next commit
-					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-				case StatusType.changestoBeCommitted://--this is when you have added a file to the next commit, but not commited it
+				case StatusType.untrackedFiles: /*this is when there exists a new file*/
+					_ = GitModifier.add(localRepoPath, fileName) /*🌵 add the file to the next commit*/
+				case StatusType.changesNotStagedForCommit: /*this is when you have not added a file that has changed to the next commit*/
+					_ = GitModifier.add(localRepoPath, fileName) /*🌵 add the file to the next commit*/
+				case StatusType.changestoBeCommitted:/*this is when you have added a file to the next commit, but not commited it*/
                     _ = {}/*do nothing here*/
-				case StatusType.unmergedPath: //--This is when you have files that have to be resolved first, but eventually added aswell
-					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-                default :
+				case StatusType.unmergedPath: /*This is when you have files that have to be resolved first, but eventually added aswell*/
+					_ = GitModifier.add(localRepoPath, fileName) /*🌵 add the file to the next commit*/
+                default:
 					fatalError("type not supported")
 					break
 			}
+            group.leave()
 		}
+        group.wait()//waits until all items in the loop has been processed
 	}
 }

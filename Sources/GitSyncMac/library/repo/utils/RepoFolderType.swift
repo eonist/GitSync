@@ -1,5 +1,6 @@
 import Foundation
 
-class RepoFolderType {
-
+enum RepoFolderType:String{
+    case isOpen = "isOpen"
+    case hasChildren = "hasChildren"
 }

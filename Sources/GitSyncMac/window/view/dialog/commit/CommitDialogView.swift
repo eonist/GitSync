@@ -17,10 +17,7 @@ class CommitDialogView:Element,UnFoldable,Closable {
     override func onEvent(_ event:Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
-        }else if event.assert(.upInside, id: "cancel"){
-            Swift.print("stop the auto sync process")
-            Swift.print("remove commit dialog from view")
-//            fatalError("not supported yet")
+        }else if event.assert(.upInside, id: "cancel"){/*stop the auto sync process,remove commit dialog from view*/
             Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*/
             self.onCommitDialogComplete()
         }

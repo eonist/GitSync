@@ -14,10 +14,11 @@ class MessageRepoIterator:ArrayIterator<RepoItem> {
     func iterate(){
         if hasNext() {
             let repoItem:RepoItem = next()
-            if let commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {/*if no commit msg is generated, then no commit is needed*/
+            if var commitMessage:CommitMessage = CommitMessageUtils.generateCommitMessage(repoItem.local) {/*if no commit msg is generated, then no commit is needed*/
+                if !repoItem.template.isEmpty {commitMessage.title = repoItem.template}//add template as title if it exists
                 Nav.setView(.dialog(.commit(repoItem,commitMessage,{self.iterate()})))/*this view eventually calls initCommit*/
             }else {
-                MergeUtils.manualMerge(repoItem){/*nothing to commit but  check if remote has updates*/
+                MergeUtils.manualMerge(repoItem){/*nothing to commit but check if remote has updates*/
                     self.iterate()/*nothing to commit, iterate*/
                 }
             }

@@ -8,6 +8,10 @@ extension FilePicker:UnFoldable{
         static let input = "input"
         static let buttonText = "buttonText"
     }
+    var value:Any {
+        get{return self.textInput.inputText}//
+        set{if let newValue:String = newValue as? String { self.textInput.setInputText(newValue) }}
+    }
 }
 extension UnFoldable where Self:FilePicker{
     static func unfold(dict:[String:Any]) -> UnFoldable {

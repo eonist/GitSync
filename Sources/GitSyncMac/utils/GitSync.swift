@@ -8,16 +8,11 @@ class GitSync{
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
     static func initCommit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onPushComplete:@escaping PushComplete){
-//        Swift.print("GitSync.initCommit")
         func doCommit(){
-            let hasCommited = commit(repoItem,commitMessage)/*🌵 if there were no commits false will be returned*/
-            _ = hasCommited
-//            Swift.print("hasCommited: " + "\(hasCommited)")
-            //hasCommited ? initPush(repoItem,onComplete: onPushComplete) : onPushComplete()
+            _ = commit(repoItem,commitMessage)/*🌵 if there were no commits false will be returned*/
             initPush(repoItem, onPushComplete)//push or check if you need to pull down changes and subsequently merge something
         }
         if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
-//            Swift.print("unMergedFiles.count: " + "\(unMergedFiles.count)")
             MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
                 doCommit()
             }
@@ -33,21 +28,14 @@ class GitSync{
      * IMPORTANT: ⚠️️ this is called on a background thread
      */
     private static func initPush(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete){
-//        Swift.print("GitSync.initPush")
         MergeUtils.manualMerge(repoItem){//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
             let repo:GitRepo = repoItem.gitRepo
             let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
-//            Swift.print("initPush.hasLocalCommits: " + "\(hasLocalCommits)")
-//            var hasPushed:Bool = false
             if hasLocalCommits { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
                 guard let keychainPassword:String = KeyChainParser.password("GitSyncApp") else{ fatalError("password not found")}
-                //Swift.print("keychainPassword: 🔑" + "\(keychainPassword)" + "repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
                 let key:GitKey = .init(PrefsView.prefs.login, keychainPassword)
                 if PrefsView.prefs.login.isEmpty || keychainPassword.isEmpty {fatalError("need login and pass")}
-                let pushCallBack = GitModifier.push(repo,key)/*🌵*/
-                _ = pushCallBack
-//                Swift.print("pushCallBack: " + "\(pushCallBack)")
-//                hasPushed = true
+                _ = GitModifier.push(repo,key)/*🌵*/
             }
             onPushComplete()
         }
@@ -61,15 +49,9 @@ class GitSync{
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil)->Bool{
-        let commitMSG:CommitMessage? = {
-            guard let msg = commitMessage else {
-                return CommitMessageUtils.generateCommitMessage(repoItem.localPath)
-            };return msg
-        }()
-        guard let msg = commitMSG else{return false}
+        guard let msg:CommitMessage = commitMessage ?? CommitMessage.autoCommitMessage(repoItem: repoItem, commitMessage: commitMessage) else{return false}/*No commitMessage means no commit*/
         NotificationManager.notifyUser(message: msg,repo: repoItem)
-        let commitResult:String = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit
-        _ = commitResult
+        _ = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit
         return true
     }
 }
