@@ -11,23 +11,23 @@ class RepoDetailView:Element,Closable,UnFoldable {
      * Modifies the dataProvider item on UI change
      */
     override func onEvent(_ event:Event) {
-//        Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
-//        Swift.print("is child of : \(event.isChildOf(parentID: "template"))")
-//        Swift.print("(event.immediate as! ElementKind).id: " + "\((event.immediate as! ElementKind).id)")
+        Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
-        var data:RepoDetailData = RepoDetailData.repoDetailData(treeDP: RepoView.treeDP, idx3d: idx3d)
+        var data:RepoItem = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
+        
+        //figure out why local and notification are not added to data. 🏀
         
         switch true{
         case event.assert(TextFieldEvent.update,parentID:Key.title):
             data.title = (event as! TextFieldEvent).stringValue
         case event.assert(TextFieldEvent.update,parentID:Key.local):
+            Swift.print("set local")
             data.local = (event as! TextFieldEvent).stringValue
         case event.assert(TextFieldEvent.update,parentID:Key.remote):
             data.remote = (event as! TextFieldEvent).stringValue
         case event.assert(TextFieldEvent.update,parentID:Key.branch):
             data.branch = (event as! TextFieldEvent).stringValue
         case event.assert(TextFieldEvent.update,parentID:Key.template):
-//            Swift.print("template : \((event as! TextFieldEvent).stringValue)")
             data.template = (event as! TextFieldEvent).stringValue
         case event.assert(CheckEvent.check,parentID:Key.active):
             data.active = (event as! CheckEvent).isChecked
@@ -35,6 +35,9 @@ class RepoDetailView:Element,Closable,UnFoldable {
             data.message = (event as! CheckEvent).isChecked
         case event.assert(CheckEvent.check,parentID:Key.auto):
             data.auto = (event as! CheckEvent).isChecked
+        case event.assert(CheckEvent.check,parentID:Key.notification):
+            Swift.print("set notification: ")
+            data.notification = (event as! CheckEvent).isChecked
         default:
             super.onEvent(event)//forward other events
             break;

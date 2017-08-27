@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 
 class GitSync{
-    typealias PushComplete = (/*_ hasPushed:Bool*/)->Void
+    typealias PushComplete = ()->Void
     /**
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
@@ -49,6 +49,7 @@ class GitSync{
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil)->Bool{
+        Swift.print("commit: \(commitMessage)")
         guard let msg:CommitMessage = commitMessage ?? CommitMessage.autoCommitMessage(repoItem: repoItem, commitMessage: commitMessage) else{return false}/*No commitMessage means no commit*/
         NotificationManager.notifyUser(message: msg,repo: repoItem)
         _ = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit

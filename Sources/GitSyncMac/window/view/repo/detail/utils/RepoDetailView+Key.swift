@@ -11,5 +11,6 @@ extension RepoDetailView{
         static let message:String = RepoType.message.rawValue
         static let active:String = RepoType.active.rawValue
         static let template:String = "template"
+        static let notification:String = "notification"
     }
 }

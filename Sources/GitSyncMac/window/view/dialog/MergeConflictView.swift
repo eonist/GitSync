@@ -90,7 +90,6 @@ extension MergeConflictView{
         
         if let curPrompt = Proxy.styleTestView?.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
           
-        
     }
 }
 extension MergeConflictView{

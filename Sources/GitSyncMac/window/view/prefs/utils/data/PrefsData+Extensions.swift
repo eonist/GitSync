@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 extension PrefsData{
     typealias Key = PrefsView.Key
@@ -59,3 +60,5 @@ extension PrefsViewClosable{
         self.removeFromSuperview()
     }
 }
+
+

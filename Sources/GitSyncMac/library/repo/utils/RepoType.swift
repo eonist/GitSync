@@ -1,6 +1,6 @@
 import Foundation
 
-enum RepoType:String{//TODO: ⚠️️ move this into RepoItem
+enum RepoType:String{//TODO: ⚠️️ move this into RepoItem and rename it key
     case title = "title"
     case local = "local"
     case remote = "remote"

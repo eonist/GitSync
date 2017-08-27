@@ -28,6 +28,7 @@ extension CommitDialogView{
         let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error - must have description")}()
         let commitMessage = CommitMessage(title,desc)
         Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*/
+        
         bg.async {
             GitSync.initCommit(repoItem, commitMessage, {main.async{self.onCommitDialogComplete()}})
         }

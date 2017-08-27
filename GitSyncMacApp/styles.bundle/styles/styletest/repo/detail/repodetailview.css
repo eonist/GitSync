@@ -56,7 +56,7 @@ RepoDetailView CheckBoxButton Text{
 	align:left;
 }
 /*Group*/
-RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup]{
+RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup,Section#notificationGroup]{
 	width:100%;
 	height:32px;
 	float:left;
@@ -64,7 +64,7 @@ RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup]{
 	fill:grey;
 	fill-alpha:0.0;
 }
-RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup] Text#description{
+RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup,Section#notificationGroup] Text#description{
 	width:calc(100% -120px);
 	height:20px;
 	clear:none;

@@ -152,7 +152,7 @@ extension RepoContextMenu{
         Swift.print("showInFinder")
         if let idx = rightClickItemIdx, !TreeList3Asserter.hasChildren(treeList,idx) {
             /*Only repos can be opened in finder*/
-            let repoItem = RepoUtils.repoItem(treeList.xml, idx)
+            let repoItem = RepoUtils.repoItem(xml: treeList.xml, idx: idx)
             if FileAsserter.exists(repoItem.local.tildePath) {/*make sure local-path exists*/
                 FileUtils.showFileInFinder(repoItem.local)
             }
@@ -163,7 +163,7 @@ extension RepoContextMenu{
         if let idx = rightClickItemIdx {
             let hasChildren:Bool = treeList.hasChildren(idx)
             if !hasChildren {/*Only repos can be opened in finder*/
-                let repoItem = RepoUtils.repoItem(treeList.xml, idx)
+                let repoItem = RepoUtils.repoItem(xml: treeList.xml, idx: idx)
                 NetworkUtils.openURLInDefaultBrowser(repoItem.remote)
             }
         }
