@@ -74,6 +74,8 @@ Section#textContainer Text#date{
 	clear:right;
 	align:right;
 	color:<TextTheme2>;
+	height:20px;
+	width:40px;
     /*padding-right:-26px;*/
 }
 :selected Section#textContainer Text#title{ 

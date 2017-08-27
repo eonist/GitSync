@@ -16,7 +16,7 @@ class RepoUtils {
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
 //        Swift.print("arr: " + "\(arr)")
-        let overrideKeys:[String] = [RepoType.active.rawValue,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.auto.rawValue/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
+        let overrideKeys:[String] = [RepoItem.Key.active,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoItem.Key.auto/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
@@ -34,18 +34,18 @@ class RepoUtils {
     static func repoItem(dict:[String:String]) -> RepoItem{
         //Swift.print("dict: " + "\(dict)")
         var repoItem:RepoItem = RepoItem()
-        let localPath:String = dict[RepoType.local.rawValue]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+        let localPath:String = dict[RepoItem.Key.local]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
         //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
         repoItem.local = localPath
-        repoItem.branch = dict[RepoType.branch.rawValue]!
-        repoItem.title = dict[RepoType.title.rawValue]!
-        repoItem.auto = dict[RepoType.auto.rawValue]!.bool
-        repoItem.message = dict[RepoType.message.rawValue]!.bool
-        repoItem.template = dict["template"] ?? ""
-        repoItem.notification = dict["notification"]?.bool ?? false
+        repoItem.branch = dict[RepoItem.Key.branch]!
+        repoItem.title = dict[RepoItem.Key.title]!
+        repoItem.auto = dict[RepoItem.Key.auto]!.bool
+        repoItem.message = dict[RepoItem.Key.message]!.bool
+        repoItem.template = dict[RepoItem.Key.template] ?? ""
+        repoItem.notification = dict[RepoItem.Key.notification]?.bool ?? false
         //Swift.print("dict[RepoType.active.rawValue]!: " + "\(dict[RepoType.active.rawValue]!)")
-        repoItem.active = dict[RepoType.active.rawValue]!.bool
-        let remotePath:String = dict[RepoType.remote.rawValue]!
+        repoItem.active = dict[RepoItem.Key.active]!.bool
+        let remotePath:String = dict[RepoItem.Key.remote]!
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
         //print(remotePath)
         repoItem.remote = remotePath
@@ -105,7 +105,7 @@ private class Utils{
      */
     static func filterFolders(_ list:[[String:String]], _ mustNotContain:[String])->[RepoItem]{
         let repoList:[RepoItem] = list.filter{
-            (!$0.contains(mustNotContain) && $0.hasKey(RepoType.active.rawValue) && $0[RepoType.active.rawValue]!.bool)/*skips folders, and active must be true*/
+            (!$0.contains(mustNotContain) && $0.hasKey(RepoItem.Key.active) && $0[RepoItem.Key.active]!.bool)/*skips folders, and active must be true*/
             }.map{/*create array of tuples*/
                 RepoUtils.repoItem(dict: $0)
         }

@@ -50,7 +50,7 @@ extension RepoContextMenu{
     @objc func newGroup(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
-        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"true\" \(RepoType.active.rawValue)=\"true\"></item>"//hasChildren=\"true\"
+        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"true\" \(RepoItem.Key.active)=\"true\"></item>"//hasChildren=\"true\"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
@@ -62,13 +62,13 @@ extension RepoContextMenu{
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
         let props:[String:String] = [
-            RepoType.title.rawValue:"New repo",
-            RepoType.local.rawValue:"~/Desktop/test",
-            RepoType.remote.rawValue:"https://github.com/eonist/test.git",
-            RepoType.branch.rawValue:"master",
-            RepoType.message.rawValue:"true",
-            RepoType.active.rawValue:"true",
-            RepoType.auto.rawValue:"true"]
+            RepoItem.Key.title:"New repo",
+            RepoItem.Key.local:"~/Desktop/test",
+            RepoItem.Key.remote:"https://github.com/eonist/test.git",
+            RepoItem.Key.branch:"master",
+            RepoItem.Key.message:"true",
+            RepoItem.Key.active:"true",
+            RepoItem.Key.auto:"true"]
         let tree:Tree = Tree.init("item", [], nil, props)
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)

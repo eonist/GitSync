@@ -49,9 +49,10 @@ class GitSync{
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil)->Bool{
-        Swift.print("commit: \(commitMessage)")
+//        Swift.print("commit: \(commitMessage)")
         guard let msg:CommitMessage = commitMessage ?? CommitMessage.autoCommitMessage(repoItem: repoItem, commitMessage: commitMessage) else{return false}/*No commitMessage means no commit*/
-        NotificationManager.notifyUser(message: msg,repo: repoItem)
+        if repoItem.notification { NotificationManager.notifyUser(message: msg,repo: repoItem) }
+//        Swift.print("msg.title: " + "\(msg.title)")
         _ = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit
         return true
     }
