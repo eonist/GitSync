@@ -59,6 +59,7 @@ class CommitMessageUtils{
         Swift.print("generateCommitMessage.localRepoPath: " + "\(localRepoPath)")
         let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
         Swift.print("statusList: " + "\(statusList)")
+        Swift.print("before")
         guard !statusList.isEmpty else {Swift.print("what");return nil}/*nothing to add or commit,break the flow since there is nothing to commit or process*/
         /*there is something to add or commit*/
         Swift.print("before processStatusList")
