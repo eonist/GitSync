@@ -76,9 +76,9 @@ class StatusUtils{
 	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
     static func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
-        let group:DispatchGroup = .init()
+//        let group:DispatchGroup = .init()
          statusList.forEach{ (statusItem:[String:String]) in
-            group.enter()
+//            group.enter()
             let state:String = statusItem["state"]!
             let fileName:String = statusItem["fileName"]!
 			switch state {
@@ -94,8 +94,8 @@ class StatusUtils{
 					fatalError("type not supported")
 					break
 			}
-            group.leave()
+//            group.leave()
 		}
-        group.wait()//waits until all items in the loop has been processed
+//        group.wait()//waits until all items in the loop has been processed
 	}
 }

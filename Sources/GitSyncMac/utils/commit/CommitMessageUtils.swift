@@ -58,9 +58,12 @@ class CommitMessageUtils{
     static func generateCommitMessage(_ localRepoPath:String) -> CommitMessage? {
         Swift.print("generateCommitMessage.localRepoPath: " + "\(localRepoPath)")
         let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
+        Swift.print("statusList: " + "\(statusList)")
         guard !statusList.isEmpty else {return nil}/*nothing to add or commit,break the flow since there is nothing to commit or process*/
         /*there is something to add or commit*/
         StatusUtils.processStatusList(localRepoPath, statusList)/*process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del*/
-        return CommitMessage.init(statusList:statusList)/*return true to indicate that the commit completed*/
+        let retVal = CommitMessage.init(statusList:statusList)/*return true to indicate that the commit completed*/
+        Swift.print("retVal: " + "\(retVal)")
+        return retVal
     }
 }
