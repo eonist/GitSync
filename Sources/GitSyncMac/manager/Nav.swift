@@ -61,6 +61,7 @@ class Nav {
             case .commit(let repoItem, let commitMessage, let onComplete):
                 let view = CommitDialogView()
                 parentView.addSubview(view)
+                Swift.print("onComplete: " + "\(onComplete)")
                 view.setData(repoItem, commitMessage, onComplete)
                 return view
             case .conflict(let mergeConflict):

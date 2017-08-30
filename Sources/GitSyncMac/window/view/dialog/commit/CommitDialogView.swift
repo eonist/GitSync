@@ -6,7 +6,7 @@ import Cocoa
  */
 class CommitDialogView:Element,UnFoldable,Closable {
     var repoItem:RepoItem?
-    var onCommitDialogComplete:Completed = {fatalError("no completion handler assigned")}/*Stores the onComplete when the user clicks OK*/
+    var onCommitDialogComplete:Completed = {print("hmm");fatalError("no completion handler assigned")}/*Stores the onComplete when the user clicks OK*/
     
     override func resolveSkin() {
         Swift.print("🍊 CommitDialogView.resolveSkin()")
