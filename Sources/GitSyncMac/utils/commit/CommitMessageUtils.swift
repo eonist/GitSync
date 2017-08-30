@@ -56,6 +56,7 @@ class CommitMessageUtils{
      * Auto commit msg
      */
     static func generateCommitMessage(_ localRepoPath:String) -> CommitMessage? {
+        Swift.print("generateCommitMessage.localRepoPath: " + "\(localRepoPath)")
         let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
         guard !statusList.isEmpty else {return nil}/*nothing to add or commit,break the flow since there is nothing to commit or process*/
         /*there is something to add or commit*/
