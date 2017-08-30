@@ -27,10 +27,11 @@ extension CommitDialogView{
         let title:String = self.retrieve([Key.title,TextInput.Key.inputText])  ?? {fatalError("error - must have title")}()
         let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error - must have description")}()
         let commitMessage = CommitMessage(title,desc)
-        Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*/
-        let completionRef = self.onCommitDialogComplete
+        
         bg.async {
-            GitSync.initCommit(repoItem, commitMessage, {main.async{completionRef()}})
+            GitSync.initCommit(repoItem, commitMessage, {main.async{self.onCommitDialogComplete()}})
         }
+        Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*/
+        
     }
 }
