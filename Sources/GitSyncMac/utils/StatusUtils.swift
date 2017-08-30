@@ -76,6 +76,7 @@ class StatusUtils{
 	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
     static func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
+        Swift.print("processStatusList.localRepoPath: " + "\(localRepoPath)")
 //        let group:DispatchGroup = .init()
          statusList.forEach{ (statusItem:[String:String]) in
 //            group.enter()
