@@ -29,7 +29,7 @@ extension CommitDialogView{
         let commitMessage = CommitMessage(title,desc)
         
         bg.async {
-            GitSync.initCommit(repoItem, commitMessage, {main.async{self.onCommitDialogComplete()}})
+            GitSync.initCommit(repoItem, commitMessage, {[weak self] in main.async{self?.onCommitDialogComplete()}})
         }
         Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*/
         
