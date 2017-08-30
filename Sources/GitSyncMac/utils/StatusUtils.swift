@@ -10,7 +10,7 @@ class StatusUtils{
 	 */
     static func generateStatusList(_ localRepoPath:String)->[[String:String]]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") /*the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list*/
-		//Swift.print("theStatus: " + "\(theStatus)")
+		Swift.print("theStatus: " + "\(theStatus)")
 		let theStatusList:[String] = StringParser.paragraphs(theStatus) /*store each line as items in a list*/
         guard !theStatusList.isEmpty else {return []}/*this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin, aka nothing to commit, working directory clean*/
         let transformedList = transformStatusList(theStatusList)
