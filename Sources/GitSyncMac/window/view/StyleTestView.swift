@@ -26,14 +26,14 @@ class StyleTestView:CustomView{
 }
 extension StyleTestView{
     func createMain() -> Section {
-        return self.addSubView(Section(NaN,NaN,self,"main"))
-    }
-    func createContent() -> Section {
-        return self.main.addSubView(Section(NaN,NaN,self.main,"content"))
+        return self.addSubView(Section.init(id:"main"))
     }
     func createLeftBar() -> LeftSideBar{
-        return self.main.addSubView(LeftSideBar(NaN,NaN,self.main,"leftBar"))
-    } 
+        return self.main.addSubView(LeftSideBar.init(id:"leftBar"))
+    }
+    func createContent() -> Section {
+        return self.main.addSubView(Section.init(id:"content"))
+    }
 }
 
 extension StyleTestView{

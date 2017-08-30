@@ -4,6 +4,7 @@ import Cocoa
 /**
  * TODO: ⚠️️ rename unFold to unfold
  * NOTE: https://github.com/Zewo/Reflection  (native swift KVC KeyValueCoding, but complex and brittle)
+ * NOTE: The reason we are not using Decodable available in swift 4. Is becaus eit requires the use of required init. Which clutters up UI component classes. UnFold lib can be used along side UI components. Or not at all. 
  * IMPORTANT: ⚠️️ The reason we don't use convenience init is because it cannot be overriden in extensions, But a static func can if its added inside  an extension that uses where and Self:ClassName. Also init cant be defined as a method pointer
  */
 class Unfold{

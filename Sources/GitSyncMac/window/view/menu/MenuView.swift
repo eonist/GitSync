@@ -9,7 +9,7 @@ class LeftSideBar:Element{
     var isLeftBarHidden:Bool = false
     override func resolveSkin() {
         super.resolveSkin()
-        self.menuContainer = self.addSubView(MenuContainer(NaN,NaN,self,"buttonSection"))
-        _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
+        self.menuContainer = self.addSubView(MenuContainer.init(id:"buttonSection"))
+        _ = self.addSubView(Element.init(id:"ruler"))
     }
 }

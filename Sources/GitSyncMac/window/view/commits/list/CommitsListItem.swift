@@ -23,7 +23,7 @@ class CommitsListItem:Button,Selectable{
         self.desc = desc
         self.date = date
         self.isSelected = isSelected
-        super.init(width, height, parent, id)
+        super.init(size: CGSize(width,height), id: id)
     }
     override func resolveSkin() {
         super.resolveSkin()

@@ -16,33 +16,121 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
       
-//        let arrIterator = ArrayIterator(array:[1,2,3,4,5])
-//        while arrIterator.hasNext() {
-//            Swift.print(arrIterator.next())
-//        }
+//
         
         initApp()
 //
-        //quickTest()
+//        quickTest()
 //        quickTest2()
 //        quickTest3()
+//        quickTest5()
+//        quickTest6()
     }
+    /**
+     *
+     */
+    func quickTest6(){
+        window.contentView = InteractiveView()
+        
+        let themeStr:String = PrefsView.prefs.darkMode ? "dark.css" : "light.css"
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
+        StyleManager.addStyle(url:styleFilePath,liveEdit: false)
+        
+        //        StyleManager.addStylesByURL("~/Desktop/ElCapitan/general.css",false)
+        //        StyleManager.addStyle("List{fill:blue;}")
+        
+        //        let list = List4.init(size:CGSize(140,73),id:nil)
+        let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
+        
+//        _ = section?.addSubView(TextButton.init(text: "Button"))//(NaN,NaN,"Button")
+        
+        //then try the app 🏀
+        
+        let radioButton1:RadioButton? = section?.addSubView(RadioButton.init(text: "Option 1", isSelected: true))//80,14,"Option 1",false,section
+    }
+    /**
+     *
+     */
+    func quickTest5(){
+        let css = """
+        Section{
+            fill:blue;
+            clear:left;
+            float:left;
+            width:120px;
+            height:120px;
+        }
+        Section#b{
+            fill:red;
+            width:50%;
+            height:50%;
+        }
+        
+
+        
+        """
+        StyleManager.addStyle(css)
+        window.contentView = InteractiveView()
+        //        let text = TextField.editableTextField()
+        //        window.contentView?.addSubview(text)
+        
+        //Continue here: 🏀
+        //Caret works if there is size, but not when size is NaN
+        let a = window.contentView?.addSubView(Section.init(size:CGSize(0,0)))
+        let b = a?.addSubView(Section.init(size:CGSize(0,0),id:"b"))
+       
+    }
+    
     /**
      *
      */
     func quickTest3(){
         //Continue here: 🏀
         //create 1 button
-        StyleManager.addStyle("Button{fill:green;}")
+        let css = """
+        Section{
+            fill:blue;
+            clear:left;
+            float:left;
+            width:220px;
+            height:220px;
+        }
+        Section#b{
+            fill:orange;
+            fill-alpha:0.5;
+        }
+        Text{
+            width:120px;
+            height:24px;
+            float:left;
+            clear:left;
+            font:Helvetica Neue;
+            size:12px;
+            align:left;
+            type:input;
+            color:grey6;
+            selectable:true;
+            wordWrap:true;
+        }
+
+        
+        """
+        StyleManager.addStyle(css)
         window.contentView = InteractiveView()
-        let section = window.contentView?.addSubView(Section(200,200))
-        let btn = section?.addSubView(Button.init(size: CGSize(100,100)))
-        _ = btn
-            //test state
-        //create 2 buttons
-            //test state
-        //create 2 SelectButtons
-            //test state etc
+//        let text = TextField.editableTextField()
+//        window.contentView?.addSubview(text)
+        
+        //Continue here: 🏀
+            //Caret works if there is size, but not when size is NaN
+        let a = window.contentView?.addSubView(Section.init(size:CGSize(0,0)))
+//        let b = a?.addSubView(Section.init(size:CGSize(NaN,NaN),id:"b"))
+//        b?.frame.origin = CGPoint(100,100)
+        let textTest:Text? = a?.addSubView(Text.init(text: "Hello world"))
+//        textTest?.frame.size = CGSize(100,24)
+//        textTest?.skinSize = CGSize(100,24)
+        _ = textTest
+//        textTest?.setText("test")
+        
     }
     /**
      *
@@ -72,17 +160,33 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
         //var css:String = "Button{fill:blue;float:left;clear:none;}Button#b{fill:red;}Button#c{fill:green;clear:left;}"
         let css:String = """
+        Section{
+            fill:blue;
+            clear:left;
+            float:left;
+            width:220px;
+            height:220px;
+        }
         TextInput{
+            width:240px;
+            height:24px;
             float:left;
             clear:left;
             padding-top:2px;
         }
+        
         TextInput Text{
-            float:left;
-            clear:none;
             width:78px;
-            height:20px;
-            color:black;
+            height:24px;
+            float:left;
+            clear:left;
+            font:Helvetica Neue;
+            size:12px;
+            align:left;
+            type:input;
+            color:grey6;
+            selectable:true;
+            wordWrap:true;
         }
         TextInput TextArea{
             float:left;
@@ -104,13 +208,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             background:false;
             type:input;
             selectable:true;
+            wordWrap:true;
         }
         """
         StyleManager.addStyle(css)
         
-        let section = window.contentView!.addSubView(Section(400,200))
-        let textInput:TextInput = section.addSubView(TextInput(240, 24, "Description: ", "blue",section))
-        _ = textInput
+        let section = window.contentView!.addSubView(Section())
+       
+        
+        
+//        let textTest:Text = section.addSubView(Text.init(text: "Hello world"))
+        
+        
+        let textInput:TextInput = section.addSubView(TextInput.init(text: "Description: ", inputText: "blue"))
+//        _ = textInput
+//        textInput.inputTextArea.setTextValue("hello")
         
 //        css += "Section{fill:silver;padding:12px;}"
 //        StyleManager.addStyle(css)

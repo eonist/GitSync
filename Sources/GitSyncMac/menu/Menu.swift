@@ -8,10 +8,10 @@ import Cocoa
 class Menu {
     init(){
         guard let mainMenu = NSApp.mainMenu else {fatalError("NSApp.mainMenu not accessible")}
-//        while(mainMenu.items.count > 1){
-//            mainMenu.removeItem(at: mainMenu.items.count-1)
-//        }
-//        _ = mainMenu.addMenuItem(ViewMenu())
-//        _ = CustomAboutMenu()
+        while(mainMenu.items.count > 1){
+            mainMenu.removeItem(at: mainMenu.items.count-1)
+        }
+        _ = mainMenu.addMenuItem(ViewMenu())
+        _ = CustomAboutMenu()
     }
 }

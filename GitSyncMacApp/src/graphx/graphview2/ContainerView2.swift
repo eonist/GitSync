@@ -11,10 +11,10 @@ class ContainerView2:Element,Containable2 {
     /*item size is not relevant other than in*/var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
     var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
-    override init(_ width: CGFloat, _ height: CGFloat, _ parent: ElementKind? = nil, _ id: String? = nil) {
+    init(_ width: CGFloat, _ height: CGFloat, _ parent: ElementKind? = nil, _ id: String? = nil) {
         //maskSize = CGSize(width,height)
         //contentSize = CGSize(width,height)
-        super.init(width, height)
+        super.init(size: CGSize(width,height), id: id)
     }
     override func resolveSkin() {
         super.resolveSkin()

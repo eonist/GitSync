@@ -27,3 +27,7 @@ class ArrayIterator<T> {
 }
 extension ArrayIterator:Iteratable{}
 
+//let arrIterator = ArrayIterator(array:[1,2,3,4,5])
+//        while arrIterator.hasNext() {
+//            Swift.print(arrIterator.next())
+//        }

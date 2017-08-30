@@ -31,6 +31,13 @@
 
 ## Change-log:
 
+**2017-08-28**
+- Copy/paste/selectAll/undo now works in all TextFields
+
+**2017-08-27**
+- Notifications can be toggled per repo
+- Save prefs and repo list to storage when switching view
+
 **2017-08-26**
 - Custom commit message now has ability cancel
 - Added description to checkboxes

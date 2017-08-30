@@ -12,7 +12,7 @@ class MenuContainer:Element {
     }
     func createButtons(){
         var buttons:[Selectable] = MenuContainer.buttonTitles.map{ buttonTitle in
-            return self.addSubView(SelectButton(20,20,false,self,buttonTitle.rawValue))
+            return self.addSubView(SelectButton.init(isSelected: false, size: CGSize(20,20), id: buttonTitle.rawValue))
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         func onSelect(event:Event){
