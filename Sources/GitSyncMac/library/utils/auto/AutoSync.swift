@@ -17,7 +17,7 @@ class AutoSync {
     init(isUserInitiated:Bool, onComplete:@escaping AutoSyncCompleted) {
         self.isUserInitiated = isUserInitiated
         self.autoSyncComplete = onComplete
-        let repoVerifier = RepoVerifier(array:repoList,onComplete:onAllReposVerified)
+        let repoVerifier = RepoVerifier(array:repoList,onComplete:onAllReposVerified)/*⬅️️*/
         repoVerifier.iterateAll()
     }
 }
