@@ -5,8 +5,9 @@ import Cocoa
 class AutoInitView:Element,UnFoldable,Closable{
     
     //TODO:⚠️️ rename to AutoInitDialog
-    typealias Complete = () -> Void
-    var onComplete:() -> Void = {fatalError("Please assign handler")}
+    var verifiedRepos:[RepoItem]?
+    typealias Complete = (RepoItem,Bool) -> Void
+    var onComplete:Complete = {(_,_) in fatalError("Please assign handler")}
     var conflict:AutoInitConflict?
     override func resolveSkin() {
         Swift.print("AutoInitView.resolveSkin()")
@@ -20,7 +21,8 @@ class AutoInitView:Element,UnFoldable,Closable{
         }else if event.assert(.upInside, id: "cancel"){
             //fatalError("not yet supported: \(conflict!.repoItem)")
             self.removeFromSuperview()
-            onComplete()/*All done return to caller*/
+            guard let conflict = conflict else {fatalError("err")}
+            onComplete(conflict.repoItem,false)/*All done return to caller*/
         }
     }
 }

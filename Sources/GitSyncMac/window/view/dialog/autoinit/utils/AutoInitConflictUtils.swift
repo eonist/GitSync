@@ -34,6 +34,7 @@ class AutoInitConflictUtils {
     }
     /**
      * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
+     * TODO: Make this try do design pattern
      */
     static func process(_ conflict:AutoInitConflict){//TODO: ⚠️️ Move to AutoInitUtils
         let state:State = (conflict.pathExists,conflict.hasPathContent,conflict.isGitRepo,conflict.areRemotesEqual)

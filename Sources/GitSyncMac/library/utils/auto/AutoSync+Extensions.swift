@@ -45,7 +45,7 @@ extension AutoSync{
     /**
      * Generates the repoList
      */
-    func createRepoList() -> [RepoItem]{
+    static func createRepoList(isUserInitiated:Bool) -> [RepoItem]{
         let repoList = RepoUtils.repoListFlattenedOverridden/*Get the latest repo list*/
 //        Swift.print("repoList.count: " + "\(repoList.count)")
 //        repoList.forEach{
@@ -57,7 +57,8 @@ extension AutoSync{
      * Generates the MessageRepoIterator
      */
     func createMessageRepoIterator() -> MessageRepoIterator{
-        let messageRepos:[RepoItem] = repoList.filter{$0.message}/*repos that have manual commit message*/
+        let verifiedRepos = repoVerifier.verifiedRepos
+        let messageRepos:[RepoItem] = verifiedRepos.filter{$0.message}/*repos that have manual commit message*/
 //        Swift.print("messageRepos.count: " + "\(messageRepos.count)")
         return .init(array:messageRepos,onComplete:syncOtherRepos)
     }

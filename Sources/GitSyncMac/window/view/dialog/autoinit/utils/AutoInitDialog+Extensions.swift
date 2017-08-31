@@ -18,9 +18,9 @@ extension AutoInitView{
      */
     func onOKButtonClick(){
         Swift.print("onOKButtonClick")
-        guard let conflict = conflict else {return}
+        guard let conflict = conflict else {fatalError("err")}
         AutoInitConflictUtils.process(conflict)//executes the git commands
-        onComplete()/*All done return to caller*/
+        onComplete(conflict.repoItem,true)/*All done return to caller*/
         self.removeFromSuperview()
     }
 }
