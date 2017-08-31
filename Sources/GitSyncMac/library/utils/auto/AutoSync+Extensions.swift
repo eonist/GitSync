@@ -31,6 +31,7 @@ extension AutoSync{
         if !messageRepoIterator.isEmpty {
             messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
         }else if !otherRepos.isEmpty {
+            Swift.print("otherRepos: " + "\(otherRepos)")
             syncOtherRepos()
         }else {/*Nothing to sync*/
             autoSyncComplete()
