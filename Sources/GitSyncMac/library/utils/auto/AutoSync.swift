@@ -4,7 +4,7 @@ import Foundation
  * Takes care of staging, commiting, Pulling, pushing etc
  */
 class AutoSync {
-    typealias AutoSyncCompleted = ()->Void
+    typealias AutoSyncCompleted = ([RepoItem])->Void
     lazy var messageRepoIterator:MessageRepoIterator = createMessageRepoIterator()
     let repoList:[RepoItem]/*All repos*/
     lazy var otherRepos = repoVerifier.verifiedRepos.filter{!$0.message}/*"Verified" and "auto message" repos*/

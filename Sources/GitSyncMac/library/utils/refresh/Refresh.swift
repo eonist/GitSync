@@ -13,13 +13,13 @@ class Refresh{
      * PARAM: onAllRefreshComplete: When all repos has refreshed this method signature is called (aka The final complete call)
      * NOTE: This method is called after AutoSync has completed
      */
-    init(_ commitDP:CommitDP,_ onReposRefreshComplete:@escaping RefreshReposComplete){
+    init(dp commitDP:CommitDP, repoList:[RepoItem], onComplete onReposRefreshComplete:@escaping RefreshReposComplete){
         self.dp = commitDP
         Swift.print("🔄🔄🔄 Refresh.initRefresh() ")
         _ = performanceTimer/*Measure the time of the refresh*/
-        let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
+        //let repos:[RepoItem] = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         let group = DispatchGroup()
-        repos.forEach { repo in
+        repoList.forEach { repo in
             group.enter()
             refreshRepo(repo,{group.leave()})/*Bulk refresh*/
         }

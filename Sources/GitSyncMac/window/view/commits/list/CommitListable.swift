@@ -20,7 +20,7 @@ extension CommitListable{
         (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
     }
     /**
-     * TODO: ⚠️️ Comment this method
+     * TODO: ⚠️️ Comment this method, it can probably removed because swift 4 has more "where extension" support
      */
     func scroll(_ event:NSEvent) {
         //Swift.print("🌵 ICommitList.scroll()")
@@ -106,9 +106,9 @@ extension CommitListable{
     private func initSync(isUserInitiated:Bool, completed:@escaping ()->Void){
         performance.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
         performance.autoSyncStartTime = Date()/*Sets debug timer*/
-        _ = AutoSync.init(isUserInitiated: isUserInitiated){/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
+        _ = AutoSync.init(isUserInitiated: isUserInitiated){ (repoList:[RepoItem]) in/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
             Swift.print("🏁🏁🏁 AutoSyncCompleted" + "\(self.performance.autoSyncStartTime.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
-            _ = Refresh(self.dp as! CommitDP, completed)/* ⬅️️ Refresh happens after AutoSync is fully completed, also Attach the dp that RBSliderFastList uses*/
+            _ = Refresh(dp:self.dp as! CommitDP, repoList:repoList ,onComplete:completed)/* ⬅️️ Refresh happens after AutoSync is fully completed, also Attach the dp that RBSliderFastList uses*/
         }
     }
     /**

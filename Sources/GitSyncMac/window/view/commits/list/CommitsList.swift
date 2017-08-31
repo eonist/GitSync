@@ -4,7 +4,7 @@ import Cocoa
 /**
  * ⚠️️⚠️️⚠️️ Since This uses POP, a lot of the logic is in  CommitListable
  */
-class CommitsList:ElasticSlideScrollFastList3,CommitListable{
+class CommitsList:ElasticSlideScrollFastList3,CommitListable{/*⬅️️ The bulk of the logic is in COmmitListable because POP*/
     var _state:CommitListState = .init()
     lazy var progressIndicator:ProgressIndicator = self.createProgressIndicator()
     var performance:PerformanceTester = PerformanceTester()/*Debug*/
@@ -72,7 +72,5 @@ extension CommitsList{
         return progressIndicator
     }
 }
-
-
 
 /*self.addSubView(Container(self.width,self.height,self,"lable"))*/

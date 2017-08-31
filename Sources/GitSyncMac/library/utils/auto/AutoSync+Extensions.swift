@@ -6,6 +6,7 @@ import Foundation
 extension AutoSync{
     /**
      * Syncs auto-message repos
+     * NOTE: Also works if Nothing to sync
      */
     private func syncOtherRepos(){
         let group = DispatchGroup()
@@ -16,7 +17,7 @@ extension AutoSync{
             }
         }
         group.notify(queue: main){//It also fires when nothing left or entered
-            self.autoSyncComplete()/*All commits and pushes was completed*/
+            self.autoSyncComplete(self.repoVerifier.verifiedRepos)/*All commits and pushes was completed*/
         }
     }
 }
@@ -30,11 +31,6 @@ extension AutoSync{
     func onAllReposVerified(){
         if !messageRepoIterator.isEmpty {
             messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
-        }else if !otherRepos.isEmpty {
-//            Swift.print("otherRepos: " + "\(otherRepos)")
-            syncOtherRepos()
-        }else {/*Nothing to sync*/
-            autoSyncComplete()
         }
     }
 }
