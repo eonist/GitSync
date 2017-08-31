@@ -44,7 +44,11 @@ extension RepoView{
      *
      */
     func createTreeList() -> TreeList3{
-        return  self.addSubView(TreeList3(self.getWidth(), self.getHeight(), CGSize(self.getWidth(),24), RepoView.treeDP, self))
+        let size = CGSize(self.getWidth(), self.getHeight())
+        Swift.print("size: " + "\(size)")
+        let thumbSize = CGSize(self.getWidth(),24)
+        Swift.print("thumbSize: " + "\(thumbSize)")
+        return  self.addSubView(TreeList3(size.w,size.h,thumbSize , RepoView.treeDP, self))
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
 }

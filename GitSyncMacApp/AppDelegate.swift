@@ -17,6 +17,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
       
 //
+        //Continue here: 🏀
+            //Add back RepoView
+            //figure out why Element is always crashing when attempting to commit
+        
         
         initApp()
 //

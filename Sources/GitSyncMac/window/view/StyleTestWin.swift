@@ -13,14 +13,14 @@ class StyleTestWin:Window {
         let styleTestView = StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
         self.contentView = styleTestView
 
-        Nav.setView(.main(.commit))/*⬅️️🚪*///
+//        Nav.setView(.main(.commit))/*⬅️️🚪*///
 //        Nav.setView(.main(.commit),styleTestView:styleTestView)/*⬅️️🚪*///
 //        Nav.setView(.dialog(.commit(RepoItem.dummyData, CommitMessage.dummyData)))
 //        Nav.setView(.dialog(.conflict(MergeConflict.dummyData)))
 //        let repoItem = RepoItem(local: "~/dev/demo",branch: "master",title: "demo",remote: "https://github.com/gitsync/demo2.git")
 //        Nav.setView(.dialog(.autoInit(AutoInitConflict(repoItem),{})))
 //        Nav.setView(.detail(.repo([0,1,0])))
-//        Nav.setView(.main(.repo))
+        Nav.setView(.main(.repo))
 //        Nav.setView(.main(.prefs))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
