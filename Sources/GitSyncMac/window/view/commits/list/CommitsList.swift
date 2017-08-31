@@ -18,7 +18,9 @@ class CommitsList:ElasticSlideScrollFastList3,CommitListable{
      */
     override func createItem(_ index:Int) -> Element {
         let dpItem = dp.items[index]
-        let item:CommitsListItem = CommitsListItem(NaN, itemSize.height ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, contentContainer)
+        let config:CommitsListItem.Config = (dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false)
+        let item:CommitsListItem = CommitsListItem.init(config: config, size: CGSize(0,itemSize.height))
+        
         contentContainer.addSubview(item)
         return item
     }

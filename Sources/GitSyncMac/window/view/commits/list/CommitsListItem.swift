@@ -3,55 +3,62 @@ import Cocoa
 @testable import Element
 /**
  * NOTE: repo-name,contributor,title,description,date
+ * TODO: ⚠️️ move lazy creators into extension
  */
 class CommitsListItem:Button,Selectable{
-    var repoName:String
-    var contributor:String
-    var title:String
-    var desc:String/*Description*/
-    var date:String
-    var isSelected:Bool
-    var titleText:Text?//TODO: ⚠️️ make lazy
-    var repoNameText:Text?//TODO: ⚠️️ make lazy
-    var contributorText:Text?//TODO: ⚠️️ make lazy
-    var descText:Text?//TODO: ⚠️️ make lazy
-    var dateText:Text?//TODO: ⚠️️ make lazy
-    init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:ElementKind? = nil, _ id:String? = nil){
-        self.repoName = repoName
-        self.contributor = contributor
-        self.title = title
-        self.desc = desc
-        self.date = date
-        self.isSelected = isSelected
-        super.init(size: CGSize(width,height), id: id)
+    lazy var container = {
+        return addSubView(Section(NaN,100,self,"textContainer"))
+    }()
+    lazy var titleText:Text = {
+        let  titleText = container.addSubView(Text(360,24,config.title,container,"title"))
+        titleText.isInteractive = false
+        return titleText
+    }()
+    lazy var repoNameText:Text = {
+        let repoNameText = container.addSubView(Text(NaN,NaN,config.repoName,container,"repoName"))
+        repoNameText.isInteractive = false
+        return repoNameText
+    }()
+    lazy var contributorText:Text = {
+        let contributorText = container.addSubView(Text(NaN,NaN,config.contributor,container,"contributor"))
+        contributorText.isInteractive = false
+        return contributorText
+    }()
+    lazy var descText:Text = {
+        let descText = container.addSubView(Text(NaN,50,config.desc,container,"description"))
+        descText.isInteractive = false
+        return descText
+    }()
+    lazy var dateText:Text = {
+        let dateText = container.addSubView(Text(180,24,config.date,container,"date"))
+        dateText.isInteractive = false
+        return dateText
+    }()
+    typealias Config = (repoName:String,contributor:String,title:String,desc:String,date:String,isSelected : Bool)
+    var config:Config
+    
+    init(config:Config,  size:CGSize ,   id:String? = nil){
+        self.config = config
+        super.init(size: size, id: id)
     }
     override func resolveSkin() {
         super.resolveSkin()
-        let container = addSubView(Section(NaN,100,self,"textContainer"))
-        
-        repoNameText = container.addSubView(Text(NaN,NaN,repoName,container,"repoName"))
-        repoNameText!.isInteractive = false
-        contributorText = container.addSubView(Text(NaN,NaN,contributor,container,"contributor"))
-        contributorText!.isInteractive = false
-        
-        titleText = container.addSubView(Text(360,24,title,container,"title"))
-        titleText!.isInteractive = false
-        descText = container.addSubView(Text(NaN,50,desc,container,"description"))
-        descText!.isInteractive = false
-        
-        dateText = container.addSubView(Text(180,24,date,container,"date"))
-        dateText!.isInteractive = false
+        _ = repoNameText
+        _ = contributorText
+        _ = titleText
+        _ = descText
+        _ = dateText
     }
     override func mouseUpInside(_ event: MouseEvent) {
-        isSelected = true
+        config.isSelected = true
         super.mouseUpInside(event)
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
     }
     override var skinState:String {
-        get {return isSelected ? SkinStates.selected + " " + super.skinState : super.skinState}
+        get {return config.isSelected ? SkinStates.selected + " " + super.skinState : super.skinState}
         set {
             super.skinState = newValue
-            titleText?.skinState = newValue
+            titleText.skinState = newValue
         }
     }
     override func getClassType() -> String {
@@ -74,31 +81,31 @@ extension CommitsListItem{
      * Sets data to the UI elements
      */
     func setData(_ data:[String:String]){
-        titleText!.setText(data[CommitType.title.rawValue]!)
-        repoNameText!.setText(data[CommitType.repoName.rawValue]!)
-        contributorText!.setText(data[CommitType.contributor.rawValue]!)
+        titleText.setText(data[CommitType.title.rawValue]!)
+        repoNameText.setText(data[CommitType.repoName.rawValue]!)
+        contributorText.setText(data[CommitType.contributor.rawValue]!)
         let descStr:String = {
             let str = data[CommitType.description.rawValue]!
             if str.isEmpty {return "There is no description for this commit"}
             else {return str}
         }()
-        descText!.setText(descStr)
+        descText.setText(descStr)
         let date:Date = GitDateUtils.date(data[CommitType.date.rawValue]!)
         //Swift.print("date.shortDate: " + "\(date.shortDate)")
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
         let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
-        dateText!.setText(relativeDate)
+        dateText.setText(relativeDate)
     }
     /**
      * NOTE: do not add a dispatch event here, that is the responsibilyy of the caller
      */
     func setSelected(_ isSelected:Bool){
         Swift.print("setSelected(): " + "\(isSelected)")
-        self.isSelected = isSelected
+        self.config.isSelected = isSelected
         skinState = {skinState}()
     }
     func getSelected() -> Bool {
-        return self.isSelected
+        return self.config.isSelected
     }
 }
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>
