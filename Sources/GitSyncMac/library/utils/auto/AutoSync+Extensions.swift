@@ -46,6 +46,7 @@ extension AutoSync{
      */
     func createRepoList() -> [RepoItem]{
         let repoList = RepoUtils.repoListFlattenedOverridden/*Get the latest repo list*/
+        Swift.print("repoList.count: " + "\(repoList.count)")
         return isUserInitiated ? repoList : repoList.filter{$0.auto}/*if interval initiated then only target repos that have interval set to true*/
     }
     /**
@@ -53,6 +54,7 @@ extension AutoSync{
      */
     func createMessageRepoIterator() -> MessageRepoIterator{
         let messageRepos:[RepoItem] = repoList.filter{$0.message}/*repos that have manual commit message*/
+        Swift.print("messageRepos.count: " + "\(messageRepos.count)")
         return .init(array:messageRepos,onComplete:syncOtherRepos)
     }
 }
