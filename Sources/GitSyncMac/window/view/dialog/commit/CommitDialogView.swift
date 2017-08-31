@@ -9,7 +9,7 @@ class CommitDialogView:Element,UnFoldable,Closable {
     var onCommitDialogComplete:Completed = {print("hmm");fatalError("no completion handler assigned")}/*Stores the onComplete when the user clicks OK*/
     
     override func resolveSkin() {
-        Swift.print("🍊 CommitDialogView.resolveSkin()")
+//        Swift.print("🍊 CommitDialogView.resolveSkin()")
         super.resolveSkin()
         Unfold.unFold(fileURL: Config.Bundle.structure,path: "commitDialogView",parent: self)
         NSApp.requestUserAttention(.informationalRequest)//bounce the dock icon

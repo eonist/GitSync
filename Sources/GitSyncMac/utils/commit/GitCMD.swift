@@ -26,4 +26,5 @@ enum GitCMD:String{
     case UU = "UU"/*unmerged, both modified*/
     case UD = "UD"/*unmerged, deleted by them*/
     case UA = "UA"/*unmerged, added by them*/
+    case CM = "CM"/*copied, modified? beta*/
 }

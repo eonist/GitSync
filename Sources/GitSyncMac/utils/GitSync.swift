@@ -37,7 +37,7 @@ class GitSync{
                 if PrefsView.prefs.login.isEmpty || keychainPassword.isEmpty {fatalError("need login and pass")}
                 _ = GitModifier.push(repo,key)/*🌵*/
             }
-            {Swift.print("before call");onPushComplete()}()
+            {/*Swift.print("before call");*/onPushComplete()}()
         }
     }
     /**

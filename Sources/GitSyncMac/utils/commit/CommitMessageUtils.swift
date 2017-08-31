@@ -14,7 +14,7 @@ class CommitMessageUtils{
 		var numOfDeletedFiles:Int = 0
 		var numOfRenamedFiles:Int = 0
 		for statusItem in statusList{
-			let cmd = statusItem["cmd"]!/*TODO: rename to type or status_type*/
+			let cmd = statusItem["cmd"]!/*TODO: ⚠️️ rename to type or status_type*/
             switch GitCMD(rawValue:cmd){
 				case .M?:numOfModifiedFiles += 1
                 case .MM?:numOfModifiedFiles += 1/*new and experimental*/
@@ -29,6 +29,7 @@ class CommitMessageUtils{
 				case .QQ?: numOfNewFiles += 1/*untracked files*/
 				case .UU?: numOfModifiedFiles += 1/*unmerged files*/
                 case .UA?: numOfNewFiles += 1/*unmerged files*/
+                case .CM?: numOfModifiedFiles += 1/*beta*/
 				default:
 					fatalError("cmd: " + "\(cmd)" + " Not supported")
 					break;
@@ -56,17 +57,17 @@ class CommitMessageUtils{
      * Auto commit msg
      */
     static func generateCommitMessage(_ localRepoPath:String) -> CommitMessage? {
-        Swift.print("generateCommitMessage.localRepoPath: " + "\(localRepoPath)")
+//        Swift.print("generateCommitMessage.localRepoPath: " + "\(localRepoPath)")
         let statusList:[[String:String]] = StatusUtils.generateStatusList(localRepoPath)//get current status
-        Swift.print("statusList: " + "\(statusList)")
-        Swift.print("before")
-        guard !statusList.isEmpty else {Swift.print("what");return nil}/*nothing to add or commit,break the flow since there is nothing to commit or process*/
+//        Swift.print("statusList: " + "\(statusList.count)")
+//        Swift.print("before")
+        guard !statusList.isEmpty else {return nil}/*nothing to add or commit,break the flow since there is nothing to commit or process*/
         /*there is something to add or commit*/
-        Swift.print("before processStatusList")
+//        Swift.print("before processStatusList")
         StatusUtils.processStatusList(localRepoPath, statusList)/*process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del*/
-        Swift.print("before commitMessage.init")
+//        Swift.print("before commitMessage.init")
         let retVal = CommitMessage.init(statusList:statusList)/*return true to indicate that the commit completed*/
-        Swift.print("retVal: " + "\(retVal)")
+//        Swift.print("retVal: " + "\(retVal)")
         return retVal
     }
 }

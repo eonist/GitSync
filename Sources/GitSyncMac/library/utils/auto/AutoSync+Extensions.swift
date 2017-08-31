@@ -31,7 +31,7 @@ extension AutoSync{
         if !messageRepoIterator.isEmpty {
             messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
         }else if !otherRepos.isEmpty {
-            Swift.print("otherRepos: " + "\(otherRepos)")
+//            Swift.print("otherRepos: " + "\(otherRepos)")
             syncOtherRepos()
         }else {/*Nothing to sync*/
             autoSyncComplete()
@@ -47,7 +47,10 @@ extension AutoSync{
      */
     func createRepoList() -> [RepoItem]{
         let repoList = RepoUtils.repoListFlattenedOverridden/*Get the latest repo list*/
-        Swift.print("repoList.count: " + "\(repoList.count)")
+//        Swift.print("repoList.count: " + "\(repoList.count)")
+//        repoList.forEach{
+//            Swift.print("$0: " + "\($0)")
+//        }
         return isUserInitiated ? repoList : repoList.filter{$0.auto}/*if interval initiated then only target repos that have interval set to true*/
     }
     /**
@@ -55,7 +58,7 @@ extension AutoSync{
      */
     func createMessageRepoIterator() -> MessageRepoIterator{
         let messageRepos:[RepoItem] = repoList.filter{$0.message}/*repos that have manual commit message*/
-        Swift.print("messageRepos.count: " + "\(messageRepos.count)")
+//        Swift.print("messageRepos.count: " + "\(messageRepos.count)")
         return .init(array:messageRepos,onComplete:syncOtherRepos)
     }
 }

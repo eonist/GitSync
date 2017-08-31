@@ -18,7 +18,7 @@ class AutoInitView:Element,UnFoldable,Closable{
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
-            fatalError("not yet supported")
+            fatalError("not yet supported: \(conflict!.repoItem)")
         }
     }
 }

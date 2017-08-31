@@ -10,27 +10,33 @@ class StatusUtils{
 	 */
     static func generateStatusList(_ localRepoPath:String)->[[String:String]]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") /*the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list*/
-		Swift.print("theStatus: " + "\(theStatus)")
+//        Swift.print("generateStatusList.theStatus: " + "\(theStatus)")
 		let theStatusList:[String] = StringParser.paragraphs(theStatus) /*store each line as items in a list*/
+//        Swift.print("theStatusList: " + "\(theStatusList)")
         guard !theStatusList.isEmpty else {return []}/*this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin, aka nothing to commit, working directory clean*/
+//        Swift.print("before transformed list")
         let transformedList = transformStatusList(theStatusList)
+//        Swift.print("return transformed list")
         return transformedList
 	}
 	/*
  	 * Transforms the "compact git status list" by adding more context to each item (a list with acociative lists, aka records)
  	 * Returns a list with records that contain staus type, file name and state
  	 * NOTE: the short status msg format is like: "M" " M", "A", " A", "R", " R" etc
+     * NOTE: C = copied, U = updated but unmerged also exists
  	 * NOTE: the space infront of the capetalized char indicates Changes not staged for commit:
  	 * NOTE: Returns = renamed, M = modified, A = addedto index, D = deleted, ?? = untracked file
 	 * NOTE: the state can be:  "Changes not staged for commit" , "Untracked files" , "Changes to be committed"
 	 * PARAM: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
      * TODO: ⚠️️ Use functional programming on this method.
+     * TODO: ⚠️️ Improve the error checking in this class
  	 */
     static func transformStatusList(_ theStatusList:[String])->[[String:String]]{
         var transformedList:[[String:String]] = []
         for theStatusItem:String in theStatusList {
-            let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
+//            Swift.print("theStatusItem: " + "\(theStatusItem)")
+            let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDUC?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
             let second:String = theStatusParts.range(at: StatusParts.second.rawValue).length > 0 ? RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue) : ""
@@ -76,10 +82,11 @@ class StatusUtils{
 	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
     static func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
-        Swift.print("processStatusList.localRepoPath: " + "\(localRepoPath)")
-//        let group:DispatchGroup = .init()
+//        Swift.print("processStatusList.localRepoPath: " + "\(localRepoPath)")
+        let group:DispatchGroup = .init()
          statusList.forEach{ (statusItem:[String:String]) in
-//            group.enter()
+            group.enter()
+//            Swift.print("statusItem: " + "\(statusItem)")
             let state:String = statusItem["state"]!
             let fileName:String = statusItem["fileName"]!
 			switch state {
@@ -95,8 +102,8 @@ class StatusUtils{
 					fatalError("type not supported")
 					break
 			}
-//            group.leave()
+            group.leave()
 		}
-//        group.wait()//waits until all items in the loop has been processed
+        group.wait()//waits until all items in the loop has been processed
 	}
 }
