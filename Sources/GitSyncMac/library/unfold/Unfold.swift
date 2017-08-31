@@ -29,11 +29,17 @@ class Unfold{
      */
     static func unFold(jsonDictItem:Any,parent:Element){
         guard let jsonArr:[[String:Any]] = JSONParser.dictArr(jsonDictItem) else{fatalError("jsonDictItem: is incorrect")}
+        unFold(jsonArr: jsonArr, parent: parent)
+    }
+    /**
+     * New
+     */
+    static func unFold(jsonArr:[[String:Any]],parent:Element){
         jsonArr.forEach{ dict in
             guard let element:Element = Unfold.unFold(dict:dict) else{fatalError("unFold failed")}
             parent.addSubview(element)
             if let content:Any = dict["content"] {/*figure out if item has arg: content, if it does, then keep unfolding down hirerarchy*/
-//                Swift.print("had content \(content)")
+                //Swift.print("had content \(content)")
                 unFold(jsonDictItem:content,parent:element)
             }
         }

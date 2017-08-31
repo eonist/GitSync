@@ -51,8 +51,11 @@ class Nav {
                 view.setCommitData(commitData)/*Updates the UI elements with the selected commit item*/
                 return view
             case .repo(let idx3d):/*RepoDetail*/
-                let view:RepoDetailView = parentView.addSubView(RepoDetailView())
-                view.setRepoData(idx3d)
+                RepoView.selectedListItemIndex = idx3d
+                let repoItem = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
+                let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
+                let view:RepoDetailView = parentView.addSubView(RepoDetailView(isFolder:isFolder))
+                view.setRepoData(repoItem:repoItem)
                 return view
             }
         case .dialog(let dialog):/*Dialogs*/

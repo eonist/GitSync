@@ -30,7 +30,7 @@ extension UnFoldable{
      * EXAMPLE: self.apply([PrefsType.login,TextInput.Key.inputText],prefs.login)
      */
     func apply(_ path:[String],_ value:Any){
-        UnfoldModifier.applyData(self, path, value)
+        try? UnfoldModifier.applyData(self, path, value)
     }
 }
 //    var data: [String : Any] {

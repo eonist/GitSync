@@ -8,7 +8,7 @@ import Cocoa
 class RepoView:Element,Closable {
     static var selectedListItemIndex:[Int] = []
     static var _treeDP:TreeDP? = nil
-    static var treeDP:TreeDP {//all this may not be needed, test if you need to invalidate etc. 
+    static var treeDP:TreeDP {//TODO: ⚠️️ all this may not be needed, test if you need to invalidate etc.
         guard let treeDP = _treeDP else{
             _treeDP = TreeDP(Config.Bundle.repo.tildePath)/*Doesn't exists return new DP*/
             return _treeDP!
@@ -22,33 +22,16 @@ class RepoView:Element,Closable {
         _ = contextMenu
     }
     override func onEvent(_ event:Event) {
-        if(event.type == ListEvent.select && event.immediate === treeList){//if(event.type == SelectEvent.select && event.immediate === treeList){}
+        if event.assert(ListEvent.select,treeList) {//if(event.type == SelectEvent.select && event.immediate === treeList){}
             //Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList.selectedIdx3d)")
             onTreeListSelect()
-        }else if(event.type == ButtonEvent.rightMouseDown){
+        }else if event.type == ButtonEvent.rightMouseDown {
             contextMenu.rightClickItemIdx = TreeList3Parser.index(treeList, event.origin as! NSView)
             //Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu.rightClickItemIdx)")
             NSMenu.popUpContextMenu(contextMenu, with:(event as! ButtonEvent).event!, for: self)
-        }else if(event.type == TreeListEvent.change && event.immediate === treeList){
+        }else if event.assert(TreeListEvent.change, event.immediate) {
             RepoView._treeDP = treeList.treeDP/*copy the edited treeList.treeDP to the static ref, this is a quick win, but should be refactored later, maybe on page transition etc*/
         }
     }
 }
-extension RepoView{
-    func onTreeListSelect(){
-        let selectedIndex:[Int] = treeList.selectedIdx3d!
-        //Swift.print("selectedIndex: " + "\(selectedIndex)")
-        Nav.setView(.detail(.repo(selectedIndex)))/*Updates the UI elements with the selected repo data*/
-    }
-    /**
-     *
-     */
-    func createTreeList() -> TreeList3{
-        let size = CGSize(self.getWidth(), self.getHeight())
-        Swift.print("size: " + "\(size)")
-        let thumbSize = CGSize(self.getWidth(),24)
-        Swift.print("thumbSize: " + "\(thumbSize)")
-        return  self.addSubView(TreeList3(size.w,size.h,thumbSize , RepoView.treeDP, self))
-        //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
-    }
-}
+

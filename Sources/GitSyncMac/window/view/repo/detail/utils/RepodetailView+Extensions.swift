@@ -5,18 +5,9 @@ import Foundation
 extension RepoDetailView{
     /**
      * Populates the UI elements with data from the dp item
-     * NOTE: Filters groups and items
-     */
-    func setRepoData(_ idx3d:[Int]){
-        RepoView.selectedListItemIndex = idx3d
-        let repoDetailData = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
-        setRepoData(repoDetailData)
-    }
-    /**
-     * Populates the UI elements with data from the dp item
      * NOTE: Uses the Unfold lib to set data
      */
-    private func setRepoData(_ data:RepoItem){
+    public func setRepoData(repoItem data:RepoItem){
         Swift.print("setRepoData(repoItem)")
         /*TextInput*/
         self.apply([Key.title],data.title)
@@ -29,6 +20,24 @@ extension RepoDetailView{
         self.apply(["messageGroup",Key.message], data.message)
         self.apply(["activeGroup",Key.active], data.active)
         self.apply(["notificationGroup",Key.notification], data.notification)
+    }
+    /**
+     *
+     */
+    func folderJson(fileURL:String,path:String) -> [[String:Any]]{
+        
+        guard let jsonDict:[String: Any] = JSONParser.dict(fileURL.content?.json) else{fatalError("fileURL: is incorrect: \(fileURL)")}
+        guard let jsonDictItem:Any = jsonDict[path] else{fatalError("path is incorrect: \(path)")}
+        guard let jsonArr:[[String:Any]] = JSONParser.dictArr(jsonDictItem) else{fatalError("jsonDictItem: is incorrect")}
+        let matchs = ["title","activeGroup","autoGroup","notificationGroup","messageGroup"]
+        let filteredJsonArr = jsonArr.filter{
+            guard let id:String = $0["id"] as? String else {fatalError("err")}
+            Swift.print("id: " + "\(id)")
+            let match:Bool = ArrayAsserter.has(matchs, id)
+            Swift.print("match: " + "\(match)")
+            return match
+        }
+        return filteredJsonArr
     }
 }
 

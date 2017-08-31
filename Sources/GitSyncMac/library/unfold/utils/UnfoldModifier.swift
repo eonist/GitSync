@@ -1,16 +1,20 @@
 import Foundation
 
 class UnfoldModifier {
+    enum UnfoldError:Error {
+        case PathDoesNotExist//"Can't find unfoldable for path: \(path)"
+    }
+
     /**
      * PARAM: path: Basically the id path to search a hierarchy with
      * This method is recursive
      * IMPROVMENT: ⚠️️ Might need to change view to generic, because not all NSViews are unfoldable, think containers etc
      */
-    static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any){
+    static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any) throws{
         if var unfoldable:UnFoldable = UnfoldParser.retrieveUnFoldable(parent:view, path)/*, let last = path.last*/{
             unfoldable.value = value
         }else {
-            fatalError("Can't find unfoldable for path: \(path)")
+            throw UnfoldError.PathDoesNotExist
         }
     }
 }
