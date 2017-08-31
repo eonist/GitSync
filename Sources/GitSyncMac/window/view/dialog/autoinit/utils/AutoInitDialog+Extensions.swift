@@ -2,7 +2,7 @@ import Foundation
 
 extension AutoInitView{
     func setData(_ conflict:AutoInitConflict, _ onComplete:@escaping Complete){
-        Swift.print("AutoInitView.setData")
+        Swift.print("AutoInitView.setData: repoItem: \(conflict.repoItem)")
         self.onComplete = onComplete
         self.conflict = conflict
         let conflictText = AutoInitConflictUtils.text(conflict)//creates the text for the window

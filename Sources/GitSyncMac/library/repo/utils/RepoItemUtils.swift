@@ -19,11 +19,11 @@ class RepoUtils {
         let overrideKeys:[String] = [RepoItem.Key.active,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoItem.Key.auto/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
-        let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
-        let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
-//        activeRepoList.forEach{
-//            Swift.print("$0.title: " + "\($0.title)")
-//        }
+        let repoListSansFolders:[RepoItem] = Utils.sansFolders(list:flatArr, mustNotContain:overriders)//remove folders
+        let activeRepoList = repoListSansFolders.filter{$0.active}/*filter out inActive*/
+        activeRepoList.forEach{
+            Swift.print("$0.title: " + "\($0.title)")
+        }
         return activeRepoList
     }
     /**
@@ -103,11 +103,12 @@ private class Utils{
     /**
      * Compiles array with tuples and filter out folder related stuff
      */
-    static func filterFolders(_ list:[[String:String]], _ mustNotContain:[String])->[RepoItem]{
+    static func sansFolders(list:[[String:String]],  mustNotContain:[String])->[RepoItem]{
         let repoList:[RepoItem] = list.filter{
-            (!$0.contains(mustNotContain) && $0.hasKey(RepoItem.Key.active) && $0[RepoItem.Key.active]!.bool)/*skips folders, and active must be true*/
+            !$0.contains(mustNotContain) && $0.hasKey(RepoItem.Key.active) && $0[RepoItem.Key.active]!.bool/*skips folders, and active must be true*/
             }.map{/*create array of tuples*/
-                RepoUtils.repoItem(dict: $0)
+                Swift.print("$0: " + "\($0)")
+                return RepoUtils.repoItem(dict: $0)
         }
         return repoList
     }
