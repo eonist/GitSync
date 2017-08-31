@@ -18,7 +18,7 @@ class CommitDialogView:Element,UnFoldable,Closable {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){/*stop the auto sync process,remove commit dialog from view*/
-            Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*/
+            Proxy.styleTestView?.currentPrompt?.removeFromSuperview()/*removes promptView from window*///TODO:  ⚠️️ why not ref self?
             self.onCommitDialogComplete()
         }
     }

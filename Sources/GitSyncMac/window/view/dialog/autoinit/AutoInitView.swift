@@ -19,6 +19,7 @@ class AutoInitView:Element,UnFoldable,Closable{
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
             //fatalError("not yet supported: \(conflict!.repoItem)")
+            self.removeFromSuperview()
             onComplete()/*All done return to caller*/
         }
     }
