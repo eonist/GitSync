@@ -34,6 +34,7 @@
 **2017-08-31**
 - TextFields now have support for caret 
 - AutoInitDialog now supports canceling
+- Added support for replacing remote url in AutoInitDialog
 
 **2017-08-28**
 - Copy/paste/selectAll/undo now works in all TextFields
