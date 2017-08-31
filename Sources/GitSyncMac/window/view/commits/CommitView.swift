@@ -24,7 +24,7 @@ class CommitView:Element{
             Swift.print("isReadyToSync")
             self.list.initSyncFromInterval({self.intervalTimer.start()})/*only restarts after sync completes*/
         }else{
-            Swift.print("try again in n seconds")
+            Swift.print("try again in 60 seconds")
             self.intervalTimer.start()/*try again in n seconds*/
         }
     }

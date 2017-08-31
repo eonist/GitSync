@@ -12,7 +12,7 @@ class RepoVerifier:ArrayIterator<RepoItem>{
         super.init(array: array)
     }
     func iterate() {
-        Swift.print("self.hasNext(): " + "\(self.hasNext())")
+//        Swift.print("self.hasNext(): " + "\(self.hasNext())")
         if self.hasNext() {
             let repoItem = self.next()
             self.verifyGitProject(repoItem)
@@ -31,7 +31,7 @@ class RepoVerifier:ArrayIterator<RepoItem>{
      * NOTE: verifies if a repo exists locally, if not a wizard initiated
      */
     private func verifyGitProject(_ repoItem:RepoItem){
-        Swift.print("verifyGitProject")
+//        Swift.print("verifyGitProject")
         let conflict = AutoInitConflict.init(repoItem)
         if conflict.areRemotesEqual {/*No need to init AutoInit dialog*/
             verify(repoItem: repoItem, verified: true)
