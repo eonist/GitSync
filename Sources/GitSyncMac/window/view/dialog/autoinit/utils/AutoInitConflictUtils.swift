@@ -14,10 +14,10 @@ class AutoInitConflictUtils {
         var proposal:String = ""
         let state:State = (conflict.pathExists,conflict.hasPathContent,conflict.isGitRepo,conflict.areRemotesEqual)
         Swift.print("state: " + "\(state)")
-        switch state {
+        switch state {/*pathExists,hasPathContent,isGitRepo,areRemotesEqual*/
         case (true,true,true,false):
             issue = "There is already a git project in the folder: \(repoItem.local) with a different remote URL"
-            proposal = "Do you want to delete the repo, download from remote?"
+            proposal = "Do you want to replace the remote URL with the new URL?"
         case (true,true,false,_):
             issue = "The folder \(repoItem.localPath) is not a git repo but there are pre-exisiting files"
             proposal = "Do you want to delete the repo, download from remote?"
@@ -34,23 +34,25 @@ class AutoInitConflictUtils {
     }
     /**
      * NOTE: after this you often want to : MergeUtils.manualMerge(repoItem,{})
-     * TODO: Make this try do design pattern
+     * TODO: ⚠️️ Make this try do design pattern
      */
     static func process(_ conflict:AutoInitConflict){//TODO: ⚠️️ Move to AutoInitUtils
         let state:State = (conflict.pathExists,conflict.hasPathContent,conflict.isGitRepo,conflict.areRemotesEqual)
         let repoItem = conflict.repoItem
         Swift.print("AutoInitConflic.process() state: \(state)")
-        switch state {
+        switch state {/*pathExists,hasPathContent,isGitRepo,areRemotesEqual*/
         case (true,true,true,false):
             Swift.print("a")
 //            let gitURL:String = (repoItem.localPath+"/.git").tildePath
 //            Swift.print("gitURL: " + "\(gitURL)")
-            FileModifier.delete(repoItem.localPath.tildePath)
-            FileModifier.createDir(repoItem.localPath.tildePath)
-            _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
+//            FileModifier.delete(repoItem.localPath.tildePath)
+//            FileModifier.createDir(repoItem.localPath.tildePath)
+//            _ = GitModifier.clone(repoItem.remotePath, repoItem.localPath.tildePath)
 //            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
 //            _ = GitModifier.initialize(repoItem.localPath)
 //            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
+            //git remote set-url origin https://github.com/username/repo
+            GitModifier.replaceRemote(localRepoPath: repoItem.localPath.tildePath, replacementRepoRemote: repoItem.remotePath)
         case (true,true,false,_):
             Swift.print("b")
 //            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)
