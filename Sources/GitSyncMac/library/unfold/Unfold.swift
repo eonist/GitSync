@@ -36,7 +36,7 @@ class Unfold{
      */
     static func unFold(jsonArr:[[String:Any]],parent:Element){
         jsonArr.forEach{ dict in
-            guard let element:Element = Unfold.unFold(dict:dict) else{fatalError("unFold failed")}
+            guard let element:Element = unFold(dict:dict) else{fatalError("unFold failed")}
             parent.addSubview(element)
             if let content:Any = dict["content"] {/*figure out if item has arg: content, if it does, then keep unfolding down hirerarchy*/
                 //Swift.print("had content \(content)")
@@ -49,7 +49,10 @@ class Unfold{
      */
     private static func unFold(dict:[String:Any]) -> Element?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
+        Swift.print("type: " + "\(type)")
         guard let unfoldMethod:UnFoldable.UnFoldMethod = Unfoldables.dict[type] else {fatalError("Type is not unFoldable: \(type)")}/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
-        return unfoldMethod(dict) as? Element
+        let item = try? unfoldMethod(dict)
+//        Swift.print("item: " + "\(item)")
+        return item as? Element
     }
 }

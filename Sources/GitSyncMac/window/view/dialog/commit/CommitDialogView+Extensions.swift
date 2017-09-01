@@ -24,8 +24,9 @@ extension CommitDialogView{
      */
     func onOKButtonClick(){
         guard let repoItem = self.repoItem else {fatalError("repoItem must be available")}
-        let title:String = self.retrieve([Key.title,TextInput.Key.inputText])  ?? {fatalError("error - must have title")}()
-        let desc:String = self.retrieve([Key.desc,TextInput.Key.inputText])  ?? {fatalError("error - must have description")}()
+        //⚠️️ use do catch on the bellow
+        guard let title:String = try? self.retrieve([Key.title,TextInput.Key.inputText]) else { fatalError("error - must have title") }
+        guard let desc:String = try? self.retrieve([Key.desc,TextInput.Key.inputText]) else {fatalError("error - must have description")}
         let commitMessage = CommitMessage(title,desc)
         
         bg.async {

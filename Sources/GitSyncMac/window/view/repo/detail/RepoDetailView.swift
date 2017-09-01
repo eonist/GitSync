@@ -10,16 +10,12 @@ class RepoDetailView:Element,Closable,UnFoldable {
     }
     override func resolveSkin() {
         super.resolveSkin()
-        
-        
         if isFolder {
             let folderJson = self.folderJson(fileURL: Config.Bundle.structure, path: "repoDetailView")
             Unfold.unFold(jsonArr:folderJson, parent: self)
         }else{
             Unfold.unFold(fileURL:Config.Bundle.structure, path:"repoDetailView", parent:self)
         }
-        
-        
     }
     /**
      * Modifies the dataProvider item on UI change
@@ -58,7 +54,5 @@ class RepoDetailView:Element,Closable,UnFoldable {
             RepoView.treeDP.tree[idx3d]!.props = data.dict/*Overrides the cur attribs*/
         }
     }
-    
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-    
 }

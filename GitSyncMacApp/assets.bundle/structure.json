@@ -4,7 +4,7 @@
                 {"type":"FilePicker","id":"local","text":"Local:","buttonText":"Browse"},
                 {"type":"TextInput","id":"remote","text":"Remote:"},
                 {"type":"TextInput","id":"branch","text":"Branch:"},
-                {"type":"Section","id":"activeGroup","content":[{"type":"CheckBoxButton","id":"active","text":"Active:"},{"type":"Text","id":"description","text":"Activates sync for this repo"}]},
+                {"type":"Section","id":"activeGroup","content":[{"type":"CheckBoxButton2","id":"active","text":"Active:"},{"type":"Text","id":"description","text":"Activates sync for this repo"}]},
                 {"type":"Section","id":"autoGroup","content":[{"type":"CheckBoxButton","id":"auto","text":"Auto:"},{"type":"Text","id":"description","text":"Auto syncs on interval"}]},
                 {"type":"Section","id":"notificationGroup","content":[{"type":"CheckBoxButton","id":"notification","text":"Notification:"},{"type":"Text","id":"description","text":"Notification for this repo"}]},
                 {"type":"Section","id":"messageGroup","content":[{"type":"CheckBoxButton","id":"message","text":"Message:"},{"type":"Text","id":"description","text":"Manual commit message"}]},

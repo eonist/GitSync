@@ -13,6 +13,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var menu:Menu?//TODO: ⚠️️ make lazy. does it need to be scoped globally?
     
+
+//    enum MyError : Error {
+//        case RuntimeError(String)
+//    }
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
       
@@ -29,6 +33,33 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest3()
 //        quickTest5()
 //        quickTest6()
+        
+       
+        func test(color:NSColor) throws{
+            if color == .red {
+                throw "I don't like red"
+            }else if color == .green {
+                throw "I'm not into green"
+            }else {
+                throw "I like all other colors"
+            }
+        }
+        
+        do {
+            try test(color:.green)
+        } catch let error where error.localizedDescription == "I don't like red"{
+            Swift.print ("Error: \(error)")//"I don't like red"
+        }catch let error {
+            Swift.print ("Other cases: Error: \(error.localizedDescription)")/*I like all other colors*/
+        }
+        
+        //where error.l == "I like all other colors"
+        
+        
+        //throw "Some Error"//To make the string itself be the localizedString of the error you can instead extend LocalizedError:
+        
+        
+        //
     }
     /**
      *
@@ -51,6 +82,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //then try the app 🏀
         
         let radioButton1:RadioButton? = section?.addSubView(RadioButton.init(text: "Option 1", isSelected: true))//80,14,"Option 1",false,section
+        _ = radioButton1
     }
     /**
      *
@@ -225,7 +257,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         let textInput:TextInput = section.addSubView(TextInput.init(text: "Description: ", inputText: "blue"))
-//        _ = textInput
+        _ = textInput
 //        textInput.inputTextArea.setTextValue("hello")
         
 //        css += "Section{fill:silver;padding:12px;}"
@@ -267,4 +299,6 @@ extension AppDelegate:NSUserNotificationCenterDelegate{
         return true
     }
 }
+
+
 

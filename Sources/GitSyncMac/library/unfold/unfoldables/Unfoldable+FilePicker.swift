@@ -14,7 +14,7 @@ extension FilePicker:UnFoldable{
     }
 }
 extension UnFoldable where Self:FilePicker{
-    static func unfold(dict:[String:Any]) -> UnFoldable {
+    static func unfold(dict:[String:Any]) throws -> UnFoldable {
         let elementConfig:ElementConfig = .init(dict)
         let text:String = UnfoldUtils.value(dict, Key.text) ?? ""
         let inputText:String = UnfoldUtils.value(dict, Key.input) ?? ""

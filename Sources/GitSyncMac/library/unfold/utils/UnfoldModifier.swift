@@ -1,4 +1,5 @@
 import Foundation
+@testable import Element
 
 class UnfoldModifier {
     enum UnfoldError:Error {
@@ -10,11 +11,14 @@ class UnfoldModifier {
      * This method is recursive
      * IMPROVMENT: ⚠️️ Might need to change view to generic, because not all NSViews are unfoldable, think containers etc
      */
-    static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any) throws{
-        if var unfoldable:UnFoldable = UnfoldParser.retrieveUnFoldable(parent:view, path)/*, let last = path.last*/{
+   
+    static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any)  {
+        do {
+            var unfoldable:UnFoldable = try UnfoldParser.instance(parent:view, path)/*, let last = path.last*/
+            Swift.print("unfoldable: path: \(path) " + "\(unfoldable) id: \((unfoldable as! ElementKind).id)")
             unfoldable.value = value
-        }else {
-            throw UnfoldError.PathDoesNotExist
+        } catch {
+            Swift.print("error: " + "\(error)")
         }
     }
 }

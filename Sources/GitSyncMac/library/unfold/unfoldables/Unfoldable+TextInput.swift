@@ -18,7 +18,7 @@ extension TextInput:UnFoldable{
     }
 }
 extension UnFoldable where Self:TextInput{/*<-Attaches the Unfoldable protocol to TextInput*/
-    static func unfold(dict:[String:Any]) -> UnFoldable{
+    static func unfold(dict:[String:Any]) throws -> UnFoldable{
         let elementConfig:ElementConfig = .init(dict)
         let text:String = UnfoldUtils.value(dict, Key.text) ?? ""
         let inputText:String = UnfoldUtils.value(dict, Key.inputText) ?? ""

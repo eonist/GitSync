@@ -52,7 +52,7 @@ class AutoInitConflictUtils {
 //            _ = GitModifier.initialize(repoItem.localPath)
 //            _ = GitModifier.attachRemoteRepo(repoItem.localPath,repoItem.remotePath)//--add new remote origin
             //git remote set-url origin https://github.com/username/repo
-            GitModifier.replaceRemote(localRepoPath: repoItem.localPath.tildePath, replacementRepoRemote: repoItem.remotePath)
+            _ = GitModifier.replaceRemote(localRepoPath: repoItem.localPath.tildePath, replacementRepoRemote: repoItem.remotePath)
         case (true,true,false,_):
             Swift.print("b")
 //            GitUtils.manualClone(repoItem.localPath.tildePath, repoItem.remotePath, repoItem.branch)

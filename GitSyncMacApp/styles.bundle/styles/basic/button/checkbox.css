@@ -18,3 +18,8 @@ CheckBox:checked{
 	fill-alpha:1,1;
 	line:#2C90FC;
 }
+CheckBox:mix{
+	fill:#3B99FC,../../svg/mix.svg white;
+	fill-alpha:1,1;
+	line:#2C90FC;
+}

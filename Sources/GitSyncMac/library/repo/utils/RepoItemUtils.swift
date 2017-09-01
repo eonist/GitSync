@@ -21,9 +21,9 @@ class RepoUtils {
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoListSansFolders:[RepoItem] = Utils.sansFolders(list:flatArr, mustNotContain:overriders)//remove folders
         let activeRepoList = repoListSansFolders.filter{$0.active}/*filter out inActive*/
-        activeRepoList.forEach{
-            Swift.print("$0.title: " + "\($0.title)")
-        }
+//        activeRepoList.forEach{
+//            Swift.print("$0.title: " + "\($0.title)")
+//        }
         return activeRepoList
     }
     /**
@@ -107,7 +107,7 @@ private class Utils{
         let repoList:[RepoItem] = list.filter{
             !$0.contains(mustNotContain) && $0.hasKey(RepoItem.Key.active) && $0[RepoItem.Key.active]!.bool/*skips folders, and active must be true*/
             }.map{/*create array of tuples*/
-                Swift.print("$0: " + "\($0)")
+//                Swift.print("$0: " + "\($0)")
                 return RepoUtils.repoItem(dict: $0)
         }
         return repoList

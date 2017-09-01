@@ -5,6 +5,7 @@ import Foundation
 class UnfoldUtils {
     /**
      * String
+     * ⚠️️ add throws
      */
     static func value(_ dict:[String:Any],_ key:String) -> String?{
         if let value:Any = dict[key] {
@@ -14,6 +15,7 @@ class UnfoldUtils {
     }
     /**
      * cgFloat
+     * ⚠️️ add throws
      */
     static func value(_ dict:[String:Any],_ key:String) -> CGFloat{
         if let value:Any = dict[key] {

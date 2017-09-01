@@ -12,10 +12,11 @@ extension Text:UnFoldable{
     }
 }
 extension UnFoldable where Self:Text{
-    static func unfold(dict:[String:Any]) -> UnFoldable{
+    static func unfold(dict:[String:Any]) throws -> UnFoldable{
         let elementConfig:ElementConfig = .init(dict)
         let text:String = UnfoldUtils.value(dict, "text") ?? ""
         return Text.init(text: text, size: elementConfig.size, id: elementConfig.id)
     }
 }
+
 
