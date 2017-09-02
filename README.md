@@ -31,6 +31,12 @@
 
 ## Change-log:
 
+**2017-09-02**
+- Repository folders can now toggle all descendants 
+
+**2017-09-01**
+- - CheckBoxButton can now have mixed state
+
 **2017-08-31**
 - TextFields now have support for caret 
 - AutoInitDialog now supports canceling
