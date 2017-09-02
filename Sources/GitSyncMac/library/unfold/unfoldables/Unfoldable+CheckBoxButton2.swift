@@ -11,11 +11,12 @@ extension CheckBoxButton2{
 extension UnFoldable where Self:CheckBoxButton2{
     var value: Any {
         get {
-            Swift.print("CheckBoxButton.getChecked(): \(state.rawValue)")
-            return state.rawValue
+//            Swift.print("CheckBoxButton.getChecked(): \(checkedState.rawValue)")
+            return checkedState.rawValue
         }set{
-            if let newValue = newValue as? String, let checkedState = CheckedState.init(rawValue: newValue) {
-                state = checkedState
+            if let strVal = newValue as? String, let checkedState = CheckedState.init(rawValue: strVal) {
+//                Swift.print("value.set.checkedState: " + "\(checkedState)")
+                self.checkedState = checkedState
             }
         }
     }

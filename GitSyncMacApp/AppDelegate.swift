@@ -22,6 +22,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
       
+        
+        
 //        let a = A()
 //        a.unfold()
 //
@@ -41,6 +43,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 //        let item = (Unfoldables.dict2["\(RadioButton.self)"])?([:])
 //        Swift.print("item: " + "\(item)")//item: Optional(<Element.RadioButton: 0x101a13d00>)
+        
+        
+        
+        
+//
+//
+//        
+        
+//        let descendant3dIndicies = TreeUtils.pathIndecies(tree,at:[])
+//        descendant3dIndicies.forEach{Swift.print($0)}
+        
+//        var tree = Tree("a",[Tree("a.1"),Tree("a.2",[Tree("a.2.1")])])
+//        TreeModifier.applyAll(tree:&tree,idx3d:[], apply:{ $0.name = $0.name?.capitalized}/*,includeSelf:true*/)//
+//        TreeUtils.describe(tree)//a, A.1, A.2, A.2.1
+        
+        
+//        Swift.print("descendant3dIndicies: " + "\(descendant3dIndicies)")
         
         initApp()
 //
