@@ -72,28 +72,29 @@ private class Utils{
      * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
      * PARAM: overriders: only let items with either of these be able to override (aka folders)
      * PARAM: overrideKeys: override these key value pairs. If non exist then make new
+     * TODO: ⚠️️ use throws to give better error description?
      */
     static func recursiveFlattened<T>(_ arr:[Any], _ overrideKeys:[String], _ overriders:[String],_ parent:[String:String]? = nil) -> [T]{
         var result:[T] = []
         var parent:[String:String]? = parent
         arr.forEach{
-            if($0 is AnyArray){/*array*/
+            if $0 is AnyArray {/*array*/
                 let a:[Any] = $0 as! [Any]
                 result += recursiveFlattened(a,overrideKeys,overriders,parent)
             }else{/*item*/
-                var dict:[String:String] = $0 as! [String:String]
-                if(parent != nil){
+                guard var dict:[String:String] = $0 as? [String:String] else {fatalError("err")}
+                if let parent = parent {
                     overrideKeys.forEach{
-                        if(parent![$0] != nil){
-                            let val:Bool = String(parent![$0]!).bool
-                            if(!val){//only disable overrides
-                                dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
+                        if let value = parent[$0] {
+                            let val:Bool = String(value).bool
+                            if !val {/*only disable overrides*/
+                                dict.updateValue(value,forKey:$0)//creates new key,value pair if non exists
                             }
                         }
                     }
                 }
-                result.append(dict as! T)
-                if(dict.contains(overriders)){/*folders are the only things that can override*/
+                if let dict = dict as? T {result.append(dict)}
+                if dict.contains(overriders) {/*folders are the only things that can override*/
                     parent = dict
                 }
             }

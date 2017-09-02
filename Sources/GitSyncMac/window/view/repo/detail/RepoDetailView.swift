@@ -3,13 +3,14 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element,Closable,UnFoldable {
-    let isFolder:Bool
-    init(isFolder:Bool, size: CGSize = CGSize(), id: String? = nil) {
-        self.isFolder = isFolder
-        super.init(size: size, id: id)
-    }
+    
+    
     override func resolveSkin() {
         super.resolveSkin()
+        let idx3d = RepoView.selectedListItemIndex
+        
+        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
+        
         if isFolder {
             let folderJson = self.folderJson(fileURL: Config.Bundle.structure, path: "repoDetailView")
             Unfold.unFold(jsonArr:folderJson, parent: self)
@@ -17,6 +18,10 @@ class RepoDetailView:Element,Closable,UnFoldable {
             Unfold.unFold(fileURL:Config.Bundle.structure, path:"repoDetailView", parent:self)
         }
     }
+    
+    //maybe try to add checked to checkbutton2. And use it with bool. but with the option to set state externally. 🏀 It needs to be simple!
+    
+    
     /**
      * Modifies the dataProvider item on UI change
      */
@@ -26,24 +31,24 @@ class RepoDetailView:Element,Closable,UnFoldable {
         var data:RepoItem = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
         
         switch true{
-        case event.assert(TextFieldEvent.update,parentID:Key.title):
+        case event.assert(TextFieldEvent.update,parentID:Key.title):/*title*/
             data.title = (event as! TextFieldEvent).stringValue
-        case event.assert(TextFieldEvent.update,parentID:Key.local):
+        case event.assert(TextFieldEvent.update,parentID:Key.local):/*local*/
 //            Swift.print("set local")
             data.local = (event as! TextFieldEvent).stringValue
-        case event.assert(TextFieldEvent.update,parentID:Key.remote):
+        case event.assert(TextFieldEvent.update,parentID:Key.remote):/*remote*/
             data.remote = (event as! TextFieldEvent).stringValue
-        case event.assert(TextFieldEvent.update,parentID:Key.branch):
+        case event.assert(TextFieldEvent.update,parentID:Key.branch):/*branch*/
             data.branch = (event as! TextFieldEvent).stringValue
-        case event.assert(TextFieldEvent.update,parentID:Key.template):
+        case event.assert(TextFieldEvent.update,parentID:Key.template):/*template*/
             data.template = (event as! TextFieldEvent).stringValue
-        case event.assert(CheckEvent.check,parentID:Key.active):
+        case event.assert(CheckEvent.check,parentID:Key.active):/*active*/
             data.active = (event as! CheckEvent).isChecked
-        case event.assert(CheckEvent.check,parentID:Key.message):
+        case event.assert(CheckEvent.check,parentID:Key.message):/*message*/
             data.message = (event as! CheckEvent).isChecked
-        case event.assert(CheckEvent.check,parentID:Key.auto):
+        case event.assert(CheckEvent.check,parentID:Key.auto):/*auto*/
             data.auto = (event as! CheckEvent).isChecked
-        case event.assert(CheckEvent.check,parentID:Key.notification):
+        case event.assert(CheckEvent.check,parentID:Key.notification):/*notification*/
 //            Swift.print("set notification: ")
             data.notification = (event as! CheckEvent).isChecked
         default:
@@ -54,5 +59,5 @@ class RepoDetailView:Element,Closable,UnFoldable {
             RepoView.treeDP.tree[idx3d]!.props = data.dict/*Overrides the cur attribs*/
         }
     }
-    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
 }

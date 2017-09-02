@@ -17,14 +17,30 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //    enum MyError : Error {
 //        case RuntimeError(String)
 //    }
+   
+    
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
       
+//        let a = A()
+//        a.unfold()
 //
-        //Continue here: 🏀
-            //Add back RepoView
-            //figure out why Element is always crashing when attempting to commit
+//        let b = B()
+//        b.unfold()
+//
+//        let q:X = B()
+//        q.unfold()
+//
+//        let methods = [A.unfold,B.unfold]
+//        methods[1]()
+//        (B.self as X.Type).unfold()
+
+//        let dicts = Unfoldables.dict
+//        Swift.print("dicts: " + "\(dicts)")
+//
         
+//        let item = (Unfoldables.dict2["\(RadioButton.self)"])?([:])
+//        Swift.print("item: " + "\(item)")//item: Optional(<Element.RadioButton: 0x101a13d00>)
         
         initApp()
 //
@@ -33,31 +49,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest3()
 //        quickTest5()
 //        quickTest6()
-        
-       
-        func test(color:NSColor) throws{
-            if color == .red {
-                throw "I don't like red"
-            }else if color == .green {
-                throw "I'm not into green"
-            }else {
-                throw "I like all other colors"
-            }
-        }
-        
-        do {
-            try test(color:.green)
-        } catch let error where error.localizedDescription == "I don't like red"{
-            Swift.print ("Error: \(error)")//"I don't like red"
-        }catch let error {
-            Swift.print ("Other cases: Error: \(error.localizedDescription)")/*I like all other colors*/
-        }
-        
-        //where error.l == "I like all other colors"
-        
-        
-        //throw "Some Error"//To make the string itself be the localizedString of the error you can instead extend LocalizedError:
-        
         
         //
     }
@@ -114,7 +105,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Caret works if there is size, but not when size is NaN
         let a = window.contentView?.addSubView(Section.init(size:CGSize(0,0)))
         let b = a?.addSubView(Section.init(size:CGSize(0,0),id:"b"))
-       
+       _ = b
     }
     
     /**
@@ -300,5 +291,40 @@ extension AppDelegate:NSUserNotificationCenterDelegate{
     }
 }
 
+
+//
+//protocol X {
+//     func unfold()
+//}
+//extension X{
+//     func unfold(){
+//        Swift.print("default unfold")
+//    }
+//}
+//
+//
+//
+//protocol AX:X{
+//
+//}
+//protocol BX:X{
+//
+//}
+//extension AX{
+//    func unfold(){
+//        Swift.print("A unfold")
+//    }
+//}
+//
+//class A:AX{}
+//
+//
+//class B : A,BX{}
+//
+//extension BX {
+//     func unfold(){
+//        Swift.print("B unfold")
+//    }
+//}
 
 

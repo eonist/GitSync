@@ -49,7 +49,7 @@ class Unfold{
      */
     private static func unFold(dict:[String:Any]) -> Element?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
-        Swift.print("type: " + "\(type)")
+//        Swift.print("type: " + "\(type)")
         guard let unfoldMethod:UnFoldable.UnFoldMethod = Unfoldables.dict[type] else {fatalError("Type is not unFoldable: \(type)")}/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
         let item = try? unfoldMethod(dict)
 //        Swift.print("item: " + "\(item)")

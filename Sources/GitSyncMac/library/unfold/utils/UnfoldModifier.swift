@@ -14,7 +14,7 @@ class UnfoldModifier {
    
     static func applyData(_ view:UnFoldable, _ path:[String],_ value:Any)  {
         do {
-            var unfoldable:UnFoldable = try UnfoldParser.instance(parent:view, path)/*, let last = path.last*/
+            var unfoldable:UnFoldable = try UnfoldParser.unfoldable(parent:view, path)/*, let last = path.last*/
             Swift.print("unfoldable: path: \(path) " + "\(unfoldable) id: \((unfoldable as! ElementKind).id)")
             unfoldable.value = value
         } catch {

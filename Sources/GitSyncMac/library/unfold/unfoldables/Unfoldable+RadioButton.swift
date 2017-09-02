@@ -12,7 +12,7 @@ extension RadioButton{
     }
 }
 extension UnFoldable where Self:RadioButton{
-    static func unfold(dict:[String:Any]) -> UnFoldable{
+    static func unfold(dict:[String:Any]) throws -> UnFoldable{
         let text:String = UnfoldUtils.value(dict, Key.text) ?? ""
         let element:ElementConfig = .init(dict)
         let isSelectedStr = UnfoldUtils.value(dict, Key.isSelected) ?? "false"
@@ -20,3 +20,6 @@ extension UnFoldable where Self:RadioButton{
         return RadioButton.init(text:text, isSelected:isSelected, size:element.size, id:element.id)
     }
 }
+
+
+
