@@ -5,10 +5,11 @@ import Foundation
  */
 class AutoSync {
     typealias AutoSyncCompleted = ([RepoItem])->Void
-    lazy var messageRepoIterator:MessageRepoIterator = createMessageRepoIterator()
+    
     let repoList:[RepoItem]/*All repos*/
     lazy var otherRepos = repoVerifier.verifiedRepos.filter{!$0.message}/*"Verified" and "auto message" repos*/
-    lazy var repoVerifier = RepoVerifier(array:repoList,onComplete:onAllReposVerified)/*⬅️️*/
+    lazy var repoVerifier = RepoVerifier.init(array:repoList,onComplete:onAllReposVerified)/*Step.1*/
+    lazy var messageRepoIterator:MessageRepoIterator = createMessageRepoIterator(verifiedRepos:repoVerifier.verifiedRepos)/*Step.2*/
     let autoSyncComplete:AutoSyncCompleted/*When the AutoSync completes this is fired*/
     /**
      * The GitSync automation algo (Basically Commits and pushes)

@@ -27,12 +27,11 @@ extension AutoSync{
 extension AutoSync{
     /**
      * This is called when all repos are verified that they exist locally and remotly
+     * IMPORTANT: ⚠️️ messageRepoIterator.iterate() must be initiated or else iteration of other repos wont start
      */
     func onAllReposVerified(){
         Swift.print("onAllReposVerified")
-        if !messageRepoIterator.isEmpty {
-            messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
-        }
+        messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
     }
 }
 /**
@@ -53,8 +52,7 @@ extension AutoSync{
     /**
      * Generates the MessageRepoIterator
      */
-    func createMessageRepoIterator() -> MessageRepoIterator{
-        let verifiedRepos = repoVerifier.verifiedRepos
+    func createMessageRepoIterator(verifiedRepos:[RepoItem]) -> MessageRepoIterator{
         let messageRepos:[RepoItem] = verifiedRepos.filter{$0.message}/*repos that have manual commit message*/
 //        Swift.print("messageRepos.count: " + "\(messageRepos.count)")
         return .init(array:messageRepos,onComplete:syncOtherRepos)
