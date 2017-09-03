@@ -17,6 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
 //        quickTest()
+        
     }
     func quickTest(){
         window.contentView = InteractiveView()

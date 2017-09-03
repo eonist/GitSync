@@ -10,14 +10,14 @@ extension PrefsView{
      */
     func onDarkThemeCheck(){
         guard let darkMode:CheckBoxButton = try? UnfoldParser.unfoldable(parent:self, path:["darkModeGroup",Key.darkMode]) else {fatalError("darkModeBtn not available")}
-            
         PrefsView.prefs.darkMode = darkMode.getChecked()
         StyleManager.reset()//clear the old styles
         let themeStr:String = darkMode.getChecked() ? "dark.css" : "light.css"
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/styletest/" + themeStr,liveEdit:false)
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + themeStr
+        StyleManager.addStyle(url:styleFilePath,liveEdit:false)
         if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
             Swift.print("refreshSkin init")
-//            ElementModifier.refreshSkin(styleTestView)//TODO: ⚠️️ time this, does it take long?
+            ElementModifier.refreshSkin(styleTestView)//TODO: ⚠️️ time this, does it take long?
             Swift.print("refreshSkin completed")
         }
     }

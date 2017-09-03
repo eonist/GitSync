@@ -12,11 +12,12 @@ class RepoVerifier:ArrayIterator<RepoItem>{
         super.init(array: array)
     }
     func iterate() {
-//        Swift.print("self.hasNext(): " + "\(self.hasNext())")
+        Swift.print("repoVerifier.iterate.hasNext(): " + "\(self.hasNext())")
         if self.hasNext() {
             let repoItem = self.next()
             self.verifyGitProject(repoItem)
         }else {
+            Swift.print("onAllComplete")
             self.onAllComplete()
         }
     }

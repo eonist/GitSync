@@ -15,6 +15,7 @@ class AutoSync {
      * PARAM: isUserInitiated: if interval initiated then only target repos that have interval set to true
      */
     init(isUserInitiated:Bool, onComplete:@escaping AutoSyncCompleted) {
+        Swift.print("AutoSync isUserInitiated: \(isUserInitiated)")
         self.autoSyncComplete = onComplete
         self.repoList = AutoSync.createRepoList(isUserInitiated:isUserInitiated)
         Swift.print("self.repoList.count: " + "\(self.repoList.count)")

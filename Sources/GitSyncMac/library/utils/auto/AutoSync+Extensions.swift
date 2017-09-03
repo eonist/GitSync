@@ -29,6 +29,7 @@ extension AutoSync{
      * This is called when all repos are verified that they exist locally and remotly
      */
     func onAllReposVerified(){
+        Swift.print("onAllReposVerified")
         if !messageRepoIterator.isEmpty {
             messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
         }

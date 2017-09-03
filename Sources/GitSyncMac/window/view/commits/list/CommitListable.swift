@@ -104,6 +104,7 @@ extension CommitListable{
      * PARAM: completed: when AutoSync and Refresh are completed this closure is called
      */
     private func initSync(isUserInitiated:Bool, completed:@escaping ()->Void){
+        Swift.print("initSync")
         performance.autoSyncAndRefreshStartTime = Date()//init debug timer, TODO: move this inside startAutoSync method, maybe?
         performance.autoSyncStartTime = Date()/*Sets debug timer*/
         _ = AutoSync.init(isUserInitiated: isUserInitiated){ (repoList:[RepoItem]) in/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
