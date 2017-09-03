@@ -21,7 +21,7 @@ class  Cache{
         //Swift.print("💾 write begin")
         let xml:XML = Reflect.toXML(commitDP)/*Reflection*/
         //Swift.print(xml.xmlString)
-        let contentToWriteToDisk = xml.xmlString
+        let contentToWriteToDisk = XMLParser.prettyString(xml)//xml.xmlString
         _ = FileModifier.write(Config.Bundle.commitCacheURL.tildePath, contentToWriteToDisk)
         //Swift.print("💾 write end")
     }

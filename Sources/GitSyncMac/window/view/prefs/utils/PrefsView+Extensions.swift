@@ -9,18 +9,26 @@ extension PrefsView{
      * When darkmode check button is clicked
      */
     func onDarkThemeCheck(){
-        guard let darkMode:CheckBoxButton = self.element(Key.darkMode) else {fatalError("darkModeBtn not available")}
+        guard let darkMode:CheckBoxButton = try? UnfoldParser.unfoldable(parent:self, path:["darkModeGroup",Key.darkMode]) else {fatalError("darkModeBtn not available")}
+            
         PrefsView.prefs.darkMode = darkMode.getChecked()
-        StyleManager.reset()
+        StyleManager.reset()//clear the old styles
         let themeStr:String = darkMode.getChecked() ? "dark.css" : "light.css"
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/styletest/" + themeStr,liveEdit:false)
         if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
             Swift.print("refreshSkin init")
-            ElementModifier.refreshSkin(styleTestView)
+//            ElementModifier.refreshSkin(styleTestView)//TODO: ⚠️️ time this, does it take long?
             Swift.print("refreshSkin completed")
         }
     }
 }
+
+
+//you need both dark and ligth stored as cached json
+//when you switch theme you use the cached json and replace the stylemanager .styles arr
+
+
+
 /**
  * Parsing
  */
