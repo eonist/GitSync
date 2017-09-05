@@ -23,7 +23,7 @@ class RepoDetailView:Element,Closable,UnFoldable {
      * Modifies the dataProvider item on UI change
      */
     override func onEvent(_ event:Event) {
-//        Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
+        Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
         var repoItem:RepoItem = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
         
@@ -46,6 +46,7 @@ class RepoDetailView:Element,Closable,UnFoldable {
         }
         if event.assert(.check) /*|| event.assert(.check2)*/ || event.assert(.update) {
             RepoView.treeDP.tree[idx3d]!.props = repoItem.dict/*Overrides the cur attribs*/
+            Swift.print("write to tree")
         }
 //        if event.assert(.check2) {
 //            //Swift.print("repoItem.active: " + "\(RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d).active)")
