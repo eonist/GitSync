@@ -4,8 +4,6 @@ import Cocoa
 
 class Archive {
     var window:NSWindow!
-    
-    
     /**
      *
      */

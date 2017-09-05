@@ -38,43 +38,47 @@ class RepoDetailView:Element,Closable,UnFoldable {
             repoItem.branch = (event as! TextFieldEvent).stringValue
         case event.assert(TextFieldEvent.update,parentID:Key.template):/*template*/
             repoItem.template = (event as! TextFieldEvent).stringValue
-        case event.assert(.check2):
-            repoItem = onCheckEvent(event as! CheckEvent2,&repoItem)
+        case event.assert(.check):
+            repoItem = onCheckEvent(event as! CheckEvent,&repoItem)
         default:
             super.onEvent(event)/*forward other events*/
             break;
         }
-        if event.assert(.check) || event.assert(.check2) || event.assert(.update) {
+        if event.assert(.check) /*|| event.assert(.check2)*/ || event.assert(.update) {
             RepoView.treeDP.tree[idx3d]!.props = repoItem.dict/*Overrides the cur attribs*/
         }
-        if event.assert(.check2) {
-            //Swift.print("repoItem.active: " + "\(RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d).active)")
-        }
+//        if event.assert(.check2) {
+//            //Swift.print("repoItem.active: " + "\(RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d).active)")
+//        }
     }
     /**
      * New
      */
-    func onCheckEvent(_ event:CheckEvent2,_ repoItem: inout RepoItem) -> RepoItem{
-        let idx3d = RepoView.selectedListItemIndex
-        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
-        
-        func closure(_ key:String,_ value:Bool) {//this method could be usefull for other UI components too, by using generics
-            repoItem[key] = value//set the root
-            if isFolder {/*if folder then,set all descendant repoItems to the origin state*/
-                TreeModifier.applyAll(tree: &RepoView.treeDP.tree, idx3d: idx3d, apply: {/*Swift.print($0.props?["title"]);*/$0.props?[key] = value.str})
-            }
-        }
+    func onCheckEvent(_ event:CheckEvent,_ repoItem: inout RepoItem) -> RepoItem{
+//        let idx3d = RepoView.selectedListItemIndex
+//        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
+//
+//        func closure(_ key:String,_ value:Bool) {//this method could be usefull for other UI components too, by using generics
+//            repoItem[key] = value//set the root
+//            if isFolder {/*if folder then,set all descendant repoItems to the origin state*/
+//                TreeModifier.applyAll(tree: &RepoView.treeDP.tree, idx3d: idx3d, apply: {/*Swift.print($0.props?["title"]);*/$0.props?[key] = value.str})
+//            }
+//        }
         
         switch true{
         case event.assert(parentID: Key.active):/*active*/
-            closure(Key.active,event.checked)
+            repoItem[Key.active] = value
+//            closure(Key.active,event.checked)
 //            Swift.print("repoItem.active: " + "\(repoItem.active)")
         case event.assert(parentID:Key.message):/*message*/
-            closure(Key.message,event.checked)
+            repoItem[Key.message] = value
+//            closure(Key.message,event.checked)
         case event.assert(parentID:Key.auto):/*auto*/
-            closure(Key.auto,event.checked)
+            repoItem[Key.auto] = value
+//            closure(Key.auto,event.checked)
         case event.assert(parentID:Key.notification):/*notification*/
-            closure(Key.notification,event.checked)
+            repoItem[Key.notification] = value
+//            closure(Key.notification,event.checked)
         default:
             break;
         }

@@ -21,11 +21,11 @@ extension RepoDetailView{
         
         /*CheckButtons*/
         let closure = { (path:[String],key:String) in
-            if let ui:CheckBoxButton2 = try? UnfoldParser.unfoldable(parent:self, path:path) {
+            if let ui:CheckBoxButton = try? UnfoldParser.unfoldable(parent:self, path:path) {
 //                Swift.print("ui: " + "\(ui)")
-                let checkedState:CheckedState = Utils.checkedState(repoItem,idx3d,key)
+                guard let checkedState:Bool = repoItem[key] else {fatalError("err")}//Utils.checkedState(repoItem,idx3d,key)
 //                Swift.print("checkedState: " + "\(checkedState)")
-                ui.value = checkedState.rawValue //we use string not enum state
+                ui.value = checkedState//.rawValue //we use string not enum state
             }
         }
         closure(["autoGroup",Key.auto],Key.auto)
@@ -62,34 +62,34 @@ extension RepoDetailView{
     }
 }
 
-private class Utils{
-    /**
-     * New
-     */
-    static func checkedState(_ repoItem:RepoItem,_ idx3d:[Int],_ key:String) -> CheckedState  {
-        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
-        if isFolder {
-            guard let tree:Tree = TreeParser.child(RepoView.treeDP.tree, idx3d) else {fatalError("err")}
-            let descendants:[Tree] = TreeUtils.flattened(tree)/*find all projects under this folder*/
-//            Swift.print("descendants.count: " + "\(descendants.count)")
-            let someAreChecked:Bool = descendants.first(where: {$0.props![key] == "true"}) != nil
-//            Swift.print("someAreChecked: " + "\(someAreChecked)")
-            let someAreUnChecked:Bool = descendants.first(where: {$0.props![key] == "false"}) != nil
-//            Swift.print("someAreUnChecked: " + "\(someAreUnChecked)")
-            let state:CheckedState = {/*//set the data based on what the sum of bools are for all projects.*/
-                if someAreChecked && someAreUnChecked {return .mix }
-                else if someAreChecked {return .checked}
-                else {return .none}/*someAreUnChecked {.none}*/
-            }()
-            return state
-        }else {
-            guard let prop:Bool = repoItem[key] else {fatalError("repoItem does not have key: \(key)")}
-//            Swift.print("repoItem: " + "\(repoItem)")
-//            Swift.print("prop: " + "\(prop)")
-            return prop ? .checked : .none
-        }
-        
-        
-    }
-}
+//private class Utils{
+//    /**
+//     * New
+//     */
+//    static func checkedState(_ repoItem:RepoItem,_ idx3d:[Int],_ key:String) -> CheckedState  {
+//        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
+//        if isFolder {
+//            guard let tree:Tree = TreeParser.child(RepoView.treeDP.tree, idx3d) else {fatalError("err")}
+//            let descendants:[Tree] = TreeUtils.flattened(tree)/*find all projects under this folder*/
+////            Swift.print("descendants.count: " + "\(descendants.count)")
+//            let someAreChecked:Bool = descendants.first(where: {$0.props![key] == "true"}) != nil
+////            Swift.print("someAreChecked: " + "\(someAreChecked)")
+//            let someAreUnChecked:Bool = descendants.first(where: {$0.props![key] == "false"}) != nil
+////            Swift.print("someAreUnChecked: " + "\(someAreUnChecked)")
+//            let state:CheckedState = {/*//set the data based on what the sum of bools are for all projects.*/
+//                if someAreChecked && someAreUnChecked {return .mix }
+//                else if someAreChecked {return .checked}
+//                else {return .none}/*someAreUnChecked {.none}*/
+//            }()
+//            return state
+//        }else {
+//            guard let prop:Bool = repoItem[key] else {fatalError("repoItem does not have key: \(key)")}
+////            Swift.print("repoItem: " + "\(repoItem)")
+////            Swift.print("prop: " + "\(prop)")
+//            return prop ? .checked : .none
+//        }
+//        
+//        
+//    }
+//}
 
