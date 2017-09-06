@@ -30,6 +30,7 @@
 6. XCode: open GitSync.xcodeproj and run it <kbd>Cmd</kbd>  <kbd>R</kbd>
 
 ## Change-log:
+
 **2017-09-03**
 - Added fast theme switching
 

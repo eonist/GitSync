@@ -17,11 +17,36 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")
         initApp()
 //        quickTest()
-        
+//        fastList()
+        //quickTest2()
     }
-    func quickTest(){
+    /**
+     * 
+     */
+    func fastList(){
+        setup()
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
+//        let config =  List5.Config
+        let list = section?.addSubView(ScrollerFastList5.init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,73)))//(140,73,24,dp,self)
+        _ = list
+    }
+    //start implementing FastList test 🏀
+    func quickTest2(){
+        setup()
+        let xml = FileParser.xml("~/Desktop/assets/xml/longlist.xml".tildePath)//list
+        let dp:DataProvider = DataProvider(xml)
+        let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
+        
+        let list = SliderScrollerList5.init(config:.init(itemSize: CGSize(120,24), dp: dp, dir: .ver), size: CGSize(140, 73))
+        _ = section?.addSubView(list)
+        //        list.selectAt(1)
+    }
+  
+    func setup(){
         window.contentView = InteractiveView()
-       
+        let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + "light.css"//"dark.css"
+        StyleManager.addStyle(url:styleFilePath,liveEdit: false)
     }
     /**
      * Initializes the app
