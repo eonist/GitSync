@@ -18,6 +18,7 @@ class CommitMessageUtils{
             switch GitCMD(rawValue:cmd){
 				case .M?:numOfModifiedFiles += 1
                 case .MM?:numOfModifiedFiles += 1/*new and experimental*/
+                case .MD?:numOfDeletedFiles += 1/*new and experimental*/
 				case .D?:numOfDeletedFiles += 1
 				case .A?:numOfNewFiles += 1
                 case .AA?:numOfNewFiles += 1

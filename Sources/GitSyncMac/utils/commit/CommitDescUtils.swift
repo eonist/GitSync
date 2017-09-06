@@ -23,6 +23,7 @@ class CommitDescUtils{
             case .A?:addedItems.append(statusItem) /*add a record to a list*/
             case .M?:modifiedItems.append(statusItem) /*add a record to a list*/
             case .MM?:modifiedItems.append(statusItem) /*add a record to a list*/
+            case .MD?:deletedItems.append(statusItem) //beta
             case .AA?:addedItems.append(statusItem) /*add a record to a list*/
             case .AD?:addedItems.append(statusItem) /*add a record to a list*/
             case .AM?:addedItems.append(statusItem) /*add a record to a list*/
