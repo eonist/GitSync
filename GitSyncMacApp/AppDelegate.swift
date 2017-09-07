@@ -20,15 +20,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        fastList()
         //quickTest2()
     }
-    /**
-     * 
-     */
+    //test fastlist with slider 🏀
+    //
     func fastList(){
         setup()
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
         let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
 //        let config =  List5.Config
-        let list = section?.addSubView(ScrollerFastList5.init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,73)))//(140,73,24,dp,self)
+        let list = section?.addSubView(SliderScrollerFastList5.init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,73)))//FastList5,ScrollerFastList5
         _ = list
     }
     //start implementing FastList test 🏀
