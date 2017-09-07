@@ -14,7 +14,7 @@ class RepoView:Element,Closable {
             return _treeDP!
         };return treeDP/*Already exist, return old dp*/
     }
-    lazy var treeList:TreeList3 = createTreeList()
+    lazy var treeList:TreeList5 = createTreeList()
     lazy var contextMenu:RepoContextMenu = {return RepoContextMenu(self.treeList)}()
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//

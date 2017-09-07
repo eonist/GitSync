@@ -19,6 +19,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        treeListTest()
 //        fastList()
 //        viewTests()
+//        quickTest()
     }
     
     
@@ -82,6 +83,7 @@ extension AppDelegate:NSUserNotificationCenterDelegate{
         return true
     }
 }
+
 
 class ViewTest:ElasticSliderScrollerView5{//ScrollerView5,SliderScrollerView5
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}

@@ -3,25 +3,27 @@ import Cocoa
 @testable import Element
 
 
-
 class CommitListHandler:ElasticSliderScrollerFastListHandler,CommitListable2Decorator {
-
     /**
      * TODO: ⚠️️ Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
+//        Swift.print("CommitListHandler.setProgressValue")
         if dir == .ver && _state.hasReleasedBeyondTop{
             //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
             iterateProgressBar(value)
         }
-//        (fastListable as! Elastic5).setProgressValue(value,dir)
+        (progressable as! CommitList2).setProgressValue(value,dir)
         
     }
     /**
      * TODO: ⚠️️ Comment this method, it can probably removed because swift 4 has more "where extension" support
      */
     override func scroll(_ event:NSEvent) {
-        //Swift.print("🌵 ICommitList.scroll()")
+//        Swift.print("CommitListHandler.scroll()")
+        super.scroll(event)
+        
+        //⚠️️ I think its safe to override onChange? ⚠️️
         if event.phase == NSEvent.Phase.changed {//this is only direct manipulation, not momentum
             iterateProgressBar(moverGroup.result.y)/*mover!.result*/
         }else if event.phase == NSEvent.Phase.mayBegin || event.phase == NSEvent.Phase.began {
@@ -30,7 +32,6 @@ class CommitListHandler:ElasticSliderScrollerFastListHandler,CommitListable2Deco
             scrollWheelExit()
         }
     }
-    
     /**
      * TODO: ⚠️️ Comment this method
      */
@@ -84,7 +85,7 @@ class CommitListHandler:ElasticSliderScrollerFastListHandler,CommitListable2Deco
     }
     //TODO: ⚠️️ Move into extension ?
     func scrollAnimStopped(){
-        Swift.print("🌵 ICommitsList.scrollAnimStopped()")
+        Swift.print("scrollAnimStopped()")
         //⚠️️ defaultScrollAnimStopped()
         //hideSlider()
         if _state.isInDeactivateRefreshModeState {

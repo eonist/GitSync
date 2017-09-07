@@ -3,8 +3,9 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element,Closable,UnFoldable {
-    
-    
+    /**
+     * Init the UI
+     */
     override func resolveSkin() {
         super.resolveSkin()
         let idx3d = RepoView.selectedListItemIndex

@@ -3,9 +3,9 @@ import Cocoa
 @testable import Element
 
 /**
- * Related to the AutoSync and Refresh processes
+ * External Ad-hock methods
  */
-extension CommitListHandler{
+extension CommitListable2{
     /**
      * Starts the auto sync process (Happens after the pull to refresh gesture)
      * PARAM: completed: when AutoSync and Refresh are completed this closure is called
@@ -18,6 +18,16 @@ extension CommitListHandler{
             Swift.print("🏁🏁🏁 AutoSyncCompleted" + "\(self.performance.autoSyncStartTime.secsSinceStart)")/*How long did the gathering of git commit logs take?*/
             _ = Refresh(dp:self.dp as! CommitDP, repoList:repoList ,onComplete:completed)/* ⬅️️ Refresh happens after AutoSync is fully completed, also Attach the dp that RBSliderFastList uses*/
         }
+    }
+    /**
+     * Used to start autosync externally, from an interval timer for instance. (A sort of ad-hock method)
+     * PARAM: onComplete: called when the autoSync process completes
+     */
+    func initSyncFromInterval(_ onComplete:@escaping ()->Void){
+        Swift.print("initiateAutoSyncMode()")
+        progressIndicator.start()/*start spinning the progressIndicator*/
+        _state.hasPulledAndReleasedBeyondRefreshThreshold = true/*set the state*/
+        initSync(isUserInitiated: false,completed: {self.onRefreshComplete();onComplete()})
     }
     /**
      * NOTE: Basically refreshState has ended
@@ -36,20 +46,5 @@ extension CommitListHandler{
         moverGroup.yMover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
         Swift.print("🏁🏁🏁 CommitListable AutoSync and Refresh completed \(performance.autoSyncAndRefreshStartTime.secsSinceStart)")
-    }
-}
-/**
- * External Ad-hock methods
- */
-extension CommitListHandler{
-    /**
-     * Used to start autosync externally, from an interval timer for instance. (A sort of ad-hock method)
-     * PARAM: onComplete: called when the autoSync process completes
-     */
-    func initSyncFromInterval(_ onComplete:@escaping ()->Void){
-        Swift.print("initiateAutoSyncMode()")
-        progressIndicator.start()/*start spinning the progressIndicator*/
-        _state.hasPulledAndReleasedBeyondRefreshThreshold = true/*set the state*/
-        initSync(isUserInitiated: false,completed: {self.onRefreshComplete();onComplete()})
     }
 }
