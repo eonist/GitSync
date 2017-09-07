@@ -16,11 +16,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
-
+//        treeListTest()
 //        fastList()
 //        viewTests()
     }
     
+    
+    /**
+     * treeListTest
+     */
+    func treeListTest(){
+        setup()
+        let url = "~/Desktop/assets/xml/treelist.xml"
+        let dp: TreeDP = TreeDP(url.tildePath)
+        
+        let treeList:TreeList5 = .init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,192))
+        window.contentView?.addSubview(treeList)
+    }
     /**
      *
      */
@@ -71,9 +83,7 @@ extension AppDelegate:NSUserNotificationCenterDelegate{
     }
 }
 
-
-
-class ViewTest:ScrollerView5{
+class ViewTest:ElasticSliderScrollerView5{//ScrollerView5,SliderScrollerView5
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     override func resolveSkin() {
         StyleManager.addStyle("ViewTest{fill:green;fill-alpha:1.0;}")

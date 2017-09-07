@@ -4,8 +4,8 @@ import Foundation
 
 class CommitView:Element{
     static var selectedIdx:Int = 1
-    lazy var list:CommitsList = self.createCommitList()
-    var commitDetailView:CommitDetailView?
+    lazy var list:CommitList2 = self.createCommitList()
+//    var commitDetailView:CommitDetailView?
     lazy var intervalTimer:SimpleTimer = .init(interval: 60, onTick: self.onTick)/*This timer fires every n seconds and initiates the AutoSync process if apropriate*/
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -23,7 +23,7 @@ class CommitView:Element{
         intervalTimer.stop()
         if list._state.isReadyToSync {
             Swift.print("isReadyToSync")
-            self.list.initSyncFromInterval({self.intervalTimer.start()})/*only restarts after sync completes*/
+            (self.list as CommitListable2).initSyncFromInterval({self.intervalTimer.start()})/*only restarts after sync completes*/
         }else{
             Swift.print("try again in 60 seconds")
             self.intervalTimer.start()/*try again in n seconds*/

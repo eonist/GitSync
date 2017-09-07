@@ -2,7 +2,6 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-typealias ICommitList = CommitListable
 protocol CommitListable:ElasticSlidableScrollableFastListable3 {
     var progressIndicator:ProgressIndicator {get set}
     var performance:PerformanceTester {get set} /*Debug*/
@@ -27,9 +26,9 @@ extension CommitListable{
         if event.phase == NSEvent.Phase.changed {//this is only direct manipulation, not momentum
             iterateProgressBar(moverGroup!.result.y)/*mover!.result*/
         }else if event.phase == NSEvent.Phase.mayBegin || event.phase == NSEvent.Phase.began {
-            (self as ICommitList).scrollWheelEnter()
+            (self as CommitListable).scrollWheelEnter()
         }else if event.phase == NSEvent.Phase.ended || event.phase == NSEvent.Phase.cancelled {
-            (self as ICommitList).scrollWheelExit()
+            (self as CommitListable).scrollWheelExit()
         }
     }
     /**
@@ -70,7 +69,7 @@ extension CommitListable{
         //let value = mover!.result
         //Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace) isTwoFingersTouching \(isTwoFingersTouching)")
         //Swift.print("ICommitList.iterateProgressBar value: " + "\(value)")
-        if(value >  0 && value < 60){//between 0 and 60
+        if value >  0 && value < 60 {//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
             if _state.hasPulledAndReleasedBeyondRefreshThreshold {//isInRefreshMode

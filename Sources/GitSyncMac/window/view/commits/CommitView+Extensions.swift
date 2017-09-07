@@ -9,14 +9,15 @@ extension CommitView:Closable{
         self.removeFromSuperview()
     }
     /**
-     *
+     * Creates Commit list
      */
-    func createCommitList() -> CommitsList{
+    func createCommitList() -> CommitList2{
         let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
         let size:CGSize = CGSize(self.getWidth(), self.getHeight())
         Swift.print("size: " + "\(size)")
-        let list = CommitsList.init(size.w,size.h, CGSize(24,102), dp, self,"commitsList")
-        self.addSubview(list)/*24 should be allowed to be nan no?*/
+        let config:List5.Config = .init(itemSize: CGSize(size.w,102), dp: dp, dir:.ver)
+        let list = CommitList2.init(config: config, size: size, id: "commitsList")
+        self.addSubview(list)
         //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
         return list
     }
