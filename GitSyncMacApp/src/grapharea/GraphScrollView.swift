@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- *
+ * 
  */
 class GraphScrollView:ContainerView3,GraphScrollable{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
@@ -14,10 +14,16 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var newPoints:[CGPoint]?
     var animator:NumberSpringer?
     var prevMinY:CGFloat?//prevMinY to avoid calling start anim
+    var graphArea:GraphAreaX
+    init(graphArea:GraphAreaX, size: CGSize, id: String? = nil) {
+        self.graphArea = graphArea
+        super.init(size: size, id: id)
+    }
     //var animationCue:Animator?
     override func resolveSkin() {
         super.resolveSkin()
         layer!.masksToBounds = true
+        
     }
     /**
      * When the the user scrolls
@@ -27,20 +33,22 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
         //Swift.print("GraphAreaX.scrollWheel()")
         //(self as ICommitList).scroll(event)
-        if(event.phase == NSEvent.Phase.changed){/*this is only direct manipulation, not momentum*/
+        if event.phase == NSEvent.Phase.changed {/*this is only direct manipulation, not momentum*/
             //Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
             frameTick()
         }
         super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 protocol GraphScrollable:ElasticScrollable3 {
     var prevX:CGFloat {get set}
-    var points:[CGPoint]? {get set}
+    var points:[CGPoint] {get set}
     var prevPoints:[CGPoint]? {get set}//rename 👉 fromPoints
     var newPoints:[CGPoint]? {get set}//rename 👉 toPoints
     var animator:NumberSpringer? {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
+    var graphArea:GraphAreaX {get set}
     //var animationCue:Animator? {get set}
     
     //continue adding the tick variables to test the performance 🏀
@@ -111,7 +119,7 @@ extension GraphScrollable{
  * Animation related
  */
 extension GraphScrollable {
-    var points:[CGPoint]? {get{return GraphAreaX.points}set{GraphAreaX.points = newValue}}
+    var points:[CGPoint] {get{return graphArea.points}set{graphArea.points = newValue}}
     /**
      * Initiates the animation sequence
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
@@ -195,13 +203,16 @@ extension GraphScrollable {
         //points = positions
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
-        GraphAreaX.graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
-        disableAnim{
-            GraphAreaX.graphLine!.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
-            for (i,obj) in GraphAreaX.graphDots.enumerated() {
+        graphArea.graphLine.line!.cgPath = CGPathParser.polyLine(positions)
+        
+        //⚠️️ no need to disable anim ⚠️️
+        
+//        disableAnim{
+            graphArea.graphLine.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+            for (i,obj) in graphArea.graphDots.enumerated() {
                 obj.layer?.position = positions[i]//positions the graphDots
             }
-        }
+//        }
     }
     /**
      * Returns minY for the visible graph
@@ -210,7 +221,7 @@ extension GraphScrollable {
      * PARAM: maxX: The end of the visible range
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
-        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}/*We gather the points within the current minX and maxX*/
+        let yValuesWithinMinXAndMaxX:[CGFloat] = points.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}/*We gather the points within the current minX and maxX*/
         return (yValuesWithinMinXAndMaxX).min()!
     }
     /**
@@ -256,7 +267,7 @@ extension GraphScrollable{
      * New
      */
     func calcScaledPoints(_ ratio:CGFloat) -> [CGPoint]{
-        let scaledPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
+        let scaledPoints = points.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
         return scaledPoints
     }
     /**

@@ -31,12 +31,13 @@ class CommitList2:ElasticSliderScrollerFastList5,CommitListable2 {
      * Apply data to ListItem
      */
     override func reUse(_ listItem:FastListItem) {
-        let item:CommitsListItem = listItem.item as! CommitsListItem
+        let item:CommitsListItem = listItem.item as! CommitsListItem//use guard here
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
         item.setData(dp.items[idx])
-        if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
-        disableAnim {item.layer?.position[dir] = idx * itemSize.height/*position the item*/}
+        if item.selected != selected {item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
+//        disableAnim {} no need for this anymore
+        item.layer?.position[dir] = idx * itemSize.height/*position the item*/
     }
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
@@ -69,7 +70,7 @@ class CommitList2:ElasticSliderScrollerFastList5,CommitListable2 {
 //        return "\(CommitsList.self)"
 //    }
 }
-extension CommitList2{
+extension CommitList2{//move into extension class
     func createProgressIndicator() -> ProgressIndicator{
         let piContainer = addSubView(Container(self.getWidth(), self.getHeight(),self,"progressIndicatorContainer"))
         let progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))

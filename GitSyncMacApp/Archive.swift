@@ -4,6 +4,36 @@ import Cocoa
 
 class Archive {
     var window:NSWindow!
+    
+    /**
+     * treeListTest
+     */
+    func treeListTest(){
+        setup()
+        let url = "~/Desktop/assets/xml/treelist.xml"
+        let dp: TreeDP = TreeDP(url.tildePath)
+        
+        let treeList:TreeList5 = .init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,192))
+        window.contentView?.addSubview(treeList)
+    }
+    /**
+     *
+     */
+    func viewTests(){
+        setup()
+        let view = ViewTest.init(size: CGSize(200,200))
+        _ = window.contentView?.addSubView(view)
+    }
+    func fastList(){
+        setup()
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
+        //        let config =  List5.Config
+        let list = ElasticSliderScrollerFastList5.init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,73))//FastList5,ScrollerFastList5,SliderScrollerFastList5,ElasticScrollList5,ElasticSliderScrollerList5,SliderScrollerList5
+        section?.addSubview(list)
+        //list.selectAt(1)
+    }
+    
     /**
      *
      */

@@ -16,5 +16,4 @@ extension UnFoldable where Self:Container{
         let element:ElementConfig = .init(dict)
         return Container.init(size:element.size, id:element.id)
     }
-    
 }

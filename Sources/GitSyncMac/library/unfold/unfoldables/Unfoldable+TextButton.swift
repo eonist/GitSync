@@ -8,7 +8,6 @@ extension TextButton:UnFoldable{
     }
 }
 extension UnFoldable where Self:TextButton{
-  
     static func unfold(dict:[String:Any]) throws -> UnFoldable {
         let text:String = UnfoldUtils.value(dict, Key.text) ?? ""
         let element:ElementConfig = .init(dict)

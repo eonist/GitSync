@@ -16,40 +16,84 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
         initApp()
-//        treeListTest()
-//        fastList()
-//        viewTests()
+//        quickTest()
+        
+        //Continue here: 🏀
+            //Let's try and get GraphX into CustomList
+            //Then make a demo where FastList is vertical
+            //then try GraphX with FastList
+        
+//      testGraphXTest()
+//      horizontalListTest()
+//      viewTests()
 //        quickTest()
     }
-    
-    
     /**
-     * treeListTest
+     * //Figure out a sceheme to store the repo commit stats in database where its also removable if repos are removed etc. Also filtering repos 👈👈👈
      */
-    func treeListTest(){
-        setup()
-        let url = "~/Desktop/assets/xml/treelist.xml"
-        let dp: TreeDP = TreeDP(url.tildePath)
+    func quickTest(){
+        let commitDb = CommitCountDB()
         
-        let treeList:TreeList5 = .init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,192))
-        window.contentView?.addSubview(treeList)
+        let id:String = "RepoA"/*repoID*/
+        let year:Int = 2015
+        let month:Int = 3
+        let commitCount:Int = 20
+//        let monthVal:CommitCountDB2.Month = [month:commitCount]
+//        let yearVal:CommitCountDB2.Year = [year:monthVal]
+//        let repoVal:CommitCountDB2.Repo = (repoId:id,year:yearVal)
+//        commitDb.repos[repoVal.repoId] = repoVal.year
+        
+        commitDb.addRepo(repoId: id, date: CommitCountDB.DBDate.init(year:year,month:month), commitCount: commitCount)
+        
+        Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month])")
+        
+        commitDb.addRepo(repoId: id, date: CommitCountDB.DBDate.init(year:year,month:month), commitCount: 12)
+        
+        
+        Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month])")
+        
+        //DataBase for git commit count
+//        let tempA = TempA()
+//        tempA.arr["a"] = (id:"blue",value:["a","b"])
+//        tempA.arr["a"]?.value[0] = "x"
+//        Swift.print(tempA.arr["a"]?.value[0])
     }
     /**
      *
      */
     func viewTests(){
         setup()
-        let view = ViewTest.init(size: CGSize(200,200))
+        let view = ViewTest.init(size: CGSize(300,300))
         _ = window.contentView?.addSubView(view)
     }
-    func fastList(){
-        setup()
-        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
-        let section = window.contentView?.addSubView(Section(size:CGSize(200,200)))
-//        let config =  List5.Config
-        let list = ElasticSliderScrollerFastList5.init(config:.init(itemSize: CGSize(140,24), dp: dp, dir: .ver), size: CGSize(140,73))//FastList5,ScrollerFastList5,SliderScrollerFastList5,ElasticScrollList5,ElasticSliderScrollerList5,SliderScrollerList5
-        section?.addSubview(list)
-        //list.selectAt(1)
+    /**
+     * 
+     */
+    func horizontalListTest(){
+//        setup()
+        window.contentView = InteractiveView()
+        //Create a vertical list
+        //color rects as items
+        //db should just be 10 random colors
+        let dp:DP = DP.init(Array.init(repeating: ["":""], count: 32))
+        let listConfig = List5.Config.init(itemSize: CGSize(80,80), dp: dp, dir: .hor)
+        let list = CustomList.init(config: listConfig, size: CGSize(350,80))
+        window.contentView?.addSubview(list)
+    }
+    /**
+     * Testing the zoomable and bouncing graph
+     */
+    func testGraphXTest(){
+        Swift.print("Hello GraphX")
+        
+        window.size = CGSize(664,400)
+        window.title = ""
+        window.contentView = InteractiveView()
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
+        
+        let winSize:CGSize = WinParser.size(window)
+        let graph = window.contentView!.addSubView(GraphX(winSize.w,winSize.h))
+        _ = graph
     }
     
     func setup(){
@@ -84,11 +128,10 @@ extension AppDelegate:NSUserNotificationCenterDelegate{
     }
 }
 
-
-class ViewTest:ElasticSliderScrollerView5{//ScrollerView5,SliderScrollerView5
+class ViewTest:ElasticScrollerView5{//ScrollerView5,ElasticSliderScrollerView5,ScrollerView5,SliderScrollerView5
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     override func resolveSkin() {
-        StyleManager.addStyle("ViewTest{fill:green;fill-alpha:1.0;}")
+        StyleManager.addStyle("ContainerView{fill:blue;fill-alpha:0.0;}")
         super.resolveSkin()
         createEllipse()
     }
@@ -96,7 +139,7 @@ class ViewTest:ElasticSliderScrollerView5{//ScrollerView5,SliderScrollerView5
 /**
  * Testing multiple views performance 👷🚧
  */
-extension ViewTest{
+extension ContainerView5{
     /**
      * Creates debug ellipse
      */
@@ -115,8 +158,9 @@ extension ViewTest{
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
         Swift.print("p: " + "\(p)")
         /*Graphics*/
-        let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
+        let ellipse = EllipseGraphic(0,0,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
         contentContainer.addSubview(ellipse.graphic)
+        ellipse.graphic.layer?.position = p
         ellipse.draw()
     }
     /**
@@ -146,4 +190,28 @@ extension ViewTest{
         }
     }
 }
-
+class CustomList:ElasticScrollerFastList5{
+    override func createItem(_ index:Int) -> Element {
+        let customListItem = CustomListItem.init(size: itemSize)
+        contentContainer.addSubview(customListItem)
+//        customListItem.setPosition(CGPoint(itemSize.w*index,0))
+        return customListItem
+    }
+    override func reUse(_ listItem:FastListItem) {
+        let randCol:NSColor = NSColorParser.randomColor()
+        (listItem.item as! CustomListItem).rect?.graphic.fillStyle = FillStyle.init(randCol)
+        (listItem.item as! CustomListItem).rect?.graphic.draw()
+        listItem.item.layer?.position[dir] = listItem.idx * itemSize[dir]/*position the item*/
+    }
+}
+class CustomListItem:Element{
+    var rect:RectGraphic?
+    override func resolveSkin() {
+        let randCol:NSColor = NSColorParser.randomColor()
+//        let x = index * skinSize.w
+//        Swift.print("x: " + "\(x)")
+        rect = RectGraphic(0,0,skinSize.w,skinSize.h,FillStyle(randCol))
+        rect!.draw()
+        addSubview(rect!.graphic)
+    }
+}

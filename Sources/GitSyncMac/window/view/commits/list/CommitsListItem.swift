@@ -3,41 +3,18 @@ import Cocoa
 @testable import Element
 /**
  * NOTE: repo-name,contributor,title,description,date
- * TODO: ⚠️️ move lazy creators into extension
  */
 class CommitsListItem:Button,Selectable{
-    lazy var container = {
-        return addSubView(Section(NaN,100,self,"textContainer"))
-    }()
-    lazy var titleText:Text = {
-        let  titleText = container.addSubView(Text(360,24,config.title,container,"title"))
-        titleText.isInteractive = false
-        return titleText
-    }()
-    lazy var repoNameText:Text = {
-        let repoNameText = container.addSubView(Text(NaN,NaN,config.repoName,container,"repoName"))
-        repoNameText.isInteractive = false
-        return repoNameText
-    }()
-    lazy var contributorText:Text = {
-        let contributorText = container.addSubView(Text(NaN,NaN,config.contributor,container,"contributor"))
-        contributorText.isInteractive = false
-        return contributorText
-    }()
-    lazy var descText:Text = {
-        let descText = container.addSubView(Text(NaN,50,config.desc,container,"description"))
-        descText.isInteractive = false
-        return descText
-    }()
-    lazy var dateText:Text = {
-        let dateText = container.addSubView(Text(180,24,config.date,container,"date"))
-        dateText.isInteractive = false
-        return dateText
-    }()
-    typealias Config = (repoName:String,contributor:String,title:String,desc:String,date:String,isSelected : Bool)
+    lazy var container = addSubView(Section(NaN,100,self,"textContainer"))
+    lazy var titleText:Text = createTitleText()
+    lazy var repoNameText:Text = createRepoNameText()
+    lazy var contributorText:Text = createContributorText()
+    lazy var descText:Text = createDescText()
+    lazy var dateText:Text = createDateText()
+    typealias Config = (repoName:String,contributor:String,title:String,desc:String,date:String,isSelected : Bool)//TODO: ⚠️️ use struct instead
     var config:Config
     
-    init(config:Config,  size:CGSize ,   id:String? = nil){
+    init(config:Config, size:CGSize, id:String? = nil){
         self.config = config
         super.init(size: size, id: id)
     }
@@ -52,7 +29,7 @@ class CommitsListItem:Button,Selectable{
     override func mouseUpInside(_ event: MouseEvent) {
         config.isSelected = true
         super.mouseUpInside(event)
-        self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
+        self.event(SelectEvent(SelectEvent.select,self/*,self*/))
     }
     override var skinState:String {
         get {return config.isSelected ? SkinStates.selected + " " + super.skinState : super.skinState}
@@ -75,6 +52,33 @@ class CommitsListItem:Button,Selectable{
         return super.hitTest(aPoint)
      }*/
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+extension CommitsListItem{
+    func createTitleText()->Text{
+        let  titleText = container.addSubView(Text(360,24,config.title,container,"title"))
+        titleText.isInteractive = false
+        return titleText
+    }
+    func createRepoNameText() -> Text{
+        let repoNameText = container.addSubView(Text(NaN,NaN,config.repoName,container,"repoName"))
+        repoNameText.isInteractive = false
+        return repoNameText
+    }
+    func createContributorText()-> Text{
+        let contributorText = container.addSubView(Text(NaN,NaN,config.contributor,container,"contributor"))
+        contributorText.isInteractive = false
+        return contributorText
+    }
+    func createDescText()-> Text{
+        let descText = container.addSubView(Text(NaN,50,config.desc,container,"description"))
+        descText.isInteractive = false
+        return descText
+    }
+    func createDateText()-> Text{
+        let dateText = container.addSubView(Text(180,24,config.date,container,"date"))
+        dateText.isInteractive = false
+        return dateText
+    }
 }
 extension CommitsListItem{
     /**
