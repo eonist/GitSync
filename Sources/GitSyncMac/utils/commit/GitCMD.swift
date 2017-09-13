@@ -11,6 +11,7 @@ enum GitCMD:String{
     case D = "D"/*When a file is deleted*/
     case A = "A"/*When a file is added*/
     case R = "R"/*When a file is renamed,*/
+    case C = "C"/*When a file is copied,beta*/
     case RD = "RD"/*BETA*/
     case DU = "DU"/*unmerged, deleted by us*/
     case DD = "DD"/*unmerged, both deleted*/

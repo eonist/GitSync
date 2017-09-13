@@ -31,6 +31,7 @@ class CommitDescUtils{
             case .UU?:modifiedItems.append(statusItem) /*add a record to a list*/
             case .UA?:addedItems.append(statusItem) /*add a record to a list*/
             case .CM?:modifiedItems.append(statusItem) /*beta*/
+            case .C?:modifiedItems.append(statusItem) /*beta*/
             default:
                 /*throw error*/
                 fatalError("cmd: " + "\(cmd)" + " Not supported")

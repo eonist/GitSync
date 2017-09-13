@@ -31,6 +31,7 @@ class CommitMessageUtils{
 				case .UU?: numOfModifiedFiles += 1/*unmerged files*/
                 case .UA?: numOfNewFiles += 1/*unmerged files*/
                 case .CM?: numOfModifiedFiles += 1/*beta*/
+                case .C?: numOfModifiedFiles += 1/*beta*/
 				default:
 					fatalError("cmd: " + "\(cmd)" + " Not supported")
 					break;

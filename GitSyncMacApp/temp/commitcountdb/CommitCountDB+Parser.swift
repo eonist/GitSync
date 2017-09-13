@@ -2,9 +2,8 @@ import Foundation
 @testable import Utils
 
 extension CommitCountDB{
-
     /**
-     *
+     * Returns total commit count for a month in a year in a repo
      */
     func commitCountForMonth(repoId:String,date:DBDate) -> Int? {
         return repos[repoId]?[date.year]?[date.month]

@@ -27,6 +27,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //      horizontalListTest()
 //      viewTests()
 //        quickTest()
+        
+       
     }
     /**
      * //Figure out a sceheme to store the repo commit stats in database where its also removable if repos are removed etc. Also filtering repos 👈👈👈
