@@ -18,17 +18,43 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
 //        quickTest()
         
-        //Continue here: 🏀
-            //Let's try and get GraphX into CustomList
-            //Then make a demo where FastList is vertical
-            //then try GraphX with FastList
+        
         
 //      testGraphXTest()
 //      horizontalListTest()
 //      viewTests()
 //        quickTest()
         
+//        quickTest2()
+        
+        //Continue here: 🏀
+            //test the current DP ✅
+            //make the same DP for month 👈
+            //start looking into day
+            //performance test with randomly generated data
+        
        
+    }
+    /**
+     *
+     */
+    func quickTest2(){
+        let commitDb = CommitCountDB()
+        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:11), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:6), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2017,month:7), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2017,month:1), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2011,month:1), commitCount: 3)
+        
+        let yearCounts:[Int:Int] = commitDb.yearCounts
+        let commitCountDP = CommitCountDP(commitCount:yearCounts)
+        for i in 0..<commitCountDP.count{
+            let yearCount:Int = commitCountDP.item(at: i) ?? 0
+            let year:Int = commitCountDP.min + i
+            Swift.print("year:\(year) yearCount: \(yearCount)")
+        }
+//        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
     }
     /**
      * //Figure out a sceheme to store the repo commit stats in database where its also removable if repos are removed etc. Also filtering repos 👈👈👈
