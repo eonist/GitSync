@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 
 extension GraphScrollerHandler{
+    
     /**
      * This method is fired on each "scrollWheel change event" and "MoverGroup setProgressValue call-back"
      */
@@ -156,9 +157,10 @@ extension GraphScrollerHandler {
         
         //        disableAnim{
         graphArea.graphLine.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
-        for (i,obj) in graphArea.graphDots.enumerated() {
-            obj.layer?.position = positions[i]//positions the graphDots
-        }
+        fatalError("out of order uncomment the bellow")
+//        for (i,obj) in graphArea.graphDots.enumerated() {
+//            obj.layer?.position = positions[i]//positions the graphDots
+//        }
         //        }
     }
     /**

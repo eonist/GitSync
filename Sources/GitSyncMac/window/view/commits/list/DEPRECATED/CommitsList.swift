@@ -55,7 +55,7 @@ class CommitsList:ElasticSlideScrollFastList3,CommitListable{/*⬅️️ The bul
         super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
     /**
-     * TODO: ⚠️️ You could add this through setting the callback
+     * bld: ⚠️️ You could add this through setting the callback
      */
     override var moverGrp:MoverGroup {
         var group = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
