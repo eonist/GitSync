@@ -18,13 +18,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
 //        quickTest()
         
-        
+       let paddingStr:String = "0" * 3
+        Swift.print("paddingStr: " + "\(paddingStr)")
         
 //      testGraphXTest()
 //      horizontalListTest()
 //      viewTests()
 //        quickTest()
-        
 //        quickTest2()
         
         //Continue here: 🏀
@@ -32,8 +32,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //make the same DP for month 👈
             //start looking into day
             //performance test with randomly generated data
+            
+    }
+    /**
+     *
+     */
+    func quickTest3(){
+        let commitDb = CommitCountDB()
+        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:11), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:6), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:7), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2015,month:1), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:1), commitCount: 3)
         
-       
+        let monthCounts:[Int:Int] = commitDb.monthCount
+        let commitCountDP = MonthCommitDP(commitCount:monthCounts)
+        for i in 0..<commitCountDP.count{
+            let commitCount:Int = commitCountDP.item(at: i) ?? 0
+            let yearMonth = commitCountDP.yearAndMonth(at: i)
+            Swift.print("Year:\(yearMonth.year) Month:\(yearMonth.month) monthCount: \(commitCount)")
+        }
     }
     /**
      *
