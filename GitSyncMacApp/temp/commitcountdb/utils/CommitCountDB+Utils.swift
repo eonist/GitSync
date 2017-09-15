@@ -51,6 +51,26 @@ extension CommitCountDB{
         }
         return commits
     }
+    /**
+     * Output: [[2016'02'14:5]]
+     */
+    var dayCount:[Int:Int]{
+        var commits:[Int:Int] = [:]
+        repos.forEach{ repo in
+            let repoId:String = repo.key
+            repo.value.forEach { year in//each year
+                let yearKey:Int = year.key
+                year.value.forEach{ month in//each month
+                    let monthKey:Int = month.key
+                    let monthKeyStr:String = StringParser.pad(value: monthKey, padCount: 2, padStr: "0")
+                    month.values.forEach{ month in
+                       
+                    }
+                }
+            }
+        }
+        return commits
+    }
     //commits for each month for all repos👈
     
     //commit count for each day for all repos👈
@@ -59,69 +79,7 @@ extension CommitCountDB{
     
     //for days you have to add two zeros etc. there is a utils method for this. called paddding or something. use that 👌
 }
-protocol CommitCountDPKind{
-    var commitCount:[Int:Int] {get}
-    var min:Int {get}
-    var max:Int {get}
-    var count:Int {get}
-}
-/**
- * Holds commitCount for each time unit (year,month,day) (can work for many repos or singular repos)
- * EXAMPLE: let commitCountDP = CommitCountDP(commitCount:[:])
- */
-class CommitCountDP:CommitCountDPKind{//this works for year as well
-    var commitCount:[Int:Int]
-    lazy var min:Int = commitCount.keys.min() ?? {fatalError("err")}()
-    lazy var max:Int = commitCount.keys.max() ?? {fatalError("err")}()
-    var count: Int {return max - min + 1}
-    init(commitCount:[Int:Int]) {
-        self.commitCount = commitCount
-    }
-    func item(at: Int) -> Int? {
-        let key:Int = min + at
-        return commitCount[key]
-    }
-}
-class MonthCommitDP:CommitCountDP{//month
-    lazy var minYear:Int = min.string.subStr(0, min.string.count - 2).int//201602 -> 2016
-    lazy var minMonth:Int = {
-//        Swift.print("min.string: " + "\(min.string)")
-        let str:String = min.string.subString(min.string.count - 2, min.string.count)
-        let int:Int = str.int
-        return int
-    }()
-    lazy var maxYear:Int = max.string.subStr(0, max.string.count - 2).int
-    lazy var maxMonth:Int = {
-//        Swift.print("max.string: " + "\(max.string)")
-        let str:String = max.string.subString(max.string.count - 2, max.string.count)
-        let int:Int = str.int
-        return int
-    }()
-    override var count:Int {
-        return TimeParser.numOfMonths(from: (year:minYear,month:minMonth), to: (year:maxYear,month:maxMonth))
-    }
-    /**
-     * Returns graph value for month offset
-     */
-    override func item(at: Int) -> Int? {
-        let yearAndMonth = TimeParser.offset(year: minYear, month: minMonth, offset: at)
-        let year:Int = yearAndMonth.year
-        let monthStr:String = StringParser.pad(value: yearAndMonth.month, padCount: 2, padStr: "0")
-        let key:Int = (year.string + monthStr).int
-//        Swift.print("key: " + "\(key)")
-        return commitCount[key]
-    }
-    
-   
-}
-/**
- * [[2016'02'14:5]]
- * basically you use substring backwards. So day is .count - 2 until count and month is .count -4 until count -2, year is whatever is left
- */
-class DayCommitDP{
-    //with day you need to use the date class to offset min and max
-        //see old class for this
-}
+
 
 
 

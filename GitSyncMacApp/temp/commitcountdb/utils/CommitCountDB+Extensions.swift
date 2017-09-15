@@ -7,7 +7,5 @@ extension CommitCountDB{
     typealias YearDict = [/*year*/Int:/*month*/MonthDict]
     typealias Year = (year:Int,monthDict:MonthDict)
     typealias Repo = (repoId:String,year:YearDict)
-    
-
 }
 

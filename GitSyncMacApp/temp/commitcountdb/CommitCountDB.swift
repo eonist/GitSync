@@ -8,4 +8,3 @@ import Foundation
 class CommitCountDB {
     var repos:[String:YearDict] = [:]
 }
-
