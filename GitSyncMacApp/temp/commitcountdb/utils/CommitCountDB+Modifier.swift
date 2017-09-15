@@ -26,12 +26,20 @@ extension CommitCountDB{
 extension CommitCountDB{
     class Utils{
         /**
+         * Month
+         */
+        static func createMonthValue(date:DBDate,commitCount:Int) -> Month{
+            let dayDict:DayDict = [date.day:commitCount]
+            return (month:date.month,dayDict:dayDict)
+        }
+        /**
          * Year
          */
         static func createYearValue(date:DBDate,commitCount:Int) -> Year{
-            let monthVal:MonthDict = [date.month:commitCount]
-            let yearVal:Year = (year:date.year,monthDict:monthVal)
-            return yearVal
+            let month = createMonthValue(date: date, commitCount: commitCount)
+            let monthDict:MonthDict = [date.month:month.dayDict]
+            let year:Year = (year:date.year,monthDict:monthDict)
+            return year
         }
         /**
          * Repo
@@ -39,11 +47,11 @@ extension CommitCountDB{
         static func createRepoValue(repoId:String,date:DBDate,commitCount:Int) -> Repo{
             let year:Year = createYearValue(date: date, commitCount: commitCount)
             let yearDict:YearDict = [year.year:year.monthDict]
-            let repoVal:Repo = (repoId:repoId,year:yearDict)
-            return repoVal
+            let repo:Repo = (repoId:repoId,year:yearDict)
+            return repo
         }
         /**
-         *
+         * ⚠️️
          */
         static func addYear(yearDict:inout YearDict,date:DBDate,commitCount:Int){
             if yearDict[date.year] != nil {
@@ -54,15 +62,28 @@ extension CommitCountDB{
             }
         }
         /**
-         *
+         * ⚠️️
          */
         private static func addMonth(monthDict:inout MonthDict,date:DBDate,commitCount:Int){
-            if let commitCountVal:Int = monthDict[date.month] {
+            //recently edited ⚠️️
+            if monthDict[date.month] != nil {
+                addDay(dayDict: &monthDict[date.month]!, date: date, commitCount: commitCount)
+            }else{
+                let month:Month = createMonthValue(date: date, commitCount: commitCount)
+                monthDict[date.month] = month.dayDict
+            }
+            
+        }
+        /**
+         * ⚠️️
+         */
+        static func addDay(dayDict:inout DayDict,date:DBDate,commitCount:Int){
+            if let commitCountVal:Int = dayDict[date.day] {
                 Swift.print("commitCount exists")
-                monthDict[date.month] = commitCountVal + commitCount
+                dayDict[date.day] = commitCountVal + commitCount
             }else {
                 Swift.print("commitCount doesnt exists")
-                monthDict[date.month] = commitCount
+                dayDict[date.day] = commitCount
             }
         }
     }

@@ -12,7 +12,7 @@ extension CommitCountDB{
             let repoId:String = repo.key
             repo.value.forEach { year in
                 let yearKey:Int = year.key
-                if let commitCountForYear:Int = commitCount(repoId: repoId, year: yearKey) {
+                if let commitCountForYear:Int = yearCount(repoId: repoId, year: yearKey) {
                     if let commitsVal = commits[yearKey] {//Already exists
                         commits[yearKey] = commitsVal + commitCountForYear
                     } else {
@@ -27,7 +27,7 @@ extension CommitCountDB{
      * What will the output look like 🤔
      * Output: ["201602":45]
      */
-    var monthCount:[Int:Int]{
+    var monthCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
         //each repo
          //[2016:[12:26]]
@@ -37,7 +37,7 @@ extension CommitCountDB{
                 let yearKey:Int = year.key
                 year.value.forEach{ month in//each month
                     let monthKey:Int = month.key
-                    if let commitCountForMonth:Int = commitCount(repoId:repoId, year:yearKey, month:monthKey) {
+                    if let commitCountForMonth:Int = monthCount(repoId:repoId, year:yearKey, month:monthKey) {
                         let monthKeyStr:String = StringParser.pad(value: monthKey, padCount: 2, padStr: "0")//pads the month to always look like: "02" instead of "2"
                         let key:Int = (yearKey.string + monthKeyStr).int//2016 + 2 = 201602 (makes the key sortable, and min and max works)
                         if let commitsVal = commits[key] {//Already exists
@@ -54,7 +54,7 @@ extension CommitCountDB{
     /**
      * Output: [[2016'02'14:5]]
      */
-    var dayCount:[Int:Int]{
+    var dayCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
         repos.forEach{ repo in
             let repoId:String = repo.key
@@ -63,9 +63,9 @@ extension CommitCountDB{
                 year.value.forEach{ month in//each month
                     let monthKey:Int = month.key
                     let monthKeyStr:String = StringParser.pad(value: monthKey, padCount: 2, padStr: "0")
-                    month.values.forEach{ month in
-                       
-                    }
+//                    month.values.forEach{ month in
+//
+//                    }
                 }
             }
         }
