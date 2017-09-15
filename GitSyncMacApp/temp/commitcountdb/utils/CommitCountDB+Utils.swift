@@ -32,14 +32,11 @@ extension CommitCountDB{
         //each repo
          //[2016:[12:26]]
         repos.forEach{ repo in
-            let repoId:String = repo.key
             repo.value.forEach { year in//each year
-                let yearKey:Int = year.key
                 year.value.forEach{ month in//each month
-                    let monthKey:Int = month.key
-                    if let commitCountForMonth:Int = monthCount(repoId:repoId, year:yearKey, month:monthKey) {
-                        let monthKeyStr:String = StringParser.pad(value: monthKey, padCount: 2, padStr: "0")//pads the month to always look like: "02" instead of "2"
-                        let key:Int = (yearKey.string + monthKeyStr).int//2016 + 2 = 201602 (makes the key sortable, and min and max works)
+                    if let commitCountForMonth:Int = monthCount(repoId:repo.key, year:year.key, month:month.key) {
+                        let monthKeyStr:String = StringParser.pad(value: month.key, padCount: 2, padStr: "0")//pads the month to always look like: "02" instead of "2"
+                        let key:Int = (year.key.string + monthKeyStr).int//2016 + 2 = 201602 (makes the key sortable, and min and max works)
                         if let commitsVal = commits[key] {//Already exists
                             commits[key] = commitsVal + commitCountForMonth
                         } else {
@@ -56,28 +53,44 @@ extension CommitCountDB{
      */
     var dayCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
-        repos.forEach{ repo in
-            let repoId:String = repo.key
+        repos.forEach{ repo in//each repo
             repo.value.forEach { year in//each year
-                let yearKey:Int = year.key
                 year.value.forEach{ month in//each month
-                    let monthKey:Int = month.key
-                    let monthKeyStr:String = StringParser.pad(value: monthKey, padCount: 2, padStr: "0")
-//                    month.values.forEach{ month in
-//
-//                    }
+                    month.value.forEach{ day in//each day
+                        if let commitCountForDay:Int = dayCount(repoId:repo.key,date:DBDate(year:year.key,month:month.key,day:day.key)) {
+                            let monthKeyStr:String = StringParser.pad(value: month.key, padCount: 2, padStr: "0")//pads the month to always look like: "02" instead of "2"
+                            let dayKeyStr:String = StringParser.pad(value: day.key, padCount: 2, padStr: "0")
+                            let key:Int = (year.key.string + monthKeyStr + dayKeyStr).int//(makes the key sortable, and min and max works)
+                            if let commitsVal = commits[key] {//Already exists
+                                commits[key] = commitsVal + commitCountForDay
+                            } else {
+                                commits[key] = commitCountForDay
+                            }
+                        }
+                    }
                 }
             }
         }
         return commits
     }
-    //commits for each month for all repos👈
+    /**
+     * New
+     */
+    static func yearMonthKey(year:Int,month:Int)->Int{
+        let monthStr:String = StringParser.pad(value: month, padCount: 2, padStr: "0")
+        let key:Int = (year.string + monthStr).int
+        return key
+    }
     
-    //commit count for each day for all repos👈
-    
-    //count: ((year.max - year.min) * 12) - (month.max - month.min)
-    
-    //for days you have to add two zeros etc. there is a utils method for this. called paddding or something. use that 👌
+    /**
+     * New
+     */
+    static func yearMonthDayKey(date:DBDate) -> Int{
+        let yearMonthKey:Int = CommitCountDB.yearMonthKey(year: date.year, month: date.month)
+        let dayStr:String = StringParser.pad(value: date.day, padCount: 2, padStr: "0")
+        let key:Int = (yearMonthKey.string + dayStr).int
+        return key
+    }
 }
 
 

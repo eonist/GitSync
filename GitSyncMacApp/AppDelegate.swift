@@ -25,7 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest()//repo
 //        quickTest2()//year
 //        quickTest3()//month
-        
+//        quickTest4()
         
 //        let numOfMonths = TimeParser.numOfMonths(from: (year:2015,month:1), to: (year:2017,month:3))//5
 //        Swift.print("numOfMonths: " + "\(numOfMonths)")
@@ -34,10 +34,30 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //test the current DP ✅
             //make the same DP for month ✅
             //start looking into day ✅
-            //create the DP for day 👈
+            //create the DP for day ✅
             //performance test with randomly generated data
             //start testing with graph 👌
         //Roll the above into a re-usable Time Method ✅
+    }
+    /**
+     *
+     */
+    func quickTest4(){
+        let commitDb = CommitCountDB()
+        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:11,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:6,day:13), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:7,day:17), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:7,day:20), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:1,day:4), commitCount: 3)
+        
+        let dayCounts:[Int:Int] = commitDb.dayCounts
+        let commitCountDP = DayCommitDP(commitCount:dayCounts)
+        for i in 0...commitCountDP.count{
+            let commitCount:Int = commitCountDP.item(at: i) ?? 0
+            let dbDate = commitCountDP.dbDate(at: i)
+            Swift.print("Year: \(dbDate.year) Month: \(dbDate.month) Day: \(dbDate.day) commitCount: \(commitCount)")
+        }
     }
     /**
      *

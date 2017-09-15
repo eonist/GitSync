@@ -11,3 +11,10 @@ extension CommitCountDB{
     typealias Repo = (repoId:String,year:YearDict)
 }
 
+extension CommitCountDB.DBDate{
+    var date:Date? {return Date.createDate(self.year, self.month, self.day)}
+    /**
+     *
+     */
+    
+}
