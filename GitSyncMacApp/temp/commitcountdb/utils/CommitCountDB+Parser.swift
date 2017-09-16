@@ -47,14 +47,14 @@ extension CommitCountDB{
     /**
      * Returns the last commit date for a repo
      */
-//    func lastCommitDate(repoId:String) -> DBDate?{
-//        guard let repo = repos[repoId] else {return nil}
-//        guard let lastYear:Int = repo.keys.max() else {return nil}
-//        guard let lastMonth:Int = repo.keys.max() else {return nil}
-//        guard let lastDay:Int = repo.keys.max() else {return nil}
-//        //add day when that is included
-//        return DBDate.init(year: lastYear, month: lastMonth, day:lastDay)
-//    }
+    func lastCommitDate(repoId:String) -> DBDate?{
+        guard let repo = repos[repoId] else {return nil}
+        guard let max:Int = repo.keys.max() else {return nil}
+        let lastDay:String = max.string.subString(max.string.count - 2, max.string.count)
+        let lastMonth:String = max.string.subString(max.string.count - 4, max.string.count-2)
+        let lastYear:String = max.string.subString(0, max.string.count-6)
+        return DBDate.init(year: lastYear.int, month: lastMonth.int, day:lastDay.int)
+    }
     /**
      * CommitCount for all repos in a speccific year in a speccific month
      * you can also do it for year, or day or even for every month etc.

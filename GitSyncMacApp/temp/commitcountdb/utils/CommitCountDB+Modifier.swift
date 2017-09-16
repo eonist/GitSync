@@ -5,7 +5,7 @@ extension CommitCountDB{
     /**
      * Add commitCount for day date
      */
-    func addRepo(repoId:String,date:DBDate,commitCount:Int) {
+    func addRepo(repoId:String,date:DBDate,commitCount:Int) {//rename to addCommit
         if repos[repoId] != nil {
             Utils.addYear(yearDict:&repos[repoId]!,date:date,commitCount:commitCount)
         }else{

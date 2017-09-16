@@ -74,16 +74,15 @@ extension CommitCountDB{
         return commits
     }
     /**
-     * New
+     * Returns: 2016'12
      */
     static func yearMonthKey(year:Int,month:Int)->Int{
         let monthStr:String = StringParser.pad(value: month, padCount: 2, padStr: "0")
         let key:Int = (year.string + monthStr).int
         return key
     }
-    
     /**
-     * New
+     * Returns: 2016'12'24
      */
     static func yearMonthDayKey(date:DBDate) -> Int{
         let yearMonthKey:Int = CommitCountDB.yearMonthKey(year: date.year, month: date.month)

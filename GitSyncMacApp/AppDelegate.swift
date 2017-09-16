@@ -35,10 +35,47 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //make the same DP for month ✅
             //start looking into day ✅
             //create the DP for day ✅
-            //performance test with randomly generated data
+            //Try to populate the DataBase with real Git commit data. And try to store it and append to it when new comits get in. 👈
+                //get commitCounter working
+        
+        //CommitCounter2 - just simple 1 dimensioinal loop inside dispatchGroup
+            //CommitCountWork2 as a struct
+            //look for better batch day count method on stackoverflow
+        
+        
+            
+            //performance tests
+            //bg test
             //start testing with graph 👌
         //Roll the above into a re-usable Time Method ✅
     }
+    /**
+     *
+     */
+    func quickTest5(){
+        
+        //you need date of first commit in git ✅
+        //you need date of last commit in git ✅
+        //date of last commit stored in commitDB ✅
+        
+        //write the bellow code 🏀
+        
+//        var commitCounter:CommitCounter = CommitCounter()
+//        func onComplete(_ results:[Int]){
+//            Swift.print("🍏 commitCounter onComplete()")
+//            Swift.print("results: " + "\(results)")
+//            let vValues:[CGFloat] = results.map{$0.cgFloat}
+//            let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
+//        }
+//        commitCounter.onComplete = onComplete
+//        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+    }
+    /**
+     *
+     */
+//    func quickTest5(){
+//        
+//    }
     /**
      *
      */

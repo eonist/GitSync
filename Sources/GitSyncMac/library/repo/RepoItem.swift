@@ -2,6 +2,7 @@ import Foundation
 
 /**
  * TODO: ⚠️️ rename to RepoData
+ * TODO: ⚠️️ Needs a unique identifier value
  */
 struct RepoItem {
     var local:String/*Local path*/
