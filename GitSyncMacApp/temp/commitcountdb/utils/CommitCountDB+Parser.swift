@@ -37,7 +37,7 @@ extension CommitCountDB{
     /**
      * tot commit count for repo in year in month in day
      */
-    func dayCount(repoId:String,date:DBDate) -> Int?{
+    func dayCount(repoId:String,date:YMD) -> Int?{
         guard let yearDict:YearDict = repos[repoId] else {return nil}//find correct repo
         guard let monthDict:MonthDict = yearDict[date.year] else {return nil}//find correct year
         guard let dayDict:DayDict = monthDict[date.month] else {return nil}//find correct month
@@ -47,13 +47,13 @@ extension CommitCountDB{
     /**
      * Returns the last commit date for a repo
      */
-    func lastCommitDate(repoId:String) -> DBDate?{
+    func lastCommitDate(repoId:String) -> YMD?{
         guard let repo = repos[repoId] else {return nil}
         guard let max:Int = repo.keys.max() else {return nil}
         let lastDay:String = max.string.subString(max.string.count - 2, max.string.count)
         let lastMonth:String = max.string.subString(max.string.count - 4, max.string.count-2)
         let lastYear:String = max.string.subString(0, max.string.count-6)
-        return DBDate.init(year: lastYear.int, month: lastMonth.int, day:lastDay.int)
+        return .init(year: lastYear.int, month: lastMonth.int, day:lastDay.int)
     }
     /**
      * CommitCount for all repos in a speccific year in a speccific month

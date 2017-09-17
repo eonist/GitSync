@@ -17,7 +17,7 @@ extension CommitMessage{
         var autoMessage:CommitMessage? = CommitMessageUtils.generateCommitMessage(repoItem.localPath)
 //        Swift.print("repoItem.title: " + "\(repoItem.title)")
 //        Swift.print("repoItem.template: " + "\(repoItem.template)")
-        if  autoMessage != nil, !repoItem.template.isEmpty {
+        if autoMessage != nil, !repoItem.template.isEmpty {
 //            Swift.print("set template 🍏")
             autoMessage?.title = repoItem.template/*Add template as title if it exists*/
         }

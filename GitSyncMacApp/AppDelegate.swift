@@ -26,28 +26,51 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest2()//year
 //        quickTest3()//month
 //        quickTest4()
+//        quickTest6()
+//        quickTest7()
+        
+//        Swift.print("%cd".encode()!)
+//        Swift.print("%cd".encode()!.decode()!)
+//        Swift.print("%cd".decode()!)
         
 //        let numOfMonths = TimeParser.numOfMonths(from: (year:2015,month:1), to: (year:2017,month:3))//5
 //        Swift.print("numOfMonths: " + "\(numOfMonths)")
         
         //Continue here: 🏀
-            //test the current DP ✅
-            //make the same DP for month ✅
-            //start looking into day ✅
-            //create the DP for day ✅
-            //Try to populate the DataBase with real Git commit data. And try to store it and append to it when new comits get in. 👈
-                //get commitCounter working
-        
-        //CommitCounter2 - just simple 1 dimensioinal loop inside dispatchGroup
-            //CommitCountWork2 as a struct
-            //look for better batch day count method on stackoverflow
-        
-        
-            
             //performance tests
             //bg test
             //start testing with graph 👌
-        //Roll the above into a re-usable Time Method ✅
+        
+    }
+    /**
+     * Test CommitCounter2
+     * NOTE: Try to populate the DataBase with real Git commit data. And try to store it and append to it when new comits get in.
+     */
+    func quickTest7(){
+        let commitDb = CommitCountDB()
+        //
+        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
+        guard let first = repoList.first else {fatalError("err")}
+        let temp = [first]//test with 1 first
+        //
+        let commitCounter = CommitCounter2()
+        commitCounter.update(commitDB:commitDb, repoList:temp)
+        //
+        let yearCounts:[Int:Int] = commitDb.yearCounts
+        let commitCountDP = CommitCountDP(commitCount:yearCounts)
+        for i in 0..<commitCountDP.count{
+            let yearCount:Int = commitCountDP.item(at: i) ?? 0
+            let year:Int = commitCountDP.min + i
+            Swift.print("year:\(year) yearCount: \(yearCount)")
+        }
+        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
+    }
+    /**
+     *
+     */
+    func quickTest6(){
+        let ymd:YMD = YMD.init(year: 2015, month: 12, day: 14)
+        Swift.print("ymd.hashValue: " + "\(ymd.int)")
     }
     /**
      *
@@ -70,23 +93,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        commitCounter.onComplete = onComplete
 //        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
+   
     /**
-     *
-     */
-//    func quickTest5(){
-//        
-//    }
-    /**
-     *
+     * Day
      */
     func quickTest4(){
         let commitDb = CommitCountDB()
-        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:11,day:7), commitCount: 32)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:3,day:3), commitCount: 20)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:6,day:13), commitCount: 30)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:7,day:17), commitCount: 5)
-        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:7,day:20), commitCount: 16)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:1,day:4), commitCount: 3)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:7,day:17), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:7,day:20), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:4), commitCount: 3)
         
         let dayCounts:[Int:Int] = commitDb.dayCounts
         let commitCountDP = DayCommitDP(commitCount:dayCounts)
@@ -97,16 +115,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     /**
-     *
+     * Month
      */
     func quickTest3(){
         let commitDb = CommitCountDB()
-        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:11,day:7), commitCount: 32)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:3,day:3), commitCount: 20)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:6,day:13), commitCount: 30)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:7,day:17), commitCount: 5)
-        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:7,day:20), commitCount: 16)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2014,month:1,day:4), commitCount: 3)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:7,day:17), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:7,day:20), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:4), commitCount: 3)
 ////
         let monthCounts:[Int:Int] = commitDb.monthCounts
 //        Swift.print("monthCounts: " + "\(monthCounts)")
@@ -128,12 +146,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     /**
-     *
+     * Year
      */
     func quickTest2(){
         let commitDb = CommitCountDB()
-        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2014,month:11,day:2), commitCount: 32)
-        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:3,day:6), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:2), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:6), commitCount: 20)
 //        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2015,month:6), commitCount: 30)
 //        commitDb.addRepo(repoId: "RepoA", date: CommitCountDB.DBDate.init(year:2017,month:7), commitCount: 5)
 //        commitDb.addRepo(repoId: "RepoB", date: CommitCountDB.DBDate.init(year:2017,month:1), commitCount: 16)
@@ -164,11 +182,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        let repoVal:CommitCountDB2.Repo = (repoId:id,year:yearVal)
 //        commitDb.repos[repoVal.repoId] = repoVal.year
         
-        commitDb.addRepo(repoId: id, date: CommitCountDB.DBDate.init(year:year,month:month,day:day), commitCount: commitCount)
+        commitDb.addRepo(repoId: id, date: .init(year:year,month:month,day:day), commitCount: commitCount)
         
         Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month]?[day])")
         
-        commitDb.addRepo(repoId: id, date: CommitCountDB.DBDate.init(year:year,month:month,day:day), commitCount: 12)
+        commitDb.addRepo(repoId: id, date: .init(year:year,month:month,day:day), commitCount: 12)
         
         
         Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month]?[day])")
