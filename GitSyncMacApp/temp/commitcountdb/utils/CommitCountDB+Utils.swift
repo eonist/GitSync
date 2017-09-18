@@ -75,10 +75,5 @@ extension CommitCountDB{
         }
         return commits
     }
+    
 }
-
-
-
-
-
-

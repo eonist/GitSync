@@ -28,24 +28,45 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest4()
 //        quickTest6()
 //        quickTest7()
-//        let temp = "git log --since=\"2015-09-25%2000:00:00\" --until=\"2017-09-17%2000:00:00\" --date=short --pretty=format:%25cd".decode()!
-//        Swift.print("temp: " + "\(temp)")
-//
-//        ShellUtils.run(shellScript,localRepoPath)
-        
-//        Swift.print("%cd".encode()!)
-//        Swift.print("%cd".encode()!.decode()!)
-//        Swift.print("%cd".decode()!)
-        
-//        let numOfMonths = TimeParser.numOfMonths(from: (year:2015,month:1), to: (year:2017,month:3))//5
-//        Swift.print("numOfMonths: " + "\(numOfMonths)")
+//        quickTest8()
         
         //Continue here: 🏀
-            //store the commitDB locally in .json 👈 👈
+            // Create json from commitDB ✅
+            // create commit db from json ✅
+            // Make the file IO for CommitDb 👈
             //implement month timebar and valuebar and graph 👈
             //then add support for other timeTypes
         
+      
+    }
+    /**
+     * Store the commitDB locally in .json
+     * NOTE: make a utility method  to convert the dict to str
+     * NOTE: you might need to make custom Json method for wrapping and unwrapping because of int
+     */
+    func quickTest8(){
+        let commitDb = CommitCountDB()
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        let jsonFriendlyDict = commitDb.jsonFriendlyDict
+//        Swift.print("jsonFriendlyDict: " + "\(jsonFriendlyDict)")
         
+        guard let str = JSONParser.str(dict:jsonFriendlyDict) else {return}
+        
+        Swift.print("str: " + "\(str)")
+        guard let dict:[String:Any] = str.json as? [String:Any] else {return}
+        dict.forEach{
+            Swift.print("$0.key: " + "\($0.key)")
+        }
+        
+        let commitCountDb = CommitCountDB.commitCountDb(jsonDict: dict)
+        Swift.print("commitCountDb.repos.count: " + "\(commitCountDb.repos.count)")
+        
+//        let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+//        if let dictFromJSON = decoded as? [String:String] {
+//
+//        }
     }
     /**
      * Test CommitCounter2
