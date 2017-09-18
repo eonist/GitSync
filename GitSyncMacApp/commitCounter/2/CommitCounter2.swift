@@ -5,12 +5,24 @@ import Foundation
  * CommitCounter2 - just simple 1 dimensioinal loop inside dispatchGroup
  */
 class CommitCounter2 {
+    
     /**
      * populates CommitDB with all the latest commits
      */
-    func update(commitDB:CommitCountDB,repoList:[RepoItem]){//
+    func update(commitDB:CommitCountDB,repoList:[RepoItem],onComplete:@escaping ()->Void){//
         //dispatchGroup here
-        repoList.forEach{update(commitDB:commitDB,repo:$0)}
+       let group = DispatchGroup()
+        group.enter()
+        repoList.forEach { repo in
+            bg.async {
+                self.update(commitDB:commitDB,repo:repo)
+                group.leave()
+            }
+        }
+        group.notify(queue: main, execute: {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
+            Swift.print("🏁 group completed: 🏁")//make a method on mainThread and call that instead.
+            onComplete()
+        })
     }
     /**
      * populates CommitDB with the latest commits from a speccific repo
@@ -27,24 +39,25 @@ class CommitCounter2 {
             if let repoDict = commitDB.repos[repo.title], repoDict.keys.isEmpty {
                 return (from:firstCommitInRepo,to:lastCommitInRepo)
             }
-            
-            //continue here: 🏀
-                //repo does not exist do what?
-            
-            let lastCommitStoredInDB:YMD = commitDB.lastCommitDate(repoId:repo.title)!
-            let lastCommitStoredInDBInt:Int = YMD.yearMonthDayKey(ymd: lastCommitStoredInDB)
-            let lastCommitInRepoInt:Int = YMD.yearMonthDayKey(year: lastCommitInRepo.year, month: lastCommitInRepo.month, day: lastCommitInRepo.day)
-            if lastCommitInRepoInt > lastCommitStoredInDBInt {
-                let lastCommitStoredInDB:YMD = .init(year:lastCommitStoredInDB.year,month:lastCommitStoredInDB.month,day:lastCommitStoredInDB.day)
-                return (from:lastCommitStoredInDB, to:lastCommitInRepo)
-            }
-            fatalError("err")
+            let from:YMD = {
+                guard let lastCommitStoredInDB:YMD = commitDB.lastCommitDate(repoId:repo.title) /*repo exists and has items*/ else { return firstCommitInRepo}
+                return lastCommitStoredInDB
+            }()
+            let to:YMD = lastCommitInRepo
+            return (from,to)
+//            let fromInt:Int = YMD.yearMonthDayKey(year: from.year, month: from.month, day: from.day)
+//            let toInt:Int = YMD.yearMonthDayKey(year: to.year, month: to.month, day: to.day)
+//            
         }()
         guard let from:Date = DateParser.createDate(range.from.year, range.from.month, range.from.day) else {fatalError("err")}
-        guard let to:Date = DateParser.createDate(range.from.year, range.from.month, range.from.day) else {fatalError("err")}
-        let commitDates:[YMD] = GitDateParser.commitDates(localRepoPath: repo.localPath, since: from, until: to)
+        Swift.print("from: " + "\(from)")
+        guard let to:Date = DateParser.createDate(range.to.year, range.to.month, range.to.day) else {fatalError("err")}
+        Swift.print("to: " + "\(to)")
+        let commitDates:[YMD] = GitDateParser.commitDates(localRepoPath: repo.localPath.tildePath, since: from, until: to)
+        Swift.print("commitDates.count: " + "\(commitDates.count)")
         //
-        let commitCounts:[(date:YMD,commitCount:Int)] = Utils.groupEquals(commitDates: commitDates)
+        let commitCounts:[(date:YMD,commitCount:Int)] = Utils.groupEquals(commitDates: commitDates)//dates and their day count
+        Swift.print("commitCounts.count: " + "\(commitCounts.count)")
         commitDB.addRepo(repoId: repo.title, commitCounts:commitCounts)//👈 then do this one with resulting arr
     }
 }

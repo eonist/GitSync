@@ -87,10 +87,10 @@ extension CommitCountDB{
          */
         static func addDay(dayDict:inout DayDict,date:YMD,commitCount:Int){
             if let commitCountVal:Int = dayDict[date.day] {
-                Swift.print("commitCount exists")
+//                Swift.print("commitCount already exists")
                 dayDict[date.day] = commitCountVal + commitCount
             }else {
-                Swift.print("commitCount doesnt exists")
+//                Swift.print("commitCount doesnt exists")
                 dayDict[date.day] = commitCount
             }
         }

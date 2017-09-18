@@ -28,6 +28,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest4()
 //        quickTest6()
 //        quickTest7()
+//        let temp = "git log --since=\"2015-09-25%2000:00:00\" --until=\"2017-09-17%2000:00:00\" --date=short --pretty=format:%25cd".decode()!
+//        Swift.print("temp: " + "\(temp)")
+//
+//        ShellUtils.run(shellScript,localRepoPath)
         
 //        Swift.print("%cd".encode()!)
 //        Swift.print("%cd".encode()!.decode()!)
@@ -37,9 +41,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        Swift.print("numOfMonths: " + "\(numOfMonths)")
         
         //Continue here: 🏀
-            //performance tests
-            //bg test
-            //start testing with graph 👌
+            //store the commitDB locally in .json 👈 👈
+            //implement month timebar and valuebar and graph 👈
+            //then add support for other timeTypes
+        
         
     }
     /**
@@ -54,44 +59,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let temp = [first]//test with 1 first
         //
         let commitCounter = CommitCounter2()
-        commitCounter.update(commitDB:commitDb, repoList:temp)
+        
         //
-        let yearCounts:[Int:Int] = commitDb.yearCounts
-        let commitCountDP = CommitCountDP(commitCount:yearCounts)
-        for i in 0..<commitCountDP.count{
-            let yearCount:Int = commitCountDP.item(at: i) ?? 0
-            let year:Int = commitCountDP.min + i
-            Swift.print("year:\(year) yearCount: \(yearCount)")
+        func onComplete(){
+            let yearCounts:[Int:Int] = commitDb.yearCounts
+            let commitCountDP = CommitCountDP(commitCount:yearCounts)
+            Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
+            for i in 0..<commitCountDP.count{
+                let yearCount:Int = commitCountDP.item(at: i) ?? 0
+                let year:Int = commitCountDP.min + i
+                Swift.print("year:\(year) yearCount: \(yearCount)")
+            }
         }
-        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
+        //
+        commitCounter.update(commitDB:commitDb, repoList:temp,onComplete: onComplete)
     }
     /**
-     *
+     * hash key test
      */
     func quickTest6(){
         let ymd:YMD = YMD.init(year: 2015, month: 12, day: 14)
         Swift.print("ymd.hashValue: " + "\(ymd.int)")
-    }
-    /**
-     *
-     */
-    func quickTest5(){
-        
-        //you need date of first commit in git ✅
-        //you need date of last commit in git ✅
-        //date of last commit stored in commitDB ✅
-        
-        //write the bellow code 🏀
-        
-//        var commitCounter:CommitCounter = CommitCounter()
-//        func onComplete(_ results:[Int]){
-//            Swift.print("🍏 commitCounter onComplete()")
-//            Swift.print("results: " + "\(results)")
-//            let vValues:[CGFloat] = results.map{$0.cgFloat}
-//            let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
-//        }
-//        commitCounter.onComplete = onComplete
-//        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
    
     /**

@@ -26,6 +26,7 @@ extension CommitCountDB{
     /**
      * What will the output look like 🤔
      * Output: ["201602":45]
+     * TODO: ⚠️️ the pad stuff is now a convenience call in YMD, use that instead
      */
     var monthCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
@@ -50,6 +51,7 @@ extension CommitCountDB{
     }
     /**
      * Output: [[2016'02'14:5]]
+     * TODO: ⚠️️ the pad stuff is now a convenience call in YMD, use that instead
      */
     var dayCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
