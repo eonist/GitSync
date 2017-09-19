@@ -29,15 +29,28 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest6()
 //        quickTest7()
 //        quickTest8()
+//        quickTest9()
         
         //Continue here: 🏀
             // Create json from commitDB ✅
             // create commit db from json ✅
-            // Make the file IO for CommitDb 👈
+            // Make the file IO for CommitDb ✅
             //implement month timebar and valuebar and graph 👈
             //then add support for other timeTypes
         
       
+    }
+    /**
+     * Tests File IO for CommitCountDB
+     */
+    func quickTest9(){
+        let commitDb = CommitCountDB.FileIO.open()
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        CommitCountDB.FileIO.save(db: commitDb)
+        let newCommitDb = CommitCountDB.FileIO.open()
+        Swift.print("newCommitDb.repos.count: " + "\(newCommitDb.repos.count)")
     }
     /**
      * Store the commitDB locally in .json
@@ -49,17 +62,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
         commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
         commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        //convert to jsonFirndly dict
         let jsonFriendlyDict = commitDb.jsonFriendlyDict
 //        Swift.print("jsonFriendlyDict: " + "\(jsonFriendlyDict)")
-        
+        //convert to json string
         guard let str = JSONParser.str(dict:jsonFriendlyDict) else {return}
-        
         Swift.print("str: " + "\(str)")
+        
+        
+        //convert to dictionary
         guard let dict:[String:Any] = str.json as? [String:Any] else {return}
         dict.forEach{
             Swift.print("$0.key: " + "\($0.key)")
         }
-        
+        //convert to commitdb friendly dict
         let commitCountDb = CommitCountDB.commitCountDb(jsonDict: dict)
         Swift.print("commitCountDb.repos.count: " + "\(commitCountDb.repos.count)")
         
