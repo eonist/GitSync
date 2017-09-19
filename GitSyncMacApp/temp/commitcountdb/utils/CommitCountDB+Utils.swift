@@ -1,10 +1,13 @@
 import Foundation
 @testable import Utils
-
+/**
+ * This is for all repos.
+ * TODO: ⚠️️ In the future also make it possible to get for single and subset of repos
+ */
 extension CommitCountDB{
     /**
      * Commits for  each year for all repos
-     * OUTPUT: [[2015:21],[2016:48],[2017:12]]
+     * OUTPUT: [[2015:21],[2016:48],[2017:12],,,,]
      */
     var yearCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
@@ -25,13 +28,11 @@ extension CommitCountDB{
     }
     /**
      * What will the output look like 🤔
-     * Output: ["201602":45]
+     * Output: [[20'16''2:45],,,,]
      * TODO: ⚠️️ the pad stuff is now a convenience call in YMD, use that instead
      */
     var monthCounts:[Int:Int]{
         var commits:[Int:Int] = [:]
-        //each repo
-         //[2016:[12:26]]
         repos.forEach{ repo in
             repo.value.forEach { year in//each year
                 year.value.forEach{ month in//each month
@@ -50,7 +51,7 @@ extension CommitCountDB{
         return commits
     }
     /**
-     * Output: [[2016'02'14:5]]
+     * Output: [[2016'02'14:5],,,]
      * TODO: ⚠️️ the pad stuff is now a convenience call in YMD, use that instead
      */
     var dayCounts:[Int:Int]{

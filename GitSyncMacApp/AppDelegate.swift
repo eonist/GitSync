@@ -30,15 +30,36 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest7()
 //        quickTest8()
 //        quickTest9()
+//        graphZTest()
         
         //Continue here: 🏀
-            // Create json from commitDB ✅
-            // create commit db from json ✅
-            // Make the file IO for CommitDb ✅
+            //try to store all commitCounts
+            //try to add repo and remove repo from commitcountdb
+        
             //implement month timebar and valuebar and graph 👈
+                //get timebar working again
+                //get timebar working with List v5
             //then add support for other timeTypes
         
+        //onScroll -> sends event to TimeBar and GraphComponent
+        //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
+        //CommitCountDP recides in the Graph class
+            //TimeBar and graphComponent pull from the same DP instance
+        
       
+    }
+    /**
+     *
+     */
+    func graphZTest(){
+        window.size = CGSize(664,400)
+        window.title = ""
+        window.contentView = InteractiveView()
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
+        
+        let winSize:CGSize = WinParser.size(window)
+        let graph = window.contentView!.addSubView(GraphZ(size:winSize))
+        _ = graph
     }
     /**
      * Tests File IO for CommitCountDB
@@ -135,7 +156,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let commitCountDP = DayCommitDP(commitCount:dayCounts)
         for i in 0...commitCountDP.count{
             let commitCount:Int = commitCountDP.item(at: i) ?? 0
-            let dbDate = commitCountDP.dbDate(at: i)
+            let dbDate = commitCountDP.ymd(at: i)
             Swift.print("Year: \(dbDate.year) Month: \(dbDate.month) Day: \(dbDate.day) commitCount: \(commitCount)")
         }
     }
@@ -154,6 +175,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let monthCounts:[Int:Int] = commitDb.monthCounts
 //        Swift.print("monthCounts: " + "\(monthCounts)")
         let commitCountDP = MonthCommitDP(commitCount:monthCounts)
+        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
 //        let result = commitCountDP.item(at:0)
 //        Swift.print("result: " + "\(result)")
         
@@ -164,11 +186,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        Swift.print("commitCountDP.max: " + "\(commitCountDP.max)")
 //        Swift.print("commitCountDP.min: " + "\(commitCountDP.min)")
 //        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
-        for i in 0...commitCountDP.count{
-            let commitCount:Int = commitCountDP.item(at: i) ?? 0
-            let yearAndMonth = TimeParser.offset(year: commitCountDP.minYear, month: commitCountDP.minMonth, offset: i)
-            Swift.print("Year:\(yearAndMonth.year) Month:\(yearAndMonth.month) commitCount: \(commitCount)")
-        }
+//        for i in 0...commitCountDP.count{
+//            let commitCount:Int = commitCountDP.item(at: i) ?? 0
+//            let yearAndMonth = TimeParser.offset(year: commitCountDP.minYear, month: commitCountDP.minMonth, offset: i)
+//            Swift.print("Year:\(yearAndMonth.year) Month:\(yearAndMonth.month) commitCount: \(commitCount)")
+//        }
     }
     /**
      * Year
@@ -209,12 +231,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         commitDb.addRepo(repoId: id, date: .init(year:year,month:month,day:day), commitCount: commitCount)
         
-        Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month]?[day])")
+//        Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month]?[day])")
         
         commitDb.addRepo(repoId: id, date: .init(year:year,month:month,day:day), commitCount: 12)
         
         
-        Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month]?[day])")
+//        Swift.print("commitCountValue: " + "\(commitDb.repos[id]?[year]?[month]?[day])")
         
         //DataBase for git commit count
 //        let tempA = TempA()

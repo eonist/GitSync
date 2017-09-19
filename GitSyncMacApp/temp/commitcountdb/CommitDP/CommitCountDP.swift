@@ -17,4 +17,13 @@ class CommitCountDP:CommitCountDPKind{//this works for year as well
         let key:Int = min + at
         return commitCount[key]
     }
+    func item(at:Int)->(commitCount:Int?,ymd:YMD){
+        let key:Int = min + at
+        let commitCount:Int? = self.commitCount[key]
+        let ymd:YMD = YMD.init(year: key, month: 1, day: 1)
+        return (commitCount:commitCount,ymd:ymd)
+    }
+    //implement item(at)->(commitCount:Int,ymd:YMD) 🏀
 }
+
+

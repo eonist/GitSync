@@ -20,9 +20,15 @@ class DayCommitDP:MonthCommitDP{
      * Returns graph value for day offset
      */
     override func item(at:Int) -> Int? {
-        let dbDateAt = dbDate(at: at)
-        let key:Int = YMD.yearMonthDayKey(ymd: dbDateAt)
+        let ymd = self.ymd(at: at)
+        let key:Int = YMD.yearMonthDayKey(ymd: ymd)
         return commitCount[key]
+    }
+    override func item(at: Int) -> (commitCount:Int?,ymd:YMD){
+        let ymd = self.ymd(at: at)
+        let key:Int = YMD.yearMonthDayKey(ymd: ymd)
+        let commitCount:Int? = self.commitCount[key]
+        return (commitCount:commitCount,ymd:ymd)
     }
 }
 
@@ -30,7 +36,7 @@ extension DayCommitDP {
     /**
      * Returns dbDate for day offset
      */
-    func dbDate(at:Int) -> YMD {//TODO: ⚠️️ Rename to 
+    func ymd(at:Int) -> YMD {//TODO: ⚠️️ Rename to
         let min:YMD = .init(year:minYear,month:minMonth,day:minDay)
         guard let minDate:Date = min.date else {fatalError("err")}//find start date
         let dateAt:Date = minDate.offsetByDays(at)//n days from startDate => date
