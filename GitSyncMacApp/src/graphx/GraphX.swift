@@ -36,7 +36,7 @@ extension GraphX{
     /*Config*/
     struct GraphConfig {var vCount:Int,totCount:Int,margin:CGSize,maxZoom:Int }
     //TODO: ⚠️️ move the bellow to a regular var in GraphX, also add itemSize maybe?
-    static var config:GraphConfig = GraphConfig.init(vCount: 5, totCount: 80, margin: CGSize(50,50), maxZoom: 3)/*We store config in a static var so that outside classes canuse props*/
+    static var config:GraphConfig = GraphConfig.init(vCount: 7, totCount: 80, margin: CGSize(50,50), maxZoom: 3)/*We store config in a static var so that outside classes canuse props*/
     //
     var leftMargin:CGFloat {return GraphX.config.margin.width}/*We then store static vars inside local vars so that local methods can easily refer to the values with less verbosity, ehh 🤔*/
     var topMargin:CGFloat {return GraphX.config.margin.height}

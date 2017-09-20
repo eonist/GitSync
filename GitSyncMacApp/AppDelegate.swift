@@ -15,6 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")
+        
         initApp()
 //        quickTest()
         
@@ -36,17 +37,26 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to store all commitCounts
             //try to add repo and remove repo from commitcountdb
         
-            //implement month timebar and valuebar and graph 👈
-                //get timebar working again
-                //get timebar working with List v5
-            //then add support for other timeTypes
+            //implement month timebar ✅
+                //get timebar working again ✅
+                //get timebar working with List v5 ✅
+                //then add support for other timeTypes
+            //implement month  graph 👈
+                //With GraphzDB
+            //get valueBar and graph working in tandem
+            //implement valuebar
         
         //onScroll -> sends event to TimeBar and GraphComponent
         //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
         //CommitCountDP recides in the Graph class
             //TimeBar and graphComponent pull from the same DP instance
-        
       
+        
+        //Continue here: 🏀
+            //make a method that returns points fir x,w,itemWidth,totCount, visibleCount in GraphScrollView5
+            //Then also render +1 graphDot
+            //try adding the bounce anim
+            //try with real git
     }
     /**
      *
@@ -58,7 +68,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
         
         let winSize:CGSize = WinParser.size(window)
-        let graph = window.contentView!.addSubView(GraphZ(size:winSize))
+        let graph = window.contentView!.addSubView(GraphZ(winSize.w,winSize.h))
         _ = graph
     }
     /**
@@ -272,13 +282,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func testGraphXTest(){
         Swift.print("Hello GraphX")
         
-        window.size = CGSize(664,400)
+        window.size = CGSize(600,400)
         window.title = ""
         window.contentView = InteractiveView()
         StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
         
         let winSize:CGSize = WinParser.size(window)
-        let graph = window.contentView!.addSubView(GraphX(winSize.w,winSize.h))
+        let graph = window.contentView!.addSubView(GraphZ(winSize.w,winSize.h))
         _ = graph
     }
     

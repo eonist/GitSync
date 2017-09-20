@@ -4,8 +4,7 @@ import Cocoa
 /**
  * A Graph that modulates the graph while you scroll
  */
-
-class GraphAreaX:Element{
+class GraphAreaX:Element,GraphAreaKind{
     lazy var scrollView:GraphScrollView4 = createScrollView4()//createScrollView3()//createScrollView()
     lazy var points:[CGPoint] = createCGPoints()
     lazy var graphDots:[Element] = createGraphPoints()
@@ -14,6 +13,7 @@ class GraphAreaX:Element{
 //    var vValues:[CGFloat] = []
     var prevPoints:[CGPoint]?/*interim var*/
     //var animator:Animator?/*Anim*/
+    
     override func resolveSkin() {
         super.resolveSkin()
         createUI()
@@ -31,17 +31,21 @@ class GraphAreaX:Element{
         contentContainer.addSubview(graphLine)
         _ = graphDots
     }
-
+    func item(at: Int) -> Int? {//this is just for compliance, this class is deprecated
+        return nil
+    }
+    var count: Int {return 0}//this is just for compliance, this class is deprecated
 }
 //lazy creators
 extension GraphAreaX{
     /**
      * New
+     * TODO: ⚠️️ add item spacing probably as a method argument: 100
      */
     static func points(vValues:[CGFloat],size:CGSize)->[CGPoint]{//make private?
-        let maxValue:CGFloat = vValues.max()!/*Finds the largest number in among vValues*/
+        guard let maxValue:CGFloat = vValues.max() else {fatalError("err: \(vValues.count)")}/*Finds the largest number in among vValues*/
         let config:GraphUtils.GraphConfig = GraphUtils.GraphConfig(size: size, position: CGPoint(0,0), spacing: CGSize(100,100), vValues: vValues, maxValue: maxValue, leftMargin: 0, topMargin: 0)
-        return GraphUtils.points(config:config)
+        return GraphUtils.points(config:config)//TODO: ⚠️️ don't use config as arg. config as arg is great when the arg is uses from manny callers. but this is only used rfom one place.
     }
     /**
      *

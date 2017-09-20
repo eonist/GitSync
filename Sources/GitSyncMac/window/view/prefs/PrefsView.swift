@@ -17,7 +17,7 @@ class PrefsView:Element,UnFoldable,PrefsViewClosable {
      * UI events from subComponents goes here
      */
     override func onEvent(_ event:Event) {
-        Swift.print("PrefsView.onEvent event.type: \(event.type)")
+//        Swift.print("PrefsView.onEvent event.type: \(event.type)")
         switch true{
         case event.assert(Event.update,parentID:Key.login):
             PrefsView.prefs.login = (event as! TextFieldEvent).stringValue
