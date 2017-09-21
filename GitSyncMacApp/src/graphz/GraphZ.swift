@@ -3,8 +3,6 @@ import Foundation
 @testable import Element
 @testable import GitSyncMac
 
-
-
 class GraphZ:Element{
     lazy var timeBar:TimeBarZ = {
         let listConfig = List5.Config.init(itemSize: CGSize(124,24), dp: DP.init(), dir: .hor)

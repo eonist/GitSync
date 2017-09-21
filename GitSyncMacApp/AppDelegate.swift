@@ -20,7 +20,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest()
         
      
-//      testGraphXTest()
+//      testGraphXTest()//✅
 //      horizontalListTest()
 //      viewTests()
 //        quickTest()//repo
@@ -31,7 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest7()
 //        quickTest8()
 //        quickTest9()
-//        graphZTest()
+//        graphZTest()//🚫
         
         //Continue here: 🏀
             //try to store all commitCounts
@@ -53,10 +53,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
       
         
         //Continue here: 🏀
-            //make a method that returns points fir x,w,itemWidth,totCount, visibleCount in GraphScrollView5
-            //Then also render +1 graphDot
-            //try adding the bounce anim
-            //try with real git
+            //make a method that returns points fir x,w,itemWidth,totCount, visibleCount in GraphScrollView5 ✅
+            //clean up the classes ✅
+            //Then also render +1 graphDot  ✅
+            //try adding the bounce anim ✅
+            //fix init graphPos and init bounce bug ✅
+            //try with real git 👈
     }
     /**
      *
