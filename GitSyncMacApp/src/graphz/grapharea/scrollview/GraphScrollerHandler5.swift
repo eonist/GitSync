@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class GraphScrollerHandler5:ElasticScrollerHandler5{
+class GraphScrollerHandler5:ElasticScrollerHandler5{ /*ElasticScrollerFastListHandler*/
     override func onScrollWheelChange(_ event: NSEvent) {
 //        Swift.print("onScrollWheelChange")
         moverGroup.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/

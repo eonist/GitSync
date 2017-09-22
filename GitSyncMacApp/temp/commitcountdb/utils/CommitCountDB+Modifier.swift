@@ -14,9 +14,9 @@ extension CommitCountDB{
      * Add commitCount for day date
      */
     func addRepo(repoId:String,date:YMD,commitCount:Int) {//rename to addCommit
-        if repos[repoId] != nil {
+        if repos[repoId] != nil {//check if repo exist
             Utils.addYear(yearDict:&repos[repoId]!,date:date,commitCount:commitCount)
-        }else{
+        }else{//or else create repo
             let repoVal = Utils.createRepoValue(repoId: repoId, date: date, commitCount: commitCount)
             repos[repoId] = repoVal.year
         }
@@ -62,9 +62,9 @@ extension CommitCountDB{
          * ⚠️️
          */
         static func addYear(yearDict:inout YearDict,date:YMD,commitCount:Int){
-            if yearDict[date.year] != nil {
+            if yearDict[date.year] != nil {//make sure year exists
                 addMonth(monthDict: &yearDict[date.year]!, date: date, commitCount: commitCount)
-            }else{
+            }else{//or else create year
                 let year:Year = createYearValue(date: date, commitCount: commitCount)
                 yearDict[date.year] = year.monthDict
             }

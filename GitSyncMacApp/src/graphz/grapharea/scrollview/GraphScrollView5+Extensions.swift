@@ -20,10 +20,10 @@ extension GraphScrollView5{
     /**
      * Interpolates between 0 and 1 while the duration of the animation
      * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
-     * TODO: ⚠️️ YOu only really need to scale .y
+     * TODO: ⚠️️ You only really need to scale .y
      */
     func interpolateVal(_ val:CGFloat){
-//        Swift.print("interpolave")
+//      Swift.print("interpolave")
         let scaledPts:[CGPoint] = GraphScrollerHandler3.Utils.calcScaledPoints(points: curPts, ratio: val, height: height)
         graphArea.updateGraph(pts: scaledPts)
     }

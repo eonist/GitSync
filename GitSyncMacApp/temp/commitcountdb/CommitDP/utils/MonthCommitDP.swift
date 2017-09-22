@@ -15,10 +15,12 @@ class MonthCommitDP:CommitCountDP{//month
      * Returns graph value for month offset
      */
     override func item(at: Int) -> Int? {
-        let yearAndMonth = TimeParser.offset(year: minYear, month: minMonth, offset: at)
+//        Swift.print("at: " + "\(at)")
+        let yearAndMonth:YM = TimeParser.offset(year: minYear, month: minMonth, offset: at)
+//        Swift.print("yearAndMonth: " + "\(yearAndMonth)")
 ////        let year:Int =
 //        let monthStr:String = StringParser.pad(value: yearAndMonth.month, padCount: 2, padStr: "0")
-        let key:Int = YM.yearMonthKey(year:yearAndMonth.year,month:yearAndMonth.month)
+        let key:Int = YM.yearMonthKey(year:yearAndMonth.year, month:yearAndMonth.month)
         //Swift.print("key: " + "\(key)")
         return commitCount[key]
     }

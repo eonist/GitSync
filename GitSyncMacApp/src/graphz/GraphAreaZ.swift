@@ -16,10 +16,10 @@ class GraphAreaZ:Element,GraphAreaKind {
     func item(at: Int) -> Int? {//this is just for compliance, this class is deprecated
         return graphZ.dp.item(at:at)
     }
-    var count: Int {return graphZ.dp.count}//this is just for compliance, this class is deprecated
+    var count: Int {return graphZ.dp.count.clip(self.visibleCount-1, graphZ.dp.count) }//we clip it to avoid bugs. -1 strangly enough works
     lazy var maxCommitCount:Int = {graphZ.dp.dp.commitCount.values.max() ?? {fatalError("err")}()}()
 
-    init(graphZ:GraphZ, size: CGSize, id: String? = nil) {
+    init(graphZ:GraphZ, size:CGSize, id:String? = nil) {
         self.graphZ = graphZ
         super.init(size: size, id: id)
     }
@@ -42,14 +42,12 @@ class GraphAreaZ:Element,GraphAreaKind {
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
-
 //lazy creators
 extension GraphAreaZ{
     /**
      * Creates ScrollView
      */
-    func createScrollView() -> GraphScrollView5{
+    func createScrollView() -> GraphScrollView5 {
         let size = CGSize(getWidth(),getHeight())
         let view = GraphScrollView5.init(graphArea: self, size: size)
         return addSubView(view)

@@ -119,7 +119,8 @@ extension GraphScrollerHandler3{
          */
         static func calcRatio(/* x:CGFloat, */minY:CGFloat, height:CGFloat) -> CGFloat{
             //let dist:CGFloat = 400.cgFloat.distance(to: minY)
-            let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
+            if minY == height {return 1}//dividing with zero only yields infinity. This avoids that
+            let diff:CGFloat = height + (-minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
             let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
             return ratio
         }

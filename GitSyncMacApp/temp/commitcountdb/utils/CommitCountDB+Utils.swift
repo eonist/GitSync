@@ -61,6 +61,7 @@ extension CommitCountDB{
                 year.value.forEach{ month in//each month
                     month.value.forEach{ day in//each day
                         if let commitCountForDay:Int = dayCount(repoId:repo.key,date:.init(year:year.key,month:month.key,day:day.key)) {
+//                            Swift.print("commitCountForDay: " + "\(commitCountForDay)")
                             let monthKeyStr:String = StringParser.pad(value: month.key, padCount: 2, padStr: "0")//pads the month to always look like: "02" instead of "2"
                             let dayKeyStr:String = StringParser.pad(value: day.key, padCount: 2, padStr: "0")
                             let key:Int = (year.key.string + monthKeyStr + dayKeyStr).int//(makes the key sortable, and min and max works)

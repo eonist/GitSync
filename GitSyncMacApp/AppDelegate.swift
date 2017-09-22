@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var menu:Menu?//TODO: ⚠️️ make lazy. does it need to be scoped globally?
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
-        Swift.print("GitSync - Automates git")
+        Swift.print("GitSync - A futuristic Git client")
         
         initApp()
 //        quickTest()
@@ -36,29 +36,52 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //try to store all commitCounts
             //try to add repo and remove repo from commitcountdb
-        
-            //implement month timebar ✅
-                //get timebar working again ✅
-                //get timebar working with List v5 ✅
-                //then add support for other timeTypes
-            //implement month  graph 👈
-                //With GraphzDB
             //get valueBar and graph working in tandem
             //implement valuebar
         
-        //onScroll -> sends event to TimeBar and GraphComponent
-        //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
-        //CommitCountDP recides in the Graph class
-            //TimeBar and graphComponent pull from the same DP instance
-      
-        
         //Continue here: 🏀
-            //make a method that returns points fir x,w,itemWidth,totCount, visibleCount in GraphScrollView5 ✅
-            //clean up the classes ✅
-            //Then also render +1 graphDot  ✅
-            //try adding the bounce anim ✅
-            //fix init graphPos and init bounce bug ✅
-            //try with real git 👈
+            //check if you get all the months with a .count ✅
+            //make some describe utils methods ✅
+            //try adding TimeBar to the fold
+            //try adding valueBar to the fold
+            //try different time types
+                //try loading days 👈
+            //try saving the db to disc and loading that
+            //try grabbing different repos
+        
+        //onScroll -> sends event to TimeBar and GraphComponent
+            //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
+            //CommitCountDP recides in the Graph class
+            //TimeBar and graphComponent pull from the same DP instance
+    }
+    /**
+     * Testing the zoomable and bouncing graph
+     */
+    func testGraphXTest(){
+        Swift.print("Hello GraphZ")
+        
+        window.size = CGSize(600,400)
+        window.title = ""
+        window.contentView = InteractiveView()
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
+        
+        let winSize:CGSize = WinParser.size(window)
+        //
+        let commitDb = CommitCountDB()
+        //
+        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
+        guard let first = repoList.first else {fatalError("err")}
+        let subset = [first]//test with 1 first
+        //
+        let commitCounter = CommitCounter2()
+
+        func onComplete(){
+//          CommitCountDPUtils.describeMonth(commitDb:commitDb)
+//            CommitCountDPUtils.describeDay(commitDb:commitDb)
+            let graph = GraphZ(db:commitDb,size:winSize,id:nil)
+            window.contentView!.addSubview(graph)//➡️️
+        }
+        commitCounter.update(commitDB:commitDb, repoList:subset, onComplete: onComplete)//⬅️️
     }
     /**
      *
@@ -69,9 +92,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView()
         StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
         
-        let winSize:CGSize = WinParser.size(window)
-        let graph = window.contentView!.addSubView(GraphZ(winSize.w,winSize.h))
-        _ = graph
+//        let winSize:CGSize = WinParser.size(window)
+//        let graph = window.contentView!.addSubView(GraphZ(size:winSize,id:nil))
+//        _ = graph
     }
     /**
      * Tests File IO for CommitCountDB
@@ -132,17 +155,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //
         func onComplete(){
-            let yearCounts:[Int:Int] = commitDb.yearCounts
-            let commitCountDP = CommitCountDP(commitCount:yearCounts)
-            Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
-            for i in 0..<commitCountDP.count{
-                let yearCount:Int = commitCountDP.item(at: i) ?? 0
-                let year:Int = commitCountDP.min + i
-                Swift.print("year:\(year) yearCount: \(yearCount)")
-            }
+//            let yearCounts:[Int:Int] = commitDb.yearCounts
+//            let commitCountDP = CommitCountDP(commitCount:yearCounts)
+//            Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
+//            for i in 0..<commitCountDP.count{
+//                let yearCount:Int = commitCountDP.item(at: i) ?? 0
+//                let year:Int = commitCountDP.min + i
+//                Swift.print("year:\(year) yearCount: \(yearCount)")
+//            }
         }
         //
-        commitCounter.update(commitDB:commitDb, repoList:temp,onComplete: onComplete)
+        commitCounter.update(commitDB:commitDb, repoList:temp, onComplete: onComplete)
     }
     /**
      * hash key test
@@ -156,21 +179,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * Day
      */
     func quickTest4(){
+        Swift.print("quickTest4")
         let commitDb = CommitCountDB()
-        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
-        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
-        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
-        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:7,day:17), commitCount: 5)
-        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:7,day:20), commitCount: 16)
-        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:4), commitCount: 3)
+//        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:3,day:7), commitCount: 32)
+//        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+//        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+//        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:2,day:17), commitCount: 5)
+//        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:20), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: YMD(year:2014,month:1,day:4), commitCount: 3)
+        commitDb.addRepo(repoId: "RepoA", date: YMD(year:2014,month:1,day:8), commitCount: 3)
         
-        let dayCounts:[Int:Int] = commitDb.dayCounts
-        let commitCountDP = DayCommitDP(commitCount:dayCounts)
-        for i in 0...commitCountDP.count{
-            let commitCount:Int = commitCountDP.item(at: i) ?? 0
-            let dbDate = commitCountDP.ymd(at: i)
-            Swift.print("Year: \(dbDate.year) Month: \(dbDate.month) Day: \(dbDate.day) commitCount: \(commitCount)")
-        }
+        CommitCountDPUtils.describeDay(commitDb:commitDb)
+
     }
     /**
      * Month
@@ -184,10 +204,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:7,day:20), commitCount: 16)
         commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:4), commitCount: 3)
 ////
-        let monthCounts:[Int:Int] = commitDb.monthCounts
+//        let monthCounts:[Int:Int] = commitDb.monthCounts
 //        Swift.print("monthCounts: " + "\(monthCounts)")
-        let commitCountDP = MonthCommitDP(commitCount:monthCounts)
-        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
+//        let commitCountDP = MonthCommitDP(commitCount:monthCounts)
+//        Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
 //        let result = commitCountDP.item(at:0)
 //        Swift.print("result: " + "\(result)")
         
@@ -278,21 +298,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let list = CustomList.init(config: listConfig, size: CGSize(350,80))
         window.contentView?.addSubview(list)
     }
-    /**
-     * Testing the zoomable and bouncing graph
-     */
-    func testGraphXTest(){
-        Swift.print("Hello GraphX")
-        
-        window.size = CGSize(600,400)
-        window.title = ""
-        window.contentView = InteractiveView()
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
-        
-        let winSize:CGSize = WinParser.size(window)
-        let graph = window.contentView!.addSubView(GraphZ(winSize.w,winSize.h))
-        _ = graph
-    }
+    
     
     func setup(){
         window.contentView = InteractiveView()

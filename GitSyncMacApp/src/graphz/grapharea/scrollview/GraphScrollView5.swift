@@ -1,8 +1,10 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
-class GraphScrollView5:ElasticScrollerView5 {
+/**
+ * TODO: ⚠️️ Rename to GraphScroller?
+ */
+class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
     var graphArea:GraphAreaZ
     var prevX:CGFloat = 0//used for modulo ticking
 //    var prevMinY:CGFloat?//prevMinY to avoid calling start anim
@@ -11,14 +13,18 @@ class GraphScrollView5:ElasticScrollerView5 {
     lazy var animator:NumberSpringer = {return createAnimator()}()
     override lazy var moverGroup: MoverGroup = {return createMoverGroup()}()
     //
-    override var contentSize:CGSize {return CGSize(100.cgFloat * (graphArea.count),height)}
+    override var contentSize:CGSize {return CGSize(100.cgFloat * (graphArea.count), height)}
     private var graphScrollerHandler:GraphScrollerHandler5 {return handler as! GraphScrollerHandler5}//move this to extension somewhere
     override lazy var handler:ProgressHandler = GraphScrollerHandler5(progressable:self)
     
     init(graphArea:GraphAreaZ, size: CGSize, id: String? = nil) {
         //Swift.print("size: " + "\(size)")
         self.graphArea = graphArea
+//        let listConfig = List5.Config.init(itemSize: CGSize(100,24), dp: graphArea.graphZ.dp, dir: .hor)//the dp doesnt do anything
+//        let timeBar = TimeBarZ.init(graphZ:self,config: listConfig, size: CGSize(getWidth(),24))/*Creates the TimeBar*/
         super.init(size: size, id: id)
+//        Swift.print("contentSize: " + "\(self.contentSize)")
+//        Swift.print("graphArea.count: " + "\(graphArea.count)")
     }
     override func resolveSkin() {
         StyleManager.addStyle("ContainerView{fill:blue;fill-alpha:0.5;}")
@@ -36,26 +42,30 @@ class GraphScrollView5:ElasticScrollerView5 {
     func frameTick() {
         let x = self.contentContainer.layer!.position.x.clip(-(contentSize.w-width), 0)//x pos of scrolling container,we use the x value as if elastic doesn't exist 👌
         let absX = abs(x)
-        if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
+        if absX > prevX + 100 {/*only redraw at every 100px threshold*/
             tick()
-            prevX = absX
+            prevX = absX.roundTo(100)
         }else if absX < prevX{
             tick()
-            prevX = absX - 100
+            prevX = absX.roundTo(100) - 100
         }
     }
     /**
      * This method is only called on every 100th px threshold
      */
     private func tick(){
-//        Swift.print("tick")
-        let x = self.contentContainer.layer!.position.x.clip(-(contentSize.w-width), 0)//we use the x value as if elastic doesnt exist 👌
+        let x = self.contentContainer.layer!.position.x.clip(-(contentSize.w-width), 0)//we use the x value as if elastic doesn't exist 👌
+//        Swift.print("tick x: \(x) prevX: \(prevX)")
+        
+        
         let maxValue:Int = graphArea.maxCommitCount
         curPts = GraphZUtils.points(rect: CGRect(0,0,width,height), spacing: CGSize(100,100), xProgress: x, totContentWidth: contentSize.width, totCount: graphArea.count, visibleCount: graphArea.visibleCount, itemAt: graphArea.item, maxValue:maxValue)
+        
+//        Swift.print("curPts: " + "\(curPts)")
         self.initAnim()
     }
     /**
-     * EcentHandler
+     * EventHandler
      */
     override func onEvent(_ event: Event) {
         super.onEvent(event)

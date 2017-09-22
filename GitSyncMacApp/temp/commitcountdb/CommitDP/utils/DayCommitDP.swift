@@ -5,15 +5,28 @@ import Foundation
  * NOTE: with day you need to use the date class to offset min and max
  */
 class DayCommitDP:MonthCommitDP{
+    override lazy var minYear:Int = YMD.year(ymd: min)
+    override lazy var maxYear:Int = YMD.year(ymd: max)
+    override lazy var minMonth:Int = YMD.month(ymd:min)
+    override lazy var maxMonth:Int = YMD.month(ymd:max)
     lazy var minDay:Int = YMD.day(ymd: min)
     lazy var maxDay:Int = YMD.day(ymd: max)
+    /**
+     * Returns numOfDaysBetween min and max date
+     */
     override var count:Int {
         //min max
-        let from:YMD = .init(year:minYear,month:minMonth,day:minDay)
-        let to:YMD = .init(year:maxYear,month:maxMonth,day:maxDay)
+        let from = YMD(year:minYear,month:minMonth,day:minDay)
+//        Swift.print("minYear: " + "\(minYear)")
+//        Swift.print("minMonth: " + "\(minMonth)")
+//        Swift.print("minDay: " + "\(minDay)")
+//        Swift.print("from.int: " + "\(from.int)")
+        let to = YMD(year:maxYear,month:maxMonth,day:maxDay)
+//        Swift.print("to.int: " + "\(to.int)")
         guard let fromDate:Date = from.date else {fatalError("err")}
         guard let toDate:Date = to.date else {fatalError("err")}
         let numOfDaysBetween:Int = DateParser.numOfDays(fromDate, toDate)
+//        Swift.print("numOfDaysBetween: " + "\(numOfDaysBetween)")
         return numOfDaysBetween//num of days from to
     }
     /**

@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 @testable import GitSyncMac
@@ -12,8 +12,10 @@ class TimeBarZ:ElasticScrollerFastList5{
         self.graphZ = graphZ
         super.init(config: config, size: size, id: id)
     }
-    
-    required init(coder: NSCoder) {
+    override func scrollWheel(with event: NSEvent) {
+        //override to block
+    }
+    required init(coder:NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     //timeLabels

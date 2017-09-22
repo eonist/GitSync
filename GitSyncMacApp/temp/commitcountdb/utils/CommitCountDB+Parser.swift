@@ -3,16 +3,16 @@ import Foundation
 
 extension CommitCountDB{
     /**
-     * Returns total commit count for a month in a year in a repo
+     * Returns total count for all repos
      */
-    func monthCount(repoId:String,year:Int,month:Int) -> Int? {//rename to monthCount ⚠️️
-        guard let dayDict:DayDict = repos[repoId]?[year]?[month] else {return nil}
-        return dayDict.values.reduce(0) {
-            return $0 + $1
+    var count:Int {
+        return repos.keys.reduce(0) {
+            return $0 + (repoCount(repoId: $1) ?? 0)
         }
     }
     /**
      * Tot commitCount for repo
+     * TODO: ⚠️️ Do we really need to make this optional?
      */
     func repoCount(repoId:String) -> Int?{//rename to
         guard let yearDict:YearDict = repos[repoId] else {return nil}//find correct year
@@ -35,7 +35,17 @@ extension CommitCountDB{
         return count
     }
     /**
+     * Returns total commit count for a month in a year in a repo
+     */
+    func monthCount(repoId:String,year:Int,month:Int) -> Int? {//rename to monthCount ⚠️️
+        guard let dayDict:DayDict = repos[repoId]?[year]?[month] else {return nil}
+        return dayDict.values.reduce(0) {
+            return $0 + $1
+        }
+    }
+    /**
      * tot commit count for repo in year in month in day
+     * EXAMPLE: commitDb.dayCount(repoId: "RepoA", date: YMD(year:2014,month:1,day:4))//3
      */
     func dayCount(repoId:String,date:YMD) -> Int?{
         guard let yearDict:YearDict = repos[repoId] else {return nil}//find correct repo
