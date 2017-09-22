@@ -11,7 +11,7 @@ extension CommitCountDB{
         }
     }
     /**
-     * Add commitCount for day date
+     * Add commitCount to repoID for YMD date
      */
     func addRepo(repoId:String,date:YMD,commitCount:Int) {//rename to addCommit
         if repos[repoId] != nil {//check if repo exist
@@ -37,25 +37,26 @@ extension CommitCountDB{
          * Month
          */
         static func createMonthValue(date:YMD,commitCount:Int) -> Month{
+//            Swift.print("commitCount: " + "\(commitCount)")
             let dayDict:DayDict = [date.day:commitCount]
             return (month:date.month,dayDict:dayDict)
         }
         /**
          * Year
          */
-        static func createYearValue(date:YMD,commitCount:Int) -> Year{
-            let month = createMonthValue(date: date, commitCount: commitCount)
-            let monthDict:MonthDict = [date.month:month.dayDict]
-            let year:Year = (year:date.year,monthDict:monthDict)
+        static func createYearValue(ymd:YMD,commitCount:Int) -> Year{
+            let month = createMonthValue(date: ymd, commitCount: commitCount)
+            let monthDict:MonthDict = [ymd.month:month.dayDict]
+            let year:Year = (year:ymd.year,monthDict:monthDict)
             return year
         }
         /**
          * Repo
          */
         static func createRepoValue(repoId:String,date:YMD,commitCount:Int) -> Repo{
-            let year:Year = createYearValue(date: date, commitCount: commitCount)
+            let year:Year = createYearValue(ymd: date, commitCount: commitCount)
             let yearDict:YearDict = [year.year:year.monthDict]
-            let repo:Repo = (repoId:repoId,year:yearDict)
+            let repo:Repo = (repoId:repoId, year:yearDict)
             return repo
         }
         /**
@@ -65,7 +66,7 @@ extension CommitCountDB{
             if yearDict[date.year] != nil {//make sure year exists
                 addMonth(monthDict: &yearDict[date.year]!, date: date, commitCount: commitCount)
             }else{//or else create year
-                let year:Year = createYearValue(date: date, commitCount: commitCount)
+                let year:Year = createYearValue(ymd: date, commitCount: commitCount)
                 yearDict[date.year] = year.monthDict
             }
         }
@@ -80,7 +81,6 @@ extension CommitCountDB{
                 let month:Month = createMonthValue(date: date, commitCount: commitCount)
                 monthDict[date.month] = month.dayDict
             }
-            
         }
         /**
          * ⚠️️

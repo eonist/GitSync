@@ -9,6 +9,8 @@ class GraphZUtils {
      */
     static func points(rect:CGRect, spacing:CGSize, xProgress:CGFloat, totContentWidth:CGFloat, totCount:Int, visibleCount:Int, itemAt:(Int) -> Int? ,maxValue:Int?) -> [CGPoint]{
         let idxRange:(start:Int,end:Int) = GraphScrollerHandler3.Utils.indexRange(x: xProgress, width: totContentWidth, itemWidth: spacing.w, totCount: totCount, visibleCount: visibleCount)
+//        Swift.print("idxRange: " + "\(idxRange)")
+        
         let vValues:[Int] = Utils.vValues(indexRange: idxRange, itemAt: itemAt)
 //        Swift.print("vValues.count: " + "\(vValues.count)")
         let maxValue:Int = maxValue != nil ? maxValue! : vValues.max() ?? {fatalError("err: \(vValues.count)")}()/*Finds the largest number in among vValues*/

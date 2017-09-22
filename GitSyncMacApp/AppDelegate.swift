@@ -20,34 +20,31 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest()
         
      
-//      testGraphXTest()//✅
+      
 //      horizontalListTest()
 //      viewTests()
 //        quickTest()//repo
 //        quickTest2()//year
 //        quickTest3()//month
-//        quickTest4()
+//        quickTest4()//day
 //        quickTest6()
 //        quickTest7()
 //        quickTest8()
 //        quickTest9()
 //        graphZTest()//🚫
+//        testGraphXTest()//✅
         
         //Continue here: 🏀
-            //try to store all commitCounts
-            //try to add repo and remove repo from commitcountdb
-            //get valueBar and graph working in tandem
             //implement valuebar
         
         //Continue here: 🏀
-            //check if you get all the months with a .count ✅
-            //make some describe utils methods ✅
             //try adding TimeBar to the fold
             //try adding valueBar to the fold
-            //try different time types
-                //try loading days 👈
-            //try saving the db to disc and loading that
-            //try grabbing different repos
+            //figure out how valueBar and graph working in tandem
+                //Hybrid list and scrollview
+                    //rather try and add graph to timeBar
+                    //try with isolated test first. Add an ellipse to a simple list. Then abstract up. 👈
+                    //⚠️️ overriding handler wont work. too much complexities. Hybrid List+View is much cleaner ⚠️️
         
         //onScroll -> sends event to TimeBar and GraphComponent
             //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
@@ -55,36 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //TimeBar and graphComponent pull from the same DP instance
     }
     /**
-     * Testing the zoomable and bouncing graph
-     */
-    func testGraphXTest(){
-        Swift.print("Hello GraphZ")
-        
-        window.size = CGSize(600,400)
-        window.title = ""
-        window.contentView = InteractiveView()
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
-        
-        let winSize:CGSize = WinParser.size(window)
-        //
-        let commitDb = CommitCountDB()
-        //
-        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
-        guard let first = repoList.first else {fatalError("err")}
-        let subset = [first]//test with 1 first
-        //
-        let commitCounter = CommitCounter2()
-
-        func onComplete(){
-//          CommitCountDPUtils.describeMonth(commitDb:commitDb)
-//            CommitCountDPUtils.describeDay(commitDb:commitDb)
-            let graph = GraphZ(db:commitDb,size:winSize,id:nil)
-            window.contentView!.addSubview(graph)//➡️️
-        }
-        commitCounter.update(commitDB:commitDb, repoList:subset, onComplete: onComplete)//⬅️️
-    }
-    /**
-     *
+     * New
      */
     func graphZTest(){
         window.size = CGSize(664,400)
@@ -92,10 +60,76 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView()
         StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
         
-//        let winSize:CGSize = WinParser.size(window)
-//        let graph = window.contentView!.addSubView(GraphZ(size:winSize,id:nil))
-//        _ = graph
+        let winSize:CGSize = WinParser.size(window)
+        let graph = window.contentView!.addSubView(GraphZ(db:monthDB, size:winSize,id:nil))
+        _ = graph
     }
+    /**
+     * Testing the zoomable and bouncing graph
+     */
+    func testGraphXTest(){
+        Swift.print("Hello GraphZ")
+        //
+        window.size = CGSize(600,400)
+        window.title = ""
+        window.contentView = InteractiveView()
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
+        
+        let winSize:CGSize = WinParser.size(window)
+        //
+//        let db = CommitCountDB()
+//        //
+//        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
+//        guard let first = repoList.first else {fatalError("err")}
+//        let subset = [first]//test with 1 first
+//        //
+//        let commitCounter = CommitCounter2()
+//
+//        func onComplete(){
+////          CommitCountDPUtils.describeMonth(commitDb:commitDb)
+////            CommitCountDPUtils.describeDay(commitDb:commitDb)
+//
+//        }
+//        commitCounter.update(commitDB:db, repoList:subset, onComplete: onComplete)//⬅️️
+        let graph = GraphZ(db:monthDB,size:winSize,id:nil)
+        window.contentView!.addSubview(graph)//➡️️
+    }
+    var monthDB:CommitCountDB {
+        let commitDb = CommitCountDB()
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:7,day:17), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:7,day:20), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:4), commitCount: 3)
+        return commitDb
+    }
+    var dayDB:CommitCountDB {
+        //        let commitDb = CommitCountDB.FileIO.open()
+        
+        let commitDb = CommitCountDB()
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:7), commitCount: 13)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:13), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:17), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:29), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:1), commitCount: 4)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:2), commitCount: 13)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:4), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:1,day:28), commitCount: 15)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:30), commitCount: 11)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:2,day:4), commitCount: 6)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:2,day:6), commitCount: 3)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:2,day:8), commitCount: 14)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:2,day:12), commitCount: 4)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:2,day:16), commitCount: 9)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:3,day:2), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:3,day:9), commitCount: 6)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:3,day:12), commitCount: 4)
+
+        return commitDb
+    }
+   
     /**
      * Tests File IO for CommitCountDB
      */
@@ -181,16 +215,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func quickTest4(){
         Swift.print("quickTest4")
         let commitDb = CommitCountDB()
-//        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:3,day:7), commitCount: 32)
-//        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
-//        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
-//        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:2,day:17), commitCount: 5)
-//        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:20), commitCount: 16)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:3,day:7), commitCount: 32)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+        commitDb.addRepo(repoId: "RepoA", date: .init(year:2014,month:2,day:17), commitCount: 5)
+        commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:1,day:20), commitCount: 16)
         commitDb.addRepo(repoId: "RepoA", date: YMD(year:2014,month:1,day:4), commitCount: 3)
-        commitDb.addRepo(repoId: "RepoA", date: YMD(year:2014,month:1,day:8), commitCount: 3)
-        
-        CommitCountDPUtils.describeDay(commitDb:commitDb)
-
+        commitDb.addRepo(repoId: "RepoA", date: YMD(year:2014,month:1,day:9), commitCount: 5)
+        Swift.print("commitDb.count: " + "\(commitDb.count)")
+//        let count:Int? = commitDb.dayCount(repoId: "RepoA", date: YMD(year:2014,month:1,day:4))
+//        Swift.print("Appdel.count: " + "\(count)")
+//        CommitCountDPUtils.describeDay(commitDb:commitDb)
     }
     /**
      * Month
