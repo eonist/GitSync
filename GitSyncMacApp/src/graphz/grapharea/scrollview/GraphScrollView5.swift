@@ -14,6 +14,7 @@ class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
     override lazy var moverGroup: MoverGroup = {return createMoverGroup()}()
     //
     override var contentSize:CGSize {return CGSize(100.cgFloat * (graphArea.count), height)}
+    //
     private var graphScrollerHandler:GraphScrollerHandler5 {return handler as! GraphScrollerHandler5}//move this to extension somewhere
     override lazy var handler:ProgressHandler = GraphScrollerHandler5(progressable:self)
     

@@ -41,10 +41,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try adding TimeBar to the fold
             //try adding valueBar to the fold
             //figure out how valueBar and graph working in tandem
-                //Hybrid list and scrollview
-                    //rather try and add graph to timeBar
-                    //try with isolated test first. Add an ellipse to a simple list. Then abstract up. 👈
-                    //⚠️️ overriding handler wont work. too much complexities. Hybrid List+View is much cleaner ⚠️️
+                //Hybrid list and scrollview 🚫
+                    //rather try and add graph to timeBar 🚫
+                    //try with isolated test first. Add an ellipse to a simple list. Then abstract up. ✅
+                    //⚠️️ overriding handler wont work. too much complexities. Hybrid List+View is much cleaner 🚫
+                    //👉 a more pragmatic solution is to override scrollWheel in TimeBar but not in graph. And then just override scrollWheel but call super on Graph but at the same time pass scroll to timebar 👈
+                        //you probably need to inform valuebar in a similar fashion 🏆
+        
         
         //onScroll -> sends event to TimeBar and GraphComponent
             //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
@@ -52,16 +55,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //TimeBar and graphComponent pull from the same DP instance
     }
     /**
+     *
+     */
+    func hybridListTest(){
+        
+    }
+    /**
      * New
      */
     func graphZTest(){
-        window.size = CGSize(664,400)
+        window.size = CGSize(700,400)
         window.title = ""
         window.contentView = InteractiveView()
         StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
-        
+        //
         let winSize:CGSize = WinParser.size(window)
-        let graph = window.contentView!.addSubView(GraphZ(db:monthDB, size:winSize,id:nil))
+        let graph = window.contentView!.addSubView(GraphZ(db:dayDB, size:winSize,id:nil))
         _ = graph
     }
     /**
@@ -70,29 +79,29 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func testGraphXTest(){
         Swift.print("Hello GraphZ")
         //
-        window.size = CGSize(600,400)
+        window.size = CGSize(700,400)
         window.title = ""
         window.contentView = InteractiveView()
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphx/graphxtest.css", liveEdit: true)
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
         
         let winSize:CGSize = WinParser.size(window)
         //
-//        let db = CommitCountDB()
-//        //
-//        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
-//        guard let first = repoList.first else {fatalError("err")}
-//        let subset = [first]//test with 1 first
-//        //
-//        let commitCounter = CommitCounter2()
-//
-//        func onComplete(){
-////          CommitCountDPUtils.describeMonth(commitDb:commitDb)
-////            CommitCountDPUtils.describeDay(commitDb:commitDb)
-//
-//        }
-//        commitCounter.update(commitDB:db, repoList:subset, onComplete: onComplete)//⬅️️
-        let graph = GraphZ(db:monthDB,size:winSize,id:nil)
-        window.contentView!.addSubview(graph)//➡️️
+        let db = CommitCountDB()
+        //
+        let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
+        guard let first = repoList.first else {fatalError("err")}
+        let subset = [first]//test with 1 first
+        //
+        let commitCounter = CommitCounter2()
+
+        func onComplete(){
+//          CommitCountDPUtils.describeMonth(commitDb:commitDb)
+//            CommitCountDPUtils.describeDay(commitDb:commitDb)
+            let graph = GraphZ(db:db,size:winSize,id:nil)
+            window.contentView!.addSubview(graph)//➡️️
+        }
+        commitCounter.update(commitDB:db, repoList:subset, onComplete: onComplete)//⬅️️
+        
     }
     var monthDB:CommitCountDB {
         let commitDb = CommitCountDB()
@@ -325,16 +334,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func horizontalListTest(){
 //        setup()
         window.contentView = InteractiveView()
-        //Create a vertical list
-        //color rects as items
-        //db should just be 10 random colors
+        StyleManager.addStyle("CustomList{fill:black;fill-alpha:1;}")
+        
         let dp:DP = DP.init(Array.init(repeating: ["":""], count: 32))
         let listConfig = List5.Config.init(itemSize: CGSize(80,80), dp: dp, dir: .hor)
-        let list = CustomList.init(config: listConfig, size: CGSize(350,80))
+        let list = CustomList.init(config: listConfig, size: CGSize(350,180))
         window.contentView?.addSubview(list)
     }
-    
-    
     func setup(){
         window.contentView = InteractiveView()
         let styleFilePath:String = Config.Bundle.styles + "styles/styletest/" + "light.css"//"dark.css"
@@ -430,6 +436,14 @@ extension ContainerView5{
     }
 }
 class CustomList:ElasticScrollerFastList5{
+    override lazy var contentContainer: Element = {
+        let container = createContentContainer()
+        let ellipse = EllipseGraphic(0,0,200,200,FillStyle(.red),nil)
+        container.addSubview(ellipse.graphic)
+        //        ellipse.graphic.layer?.position = p
+        ellipse.draw()
+        return container
+    }()
     override func createItem(_ index:Int) -> Element {
         let customListItem = CustomListItem.init(size: itemSize)
         contentContainer.addSubview(customListItem)
@@ -441,6 +455,9 @@ class CustomList:ElasticScrollerFastList5{
         (listItem.item as! CustomListItem).rect?.graphic.fillStyle = FillStyle.init(randCol)
         (listItem.item as! CustomListItem).rect?.graphic.draw()
         listItem.item.layer?.position[dir] = listItem.idx * itemSize[dir]/*position the item*/
+    }
+    override func getClassType() -> String {
+        return "\(CustomList.self)"
     }
 }
 class CustomListItem:Element{
