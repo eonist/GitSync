@@ -13,9 +13,10 @@ class TimeBarZ:ElasticScrollerFastList5{
     //
     override lazy var moverGroup: MoverGroup = {return createMoverGroup()}()
     //
-    init(graphZ:GraphZ, config:List5.Config = List5.Config.defaultConfig, size:CGSize = CGSize(), id:String? = nil) {
+    init(graphZ:GraphZ, size:CGSize = CGSize(), id:String? = nil) {
         self.graphZ = graphZ
-        super.init(config: config, size: size, id: id)
+        let listConfig = List5.Config.init(itemSize: CGSize(100,24), dp: DP.init(), dir: .hor)//the dp doesnt do anything
+        super.init(config: listConfig, size: size, id: id)
     }
     override func scrollWheel(with event: NSEvent) {
         //override to block

@@ -40,6 +40,9 @@ class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
         super.scrollWheel(with: event)
         frameTick()
     }
+    /**
+     * Called on every 60FPS frame tick
+     */
     func frameTick() {
         let x = self.contentContainer.layer!.position.x.clip(-(contentSize.w-width), 0)//x pos of scrolling container,we use the x value as if elastic doesn't exist 👌
         let absX = abs(x)
@@ -58,8 +61,7 @@ class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
         let x = self.contentContainer.layer!.position.x.clip(-(contentSize.w-width), 0)//we use the x value as if elastic doesn't exist 👌
 //        Swift.print("tick x: \(x) prevX: \(prevX)")
         
-        
-        let maxValue:Int = graphArea.maxCommitCount
+        let maxValue:Int = graphArea.maxCommitCount//max commitCount in the entire dp
         curPts = GraphZUtils.points(rect: CGRect(0,0,width,height), spacing: CGSize(100,100), xProgress: x, totContentWidth: contentSize.width, totCount: graphArea.count, visibleCount: graphArea.visibleCount, itemAt: graphArea.item, maxValue:maxValue)
         
 //        Swift.print("curPts: " + "\(curPts)")

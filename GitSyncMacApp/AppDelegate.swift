@@ -38,41 +38,25 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //implement valuebar
         
         //Continue here: 🏀
-            //try adding TimeBar to the fold
-            //try adding valueBar to the fold
-            //figure out how valueBar and graph working in tandem
-                //Hybrid list and scrollview 🚫
+            //try adding TimeBar to the fold ✅
+            //try adding valueBar to the fold ✅
+            //figure out how valueBar and graph working in tandem ✅
+                //Hybrid list and scrollview ✅
                     //rather try and add graph to timeBar 🚫
                     //try with isolated test first. Add an ellipse to a simple list. Then abstract up. ✅
                     //⚠️️ overriding handler wont work. too much complexities. Hybrid List+View is much cleaner 🚫
-                    //👉 a more pragmatic solution is to override scrollWheel in TimeBar but not in graph. And then just override scrollWheel but call super on Graph but at the same time pass scroll to timebar 👈
-                        //you probably need to inform valuebar in a similar fashion 🏆
+                    // a more pragmatic solution is to override scrollWheel in TimeBar but not in graph. And then just override scrollWheel but call super on Graph but at the same time pass scroll to timebar  ✅
+                        //you probably need to inform valuebar in a similar fashion 🏆 ✅
+            //Copy the logic from ValueBar V1 (check the old code in finder) ✅
+                //get the textArea items setup and add css ✅
+                //hockup ValueBar V2 value logic ✅
         
-        
-        //onScroll -> sends event to TimeBar and GraphComponent
-            //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view
-            //CommitCountDP recides in the Graph class
-            //TimeBar and graphComponent pull from the same DP instance
+        //onScroll -> sends event to TimeBar and GraphComponent ✅
+            //Valuebar updates its 6 values on every modulo tick. Aka when a graphpoint comes into view ✅
+            //CommitCountDP recides in the Graph class ✅
+            //TimeBar and graphComponent pull from the same DP instance ✅
     }
-    /**
-     *
-     */
-    func hybridListTest(){
-        
-    }
-    /**
-     * New
-     */
-    func graphZTest(){
-        window.size = CGSize(700,400)
-        window.title = ""
-        window.contentView = InteractiveView()
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
-        //
-        let winSize:CGSize = WinParser.size(window)
-        let graph = window.contentView!.addSubView(GraphZ(db:dayDB, size:winSize,id:nil))
-        _ = graph
-    }
+
     /**
      * Testing the zoomable and bouncing graph
      */
@@ -138,7 +122,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
         return commitDb
     }
-   
+    /**
+     * New
+     */
+    func graphZTest(){
+        window.size = CGSize(700,400)
+        window.title = ""
+        window.contentView = InteractiveView()
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
+        //
+        let winSize:CGSize = WinParser.size(window)
+        let graph = window.contentView!.addSubView(GraphZ(db:dayDB, size:winSize,id:nil))
+        _ = graph
+    }
     /**
      * Tests File IO for CommitCountDB
      */

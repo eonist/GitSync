@@ -14,6 +14,9 @@ class GraphZDP:DataProvider{
         self.timeType = timeType
         self.commitCountDB = commitCountDB
     }
+    /**
+     * aka numOfTimeTypeUnitesBetween min and max date
+     */
     override var count: Int {
 //        Swift.print("dp.count: " + "\(dp.count)")
         return dp.count

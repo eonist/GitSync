@@ -17,7 +17,7 @@ class GraphAreaZ:Element,GraphAreaKind {
         return graphZ.dp.item(at:at)
     }
     var count: Int {return graphZ.dp.count.clip(self.visibleCount-1, graphZ.dp.count) }//we clip it to avoid bugs. -1 strangly enough works
-    lazy var maxCommitCount:Int = {graphZ.dp.dp.commitCount.values.max() ?? {fatalError("err")}()}()
+    lazy var maxCommitCount:Int = {graphZ.dp.dp.commitCount.values.max() ?? {fatalError("err")}()}()//max commitCount in the entire dp
 
     init(graphZ:GraphZ, size:CGSize, id:String? = nil) {
         self.graphZ = graphZ
@@ -38,7 +38,7 @@ class GraphAreaZ:Element,GraphAreaKind {
         _ = graphDots
     }
     override func getClassType() -> String {
-        return "\(GraphAreaX.self)"
+        return "GraphArea"
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -83,7 +83,7 @@ extension GraphAreaZ{
         }
     }
     /**
-     * updateGraph
+     * UpdateGraph (Updates both graphDot's and graphLine)
      */
     func updateGraph(pts:[CGPoint]){
         /*updateGraphDots*/
