@@ -7,19 +7,22 @@ import Foundation
  * TODO: ⚠️️ Upgrade to DP2 in the future
  */
 class GraphZDP:DataProvider{
+    var vCount:Int
     var timeType:TimeType
     var commitCountDB:CommitCountDB
     lazy var dp:CommitCountDPKind = Utils.commitCountDP(timeType: self.timeType,commitCountDB: self.commitCountDB)
-    init(timeType:TimeType,commitCountDB:CommitCountDB){
+    init(timeType:TimeType,commitCountDB:CommitCountDB,vCount:Int){
         self.timeType = timeType
         self.commitCountDB = commitCountDB
+        self.vCount = vCount
     }
     /**
      * aka numOfTimeTypeUnitesBetween min and max date
      */
     override var count: Int {
 //        Swift.print("dp.count: " + "\(dp.count)")
-        return dp.count
+        let c:Int = dp.count.clip(vCount/*-1*/, dp.count)/*Tot count of all items in dp*///we clip it to avoid visual bugs. -1 strangly enough works.
+        return c /*dp.count*/
     }
     override func item(_ at: Int) -> [String : String]? {
         let item:(commitCount:Int?,ymd:YMD) = dp.item(at: at)

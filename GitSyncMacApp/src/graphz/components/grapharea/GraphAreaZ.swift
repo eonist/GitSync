@@ -7,6 +7,7 @@ import Cocoa
 class GraphAreaZ:Element,GraphAreaKind {
     lazy var scrollView:GraphScrollView5 = createScrollView()
     lazy var points:[CGPoint] = createCGPoints()//rename to curPoints ⚠️️
+    var vValues:[Int]?
     lazy var graphDots:[Element] = createGraphPoints()
     lazy var graphLine:GraphLine = createGraphLine()
     var contentContainer:Element {return scrollView.contentContainer}/*contains dots and line*/
@@ -16,7 +17,8 @@ class GraphAreaZ:Element,GraphAreaKind {
     func item(at: Int) -> Int? {//this is just for compliance, this class is deprecated
         return graphZ.dp.item(at:at)
     }
-    var count: Int {return graphZ.dp.count.clip(self.visibleCount-1, graphZ.dp.count) }//we clip it to avoid bugs. -1 strangly enough works
+    var count: Int {return graphZ.dp.count}
+//    var count: Int {return graphZ.dp.count.clip(self.visibleCount-1, graphZ.dp.count) }/*Tot count of all items in dp*///we clip it to avoid visual bugs. -1 strangly enough works.
     lazy var maxCommitCount:Int = {graphZ.dp.dp.commitCount.values.max() ?? {fatalError("err")}()}()//max commitCount in the entire dp
 
     init(graphZ:GraphZ, size:CGSize, id:String? = nil) {
@@ -56,11 +58,20 @@ extension GraphAreaZ{
      * Creates the initial graph CGPoint's
      */
     func createCGPoints() -> [CGPoint]{
-        let x:CGFloat = 0
-        let size:CGSize = CGSize(getWidth(), getHeight())//CGSize(664,400)
-        let itemSize:CGSize = CGSize(100,100)
-//        Swift.print("maxValue: " + "\(maxCommitCount)")
-        return GraphZUtils.points(rect: CGRect(0,0,size.w,size.h), spacing:itemSize, xProgress: x, totContentWidth: count*100, totCount: count, visibleCount: self.visibleCount, itemAt: self.item, maxValue:nil)
+        let x:CGFloat = 0//init pos.x of graph
+        let rect = CGRect(0,0,getWidth(), getHeight())
+        Swift.print("rect: " + "\(rect)")
+        Swift.print("count: " + "\(count)")
+        let totContentWidth:CGFloat = count * GraphZ.config.itemSize.w
+        Swift.print("totContentWidth: " + "\(totContentWidth)")
+        let idxRange:(start:Int,end:Int) = GraphZUtils.idxRange(x: x, width: totContentWidth, itemWidth: GraphZ.config.itemSize.w, totCount: count, visibleCount: self.visibleCount)
+        vValues = GraphZUtils.vValues(idxRange: idxRange, itemAt: self.item)
+        Swift.print("vValues.count: " + "\(vValues?.count)")
+        let maxVValue:Int = vValues!.max()!//Finds the largest number in among vValues
+//        Swift.print("maxVValue: " + "\(maxVValue)")
+        let pts = GraphZUtils.points(idxRange:idxRange, vValues: vValues!, maxValue: maxVValue,rect:rect, spacing:GraphZ.config.itemSize)
+        Swift.print("pts: " + "\(pts)")
+        return pts
     }
     /**
      * Creates the Graph line

@@ -13,7 +13,11 @@ class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
     lazy var animator:NumberSpringer = {return createAnimator()}()
     override lazy var moverGroup: MoverGroup = {return createMoverGroup()}()
     //
-    override var contentSize:CGSize {return CGSize(100.cgFloat * (graphArea.count), height)}
+    override var contentSize:CGSize {
+        let contentSize = CGSize(100.cgFloat * (graphArea.count-1), height)//contentSize is -1 because the space inbetween the dots makes up 1 less
+//        Swift.print("contentSize: " + "\(contentSize)")
+        return contentSize
+    }
     //
     private var graphScrollerHandler:GraphScrollerHandler5 {return handler as! GraphScrollerHandler5}//move this to extension somewhere
     override lazy var handler:ProgressHandler = GraphScrollerHandler5(progressable:self)
@@ -62,8 +66,15 @@ class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
 //        Swift.print("tick x: \(x) prevX: \(prevX)")
         
         let maxValue:Int = graphArea.maxCommitCount//max commitCount in the entire dp
-        curPts = GraphZUtils.points(rect: CGRect(0,0,width,height), spacing: CGSize(100,100), xProgress: x, totContentWidth: contentSize.width, totCount: graphArea.count, visibleCount: graphArea.visibleCount, itemAt: graphArea.item, maxValue:maxValue)
+        let rect:CGRect = CGRect(0,0,width,height)
         
+        Swift.print("graphArea.count: " + "\(graphArea.count)")
+        let result = GraphZUtils.points(rect: rect, spacing: GraphZ.config.itemSize, xProgress: x, totContentWidth: contentSize.width, totCount: graphArea.count, visibleCount: graphArea.visibleCount, itemAt: graphArea.item, maxValue:maxValue)
+        curPts = result.points
+        let vValues:[Int] = result.vValues
+       
+        let maxVValue:Int = vValues.max()!//Finds the largest number in among vValues
+        graphArea.graphZ.update(maxValue: maxVValue)
 //        Swift.print("curPts: " + "\(curPts)")
         self.initAnim()
     }

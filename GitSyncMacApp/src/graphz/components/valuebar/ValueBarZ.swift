@@ -16,7 +16,7 @@ class ValueBarZ:Element{
      */
     func createItems(){
         let strings:[String] = GraphUtils.verticalIndicators(ValueBarZ.vCount, 1.0)
-        let margin:CGFloat = 24//Graph9.config.margin.height
+        let margin:CGFloat = GraphZ.config.topMargin
         Swift.print("getHeight(): " + "\(getHeight())")
         let itemYSpace:CGFloat = (getHeight() - (margin * 2))/(ValueBarZ.vCount-1).cgFloat
         Swift.print("itemYSpace: " + "\(itemYSpace)")
@@ -31,9 +31,10 @@ class ValueBarZ:Element{
     /**
      * VerticalBar (y-axis tags)
      */
-    func updateValueBar(_ maxValue:CGFloat){
-        var strings:[String] = GraphUtils.verticalIndicators(ValueBarZ.vCount, maxValue)
-        strings = strings.map{ $0.cgFloat > 1000 ? ($0.cgFloat/1000).toFixed(1).string + "K" : $0}//Formats values like: 1500 -> 1.5K etc
+    func update(maxValue:Int){
+        var strings:[String] = GraphUtils.verticalIndicators(ValueBarZ.vCount, maxValue.cgFloat)
+        strings = strings.map{ $0.cgFloat > 1000 ? ($0.cgFloat/1000).toFixed(1).string + "K" : $0}/*Formats values like: 1500 -> 1.5K etc*/ //⚠️️ There could be a smoother way to round the numbers
+//        Swift.print("update strings: " + "\(strings)")
         for i in 0..<strings.count{
             self.items[i].setTextValue(strings[i])
         }

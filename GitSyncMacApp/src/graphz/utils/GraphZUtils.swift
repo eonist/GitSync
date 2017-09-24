@@ -17,7 +17,7 @@ class GraphZUtils {
         let idxRange:(start:Int,end:Int) = GraphZUtils.idxRange(x: xProgress, width: totContentWidth, itemWidth: spacing.w, totCount: totCount, visibleCount: visibleCount)
 //        Swift.print("idxRange: " + "\(idxRange)")
         let vValues:[Int] = GraphZUtils.vValues(idxRange: idxRange, itemAt: itemAt)
-//        Swift.print("vValues.count: " + "\(vValues.count)")
+        Swift.print("vValues.count: " + "\(vValues.count)")
 //        let maxValue:Int = maxValue != nil ? maxValue! : vValues.max() ?? {fatalError("err: \(vValues.count)")}()/*Finds the largest number in among vValues*/ //⚠️️ I think this should be done in the caller. or make a method for just the case where you dont pass maxValue
         let pts = points(idxRange:idxRange, vValues: vValues, maxValue: maxValue,rect:rect, spacing:spacing)
         return (points:pts, vValues:vValues)
@@ -62,10 +62,12 @@ class GraphZUtils {
     static func idxRange(x:CGFloat, width:CGFloat, itemWidth:CGFloat, totCount:Int, visibleCount:Int ) -> (start:Int,end:Int){
         let idx:Int = Utils.index(x: x, width: width, totCount: totCount)
         if abs(x) > itemWidth {
+            Swift.print("a")
             let end:Int = abs(x) < (width - itemWidth) ? idx+visibleCount+1 : idx+visibleCount
             return (start:idx-1,end:end)
         }else {
-            return (start:idx,end:idx+visibleCount+2)
+            Swift.print("b")
+            return (start:idx, end:idx+visibleCount/*+2*/)
         }
     }
     /**
