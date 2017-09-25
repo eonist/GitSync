@@ -60,7 +60,7 @@ class GraphZUtils {
      * NOTE; We can also use modulo to get index: modulo;reminder = x %% itemWidth;x - remainderro
      */
     static func idxRange(x:CGFloat, width:CGFloat, itemWidth:CGFloat, totCount:Int, visibleCount:Int ) -> (start:Int,end:Int){
-        let idx:Int = Utils.index(x: x, width: width, totCount: totCount)
+        let idx:Int = index(x: x, width: width, totCount: totCount)
         if abs(x) > itemWidth {
             Swift.print("a")
             let end:Int = abs(x) < (width - itemWidth) ? idx+visibleCount+1 : idx+visibleCount
@@ -71,17 +71,6 @@ class GraphZUtils {
         }
     }
     /**
-     * New
-     */
-    static func minY(pts:[CGPoint]) -> CGFloat{
-        let subSet:[CGPoint] = pts//pts.slice2(0, pts.count-1)
-//        Swift.print("subSet.count: " + "\(subSet.count)")
-        let minY:CGFloat = subSet.map{$0.y}.min() ?? {fatalError("err")}()
-        return minY
-    }
-}
-private class Utils{
-    /**
      * Returns the absolute index of an item based on x
      */
     static func index(x:CGFloat, width:CGFloat,totCount:Int) -> Int{
@@ -90,6 +79,14 @@ private class Utils{
         let index:Int = (scalar * totCount).int//goal is to get index
         return index
     }
-    
+    /**
+     * New
+     */
+    static func minY(pts:[CGPoint]) -> CGFloat{
+        let subSet:[CGPoint] = pts//pts.slice2(0, pts.count-1)
+//        Swift.print("subSet.count: " + "\(subSet.count)")
+        let minY:CGFloat = subSet.map{$0.y}.min() ?? {fatalError("err")}()
+        return minY
+    }
 }
 

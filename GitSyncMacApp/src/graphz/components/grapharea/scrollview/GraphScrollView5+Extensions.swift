@@ -27,4 +27,9 @@ extension GraphScrollView5{
         let scaledPts:[CGPoint] = GraphScrollerHandler3.Utils.calcScaledPoints(points: curPts, ratio: val, height: height)
         graphArea.updateGraph(pts: scaledPts)
     }
+    var index:Int {
+        let x = self.contentContainer.layer!.position.x.clip(-(contentSize.w-width), 0)//we use the x value as if elastic doesn't exist 👌
+        let idx:Int = GraphZUtils.index(x: x, width: contentSize.width, totCount: graphArea.count)//get from list
+        return idx
+    }
 }
