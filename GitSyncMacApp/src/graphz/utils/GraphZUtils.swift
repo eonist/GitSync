@@ -14,10 +14,10 @@ class GraphZUtils {
      * PARAM: maxValue: is the maximum value among all values in dp. (May change when the underlying model changes)
      */
     static func points(rect:CGRect, spacing:CGSize, xProgress:CGFloat, totContentWidth:CGFloat, totCount:Int, visibleCount:Int, itemAt:(Int) -> Int? ,maxValue:Int) -> (points:[CGPoint],vValues:[Int]){
-        let idxRange:(start:Int,end:Int) = GraphZUtils.idxRange(x: xProgress, width: totContentWidth, itemWidth: spacing.w, totCount: totCount, visibleCount: visibleCount)
+        let idxRange:(start:Int,end:Int) = GraphZUtils.idxRange(x: xProgress, totWidth: totContentWidth, itemWidth: spacing.w, totCount: totCount, visibleCount: visibleCount)
 //        Swift.print("idxRange: " + "\(idxRange)")
         let vValues:[Int] = GraphZUtils.vValues(idxRange: idxRange, itemAt: itemAt)
-        Swift.print("vValues.count: " + "\(vValues.count)")
+//        Swift.print("vValues.count: " + "\(vValues.count)")
 //        let maxValue:Int = maxValue != nil ? maxValue! : vValues.max() ?? {fatalError("err: \(vValues.count)")}()/*Finds the largest number in among vValues*/ //⚠️️ I think this should be done in the caller. or make a method for just the case where you dont pass maxValue
         let pts = points(idxRange:idxRange, vValues: vValues, maxValue: maxValue,rect:rect, spacing:spacing)
         return (points:pts, vValues:vValues)
@@ -56,18 +56,34 @@ class GraphZUtils {
     }
     /**
      * Returns indecies from x,width,itemWidth
-     * PARAM: width is the totalWidth of the list
+     * PARAM: totWidth is the totalWidth of the list
      * NOTE; We can also use modulo to get index: modulo;reminder = x %% itemWidth;x - remainderro
      */
-    static func idxRange(x:CGFloat, width:CGFloat, itemWidth:CGFloat, totCount:Int, visibleCount:Int ) -> (start:Int,end:Int){
-        let idx:Int = index(x: x, width: width, totCount: totCount)
-        if abs(x) > itemWidth {
-            Swift.print("a")
-            let end:Int = abs(x) < (width - itemWidth) ? idx+visibleCount+1 : idx+visibleCount
+    static func idxRange(x:CGFloat, totWidth:CGFloat, itemWidth:CGFloat, totCount:Int, visibleCount:Int ) -> (start:Int,end:Int){
+        let idx:Int = index(x: x, width: totWidth, totCount: totCount)
+
+        if abs(x) > itemWidth {//x > 100
+//            Swift.print("a")
+            let end:Int = {
+                if abs(x) < (totWidth - itemWidth) {
+//                    Swift.print("a.1")
+                    return idx + visibleCount + 1
+                }else {//at the end
+//                    Swift.print("a.2")
+                    return idx + visibleCount
+                }
+            }()
             return (start:idx-1,end:end)
         }else {
-            Swift.print("b")
-            return (start:idx, end:idx+visibleCount/*+2*/)
+//            Swift.print("b")
+            let end:Int = {
+                if totCount == visibleCount {
+                    return idx + visibleCount
+                }else{
+                    return idx + visibleCount + 2
+                }
+            }()
+            return (start:idx, end:end)
         }
     }
     /**

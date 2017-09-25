@@ -16,7 +16,7 @@ class ValueBarZ:Element{
      */
     func createItems(){
         let strings:[String] = GraphUtils.verticalIndicators(ValueBarZ.vCount, 1.0)
-        let margin:CGFloat = GraphZ.config.topMargin
+        let margin:CGFloat = 0//GraphZ.config.topMargin
         Swift.print("getHeight(): " + "\(getHeight())")
         let itemYSpace:CGFloat = (getHeight() - (margin * 2))/(ValueBarZ.vCount-1).cgFloat
         Swift.print("itemYSpace: " + "\(itemYSpace)")

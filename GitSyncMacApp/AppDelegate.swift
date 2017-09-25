@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.size = CGSize(700,400)
         window.title = ""
         window.contentView = InteractiveView()
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: true)
+        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: false)
         
         let winSize:CGSize = WinParser.size(window)
         //
@@ -56,12 +56,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
         func onComplete(){
 //          CommitCountDPUtils.describeMonth(commitDb:commitDb)
-//            CommitCountDPUtils.describeDay(commitDb:commitDb)
+//          CommitCountDPUtils.describeDay(commitDb:commitDb)
             let graph = GraphZ(db:db,size:winSize,id:nil)
             window.contentView!.addSubview(graph)//➡️️
         }
         commitCounter.update(commitDB:db, repoList:subset, onComplete: onComplete)//⬅️️
-        
     }
     var monthDB:CommitCountDB {
         let commitDb = CommitCountDB()

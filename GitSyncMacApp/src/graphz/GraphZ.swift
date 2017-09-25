@@ -9,7 +9,7 @@ class GraphZ:Element{
     lazy var timeBar:TimeBarZ = TimeBarZ(graphZ:self,size:CGSize(getWidth(),0)) /*Creates the TimeBar*///move to extension ⚠️️
     lazy var valueBar:ValueBarZ = ValueBarZ(size:CGSize(0,0),id:nil)/*Creates the ValueBar*/
     lazy var graphArea:GraphAreaZ = GraphAreaZ(graphZ: self,size: CGSize(0,0))
-    var curTimeType:TimeType = .year
+    var curTimeType:TimeType = .month
     /**
      * TODO: ⚠️️ db should get it's events here and then forward them to timebar and grapharea, the eventHandlers get set in TimeBar so you need to set the event handler after timebar is created and point it here instead.
      */

@@ -15,7 +15,7 @@ class TimeBarZ:ElasticScrollerFastList5{
     //
     init(graphZ:GraphZ, size:CGSize = CGSize(), id:String? = nil) {
         self.graphZ = graphZ
-        let listConfig = List5.Config.init(itemSize: CGSize(100,24), dp: DP.init(), dir: .hor)//the dp doesnt do anything
+        let listConfig = List5.Config.init(itemSize: CGSize(GraphZ.config.itemSize.w,GraphZ.config.topMargin), dp: DP.init(), dir: .hor)//the dp doesnt do anything
         super.init(config: listConfig, size: size, id: id)
     }
     override func scrollWheel(with event: NSEvent) {
@@ -25,7 +25,6 @@ class TimeBarZ:ElasticScrollerFastList5{
     required init(coder:NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     //timeLabels
     override func resolveSkin() {
         super.resolveSkin()

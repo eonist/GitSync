@@ -68,7 +68,7 @@ class GraphScrollView5:ElasticScrollerView5 {/*ElasticScrollerFastList5*/
         let maxValue:Int = graphArea.maxCommitCount//max commitCount in the entire dp
         let rect:CGRect = CGRect(0,0,width,height)
         
-        Swift.print("graphArea.count: " + "\(graphArea.count)")
+//        Swift.print("graphArea.count: " + "\(graphArea.count)")
         let result = GraphZUtils.points(rect: rect, spacing: GraphZ.config.itemSize, xProgress: x, totContentWidth: contentSize.width, totCount: graphArea.count, visibleCount: graphArea.visibleCount, itemAt: graphArea.item, maxValue:maxValue)
         curPts = result.points
         let vValues:[Int] = result.vValues

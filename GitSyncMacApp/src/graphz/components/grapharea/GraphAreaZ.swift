@@ -38,6 +38,7 @@ class GraphAreaZ:Element,GraphAreaKind {
         _ = contentContainer
         contentContainer.addSubview(graphLine)
         _ = graphDots
+//        updateGraph()
     }
     override func getClassType() -> String {
         return "GraphArea"
@@ -64,12 +65,15 @@ extension GraphAreaZ{
         Swift.print("count: " + "\(count)")
         let totContentWidth:CGFloat = count * GraphZ.config.itemSize.w
         Swift.print("totContentWidth: " + "\(totContentWidth)")
-        let idxRange:(start:Int,end:Int) = GraphZUtils.idxRange(x: x, width: totContentWidth, itemWidth: GraphZ.config.itemSize.w, totCount: count, visibleCount: self.visibleCount)
+        let idxRange:(start:Int,end:Int) = GraphZUtils.idxRange(x: x, totWidth: totContentWidth, itemWidth: GraphZ.config.itemSize.w, totCount: count, visibleCount: self.visibleCount)
+//        idxRange.end = idxRange.end + 2
+        Swift.print("idxRange: " + "\(idxRange)")
         vValues = GraphZUtils.vValues(idxRange: idxRange, itemAt: self.item)
-        Swift.print("vValues.count: " + "\(vValues?.count)")
+//        Swift.print("vValues.count: " + "\(vValues?.count)")
         let maxVValue:Int = vValues!.max()!//Finds the largest number in among vValues
 //        Swift.print("maxVValue: " + "\(maxVValue)")
         let pts = GraphZUtils.points(idxRange:idxRange, vValues: vValues!, maxValue: maxVValue,rect:rect, spacing:GraphZ.config.itemSize)
+        Swift.print("pts.count: " + "\(pts.count)")
         Swift.print("pts: " + "\(pts)")
         return pts
     }
@@ -87,8 +91,9 @@ extension GraphAreaZ{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints() -> [Element] {
-        return points.map{/*_ in*/
-            let graphDot:Element = contentContainer.addSubView(Element(0,0,contentContainer,"graphPoint"))
+        //(0..<(points.count+2)).indices.map{ _ in
+        return points.map {
+            let graphDot:Element = contentContainer.addSubView(Element(size:CGSize(0,0),id:"graphPoint"))
             graphDot.layer?.position = ($0)
             return graphDot
         }

@@ -1,16 +1,5 @@
 import Foundation
 @testable import Utils
-/*Update*/
-extension GraphZ{
-    /**
-     * Updates components in the Graph
-     * NOTE: Gets it's call from the tick method in graphArea on every 100px threshold
-     */
-    func update(maxValue:Int) {
-//        Swift.print("GraphZ.update: maxValue:\(maxValue)")
-        valueBar.update(maxValue: maxValue)
-    }
-}
 
 /*Config*/
 extension GraphZ{

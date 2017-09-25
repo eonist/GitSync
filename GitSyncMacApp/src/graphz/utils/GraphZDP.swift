@@ -26,13 +26,18 @@ class GraphZDP:DataProvider{
     }
     override func item(_ at: Int) -> [String : String]? {
         let item:(commitCount:Int?,ymd:YMD) = dp.item(at: at)
-        let val:Int = {
-            if timeType == .day {return item.ymd.day }
-            else if timeType == .month{return item.ymd.month}
-            else {return item.ymd.year}
+        let val:String = {
+            guard let date:Date = item.ymd.date else{ fatalError("unable to create date")}
+            if timeType == .day {
+                return date.shortDayName
+            }else if timeType == .month{
+                return date.shortMonthName
+            }else {
+                return item.ymd.year.string
+            }
         }()
 //        Swift.print("item(at:\(at) val: " + "\(val)")
-        return ["title":val.string]
+        return ["title":val]
     }
     func item(at:Int) -> Int?{
         return dp.item(at: at)
