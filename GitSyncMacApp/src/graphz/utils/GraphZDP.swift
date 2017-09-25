@@ -1,20 +1,24 @@
 import Foundation
 @testable import Utils
 @testable import GitSyncMac
-
 /**
  * This extends DataProvider because we need to send events etc, also List uses DataProvider
  * TODO: ⚠️️ Upgrade to DP2 in the future
  */
 class GraphZDP:DataProvider{
-    var vCount:Int
-    var timeType:TimeType
-    var commitCountDB:CommitCountDB
+    var vCount:Int {return graph.vCount }
+    var timeType:TimeType {return graph.curTimeType}
+    var commitCountDB:CommitCountDB {return graph.db}
     lazy var dp:CommitCountDPKind = Utils.commitCountDP(timeType: self.timeType,commitCountDB: self.commitCountDB)
-    init(timeType:TimeType,commitCountDB:CommitCountDB,vCount:Int){
-        self.timeType = timeType
-        self.commitCountDB = commitCountDB
-        self.vCount = vCount
+//    init(timeType:TimeType,commitCountDB:CommitCountDB,vCount:Int){
+//        self.timeType = timeType
+//        self.commitCountDB = commitCountDB
+//        self.vCount = vCount
+//    }
+    var graph:GraphZ
+    init(graph:GraphZ){
+        //timeType:self.curTimeType, commitCountDB:db, vCount:self.vCount
+        self.graph = graph
     }
     /**
      * aka numOfTimeTypeUnitesBetween min and max date

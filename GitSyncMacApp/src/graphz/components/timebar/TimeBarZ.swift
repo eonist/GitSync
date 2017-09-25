@@ -4,15 +4,12 @@ import Cocoa
 @testable import GitSyncMac
 
 class TimeBarZ:ElasticScrollerFastList5{
-//    override var dp:GraphZDP
     let graphZ:GraphZ
-    override var dp: DataProvider {get{return graphZ.dp}set{_ = newValue}}
-    //
+    override var dp:DataProvider {get{return graphZ.dp}set{_ = newValue}}
     private var graphScrollerHandler:TimeBarZHandler {return handler as! TimeBarZHandler}//move this to extension somewhere
     override lazy var handler:ProgressHandler = TimeBarZHandler(progressable:self)
-    //
     override lazy var moverGroup: MoverGroup = {return createMoverGroup()}()
-    //
+
     init(graphZ:GraphZ, size:CGSize = CGSize(), id:String? = nil) {
         self.graphZ = graphZ
         let listConfig = List5.Config.init(itemSize: CGSize(GraphZ.config.itemSize.w,GraphZ.config.topMargin), dp: DP.init(), dir: .hor)//the dp doesnt do anything
@@ -34,10 +31,6 @@ class TimeBarZ:ElasticScrollerFastList5{
         guard dir == .hor else {return}//this makes the scrolling go in only the x-axis
         super.setProgressVal(value, dir)
     }
-//    override func setProgress(_ progress:CGFloat,_ dir:Dir) {
-//        guard dir == .hor else {return}//this makes the scrolling go in only the x-axis
-//        super.setProgress(progress,dir)
-//    }
     override func getClassType() -> String {
         return "TimeBar"
     }

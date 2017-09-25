@@ -16,9 +16,11 @@ extension GraphZ{
      * Updates the DateText UI Element
      */
     func updateDateIndicator(){
+        Swift.print("updateDateIndicator()")
         let startIdx:Int = graphArea.scrollView.index
         let endIdx:Int = startIdx + vCount - 1
         let timeType:TimeType = self.curTimeType
+        Swift.print("timeType: " + "\(timeType)")
         let start:YMD = dp.dp.item(at: startIdx).ymd
         let end:YMD = dp.dp.item(at: endIdx).ymd
         let dateRange:(start:Date,end:Date) = (start:start.date!,end:end.date!)

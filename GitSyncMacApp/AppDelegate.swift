@@ -30,9 +30,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //        quickTest9()
 //        graphZTest()//🚫
 //        testGraphXTest()//✅
+//        quickTest12()
         
     }
-
+    func quickTest12(){
+        window.size = CGSize(700,400)
+        window.title = ""
+        window.contentView = InteractiveView()
+        _ = window.contentView?.addSubView(TestView())
+    }
     /**
      * Testing the zoomable and bouncing graph
      */
@@ -440,5 +446,35 @@ class CustomListItem:Element{
         rect = RectGraphic(0,0,skinSize.w,skinSize.h,FillStyle(randCol))
         rect!.draw()
         addSubview(rect!.graphic)
+    }
+}
+class TestView:InteractiveView{
+    lazy var gestureHUD:GestureHUD = GestureHUD(self)
+    init(){
+        super.init(frame: NSRect.init(0, 0, 400, 400))
+        self.acceptsTouchEvents = true/*Enables gestures*/
+        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
+        let rect = RectGraphic(0,0,400,400,FillStyle(.blue),nil)
+        self.addSubview(rect.graphic)
+        rect.draw()
+        _ = gestureHUD
+        
+    }
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    override func magnify(with event: NSEvent) {
+        Swift.print("magnify")
+    }
+}
+extension TestView{
+    override func touchesBegan(with event:NSEvent) {
+        gestureHUD.touchesBegan(event)
+    }
+    override func touchesMoved(with event:NSEvent) {
+        gestureHUD.touchesMoved(event)
+    }
+    override func touchesEnded(with event:NSEvent) {
+        gestureHUD.touchesEnded(event)
     }
 }

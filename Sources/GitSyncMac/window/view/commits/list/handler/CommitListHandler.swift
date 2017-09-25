@@ -5,10 +5,23 @@ import Cocoa
 
 class CommitListHandler:ElasticSliderScrollerFastListHandler,CommitListable2Decorator {
     /**
-     * TODO: ⚠️️ Comment this method
+     * this makes the scrolling go in only the y-axis
+     */
+    override func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
+        moverGroup.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
+        moverGroup.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
+        let p:CGPoint = moverGroup.result
+//        setProgressVal(p.x,.hor)
+        setProgressVal(p.y,.ver)
+        let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
+        setProgress(progressVal)
+    }
+    /**
+     * MoverGroup calls this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
 //        Swift.print("CommitListHandler.setProgressValue")
+        guard dir == .ver else {return}//this makes the scrolling go in only the y-axis
         if dir == .ver && _state.hasReleasedBeyondTop{
             //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
             iterateProgressBar(value)

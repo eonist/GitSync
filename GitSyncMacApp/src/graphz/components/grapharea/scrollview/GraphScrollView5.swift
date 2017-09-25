@@ -95,7 +95,7 @@ extension GraphScrollView5{
 //        Swift.print("createAnimator")
         //TODO:⚠️️ upgrade to latest anim lib, make create method
         let minY = GraphZUtils.minY(pts: curPts)
-        let ratio:CGFloat = GraphScrollerHandler3.Utils.calcRatio(minY: minY, height: height)
+        let ratio:CGFloat = GraphScrollView5.Utils.calcRatio(minY: minY, height: height)
 //        Swift.print("ratio: " + "\(ratio)")
         /*Setup interuptable animator*/
         let initValues:NumberSpringer.InitValues = (value:ratio,targetValue:ratio,velocity:0,stopVelocity:0)
