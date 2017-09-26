@@ -1,0 +1,36 @@
+GraphArea{
+	float:left;
+    clear:none;
+	width:calc(100% -100px);
+	height:calc(100% -100px);
+	fill:white;
+	fill-alpha:1.0;
+}
+GraphLine{
+    float:none;
+    clear:none;
+    line:#2AA3EF;/*black*/
+    line-alpha:1;
+    line-thickness:0.5px;
+}
+Element#graphPoint{
+    float:none;
+    clear:none;
+    fill:#128BF2,#FFFFFF;/*#192633*/
+    width:12px,11px;
+    height:12px,11px;
+    margin-left:-6px,-5.5px;
+    margin-right:6px,5.5px;
+    margin-top:-6px,-5.5px;
+    margin-bottom:6px,5.5px;
+    drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);
+    corner-radius:6px,5.5px;
+}
+/*GraphArea GraphScrollView Section#bg{
+	fill:white;
+	fill-alpha:1.0;
+}*/
+GraphX GraphArea ContainerView{
+	fill:blue;
+	fill-alpha:0.5;
+}

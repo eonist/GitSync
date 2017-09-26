@@ -43,6 +43,8 @@ class Nav {
                 return parentView.addSubView(RepoView())//RepoView2
             case .prefs:
                 return parentView.addSubView(PrefsView())
+            case .stats:
+                return parentView.addSubView(StatsView())
             }
         case .detail(let viewType):/*Detail*/
             switch viewType {

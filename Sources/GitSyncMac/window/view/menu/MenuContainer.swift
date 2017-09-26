@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class MenuContainer:Element {
-    static let buttonTitles:[Nav.ViewType.Main] = [.commit,.repo,.prefs]
+    static let buttonTitles:[Nav.ViewType.Main] = [.commit,.repo,.prefs,.stats]
     var selectGroup:SelectGroup?
     
     override func resolveSkin() {
@@ -16,17 +16,14 @@ class MenuContainer:Element {
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         func onSelect(event:Event){
-            if event.type == SelectEvent.select {
-                if let btn:SelectButton = event.origin as? SelectButton{
-                      _ = btn.id
-//                    Swift.print("btn.id: " + "\(String(describing: btn.id))")
-                }
+            if event.type == SelectEvent.select, let btn:SelectButton = event.origin as? SelectButton{
+                _ = btn.id
+//                Swift.print("btn.id: " + "\(String(describing: btn.id))")
             }
         }
         selectGroup!.event = onSelectGroupChange
         //selectGroup.event = onSelect
     }
-    
 }
 extension MenuContainer{
     /**

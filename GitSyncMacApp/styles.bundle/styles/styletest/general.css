@@ -4,6 +4,7 @@
 @import url("../extra/misc/progressindicator.css");
 @import url("../extra/misc/filepicker.css");
 @import url("menu/menucontainer.css");
+@import url("stats/statsview.css");
 @import url("commit/commitview.css");
 @import url("commit/detail/commitdetailview.css");
 @import url("repo/repoview.css");

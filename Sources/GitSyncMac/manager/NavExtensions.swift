@@ -8,6 +8,7 @@ extension Nav{
             case commit = "commit"
             case repo = "repo"
             case prefs = "prefs"
+            case stats = "stats"
         }
         case main(Main)
         /*Detail*/

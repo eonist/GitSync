@@ -48,15 +48,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.size = CGSize(700,400)
         window.title = ""
         window.contentView = InteractiveView()
-        StyleManager.addStyle(url:"~/Desktop/ElCapitan/graphz/graphztest.css", liveEdit: false)
+        StyleManager.addStyle(url:Config.Bundle.styles + "styles/styletest/stats/graphz/graphztest.css", liveEdit: false)
         
         let winSize:CGSize = WinParser.size(window)
-        //
-        let db = CommitCountDB()
+//      let db = CommitCountDB()
+        let db:CommitCountDB = CommitCountDB.FileIO.open()//reads the cached CommitCount data
+        Swift.print("🍏 db.repos.count: " + "\(db.repos.count)")
         //
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
         guard let first = repoList.first else {fatalError("err")}
-        let subset = [first]//test with 1 first
+        let subset = repoList//[first]//test with 1 first
         //
         let commitCounter = CommitCounter2()
 
@@ -65,6 +66,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //          CommitCountDPUtils.describeDay(commitDb:commitDb)
             let graph = GraphZ(db:db,size:winSize,id:nil)
             window.contentView!.addSubview(graph)//➡️️
+            CommitCountDB.FileIO.save(db:db)//this should be called on app exit and statsWin.close
         }
         commitCounter.update(commitDB:db, repoList:subset, onComplete: onComplete)//⬅️️
     }
@@ -120,13 +122,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * Tests File IO for CommitCountDB
      */
     func quickTest9(){
-        let commitDb = CommitCountDB.FileIO.open()
+        let commitDb = CommitCountDB()//CommitCountDB.FileIO.open()
+        Swift.print("commitDb.repos.count: " + "\(commitDb.repos.count)")
         commitDb.addRepo(repoId: "RepoB", date: .init(year:2014,month:11,day:7), commitCount: 32)
         commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:3,day:3), commitCount: 20)
         commitDb.addRepo(repoId: "RepoA", date: .init(year:2015,month:6,day:13), commitCount: 30)
+//        CommitCountDPUtils.describeMonth(commitDb:commitDb)
+//        CommitCountDPUtils.describeDay(commitDb:commitDb)
         CommitCountDB.FileIO.save(db: commitDb)
         let newCommitDb = CommitCountDB.FileIO.open()
-        Swift.print("newCommitDb.repos.count: " + "\(newCommitDb.repos.count)")
+//        Swift.print("newCommitDb.repos.count: " + "\(newCommitDb.repos.count)")
+        CommitCountDPUtils.describeMonth(commitDb:newCommitDb)
     }
     /**
      * Store the commitDB locally in .json
@@ -165,27 +171,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * NOTE: Try to populate the DataBase with real Git commit data. And try to store it and append to it when new comits get in.
      */
     func quickTest7(){
-        let commitDb = CommitCountDB()
+        let db:CommitCountDB = CommitCountDB.FileIO.open()//reads the cached CommitCount data
+        Swift.print("🍏 db.repos.count: " + "\(db.repos.count)")
         //
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
         guard let first = repoList.first else {fatalError("err")}
-        let temp = [first]//test with 1 first
-        //
+        let subset = [first]//test with 1 first
         let commitCounter = CommitCounter2()
         
-        //
         func onComplete(){
-//            let yearCounts:[Int:Int] = commitDb.yearCounts
-//            let commitCountDP = CommitCountDP(commitCount:yearCounts)
-//            Swift.print("commitCountDP.count: " + "\(commitCountDP.count)")
-//            for i in 0..<commitCountDP.count{
-//                let yearCount:Int = commitCountDP.item(at: i) ?? 0
-//                let year:Int = commitCountDP.min + i
-//                Swift.print("year:\(year) yearCount: \(yearCount)")
-//            }
+//            CommitCountDPUtils.describeYear(commitDb:db)
+            CommitCountDB.FileIO.save(db: db)//this should be called on app exit and statsWin.close
         }
-        //
-        commitCounter.update(commitDB:commitDb, repoList:temp, onComplete: onComplete)
+        commitCounter.update(commitDB:db, repoList:subset, onComplete: onComplete)//⬅️️
+        
     }
     /**
      * hash key test

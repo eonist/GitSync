@@ -1,0 +1,12 @@
+@import url("components/timebar.css");
+@import url("components/dateindicator.css");
+@import url("components/grapharea.css");
+@import url("components/valuebar.css");
+
+GraphX{
+	padding-top:0px;
+	float:left;
+	clear:left;
+	fill:white;/*Needed so that scrollWheel works*/
+	fill-alpha:1.0;
+}
