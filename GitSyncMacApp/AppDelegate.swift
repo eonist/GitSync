@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - A futuristic Git client")
-        
+     
         initApp()
 //        quickTest()
 //      horizontalListTest()
