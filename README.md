@@ -3,7 +3,7 @@
 
 # GitSync
 
-<img width="320" alt="img" src="https://rawgit.com/stylekit/img/master/gitsync_logo_120-01.svg">
+<img width="320" alt="img" src="https://rawgit.com/stylekit/img/master/gitsync_logo_120-dev-01.svg">
 
 # All projects in one place
 
