@@ -1,0 +1,19 @@
+VSlider{
+	float:left;
+	clear:left;
+	width:6px;
+	margin-left:12px;
+}
+VSlider Button{
+	float:none;
+	clear:none;
+	fill:#696969;
+	padding-left:-16px;
+	corner-radius:3px;
+	line-thickness:0px;
+}
+VSlider Button:over{
+}
+VSlider Button:down{
+	fill:#696969;
+}

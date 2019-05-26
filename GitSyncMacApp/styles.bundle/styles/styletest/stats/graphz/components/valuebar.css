@@ -1,0 +1,35 @@
+ValueBar{
+	float:left;
+	clear:left;
+	fill:teal;
+	fill-alpha:0.0;
+	width:50px;
+	height:calc(100% -100px);
+}
+ValueBar TextArea{
+	float:none;
+	clear:none;
+	fill:green;
+	fill-alpha:0;
+	line:grey;
+	line-alpha:0;
+	line-thickness:0px;
+	padding-right:0px;
+	padding-top:0px;
+	margin-top:-10px;
+	margin-bottom:10px;
+	margin-left:8px;
+	height:20px;
+	width:100%;
+}
+ValueBar TextArea Text{
+	border:false;
+	color:#C5C9CC;/*TextTheme*/
+	backgroundColor:orange;
+	background:false;
+	width:100%;
+	size:10px;
+	margin-top:0px;
+	height:20px;
+	margin-left:0px;
+}

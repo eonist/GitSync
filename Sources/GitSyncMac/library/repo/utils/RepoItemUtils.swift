@@ -9,36 +9,43 @@ class RepoUtils {
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      * NOTE: parent override child for every key in overrideKeys
      * We want parent folders to override all its children.
+     * ⚠️️ You need to check if the local path is still avilable. FileASserter.exists, or else you might get strange bugs using the Git lib, and prompt the user to correct the path
      */
     static var repoListFlattenedOverridden:[RepoItem]{
+//        Swift.print("repoListFlattenedOverridden")
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let overrideKeys:[String] = [RepoType.active.rawValue,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.auto.rawValue/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
+//        Swift.print("arr: " + "\(arr)")
+        let overrideKeys:[String] = [RepoItem.Key.active,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoItem.Key.auto/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
-        let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
-        let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
-        activeRepoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
+        let repoListSansFolders:[RepoItem] = Utils.sansFolders(list:flatArr, mustNotContain:overriders)//remove folders
+        let activeRepoList = repoListSansFolders.filter{$0.active}/*filter out inActive*/
+//        activeRepoList.forEach{
+//            Swift.print("$0.title: " + "\($0.title)")
+//        }
         return activeRepoList
     }
     /**
      * Conforms repoItem data and returns a RepoItem that can be used with git
-     * TODO: if the interval values is not set, then use default values
-     * TODO: test if the full/partly file path still works?
+     * TODO: ⚠️️ if the interval values is not set, then use default values
+     * TODO: ⚠️️ test if the full/partly file path still works?
      */
-    static func repoItem(_ dict:[String:String]) -> RepoItem{
+    static func repoItem(dict:[String:String]) -> RepoItem{
         //Swift.print("dict: " + "\(dict)")
         var repoItem:RepoItem = RepoItem()
-        let localPath:String = dict[RepoType.local.rawValue]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+        let localPath:String = dict[RepoItem.Key.local]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
         //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
         repoItem.local = localPath
-        repoItem.branch = dict[RepoType.branch.rawValue]!
-        repoItem.title = dict[RepoType.title.rawValue]!
-        repoItem.auto = dict[RepoType.auto.rawValue]!.bool
-        repoItem.message = dict[RepoType.message.rawValue]!.bool
+        repoItem.branch = dict[RepoItem.Key.branch]!
+        repoItem.title = dict[RepoItem.Key.title]!
+        repoItem.auto = dict[RepoItem.Key.auto]!.bool
+        repoItem.message = dict[RepoItem.Key.message]!.bool
+        repoItem.template = dict[RepoItem.Key.template] ?? ""
+        repoItem.notification = dict[RepoItem.Key.notification]?.bool ?? false
         //Swift.print("dict[RepoType.active.rawValue]!: " + "\(dict[RepoType.active.rawValue]!)")
-        repoItem.active = dict[RepoType.active.rawValue]!.bool
-        let remotePath:String = dict[RepoType.remote.rawValue]!
+        repoItem.active = dict[RepoItem.Key.active]!.bool
+        let remotePath:String = dict[RepoItem.Key.remote]!
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
         //print(remotePath)
         repoItem.remote = remotePath
@@ -49,10 +56,10 @@ class RepoUtils {
      * PARAM: idx: matrixIndex
      * TODO: ⚠️️ Should return optional
      */
-    static func repoItem(_ xml:XML,_ idx:[Int]) -> RepoItem{
+    static func repoItem(xml:XML,idx:[Int]) -> RepoItem{
         if let child:XML = XMLParser.childAt(xml, idx){
             let dict:[String:String] = child.attribs
-            let repoItem = self.repoItem(dict)
+            let repoItem = self.repoItem(dict: dict)
             return repoItem
         };fatalError("no child at idx: \(idx)")
     }
@@ -60,33 +67,34 @@ class RepoUtils {
 private class Utils{
     /**
      * Recursive flatMap with parent overriding abilities
-     * NOTE: this also lets parents override the values in some keyes in children
+     * NOTE: this also lets parents override the values in some keys in children
      * INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
      * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
      * PARAM: overriders: only let items with either of these be able to override (aka folders)
      * PARAM: overrideKeys: override these key value pairs. If non exist then make new
+     * TODO: ⚠️️ use throws to give better error description?
      */
     static func recursiveFlattened<T>(_ arr:[Any], _ overrideKeys:[String], _ overriders:[String],_ parent:[String:String]? = nil) -> [T]{
         var result:[T] = []
         var parent:[String:String]? = parent
         arr.forEach{
-            if($0 is AnyArray){/*array*/
+            if $0 is AnyArray {/*array*/
                 let a:[Any] = $0 as! [Any]
                 result += recursiveFlattened(a,overrideKeys,overriders,parent)
             }else{/*item*/
-                var dict:[String:String] = $0 as! [String:String]
-                if(parent != nil){
+                guard var dict:[String:String] = $0 as? [String:String] else {fatalError("err")}
+                if let parent = parent {
                     overrideKeys.forEach{
-                        if(parent![$0] != nil){
-                            let val:Bool = String(parent![$0]!).bool
-                            if(!val){//only disable overrides
-                                dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
+                        if let value = parent[$0] {
+                            let val:Bool = String(value).bool
+                            if !val {/*only disable overrides*/
+                                dict.updateValue(value,forKey:$0)//creates new key,value pair if non exists
                             }
                         }
                     }
                 }
-                result.append(dict as! T)
-                if(dict.contains(overriders)){/*folders are the only things that can override*/
+                if let dict = dict as? T {result.append(dict)}
+                if dict.contains(overriders) {/*folders are the only things that can override*/
                     parent = dict
                 }
             }
@@ -96,11 +104,12 @@ private class Utils{
     /**
      * Compiles array with tuples and filter out folder related stuff
      */
-    static func filterFolders(_ list:[[String:String]], _ mustNotContain:[String])->[RepoItem]{
+    static func sansFolders(list:[[String:String]],  mustNotContain:[String])->[RepoItem]{
         let repoList:[RepoItem] = list.filter{
-            (!$0.contains(mustNotContain) && $0.hasKey(RepoType.active.rawValue) && $0[RepoType.active.rawValue]!.bool)/*skips folders, and active must be true*/
+            !$0.contains(mustNotContain) && $0.hasKey(RepoItem.Key.active) && $0[RepoItem.Key.active]!.bool/*skips folders, and active must be true*/
             }.map{/*create array of tuples*/
-                RepoUtils.repoItem($0)
+//                Swift.print("$0: " + "\($0)")
+                return RepoUtils.repoItem(dict: $0)
         }
         return repoList
     }

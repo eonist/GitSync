@@ -1,0 +1,105 @@
+PrefsView{
+	fill:green;
+	fill-alpha:0;
+	float:left;
+	clear:left;
+	width:100%;
+	height:100%;
+	padding-top:12px;
+	padding-left:12px;
+	padding-right:12px;
+}
+PrefsView FilePicker{
+	width:100%;
+	height:32px;
+}
+PrefsView TextInput{
+	float:left;
+	clear:left;
+	height:32px;
+	width:100%;
+}
+PrefsView TextInput Text{
+	width:100px;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+	bold:true;
+}
+PrefsView TextInput TextArea{
+	width:calc(100% -100px);
+	fill:#E8EAEB;/*2A3D51*/
+	drop-shadow:none;
+	line-alpha:0;
+	line-thickness:0px;
+	/*fill:white9;*/
+	fill-alpha:1;
+}
+PrefsView TextInput TextArea Text{
+	width:100%;
+	color:<TextTheme2>;/*192633*/
+	align:left;
+}
+PrefsView TextInput#pass TextArea Text{
+	password:true;
+}
+/*CheckBox*/
+PrefsView CheckBoxButton{
+	width:120px;
+	height:24px;
+	float:left;
+	clear:left;
+}
+PrefsView CheckBoxButton CheckBox{
+	float:right;
+}
+PrefsView CheckBoxButton Text{
+	width:100px;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+}
+/*Spinner*/
+PrefsView Spinner{
+	float:left;
+	clear:left;
+	width:100%;
+	height:24px;
+}
+PrefsView Spinner TextInput{
+	width:calc(100% -20px);
+}
+PrefsView Spinner TextInput Text{
+	width:100px;
+	color:<TextTheme2>;
+	border:false;
+}
+PrefsView Spinner TextInput TextArea{
+	width:calc(100% -100px);
+	fill:#E8EAEB;/*#2A3D51*/
+	line-alpha:0;
+}
+PrefsView Spinner TextInput TextArea Text{
+	/*border:true;*/
+	width:100%;
+	color:<TextTheme>;
+}
+/*Group*/
+PrefsView [Section#group,Section#darkModeGroup]{
+	width:100%;
+	height:32px;
+	float:left;
+	clear:left;
+	fill:grey;
+	fill-alpha:0.0;
+}
+PrefsView [Section#group,Section#darkModeGroup] Text#description{
+	width:calc(100% -120px);
+	height:20px;
+	clear:none;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+	bold:true;
+	margin-left:8px;
+}

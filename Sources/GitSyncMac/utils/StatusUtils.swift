@@ -6,44 +6,40 @@ import Foundation
 class StatusUtils{
 	/*
 	 * Returns a descriptive status list of the current git changes
-	 * NOTE: you may use short status, but you must interpret the message if the state has an empty space infront of it
+	 * NOTE: You may use short status, but you must interpret the message if the state has an empty space infront of it
 	 */
     static func generateStatusList(_ localRepoPath:String)->[[String:String]]{
-		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
-		//Swift.print("theStatus: " + "\(theStatus)")
-		let theStatusList:[String] = StringParser.paragraphs(theStatus) //--store each line as items in a list
-        var transformedList:[[String:String]] = []
-		if (theStatusList.count > 0) {
-			transformedList = transformStatusList(theStatusList)
-		}else{
-			//Swift.print("nothing to commit, working directory clean")// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
-		}
-        //Swift.print("transformedList.count: " + "\(transformedList.count)")
-		//Swift.print("transformedList: " + "\(transformedList)")
-		return transformedList
+		let theStatus:String = GitParser.status(localRepoPath, "-s") /*the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list*/
+//        Swift.print("generateStatusList.theStatus: " + "\(theStatus)")
+		let theStatusList:[String] = StringParser.paragraphs(theStatus) /*store each line as items in a list*/
+//        Swift.print("theStatusList: " + "\(theStatusList)")
+        guard !theStatusList.isEmpty else {return []}/*this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin, aka nothing to commit, working directory clean*/
+//        Swift.print("before transformed list")
+        let transformedList = transformStatusList(theStatusList)
+//        Swift.print("return transformed list")
+        return transformedList
 	}
 	/*
  	 * Transforms the "compact git status list" by adding more context to each item (a list with acociative lists, aka records)
  	 * Returns a list with records that contain staus type, file name and state
  	 * NOTE: the short status msg format is like: "M" " M", "A", " A", "R", " R" etc
+     * NOTE: C = copied, U = updated but unmerged also exists
  	 * NOTE: the space infront of the capetalized char indicates Changes not staged for commit:
  	 * NOTE: Returns = renamed, M = modified, A = addedto index, D = deleted, ?? = untracked file
 	 * NOTE: the state can be:  "Changes not staged for commit" , "Untracked files" , "Changes to be committed"
-	 * PARAM:: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
+	 * PARAM: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
+     * TODO: ⚠️️ Use functional programming on this method.
+     * TODO: ⚠️️ Improve the error checking in this class
  	 */
     static func transformStatusList(_ theStatusList:[String])->[[String:String]]{
-        //Swift.print("transformStatusList()")
         var transformedList:[[String:String]] = []
         for theStatusItem:String in theStatusList {
-			//Swift.print("theStatusItem: " + "\(theStatusItem)")
-            
-            //Continue here: do an isloated test with: "?? a.txt"
-            
-            let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
+//            Swift.print("theStatusItem: " + "\(theStatusItem)")
+            let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDUC?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
-            let second:String = theStatusParts.rangeAt(StatusParts.second.rawValue).length > 0 ? RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue) : ""
+            let second:String = theStatusParts.range(at: StatusParts.second.rawValue).length > 0 ? RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue) : ""
             //Swift.print("second: " + "\(second)")
             let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
             //Swift.print("third: " + "\(third)")
@@ -73,38 +69,41 @@ class StatusUtils{
 		}
 		return transformedList
 	}
+    enum StatusType{
+        static let untrackedFiles = "Untracked files"
+        static let  changesNotStagedForCommit = "Changes not staged for commit"
+        static let  changestoBeCommitted = "Changes to be committed"
+        static let  unmergedPath = "Unmerged path"
+    }
 	/**
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * NOTE: if the status list is empty then there is nothing to process
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
-	 * TODO: Squash some of the states together with if or or or etc..
+	 * TODO: ⚠️️ Squash some of the states together with if or or or etc..
 	 */
-    class func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
-		//Swift.print("StatusUtils.processStatusList()")
-        for statusItem:[String:String] in statusList{
-			//log "len of status_item: " & (length of statusItem)
-			//set cmd to cmd of status_item
+    static func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
+//        Swift.print("processStatusList.localRepoPath: " + "\(localRepoPath)")
+        let group:DispatchGroup = .init()
+         statusList.forEach{ (statusItem:[String:String]) in
+            group.enter()
+//            Swift.print("statusItem: " + "\(statusItem)")
             let state:String = statusItem["state"]!
-            //Swift.print("state: " + "\(state)")
             let fileName:String = statusItem["fileName"]!
-            //Swift.print("fileName: " + "\(fileName)")
 			switch state {
-				case "Untracked files": //--this is when there exists a new file
-					//Swift.print("1. " + "Untracked files")
-					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-				case "Changes not staged for commit": //--this is when you have not added a file that has changed to the next commit
-					//Swift.print("2. " + "Changes not staged for commit")
-					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-				case "Changes to be committed"://--this is when you have added a file to the next commit, but not commited it
-                    _ = ""
-                    //Swift.print("3. " + "Changes to be committed")//do nothing here
-				case "Unmerged path": //--This is when you have files that have to be resolved first, but eventually added aswell
-					//Swift.print("4. " + "Unmerged path")
-					_ = GitModifier.add(localRepoPath, fileName) //🌵 add the file to the next commit
-                default :
-					//throw error
+				case StatusType.untrackedFiles: /*this is when there exists a new file*/
+					_ = GitModifier.add(localRepoPath, fileName) /*🌵 add the file to the next commit*/
+				case StatusType.changesNotStagedForCommit: /*this is when you have not added a file that has changed to the next commit*/
+					_ = GitModifier.add(localRepoPath, fileName) /*🌵 add the file to the next commit*/
+				case StatusType.changestoBeCommitted:/*this is when you have added a file to the next commit, but not commited it*/
+                    _ = {}/*do nothing here*/
+				case StatusType.unmergedPath: /*This is when you have files that have to be resolved first, but eventually added aswell*/
+					_ = GitModifier.add(localRepoPath, fileName) /*🌵 add the file to the next commit*/
+                default:
+					fatalError("type not supported")
 					break
 			}
+            group.leave()
 		}
+        group.wait()//waits until all items in the loop has been processed
 	}
 }

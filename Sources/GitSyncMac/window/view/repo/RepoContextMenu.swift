@@ -47,34 +47,34 @@ extension RepoContextMenu{
      * TODO: ⚠️️ A bug is that when you add a folder and its the last item then the list isnt resized
      * TODO: ⚠️️ There is a bug if you add items to closed groups, then there will be an error
      */
-    func newGroup(sender:AnyObject) {
+    @objc func newGroup(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
-        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"true\" \(RepoType.active.rawValue)=\"true\"></item>"//hasChildren=\"true\"
+        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"true\" \(RepoItem.Key.active)=\"true\"></item>"//hasChildren=\"true\"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
         Swift.print("Promt folder name popup")
     }
-    func newRepo(sender:AnyObject) {
+    @objc func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
         let props:[String:String] = [
-            RepoType.title.rawValue:"New repo",
-            RepoType.local.rawValue:"~/Desktop/test",
-            RepoType.remote.rawValue:"https://github.com/eonist/test.git",
-            RepoType.branch.rawValue:"master",
-            RepoType.message.rawValue:"true",
-            RepoType.active.rawValue:"true",
-            RepoType.auto.rawValue:"true"]
+            RepoItem.Key.title:"New repo",
+            RepoItem.Key.local:"~/Desktop/test",
+            RepoItem.Key.remote:"https://github.com/eonist/test.git",
+            RepoItem.Key.branch:"master",
+            RepoItem.Key.message:"true",
+            RepoItem.Key.active:"true",
+            RepoItem.Key.auto:"true"]
         let tree:Tree = Tree.init("item", [], nil, props)
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
         //Swift.print("Promt repo name popup")
     }
-    func duplicate(sender:AnyObject) {
+    @objc func duplicate(sender:AnyObject) {
         Swift.print("duplicate")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -83,26 +83,26 @@ extension RepoContextMenu{
             treeList.insert(newIdx, tree)
         }
     }
-    func doCopy(sender:AnyObject) {
+    @objc func doCopy(sender:AnyObject) {
         Swift.print("copy")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
         if let tree:Tree = treeList[idx] {
             clipBoard = tree.xml
-            Swift.print("clipBoard: " + "\(clipBoard)")
+            Swift.print("clipBoard: " + "\(clipBoard!.string)")
         }
     }
-    func cut(sender:AnyObject) {
+    @objc func cut(sender:AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
         if let tree:Tree = treeList[idx] {
             treeList.remove(idx)
             clipBoard = tree.xml
-            Swift.print("clipBoard: " + "\(clipBoard)")
+            Swift.print("clipBoard: " + "\(clipBoard!.string)")
         }
     }
-    func paste(sender:AnyObject) {
+    @objc func paste(sender:AnyObject) {
         Swift.print("paste")
         if let idx3d = rightClickItemIdx, let clipBoard:XML = clipBoard{
             Swift.print("idx: " + "\(idx3d)")
@@ -114,7 +114,7 @@ extension RepoContextMenu{
             treeList.insert(newIdx, tree)
         }
     }
-    func delete(sender:AnyObject) {
+    @objc func delete(sender:AnyObject) {
         Swift.print("delete")
         if let idx = rightClickItemIdx {
             treeList.remove(idx)
@@ -124,46 +124,46 @@ extension RepoContextMenu{
         }
     }
     /*move up down top bottom.*/
-    func moveUp(sender:AnyObject){
+    @objc func moveUp(sender:AnyObject){
         Swift.print("moveUp")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveUp(treeList, idx3d)
         }
     }
-    func moveDown(sender:AnyObject){
+    @objc func moveDown(sender:AnyObject){
         Swift.print("moveDown")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveDown(treeList, idx3d)
         }
     }
-    func moveToTop(sender:AnyObject){
+    @objc func moveToTop(sender:AnyObject){
         Swift.print("moveToTop")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveTop(treeList, idx3d)
         }
     }
-    func moveToBottom(sender:AnyObject){
+    @objc func moveToBottom(sender:AnyObject){
         Swift.print("moveToBottom")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveBottom(treeList, idx3d)
         }
     }
-    func showInFinder(sender:AnyObject){
+    @objc func showInFinder(sender:AnyObject){
         Swift.print("showInFinder")
         if let idx = rightClickItemIdx, !TreeList3Asserter.hasChildren(treeList,idx) {
             /*Only repos can be opened in finder*/
-            let repoItem = RepoUtils.repoItem(treeList.xml, idx)
+            let repoItem = RepoUtils.repoItem(xml: treeList.xml, idx: idx)
             if FileAsserter.exists(repoItem.local.tildePath) {/*make sure local-path exists*/
                 FileUtils.showFileInFinder(repoItem.local)
             }
         }
     }
-    func openURL(sender:AnyObject){
+    @objc func openURL(sender:AnyObject){
         Swift.print("openURL")
         if let idx = rightClickItemIdx {
             let hasChildren:Bool = treeList.hasChildren(idx)
             if !hasChildren {/*Only repos can be opened in finder*/
-                let repoItem = RepoUtils.repoItem(treeList.xml, idx)
+                let repoItem = RepoUtils.repoItem(xml: treeList.xml, idx: idx)
                 NetworkUtils.openURLInDefaultBrowser(repoItem.remote)
             }
         }

@@ -1,3 +1,3 @@
-struct GitSyncMac {
-    //var text = "Hello, World!"
-}
+//struct GitSyncMac {
+//    //var text = "Hello, World!"
+//}

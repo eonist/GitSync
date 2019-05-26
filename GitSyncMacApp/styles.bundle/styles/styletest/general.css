@@ -1,0 +1,61 @@
+@import url("../generic.css");
+@import url("../basic/basic.css");
+@import url("../advance/advance.css");
+@import url("../extra/misc/progressindicator.css");
+@import url("../extra/misc/filepicker.css");
+@import url("menu/menucontainer.css");
+@import url("stats/statsview.css");
+@import url("commit/commitview.css");
+@import url("commit/detail/commitdetailview.css");
+@import url("repo/repoview.css");
+@import url("repo/detail/repodetailview.css");
+@import url("prefs/prefsview.css");
+@import url("dialog/commitdialogview.css");
+@import url("dialog/mergeconflictview.css");
+@import url("dialog/autoinitview.css");
+
+Window{
+	fill-alpha:1.0;
+	fill:<Theme>;
+}
+#main{
+	width:100%;
+	height:100%;
+	fill:silver;
+	fill-alpha:0;
+	padding:0px;
+}
+#content{
+	fill:white;
+	fill-alpha:0;
+	width:calc(100% -80px);
+	height:100%;
+	float:left;
+}
+#content:full{
+	width:100%;
+}
+#leftBar{
+	display:block;
+	fill:orange;
+	fill-alpha:0;
+	width:80px;
+	height:100%;
+	float:left;
+	padding-top:0px;
+}
+#leftBar:hidden{
+	display:none;
+	fill:green;
+	width:0px;
+}
+Section#titleBar{
+	padding-top:16px;
+	padding-left:14px;
+	display:block;
+}
+Section#titleBar:hidden{
+	display:none;
+}
+Section#prefs{fill:fuchsia;width:100%;height:100%;}
+Section#repoDetail{fill:teal;width:100%;height:100%}

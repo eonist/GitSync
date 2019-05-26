@@ -5,51 +5,57 @@ import Cocoa
  * TODO: Maybe make mainView into a lazy static prop similar to RepoView
  */
 class StyleTestView:CustomView{
-    var main:Section?
-    static var content:Section?
-    static var currentView:Element?
-    static var leftbar:LeftSideBar?
-    
+    lazy var main:Section = createMain()
+    lazy var content:Section = createContent()
+    lazy var leftBar:LeftSideBar = createLeftBar()
+    var currentView:Element?/*attached to content*/
+    var currentPrompt:Element?/*attached to content*/
     override func resolveSkin(){
-        Swift.print("StyleTestView")
-        
         super.resolveSkin()
-        main = self.addSubView(Section(NaN,NaN,self,"main"))
-        
-        StyleTestView.leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        StyleTestView.content = main?.addSubView(Section(NaN,NaN,main,"content"))
-        Nav.setView(Views2.dialog(.commit))/*⬅️️🚪*/
-        //Nav.setView(.repoDetail([0,0,0]))
+        _ = main
+        _ = leftBar
+        _ = content
     }
     /**
      * NOTE: gets calls from Window.didResize
      */
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
-        //Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
-        ElementModifier.refreshSize(main!)
+        ElementModifier.refreshSize(self.main)
     }
+}
+extension StyleTestView{
+    func createMain() -> Section {
+        return self.addSubView(Section.init(id:"main"))
+    }
+    func createLeftBar() -> LeftSideBar{
+        return self.main.addSubView(LeftSideBar.init(id:"leftBar"))
+    }
+    func createContent() -> Section {
+        return self.main.addSubView(Section.init(id:"content"))
+    }
+}
+
+extension StyleTestView{
     /**
      * 1. make StyleTestWin have a static view 👈
      * 2. make then you can make this method a non-static one and use regular optionals
      * 3. Then continue making the hide sidebar when dialog etc
+     * TODO: ⚠️️ Move to extension
      */
-    static func toggleSideBar(_ hide:Bool){
+    func toggleSideBar(hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
-        guard let mainView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else{fatalError("must be available")}//
-        guard let leftBar = StyleTestView.leftbar else{fatalError("must be available")}
-        guard let content = StyleTestView.content else{fatalError("must be available")}
+        let mainView:StyleTestView = self
         let iconSection = mainView.iconSection
-        
         if hide {
-            iconSection.setSkinState("hidden")/*hides the Min,Max,Close btns*/
-            leftBar.setSkinState("hidden")
-            content.setSkinState("full")
+            iconSection.skinState = "hidden"/*hides the Min,Max,Close btns*/
+            leftBar.skinState = "hidden"
+            content.skinState = "full"
         }else{
-            iconSection.setSkinState("")/*default*/
-            leftBar.setSkinState("")/*default*/
-            content.setSkinState("")/*default*/
+            iconSection.skinState = ""/*default*/
+            leftBar.skinState = ""/*default*/
+            content.skinState = ""/*default*/
         }
         ElementModifier.refreshSkin(leftBar)
         ElementModifier.refreshSkin(content)

@@ -1,0 +1,39 @@
+MenuContainer#buttonSection {
+	width:calc(100% -0.5px);
+	height:100%;
+	padding-top:40px;
+	padding-left:28px;
+	float:left;
+	clear:none;
+}
+MenuContainer#buttonSection SelectButton{
+	float:left;
+	clear:left;
+	fill-alpha:0.0,1.0;
+	width:24px,24px;
+	height:24px,24px;
+	margin-bottom:12px;
+}
+MenuContainer#buttonSection SelectButton:selected{
+	fill-alpha:0.0,1.0;
+}
+/*selected*/
+MenuContainer#buttonSection SelectButton#commit:selected{fill:white,../svg/new/home.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#repo:selected{fill:white,../svg/new/list.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#stats:selected{fill:white,../svg/new/bars.svg #1DA1F2;}
+MenuContainer#buttonSection SelectButton#prefs:selected{fill:white,../svg/new/cog.svg #1DA1F2;}
+
+/*unselected*/
+MenuContainer#buttonSection SelectButton#commit{fill:teal,../svg/new/home.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#repo{fill:aqua,../svg//new/list.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#stats{fill:maroon,../svg/new/bars.svg #8899A6;}
+MenuContainer#buttonSection SelectButton#prefs{fill:fuchsia,../svg/new/cog.svg #8899A6;}
+/*Ruler*/
+LeftSideBar #ruler{
+	float:left;
+	clear:none;
+	fill:grey;
+	fill-alpha:0.2;
+	width:0.5px;
+	height:100%;
+}

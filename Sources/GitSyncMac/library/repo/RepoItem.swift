@@ -1,50 +1,28 @@
 import Foundation
+
 /**
- * TODO: Could this be a struct?
+ * TODO: ⚠️️ rename to RepoData
+ * TODO: ⚠️️ Needs a unique identifier value
  */
 struct RepoItem {
-    var local:String = ""/*Local path*/
-    var branch:String = ""/*Repo branch, Master is default*/
-    var title:String = ""/*The title displayed in the app*/
-    var active:Bool = false/*Active means that auto and pull will sync the repo*/
-    var remote:String = ""/*Remote path to repository*/
-    var message:Bool = false/*Auto-created commit message*/
-    var auto:Bool = false/*Automatically syncs on an intervall*/
-    //var interval:Int = 0
-    //var keyChainItemName:String = ""
-    //var upload:Bool = false
-    //var download:Bool = false
-    //var autoSyncInterval:Bool = false
-    //var fileChange:Bool = false
-
+    var local:String/*Local path*/
+    var branch:String/*Repo branch, Master is default*/
+    var title:String/*The title displayed in the app*/
+    var active:Bool/*Active means that auto and pull will sync the repo*/
+    var remote:String/*Remote path to repository*/
+    var message:Bool/*Auto-created commit message*///TODO: ⚠️️ rename
+    var auto:Bool/*Automatically syncs on an interval*///TODO: ⚠️️ rename to interval?
+    var template:String/*template message for commitmessages*/
+    var notification:Bool/*toggle Notifications per repo*/
+    init(){/*Default RepoItem*/
+        self.local = ""/*Local path*/
+        self.branch = ""/*Repo branch, Master is default*/
+        self.title = ""/*The title displayed in the app*/
+        self.active = false/*Active means that auto and pull will sync the repo*/
+        self.remote = ""/*Remote path to repository*/
+        self.message = false/*Auto-created commit message*/ //TODO: ⚠️️ rename
+        self.auto = false/*Automatically syncs on an intervall*/ //TODO: ⚠️️ rename to interval?
+        self.template = ""
+        self.notification = false
+    }
 }
-enum RepoType: String{
-   case title// = "title"
-   case local// = "local"
-   case remote// = "remote"
-   case branch// = "branch"
-   case auto// = "auto"
-   case message// = "message"
-   case active// = "active"
-}
-enum RepoFolderType: String{
-   case isOpen// = "isOpen"
-   case hasChildren// = "hasChildren"
-}
-
-/*
- class RepoItemType {
- static var localPath:String = "localPath"
- static var interval:String = "interval"
- static var branch:String = "branch"
- static var keyChainItemName:String = "keyChainItemName"
- static var upload:String = "upload"
- static var title:String = "title"
- static var download:String = "download"
- static var active:String = "active"
- static var remotePath:String = "remotePath"
- static var autoSyncInterval:String = "autoSyncInterval"
- static var autoCommitMessage:String = "autoCommitMessage"
- static var fileChange:String = "fileChange"
- static var pullToAutoSync:String = "pullToAutoSync"
- }*/

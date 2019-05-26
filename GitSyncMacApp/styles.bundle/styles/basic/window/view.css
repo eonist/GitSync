@@ -1,0 +1,30 @@
+ContainerView VSlider{
+	float:right;
+	clear:none;
+	margin-left:4px;/*temp fix*/
+	line-thickness:0px;
+	line-alpha:0;
+	fill-alpha:0;
+}
+ContainerView VSlider Button{
+	width:6px;
+	padding:0px;
+	margin:0px;
+	line:white;
+	line-alpha:0;
+	line-thickness:0px;
+	margin-left:0px;
+	margin-top:0px;
+	corner-radius:3px;
+	/*padding-left:-16px;*/
+}
+ContainerView VSlider Button{/*idle*/
+	fill-alpha:1;
+}
+ContainerView VSlider Button:over{/*over*/
+	fill-alpha:1;
+	/*fill:blue;*/
+}
+ContainerView HSlider{
+	display:none;
+}

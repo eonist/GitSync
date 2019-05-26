@@ -1,0 +1,56 @@
+List{
+    float:left;
+    clear:left;
+    width:100%;/*bug when list has no wrapping container*/
+    height:100%;/*bug when list has no wrapping container*/
+    fill:green;
+    fill-alpha:1;
+    line:#B8B8B8;
+    line-alpha:1;
+    line-offset-type:outside;
+    line-thickness:1px;
+}
+List Container#lable{
+    width:100%;
+    height:100%;
+    float:left;
+    clear:left;
+}
+List Container#rb{
+    width:100%;
+    height:100%;
+    float:left;
+    clear:left;
+}
+/*Button*/
+List Container#lable SelectTextButton{
+    float:left;
+    clear:left;
+    width:100%;
+    height:24px;
+    fill:red;
+    fill-alpha:0;
+    padding-right:0px;
+}
+List Container#lable SelectTextButton:selected{
+	fill:#D4D4D4;
+    fill-alpha:1;
+}
+/*Text*/
+List Container#lable SelectTextButton Text{
+    float:none;
+    clear:none;
+    width:100%;
+    height:24px;
+    margin-left:10px;
+    margin-top:3px;
+    autoSize:left;
+    font:Helvetica Neue;
+    size:12px;
+    align:left;
+    color:black;
+    selectable:false;
+}
+List Container#lable SelectTextButton:selected Text{
+	font:Helvetica Neue Bold;
+}

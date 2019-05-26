@@ -1,0 +1,76 @@
+RepoDetailView{
+	fill:green;
+	fill-alpha:0;
+	float:left;
+	clear:left;
+	width:100%;
+	height:100%;
+	padding-top:12px;
+	padding-left:12px;
+	padding-right:12px;
+}
+RepoDetailView FilePicker{
+	width:100%;
+	height:32px;
+}
+RepoDetailView TextInput{
+	float:left;
+	clear:left;
+	height:32px;
+	width:100%;
+}
+RepoDetailView TextInput Text{
+	width:60px;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+}
+RepoDetailView TextInput TextArea{
+	width:calc(100% -60px);
+	fill:#E8EAEB;/*2A3D51*/
+	drop-shadow:none;
+	line-alpha:0;
+	line-thickness:0px;
+	/*fill:white9;*/
+	fill-alpha:1;
+}
+RepoDetailView TextInput TextArea Text{
+	width:100%;
+	color:<TextTheme2>;/*192633*/
+	align:left;
+}
+/*CheckBoxButton*/
+RepoDetailView CheckBoxButton{
+	width:80px;
+	height:24px;
+	float:left;
+	clear:left;
+}
+RepoDetailView CheckBoxButton CheckBox{
+	float:right;
+}
+RepoDetailView CheckBoxButton Text{
+	width:60px;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+}
+/*Group*/
+RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup,Section#notificationGroup]{
+	width:100%;
+	height:32px;
+	float:left;
+	clear:left;
+	fill:grey;
+	fill-alpha:0.0;
+}
+RepoDetailView [Section#autoGroup,Section#messageGroup,Section#activeGroup,Section#notificationGroup] Text#description{
+	width:calc(100% -120px);
+	height:20px;
+	clear:none;
+	color:<TextTheme2>;
+	border:false;
+	align:left;
+	bold:true;
+	margin-left:8px;
+}

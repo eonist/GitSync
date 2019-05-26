@@ -1,69 +1,83 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
-enum Views2{
-    enum Main:String{
-        case commit = "commit"
-        case repo = "repo"
-        case prefs = "prefs"
-    }
-    case main(Main)
-    case commitDetail([String:String])
-    case repoDetail([Int])
-    case dialog(Dialog)
-    enum Dialog{
-        case conflict
-        case commit
-    }
-}
 class Nav {
     /**
      * Navigate between views
+     * EXAMPLE: Nav.setView(.main(.prefs))
+     * EXAMPLE: Nav.setView(.dialog(.commit))
      */
-    static func setView(_ viewType:Views2){
-        //Navigation.activeView = view
-        guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
-        StyleTestView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
-        if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
-        let view = getView(viewType,mainView/*size*/)
-        StyleTestView.currentView = mainView.addSubView(view)
+    static func setView(_ viewType:ViewType,styleTestView:StyleTestView! = nil){
+//        Swift.print("setView: \(viewType)")
+        guard let styleTestView = Proxy.styleTestView else {fatalError("Main window not present")}
+        styleTestView.leftBar.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
+        
+        switch viewType{
+        case .dialog(_):
+            //add View above everything
+            styleTestView.currentPrompt = {
+                let view = getView(viewType,styleTestView.main)
+                return view
+            }()
+        case .main(_),.detail(_):
+            styleTestView.currentView = {
+                (styleTestView.currentPrompt as? Closable)?.close()/*Remove the old prompt view*/
+                (styleTestView.currentView as? Closable)?.close()/*Remove the old view*/
+                let view = getView(viewType,styleTestView.content)
+//                Swift.print("before retVal")
+                
+//                Swift.print("after retVal")
+                return view
+            }()
+//            Swift.print("after set curView")
+        }
     }
-    private static func getView(_ view:Views2,_ mainView:Element)->Element{
+    private static func getView(_ view:ViewType,_ parentView:Element)->Element{
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
             case .commit:
-                return CommitView(NaN,NaN,mainView)
+                return parentView.addSubView(CommitView())
             case .repo:
-                return RepoView(NaN,NaN,mainView)//RepoView2
+                return parentView.addSubView(RepoView())//RepoView2
             case .prefs:
-                return PrefsView(NaN,NaN,mainView)
+                return parentView.addSubView(PrefsView())
+            case .stats:
+                return parentView.addSubView(StatsView())
             }
-        case .commitDetail(let commitData):/*CommitDetail*/
-             let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
-             view.setCommitData(commitData)
-             return view
-            //fatalError("not implemented yet")
-        case .repoDetail(let idx3d):/*RepoDetail*/
-             _ = idx3d
-             let view:RepoDetailView = RepoDetailView(NaN,NaN,mainView)
-             view.setRepoData(idx3d)
-             return view
-            //fatalError("not implemented yet")
+        case .detail(let viewType):/*Detail*/
+            switch viewType {
+            case .commit(let commitData):/*CommitDetail*/
+                let view:CommitDetailView = parentView.addSubView(CommitDetailView())
+                view.setCommitData(commitData)/*Updates the UI elements with the selected commit item*/
+                return view
+            case .repo(let idx3d):/*RepoDetail*/
+                RepoView.selectedListItemIndex = idx3d
+                
+                let view:RepoDetailView = parentView.addSubView(RepoDetailView())
+                view.setRepoData()
+                return view
+            }
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
             switch dialog{
-            case .commit:
-                if !ToggleSideBarMenuItem.isSideMenuHidden {
-                    StyleTestView.toggleSideBar(true)/*true means hide*/
-                }
-                let view:CommitDialogView = CommitDialogView(NaN,NaN,mainView)
+            case .commit(let repoItem, let commitMessage, let onComplete):
+                let view = CommitDialogView()
+                parentView.addSubview(view)
+                Swift.print("onComplete: " + "\(onComplete)")
+                view.setData(repoItem, commitMessage, onComplete)
                 return view
-                //fatalError("not implemented yet")
-            case .conflict:
-                //return ConflictDialogView(w,h,mainView)
-                fatalError("not implemented yet")
+            case .conflict(let mergeConflict):
+                let view = MergeConflictView()
+                parentView.addSubview(view)
+                view.setData(mergeConflict)
+                return view
+            case .autoInit(let autoInitConflict,let onComplete):
+                let view = AutoInitView()
+                parentView.addSubview(view)
+                view.setData(autoInitConflict,onComplete)
+                return view
             }
         }
     }

@@ -2,12 +2,11 @@ import Foundation
 @testable import Utils
 typealias CommitDPCache = Cache//temp
 class  Cache{
-    static var url:String = "~/Desktop/sortedcommits.xml"
     /**
      * Read commits from disk (xml)
      */
     static func read()->CommitDP{
-        let url:String = CommitDPCache.url.tildePath
+        let url:String = Config.Bundle.commitCacheURL.tildePath
         let xml = FileParser.xml(url)
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         let commitDP:CommitDP? = CommitDP.unWrap(xml)
@@ -20,10 +19,10 @@ class  Cache{
      */
     static func write(_ commitDP:CommitDP){
         //Swift.print("💾 write begin")
-        let xml:XML = Reflection.toXML(commitDP)/*Reflection*/
+        let xml:XML = Reflect.toXML(commitDP)/*Reflection*/
         //Swift.print(xml.xmlString)
-        let contentToWriteToDisk = xml.xmlString
-        _ = FileModifier.write(CommitDPCache.url.tildePath, contentToWriteToDisk)
+        let contentToWriteToDisk = XMLParser.prettyString(xml)//xml.xmlString
+        _ = FileModifier.write(Config.Bundle.commitCacheURL.tildePath, contentToWriteToDisk)
         //Swift.print("💾 write end")
     }
 }

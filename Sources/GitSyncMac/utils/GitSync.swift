@@ -2,55 +2,42 @@ import Foundation
 @testable import Utils
 
 class GitSync{
+    typealias PushComplete = ()->Void
     /**
      * Handles the process of making a commit for a single repository
      * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete to then start the push on the correct item
      */
-    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:@escaping (_ idx:Int,_ hasCommited:Bool)->Void){
-        let repoItem = repoList[idx]
-        bg.async {/*All these git processes needs to happen one after the other*/
-            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
-            if(hasUnMergedpaths){
-                let unMergedFiles = GitParser.unMergedFiles(repoItem.local)/*🌵 Asserts if there are unmerged paths that needs resolvment*/
-                MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
+    static func initCommit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil, _ onPushComplete:@escaping PushComplete){
+        func doCommit(){
+            _ = commit(repoItem,commitMessage)/*🌵 if there were no commits false will be returned*/
+            initPush(repoItem, onPushComplete)//push or check if you need to pull down changes and subsequently merge something
+        }
+        if let unMergedFiles = GitParser.unMergedFiles(repoItem.local).optional {/*🌵Asserts if there are unmerged paths that needs resolvment, aka remote changes that isnt in local*/
+            MergeReslover.shared.resolveConflicts(repoItem, unMergedFiles){
+                doCommit()
             }
-            let hasCommited = commit(repoItem.local)/*🌵 if there were no commits false will be returned*/
-            main.async {/*Jump back on the main thread again*/
-                onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
-            }
+        }else{
+           doCommit()
         }
     }
     /**
-     * Handles the process of making a push for a single repository
+     * Handles the process of making a push for a single repository (When a singular commit has competed this method is called)
      * NOTE: We must always merge the remote branch into the local branch before we push our changes.
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
+     * IMPORTANT: ⚠️️ this is called on a background thread
      */
-    static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:@escaping (_ hasPushed:Bool)->Void){
-        Swift.print("initPush")
-        bg.async {/*The git calls needs to happen one after the other on bg thread*/
-            let repoItem = repoList[idx]
-            var remotePath:String = repoItem.remote
-            if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-            let repo:GitRepo = (repoItem.local, remotePath, repoItem.branch)
-            MergeUtils.manualMerge(repo)//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+    private static func initPush(_ repoItem:RepoItem, _ onPushComplete:@escaping PushComplete){
+        MergeUtils.manualMerge(repoItem){//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+            let repo:GitRepo = repoItem.gitRepo
             let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
-            //Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
-            var hasPushed:Bool = false
             if hasLocalCommits { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
                 guard let keychainPassword:String = KeyChainParser.password("GitSyncApp") else{ fatalError("password not found")}
-                //Swift.print("keychainPassword: 🔑" + "\(keychainPassword)" + "repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
-                let key:GitKey = (PrefsView.prefs.login, keychainPassword)
+                let key:GitKey = .init(PrefsView.prefs.login, keychainPassword)
                 if PrefsView.prefs.login.isEmpty || keychainPassword.isEmpty {fatalError("need login and pass")}
-                let pushCallBack = GitModifier.push(repo,key)/*🌵*/
-                _ = pushCallBack
-                Swift.print("pushCallBack: " + "\(pushCallBack)")
-                hasPushed = true
+                _ = GitModifier.push(repo,key)/*🌵*/
             }
-            Swift.print("hasPushed: " + "\(hasPushed)")
-            main.async {/*jump back on the main thread*/
-                onComplete(hasPushed)
-            }
+            {/*Swift.print("before call");*/onPushComplete()}()
         }
     }
     /**
@@ -58,27 +45,16 @@ class GitSync{
      * Returns true if a commit was made, false if no commit was made or an error occured
      * NOTE: checks git staus, then adds changes to the index, then compiles a commit message, then commits the changes, and is now ready for a push
      * NOTE: only commits if there is something to commit
-     * TODO: add branch parameter to this call
+     * TODO: ⚠️️ add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    static func commit(_ localRepoPath:String)->Bool{
-        //Swift.print("commit()")
-        let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
-        //Swift.print("statusList.count: " + "\(statusList.count)")
-        if (statusList.count > 0) {
-            //Swift.print("doCommit().there is something to add or commit")
-            StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
-            let title = CommitUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
-            //Swift.print("commitMsgTitle: " + "\(title)")
-            let desc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
-            //Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
-            let commitResult = GitModifier.commit(localRepoPath, (title,desc))//🌵 commit
-            _ = commitResult
-            //Swift.print("commitResult: " + "\(commitResult)")
-            return true/*return true to indicate that the commit completed*/
-        }else{
-            //Swift.print("nothing to add or commit")
-            return false/*break the flow since there is nothing to commit or process*/
-        }
+    static func commit(_ repoItem:RepoItem, _ commitMessage:CommitMessage? = nil)->Bool{
+//        Swift.print("commit: \(commitMessage)")
+        guard let msg:CommitMessage = commitMessage ?? CommitMessage.autoCommitMessage(repoItem: repoItem, commitMessage: commitMessage) else{return false}/*No commitMessage means no commit*/
+        if repoItem.notification { NotificationManager.notifyUser(message: msg,repo: repoItem) }
+//        Swift.print("msg.title: " + "\(msg.title)")
+        _ = GitModifier.commit(repoItem.localPath, CommitMessage(msg.title,msg.description))//🌵 commit
+        return true
     }
 }
+

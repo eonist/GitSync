@@ -1,0 +1,49 @@
+{
+    "repoDetailView":[
+                {"type":"TextInput","id":"title","text":"Name:"},
+                {"type":"FilePicker","id":"local","text":"Local:","buttonText":"Browse"},
+                {"type":"TextInput","id":"remote","text":"Remote:"},
+                {"type":"TextInput","id":"branch","text":"Branch:"},
+                {"type":"Section","id":"activeGroup","content":[{"type":"CheckBoxButton","id":"active","text":"Active:"},{"type":"Text","id":"description","text":"Activates sync for this repo"}]},
+                {"type":"Section","id":"autoGroup","content":[{"type":"CheckBoxButton","id":"auto","text":"Auto:"},{"type":"Text","id":"description","text":"Auto syncs on interval"}]},
+                {"type":"Section","id":"notificationGroup","content":[{"type":"CheckBoxButton","id":"notification","text":"Notification:"},{"type":"Text","id":"description","text":"Notification for this repo"}]},
+                {"type":"Section","id":"messageGroup","content":[{"type":"CheckBoxButton","id":"message","text":"Message:"},{"type":"Text","id":"description","text":"Manual commit message"}]},
+                {"type":"TextInput","id":"template","text":"Template:"}
+                ],
+    "prefsView":[
+                 {"type":"TextInput","id":"login","text":"Github login:"},
+                 {"type":"TextInput","id":"pass","text":"Github pass:"},
+                 {"type":"FilePicker","id":"local","text":"Local path:","buttonText":"Browse"},
+                 {"type":"Section","id":"darkModeGroup","content":[{"type":"CheckBoxButton","id":"darkMode","text":"DarkMode:"},{"type":"Text","id":"description","text":"Toggle App theme"}]},
+                 {"type":"Section","id":"group","content":[{"type":"CheckBoxButton","id":"notification","text":"Notification:"},{"type":"Text","id":"description","text":"App-wide notifications"}]}
+                 ],
+    "commitDialogView":[
+                {"type":"Text","id":"header","text":"Commit message:"},
+                {"type":"TextInput","id":"repo","text":"Repository:"},
+                {"type":"TextInput","id":"title","text":"Title:"},
+                {"type":"TextInput","id":"desc","text":"Description:"},
+                {"type":"TextButton","id":"cancel","text":"Cancel"},
+                {"type":"TextButton","id":"ok","text":"OK"}
+                ],
+    "mergeConflictView":[
+                {"type":"Text","id":"header","text":"Resolve merge conflict:"},
+                {"type":"Text","id":"issueText","text":"Conflict:"},
+                {"type":"Text","id":"fileText","text":"File:"},
+                {"type":"Text","id":"repoText","text":"Repository:"},
+                {"type":"RadioButton","id":"keepLocalVersion","text":"Keep local version:","isSelected":"true"},
+                {"type":"RadioButton","id":"keepRemoteVersion","text":"Keep remote version:"},
+                {"type":"RadioButton","id":"keepMixedVersion","text":"Keep mix of both versions:"},
+                {"type":"CheckBoxButton","id":"applyAllConflicts","text":"Apply to all conflicts:","isChecked":"false"},
+                {"type":"CheckBoxButton","id":"applyAllRepos","text":"Apply to all repos:"},
+                {"type":"TextButton","id":"cancel","text":"Cancel"},
+                {"type":"TextButton","id":"ok","text":"OK"}
+                ],
+    "autoInitView":[
+                {"type":"Text","id":"header","text":"Auto init:"},
+                {"type":"Text","id":"issueText","text":"There is no folder in the file path..."},
+                {"type":"Text","id":"proposalText","text":"Do you want to:"},
+                {"type":"TextButton","id":"cancel","text":"Cancel"},
+                {"type":"TextButton","id":"ok","text":"OK"}
+                ],
+}
+

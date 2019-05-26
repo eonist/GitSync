@@ -1,0 +1,104 @@
+List#commitsList{
+	width:100%;
+	height:100%;
+	float:left;
+	clear:none;
+	drop-shadow:none;
+	fill:orange;
+    fill-alpha:0.0;
+	line-alpha:0;
+	line-thickness:0px;
+}
+List#commitsList Container CommitsListItem:selected{
+	fill-alpha:0.0;
+}
+List#commitsList Container CommitsListItem{
+	fill:yellow;
+    fill-alpha:0;
+	line-alpha:0;
+	width:100%;
+	padding-left:12px;
+	padding-right:12px;
+	height:102px;
+	/*margin-top:8px;*/
+	float:left;
+	clear:left;
+	line-thickness:0px;
+}
+Section#textContainer{
+	width:100%;
+	fill:green;
+	float:left;
+	clear:left;
+	fill-alpha:0;
+	line-alpha:0;
+	padding-top:12px;
+}
+Section#textContainer Text{
+	float:left;
+	clear:left;
+	font:Lucida Grande;
+	size:12px;
+	align:left;
+	autoSize:none;
+	color:<TextTheme>;
+	type:dynamic;
+	selectable:false;
+	wordWrap:true;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:0px;
+	background:false;
+	border:false;
+}
+Section#textContainer Text#repoName{
+	backgroundColor:blue;
+	height:20px;
+	width:calc(100% -40px);
+}
+Section#textContainer Text#contributor{
+	backgroundColor:red;
+	float:right;
+	clear:right;
+	align:right;
+	height:20px;
+	width:40px;
+    /*padding-right:-26px;*/
+}
+Section#textContainer Text#date{
+	backgroundColor:green;
+	float:right;
+	clear:right;
+	align:right;
+	color:<TextTheme2>;
+	height:20px;
+	width:40px;
+    /*padding-right:-26px;*/
+}
+:selected Section#textContainer Text#title{ 
+	color:grey3;/*#2AA3EF*/
+}
+Section#textContainer Text#title{
+    width:100%;
+	size:16px;
+	margin-top:0px;
+	color:<TextTheme3>;
+	backgroundColor:green;
+	float:left;
+	clear:left;
+	height:20px;
+}
+Section#textContainer Text#description{
+	width:100%;
+	height:calc(100% -40px);
+	margin-top:0px;
+	backgroundColor:yellow;
+	scrollable:false;
+	multiline:true;
+	wordWrap:true;
+	border:false;
+}
+

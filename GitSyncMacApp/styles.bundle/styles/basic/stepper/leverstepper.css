@@ -1,0 +1,38 @@
+Stepper{
+	float:left;
+	clear:left;
+}
+Stepper Button{
+	float:left;
+	width:10px,10px;
+	height:10px,10px;
+	margin-left:0px,1px;
+	fill-alpha:1;
+	line:#C1C1C1;
+	line-offset-type:outside;
+	line-alpha:1;
+	line-thickness:1px;
+	corner-radius:0px;
+}
+Stepper Button#plus{
+	fill:<ButtonBase>,../../svg/arrow_up.svg #404040;
+	corner-radius:4px 4px 0px 0px;
+	margin-top:0px,1px;
+	line-offset-type-bottom:inside;
+}
+Stepper Button#minus{
+	fill:<ButtonBase>,../../svg/arrow_down.svg #404040;
+	clear:left;
+	/*height:10px;*/
+	line-offset-type-top:inside;
+	corner-radius:0px 0px 4px 4px;
+}
+Stepper Button#plus:down{
+	fill:<ButtonHighlight>,../../svg/arrow_up.svg white;
+}
+Stepper Button#minus:down{
+	fill:<ButtonHighlight>,../../svg/arrow_down.svg white;
+}
+Stepper Button:down{
+	line:<ButtonHighlight>;
+}

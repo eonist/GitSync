@@ -1,0 +1,25 @@
+/*Font*/
+DefaultFont{
+	font:Helvetica Neue;
+}
+DefaultFontBold{
+	font:Helvetica Neue Medium;
+}
+ButtonBase{
+	fill:linear-gradient(top,white,white);
+	line:#C1C1C1;
+}
+ButtonHighlight{
+	fill:linear-gradient(top,#69B2FD,#007AFF);
+	line:#005CFF;
+}
+SubtleShadow{
+	drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);
+}
+BlankShadow{/*Note this is inset, it was regular, may not mean anything, none works for depth*/
+	drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);/*temp fix, if shadow is none then it cant be a shadow if the state changes*/
+}
+MenuShadow{
+	drop-shadow:drop-shadow(6px 90 #000000 0.2 24 24 2 2 false);
+}
+

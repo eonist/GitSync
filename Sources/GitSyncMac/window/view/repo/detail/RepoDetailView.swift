@@ -2,107 +2,88 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:Element {
+class RepoDetailView:Element,Closable,UnFoldable {
+    /**
+     * Init the UI
+     */
     override func resolveSkin() {
         super.resolveSkin()
-        UnFoldUtils.unFold(Config.app,"repoDetailView",self)
+        let idx3d = RepoView.selectedListItemIndex
+        
+        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
+        
+        if isFolder {
+            let folderJson = self.folderJson(fileURL: Config.Bundle.structure, path: "repoDetailView")
+            Unfold.unFold(jsonArr:folderJson, parent: self)
+        }else{
+            Unfold.unFold(fileURL:Config.Bundle.structure, path:"repoDetailView", parent:self)
+        }
     }
+    
     /**
      * Modifies the dataProvider item on UI change
-     * TODO: ⚠️️ enumify this method? at least use switch
      */
     override func onEvent(_ event:Event) {
-        //Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
+        Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
-        guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
-            fatalError("no attribs at: \(idx3d)")
+        var repoItem:RepoItem = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
+        
+        switch true{
+        case event.assert(TextFieldEvent.update,parentID:Key.title):/*title*/
+            repoItem.title = (event as! TextFieldEvent).stringValue
+        case event.assert(TextFieldEvent.update,parentID:Key.local):/*local*/
+            repoItem.local = (event as! TextFieldEvent).stringValue
+        case event.assert(TextFieldEvent.update,parentID:Key.remote):/*remote*/
+            repoItem.remote = (event as! TextFieldEvent).stringValue
+        case event.assert(TextFieldEvent.update,parentID:Key.branch):/*branch*/
+            repoItem.branch = (event as! TextFieldEvent).stringValue
+        case event.assert(TextFieldEvent.update,parentID:Key.template):/*template*/
+            repoItem.template = (event as! TextFieldEvent).stringValue
+        case event.assert(.check):
+            repoItem = onCheckEvent(event as! CheckEvent,&repoItem)
+        default:
+            super.onEvent(event)/*forward other events*/
+            break;
         }
-        if event.type == Event.update {/*TextInput*/
-            switch true{
-            case event.isChildOf(nameText):
-                //Swift.print("nameText?.inputText: " + "\(nameText?.inputText)")
-                attrib[RepoType.title.rawValue] = nameText?.inputText
-            case event.isChildOf(localText):
-                attrib[RepoType.local.rawValue] = localText?.inputText
-            case event.isChildOf(remoteText):
-                attrib[RepoType.remote.rawValue] = remoteText?.inputText
-            case event.isChildOf(branchText):
-                attrib[RepoType.branch.rawValue] = branchText?.inputText
-            default:
-                break;
-            }
-        }else if event.type == CheckEvent.check{/*CheckButtons*/
-            switch true{
-            case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
-                attrib[RepoType.active.rawValue] = activeCheckBoxButton?.getChecked().str
-            case event.isChildOf(messageCheckBoxButton):
-                attrib[RepoType.message.rawValue] = messageCheckBoxButton?.getChecked().str
-            case event.isChildOf(autoCheckBoxButton):
-                attrib[RepoType.auto.rawValue] = autoCheckBoxButton?.getChecked().str
-            default:
-                break;
-            }
-        }else{
-            super.onEvent(event)//forward other events
+        if event.assert(.check) /*|| event.assert(.check2)*/ || event.assert(.update) {
+            RepoView.treeDP.tree[idx3d]!.props = repoItem.dict/*Overrides the cur attribs*/
+            Swift.print("write to tree")
         }
-        if(event.type == CheckEvent.check || event.type == Event.update){
-            //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
-            RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
-            if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                _ = tree
-                //Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
-                //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
-            }
-        }
-    }
-}
-extension RepoDetailView{
-    /**
-     * Populates the UI elements with data from the dp item
-     * NOTE: Filters groups and items
-     */
-    func setRepoData(_ idx3d:[Int]){
-        //Swift.print("setRepoData(idx3d) ")
-        RepoView.selectedListItemIndex = idx3d
-        //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
-        if let tree:Tree = RepoView.treeDP.tree[idx3d], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
-            var repoItem:RepoItem
-            let hasIsOpenAttrib:Bool = TreeAsserter.hasAttribute(RepoView.treeDP.tree, idx3d, "isOpen")
-            
-            Swift.print("hasIsOpenAttrib: " + "\(hasIsOpenAttrib)")
-            if !tree.children.isEmpty  || hasIsOpenAttrib {/*Support for folders*/
-                repoItem = RepoItem()
-                if let title:String = repoItemDict[RepoType.title.rawValue] {repoItem.title = title}
-                if let active:String = repoItemDict[RepoType.active.rawValue] {repoItem.active = active.bool}
-            }else{
-                repoItem = RepoUtils.repoItem(repoItemDict)
-            }
-            setRepoData(repoItem)
-        }
+//        if event.assert(.check2) {
+//            //Swift.print("repoItem.active: " + "\(RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d).active)")
+//        }
     }
     /**
-     * Populates the UI elements with data from the dp item
+     * New
      */
-    private func setRepoData(_ repoItem:RepoItem){
-        //Swift.print("setRepoData(repoItem)")
-        /*TextInput*/
-        //Swift.print("repoItem.title: " + "\(repoItem.title)")
-        nameText?.inputTextArea.setTextValue(repoItem.title)
-        localText?.inputTextArea.setTextValue(repoItem.local)
-        remoteText?.inputTextArea.setTextValue(repoItem.remote)
-        branchText?.inputTextArea.setTextValue(repoItem.branch)
-        /*CheckButtons*/
-        autoCheckBoxButton?.setChecked(repoItem.auto)
-        messageCheckBoxButton?.setChecked(repoItem.message)
-        activeCheckBoxButton?.setChecked(repoItem.active)
+    func onCheckEvent(_ event:CheckEvent,_ repoItem: inout RepoItem) -> RepoItem{
+//        let idx3d = RepoView.selectedListItemIndex
+//        let isFolder = TreeDPAsserter.hasChildren(RepoView.treeDP, idx3d)
+//
+//        func closure(_ key:String,_ value:Bool) {//this method could be usefull for other UI components too, by using generics
+//            repoItem[key] = value//set the root
+//            if isFolder {/*if folder then,set all descendant repoItems to the origin state*/
+//                TreeModifier.applyAll(tree: &RepoView.treeDP.tree, idx3d: idx3d, apply: {/*Swift.print($0.props?["title"]);*/$0.props?[key] = value.str})
+//            }
+//        }
+        
+        switch true{
+        case event.assert(parentID: Key.active):/*active*/
+            repoItem[Key.active] = value
+//            closure(Key.active,event.checked)
+//            Swift.print("repoItem.active: " + "\(repoItem.active)")
+        case event.assert(parentID:Key.message):/*message*/
+            repoItem[Key.message] = value
+//            closure(Key.message,event.checked)
+        case event.assert(parentID:Key.auto):/*auto*/
+            repoItem[Key.auto] = value
+//            closure(Key.auto,event.checked)
+        case event.assert(parentID:Key.notification):/*notification*/
+            repoItem[Key.notification] = value
+//            closure(Key.notification,event.checked)
+        default:
+            break;
+        }
+        return repoItem
     }
-}
-extension RepoDetailView{/*Convenience*/
-    var nameText:TextInput? {return self.element(RepoType.title.rawValue)}
-    var localText:TextInput? {return self.element(RepoType.local.rawValue)}
-    var remoteText:TextInput? {return self.element(RepoType.remote.rawValue)}
-    var branchText:TextInput? {return self.element(RepoType.branch.rawValue)}
-    var autoCheckBoxButton:CheckBoxButton? {return self.element(RepoType.auto.rawValue)}
-    var messageCheckBoxButton:CheckBoxButton? {return self.element(RepoType.message.rawValue)}
-    var activeCheckBoxButton:CheckBoxButton? {return self.element(RepoType.active.rawValue)}
 }
