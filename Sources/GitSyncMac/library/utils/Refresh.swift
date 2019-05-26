@@ -6,23 +6,23 @@ typealias CommitDPRefresher = Refresh//temp
  * Basically creates/updates a list of the latest commits
  */
 class Refresh{
-    var commitDP:CommitDP?
-    var startTime:NSDate?/*Debugging*/
-    var onAllRefreshComplete:()->Void = {fatalError("Must attach onComplete handler")}/*When all repos has refreshed this method signature is called*/
-    init(_ commitDP:CommitDP){
+    var commitDP: CommitDP?
+    var startTime: NSDate?/*Debugging*/
+    var onAllRefreshComplete: () -> Void = { fatalError("Must attach onComplete handler") }/*When all repos has refreshed this method signature is called*/
+    init(_ commitDP: CommitDP){
         self.commitDP = commitDP
     }
     /**
      * Inits the refresh process
      */
-    func initRefresh(){
+    func initRefresh() {
         Swift.print("🔄 Refresh.initRefresh() ")
         startTime = NSDate()/*Measure the time of the refresh*/
         refreshRepos()//🚪⬅️️Enter refresh process here
     }
     /**
      * Adds commits to CommitDB
-     * NOTE: This method is called from the freshness onComplete
+     * - Note: This method is called from the freshness onComplete
      */
     private func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         let repos = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/

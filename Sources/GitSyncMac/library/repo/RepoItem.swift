@@ -16,20 +16,20 @@ struct RepoItem {
     //var download:Bool = false
     //var autoSyncInterval:Bool = false
     //var fileChange:Bool = false
-    
+
 }
-enum RepoType:String{
-    case title = "title"
-    case local = "local"
-    case remote = "remote"
-    case branch = "branch"
-    case auto = "auto"
-    case message = "message"
-    case active = "active"
+enum RepoType: String{
+   case title// = "title"
+   case local// = "local"
+   case remote// = "remote"
+   case branch// = "branch"
+   case auto// = "auto"
+   case message// = "message"
+   case active// = "active"
 }
-enum RepoFolderType:String{
-    case isOpen = "isOpen"
-    case hasChildren = "hasChildren"
+enum RepoFolderType: String{
+   case isOpen// = "isOpen"
+   case hasChildren// = "hasChildren"
 }
 
 /*
