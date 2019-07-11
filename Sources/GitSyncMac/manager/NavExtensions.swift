@@ -1,19 +1,16 @@
 import Foundation
-@testable import Utils  
+@testable import Utils
 
 extension Nav{
-    enum ViewType{
+    enum ViewType {
         /*Main*/
-        enum Main:String{
-            case commit = "commit"
-            case repo = "repo"
-            case prefs = "prefs"
-            case stats = "stats"
+        enum Main: String{
+         case commit, repo, prefs, stats
         }
         case main(Main)
         /*Detail*/
         enum Detail{
-            case commit([String:String])
+            case commit([String: String])
             case repo([Int])
         }
         case detail(Detail)
@@ -21,8 +18,8 @@ extension Nav{
         case dialog(Dialog)
         enum Dialog{
             case conflict(MergeConflict)
-            case commit(RepoItem,CommitMessage,CommitDialogView.Completed)
-            case autoInit(AutoInitConflict,AutoInitView.Complete)
+            case commit(RepoItem, CommitMessage, CommitDialogView.Completed)
+            case autoInit(AutoInitConflict, AutoInitView.Complete)
         }
     }
 }

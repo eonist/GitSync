@@ -7,15 +7,15 @@ class CommitDescUtils{
 	/**
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
-	class func sequenceDescription(_ statusList:[[String:String]])->String{
-		var descText:String = ""
-		var modifiedItems:[[String:String]] = []
-		var deletedItems:[[String:String]] = []
-        var renamedItems:[[String:String]] = []
-        var addedItems:[[String:String]] = []
-        for statusItem:[String:String] in statusList{
-            let cmd:String = statusItem["cmd"]!
-			switch GitCMD(rawValue:cmd){
+	class func sequenceDescription(_ statusList: [[String: String]]) -> String{
+		var descText: String = ""
+		var modifiedItems: [[String: String]] = []
+		var deletedItems: [[String: String]] = []
+        var renamedItems: [[String: String]] = []
+        var addedItems: [[String: String]] = []
+        for statusItem: [String: String] in statusList{
+            let cmd: String = statusItem["cmd"]!
+			switch GitCMD(rawValue: cmd) {
             case .D?:deletedItems.append(statusItem)  /*add a record to a list*/
             case .R?:renamedItems.append(statusItem)  /*add a record to a list*/
             case .RM?:renamedItems.append(statusItem)  /*add a record to a list*/
@@ -47,11 +47,11 @@ class CommitDescUtils{
 	/**
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-    class func descriptionParagraph(_ theList:[[String:String]], prefix prefixText:String)->String{
+    class func descriptionParagraph(_ theList: [[String: String]], prefix prefixText: String) -> String {
         if !theList.isEmpty {
-            var theSuffix:String = " file"
+            var theSuffix: String = " file"
             if theList.count > 1 { theSuffix += "s" }/*multiple*/
-            let descText:String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
+            let descText: String = prefixText + "\(theList.count)" + theSuffix + ":" + "\n"
             return theList.reduce(descText) {
                 $0 + $1["fileName"]! + "\n" /*adds an extra line break at the end "paragraph like"*/
             } + "\n"

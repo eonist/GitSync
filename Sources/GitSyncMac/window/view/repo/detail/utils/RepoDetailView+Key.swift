@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 
-extension RepoDetailView{
+extension RepoDetailView {
     typealias Key = RepoItem.Key
-    
+
 }

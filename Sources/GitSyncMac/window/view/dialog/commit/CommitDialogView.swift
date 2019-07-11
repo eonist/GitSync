@@ -4,17 +4,17 @@ import Cocoa
 /**
  * TODO: ⚠️️ Rename to CommitPromptView?
  */
-class CommitDialogView:Element,UnFoldable,Closable {
-    var repoItem:RepoItem?
-    var onCommitDialogComplete:Completed = {print("hmm");fatalError("no completion handler assigned")}/*Stores the onComplete when the user clicks OK*/
-    
+class CommitDialogView: Element, UnFoldable, Closable {
+    var repoItem: RepoItem?
+    var onCommitDialogComplete:Completed = { print("hmm"); fatalError("no completion handler assigned") }/*Stores the onComplete when the user clicks OK*/
+
     override func resolveSkin() {
 //        Swift.print("🍊 CommitDialogView.resolveSkin()")
         super.resolveSkin()
-        Unfold.unFold(fileURL: Config.Bundle.structure,path: "commitDialogView",parent: self)
+        Unfold.unFold(fileURL: Config.Bundle.structure,path: "commitDialogView", parent: self)
         NSApp.requestUserAttention(.informationalRequest)//bounce the dock icon
     }
-    override func onEvent(_ event:Event) {
+    override func onEvent(_ event: Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){/*stop the auto sync process,remove commit dialog from view*/
@@ -23,4 +23,3 @@ class CommitDialogView:Element,UnFoldable,Closable {
         }
     }
 }
-

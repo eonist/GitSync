@@ -8,15 +8,15 @@ extension AutoSync{
      * Syncs auto-message repos
      * NOTE: Also works if Nothing to sync
      */
-    private func syncOtherRepos(){
+    private func syncOtherRepos() {
         let group = DispatchGroup()
         otherRepos.forEach { repoItem in/*all the initCommit calls are non-waiting. */
             group.enter()
             bg.async {
-                GitSync.initCommit(repoItem,nil,{group.leave()})/*🚪⬅️️ Enter the AutoSync process here, it's wrapped in a bg thread because hwne oush complets it jumps back on the main thread*/
+                GitSync.initCommit(repoItem, nil) { group.leave() } /*🚪⬅️️ Enter the AutoSync process here, it's wrapped in a bg thread because hwne oush complets it jumps back on the main thread*/
             }
         }
-        group.notify(queue: main){//It also fires when nothing left or entered
+        group.notify(queue: main) {//It also fires when nothing left or entered
             self.autoSyncComplete(self.repoVerifier.verifiedRepos)/*All commits and pushes was completed*/
         }
     }
@@ -27,9 +27,9 @@ extension AutoSync{
 extension AutoSync{
     /**
      * This is called when all repos are verified that they exist locally and remotly
-     * IMPORTANT: ⚠️️ messageRepoIterator.iterate() must be initiated or else iteration of other repos wont start
+     * - IMPORTANT: ⚠️️ messageRepoIterator.iterate() must be initiated or else iteration of other repos wont start
      */
-    func onAllReposVerified(){
+    func onAllReposVerified() {
         Swift.print("onAllReposVerified")
         messageRepoIterator.iterate()/*Iterate over repos with manual commit message*/
     }
@@ -41,20 +41,20 @@ extension AutoSync{
     /**
      * Generates the repoList
      */
-    static func createRepoList(isUserInitiated:Bool) -> [RepoItem]{
+    static func createRepoList(isUserInitiated: Bool) -> [RepoItem]{
         let repoList = RepoUtils.repoListFlattenedOverridden/*Get the latest repo list*/
 //        Swift.print("repoList.count: " + "\(repoList.count)")
 //        repoList.forEach{
 //            Swift.print("$0: " + "\($0)")
 //        }
-        return isUserInitiated ? repoList : repoList.filter{$0.auto}/*if interval initiated then only target repos that have interval set to true*/
+        return isUserInitiated ? repoList : repoList.filter { $0.auto }/*if interval initiated then only target repos that have interval set to true*/
     }
     /**
      * Generates the MessageRepoIterator
      */
-    func createMessageRepoIterator(verifiedRepos:[RepoItem]) -> MessageRepoIterator{
-        let messageRepos:[RepoItem] = verifiedRepos.filter{$0.message}/*repos that have manual commit message*/
+    func createMessageRepoIterator(verifiedRepos: [RepoItem]) -> MessageRepoIterator {
+        let messageRepos: [RepoItem] = verifiedRepos.filter { $0.message }/*repos that have manual commit message*/
 //        Swift.print("messageRepos.count: " + "\(messageRepos.count)")
-        return .init(array:messageRepos,onComplete:syncOtherRepos)
+        return .init(array: messageRepos, onComplete: syncOtherRepos)
     }
 }

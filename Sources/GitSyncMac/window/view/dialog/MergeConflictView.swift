@@ -3,19 +3,19 @@ import Foundation
 @testable import Element
 /**
  * MERGE Conflict dialog view
- * TODO: ⚠️️ Make the review buttons as a clickable text in the keep radiobuttons.
- * TODO: ⚠️️ Inline the radiobuttons: Keep: (x) local, () remote, () both
- * TODO: ⚠️️ Remove the cancel button and enable the close button again
+ * - TODO: ⚠️️ Make the review buttons as a clickable text in the keep radiobuttons.
+ * - TODO: ⚠️️ Inline the radiobuttons: Keep: (x) local, () remote, () both
+ * - TODO: ⚠️️ Remove the cancel button and enable the close button again
  */
-class MergeConflictView:Element,UnFoldable,Closable{
-    lazy var radioButtonGroup:SelectGroup = {//TODO: ⚠️️  move this into an extension
+class MergeConflictView:Element, UnFoldable, Closable{
+    lazy var radioButtonGroup: SelectGroup = {//TODO: ⚠️️  move this into an extension
         let buttons:[RadioButton] = ElementParser.children(self)
         let group = SelectGroup(buttons,buttons.first)
         group.addHandler(type: SelectGroupEvent.change, self.onSelectGroupChange)
         return group
     }()
-    lazy var checkBoxButtonGroup:CheckGroup = {//TODO: ⚠️️  move this into an extension
-        let buttons:[CheckBoxButton] = ElementParser.children(self)
+    lazy var checkBoxButtonGroup: CheckGroup = {//TODO: ⚠️️  move this into an extension
+        let buttons: [CheckBoxButton] = ElementParser.children(self)
         let group = CheckGroup(buttons)
         group.addHandler(type: SelectGroupEvent.change, self.onCheckGroupChange)
         return group
@@ -23,27 +23,27 @@ class MergeConflictView:Element,UnFoldable,Closable{
     override func resolveSkin() {
         Swift.print("MergeConflictView.resolveSkin()")
         super.resolveSkin()
-        Unfold.unFold(fileURL: Config.Bundle.structure,path: "mergeConflictView",parent: self)
+        Unfold.unFold(fileURL: Config.Bundle.structure, path: "mergeConflictView", parent: self)
         Swift.print("unfold completed")
-        
-        self.apply([Key.issue,Text.Key.text], "Conflict: Local file is older than the remote file")
-        self.apply([Key.file,Text.Key.text], "File: AppDelegate.swift")
-        self.apply([Key.repo,Text.Key.text], "Repository: Element - iOS")
-        
+
+        self.apply([Key.issue, Text.Key.text], "Conflict: Local file is older than the remote file")
+        self.apply([Key.file, Text.Key.text], "File: AppDelegate.swift")
+        self.apply([Key.repo, Text.Key.text], "Repository: Element - iOS")
+
         _ = radioButtonGroup
     }
-    override func onEvent(_ event:Event) {
+    override func onEvent(_ event: Event) {
         if event.assert(.upInside, id: "ok"){
             onOKButtonClick()
         }else if event.assert(.upInside, id: "cancel"){
             fatalError("not yet supported")
         }/*else if event.assert(SelectEvent.select){
-         
+
         }*/
     }
 }
 extension MergeConflictView{
-    func setData(_ mergeConflict:MergeConflict){
+    func setData(_ mergeConflict:MergeConflict) {
         Swift.print("MergeConflictView.setData")
         self.apply([Key.issue], mergeConflict.issue)
         self.apply([Key.file], mergeConflict.file)
@@ -59,10 +59,10 @@ extension MergeConflictView{
         static let applyAllConflicts = "applyAllConflicts"
         static let applyAllRepos = "applyAllRepos"
     }
-    func onSelectGroupChange(event:Event){
+    func onSelectGroupChange(event: Event){
         Swift.print("onSelectGroupChange event.selectable: " + "\(event)")
     }
-    func onCheckGroupChange(event:Event){/*this is the event handler*/
+    func onCheckGroupChange(event: Event){/*this is the event handler*/
         Swift.print("onSelectGroupChange event.selectable: " + "\(event)")
     }
     /**
@@ -70,40 +70,32 @@ extension MergeConflictView{
      */
     func onOKButtonClick(){
         Swift.print("onOKButtonClick")
-        
-        
-        
-        let selectedRadioButtonId:String = (radioButtonGroup.selected as? ElementKind)?.id ?? {fatalError("error")}()
+        let selectedRadioButtonId: String = (radioButtonGroup.selected as? ElementKind)?.id ?? {fatalError("error")}()
         Swift.print("selectedRadioButtonId: " + "\(String(describing: selectedRadioButtonId))")
-        
-        guard let isApplyAllConflictsChecked:Bool = try? self.retrieve([Key.applyAllConflicts])  else {fatalError("error")}
+        guard let isApplyAllConflictsChecked: Bool = try? self.retrieve([Key.applyAllConflicts]) else {fatalError("error")}
         Swift.print("isApplyAllConflictsChecked: " + "\(String(describing: isApplyAllConflictsChecked))")
-        guard let isApplyApplyAllReposChecked:Bool = try? self.retrieve([Key.applyAllRepos]) else {fatalError("error")}
+        guard let isApplyApplyAllReposChecked: Bool = try? self.retrieve([Key.applyAllRepos]) else {fatalError("error")}
         Swift.print("isApplyApplyAllReposChecked: " + "\(String(describing: isApplyApplyAllReposChecked))")
-        
-        
         defer{
             let strategy = MergeConflictView.strategy(isApplyAllConflictsChecked,selectedRadioButtonId)
             MergeReslover.shared.processMergeStrategy(strategy)
         }
-        
-        
         if let curPrompt = Proxy.styleTestView?.currentPrompt {curPrompt.removeFromSuperview()}//remove promptView from window
-          
+
     }
 }
 extension MergeConflictView{
     /**
      *
      */
-    static func strategy(_ applyToAll:Bool,_ id:String) -> MergeReslover.Option{
+    static func strategy(_ applyToAll: Bool,_ id: String) -> MergeReslover.Option{
         let option:MergeReslover.Option = {
             if applyToAll {
                 return MergeReslover.Option.all(
                     {
                         if id == Key.keepLocal {
                             return .local
-                        }else if id == Key.keepRemote{
+                        }else if id == Key.keepRemote {
                             return .remote
                         }else{//Key.keepMixed
                             return .mix
@@ -122,7 +114,7 @@ extension MergeConflictView{
                         }
                     }()
                 )
-                
+
             }
         }()
         return option

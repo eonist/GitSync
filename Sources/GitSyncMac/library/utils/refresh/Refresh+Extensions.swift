@@ -2,16 +2,16 @@ import Foundation
 @testable import Utils
 
 extension Refresh{
-    typealias RefreshReposComplete = ()->Void
-    typealias RefreshRepoComplete = ()->Void
-    typealias CommitItemsComplete = (_ results:[String])->Void
-    typealias CommitCountComplete = (_ commitCount:Int)->Void
+    typealias RefreshReposComplete = () -> Void
+    typealias RefreshRepoComplete = () -> Void
+    typealias CommitItemsComplete = (_ results: [String]) -> Void
+    typealias CommitCountComplete = (_ commitCount: Int) -> Void
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      * Retrieve the commit log items for this repo with the range specified
      */
-    func refreshRepo(_ repo:RepoItem,_ onRefreshRepoComplete:@escaping RefreshRepoComplete){
-        Refresh.commitCount(dp,repo){ commitCount in/*once these completes then do result, you do not want to wait until calling refreshRepo*/
+    func refreshRepo(_ repo: RepoItem, _ onRefreshRepoComplete:@escaping RefreshRepoComplete) {
+        Refresh.commitCount(dp, repo) { commitCount in/*once these completes then do result, you do not want to wait until calling refreshRepo*/
             Refresh.commitItems(repo.local, commitCount) { results in //🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
                 results.forEach { result in
                     if !result.isEmpty {/*resulting string must have characters*/
@@ -37,9 +37,9 @@ extension Refresh{
         group.enter()
         bg.async {
             if !dp.items.isEmpty {
-                let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
-                let gitTime:String = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
-                let rangeCount:Int = GitUtils.commitCount(repo.local, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
+                let lastDate: Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
+                let gitTime: String = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
+                let rangeCount: Int = GitUtils.commitCount(repo.local, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
                 commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
             }else {//< 100
                 commitCount = 100//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
@@ -53,13 +53,13 @@ extension Refresh{
     }
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
-     * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
-     * PARAM: limit = max Items Allowed per repo
+     * - Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
+     * - PARAM: limit = max Items Allowed per repo
      */
-    static private func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping CommitItemsComplete) {
-        var results:[String] = Array(repeating: "", count:limit)//basically creates an array with many empty strings
+    static private func commitItems(_ localPath: String, _ limit: Int, _ onComplete:@escaping CommitItemsComplete) {
+        var results: [String] = Array(repeating: "", count: limit)//basically creates an array with many empty strings
         let group = DispatchGroup()
-        let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
+        let formating: String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         //        totalCommitCount += limit
         for i in 0..<limit{
             //            commitCount += 1

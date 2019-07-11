@@ -3,17 +3,17 @@ import Foundation
 
 class MergeReslover {
     typealias AllComplete = () -> Void
-    var allComplete:AllComplete = {fatalError("No handler attached")}
+    var allComplete: AllComplete = { fatalError("No handler attached") }
     static let shared = MergeReslover()
-    var conflictCount:Int = 0
-    var index:Int = 0//curConflictIndex
-    var unMergedFiles:[String] = []
-    var repoItem:RepoItem?
+    var conflictCount: Int = 0
+    var index: Int = 0//curConflictIndex
+    var unMergedFiles: [String] = []
+    var repoItem: RepoItem?
     /**
      * Promts the user with a list of options to aid in resolving merge conflicts
-     * PARAM branch: the branch you tried to merge into
+     * - PARAM branch: the branch you tried to merge into
      */
-    func resolveConflicts(_ repoItem:RepoItem, _ unMergedFiles:[String], _ allComplete:@escaping AllComplete){
+    func resolveConflicts(_ repoItem: RepoItem, _ unMergedFiles: [String], _ allComplete:@escaping AllComplete) {
 //        Swift.print("MergeReslover.resolveConflicts")
         self.allComplete = allComplete
         index = 0//reset
@@ -25,34 +25,34 @@ class MergeReslover {
     /**
      * Iterate through the conflicts
      */
-     func nextConflict(){
+     func nextConflict() {
         Swift.print("nextConflict")
-        guard index < conflictCount else{//stop iteration if all conflicts are resolved
+        guard index < conflictCount else {//stop iteration if all conflicts are resolved
             Swift.print("allComplete")
             allComplete()
             return
         }
 //        let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-        guard let repoItem = repoItem else{fatalError("error")}
+        guard let repoItem = repoItem else { fatalError("error") }
 //        Swift.print("localRepoPath: " + "\(String(describing: repoItem.localPath))")
 //        Swift.print("branch: " + "\(String(describing: repoItem.branch))")
 //        Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
 //        Swift.print("unMergedFile: " + "\(unMergedFiles[index])")
-        
-        let issue:String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
-        let file:String = "File: \(unMergedFiles[index])"
-        let repo:String = "Repository: \(repoItem.title)"
-        let mergeConflict = MergeConflict(issue:issue,file:file,repo:repo)
-        
-        main.async{
-            Nav.setView(.dialog(.conflict(mergeConflict)))//promt user with list of options, title: Merge conflict in: unmerged_file
+
+        let issue: String = "Conflict: Resolve merge conflict in"//Local file is older than the remote file
+        let file: String = "File: \(unMergedFiles[index])"
+        let repo: String = "Repository: \(repoItem.title)"
+        let mergeConflict = MergeConflict(issue: issue, file: file, repo: repo)
+
+        main.async {
+            Nav.setView(.dialog(.conflict(mergeConflict))) // promt user with list of options, title: Merge conflict in: unmerged_file
         }
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
     }
-    
+
     /**
      * Handles the choice made in the merge conflict dialog
-     * TODO: test the open file clauses
+     * - TODO: test the open file clauses
      */
     func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
         Swift.print("MergeUtil.processMergeStrategy()")
@@ -78,7 +78,6 @@ class MergeReslover {
                 _ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
             }
             index += 1
-            
         case Option.all(let allOption):
             switch allOption {
             case .local:
@@ -92,24 +91,24 @@ class MergeReslover {
                 _ = GitModifier.checkOut(localRepoPath, branch, "*")
             }
             index = conflictCount
-            
+
         }
-         //after each iteration you have to commit, bring that into the fold
+        // after each iteration you have to commit, bring that into the fold
         Swift.print("before commit")
         _ = GitSync.commit(repoItem!)//🌵 It's best practice to always commit any uncommited files before you attempt to pull, add,commit if any files has an altered status
         Swift.print("after commit")
         nextConflict()
-        
+
     }
 }
 
 extension MergeReslover{
     enum Option{
-        enum All{
-            case local,remote,mix
+        enum All {
+            case local, remote, mix
         }
-        enum Singular{
-            case local,remote,mix
+        enum Singular {
+            case local, remote, mix
         }
         case all(All)
         case singular(Singular)
@@ -140,5 +139,3 @@ extension MergeReslover{
 /*open all mixed versions*/
 //        _ = GitModifier.checkOut(localRepoPath, branch, "*")
 //        FileUtils.openFiles([])/*localRepoPath,unmergedFiles*/
-
-       

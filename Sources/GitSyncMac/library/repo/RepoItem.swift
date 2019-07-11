@@ -1,19 +1,19 @@
 import Foundation
 
 /**
- * TODO: ⚠️️ rename to RepoData
- * TODO: ⚠️️ Needs a unique identifier value
+ * Fixme: ⚠️️ rename to RepoData
+ * Fixme: ⚠️️ Needs a unique identifier value
  */
 struct RepoItem {
-    var local:String/*Local path*/
-    var branch:String/*Repo branch, Master is default*/
-    var title:String/*The title displayed in the app*/
-    var active:Bool/*Active means that auto and pull will sync the repo*/
-    var remote:String/*Remote path to repository*/
-    var message:Bool/*Auto-created commit message*///TODO: ⚠️️ rename
-    var auto:Bool/*Automatically syncs on an interval*///TODO: ⚠️️ rename to interval?
-    var template:String/*template message for commitmessages*/
-    var notification:Bool/*toggle Notifications per repo*/
+    var local: String/*Local path*/
+    var branch: String/*Repo branch, Master is default*/
+    var title: String/*The title displayed in the app*/
+    var active: Bool/*Active means that auto and pull will sync the repo*/
+    var remote: String/*Remote path to repository*/
+    var message: Bool/*Auto-created commit message*///TODO: ⚠️️ rename
+    var auto: Bool/*Automatically syncs on an interval*///TODO: ⚠️️ rename to interval?
+    var template: String/*template message for commitmessages*/
+    var notification: Bool/*toggle Notifications per repo*/
     init(){/*Default RepoItem*/
         self.local = ""/*Local path*/
         self.branch = ""/*Repo branch, Master is default*/

@@ -5,46 +5,46 @@ import Foundation
 extension RepoDetailView{
     /**
      * Populates the UI elements with data from the dp item
-     * NOTE: Uses the Unfold lib to set data
+     * - NOTE: Uses the Unfold lib to set data
      */
-    public func setRepoData(){
+    public func setRepoData() {
         let idx3d = RepoView.selectedListItemIndex
         let repoItem = RepoItem.repoItem(treeDP: RepoView.treeDP, idx3d: idx3d)
-        
+
         Swift.print("setRepoData(repoItem)")
         /*TextInput*/
-        self.apply([Key.title],repoItem.title)
-        self.apply([Key.local],repoItem.local)
-        self.apply([Key.remote],repoItem.remote)
-        self.apply([Key.branch],repoItem.branch)
-        self.apply([Key.template],repoItem.template)
-        
+        self.apply([Key.title], repoItem.title)
+        self.apply([Key.local], repoItem.local)
+        self.apply([Key.remote], repoItem.remote)
+        self.apply([Key.branch], repoItem.branch)
+        self.apply([Key.template], repoItem.template)
+
         /*CheckButtons*/
-        let closure = { (path:[String],key:String) in
-            if let ui:CheckBoxButton = try? UnfoldParser.unfoldable(parent:self, path:path) {
+        let closure = { (path: [String], key: String) in
+            if let ui: CheckBoxButton = try? UnfoldParser.unfoldable(parent: self, path: path) {
 //                Swift.print("ui: " + "\(ui)")
-                guard let checkedState:Bool = repoItem[key] else {fatalError("err")}//Utils.checkedState(repoItem,idx3d,key)
+                guard let checkedState: Bool = repoItem[key] else { fatalError("err") }//Utils.checkedState(repoItem,idx3d,key)
 //                Swift.print("checkedState: " + "\(checkedState)")
                 ui.value = checkedState//.rawValue //we use string not enum state
             }
         }
-        closure(["autoGroup",Key.auto],Key.auto)
-        closure(["messageGroup",Key.message],Key.message)
-        closure(["activeGroup",Key.active],Key.active)
-        closure(["notificationGroup",Key.notification],Key.notification)
+        closure(["autoGroup", Key.auto], Key.auto)
+        closure(["messageGroup", Key.message], Key.message)
+        closure(["activeGroup", Key.active], Key.active)
+        closure(["notificationGroup", Key.notification], Key.notification)
     }
     /**
      * New, this is used when unfolding RepoDetailViews that are folder types
      */
-    func folderJson(fileURL:String,path:String) -> [[String:Any]]{
-        guard let jsonDict:[String: Any] = JSONParser.dict(fileURL.content?.json) else{fatalError("fileURL: is incorrect: \(fileURL)")}
-        guard let jsonDictItem:Any = jsonDict[path] else{fatalError("path is incorrect: \(path)")}
-        guard let jsonArr:[[String:Any]] = JSONParser.dictArr(jsonDictItem) else{fatalError("jsonDictItem: is incorrect")}
+    func folderJson(fileURL: String, path: String) -> [[String: Any]] {
+        guard let jsonDict: [String: Any] = JSONParser.dict(fileURL.content?.json) else { fatalError("fileURL: is incorrect: \(fileURL)") }
+        guard let jsonDictItem: Any = jsonDict[path] else { fatalError("path is incorrect: \(path)") }
+        guard let jsonArr: [[String:Any]] = JSONParser.dictArr(jsonDictItem) else{fatalError("jsonDictItem: is incorrect") }
         let matchs = ["title","activeGroup","autoGroup","notificationGroup","messageGroup"]
-        let filteredJsonArr = jsonArr.filter{
-            guard let id:String = $0["id"] as? String else {fatalError("err")}
+        let filteredJsonArr = jsonArr.filter {
+            guard let id: String = $0["id"] as? String else { fatalError("err") }
 //            Swift.print("id: " + "\(id)")
-            let match:Bool = ArrayAsserter.has(matchs, id)
+            let match: Bool = ArrayAsserter.has(matchs, id)
 //            Swift.print("match: " + "\(match)")
             return match
         }
@@ -52,8 +52,8 @@ extension RepoDetailView{
     }
 }
 
-protocol RepoDetailViewClosable:Closable{}
-extension RepoDetailView{
+protocol RepoDetailViewClosable: Closable { }
+extension RepoDetailView {
     func close() {
 //        Swift.print("Close")
         _ = FileModifier.write(Config.Bundle.repo.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
@@ -88,8 +88,7 @@ extension RepoDetailView{
 ////            Swift.print("prop: " + "\(prop)")
 //            return prop ? .checked : .none
 //        }
-//        
-//        
+//
+//
 //    }
 //}
-

@@ -7,7 +7,7 @@ extension PrefsData{
     /**
      * Grabs data from prefs, which is garantued to hold data regardless if PrefsView was ever created
      */
-    static var xml:XML{
+    static var xml: XML{
         let xml:XML = "<prefs></prefs>".xml
         let prefs = PrefsView.prefs
         xml.appendChild("<\(Key.login)>\(prefs.login)</\(Key.login)>".xml)
@@ -23,10 +23,10 @@ extension PrefsData{
         return xml
     }
     /**
-     * NOTE: this is re-generated on every call
-     * TODO: ⚠️️ Use the unfold utils instead maybe?
+     * - NOTE: this is re-generated on every call
+     * - TODO: ⚠️️ Use the unfold utils instead maybe?
      */
-    static var prefsData:PrefsData{
+    static var prefsData: PrefsData {
         let xml:XML = FileParser.xml(Config.Bundle.prefsURL.tildePath)/*Loads the xml*/
         let login = xml.firstNode(Key.login)!.stringValue!
         let local = xml.firstNode(Key.local)!.stringValue!
@@ -34,31 +34,29 @@ extension PrefsData{
         let notification = xml.firstNode(Key.notification)!.stringValue!.bool
         let w = xml.firstNode(Key.w)!.stringValue!.cgFloat
         let h = xml.firstNode(Key.h)!.stringValue!.cgFloat
-        let x:CGFloat = {//TODO: ⚠️️ refactor this when you have time
+        let x: CGFloat = {//TODO: ⚠️️ refactor this when you have time
             if let xSTR:String = xml.firstNode(Key.x)?.stringValue,!xSTR.isEmpty {
                 return xSTR.cgFloat
             } else {
                 return NaN
             }
         }()
-        let y:CGFloat = {//TODO: ⚠️️ refactor this when you have time
-            if let ySTR:String = xml.firstNode(Key.y)?.stringValue,!ySTR.isEmpty {
+        let y: CGFloat = {//TODO: ⚠️️ refactor this when you have time
+            if let ySTR:String = xml.firstNode(Key.y)?.stringValue, !ySTR.isEmpty {
                 return ySTR.cgFloat
             } else {
                 return NaN
             }
         }()
-        let rect:CGRect = CGRect(x,y,w,h)
-        return .init(login:login,pass:"",local:local,darkMode:darkMode,notification:notification,rect:rect)
+        let rect: CGRect = CGRect(x, y, w, h)
+        return .init(login: login, pass: "", local: local, darkMode: darkMode, notification: notification, rect: rect)
     }
 }
-protocol PrefsViewClosable:Closable{}
-extension PrefsViewClosable{
+protocol PrefsViewClosable: Closable { }
+extension PrefsViewClosable {
     func close() {
         _ = FileModifier.write(Config.Bundle.prefsURL.tildePath, PrefsData.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
         self.removeFromSuperview()
     }
 }
-
-
