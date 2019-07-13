@@ -49,12 +49,11 @@ class MergeReslover {
         }
         //listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
     }
-
     /**
      * Handles the choice made in the merge conflict dialog
-     * - TODO: test the open file clauses
+     * - Fixme: ⚠️️ test the open file clauses
      */
-    func processMergeStrategy(_ option:Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
+    func processMergeStrategy(_ option: Option/*, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:[String]*/){
         Swift.print("MergeUtil.processMergeStrategy()")
         //last_selected_action = selected
         let unmergedFile = unMergedFiles[index]
@@ -102,8 +101,8 @@ class MergeReslover {
     }
 }
 
-extension MergeReslover{
-    enum Option{
+extension MergeReslover {
+    enum Option {
         enum All {
             case local, remote, mix
         }

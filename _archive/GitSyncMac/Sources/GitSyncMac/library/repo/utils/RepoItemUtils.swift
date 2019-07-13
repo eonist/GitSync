@@ -7,7 +7,7 @@ import Foundation
 class RepoUtils {
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
-     * - NOTE: parent override child for every key in overrideKeys
+     * - Note: parent override child for every key in overrideKeys
      * - Note: We want parent folders to override all its children.
      * - Note: ⚠️️ You need to check if the local path is still avilable. FileASserter.exists, or else you might get strange bugs using the Git lib, and prompt the user to correct the path
      */
@@ -28,8 +28,8 @@ class RepoUtils {
     }
     /**
      * Conforms repoItem data and returns a RepoItem that can be used with git
-     * - TODO: ⚠️️ if the interval values is not set, then use default values
-     * - TODO: ⚠️️ test if the full/partly file path still works?
+     * - Fixme: ⚠️️ if the interval values is not set, then use default values
+     * - Fixme: ⚠️️ test if the full/partly file path still works?
      */
     static func repoItem(dict: [String: String]) -> RepoItem {
         //Swift.print("dict: " + "\(dict)")
@@ -53,8 +53,8 @@ class RepoUtils {
     }
     /**
      * Returns an RepoItem for PARAM: xml at PARAM: idx
-     * - PARAM: idx: matrixIndex
-     * - TODO: ⚠️️ Should return optional
+     * - Parameter: idx: matrixIndex
+     * - Fixme: ⚠️️ Should return optional
      */
     static func repoItem(xml:XML,idx:[Int]) -> RepoItem{
         if let child: XML = XMLParser.childAt(xml, idx){
@@ -67,12 +67,12 @@ class RepoUtils {
 private class Utils{
     /**
      * Recursive flatMap with parent overriding abilities
-     * - NOTE: this also lets parents override the values in some keys in children
+     * - Note: this also lets parents override the values in some keys in children
      * - INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
      * - OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
-     * - PARAM: overriders: only let items with either of these be able to override (aka folders)
-     * - PARAM: overrideKeys: override these key value pairs. If non exist then make new
-     * - TODO: ⚠️️ use throws to give better error description?
+     * - Parameter: overriders: only let items with either of these be able to override (aka folders)
+     * - Parameter: overrideKeys: override these key value pairs. If non exist then make new
+     * - Fixme: ⚠️️ use throws to give better error description?
      */
     static func recursiveFlattened<T>(_ arr: [Any], _ overrideKeys: [String], _ overriders: [String], _ parent: [String:String]? = nil) -> [T] {
         var result: [T] = []

@@ -2,13 +2,13 @@ import Foundation
 @testable import Utils
 /**
  * - DISCUSSION: The reason we have prevCommits, is to provide an easy way to find which commit from a repo was added to CommitDB
- * CommitDB is a wrapper for git repos. Instead of querrying the many git repos at all time, we rather inteligently cache the data because some parts of the GUI frequently asks for an updated state of the last 100 commits -> this would be cpu instensive to recalculate often so we cache the data instead, and only ask the repos for data that isnt cached
- * - TODO: it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
+ * CommitDB is a wrapper for git repos. Instead of querrying the many git repos at all time, we rather more efficiently cache the data because some parts of the GUI frequently asks for an updated state of the last 100 commits -> this would be cpu instensive to recalculate often so we cache the data instead, and only ask the repos for data that isnt cached
+ * - Fixme: ⚠️️ it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
  */
 class CommitDP: DataProvider {
     static var max: Int = 100
 }
-extension CommitDP{
+extension CommitDP {
     /**
      * New
      */
@@ -21,9 +21,9 @@ extension CommitDP{
      * Adds An item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      * - NOTE: Items must be added one after the other. A Bulk add method wouldn't work, unless you iterate one by one I guess???
      */
-    func addCommitItem(_ item:[String:String]){
+    func addCommitItem(_ item: [String: String]){
         let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
-        if(!Utils.existAtOrBefore(items,closestIdx,item)){//TODO: ⚠️️ ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesn't hurt performance
+        if(!Utils.existAtOrBefore(items, closestIdx, item)) {//TODO: ⚠️️ ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesn't hurt performance
 //            Swift.print("📝 insert at: \(closestIdx) item.date: \(GitDateUtils.gitTime(item["sortableDate"]!))" )
             self.add(item, closestIdx, false)
             //_ = items.insertAt(item, closestIdx)
@@ -50,13 +50,13 @@ extension CommitDP{
         let mid: Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
         //Swift.print("mid: " + "\(mid)")
         //Swift.print("arr[mid]: " + "\(arr[mid])")
-        if(i["sortableDate"]!.int > arr[mid]["sortableDate"]!.int){/*index is in part1*/
+        if i["sortableDate"]!.int > arr[mid]["sortableDate"]!.int {/*index is in part1*/
             //Swift.print("a")
-            return closestIndex(arr,i,start,mid)
-        }else if(i["sortableDate"]!.int < arr[mid]["sortableDate"]!.int){/*index is in part2*/
+            return closestIndex(arr, i, start, mid)
+        } else if i["sortableDate"]!.int < arr[mid]["sortableDate"]!.int {/*index is in part2*/
             //Swift.print("b")
             return closestIndex(arr, i, mid + 1, end)
-        }else{/*index is at middleIndex*/
+        } else {/*index is at middleIndex*/
             //Swift.print("at middle: \(mid)")
             return mid
         }
@@ -76,17 +76,17 @@ private class Utils{
      * New
      */
     static func existAtOrAfter(_ arr: [[String: String]], _ idx: Int, _ item: [String: String]) -> Bool {
-        func itemAlreadyExistAtIdx() -> Bool {return (arr.valid(idx) && arr[idx]["hash"] == item["hash"]) }
-        func itemExistsAtIdxAfter() -> Bool {return (arr.valid(idx + 1) && arr[idx + 1]["hash"] == item["hash"])}
+        func itemAlreadyExistAtIdx() -> Bool { return (arr.valid(idx) && arr[idx]["hash"] == item["hash"]) }
+        func itemExistsAtIdxAfter() -> Bool { return (arr.valid(idx + 1) && arr[idx + 1]["hash"] == item["hash"]) }
         return itemAlreadyExistAtIdx() || itemExistsAtIdxAfter()
     }
 }
 //this makes CommitDB unwrappable (XML->CommitDB)
-extension CommitDP: UnWrappable{
+extension CommitDP: UnWrappable {
     static func unWrap<T>(_ xml: XML) -> T? {
         //Swift.print("xml.xmlString.count: " + "\(xml.xmlString.count)")
         let items:[[String: String]?] = unWrap(xml, "items")
         //let prevCommits:[Int:String] = unWrap(xml,"prevCommits")
-        return CommitDP(items.flatMap{$0}/*,prevCommits*/) as? T/*flatMap is used to remove any nil values*/
+        return CommitDP(items.flatMap { $0 }/*,prevCommits*/) as? T/*flatMap is used to remove any nil values*/
     }
 }

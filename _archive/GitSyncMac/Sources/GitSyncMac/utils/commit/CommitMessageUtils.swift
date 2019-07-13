@@ -4,17 +4,17 @@ import Foundation
 class CommitMessageUtils{
 	/**
 	 * Returns a text "commit message title" derived from PARAM: status_list
-	 * PARAM: status_list: a list with records that contain staus type, file name and state
-	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
-	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
-     */
+	 * - PARAM: status_list: a list with records that contain staus type, file name and state
+	 * - NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
+	 * - NOTE: In place of Renamed, Git first deletes the file then says its untracked
+    */
     static func sequenceCommitMsgTitle(_ statusList: [[String: String]]) -> String{
 		var numOfNewFiles: Int = 0
 		var numOfModifiedFiles: Int = 0
 		var numOfDeletedFiles: Int = 0
 		var numOfRenamedFiles: Int = 0
 		for statusItem in statusList{
-			let cmd = statusItem["cmd"]!/*TODO: ⚠️️ rename to type or status_type*/
+			let cmd = statusItem["cmd"]!// Fixme: ⚠️️ rename to type or status_type
             switch GitCMD(rawValue: cmd) {
 				case .M?: numOfModifiedFiles += 1
                 case .MM?: numOfModifiedFiles += 1/*new and experimental*/
@@ -68,7 +68,7 @@ class CommitMessageUtils{
 //        Swift.print("before processStatusList")
         StatusUtils.processStatusList(localRepoPath, statusList)/*process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del*/
 //        Swift.print("before commitMessage.init")
-        let retVal = CommitMessage.init(statusList:statusList)/*return true to indicate that the commit completed*/
+        let retVal = CommitMessage.init(statusList: statusList)/*return true to indicate that the commit completed*/
 //        Swift.print("retVal: " + "\(retVal)")
         return retVal
     }

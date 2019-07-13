@@ -5,8 +5,9 @@ import Cocoa
 class Nav {
     /**
      * Navigate between views
-     * EXAMPLE: Nav.setView(.main(.prefs))
-     * EXAMPLE: Nav.setView(.dialog(.commit))
+     * ## EXAMPLES:
+     * Nav.setView(.main(.prefs))
+     * Nav.setView(.dialog(.commit))
      */
     static func setView(_ viewType: ViewType, styleTestView: StyleTestView! = nil) {
 //        Swift.print("setView: \(viewType)")

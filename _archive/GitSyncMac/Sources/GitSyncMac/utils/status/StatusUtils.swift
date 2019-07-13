@@ -69,12 +69,7 @@ class StatusUtils{
 		}
 		return transformedList
 	}
-    enum StatusType{
-        static let untrackedFiles = "Untracked files"
-        static let changesNotStagedForCommit = "Changes not staged for commit"
-        static let changestoBeCommitted = "Changes to be committed"
-        static let unmergedPath = "Unmerged path"
-    }
+   
 	/**
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * - NOTE: if the status list is empty then there is nothing to process

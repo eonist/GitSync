@@ -3,7 +3,7 @@ import Foundation
 
 extension CommitMessage{
     /**
-     * New
+     * Creates a commit message based on statusList
      */
     init(statusList: [[String: String]]) {
         let title: String = CommitMessageUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
@@ -11,9 +11,9 @@ extension CommitMessage{
         self.init(title, desc)
     }
     /**
-     * New
+     * Creates a commit message based on statusList
      */
-    static func autoCommitMessage(repoItem: RepoItem, commitMessage: CommitMessage?) -> CommitMessage?{
+    static func autoCommitMessage(repoItem: RepoItem, commitMessage: CommitMessage?) -> CommitMessage? {
         var autoMessage: CommitMessage? = CommitMessageUtils.generateCommitMessage(repoItem.localPath)
 //        Swift.print("repoItem.title: " + "\(repoItem.title)")
 //        Swift.print("repoItem.template: " + "\(repoItem.template)")

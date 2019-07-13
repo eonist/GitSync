@@ -1,11 +1,14 @@
 import Foundation
 @testable import Utils
-typealias CommitDPCache = Cache//temp
-class  Cache{
+typealias CommitDPCache = Cache // temp, legacy support
+/**
+ * Fixme: use json not xml
+ */
+class Cache {
     /**
      * Read commits from disk (xml)
      */
-    static func read() -> CommitDP{
+    static func read() -> CommitDP {
         let url: String = Config.Bundle.commitCacheURL.tildePath
         let xml = FileParser.xml(url)
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
@@ -17,7 +20,7 @@ class  Cache{
     /**
      * Write commits to disk (xml)
      */
-    static func write(_ commitDP:CommitDP){
+    static func write(_ commitDP: CommitDP) {
         //Swift.print("💾 write begin")
         let xml: XML = Reflect.toXML(commitDP)/*Reflection*/
         //Swift.print(xml.xmlString)

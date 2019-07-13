@@ -1,11 +1,14 @@
 import Foundation
 @testable import Utils
-
+/**
+ * This is the state of the app
+ * - Abstract: Great for navigating and deep-linking
+ */
 extension Nav{
     enum ViewType {
         /*Main*/
         enum Main: String{
-         case commit, repo, prefs, stats
+            case commit, repo, prefs, stats
         }
         case main(Main)
         /*Detail*/

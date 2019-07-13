@@ -6,7 +6,7 @@ class ToggleSideBarMenuItem: CustomMenuItem {
     init() { super.init("Show side bar", "m") }
     override func onSelect(event:AnyObject) {
         Swift.print("ShowSideBarMenuItem.onSelect()")
-        guard let styleTestView = Proxy.styleTestView else {return}
+        guard let styleTestView = Proxy.styleTestView else { return }
         let toggle = styleTestView.leftBar.isLeftBarHidden
         styleTestView.toggleSideBar(hide: toggle)/*hiding logic*/
     }
