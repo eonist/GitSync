@@ -1,0 +1,5 @@
+class AddRepoButton: Button {
+	init() {
+
+	}
+}
