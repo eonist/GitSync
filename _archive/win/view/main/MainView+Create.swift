@@ -15,3 +15,5 @@ extension MainView {
 		 return prefsButton
 	}
 }
+
+// add the scrollview
