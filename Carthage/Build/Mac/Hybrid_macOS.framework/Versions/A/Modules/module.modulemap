@@ -1,0 +1,11 @@
+framework module Hybrid_macOS {
+  umbrella header "Hybrid_macOS.h"
+
+  export *
+  module * { export * }
+}
+
+module Hybrid_macOS.Swift {
+    header "Hybrid_macOS-Swift.h"
+    requires objc
+}

@@ -3,10 +3,10 @@ import Foundation
 
 typealias CommitDPRefresher = Refresh//temp
 /**
- * Basically creates/updates a list of the latest commits
+ * Basically creates / updates a list of the latest commits
  */
 class Refresh{
-    var dp: CommitDP //TODO: ⚠️️ make this lazy
+    var dp: CommitDP //Fixme: ⚠️️ make this lazy?
     lazy var performanceTimer: Date = .init()/*Debugging*/
     /**
      * Adds commits to CommitDB

@@ -1,0 +1,62 @@
+class Switch:SelectButton {
+	//background
+	//foreground
+	override var selected:Bool {
+		didSet {
+			self.selected = newValue
+		}
+	}
+	init(isSelected:Bool, style:Style){
+		super.init(selected:isSelected)
+	}
+}
+/**
+ * Create
+ */
+extension {
+	//createForground
+		//SwitchForeground
+		//view.cgLayer.backgroundColor = getStyle()
+	//createBackground -> CALayer
+		//HybridView
+
+
+	//changeForeground(isSelected:Bool)
+		//foreground.btn1.activateSize{ view in
+			let h = Constraint.length(view, to:self, axis:.ver, toAxis:.hor)
+			let w = Constraint.length(view, to:self, axis:.ver, toAxis:.ver)
+			return (w,h)
+		}
+		foreground.anchor(view, to: self,  align:selected ? .topLeft : .topRight, alignTo:.selected ? .topLeft : .topRight)
+	//changeBackground(isSelected:Bool)
+		//background.caLayer.backgroundColor = getStyle().backgroundColor
+
+}
+/**
+ * Core
+ */
+extension Switch{
+	override func drawLayout(){
+		self.caLayer?.cornerRadius = view.frame.height/2
+	}
+}
+/**
+ * Style
+ */
+extension Switch {
+	typealias Style = (selected:CoreStyle,unSelected:CoreStyle)
+	typealias CoreStyle = (forgroundColor:Color,backgroundColor:Color)
+	var getStyle:Style {return self.selected ? style.selected : style.unSelected}
+}
+/**
+ * SwitchForeground
+ */
+class SwitchForeground:HybridView,ConstraintKind{//RoundKind
+	override func drawLayout(){
+		//figure out height
+		//take 20% of height and use it as padding around circle
+		//draw circle
+		//remember to use the scale trick to get nice rendering of round graphic
+		//self.cgLayer.backgroundColor = getStyle()
+	}
+}

@@ -7,9 +7,12 @@ extension AppDelegate {
     */
    func createMainView() -> MainView {
       let contentRect = window.contentRect(forFrameRect: window.frame)/*size of win sans titlebar*/
+      
       let view: MainView = .init(frame: contentRect)
+//      view.layer?.backgroundColor = NSColor.white.cgColor
       window.contentView = view
-      view.layer?.backgroundColor = NSColor.white.cgColor
+      
+     
       return view
    }
 }

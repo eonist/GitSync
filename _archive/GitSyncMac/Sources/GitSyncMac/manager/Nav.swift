@@ -33,6 +33,9 @@ class Nav {
 //            Swift.print("after set curView")
         }
     }
+    /*
+    * Fixme: move to priv class ?
+    */
     private static func getView(_ view: ViewType, _ parentView: Element) -> Element {
         switch view {
         case .main(let viewType):/*Main*/

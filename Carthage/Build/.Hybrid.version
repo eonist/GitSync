@@ -1,0 +1,10 @@
+{
+  "commitish" : "7a87960953a9e7515dc9bed87827f8032f69122b",
+  "Mac" : [
+    {
+      "name" : "Hybrid_macOS",
+      "hash" : "695ba5dee57b299745babeaa80fd757dc512f813320aaa34fefe9868f52815db",
+      "swiftToolchainVersion" : "5.0 (swiftlang-1001.0.69.5 clang-1001.0.46.3)"
+    }
+  ]
+}
