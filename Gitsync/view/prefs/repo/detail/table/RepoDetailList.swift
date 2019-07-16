@@ -1,10 +1,11 @@
 import Cocoa
 import With_mac
 /**
- * - Abstract: PrefsList is a ScrollView with a tableView set to the contentView
+ * RepoDetailList
+ * - Abstract: a ScrollView with a tableView set to the contentView
  */
-class PrefsList: NSScrollView {
-   lazy var rowData: [CellDataKind] = self.createRows()
+class RepoDetailList: NSScrollView {
+   lazy var rowData: [CellDataKind] = createRows()
    //lazy var scrollView : NSScrollView = createScrollView()
    lazy var table: NSTableView = createTable()
    /**
@@ -12,7 +13,6 @@ class PrefsList: NSScrollView {
     * .init()
     */
    override init(frame: CGRect = .zero){
-//      self.rowData = crate
       Swift.print("prefslist.init()")
       super.init(frame: frame)
       

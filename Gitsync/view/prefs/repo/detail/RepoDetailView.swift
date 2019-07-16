@@ -1,21 +1,20 @@
 import Cocoa
 import Hybrid_macOS
-
-open class CommitDetailView: NSView {
-   override open var isFlipped: Bool { return true }/* TopLeft orientation */
+/**
+ * RepoDetailView
+ */
+open class RepoDetailView: NSView {
+   override open var isFlipped: Bool { return true } /* TopLeft orientation */
    lazy var backButton: Button = createBackButton()
-   lazy var repoNameLabel: NSLabel = createRepoNameLabel()
-   lazy var titleLabel: NSLabel = createTitleLabel()
-   lazy var descriptionLabel: NSLabel = createDescriptionLabel()
+   lazy var repoDetailList: RepoDetailList = createRepoDetailList()
    
    override public init(frame: CGRect) {
+      Swift.print("RepoDetailView")
       super.init(frame: frame)
       self.wantsLayer = true /* if true then view is layer backed */
       self.layer?.backgroundColor = NSColor.white.cgColor
       _ = backButton
-      _ = repoNameLabel
-      _ = titleLabel
-      _ = descriptionLabel
+      _ = repoDetailList
    }
    /**
     * Boilerplate

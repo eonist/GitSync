@@ -19,12 +19,11 @@ extension CommitList: NSTableViewDelegate {
       newCell.identifier = NSUserInterfaceItemIdentifier(rawValue: "commitCell")
       return newCell
    }
-   /**
-    * Num of rows
-    */
-   func numberOfRows(in tableView: NSTableView) -> Int {
-      return rowData.count
-   }
+}
+/**
+ * Other
+ */
+extension CommitList {
    /**
     * Register cells
     */
@@ -32,11 +31,18 @@ extension CommitList: NSTableViewDelegate {
       //      self.register(CustomCell.self, forCellReuseIdentifier: "\(CustomCell.self)")
       //      self.register(AnotherCustomCell.self, forCellReuseIdentifier: "\(AnotherCustomCell.self)")
    }
-
 }
-
-
-extension CommitList: NSTableViewDataSource { }
+/**
+ * DataSource delegate
+ */
+extension CommitList: NSTableViewDataSource {
+   /**
+    * Num of rows
+    */
+   func numberOfRows(in tableView: NSTableView) -> Int {
+      return rowData.count
+   }
+}
 //   func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
 //      let cell = tableView.makeView(withIdentifier: .init("col1"), owner: self) as? NSTableCellView
 //      let textField = cell?.textField

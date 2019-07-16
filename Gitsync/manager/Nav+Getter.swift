@@ -18,25 +18,21 @@ extension Nav {
          Swift.print("dialog view")
           return nil
       case .commitList:
-         Swift.print("commitList view")
          return Nav.createCommitListView(view: mainView)
       case .commitDetail(let title):
-         Swift.print("commitdetail view: \(title)")
          _ = title
          return Nav.createCommitDetailView(view: mainView)
       case .prefs(let prefsType):
          switch prefsType {
          case .prefsList:
-            Swift.print("prefslist")
-             return nil
+            return Nav.createPrefsListView(view: mainView)
          case.repo(let repoType):
             switch repoType {
             case .repoList:
-               Swift.print("repoList")
-                return nil
+               return Nav.createRepoListView(view: mainView)
             case .repoDetail(let repoName):
-               Swift.print("repo detail: \(repoName)")
-                return nil
+//               Swift.print("Repo detail: \(repoName)")
+               return Nav.createRepoDetailView(view: mainView)
             }
          }
       }

@@ -3,8 +3,8 @@ import With_mac
 /**
  * - Abstract: PrefsList is a ScrollView with a tableView set to the contentView
  */
-class PrefsList: NSScrollView {
-   lazy var rowData: [CellDataKind] = self.createRows()
+class RepoList: NSScrollView {
+   lazy var rowData: [StaticTextCellData] = self.createRows()
    //lazy var scrollView : NSScrollView = createScrollView()
    lazy var table: NSTableView = createTable()
    /**
@@ -12,8 +12,8 @@ class PrefsList: NSScrollView {
     * .init()
     */
    override init(frame: CGRect = .zero){
-//      self.rowData = crate
-      Swift.print("prefslist.init()")
+      //      self.rowData = crate
+      Swift.print("RepoList.init()")
       super.init(frame: frame)
       
       self.autohidesScrollers = true

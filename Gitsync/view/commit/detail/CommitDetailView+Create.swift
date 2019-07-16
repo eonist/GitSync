@@ -13,7 +13,7 @@ extension CommitDetailView {
          $0.textLabel.font = .systemFont(ofSize: 14)
          $0.textLabel.centerVertically()
          addSubview($0)
-         $0.anchorAndSize(to: self, width: 72, height: 24, align: .topLeft, alignTo: .topLeft, offset: .init(x: 12, y: 8))
+         $0.anchorAndSize(to: self, width: 72, height: 24, align: .topLeft, alignTo: .topLeft, offset: .init(x: 12, y: 6))
          $0.upInsideCallBack = onBackButtonClick
       }
    }
@@ -27,7 +27,7 @@ extension CommitDetailView {
          $0.textAlignment = .left
          $0.textColor = .gray
          self.addSubview($0)
-         $0.anchorAndSize(to: backButton, sizeTo: self, height: 24, align: .topLeft, alignTo: .bottomLeft, offset: .init(x:0, y: 4))
+         $0.anchorAndSize(to: backButton, sizeTo: self, height: 24, align: .topLeft, alignTo: .bottomLeft, offset: .init(x:0, y: 6))
       }
    }
    /**
