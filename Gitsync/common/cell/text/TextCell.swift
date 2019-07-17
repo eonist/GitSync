@@ -4,6 +4,7 @@ import Hybrid_macOS
 /**
  * - Abstract: Provides a way to show a DescriptionLabel and and InputTextField in a TableCell
  * - Description: Left-aligned Label and Right-Aligned content TextField
+ * Fixme: use TextInput
  */
 class TextCell: BaseCell {
    lazy var descriptionLabel: NSLabel = createDescriptionLabel()

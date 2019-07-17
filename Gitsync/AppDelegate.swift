@@ -11,7 +11,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       _ = mainView
 //      Nav.setView(viewType: .prefs(.repo(.repoList)))
 //      Nav.setView(viewType: .prefs(.repo(.repoDetail(repoName: "0"))))
-      Nav.setView(viewType: .dialog(.commit(repoName: "Gitsync", commitMSG: "Fix bug")))
+//      Nav.setView(viewType: .dialog(.commit(repoName: "Gitsync", commitMSG: "Fix bug")))
+       Nav.setView(viewType: .dialog(.mergeConflict(conflict: "remote newer than local")))
+      
       //🏀
          //test if repoListView works
          // then add repodetail view

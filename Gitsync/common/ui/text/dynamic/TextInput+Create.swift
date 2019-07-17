@@ -19,7 +19,7 @@ extension TextInput {
          $0.textAlignment = .left
          $0.centerVertically()
          self.addSubview($0)
-         $0.anchorAndSize(to: self, offset: .init(x: 12, y: 0))
+         $0.anchorAndSize(to: self, offset: .init(x: 0, y: 0))
       }
    }
    /**
@@ -31,7 +31,7 @@ extension TextInput {
          $0.textColor = .gray
          $0.font = .systemFont(ofSize: 16)
          self.addSubview($0)
-         $0.anchorAndSize(to: self, width: 160, height: 20, align: .centerRight, alignTo: .centerRight, offset: .init(x: -12, y: 0))
+         $0.anchorAndSize(to: self, width: 160, height: 20, align: .centerRight, alignTo: .centerRight, offset: .init(x: 0, y: 0))
       }
    }
 }

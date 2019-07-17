@@ -1,6 +1,5 @@
 import Foundation
-
-extension CommitDialogView {
+extension MergeConflictView {
    /**
     * Ok
     */

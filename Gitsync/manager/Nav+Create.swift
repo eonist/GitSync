@@ -74,4 +74,13 @@ extension Nav {
          $0.anchorAndSize(to: view)
       }
    }
+   /**
+    * MergeConflictDialogView
+    */
+   static func createMergeConflictView(view: NSView) -> MergeConflictView {
+      return with( .init(frame: .zero)) {
+         view.addSubview($0)
+         $0.anchorAndSize(to: view)
+      }
+   }
 }

@@ -23,10 +23,10 @@ extension Nav {
             return nil
          case .commit(let repoName, let commitMSG):
             Swift.print("repoName:  \(repoName) commitMSG:  \(commitMSG)")
-            return createCommitDialogView(view: mainView)
+            return Nav.createCommitDialogView(view: mainView)
          case .mergeConflict(let conflict):
             Swift.print("conflict:  \(conflict)")
-            return nil
+            return Nav.createMergeConflictView(view: mainView)
          }
       case .commitList:
          return Nav.createCommitListView(view: mainView)
@@ -48,7 +48,6 @@ extension Nav {
             }
          }
       }
-      
       //get win
       //from winParser, just add to bottom of class
       //get view

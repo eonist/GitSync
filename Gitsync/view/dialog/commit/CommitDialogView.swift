@@ -13,7 +13,7 @@ class CommitDialogView: NSView {
    lazy var descriptionTextInput: TextInput = createDescriptionTextInput()
 //   lazy var descriptionTextField: NSLabel = createDescriptionTextField()
    /*Confirmation buttons*/
-//   lazy var confirmationContainer: ConfirmationContainer = createConfirmationContainer
+   lazy var confirmationContainer: ConfirmationContainer = createConfirmationContainer()
    override public init(frame: CGRect) {
       Swift.print("CommitDialogView.init")
       super.init(frame: frame)
@@ -23,6 +23,7 @@ class CommitDialogView: NSView {
       _ = repoTextInput
       _ = titleTextInput
       _ = descriptionTextInput
+      _ = confirmationContainer
       
 //      repoLabel.setText("Repository: ")
 //      repoTextField.setText(repoName)

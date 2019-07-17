@@ -3,18 +3,17 @@ import Hybrid_macOS
 /**
  * TextInput
  */
-class TextInput: NSView {
+class OptionInput: NSView {
    override open var isFlipped: Bool { return true }/* TopLeft orientation */
    lazy var descriptionLabel: NSLabel = createDescriptionLabel()
-   lazy var contentTextField: NSTextField = createContentTextField()
+   lazy var checkButton: CheckButton = createCheckBox()
    override public init(frame: CGRect) {
-      Swift.print("TextInput.init")
+      Swift.print("OptionInput.init")
       super.init(frame: frame)
       self.wantsLayer = true /* if true then view is layer backed */
+      //      self.layer?.backgroundColor = NSColor.clear.cgColor
       _ = descriptionLabel
-      _ = contentTextField
-//      self.layer?.backgroundColor = NSColor.clear.cgColor
-     
+      _ = checkButton
    }
    /**
     * Boilerplate

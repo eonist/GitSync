@@ -1,7 +1,9 @@
 import Cocoa
 import With_mac
 import Hybrid_macOS
-
+/**
+ * Fixme: use OptionInput
+ */
 class OptionCell: BaseCell {
    lazy var descriptionLabel: NSLabel = createDescriptionLabel()
    lazy var checkButton: CheckButton = createCheckBox()
