@@ -6,7 +6,7 @@ import Hybrid_macOS
  * Create
  * Fixme: Rename to DynamicText
  */
-extension TextCell {
+extension TextInput {
    /**
     * Description
     */
@@ -18,7 +18,6 @@ extension TextCell {
          $0.font = .systemFont(ofSize: 14)//.boldSystemFont(ofSize: 20.0)
          $0.textAlignment = .left
          $0.centerVertically()
-         self.textField = $0 // Fixme: rather remove self.textField and dont add
          self.addSubview($0)
          $0.anchorAndSize(to: self, offset: .init(x: 12, y: 0))
       }
@@ -32,7 +31,7 @@ extension TextCell {
          $0.textColor = .gray
          $0.font = .systemFont(ofSize: 16)
          self.addSubview($0)
-         $0.anchorAndSize(to: self, width: 120, height: 20, align: .centerRight, alignTo: .centerRight, offset: .init(x: -12, y: 0))
+         $0.anchorAndSize(to: self, width: 160, height: 20, align: .centerRight, alignTo: .centerRight, offset: .init(x: -12, y: 0))
       }
    }
 }

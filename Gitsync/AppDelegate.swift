@@ -10,7 +10,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
    func applicationDidFinishLaunching(_ aNotification: Notification) {
       _ = mainView
 //      Nav.setView(viewType: .prefs(.repo(.repoList)))
-      Nav.setView(viewType: .prefs(.repo(.repoDetail(repoName: "0"))))
+//      Nav.setView(viewType: .prefs(.repo(.repoDetail(repoName: "0"))))
+      Nav.setView(viewType: .dialog(.commit(repoName: "Gitsync", commitMSG: "Fix bug")))
       //🏀
          //test if repoListView works
          // then add repodetail view

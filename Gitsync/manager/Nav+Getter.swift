@@ -5,6 +5,7 @@ import With_mac
 extension Nav {
    /**
     * getView
+    * Fixme: ⚠️️ possibly move some switches to own private methods. getDialogView, getPrefsView etc. So it becomes more maintainable
     */
    static func getView(viewType: ViewType) -> NSView? {
       guard let mainView: MainView = NSApp.windows.first?.contentView as? MainView else { Swift.print("no mainview"); return nil }
@@ -14,9 +15,19 @@ extension Nav {
       if let curSubView = mainView.subviews.first { Swift.print("remove curSubView"); curSubView.removeFromSuperview() } /*Remove it if it exists*/
       
       switch viewType {
-      case .dialog(_):
+      case .dialog(let dialogType):
          Swift.print("dialog view")
-          return nil
+         switch dialogType {
+         case .autoInit(let conflict ):
+            Swift.print("conflict:  \(conflict)")
+            return nil
+         case .commit(let repoName, let commitMSG):
+            Swift.print("repoName:  \(repoName) commitMSG:  \(commitMSG)")
+            return createCommitDialogView(view: mainView)
+         case .mergeConflict(let conflict):
+            Swift.print("conflict:  \(conflict)")
+            return nil
+         }
       case .commitList:
          return Nav.createCommitListView(view: mainView)
       case .commitDetail(let title):
@@ -31,6 +42,7 @@ extension Nav {
             case .repoList:
                return Nav.createRepoListView(view: mainView)
             case .repoDetail(let repoName):
+               _ = repoName
 //               Swift.print("Repo detail: \(repoName)")
                return Nav.createRepoDetailView(view: mainView)
             }

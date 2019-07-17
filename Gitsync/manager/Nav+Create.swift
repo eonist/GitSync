@@ -61,3 +61,17 @@ extension Nav {
       }
    }
 }
+/**
+ * Dialog related
+ */
+extension Nav {
+   /**
+    * CommitDialogView
+    */
+   static func createCommitDialogView(view: NSView) -> CommitDialogView {
+      return with( .init(frame: .zero)) {
+         view.addSubview($0)
+         $0.anchorAndSize(to: view)
+      }
+   }
+}

@@ -20,7 +20,7 @@ extension Nav {
          case repo(Repo)
       }
       enum Dialog { // Dialogs
-         case conflict(mergeConflict: String)//MergeConflict
+         case mergeConflict(conflict: String)//MergeConflict
          case commit(repoName: String, commitMSG:String) // RepoItem, CommitMessage, CommitDialogView.Completed
          case autoInit(conflict: String)//AutoInitConflict, AutoInitView.Complete
       }
