@@ -83,4 +83,22 @@ extension Nav {
          $0.anchorAndSize(to: view)
       }
    }
+   /**
+    * AutoInitView
+    */
+   static func createAutoInitView(view: NSView) -> AutoInitView {
+      return with( .init(frame: .zero)) {
+         view.addSubview($0)
+         $0.anchorAndSize(to: view)
+      }
+   }
+   /**
+    * ErrorView
+    */
+   static func createErrorView(view: NSView) -> ErrorView {
+      return with( .init(frame: .zero)) {
+         view.addSubview($0)
+         $0.anchorAndSize(to: view)
+      }
+   }
 }

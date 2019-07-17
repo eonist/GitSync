@@ -23,6 +23,7 @@ extension Nav {
          case mergeConflict(conflict: String)//MergeConflict
          case commit(repoName: String, commitMSG:String) // RepoItem, CommitMessage, CommitDialogView.Completed
          case autoInit(conflict: String)//AutoInitConflict, AutoInitView.Complete
+         case error(problem: String)//AutoInitConflict, AutoInitView.Complete
       }
    }
 }

@@ -12,7 +12,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //      Nav.setView(viewType: .prefs(.repo(.repoList)))
 //      Nav.setView(viewType: .prefs(.repo(.repoDetail(repoName: "0"))))
 //      Nav.setView(viewType: .dialog(.commit(repoName: "Gitsync", commitMSG: "Fix bug")))
-       Nav.setView(viewType: .dialog(.mergeConflict(conflict: "remote newer than local")))
+//       Nav.setView(viewType: .dialog(.mergeConflict(conflict: "remote newer than local")))
+//       Nav.setView(viewType: .dialog(.autoInit(conflict: "There is no folder in the file path...")))
+      Nav.setView(viewType: .dialog(.error(problem: "No internet connection")))
       
       //🏀
          //test if repoListView works

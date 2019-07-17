@@ -11,7 +11,7 @@ extension Nav {
       guard let mainView: MainView = NSApp.windows.first?.contentView as? MainView else { Swift.print("no mainview"); return nil }
       Swift.print(" mainView:  \(mainView)")
       // Fixme: ⚠️️ you need to call .close to tidy up things
-      Swift.print("mainView.curSubView:  \(mainView.subviews.first)")
+      Swift.print("mainView.curSubView:  \(String(describing: mainView.subviews.first))")
       if let curSubView = mainView.subviews.first { Swift.print("remove curSubView"); curSubView.removeFromSuperview() } /*Remove it if it exists*/
       
       switch viewType {
@@ -19,32 +19,35 @@ extension Nav {
          Swift.print("dialog view")
          switch dialogType {
          case .autoInit(let conflict ):
-            Swift.print("conflict:  \(conflict)")
-            return nil
+            Swift.print("AutoInit conflict:  \(conflict)")
+            return createAutoInitView(view: mainView)
          case .commit(let repoName, let commitMSG):
             Swift.print("repoName:  \(repoName) commitMSG:  \(commitMSG)")
-            return Nav.createCommitDialogView(view: mainView)
+            return createCommitDialogView(view: mainView)
          case .mergeConflict(let conflict):
-            Swift.print("conflict:  \(conflict)")
-            return Nav.createMergeConflictView(view: mainView)
+            Swift.print("mergeConflict:  \(conflict)")
+            return createMergeConflictView(view: mainView)
+         case .error(let problem):
+            Swift.print("problem:  \(problem)")
+            return createErrorView(view: mainView)
          }
       case .commitList:
-         return Nav.createCommitListView(view: mainView)
+         return createCommitListView(view: mainView)
       case .commitDetail(let title):
          _ = title
-         return Nav.createCommitDetailView(view: mainView)
+         return createCommitDetailView(view: mainView)
       case .prefs(let prefsType):
          switch prefsType {
          case .prefsList:
-            return Nav.createPrefsListView(view: mainView)
+            return createPrefsListView(view: mainView)
          case.repo(let repoType):
             switch repoType {
             case .repoList:
-               return Nav.createRepoListView(view: mainView)
+               return createRepoListView(view: mainView)
             case .repoDetail(let repoName):
                _ = repoName
 //               Swift.print("Repo detail: \(repoName)")
-               return Nav.createRepoDetailView(view: mainView)
+               return createRepoDetailView(view: mainView)
             }
          }
       }
