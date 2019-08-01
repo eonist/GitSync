@@ -2,7 +2,7 @@ import Foundation
 
 extension Nav {
    /**
-    * Navigate between views
+    * - Abstract: The setView is in charge of
     * ## Examples:
     * Nav.setView(.commitList) // transitions app to the commitList (aka main)
     * Nav.setView(.prefs(.repo(.repoDetail("Gitsync")))) // transitions app to repoDetail

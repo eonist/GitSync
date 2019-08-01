@@ -2,6 +2,7 @@ import Cocoa
 import Hybrid_macOS
 /**
  * CommitListView
+ * - Fixme: ⚠️️ rename to CommitView
  */
 open class CommitListView: NSView {
    override open var isFlipped: Bool { return true }/* TopLeft orientation */

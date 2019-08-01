@@ -9,13 +9,11 @@ class RepoDetailList: NSScrollView {
    //lazy var scrollView : NSScrollView = createScrollView()
    lazy var table: NSTableView = createTable()
    /**
-    * ## Example:
-    * .init()
+    * Initiate
     */
    override init(frame: CGRect = .zero){
       Swift.print("prefslist.init()")
       super.init(frame: frame)
-      
       self.autohidesScrollers = true
       self.borderType = .noBorder
       self.hasHorizontalScroller = false

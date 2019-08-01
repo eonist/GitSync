@@ -4,7 +4,7 @@ import With_mac
 
 extension Nav {
    /**
-    * getView
+    * - Abstract: The getView method is in charge of creating the
     * Fixme: ⚠️️ possibly move some switches to own private methods. getDialogView, getPrefsView etc. So it becomes more maintainable
     */
    static func getView(viewType: ViewType) -> NSView? {

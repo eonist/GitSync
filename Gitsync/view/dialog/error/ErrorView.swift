@@ -15,7 +15,6 @@ class ErrorView: NSView {
       self.wantsLayer = true /* if true then view is layer backed */
       self.layer?.backgroundColor = NSColor.white.cgColor
       _ = headerLabel//.setText("")
-      
       _ = confirmationContainer
    }
    /**
@@ -25,4 +24,3 @@ class ErrorView: NSView {
       fatalError("init(coder:) has not been implemented")
    }
 }
-
